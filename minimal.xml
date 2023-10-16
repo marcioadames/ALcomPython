@@ -1,0 +1,2258 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+Copyright 2015 Robert A. Beezer
+
+This file is part of MathBook XML.
+
+MathBook XML is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 or version 3 of the
+License (at your option).
+
+MathBook XML is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************-->
+
+<!-- To process this file do                                                                      -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex mathbook/xsl/mathbook-latex.xsl minimal.xml                      -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--xsltproc mathbook/xsl/pretext-html.xsl minimal.xml-->
+<!--     <browser>  minimal.html                                                                  -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 mathbook/xsl/mathbook-smc.xsl minimal.xml          -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 mathbook/xsl/mathbook-sage-doctest.xsl minimal.xml -->
+<!--     <read further instructions in> minimal.py                                                -->
+
+<pretext>
+
+    <docinfo>
+        <latex-image-preamble>
+            \usepackage{tikz}
+        </latex-image-preamble>
+        <macros>
+            \newcommand{\doubler}[1]{2#1}
+        </macros>
+    </docinfo>
+
+    <article xml:id="minimal">
+        <title>Álgebra Linear com python</title>
+
+        <frontmatter>
+
+            <titlepage>
+                <author>
+                    <personname>Márcio Rostirolla Adames</personname>
+                    <institution>Universidade Technológica Federal do Paraná</institution>
+                </author>
+                <date><today /></date>
+            </titlepage>
+
+            <abstract>
+                <p>Notas de aula de um curso de Álgebra Linear com python. Trabalho em progresso...</p>
+            </abstract>
+
+        </frontmatter>
+
+
+        <section xml:id="section-computation">
+            <title>Solve symbolic system and  elementary operations</title>
+
+            <p>Solve a linear system.</p> 
+
+            <sage>
+                <input>
+#Python package for symbolic computation
+from sympy import *
+from sympy.solvers.solveset import linsolve
+
+#defining variables
+x, y, z = symbols('x, y, z')
+
+#solving the system x  + z - 1=0, 2*x + y + 2*z - 3=0, y - 3*z - 5=0 
+linsolve([x  + z - 1, 2*x + y + 2*z - 3, y - 3*z - 5 ], (x, y, z))
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+
+			<p>Write a matrix using numpy.</p> 
+
+            <sage>
+                <input>
+#Python package for numerical computation
+import numpy as np
+
+# Write an array representing the matrix
+A= np.array([[1.,2.,1.,3.],[3.,-1.,-3.,-1.],[2.,3.,1.,4.]])
+
+# Print the shape of the matrix and the matrix
+print(str(A.shape)+' matrix')
+print('A='+str(A))
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+            <p>Define elementary operations on the rows of a matrix.</p> 
+
+            <sage>
+                <input>
+#Elementary Row Operations:
+
+# Interchanging rows
+def InterchangeRows(A,i,j):
+    A[[int(i), int(j)]] = A[[int(j), int(i)]]
+    return A
+
+# Multiply rows by scalar
+def MultiplyRow(A,i,c):
+    A[i] = c*A[i]
+    return A
+
+# Add a multiple (c) of another row [j] to a row [i]
+def AddMultRow(A,i,j,c):
+    A[i] = A[i]+c*A[j]
+    return A
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+            <sage>
+                <input>
+#Apply the row operations 
+
+InterchangeRows(A,0,1)
+
+#MultiplyRow(A,0,5)
+
+#AddMultRow(A,2,1,4)
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+        </section>
+        
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+
+            
+        <section xml:id="section-Gaussian">
+            <title>Gaussian Elimination</title>    
+            <p>A method of Gaussian elimination.</p> 
+
+            <sage>
+                <input>
+# Write an array representing the augmented matrix
+import numpy as np
+import fractions
+A= np.array([[1.,2.,1.,3.],[3.,-1.,-3.,-1.],[2.,3.,1.,4.]])
+
+
+#Step by step Gaussian Elimination:
+
+def Gaussian_elimination(A,prin=True):
+    a=0
+    if prin==True:
+        print('A='+str(A))
+    for j in range(A.shape[1]-1): #search pivot in each column
+        b=0
+        for i in range(a,A.shape[0]):
+            if A[i,j] != 0: #choose row with not null pivot
+                if a !=i:
+                    A[[a,i]]=A[[i,a]]
+                    if prin==True:
+                        print('~'+str(A))
+                if A[a,j]!=1:
+                    A[a]=A[a]/A[a,j]
+                    if prin==True:
+                        print('~'+str(A))
+                a=a+1
+                b=1
+                break
+        if b==1:
+            for i in range(a,A.shape[0]):
+                if A[i,j] != 0:
+                    A[i]=A[i]-A[a-1]*A[i,j]
+                if prin==True:
+                    print('~'+str(A))
+        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return A
+Gaussian_elimination(A)
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+				<p>Reverse substitution in a row echelon form matrix (does not work always - use with caution).</p>             
+            
+            <sage>
+                <input>
+import sympy as sym
+import numpy as np
+import fractions
+
+A= np.array([[1.,2.,1.,3.],[3.,-1.,-3.,-1.],[2.,3.,1.,4.],[2.,3.,1.,2.]])
+
+B=Gaussian_elimination(A,prin=False)
+n=B.shape[1]-1
+
+a=list(sym.symbols('a0:%d'%n))
+
+
+
+for i in range(B.shape[0]):
+    eq=B[B.shape[0]-i-1,B.shape[1]-1]
+    for j in range(B.shape[1]-1):
+        eq = eq - B[B.shape[0]-i-1,j]*a[j]
+    if np.abs(eq-B[B.shape[0]-i-1,B.shape[1]-1])==0 and B[B.shape[0]-i-1,B.shape[1]-1]!=0:
+        print('incompatible')
+        break
+    print
+    sol=None
+    for j in range(B.shape[1]-1):
+        try:
+            sol=sym.solve(eq,a[j])
+            if sol!=[]:
+                print('a'+str(j)+'='+str(sol))
+                a[j]=sol[0]
+                break
+        except:
+            pass
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+
+        </section>
+        
+        
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+
+            
+        <section xml:id="section-Gauss-Jordan">
+            <title>Gauss-Jordan reduction</title>    
+            <p>A method of Gaussian elimination.</p> 
+
+            <sage>
+                <input>
+# Write an array representing the augmented matrix
+import numpy as np
+import fractions #for fractions (comment the line below, for decimals)
+np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+
+
+A= np.array([[1.,2.,1.,3.],[3.,-1.,-3.,-1.],[2.,3.,1.,4.]])
+
+
+#Step by step Gaussian Elimination:
+
+def Gaussian_elimination(A,prin=True):
+    a=0
+    if prin==True:
+        print('A='+str(A))
+    for j in range(A.shape[1]-1): #search pivot in each column
+        b=0
+        for i in range(a,A.shape[0]):
+            if A[i,j] != 0: #choose row with not null pivot
+                if a !=i:
+                    A[[a,i]]=A[[i,a]]
+                    if prin==True:
+                        print('~'+str(A))
+                if A[a,j]!=1:
+                    A[a]=A[a]/A[a,j]
+                    if prin==True:
+                        print('~'+str(A))
+                a=a+1
+                b=1
+                break
+        if b==1:
+            for i in range(a,A.shape[0]):
+                if A[i,j] != 0:
+                    A[i]=A[i]-A[a-1]*A[i,j]
+                if prin==True:
+                    print('~'+str(A))
+    return A
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+				<p>Follows from Gaussian elimination to complete the Gauss-Jordan reduction.</p>             
+            
+            <sage>
+                <input>
+A= np.array([[1.,-1.,1.,3.,3.,0.],[-1.,1.,-1.,3.,2.,0.],[4.,2.,0.,3.,-1.,8.],[0.,2.,5.,3.,-2.,9.]])
+
+def Gauss_Jordan(A,prin=True):
+    B=Gaussian_elimination(A,prin)
+    #print('jordan')
+    a=0
+    for i in range(A.shape[0]): #search pivot in each line
+        b=0
+        for j in range(A.shape[1]):
+            if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                b=j
+                for k in range(B.shape[0]-i-1):
+                    B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                    if prin==True:
+                            print('~'+str(B))                
+    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return B
+Gauss_Jordan(A)
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+
+        </section>
+        
+       <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+
+            
+        <section xml:id="section-Matrices">
+            <title>Basic commands for matrices.</title>   
+             
+            <p>Matrices of different kinds.</p> 
+
+            <sage>
+                <input>
+import numpy as np
+
+A = np.array([[1, 2, 3], [3, 4, 5]])
+print(A)
+
+A = np.array([[1.1, 2, 3], [3, 4, 5]]) # Array of floats
+print(A)
+
+A = np.array([[1, 2, 3], [3, 4, 5]], dtype = complex) # Array of complex numbers
+print(A)
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+            
+            
+            <p>Matrices of zeros and ones.</p> 
+
+            <sage>
+                <input>
+import numpy as np
+
+zeors_array = np.zeros( (2, 3) )
+print(zeors_array)
+
+
+ones_array = np.ones( (1, 5), dtype=np.int32 ) # specifying dtype
+print(ones_array)    
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>       
+            
+            
+            <p>Print rows columns and elements.</p> 
+
+            <sage>
+                <input>
+import numpy as np
+
+A = np.array([[1, 4, 5, 12],
+    [-5, 8, 9, 0],
+    [-6, 7, 11, 19]])
+
+#  Third element of second row
+print("A[2][1] =", A[2][1])  
+
+# Third row
+print("A[2] =", A[2])
+
+# First column
+print("A[:,0] =", A[:,0])    
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>            
+            
+
+
+            <p>Basic operations.</p> 
+
+            <sage>
+                <input>
+import numpy as np
+
+A = np.array([[3, 6, 7], [5, -3, 0]])
+B = np.array([[1, 1], [2, 1], [3, -3]])
+C = A.dot(B)
+print(C)
+D = np.array([[1, 2], [-2, 3]])
+print(C+D)
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+
+
+            <p>Transpose of a matrix.</p> 
+
+            <sage>
+                <input>
+import numpy as np
+
+A = np.array([[1, 1], [2, 1], [3, -3]])
+print(A.transpose())
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+
+                 
+            
+				<p>Inverse of a matrix.</p>             
+            
+            <sage>
+                <input>
+# Python program to inverse
+# a matrix using numpy
+  
+# Import required package
+import numpy as np
+import fractions #for fractions (comment the line below, for decimals)
+np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+  
+# Taking a 3 * 3 matrix
+A = np.array([[6, 1, 1],
+              [4, -2, 5],
+              [2, 8, 7]])
+  
+# Calculating the inverse of the matrix
+print(np.linalg.inv(A))
+                </input>
+                <output>
+                solution
+                </output>
+            </sage>
+
+        </section>        
+        
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+
+            
+        <section xml:id="ElDecomp">
+            <title>Decompositions; Inverse finding</title>    
+            
+            <subsection xml:id="LU">
+            <title>Decomposition PA = LU</title>
+                            <p>Calculates the decomposition PA=LU. The matrix P only trades lines in A, if need be, then decomposes as LU.</p>             
+                                
+                                <sage>
+                                    <input>
+                    # PA=LU decomposition
+                    # a matrix using numpy
+                      
+                    # Import required package
+                    import numpy as np
+                    import fractions #for fractions (comment the line below, for decimals)
+                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                      
+                    import pprint
+                    import scipy
+                    import scipy.linalg   # SciPy Linear Algebra Library
+
+                    A = np.array([ [7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6] ])
+                    P, L, U = scipy.linalg.lu(A)
+
+                    print('A:')
+                    pprint.pprint(A)
+
+                    print('P:')
+                    pprint.pprint(P)
+
+                    print('L:')
+                    pprint.pprint(L)
+
+                    print('U:')
+                    pprint.pprint(U)
+                                    </input>
+                                    <output>
+                                    solution
+                                    </output>
+                                </sage>            
+            </subsection>
+        
+            
+        <!--  *********************************************************
+        *************************************************************** -->
+
+
+            <subsection xml:id="InverseAI">
+            <title>Finding the inverse through Gauss - Jordan reduction</title>
+
+
+                        <p>If we apply Gauss-Jordan reduction in the matrix (A|I), A concatenated with I, we obtain the Identity, if possible, concatenated with the inverse of A. For that we need the method of Gaussian elimination.</p> 
+
+                        <sage>
+                            <input>
+            # Write an array representing the augmented matrix
+            import numpy as np
+            import fractions
+            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+
+            #Step by step Gaussian Elimination:
+
+            def Gaussian_elimination(A,prin=True):
+                a=0
+                if prin==True:
+                    print('A='+str(A))
+                for j in range(A.shape[1]-1): #search pivot in each column
+                    b=0
+                    for i in range(a,A.shape[0]):
+                        if A[i,j] != 0: #choose row with not null pivot
+                            if a !=i:
+                                A[[a,i]]=A[[i,a]]
+                                if prin==True:
+                                    print('~'+str(A))
+                            if A[a,j]!=1:
+                                A[a]=A[a]/A[a,j]
+                                if prin==True:
+                                    print('~'+str(A))
+                            a=a+1
+                            b=1
+                            break
+                    if b==1:
+                        for i in range(a,A.shape[0]):
+                            if A[i,j] != 0:
+                                A[i]=A[i]-A[a-1]*A[i,j]
+                            if prin==True:
+                                print('~'+str(A))
+                return A
+                            </input>
+                            <output>
+                            solution
+                            </output>
+                        </sage>
+                        
+                    <p>Follows from Gaussian elimination to complete the Gauss-Jordan reduction and obtains (I|A^-1)) .</p>             
+                        
+                        <sage>
+                            <input>
+            A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
+            I = np.identity(4)
+            AI = np.concatenate((A, I), axis=1)
+
+            def Gauss_Jordan(A,prin=True):
+                B=Gaussian_elimination(A,prin)
+                #print('jordan')
+                a=0
+                for i in range(A.shape[0]): #search pivot in each line
+                    b=0
+                    for j in range(A.shape[1]):
+                        if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                            b=j
+                            for k in range(B.shape[0]-i-1):
+                                B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                if prin==True:
+                                        print('~'+str(B))                
+                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                return B
+            B = Gauss_Jordan(AI)
+                            </input>
+                            <output>
+                            solution
+                            </output>
+                        </sage>
+
+
+                    <p>We can test the matrix B, found by computing the Gauss-Jordan reduction, by calculating A * B. The result should be (A|I).</p>             
+                        <sage>
+                            <input>
+                              print(A)
+                              print(A.dot(B))
+                            </input>
+                            <output>
+                            solution
+                            </output>
+                        </sage>
+
+                 </subsection>
+        </section>        
+        
+
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->                                                                                                    
+
+
+
+        <section xml:id="espacos-vetoriais">
+            <title>Espaços Vetoriais</title>
+           
+            <intro>
+               <p>O conceito de <bf>Espaço Vetorial</bf> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <bf>vetores</bf>, assim como <m>\mathbb{R}^3</m> com as operações usuais, 
+               e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de <m>\mathbb{R}^n</m> e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores 
+               em <m>\mathbb{R}^n</m> e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a 
+               ilustração de subespaços de dimensão 1 ou 2 em <m>\mathbb{R}^3</m>.</p>
+           </intro>
+           
+            <subsection xml:id="Rn_vecs">
+               <title>Vetores em <m>\mathbb{R}^n</m></title>
+               
+                <p>Um <bf>vetor</bf> <m>\vec{x}</m> representa o conjunto de todos os segmentos orientados em <m>\mathbb{R}^3</m> com o mesmo comprimento, direção e sentido.</p>
+                
+                <sage>
+                    <input>
+                    import numpy as np
+                    import matplotlib.pyplot as plt #library for plots
+                    import random #library for random number generation
+
+                    x_x = [2] #the x coordinates of a vector representant at the origin
+                    x_y = [1] #the y coordinates of a vector representant at the origin
+
+                    starting_points_x = [0]
+                    starting_points_y = [0]
+
+                    for i in range(10): #add other representatives of the same vector
+                        sign = [-1,1][random.randrange(2)]
+                        
+                        starting_points_x.append(sign * random.randint(-8, 8))
+                        starting_points_y.append(sign * random.randint(-8, 8))
+                        x_x.append(starting_points_x[i+1]+x_x[0])
+                        x_y.append(starting_points_y[i+1]+x_y[0])
+                        
+                        
+                        
+                        
+                    #plotting the vectors
+                    fig, ax = plt.subplots(figsize=(10,10))     
+                    ax.set_xlim(xmin=-10, xmax=10)
+                    ax.set_ylim(ymin=-10, ymax=10)
+                    ax.xaxis.set_ticks([-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9])
+                    ax.yaxis.set_ticks([-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9])
+                    plt.grid()
+                    ax.quiver(starting_points_x, starting_points_y, np.ones(len(x_x))*x_x[0], np.ones(len(x_y))*x_y[0], scale =1, units="xy")
+
+                    for xy in zip(x_x[0:3], x_y[0:3]):
+                       plt.annotate('(%.2f, %.2f)' % xy, xy=xy)
+                    for xy in zip(starting_points_x[0:3], starting_points_y[0:3]):
+                       plt.annotate('(%.2f, %.2f)' % xy, xy=xy, va='top', ha='left')
+
+                    plt.show()
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+                
+                <p>
+                    Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem.
+                    Assim, no plot, temos o vetor <m>\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)</m> e 
+                    outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.
+                </p>
+
+                <p>
+                    O <bf>comprimento</bf> ou a <bf>norma</bf> de um vetor <m>\vec{x} = \left(x_1, \ldots, x_n\right)^T</m> em <m>\mathbb{R}^n</m> pode ser calculado por <me>\|\vec{x}\| = \sqrt{x_1^2 + x^2+ \cdots + x_n^2}</me>. No exemplo acima <me>\|\vec{x}\| = \sqrt{1^2+2^2}=\sqrt{5}</me>. Qualquer segmento orientado em <m>\vec{x}</m> poderia ter sido utilizado para calcular o comprimento.
+                </p>
+                <sage>
+                    <input>
+                        import numpy as np
+                        import matplotlib.pyplot as plt #library for plots
+                        import random #library for random number generation
+
+                        x_x = [2] #the x coordinates of a vector representant at the origin
+                        x_y = [1] #the y coordinates of a vector representant at the origin
+
+                        starting_points_x = [0]
+                        starting_points_y = [0]
+
+                        number_of_points = 3
+
+                        for i in range(number_of_points -1): #add other representatives of the same vector
+                            sign = [-1,1][random.randrange(2)]
+                            
+                            starting_points_x.append(sign * random.randint(-3, 3))
+                            starting_points_y.append(sign * random.randint(-4, 4))
+                            x_x.append(starting_points_x[i+1]+x_x[0])
+                            x_y.append(starting_points_y[i+1]+x_y[0])
+                            
+                            
+                            
+                            
+                        #plotting the vectors
+                        fig, ax = plt.subplots(figsize=(10,10))     
+                        ax.set_xlim(xmin=-5, xmax=5)
+                        ax.set_ylim(ymin=-5, ymax=5)
+                        ax.xaxis.set_ticks([-4,-3,-2,-1,0,1,2,3,4])
+                        ax.yaxis.set_ticks([-4,-3,-2,-1,0,1,2,3,4])
+                        plt.grid()
+                        ax.quiver(starting_points_x, starting_points_y, np.ones(len(x_x))*x_x[0], np.ones(len(x_y))*x_y[0], scale =1, units="xy")
+
+                        for i in range(number_of_points):
+                            plt.plot((starting_points_x[i],x_x[i], x_x[i]),(starting_points_y[i],starting_points_y[i],x_y[i]))
+
+
+                        for xy in zip(x_x[0:number_of_points ], x_y[0:number_of_points ]):
+                            plt.annotate('(%.2f, %.2f)' % xy, xy=xy)
+                        for xy in zip(starting_points_x[0:number_of_points], starting_points_y[0:number_of_points]):
+                            plt.annotate('(%.2f, %.2f)' % xy, xy=xy, va='top', ha='left')
+                        for xy in zip(x_x[0:number_of_points], starting_points_y[0:number_of_points]):
+                            plt.annotate('(%.2f, %.2f)' % xy, xy=xy, va='top', ha='left')
+
+                        plt.show()
+
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+
+                <exercise>
+                    <statement>
+                        Calcule o comprimento de três representantes de um vetor <m>\vec{x} \in \mathbb{R}^2</m> gerados pelo códico acima.
+                    </statement>
+                </exercise>
+
+                <p>
+                    Para vetores <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m>\vec{x} = (x_1, \ldots, x_n)^T</m> e <m>\vec{y} = (y_1, \ldots, y_n)^T</m>,e um escalar <m>\alpha \in \mathbb{R}</m>, definimos as operações fundamentais de <bf>multiplicação por escalar</bf> e <bf>adição</bf> de vetores por:
+                    <me>
+                        \alpha \cdot \vec{x} = \alpha\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} :=  \begin{pmatrix}\alpha x_1\\ \vdots \\ \alpha x_n\end{pmatrix}; \,\,\,\,\, \vec{x} + \vec{y} = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} + \begin{pmatrix}y_1\\ \vdots \\ y_n\end{pmatrix} := \begin{pmatrix}x_1+y_1\\ \vdots \\ x_n+y_n\end{pmatrix}
+                    </me>
+                    A <bf>subtração</bf> de vetores é definida a partir da multiplicação por escalar e da adição como <m>\vec{x} - \vec{y} := \vec{x} +(-1) \vec{y}</m>.
+                </p>
+
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+                        
+                        zero = np.zeros(2)
+                        
+                        x = np.array([1,2])
+                        y = np.array([-2, 1])
+                        
+                        alpha = 2
+                        
+                        
+                        #plotting the vectors
+                        fig, ax = plt.subplots(figsize=(5, 5))     
+                        ax.set_xlim(xmin=-3, xmax=5)
+                        ax.set_ylim(ymin=-3, ymax=5)
+                        ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        plt.grid()
+                        
+                        head_width =0.3
+                        head_length = 1.5*head_width
+                        
+                        def cor(x):
+                            x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            return np.array([x_new,y_new])
+                        
+                        plt.arrow(0,0,cor(x)[0], cor(x)[1], head_width =head_width)
+                        plt.annotate('x', cor(x)/2 + np.array([0.2,-0.2]))
+                        
+                        plt.arrow(0,0,cor(y)[0], cor(y)[1], head_width =head_width, color = 'blue')
+                        plt.annotate('y', cor(y)/2 + np.array([-0.2,-0.3]))
+                        
+                        plt.arrow(x[0],x[1],cor(y)[0], cor(y)[1], head_width =head_width, color = 'blue')
+                        plt.annotate('y', x/2+ cor(x+y)/2 + np.array([-0.2,-0.1]))
+                        
+                        plt.arrow(0,0,cor(x+y)[0], cor(x+y)[1], head_width =head_width, color = 'green')
+                        plt.annotate('x+y', cor(x+y)/2 + np.array([-0.7,-0.1]))
+                        
+                        plt.arrow(x[0],x[1],-cor(y)[0], -cor(y)[1], head_width =head_width, color = 'red')
+                        plt.annotate('-y', x/2+ cor(x-y)/2 + np.array([0.2,+0.1]))
+                        
+                        plt.arrow(0,0,cor(x-y)[0], cor(x-y)[1], head_width =head_width, color = 'pink')
+                        plt.annotate('x-y', cor(x-y)/2 + np.array([0.1,-0.1]))
+                        
+                        plt.arrow(0,0,alpha*cor(x)[0], alpha*cor(x)[1], head_width =head_width, color = 'purple')
+                        plt.annotate(r'$\alpha$ x', alpha*cor(x)/1.25 + np.array([0.2,-0.2]))
+                        
+                        plt.show() 
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+
+            </subsection>
+
+
+        <!--  *********************************************************
+        *************************************************************** -->
+            
+
+            <subsection xml:id="Esp_vet">
+                <title>Espaços Vetoriais</title>
+                <p>
+                    Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do <m>\mathbb{R}^n</m>, de modo operarmos com eles de modo semelhante ao <m>\mathbb{R}^n</m>, todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.
+                </p>
+
+                <definition>
+                    <notation>
+                      <usage><m>V</m></usage>
+                      <description>espaço vetorial</description>
+                    </notation>
+                  
+                    <statement>
+                      <p>
+                        Seja <m>E</m> um conjunto de escalares (usualmente <m>\mathbb{C}</m> ou <m>\mathbb{C}</m>, mas qualquer <it>corpo</it> serviria). Um <bf>espaço vetorial</bf> <m>(V,E,\oplus,\odot)</m> é um conjunto sobre o qual estão definidas duas operações:
+                        <md>
+                            <mrow>\oplus: \amp V \times V: \to V, </mrow>
+                            <mrow>(C1) \hspace{9mm} \amp \vec{u}, \vec{v} \in V \Rightarrow \vec{u} \oplus \vec{v}</mrow>
+                            <mrow>\odot: \amp E \times V: \to V, </mrow>
+                            <mrow>(C2) \hspace{9mm} \amp \alpha \in E, \vec{v} \in V \Rightarrow \alpha\vec{u}</mrow>
+                        </md>
+                        e as operações satisfazem as seguintes propriedades para quaisquer <m>\vec{u}, \vec{v}, \vec{w} \in V</m> e <m>\alpha, \beta \in E</m>:
+                        <dl>
+                            <li>(A1)   <m>\hspace{5mm} \vec{u} + \vec{v} = \vec{v} + \vec{u},</m></li>
+                            <li>(A2)   <m>\hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} = \vec{u} + (\vec{v} + \vec{w}),</m></li>
+                            <li>(A3)   <m>\hspace{5mm} \exists \,\,\, \vec{0} \in V; \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V,</m> </li>
+                            <li>(A4)   <m>\hspace{5mm} \forall \,\, \vec{u} \in V, \exists ! \,\,\, -\vec{u} \in V; \vec{x} + (-\vec{x}) = \vec{0}</m></li>
+                            <li>(A5)   <m>\hspace{5mm} \alpha(\vec{u} + \vec{v}) = \alpha\vec{u} + \alpha\vec{v},</m></li>
+                            <li>(A6)   <m>\hspace{5mm} (\alpha + \beta) \vec{u} = \alpha\vec{u} + \beta\vec{u},</m></li>
+                            <li>(A7)   <m>\hspace{5mm} (\alpha\beta)\vec{u} = \alpha(\beta\vec{u}),</m></li>
+                            <li>(A8)   <m>\hspace{5mm} 1\vec{u} = \vec{u}.</m></li>
+                        </dl>
+                        V é dito o <bf>conjunto universal</bf>, os elementos de V são ditos <bf>vetores</bf> e os elementos de E são ditos <bf>escalares</bf>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.
+                      </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    O conjunto <m>V = \{ \vec{u} = (u_1, u_2)^T \in \mathbb{R}^2 | u_2 =1\}</m> não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de <m>\mathbb{R}^2</m> pois, dados <m>\vec{u}, \vec{v} \in V</m>, <m>\vec{u} = (u_1, 1)^T</m> e <m>\vec{v} = (v_1, 1)^T</m> temos que
+                    <me>
+                        \vec{u} + \vec{v} = \left( \begin{array}{c} u_1\\ 1 \end{array} \right) + \left( \begin{array}{c} v_1\\ 1 \end{array} \right) = \left( \begin{array}{c} u_1 + v_1\\ 2 \end{array} \right) \notin V.
+                    </me>
+                    Deste modo C1 não é válida e <m>V</m> não é um espaço vetorial.
+                </example>
+
+
+                <exercise>
+                    <statement>
+                        Para mostrar que um conjunto <m>V</m> não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para <m>V</m> e justifique sua escolha.
+                    </statement>
+                </exercise>
+
+                <example>
+                     <m>\mathbb{R}^n</m> com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer <m>n \in \mathbb{N}</m>. Para verificar isso é necessário verificar a validade de <m>C1, \, C2, \, A1, \, \ldots, \, A8 </m>.
+                </example>
+
+
+                <example>
+                    O conjunto  <m>V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}</m>, com escalares reais e as operações de adição e multiplicação por escalar herdadas de <m>\mathbb{R}^3</m> é um espaço vetorial pois, dados <m>\vec{u}, \vec{v}, \vec{w} \in V</m>, <m>\vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T </m>, <m>\vec{v} = \beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T </m> e <m>\vec{w} = \gamma_1(-1,0,1)^T + \gamma_2 (0, 1, 1)^T </m> e <m>\alpha, \beta \in \mathbb{R}</m>, verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em <m>\mathbb{R}^3</m>):
+                
+                    <md>
+                        <mrow>(C1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) </mrow>
+                        <mrow> =\amp (\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \in V,</mrow>.
+                    </md>
+                    <p>de modo que a soma de dois elementos de V é um elemento de <m>V</m> </p>.
+                    
+                    <md>
+                        <mrow>
+                            (C2) \hspace{5mm} \alpha\vec{u} = \alpha\left(\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\in V,
+                        </mrow>
+                    </md>
+                        <p>de modo que a multiplicação de um elemento de V por um escalar é um elemento de <m>V</m>.</p>
+
+                    <md>
+                        <mrow> (A1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) </mrow>
+                        <mrow> =\amp \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{v} + \vec{u}.</mrow>
+                    </md>
+
+                    <md>
+                         <mrow> (A2) \hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} =\amp \left( \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) + \gamma_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \gamma_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),</mrow>
+                         <mrow>=\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \left(\beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \gamma_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \gamma_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right),</mrow>
+                         <mrow>=\amp \vec{u} + (\vec{v} + \vec{w}).</mrow>
+                    </md>
+                    
+                    <md>
+                        <mrow>
+                            (A3) \hspace{5mm} \vec{0} = 0\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 0\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V e \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V.
+                        </mrow>
+                    </md>
+
+                    <md>
+                        <mrow>
+                            (A4) \hspace{5mm} \forall \amp \,\, \vec{u} = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V,  \,\, -\vec{u} = (-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V \Longrightarrow \vec{x} + (-\vec{x}) = \vec{0}
+                        </mrow>
+                        <mrow>
+                            \vec{u} +\vec{-u} \amp  = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + (-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)
+                        </mrow>
+                        <mrow>
+                            \amp = (\alpha_1-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{0}
+                        </mrow>
+
+                    </md>
+
+                    <md>
+                        <mrow>
+                            (A5) \hspace{5mm} \alpha(\vec{u} + \vec{v}) =\amp \alpha\left((\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = (\alpha\alpha_1+\alpha\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha\alpha_2+\alpha\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)
+                        </mrow>
+                        <mrow>
+                            =\amp \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) left + \alpha\beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\beta_2 \left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) =  \alpha\vec{u} + \alpha\vec{v}
+                        </mrow>
+                    </md>
+                    <md>
+                        <mrow>
+                            (A6) \hspace{5mm} (\alpha + \beta) \vec{u} =\amp (\alpha + \beta)\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha + \beta)\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) 
+                        </mrow>
+                        <mrow>
+                            =\amp \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha\vec{u} + \beta\vec{u},
+                        </mrow>
+                    </md>
+                    <md>
+                        <mrow>
+                            (A7) \hspace{5mm} (\alpha\beta) \vec{u} =\amp (\alpha \beta)\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha \beta)\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) 
+                        </mrow>
+                        <mrow>
+                            =\amp \alpha(\beta\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha(\beta\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha(\beta\vec{u}),
+                        </mrow>
+                    </md>
+                    <md>
+                        <mrow>
+                            (A8) \hspace{5mm} 1 \vec{u} = 1\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 1\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{u} 
+                        </mrow>
+                    </md>
+                    <p>Portanto <m>V</m> é um espaço vetorial. </p>
+                </example>
+
+                <p>O código abaixo plota o plano gerado pelos vetores do exemplo anterior.</p>
+
+
+                <sage>
+                    <input>
+                        import numpy as np
+                        import matplotlib.pyplot as plt
+                        from mpl_toolkits.mplot3d import Axes3D
+                        
+                        point  = np.array([1, 2, 3])
+                        
+                        u = np.array([-1,0,1])
+                        v = np.array([0,1,1])
+                        
+                        normal = np.cross(u,v)
+                        
+                        # a plane is a*x+b*y+c*z+d=0
+                        # [a,b,c] is the normal. Thus, we have to calculate
+                        # d and we're set
+                        d = -point.dot(normal)
+                        
+                        # create x,y
+                        xx, yy = np.meshgrid(range(10), range(10))
+                        
+                        # calculate corresponding z
+                        z = (-normal[0] * xx - normal[1] * yy - d) * 1. /normal[2]
+                        
+                        
+                        # Create the figure
+                        fig = plt.figure()
+                        
+                        # Add an axes
+                        ax = fig.add_subplot(111,projection='3d')
+                        
+                        # plot the surface
+                        ax.plot_surface(xx, yy, z, alpha=0.2)
+                        
+                        plt.show()
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Se <m>V</m> é um espaço vetorial e <m>\vec{x} \in V</m>, então:
+                      <ol marker="A">
+                        <li> <m> 0 \vec{x} = \vec{0}, </m> </li>
+                        <li> <m> \vec{x}  + \vec{y} = \vec{0} \,\, \Longrightarrow \,\, \vec{y} = - \vec{x}, </m> </li>
+                        <li> <m> (-1) \vec{x} = -\vec{x}, </m> </li>
+                      </ol>
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    <ol marker="A">
+                        <li> <m> \vec{x} = 1\vec{x} = (1+ 0 )\vec{x} = \vec{x} + 0\vec{x} \Longrightarrow  -\vec{x} + \vec{x} = -\vec{x} + \vec{x} + 0\vec{x} \Longrightarrow \vec{0} = 0\vec{x}, </m> </li>
+                        <li> <m> \vec{0} = \vec{x} + \vec{y} \Longrightarrow  -\vec{x} + \vec{0} = -\vec{x} + \vec{x} + \vec{y} \Longrightarrow -\vec{x} = \vec{y}, </m> </li>
+                        <li> <m> \vec{0} = (1-1) \vec{x} = \vec{x}+(-1)\vec{x} \Longrightarrow - \vec{x} + \vec{0} = - \vec{x} + \vec{x} +(-1) \vec{x} \Longrightarrow - \vec{x} = (-1) \vec{x} </m> </li>
+                      </ol>
+                  </proof>
+                </theorem>
+
+
+                <example>
+                    O conjunto de todas as funções reais definidas no intervalo <m>(a,b)</m>, que têm derivada de ordem <m>n</m> contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado <m>C^n(a,b)</m>. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.
+                </example>
+
+                <example>
+                    O conjunto de todas as matrizes reais <m>n\times m</m> (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.
+                </example>
+
+
+            </subsection>
+           
+        </section>
+
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->                                                                                                    
+
+
+
+        <section xml:id="subescos">
+            <title>Subespaços Vetoriais</title>
+           
+            <intro>
+               <p>Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial</p>
+           </intro>
+           
+            <subsection xml:id="subespacos-subsection">
+               <title>Subespaço</title>
+
+                <definition>
+                    <notation>
+                    <usage><m>S</m></usage>
+                    <description>subespaço vetorial</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>S \subset V</m> um subconjunto de <m>V</m>. <m>S</m> é dito um <bf>subespaço (vetorial)</bf> de <m>V</m> se, e somente se:
+                        <ol>
+                            <li><m>S \neq \emptyset,</m></li>
+                            <li><m>\alpha \odot \vec{u} \in S, \,\, \forall   \,\, \vec{u} \in S, \,\, \alpha \in E,</m></li>
+                            <li><m>\vec{u} \oplus \vec{v} \in S, \,\, \forall   \,\, \vec{u}, \vec{v} \in S.</m> </li>
+                        </ol>
+                    </p>
+                    </statement>
+                </definition>
+
+                <p>A primeira condição diz que o subconjunto não é vazio, a segunda dis que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.</p>
+
+                <lemma>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>S \subset V</m> um subespaço vetorial. Então <m>(S, E, \oplus, \odot)</m> é um espaço vetorial.
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    Como <m>S \subset V</m> e <m>S</m> tem o mesmo conjunto de escalares e operações, valem as propriedades <m>A1  - /A8</m> desde que <m>\alpha \odot \vec{x}</m> e <m>\vec{x} \oplus \vec{y}</m> sejam elementos de <m>S</m>, o que é requerido pela definição de subespaço vetorial. 
+                  </proof>
+                </lemma>
+
+                <example>
+                    O conjunto  <m>V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}</m>, com escalares reais e as operações de adição e multiplicação por escalar herdadas de <m>\mathbb{R}^3</m> é um subespaço vetorial de <m>\mathbb{R}^3</m> pois, dados <m>\alpha \in \mathbb{R}</m> e  <m>\vec{u} =\alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T </m>, <m>\vec{v} =\beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \in V</m>:
+                    <ol>
+                        <li><m>\vec{0} = 0 (-1,0,1)^T + 0 (0, 1, 1)^T \in V \Longrightarrow V \neq \emptyset,</m></li>
+                        <li><m>\alpha\vec{u} = \alpha \alpha_1(-1,0,1)^T + \alpha \alpha_2 (0, 1, 1)^T \in V,</m></li>
+                        <li><m>\vec{u} + \vec{v} = (\alpha_1+\beta_1)(-1,0,1)^T + (\alpha_2 +\beta_2) (0, 1, 1)^T \in V.</m></li>
+                    </ol>
+                    <p>Assim <m>V</m> é um subespaço de <m>\mathbb{R}^3</m> e automaticamente um espaço vetorial (não precisávamos verificar todas as propriedades, como feito no exemplo anterior).</p>
+                </example>
+
+                <exercise>
+                    <statement>
+                        Verifique que <m>S = \left\{ A \in \mathbb{R}^{2\times2} \left| A = \left(\begin{array}{cc} a_{11} \amp a_{12} \\ -a_{12} \amp a_{22} \end{array}\right) \right.\right\}</m> é um subespaço de <m>\mathbb{R}^{2\times2} </m>.
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        Verifique que <m>S = \left\{ f \in C^2(a,b) \left| f''(x) + f(x) =0 \,\, \forall \,\, x \in (a,b) \right.\right\}</m> é um subespaço de <m>C^2(a,b) </m>.
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        Utilize o código abaixo para esboçar o subespaço de <m>S = \{\vec{u} \in \mathbb{R}^3| \vec{u} = \alpha_1 (1,1,0)^T + \alpha_2 (-1,1,1)^T \}.</m>
+                    </statement>
+                </exercise>
+
+                <sage>
+                    <input>
+                        import numpy as np
+                        import matplotlib.pyplot as plt
+                        from mpl_toolkits.mplot3d import Axes3D
+                        
+                        point  = np.array([1, 2, 3])
+                        
+                        u = np.array([-1,0,1])
+                        v = np.array([0,1,1])
+                        
+                        normal = np.cross(u,v)
+                        
+                        # a plane is a*x+b*y+c*z+d=0
+                        # [a,b,c] is the normal. Thus, we have to calculate
+                        # d and we're set
+                        d = -point.dot(normal)
+                        
+                        # create x,y
+                        xx, yy = np.meshgrid(range(10), range(10))
+                        
+                        # calculate corresponding z
+                        z = (-normal[0] * xx - normal[1] * yy - d) * 1. /normal[2]
+                        
+                        
+                        # Create the figure
+                        fig = plt.figure()
+                        
+                        # Add an axes
+                        ax = fig.add_subplot(111,projection='3d')
+                        
+                        # plot the surface
+                        ax.plot_surface(xx, yy, z, alpha=0.2)
+                        
+                        plt.show()
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+
+                
+
+            </subsection>
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="Esp_nulo">
+                <title>Espaço Nulo de uma matriz</title>
+
+                <definition>
+                    <notation>
+                    <usage><m>N(A)</m></usage>
+                    <description>espaço nulo</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>A \in \mathbb{R}^{n \times m}</m>. O conjunto de todas as soluções de <m>A\vec{x} =\vec{0}</m> é chamado de <bf>espaço nulo</bf> de <m>A</m> e denotado <m>N(A)</m>: 
+                        <me>
+                            N(A) = \{\vec{x} \in \mathbb{R}^m | A\vec{x} = \vec{0}\}.
+                        </me>
+                    </p>
+                    </statement>
+                </definition>
+
+
+                <example xml:id = "ex_esp_nulo">
+                    <statement>
+                        O espaço nulo da matriz
+                        <me>
+                            A = \left(\begin{array}{cccc} 1 \amp 1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 0 \amp 1 \end{array} \right)
+                        </me>
+                        consiste das soluções de <m>A\vec{x} = \vec{0}</m>, ou seja, soluções do sistema
+
+                        <md>
+                            <mrow> \begin{array}{c} x_1 + x_2 + x_3 = 0\\ 2x_1 + x_2 + x_4 = 0\end{array} \Leftrightarrow \begin{array}{c} x_2 + 2x_3 -x_4 = 0\\ 2x_1 + x_2 + x_4 = 0\end{array} \Leftrightarrow \begin{array}{c} x_1 = x_3 - x_4 \\ x_2 =  2x_3 - x_4 \end{array}, </mrow>
+                        </md>
+                        <p>denotando <m>\alpha = x_3</m> e <m>\beta = x_4</m>, temos:</p>
+                        <md>
+                            <mrow>N(A) =\amp \{\vec{x} \in \mathbb{R}^4 | \vec{x} = (\alpha -\beta, -2\alpha + \beta, \alpha, \beta)^T \}</mrow>
+                            <mrow> =\amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0, 1)^T, \,\, \alpha, \beta \in \mathbb{R}\}</mrow>
+                        </md>
+
+                    </statement>
+                </example>
+
+
+                
+
+
+
+                <lemma>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                        Para qualquer matriz <m>A \in \mathbb{R}^{n \times m}</m>, <m>N(A)</m> é um subespaço de <m>\mathbb{R}^m</m>.
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    Dados <m>\vec{x}, \vec{y} \in N(A)</m> e <m>\alpha \in \mathbb{R}</m>: 
+                    <ol>
+                        <li><m> A\vec{0} = \vec{0} \Longrightarrow  \vec{0} \in N(A) \Longrightarrow N(A) \neq \emptyset,</m></li>
+                        <li><m>A(\alpha\vec{x}) = \alpha A \vec{x} = \vec{0} \Longrightarrow \alpha\vec{x} \in N(A),</m></li>
+                        <li><m>A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} = \vec{0} + \vec{0} = \vec{0} \Longrightarrow \vec{x}+\vec{y} \in N(A).</m></li>
+                    </ol>
+                  </proof>
+                </lemma>
+
+
+                <example>
+                    <title>Matriz de uma projeção</title>
+                    <statement>
+                        Uma matriz <m>A \in \mathbb{R}^{3 \times 3}</m> representa uma projeção em um plano que passa pela origem se <m>A^2 = A</m> (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz <m>A</m> tem essa propriedade:
+                        <me>
+                            A = \left(\begin{array}{ccc} 5/6 \amp 1/6 \amp  1/3\\
+                            1/6 \amp  5/6 \amp -1/3\\
+                            1/3 \amp -1/3 \amp  1/3 \end{array} \right).
+                        </me>
+                        O núcleo de <m>A</m> dá a direção normal ao plano de projeção. Para encontrar <m>N(A)</m> precisamos resolver <m>A\vec{x} = \vec{0},</m> o que pode ser feito por eliminação Gaussiana: 
+                        <md>
+                            <mrow>\left(\begin{array}{ccc|c} 5/6 \amp 1/6 \amp  1/3 \amp 0\\
+                            1/6 \amp  5/6 \amp -1/3 \amp 0\\
+                            1/3 \amp -1/3 \amp  1/3 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+                            1 \amp  5 \amp -2 \amp 0\\
+                            1 \amp -1 \amp  1 \amp 0 \end{array} \right)</mrow>
+                            <mrow> \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+                            0 \amp  24/5 \amp -12/5 \amp 0\\
+                            0 \amp -6/5 \amp  -3/4 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+                            0 \amp  1 \amp -1/2 \amp 0\\
+                            0 \amp 0 \amp  0 \amp 0 \end{array} \right).</mrow>
+                        </md>
+                        <p>de modo que <m>x_2 = x_3/2</m> e <m>x_1 = -x_3/2</m> e <m>N(A) = \{\vec{x} \in \mathbb{R}^3 | \vec{x} = \alpha (1/2, -1/2, 1)^T\}</m> e um vetor normal ao plano é <m>(1/2, -1/2, 1)^T</m>.</p>
+                    </statement>
+                </example>
+
+
+                <p>O código plota um o plano que passa pela origem se dermos como imput o vetor normal a esse plano.</p>
+
+
+                <sage>
+                    <input>
+                        import numpy as np
+                        import matplotlib.pyplot as plt
+                        from mpl_toolkits.mplot3d import Axes3D
+                        
+                        point  = np.array([0, 0, 0])
+                        
+                        normal = np.array([1/2, -1/2, 1])
+                        
+                        # a plane is a*x+b*y+c*z+d=0
+                        # [a,b,c] is the normal. Thus, we have to calculate
+                        # d and we're set
+                        d = -point.dot(normal)
+                        
+                        # create x,y
+                        xx, yy = np.meshgrid(range(10), range(10))
+                        
+                        # calculate corresponding z
+                        z = (-normal[0] * xx - normal[1] * yy - d) * 1. /normal[2]
+                        
+                        
+                        # Create the figure
+                        fig = plt.figure()
+                        
+                        # Add an axes
+                        ax = fig.add_subplot(111,projection='3d')
+                        
+                        # plot the surface
+                        ax.plot_surface(xx, yy, z, alpha=0.2)
+                        
+                        plt.show()
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+
+
+                <exercise>
+                    <statement>
+                        Verifique se a matriz
+                        <me>
+                            A = \left(\begin{array}{ccc} 0,5 \amp  0 \amp  0,5\\
+                            0\amp  1\amp 0 \\
+                            0,5\amp  0\amp  0,5 \end{array} \right).
+                        </me>
+                        representa uma projeção, em caso positivo encontre o seu núcleo e utilize o código acima para plotar o plano de projeção.
+                    </statement>
+                </exercise>
+
+
+                <remark>
+                    Note que <m>N(A)</m> não pode ser vazio, pois <m>\vec{0} \in N(A)</m> uma vez que <m>A\vec{0} = \vec{0}</m> para qualquer matriz.
+                </remark>
+
+
+                <lemma>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                       Considere o sistema <m>A\vec{x} = \vec{b}</m>,  então a diferença entre duas soluções do sistema está em <m>N(A)</m>. Além disso, a soma de uma solução do sistema com um elemento do núcleo é também solução do sistema.
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    Dados <m>\vec{x}, \vec{y}</m> soluções de <m>A\vec{x} = \vec{b}</m>, temos:
+                    <me>
+                        A(\vec{x} - \vec{y}) = A\vec{x} - A\vec{y} = \vec{b} - \vec{b} = \vec{0}.
+                    </me>
+                    Se <m>\vec{x}</m> é solução de <m>A\vec{x} = \vec{b}</m> e <m>\vec{n} \in N(A)</m>, temos:
+                    <me>
+                        A(\vec{x} + \vec{n}) = A\vec{x} + A\vec{n} = \vec{b} + \vec{0} = \vec{b}.
+                    </me> 
+                  </proof>
+                </lemma>
+            </subsection>
+           
+        </section>
+
+
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->                                                                                                    
+
+
+
+        <section xml:id="bases">
+            <title>Base de um Espaço Vetorial</title>
+           
+            <intro>
+               <p>
+                Muitas vezes representamos vetores de <m>\mathbb{R}^3</m> como <m>\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}</m>. Os vetores <m>\{ \vec{i}, \vec{j}, \vec{k} \}</m> formam o que chamamos de uma <bf>base</bf> para <m>\mathbb{R}^3</m>. Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos <bf>spans</bf> na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos <bf>independância linear</bf> na segunda subseção).
+               </p>
+           </intro>
+           
+            <subsection xml:id="coberturas">
+               <title>Spans (Coberturas)</title>
+
+                <definition>
+                    <notation>
+                    <usage><m>Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) \,\,\mtext{ ou }\,\, Cob(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n)</m></usage>
+                    <description>cobertura</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Sejam <m>V</m> um espaço vetorial e <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \in V</m>. Uma soma da forma
+                        <me>
+                            \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \ldots + \alpha_n \vec{v}_n
+                        </me>
+                        é dita uma <bf>combinação linear</bf> de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m>. O conjunto de todas as combinações lineares de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> é chamado de <bf>Span de</bf>  <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> (as nomenclaturas <bf>cobertura de</bf> ou <bf>espaço vetorial gerado por</bf> também são utilizadas na literatura): 
+                        <me>
+                            Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) = \{\vec{x} \in V | \vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2+ \ldots + \alpha_n \vec{v}_n\}.
+                        </me>
+                    </p>
+                    </statement>
+                </definition>
+
+                <example>
+                    <statement>
+                        No <xref ref="ex_esp_nulo"> </xref>, o espaço nulo da matriz
+                        <me>
+                            A = \left(\begin{array}{cccc} 1 \amp 1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 0 \amp 1 \end{array} \right)
+                        </me>
+                        é igual ao <m>Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T)</m>:
+
+                        <md>
+                            <mrow>
+                                 N(A) = \amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0, 1)^T, \,\, \alpha, \beta\in \mathbb{R}\} 
+                            </mrow>
+                            <mrow>
+                                =\amp Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T).
+                            </mrow>
+                        </md>
+                    </statement>
+                </example>
+
+                <example>
+                    <statement>
+                        Denotamos por <m>\vec{e}_i \in \mathbb{R}^n</m> o vetor cuja <m>i</m>-ésima entrada é igual a 1 e todas as demais são nulas 
+                        <me>
+                            \vec{e}_i = (0, \ldots, 0, 1, 0, \ldots, 0)
+                        </me>
+                        para <m>\vec{e}_1,\vec{e}_2,\vec{e}_3 \in \mathbb{R}^3</m>, <m>Span(\vec{e}_1,\vec{e}_2,\vec{e}_3)</m> é formado por todos os vetores da forma
+                        <me>
+                            \alpha\left(\begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right) + \beta\left(\begin{array}{c} 0 \\ 1 \\ 0 \end{array} \right) + \gamma\left(\begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) = \left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array} \right),
+                        </me>
+                        de modo que <m>Span(\vec{e}_1,\vec{e}_2,\vec{e}_3) = \mathbb{R}^3</m>.
+                    </statement>
+                </example>
+
+
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Se <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \in V</m>, então <m>Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n)</m> é um subespaço vetorial de V.
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    Se <m>\vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n</m> e <m>\vec{w} = \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \ldots + \beta_n\vec{v}_n</m> e <m>\alpha</m> é um escalar, então
+                    <ol marker="A">
+                        <li> <m> \vec{0} = 0\vec{v}_1 + 0\vec{v}_2 +  \ldots + 0\vec{v}_n \Longrightarrow \vec{0} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) </m> e <m>Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) \neq \emptyset.</m></li>
+                        <li> <m> \vec{v} + \vec{w} =  (\alpha_1+\beta_1)\vec{v}_1 + (\alpha_2+\beta_2)\vec{v}_2 +  \ldots + (\alpha_n+\beta_n)\vec{v}_n</m> <m> \Longrightarrow  \vec{v} + \vec{w} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n), </m> </li>
+                        <li> <m> \alpha\vec{v} = (\alpha\alpha_1)\vec{v}_1 + (\alpha\alpha_2)\vec{v}_2 +  \ldots + (\alpha\alpha_n)\vec{v}_n \Longrightarrow  \alpha\vec{v} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n). </m> </li>
+                      </ol>
+                  </proof>
+                </theorem>
+
+                <exercise>
+                    <statement>
+                        Dados vetores <m>\vec{v}_1, \vec{v}_2 \in \mathbb{R}^3</m> não colineares, o <m>Span(\vec{v}_1, \vec{v}_2)</m> é um plano que passa pela origem e qualquer desses é um subespaço de <m>\mathbb{R}^3</m>. Os planos que não passam pela origem são subespaços de <m>\mathbb{R}^3</m>? Qual a justificativa?
+                    </statement>
+                </exercise>
+
+
+                <definition>
+                    <notation>
+                    <usage><m>gera</m></usage>
+                    <description>conjunto de geradores</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.</m> O conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}</m> é um <bf>conjunto de geradores</bf> (ou <bf>gera</bf>) <m>V</m> se, e somente se, qualquer vetor de <m>\vec{v} \in V</m> pode ser escrito como uma combinação linear de <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m>, ou seja,
+                        <me>
+                            \vec{v} \in V \Longrightarrow \exists \alpha_1, \alpha_2, \ldots, \alpha_n \in E \,\, \| \,\, \vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n.
+                        </me>
+                    </p>
+                    </statement>
+                </definition>
+
+
+                <p>
+                    Para determinar se um conjunto <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in \mathbb{R}^n</m> gera <m>\mathbb{R}^n</m>, devemos, para qualquer vetor <m>\vec{x} = (x_1, x_2, \ldots, x_n)^T \in \mathbb{R}^n</m>, mostrar que existem escalares <m>\alpha_1, \alpha_2, \ldots, \alpha_k </m> tais que <m>\vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_k\vec{v}_k</m>. Se escrevemos as coordenadas para cada um dos vetores do conjunto, <m>\vec{v}_i = ({v}_{1i},\ldots,{v}_{ni})^T</m>, obtemos o sistema linear (nas variáveis <m>\alpha_1, \alpha_2, \ldots, \alpha_k </m>):
+                    <md>
+                        <mrow>\alpha_1\vec{v}_1 +  \ldots + \alpha_k\vec{v}_k = \vec{x} \Leftrightarrow \begin{array}{c} \alpha_1{v}_{11} +  \ldots + \alpha_k {v}_{1k} \amp  =  x_1\\
+                        \alpha_1{v}_{21} +  \ldots + \alpha_k {v}_{2k} \amp  =  x_2\\
+                        \vdots \amp  =  \vdots\\
+                        \alpha_1{v}_{n1} +  \ldots + \alpha_k {v}_{nk} \amp =  x_n \end{array}</mrow>
+                        <mrow>\Leftrightarrow \left(\begin{array}{c} {v}_{11} \amp  \ldots \amp {v}_{1k} \\
+                        v_{21} \amp  \ldots \amp {v}_{2k}\\
+                        \vdots \amp \vdots \amp \vdots\\
+                        {v}_{n1} \amp  \ldots \amp {v}_{nk} \end{array}\right) \left(\begin{array}{c} \alpha_1\\
+                        \alpha_2\\
+                        \vdots\\
+                        \alpha_k
+                          \end{array}\right) = \left(\begin{array}{c} x_1\\
+                          x_2\\
+                          \vdots\\
+                          x_n
+                            \end{array}\right)</mrow>,
+                    </md>
+                    onde a última das equivalências está na forma <m>A\vec{\alpha}=\vec{x}</m>. Assim perguntar se um conjunto de vetores gera <m>\mathbb{R}^n</m>, é determinar se o sistema acima tem solução para qualquer <m>\vec{x} \in \mathbb{R}^n</m>.
+                </p>
+
+
+                <exercise xml:id="gera_r3">
+                    <statement>
+                        Quais dos seguintes conjuntos são coberturas de <m>\mathbb{R}^3</m> e justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?
+                        <ol marker="A">
+                            <li>
+                                <m>\{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}</m>
+                            </li>
+                            <li>
+                                <m>\{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}</m>
+                            </li>
+                            <li>
+                                <m>\{ (1,0,1)^T, (0,1,0)^T\}</m>
+                            </li>
+                            <li>
+                                <m>\{ (1,2,4)^T, (3,-1,1)^T, (2,-3,-3)^T\}</m>
+                            </li>
+                        </ol>
+                    </statement>
+                </exercise>
+
+            </subsection>
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="dependencia_linear">
+                <title>Dependência Linear</title>
+            
+
+                <p>No item 1. do <ref ref="gera_r3"></ref> cada <m>\vec{x} \in \mathbb{R}^3</m> pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que <m>(1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3</m>, como esclarece o lema a seguir.</p>
+
+                <lemma>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                    <statement>
+                        <p>
+                        Sejam <m>V</m> um espaço vetorial e <m>\vec{x} \in V</m> um vetor. Suponha que <m>\vec{x}</m> possa ser escrito como uma combinação linear de <m>\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k</m>. Existem infinitas formas de escrever <m>\vec{x}</m> como combinação linear de <m>\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k</m> exatamente quando um desses vetores pode ser escrito como combinação linear dos demais.
+                        </p>
+                    </statement>
+                    
+                    <proof>
+                        <p><m>(\Longrightarrow)</m> Se for possível escrever um vetor <m>\vec{x} \in V</m> como combinação linear de <m>\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k</m> de duas maneiras distintas, então existem escalares <m>\alpha_1, \alpha_2, \ldots, \alpha_k</m> e <m>\beta_1, \beta_2, \ldots, \beta_k</m>, nem todos iguais (<m>\alpha_i \neq \beta_i</m> para pelo menos algum <m>i \in 1, 2, \ldots, k</m>), tais que</p>
+                        <md>
+                            <mrow>\vec{x} =\amp \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_k\vec{v}_k</mrow>
+                            <mrow>\vec{x} =\amp \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \cdots + \beta_k\vec{v}_k</mrow>
+                            <mrow>(\Longrightarrow) \vec{0} =\amp (\alpha_1-\beta_1)\vec{v}_1 + (\alpha_2-\beta_2)\vec{v}_2 +  \cdots + (\alpha_k-\beta_k)\vec{v}_k</mrow>
+                        </md>
+                        <p>de modo que <m>\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k</m> é L.D. (<m>\alpha_i - \beta_i \neq 0</m> para algum <m>i</m>).</p>
+
+                        <p><m>(\Longleftarrow)</m> Sem perda de generalidade<fn>se o vetor que pode ser escrico como combinação linear dos demais não for o último da lista, podemos fazer uma reordenação dos vetores e colocá-lo por último</fn>, se for possível escrever o vetor <m>\vec{v}_{k}</m> como combinação linear de <m>\vec{v}_1,  \ldots, \vec{v}_{k-1}</m>, então existem escalares <m>\alpha_1, \alpha_2, \ldots, \alpha_{k-1}</m>, tais que</p>
+                        <md>
+                            <mrow>\vec{v}_k = \amp \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k-1}\vec{v}_{k-1}</mrow>
+                            <mrow>\Longrightarrow \vec{0} = \amp \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k-1}\vec{v}_{k-1} - \vec{v}_k</mrow>
+                            <mrow>\Longrightarrow \vec{0} = \amp \gamma\alpha_1\vec{v}_1 + \gamma\alpha_2\vec{v}_2 +  \cdots + \gamma\alpha_{k-1}\vec{v}_{k-1} - \gamma\vec{v}_k,</mrow>
+                        </md>
+                        <p> para qualquer escalar <m>\gamma</m>, de modo que</p>
+                        <md>
+                            <mrow>\vec{x} = \amp \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \cdots + \beta_{k-1}\vec{v}_{k-1} + \beta_{k}\vec{v}_{k}</mrow>
+                            <mrow>\Longrightarrow \vec{x} = \amp (\beta_1 + \gamma\alpha_1)\vec{v}_1 + (\beta_2 + \gamma\alpha_2)\vec{v}_2 +  \cdots + (\beta_{k-1} + \gamma\alpha_{k-1})\vec{v}_{k-1} + (\beta_{k} - \gamma)\vec{v}_{k}</mrow>
+                        </md>
+                        <p> para qualquer escalar <m>\gamma</m>.</p>
+                    </proof>
+                </lemma>
+
+                <p>
+                    O Lema acima diz que teremos infinitas formas de escrever um vetor como combinação linear de <m>\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k \in V</m>. exatamete quando existirem soluções não nulas de <m>\alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_k\vec{v}_k = \vec{0}</m>. Assim essa condição é bastante relevante para bases de um espaço vetorial e precisamos referir-nos a ela precisamente, como a seguir.
+                </p>
+
+
+                <definition>
+                    <notation>
+                    <usage><m>L.I.\,\, \mtext{ou} \,\, L.D.</m></usage>
+                    <description>(in)dependência linear</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>(V, E, \oplus, \odot)</m> um espaço vetorial. Os vetores <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V</m> são ditos <bf>linearmente independentes (L.I.)</bf> se a única solução<fn>Note que <m>\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0</m> sempre é uma solução da equação.</fn> de 
+                        <me>
+                            \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0}
+                        </me>
+                         é <m>\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0</m>. Caso exista alguma solução não nula dessa equação, o conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}</m> é dito <bf>linearmente dependente (L.D.)</bf>.
+                    </p>
+                    </statement>
+                </definition>
+
+                <example>
+                    <statement>
+                        Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?
+                        <ol marker="A">
+                            <li>
+                                <p>Para verificarmos se <m>\{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}</m> é L.I., precisamos verificar se existe alguma solução não trivial para o sistema </p>
+                                <md>
+                                    <mrow> \alpha_1 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 0\\ 0 \\ 1 \end{pmatrix} + \alpha_4 \begin{pmatrix} 1\\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} </mrow>
+                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_4 = 0\\ \alpha_2 + 2\alpha_4 = 0 \\ \alpha_3 + 3 \alpha_4 = 0 \end{array} </mrow>
+                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 = - \alpha_4\\ \alpha_2 = - 2\alpha_4  \\ \alpha_3 - 3 \alpha_4  \end{array} </mrow>
+                                </md>
+                                <p> é solução para qualquer <m>\alpha_4 \in \mathbb{R}</m> e o istema é L.D.</p>
+                            </li>
+                            <li>
+                                <p><m>\{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}</m> é L.I. pois </p>
+                                <md>
+                                    <mrow> \alpha_1 \begin{pmatrix} 1\\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} </mrow>
+                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_2 + \alpha_3 = 0\\ \alpha_1 + \alpha_2 = 0 \\ \alpha_1 = 0 \end{array} \Leftrightarrow \begin{array}{c} \alpha_1 = 0  \\ \alpha_2 = 0 \\ \alpha_3 = 0 </mrow>
+                                </md>
+                            </li>
+                            <li>
+                                <m>\{ (1,0,1)^T, (0,1,0)^T\}</m> é L.I.
+                            </li>
+                            <li>
+                                <m>\{ (1,2,4)^T, (3,-1,1)^T, (2,-3,-3)^T\}</m> é L.D.
+                            </li>
+                        </ol>
+                    </statement>
+                </example>
+
+
+                <remark>
+                    <p>
+                        Para verificar se os vetores <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \mathbb{R}^n</m> são L.I. verificamos se o sistema
+                    </p>
+                    <me>
+                        \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0},
+                    </me>
+                    <p>tem solução única. Isso pode ser feito de diversas maneiras! Denotando </p>
+                        <m>
+                            \vec{v}_i = \begin{pmatrix} v_{1i}\\ v_{2i}\\ \vdots \\v_{ni} \end{pmatrix}\,\,</m> e <m>\,\,A =  \begin{pmatrix} | \amp | \amp \cdots \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \cdots \amp \vec{v}_k \\ | \amp | \amp \cdots \amp | \end{pmatrix} = \begin{pmatrix} v_{11} \amp v_{12} \amp \cdots \amp v_{1k} \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \amp v_{n2} \amp \cdots \amp v_{nk} \end{pmatrix},
+                        </m>
+                        <p>o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:</p>
+                    <me>
+                        \begin{array}{c} 
+                        v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k = 0
+                        \end{array}
+                        \Leftrightarrow A \vec{\alpha} = \vec{0}.
+                    </me>
+                    <p> Analisando o sistema acima para entender se a solução é única, percebemos:</p>
+
+                    <ol>
+                        <li> <p>Se <m>k \gt n</m>, então <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k</m> são L.D. pois o sistema associado tem mais incógnitas do que equações.</p></li>
+                        <li> <p>Se <m>k \lt n</m>, então podemos colocar o sistema associado <m>(A|\vec{0})</m> na forma escalonada e verificar se temos <m>k</m> linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que <m>k</m> linhas não nulas, o sistema é L.D.</p></li>
+                        <li> <p>Se <m>k = n</m>, então a matriz <m>A</m> é quadrada e o sistema <m>A \vec{alpha} = \vec{0}</m> tem solução única se, e somente se, a matriz <m>A</m> é inversível, de modo que basta verificar que <m>\det(A) \neq 0</m>. </p></li>
+                    </ol>
+
+                </remark>
+
+
+                <exercise>
+                    <statement>
+                        Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?
+                        <ol marker="A">
+                            <li>
+                                <m>\{ (1,-1,1)^T, (1,2,3)^T\}</m>
+                            </li>
+                            <li>
+                                <m>\{ (1,-2,1)^T, (1,1,1)^T, (1,0,-1)^T\}</m>
+                            </li>
+                            <li>
+                                <m>\{ (3,1,4)^T, (7,1,2)^T, (1,0,1)^T, (1,2,3)^T\}</m>
+                            </li>
+                            <li>
+                                <m>\{ (1,2,-2)^T, (1,-1,3)^T, (5,1,5)^T\}</m>
+                            </li>
+                        </ol>
+                    </statement>
+                </exercise>
+
+
+                <lemma>
+                    <statement>
+                        Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.
+                    </statement>
+                    <prof>
+                        A completar.
+                    </prof>
+                </lemma>
+
+
+
+
+            </subsection>
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="bases_subsection">
+                <title>Bases</title>
+
+                <definition>
+                    <notation>
+                    <usage><m>U</m></usage>
+                    <description>base</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V</m> vetores. O conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}</m> é uma <bf>base</bf> para <m>V</m> se, e somente se,
+                        <ol>
+                            <li><p><m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> são linearmente independentes,</p></li>
+                            <li><p><m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> cobrem <m>V</m>.</p></li>
+                        </ol>
+                         Alternativamente, dizemos que <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> <bf>formam uma base</bf> para <m>V</m>.
+                    </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    <statement>
+                        Para verificarmos que <m>\vec{i}, \vec{j}, \vec{k}</m> formam uma base para <m>\mathbb{R}^3</m>, precisamos verificar que:
+                        <il>
+                            <li><p>
+                                esses vetores são L.I. Para isso precisamos mostrar que a única solução de
+                                <me>
+                                    \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \vec{0}
+                                </me>
+                                é 
+                                <m>
+                                    \alpha_1 = \alpha_2 = \alpha_3 =0,
+                                </m>
+                                o que ocorre de fato pois
+                                <me>
+                                    \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =0, \\ \alpha_2 = 0, \\ \alpha_3 = 0. \end{array}
+                                </me>
+                            </p></li>
+                            <li><p>
+                                esses vetores geram <m>\mathbb{R}^3</m>. Para isso precisamos mostrar que qualquer vetor <m>\vec{x} = (x, y, z)^T \in \mathbb{R}^3</m> pode ser escrito como uma combinação linear de <m>\vec{i}, \vec{j}, \vec{k}</m>, o que ocorre de fato pois
+                                <me>\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} </me>
+                            </p></li>
+                        </il>
+                        De modo que <m>\{\vec{i},\vec{j},\vec{k}\}</m> é uma base para <m>\mathbb{R}^3</m>.
+                    </statement>
+                </example>
+
+
+                <p> Se <m>\vec{u}_1, \vec{u}_2</m> formam uma base para um espaço vetorial, podemos escrever cada vetor desse espaço como combinação linear dos vetores da base de uma única forma. O código a seguir plota uma base {u1, u2}, um vetor v, faz um print das coordenadas de v nessa base e ilustra o produto das coordenadas com os respectivos vetores da base (cuja soma resulta em v).</p>
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+                        zero = np.zeros(2)
+
+                        # vector v
+                        v= np.array([2, -3])
+
+                        # basis
+                        u1 = np.array([1,2])
+                        u2 = np.array([-2, 1])
+
+
+                        # finding the constants
+                        vU = np.linalg.inv(np.transpose(np.vstack((u1,u2)))).dot(v)
+                        print('coordenada de v na direção de u1')
+                        print('vU1 = ', vU[0])
+                        print('coordenada de v na direção de u2')
+                        print('vU2 = ', vU[1])
+
+                        #plotting the vectors
+                        fig, ax = plt.subplots(figsize=(5, 5))     
+                        plt.grid()
+
+                        head_width =0.3
+                        head_length = 1.5*head_width
+
+                        def cor(x):
+                            x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            return np.array([x_new,y_new])
+
+                        plt.arrow(0,0,cor(u1)[0], cor(u1)[1], head_width =head_width)
+                        plt.annotate('u1', cor(u1)/2 + np.array([0.2,-0.2]))
+
+                        plt.arrow(0,0,cor(vU[0]*u1)[0], cor(vU[0]*u1)[1], head_width =head_width, alpha =0.5)
+                        plt.annotate('vU1u1', cor(vU[0]*u1)/2, alpha =0.8)
+
+                        plt.arrow(0,0,cor(u2)[0], cor(u2)[1], head_width =head_width, color = 'blue')
+                        plt.annotate('u2', cor(u2)/2 + np.array([-0.2,-0.3]))
+
+                        plt.arrow(0,0,cor(vU[1]*u2)[0], cor(vU[1]*u2)[1], head_width =head_width, alpha =0.5, color = 'blue')
+                        plt.annotate('vU2u2', cor(vU[1]*u2)/2, alpha =0.8)
+
+                        plt.arrow(0,0,cor(v)[0], cor(v)[1], head_width =head_width, color = 'green')
+                        plt.annotate('v', cor(v)/2 + np.array([-0.3,-0.1]))
+
+                        plt.show()
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
+
+
+                <example>
+                    <statement>
+                        Para verificarmos que <m>\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)</m> formam uma base para <m>\mathbb{R}^3</m>, precisamos verificar que:
+                        <il>
+                            <li><p>
+                                esses vetores são L.I. Para isso precisamos mostrar que a única solução de
+                                <me>
+                                    \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
+                                </me>
+                                é 
+                                <m>
+                                    \alpha_1 = \alpha_2 = \alpha_3 =0,
+                                </m>
+                                para verificarmos isso, escrevemos o sistema acima na forma matricial
+                                <me>
+                                    \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+                                </me>
+                                e verificamos que esse sistema admite solução única pois a matriz 
+                                <me>
+                                    A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)
+                                </me>
+                                tem determinante <m>\det(A) = 6 \neq 0</m> e é, portanto inversível.
+                            </p></li>
+                            <li><p>
+                                esses vetores geram <m>\mathbb{R}^3</m>. Para isso precisamos mostrar que qualquer vetor <m>\vec{x} = (x, y, z)^T \in \mathbb{R}^3</m> pode ser escrito como uma combinação linear de <m>\vec{v}_1, \vec{v}_2, \vec{v}_3</m>, o que ocorre de fato pois, escrevendo o sistema acima na forma matricial
+                                <me>
+                                    \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix},
+                                </me>
+                                verificamos que esse sistema admite solução (<m>\vec{\alpha} = A^{-1} \vec{x}</m>) para qualquer <m>\vec{x} \in \mathbb{R}^3</m>,  pois a matriz 
+                                <me>
+                                    A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)
+                                </me>
+                                é tem determinante <m>\det(A) = 6 \neq 0</m> e é, portanto inversível.
+                            </p></li>
+                        </il>
+                        De modo que <m>\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}</m> é uma base para <m>\mathbb{R}^3</m>.
+                    </statement>
+                </example>
+
+
+
+                <example>
+                    <statement>
+                        Para verificarmos que <m>\vec{v}_1 = (\sqrt{2}/2,-\sqrt{2}/2,0)^T, \vec{v}_2 = (\sqrt{3}/3,\sqrt{3}/3,\sqrt{3}/3)^T, \vec{v}_3 = (\sqrt{6}/6,\sqrt{6}/6,-2\sqrt{6}/6)</m> formam uma base para <m>\mathbb{R}^3</m>, observamos que a matriz
+                        <me>
+                            A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \vec{v}_3 \\ | \amp | \amp | \end{array}\right) = \left(\begin{array}{ccc} \sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ -\sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ 0 \amp \sqrt{3}/3 \amp -2\sqrt{6}/6 \end{array}\right)
+                        </me>
+                        tem determinante <m>\det(A) = 1</m> e portanto é inversível, de modo que o sistema <m>A\vec{\alpha} = \vec{x}</m> tem solução <m>\alpha = A^{-1} \vec{x}</m> para qualquer <m>\vec{x} \in \mathbb{R}^3</m> e <m>\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}</m> geram <m>\mathbb{R}^3</m>, além disso, a solução é única para qualquer <m>\vec{x} \in \mathbb{R}^3</m>, em particular para <m>\vec{x} = \vec{0}</m>, de modo que os vetores são L.I. Dessa forma, <m>\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}</m> formam uma base para <m>\mathbb{R}^3</m>.
+                    </statement>
+                </example>
+
+
+
+                <exercise>
+                    <statement>
+                        Verifique que a base do sistema anterior é formada por vetores unitários e ortogonais entre si.
+                    </statement>
+                </exercise>
+
+
+                <exercise>
+                    <statement>
+                        Utilize o código acima para explorar o que ocorre quando os vetores <m>\vec{u}_1, \vec{u}_2</m> formam um ângulo pequeno entre si.
+                    </statement>
+                </exercise>
+
+
+                <p>
+                    Temos então que é possível encontrar muitas (na verdade infinitas) bases para um espaço vetorial <m>V</m>. Os dois teoremas a seguir garantem que duas bases para um espaço vetorial têm sempre o mesmo número de vetores.
+                </p>
+
+
+                <theorem xml:id = "vetores_demais">
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Se <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> geram um espaço vtorial <m>V</m>, então qualquer coleção de <m>m \gt n</m> vetores de <m>V</m>é L.D.
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    Sejam <m>\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \in V</m> vetores. Cada um desses vetores pode ser escrito como combinação linear de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m>, pois estes geram <m>V</m>. Assim, para cada <m>i =1, \ldots, m</m>, existem escalares <m>a_{i1}, a_{i2}, \ldots, a_{in}</m> tais que
+                    <me>
+                        \vec{u}_i = a_{1i}\vec{v}_1+ a_{2i}\vec{v}_2+ \ldots + a_{ni} \vec{v}_n.
+                    </me>
+                    Assim, encontrar constantes  <m>\alpha_1, \ldots, \alpha_m</m> tais que <m>\alpha_1\vec{u}_1 + \alpha_2\vec{u}_2 + \cdots \alpha_m\vec{u}_m</m> é o mesmo que resolver o sistema
+                    <md>
+                        <mrow> \vec{0} =\amp\alpha_1( a_{11}\vec{v}_1+ a_{21}\vec{v}_2+ \ldots + a_{n1} \vec{v}_n) + \alpha_2(a_{12}\vec{v}_1+ a_{22}\vec{v}_2+ \ldots + a_{n2} \vec{v}_n) + \cdots </mrow>
+                        <mrow> \amp + \alpha_m(a_{1m}\vec{v}_1+ a_{2m}\vec{v}_2+ \ldots + a_{nm} \vec{v}_n) </mrow>
+                        <mrow> =\amp (\alpha_1 a_{11} + \alpha_2 a_{12} + \cdots + \alpha_m a_{1m})\vec{v}_1+ (\alpha_1 a_{21} + \alpha_2 a_{22} + \cdots + \alpha_m a_{2m})\vec{v}_2+ \ldots </mrow>
+                        <mrow> \amp + (\alpha_1 a_{n1} + \alpha_2 a_{n2} + \cdots + \alpha_m a_{nm}) \vec{v}_n </mrow>                        
+                    </md>
+                    e uma solução dessa equação é tomar cada coeficiente dos vetores <m>\vec{v}_i</m> iguais a zero, de modo que para mostrarmos que <m>\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m</m> é L.D., basta mostrar que o sistema
+                    <md>
+                        <mrow> \alpha_1 a_{11} + \alpha_2 a_{12} + \cdots + \alpha_m a_{1m} = \amp 0 </mrow>
+                        <mrow> \alpha_1 a_{21} + \alpha_2 a_{22} + \cdots + \alpha_m a_{2m} = \amp 0 </mrow>                        
+                        <mrow> \vdots \,\,\,\,\,\,\, =\amp \,\,\vdots </mrow>
+                        <mrow> \alpha_1 a_{n1} + \alpha_2 a_{n2} + \cdots + \alpha_m a_{nm} = \amp 0 </mrow>                        
+                    </md>
+                    admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).
+                    </proof>
+                </theorem>
+
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Se <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> é uma base para um espaço vetorial <m>V</m>, então qualquer coleção de <m>k \lt n</m> vetores de <m>V</m> não gera <m>V</m>.
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                    </proof>
+                </theorem>
+
+                <p>Os teoremas acima garantem que se uma base para um espaço vetorial <m>V</m> tem <m>n</m> vetores, então qualquer outra base para <m>V</m> também tem <m>n</m> vetores. Assim, existe um número "certo" de vetores para cada base, o que nos motiva a definir a dimensão de um espaço vetorial.</p>
+
+                <definition>
+                    <notation>
+                    <usage><m>n</m></usage>
+                    <description>dimensão</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>(V, E, \oplus, \odot)</m> um espaço vetorial. Se <m>V</m> tem uma base de <m>n</m> vetores, dizemos que <m>V</m> tem <bf>dimensão</bf> <m>n</m>. O (sub)espaço  <m>\{\vec{0}\}</m> é dito ter dimensão <bf>nula</bf> ou <m>0</m>. Em ambos os casos dizemos que <m>V</m> tem <bf>dimensão finita</bf>. Caso não exista um conjunto de vetores que cobre <m>V</m> com um número finito de elementos, dizemos que <m>V</m> tem <bf>dimensão infinita</bf>.
+                    </p>
+                    </statement>
+                </definition>
+
+
+                <exercise>
+                    <statement>
+                        Determine  uma base para os seguintes conjuntos e determine suas dimensões 
+                        <ol marker="A">
+                            <li>
+                                O conjunto das matrizes reais <m>3 \times 3</m> triangulares inferiores.
+                            </li>
+                            <li>
+                                O conjunto dos polinômios de grau 4 (ou seja, polinômios da forma <m>p(x) = ax^4 + bx^3 + cx^2 + dx + e</m>).
+                            </li>
+                            <li>
+                                O espaço nulo da matriz
+                                <me>
+                                    A = \left(\begin{array}{ccc} 5 \amp 1 \amp  2\\
+                                    1 \amp  5 \amp -2\\
+                                    2 \amp -2 \amp  2 \end{array} \right).
+                                </me>
+                            </li>
+                        </ol>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        Encontre outras<fn>diferentes das apresentadas na solução do exercício anterior</fn> bases para os espaços do exercício anterior.
+                    </statement>
+                </exercise>
+
+                <p> Se sabemos que um espaço vetorial tem dimensão <m>n</m> e quisermos verificar se um conjunto de <m>n</m> vetores é uma base, basta verificarmos uma das condições (que eles são L.I. ou que geram <m>V</m>), como garante o teorema a seguir.</p>
+
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Se <m>V</m> é um espaço vetorial de dimensão <m>n \gt 0</m>, então:
+                      <ol marker = "i">
+                        <li> <p>qualquer conjunto <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m>de <m>n</m> vetores linearmente independentes gera <m>V</m>,</p></li>
+                        <li> <p>quaisquer <m>n</m> vetores que cobrem <m>V</m> são linearmente independentes</p></li>
+                      </ol>
+                    </p>
+                  </statement>
+                
+                  <proof>
+                    <ol marker = "i">
+                        <li> <p>Se <m>V</m> tem dimensão <m>n</m>, então <m>V</m> admite uma base com <m> n</m> vetores (não necessariamente <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m>). Então o <xref ref="vetores_demais"></xref> diz que, para qualquer vetor <m>\vec{v} \neq \vec{0} \in V</m>, o conjunto <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}</m> é L.D. Portanto a equação
+                        <me>
+                            \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \cdots + \alpha_n \vec{v}_n + \alpha_{n+1} \vec{v} = \vec{0}
+                        </me>
+                        admite solução não nula. Nessa solução <m>\alpha_{n+1} \neq 0</m>, pois, caso contrário, o  conjunto <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> seria L.D. Portanto
+                        <me>
+                            \vec{v} = -\alpha_1/\alpha_{i+1}\vec{v}_1 - \alpha_2/\alpha_{i+1}\vec{v}_2 - \cdots - \alpha_n/\alpha_{i+1} \vec{v}_n
+                        </me>
+                        e <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> gera <m>V</m>.
+                        </p></li>
+                        <li> <p>Seja <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}</m> um conjunto de vetores que gera <m>V</m>. Se este conjunto é L.D., então um dos vetores pode ser escrito como combinação dos demais. Sem perda de generalidade, digamos que seja <m>\vec{v}_n</m>:
+                        <me>
+                            \vec{v}_n = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \cdots + \alpha_{n-1} \vec{v}_{n-1},
+                        </me>
+                        então <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_{n-1}\}</m> também gera <m>V</m>, pois qualquer vetor <m>\vec{v} \in V</m> pode ser escrito como
+                        <md>
+                            <mrow> \vec{v} =\amp v_1\vec{v}_1 + v_2\vec{v}_2 + \cdots + v_{n-1} \vec{v}_{n-1} + v_{n} \vec{v}_{n} </mrow>
+                            <mrow> =(\amp v_1+v_n\alpha_1)\vec{v}_1 + (v_2+v_n\alpha_2)\vec{v}_2 + \cdots + (v_{n-1}+v_n\alpha_{n-1}) \vec{v}_{n-1}. </mrow>
+                        </md>
+                        Assim <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_{n-1}\}</m> é um conjunto de geradores para <m>V</m> e o <xref ref="vetores_demais"></xref> implica que qualquer conjunto com <m>n</m> vetores é L.D. e <m>V</m> não tem base com <m>n</m> vetores, o que contradiz <m>V</m> ter dimensão <m>n</m>.
+                        </p> </li>
+                      </ol>
+                  </proof>
+                </theorem>
+
+
+            </subsection>
+
+
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="mudanca_base">
+                <title>Mudança de base</title>
+
+
+                <p>
+                    Temos a situação que existem muitas (infinitas) bases para cada espaço vetorial. Precisamos então ter uma maneira de passar vetores de uma base para outra.
+                </p>
+
+                <definition>
+                    <notation>
+                    <usage><m>\vec{v}^\mathcal{U} = (v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})^T</m></usage>
+                    <description>coordenadas na base <m>\mathcal{U}</m></description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>(V,E,\oplus, \odot)</m> um espaço vetorial e <m>\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> uma base para <m>V</m>. A <m>n</m>-upla de escalares <m>(v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})</m> tal que
+                        <me>
+                            \vec{v} = v_1^\mathcal{U}\vec{u}_1 + v_2^\mathcal{U}\vec{u}_2 + \ldots + v_n^\mathcal{U} \vec{u}_n
+                        </me>
+                        é chamada de (conjunto de) <bf>coordenadas de</bf> <m>\vec{v}</m> na base <m>\mathcal{U}</m> e escrevemos
+                        <me>
+                            \vec{v}^\mathcal{U} = (v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})^T.
+                        </me>
+                        Normalmente omitimos a referência à base sobrescrita quando nos referimos à base canônica.
+                    </p>
+                    </statement>
+                </definition>
+
+                <remark>
+                    As coordenadas de um vetor em uma base são únicas, pois, caso existissem mais de um conjunto de coordenadas correspondente a um único vetor, obteríamos uma contradição com a independencia linear dos vetores da base. Deixamos a verificação disso ao leitor.
+                </remark>
+
+                <example xml:id = "base_u_canon">
+                    <statement>
+                        Considere a base <m>\mathcal{U} = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}</m> para <m>\mathbb{R}^3</m> (note que as coordenadas mostradas para os vetores da base <m>U</m> são as representações dos vetores na base canônica). O vetor <m>\vec{v}^\mathcal{U} = (3, 4, -7)^T</m> é, na base canônica,
+                        <me>
+                            \vec{v} = 3\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + 4\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} -7 \begin{pmatrix} 2 \\ 1 \\ -1 \end{pmatrix} = \begin{pmatrix} -11 \\ -6 \\ 14 \end{pmatrix}
+                        </me>
+                        note que o cálculo realizado acima pode ser escrito como um produto matricial <m>U \vec{v}^\mathcal{U}</m>
+                        <me>
+                            \vec{v} = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} 3 \\ 4 \\ -7 \end{pmatrix} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix} \vec{v}^\mathcal{U}.
+                        </me>
+                        A matrix
+                        <me>
+                            U = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix}
+                        </me>
+                        é a <bf>matriz de mudança de base</bf> da base <m>U</m> para a base canônica.
+                    </statement>
+                </example>
+
+
+                <example xml:id = "base_canon_u">
+                    <statement>
+                        Considere a base <m>U = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}</m> para <m>\mathbb{R}^3</m> e o vetor <m>\vec{v} = (1, -1, 3)^T</m> (na base canônica). As coordenadas de <m>\vec{v}</m> na base <m>U</m> são encontradas resolvendo o sistema
+                        <me>
+                            \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = v^\mathcal{U}_1\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + v^\mathcal{U}_2\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} v^\mathcal{U}_3 = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} v^\mathcal{U}_1 \\ v^\mathcal{U}_2 \\ v^\mathcal{U}_3 \end{pmatrix} = \vec{v}^\mathcal{U}.
+                        </me>
+                        Dessa forma
+                        <md>
+                            <mrow>
+                                \vec{v}^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{v} = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix}^{-1} \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}
+                            </mrow>
+                            <mrow>
+                                =\amp \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = \begin{pmatrix} 5/3 \\ 1 \\ -1/3 \end{pmatrix}.
+                            </mrow>
+                        </md>
+                        A matrix
+                        <me>
+                            U^{-1} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix}
+                        </me>
+                        é a <bf>matriz de mudança de base</bf> da base canônica para a base <m>\mathcal{U}</m>.
+                    </statement>
+                </example>
+
+
+                <p>O exemplo a seguir complementa os anteriores.</p>
+
+                <example xml:id = "base_canoninca_na_u">
+                    <statement>
+                        Considere a base <m>\mathcal{U} = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}</m> para <m>\mathbb{R}^3</m> e os vetores <m>\vec{e}_1, \vec{e}_2, \vec{e}_3</m> da base canônica. As coordenadas de <m>\vec{e}_1, \vec{e}_2, \vec{e}_3</m> são
+                        <md>
+                            <mrow>
+                                \vec{e}_1^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{e}_1 = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 1/3 \\ 0 \\ 1/3 \end{pmatrix},
+                            </mrow>
+                            <mrow>
+                                \vec{e}_2^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{e}_2 = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} -1/3 \\ 1/2 \\ 1/6 \end{pmatrix},
+                            </mrow>
+                            <mrow>
+                                \vec{e}_3^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{e}_3 = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1/3 \\ 1/2 \\ -1/6 \end{pmatrix}.
+                            </mrow>
+                        </md>
+                        Note que as colunas da matriz <m>U^{-1}</m> são as coordenadas dos vetores <m>\vec{e}_1, \vec{e}_2, \vec{e}_3</m> na base <m>\mathcal{U}</m>.
+                    </statement>
+                </example>
+
+
+                <definition>
+                    <notation>
+                    <usage><m>A</m></usage>
+                    <description>matriz de mudança de base</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Sejam <m>(V,E,\oplus, \odot)</m> um espaço vetorial e <m>\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> e <m>\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> bases para <m>V</m>. Cada vetor da base <m>\mathcal{U}</m> tem coordenadas na base <m>\mathcal{V}</m>, <m>\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T</m>. A <bf>matriz de mudança de base</bf> da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m> é a matriz
+                        <me>
+                            A = \begin{pmatrix} | \amp  | \amp  \amp | \\ \vec{u}_1^\mathcal{V} \amp \vec{u}_2^\mathcal{V} \amp \cdots \amp \vec{u}_n^\mathcal{V} \\ | \amp | \amp  \amp | \end{pmatrix} = \begin{pmatrix} a_{11} \amp  a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ a_{n1} \amp a_{n2} \amp \cdots \amp a_{nn} \end{pmatrix}.
+                        </me>
+                    </p>
+                    </statement>
+                </definition>
+
+                <exercise>
+                    <statement>
+                        Sejam <m>(V,E,\oplus, \odot)</m> um espaço vetorial e <m>\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> uma base para <m>V</m>. Quais as coordenadas de <m>\vec{u}_i</m> na base <m>\mathcal{U}</m>. 
+                    </statement>
+                </exercise>
+
+                <remark>
+                    Sejam <m>\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> e <m>\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> bases para <m>\mathbb{R}^n</m>. Se um vetor <m>\vec{v}</m> tem coordenadas <m>\vec{v}^U</m> e <m>\vec{v}^V</m> nas bases <m>U</m> e <m>V</m> nas respectivas bases e <m>U</m> e <m>V</m> são as matrizes de mudança de base das bases <m>\mathcal{U}</m> e <m>\mathcal{V}</m> para a base canônica, temos que
+                    <me>
+                        U\vec{v}^U = \vec{v} = V\vec{v}^V,
+                    </me>
+                    de modo que
+                    <me>
+                        \vec{v}^V = V^{-1}U\vec{v}^U,
+                    </me>
+                    ou seja, a matriz de mudança de base da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m> é <m>V^{-1}U</m>.
+                </remark>
+
+                <sage>
+                    <caption>RNA Codons Table, by Florian Hollandt</caption>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+                        fig, ax = plt.subplots()
+                        plt.xlim( (-4.1, 1) )  # set the xlim to xmin, xmax
+                        plt.ylim((-0.1,2.5))    # set the xlim to xmin, xmax
+
+                        fig.patch.set_visible(False)
+                        ax.axis('off')
+
+
+                        plt.annotate('U', [-0.1,0.1], fontsize=20, style= 'italic' )
+                        plt.arrow(0,0.3,0,1.7, head_width =0.1)
+                        plt.annotate('E', [-0.1,2.2], fontsize=20, style= 'italic' )
+                        plt.arrow(-0.2,2.3,-3.5,0, head_width =0.1)
+                        plt.annotate('V', [-4.1,2.2], fontsize=20, style= 'italic' )
+                        plt.arrow(-0.2,0.3,-3.5,1.8, head_width =0.1)
+
+                        plt.annotate('U', [0.1,1.2], fontsize=20)
+                        plt.annotate('V', [-2,2.4], fontsize=20)
+                        plt.annotate('-1', [-1.8,2.5], fontsize=10)
+
+                        plt.annotate('V', [-2.9,1.2], fontsize=20)
+                        plt.annotate('-1', [-2.7,1.3], fontsize=10)
+                        plt.annotate('U', [-2.55,1.2], fontsize=20)
+
+
+                        plt.show()
+                    </input>
+                    <output>
+                        image
+                    </output>
+                </sage>
+
+                <remark>
+                    A matriz de mudança de base sempre é inversível, pois, caso não fosse, o sistema <m>A\vec{x}=\vec{0}</m> admitiria soluções não nulas, de modo que
+                    <me>
+                        \vec{0} = A\vec{x} = x_1 \vec{u}_1^\mathcal{V} + x_2 \vec{u}_2^\mathcal{V} + \cdots + x_n \vec{u}_n^\mathcal{V}, 
+                    </me>
+                    (a completar).
+                </remark>
+
+
+                <remark>
+                    Sejam <m>(V,E,\oplus, \odot)</m> um espaço vetorial e <m>\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> <m>\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> bases para <m>V</m> e A = <m>(a_{ij})</m> a matriz de mudança de base da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m>, de modo que <m>\vec{u}_i^{\mathcal{V}} = a_{1i}\vec{v}_1 + a_{2i} \vec{v}_2 + \cdots + a_{ni} \vec{v}_n</m>
+                </remark>
+
+
+                <exercise>
+                    <statement>
+                        Encontre as matrizes de mudança de base da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m> para as de <m>\mathbb{R}^n</m>bases a seguir:
+                        <ol>
+                            <li><m>\mathcal{U} = \{(1,-1)^T, (3,-2)^T\}</m>, <m>\mathcal{V} = \mathcal{E} =\{(5,2)^T, (-1,3)^T \}</m></li>
+                            <li><m>\mathcal{U} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}</m>, <m>\mathcal{V} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}</m></li>
+                            <li><m>\mathcal{U} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}</m>, <m>\mathcal{V} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}</m></li>
+                            <li><m>\mathcal{U} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}</m>, <m>\mathcal{V} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}</m></li>
+                            <li><m>\mathcal{U} = \{(1,-1,1, -1)^T, (1,1,-1, -1)^T, (0,1,1, 0)^T, (1,0,0, 1)^T \}</m>, <m>\mathcal{V} = \{(-1,1,1, 1)^T, (1,1,1, -1)^T, (0,1,-1, 0)^T, (1,0,0, 1)^T \}</m></li>
+                        </ol> 
+                    </statement>
+                </exercise>
+
+                <p>utilize o código a seguir para verificar as respostas obtidas no exercício anterior.</p>
+
+
+                <sage>
+                    <input>
+                        # Python program to calculate the base change matrix using numpy
+                        
+                        # Import required package
+                        import numpy as np
+                        import fractions #for fractions (comment the line below, for decimals)
+                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                        
+                        # Base change matrix of U to E
+                        U = np.array([[1, 1, -1],
+                                    [1, -1, -1],
+                                    [1, 0, 2]])
+
+                        # Base change matrix of V to E
+                        V = np.array([[0, 2, -1],
+                                    [1, 1, 1],
+                                    [-1, 1, 1]])
+                        
+                        # printing the base change matrix
+                        print(np.linalg.inv(V).dot(U))
+                    </input>
+                    <output>
+                        Base change matrix
+                    </output>
+                </sage>
+
+
+
+            </subsection>
+
+
+        </section>
+
+
+
+    </article>
+
+</pretext>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2023-10-16T07:55:10-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Espaços Vetoriais</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
+<p class="byline">Márcio Rostirolla Adames</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ElDecomp.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="subescos.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ElDecomp.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="subescos.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">1</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
+<li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">2</span> <span class="title">Gaussian Elimination</span></a></li>
+<li class="link"><a href="section-Gauss-Jordan.html" data-scroll="section-Gauss-Jordan"><span class="codenumber">3</span> <span class="title">Gauss-Jordan reduction</span></a></li>
+<li class="link"><a href="section-Matrices.html" data-scroll="section-Matrices"><span class="codenumber">4</span> <span class="title">Basic commands for matrices.</span></a></li>
+<li class="link">
+<a href="ElDecomp.html" data-scroll="ElDecomp"><span class="codenumber">5</span> <span class="title">Decompositions; Inverse finding</span></a><ul>
+<li><a href="ElDecomp.html#LU" data-scroll="LU">Decomposition PA = LU</a></li>
+<li><a href="ElDecomp.html#InverseAI" data-scroll="InverseAI">Finding the inverse through Gauss - Jordan reduction</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">6</span> <span class="title">Espaços Vetoriais</span></a><ul>
+<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
+<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="subescos.html" data-scroll="subescos"><span class="codenumber">7</span> <span class="title">Subespaços Vetoriais</span></a><ul>
+<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
+<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="bases.html" data-scroll="bases"><span class="codenumber">8</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
+<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
+<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
+<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
+<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="espacos-vetoriais"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6</span> <span class="title">Espaços Vetoriais</span>
+</h2>
+<p id="p-19">O conceito de Espaço Vetorial trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de vetores, assim como \(\mathbb{R}^3\) com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de \(\mathbb{R}^n\) e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em \(\mathbb{R}^n\) e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em \(\mathbb{R}^3\text{.}\)</p>
+<section class="subsection" id="Rn_vecs"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1</span> <span class="title">Vetores em \(\mathbb{R}^n\)</span>
+</h3>
+<p id="p-20">Um vetor \(\vec{x}\) representa o conjunto de todos os segmentos orientados em \(\mathbb{R}^3\) com o mesmo comprimento, direção e sentido.</p>
+<div class="sagecell-sage" id="sage-19"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt #library for plots
+import random #library for random number generation
+
+x_x = [2] #the x coordinates of a vector representant at the origin
+x_y = [1] #the y coordinates of a vector representant at the origin
+
+starting_points_x = [0]
+starting_points_y = [0]
+
+for i in range(10): #add other representatives of the same vector
+    sign = [-1,1][random.randrange(2)]
+    
+    starting_points_x.append(sign * random.randint(-8, 8))
+    starting_points_y.append(sign * random.randint(-8, 8))
+    x_x.append(starting_points_x[i+1]+x_x[0])
+    x_y.append(starting_points_y[i+1]+x_y[0])
+    
+    
+    
+    
+#plotting the vectors
+fig, ax = plt.subplots(figsize=(10,10))     
+ax.set_xlim(xmin=-10, xmax=10)
+ax.set_ylim(ymin=-10, ymax=10)
+ax.xaxis.set_ticks([-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9])
+ax.yaxis.set_ticks([-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9])
+plt.grid()
+ax.quiver(starting_points_x, starting_points_y, np.ones(len(x_x))*x_x[0], np.ones(len(x_y))*x_y[0], scale =1, units="xy")
+
+for xy in zip(x_x[0:3], x_y[0:3]):
+   plt.annotate('(%.2f, %.2f)' % xy, xy=xy)
+for xy in zip(starting_points_x[0:3], starting_points_y[0:3]):
+   plt.annotate('(%.2f, %.2f)' % xy, xy=xy, va='top', ha='left')
+
+plt.show()
+</script></div>
+<p id="p-21">Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor \(\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)\) e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.</p>
+<p id="p-22">O comprimento ou a norma de um vetor \(\vec{x} = \left(x_1, \ldots, x_n\right)^T\) em \(\mathbb{R}^n\) pode ser calculado por</p>
+<div class="displaymath">
+\begin{equation*}
+\|\vec{x}\| = \sqrt{x_1^2 + x^2+ \cdots + x_n^2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">No exemplo acima</p>
+<div class="displaymath">
+\begin{equation*}
+\|\vec{x}\| = \sqrt{1^2+2^2}=\sqrt{5}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Qualquer segmento orientado em \(\vec{x}\) poderia ter sido utilizado para calcular o comprimento.</p>
+<div class="sagecell-sage" id="sage-20"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt #library for plots
+import random #library for random number generation
+
+x_x = [2] #the x coordinates of a vector representant at the origin
+x_y = [1] #the y coordinates of a vector representant at the origin
+
+starting_points_x = [0]
+starting_points_y = [0]
+
+number_of_points = 3
+
+for i in range(number_of_points -1): #add other representatives of the same vector
+    sign = [-1,1][random.randrange(2)]
+    
+    starting_points_x.append(sign * random.randint(-3, 3))
+    starting_points_y.append(sign * random.randint(-4, 4))
+    x_x.append(starting_points_x[i+1]+x_x[0])
+    x_y.append(starting_points_y[i+1]+x_y[0])
+    
+    
+    
+    
+#plotting the vectors
+fig, ax = plt.subplots(figsize=(10,10))     
+ax.set_xlim(xmin=-5, xmax=5)
+ax.set_ylim(ymin=-5, ymax=5)
+ax.xaxis.set_ticks([-4,-3,-2,-1,0,1,2,3,4])
+ax.yaxis.set_ticks([-4,-3,-2,-1,0,1,2,3,4])
+plt.grid()
+ax.quiver(starting_points_x, starting_points_y, np.ones(len(x_x))*x_x[0], np.ones(len(x_y))*x_y[0], scale =1, units="xy")
+
+for i in range(number_of_points):
+    plt.plot((starting_points_x[i],x_x[i], x_x[i]),(starting_points_y[i],starting_points_y[i],x_y[i]))
+
+
+for xy in zip(x_x[0:number_of_points ], x_y[0:number_of_points ]):
+    plt.annotate('(%.2f, %.2f)' % xy, xy=xy)
+for xy in zip(starting_points_x[0:number_of_points], starting_points_y[0:number_of_points]):
+    plt.annotate('(%.2f, %.2f)' % xy, xy=xy, va='top', ha='left')
+for xy in zip(x_x[0:number_of_points], starting_points_y[0:number_of_points]):
+    plt.annotate('(%.2f, %.2f)' % xy, xy=xy, va='top', ha='left')
+
+plt.show()
+</script></div>
+<article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like">Calcule o comprimento de três representantes de um vetor \(\vec{x} \in \mathbb{R}^2\) gerados pelo códico acima.</article></div>
+<p id="p-23">Para vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x} = (x_1, \ldots, x_n)^T\) e \(\vec{y} = (y_1, \ldots, y_n)^T\text{,}\)e um escalar \(\alpha \in \mathbb{R}\text{,}\) definimos as operações fundamentais de multiplicação por escalar e adição de vetores por:</p>
+<div class="displaymath">
+\begin{equation*}
+\alpha \cdot \vec{x} = \alpha\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} :=  \begin{pmatrix}\alpha x_1\\ \vdots \\ \alpha x_n\end{pmatrix}; \,\,\,\,\, \vec{x} + \vec{y} = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} + \begin{pmatrix}y_1\\ \vdots \\ y_n\end{pmatrix} := \begin{pmatrix}x_1+y_1\\ \vdots \\ x_n+y_n\end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">A subtração de vetores é definida a partir da multiplicação por escalar e da adição como \(\vec{x} - \vec{y} := \vec{x} +(-1) \vec{y}\text{.}\)</p>
+<div class="sagecell-sage" id="sage-21"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+zero = np.zeros(2)
+
+x = np.array([1,2])
+y = np.array([-2, 1])
+
+alpha = 2
+
+
+#plotting the vectors
+fig, ax = plt.subplots(figsize=(5, 5))     
+ax.set_xlim(xmin=-3, xmax=5)
+ax.set_ylim(ymin=-3, ymax=5)
+ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
+ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+plt.grid()
+
+head_width =0.3
+head_length = 1.5*head_width
+
+def cor(x):
+    x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+    y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+    return np.array([x_new,y_new])
+
+plt.arrow(0,0,cor(x)[0], cor(x)[1], head_width =head_width)
+plt.annotate('x', cor(x)/2 + np.array([0.2,-0.2]))
+
+plt.arrow(0,0,cor(y)[0], cor(y)[1], head_width =head_width, color = 'blue')
+plt.annotate('y', cor(y)/2 + np.array([-0.2,-0.3]))
+
+plt.arrow(x[0],x[1],cor(y)[0], cor(y)[1], head_width =head_width, color = 'blue')
+plt.annotate('y', x/2+ cor(x+y)/2 + np.array([-0.2,-0.1]))
+
+plt.arrow(0,0,cor(x+y)[0], cor(x+y)[1], head_width =head_width, color = 'green')
+plt.annotate('x+y', cor(x+y)/2 + np.array([-0.7,-0.1]))
+
+plt.arrow(x[0],x[1],-cor(y)[0], -cor(y)[1], head_width =head_width, color = 'red')
+plt.annotate('-y', x/2+ cor(x-y)/2 + np.array([0.2,+0.1]))
+
+plt.arrow(0,0,cor(x-y)[0], cor(x-y)[1], head_width =head_width, color = 'pink')
+plt.annotate('x-y', cor(x-y)/2 + np.array([0.1,-0.1]))
+
+plt.arrow(0,0,alpha*cor(x)[0], alpha*cor(x)[1], head_width =head_width, color = 'purple')
+plt.annotate(r'$\alpha$ x', alpha*cor(x)/1.25 + np.array([0.2,-0.2]))
+
+plt.show()
+</script></div></section><section class="subsection" id="Esp_vet"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.2</span> <span class="title">Espaços Vetoriais</span>
+</h3>
+<p id="p-24">Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do \(\mathbb{R}^n\text{,}\) de modo operarmos com eles de modo semelhante ao \(\mathbb{R}^n\text{,}\) todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.</p>
+<article class="definition definition-like" id="definition-1"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.2</span><span class="period">.</span>
+</h6>
+<p id="p-25">Seja \(E\) um conjunto de escalares (usualmente \(\mathbb{C}\) ou \(\mathbb{C}\text{,}\) mas qualquer corpo serviria). Um espaço vetorial \((V,E,\oplus,\odot)\) é um conjunto sobre o qual estão definidas duas operações:</p>
+<div class="displaymath">
+\begin{align*}
+\oplus: \amp V \times V: \to V, \\
+(C1) \hspace{9mm} \amp \vec{u}, \vec{v} \in V \Rightarrow \vec{u} \oplus \vec{v}\\
+\odot: \amp E \times V: \to V, \\
+(C2) \hspace{9mm} \amp \alpha \in E, \vec{v} \in V \Rightarrow \alpha\vec{u}
+\end{align*}
+</div>
+<p class="continuation">e as operações satisfazem as seguintes propriedades para quaisquer \(\vec{u}, \vec{v}, \vec{w} \in V\) e \(\alpha, \beta \in E\text{:}\)</p>
+<dl class="description-list">
+<dt id="li-1"></dt>
+<dd>(A1)   \(\hspace{5mm} \vec{u} + \vec{v} = \vec{v} + \vec{u},\)</dd>
+<dt id="li-2"></dt>
+<dd>(A2)   \(\hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} = \vec{u} + (\vec{v} + \vec{w}),\)</dd>
+<dt id="li-3"></dt>
+<dd>(A3)   \(\hspace{5mm} \exists \,\,\, \vec{0} \in V; \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V,\)</dd>
+<dt id="li-4"></dt>
+<dd>(A4)   \(\hspace{5mm} \forall \,\, \vec{u} \in V, \exists ! \,\,\, -\vec{u} \in V; \vec{x} + (-\vec{x}) = \vec{0}\)</dd>
+<dt id="li-5"></dt>
+<dd>(A5)   \(\hspace{5mm} \alpha(\vec{u} + \vec{v}) = \alpha\vec{u} + \alpha\vec{v},\)</dd>
+<dt id="li-6"></dt>
+<dd>(A6)   \(\hspace{5mm} (\alpha + \beta) \vec{u} = \alpha\vec{u} + \beta\vec{u},\)</dd>
+<dt id="li-7"></dt>
+<dd>(A7)   \(\hspace{5mm} (\alpha\beta)\vec{u} = \alpha(\beta\vec{u}),\)</dd>
+<dt id="li-8"></dt>
+<dd>(A8)   \(\hspace{5mm} 1\vec{u} = \vec{u}.\)</dd>
+</dl>
+<p class="continuation">V é dito o conjunto universal, os elementos de V são ditos vetores e os elementos de E são ditos escalares. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.</p></article><article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like">O conjunto \(V = \{ \vec{u} = (u_1, u_2)^T \in \mathbb{R}^2 | u_2 =1\}\) não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^2\) pois, dados \(\vec{u}, \vec{v} \in V\text{,}\) \(\vec{u} = (u_1, 1)^T\) e \(\vec{v} = (v_1, 1)^T\) temos que<div class="displaymath">
+\begin{equation*}
+\vec{u} + \vec{v} = \left( \begin{array}{c} u_1\\ 1 \end{array} \right) + \left( \begin{array}{c} v_1\\ 1 \end{array} \right) = \left( \begin{array}{c} u_1 + v_1\\ 2 \end{array} \right) \notin V.
+\end{equation*}
+</div>Deste modo C1 não é válida e \(V\) não é um espaço vetorial.</article></div>
+<article class="exercise exercise-like" id="exercise-2"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like">Para mostrar que um conjunto \(V\) não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para \(V\) e justifique sua escolha.</article></div>
+<article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like">\(\mathbb{R}^n\) com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer \(n \in \mathbb{N}\text{.}\) Para verificar isso é necessário verificar a validade de \(C1, \, C2, \, A1, \, \ldots, \, A8 \text{.}\)</article></div>
+<article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like">O conjunto  \(V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}\text{,}\) com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^3\) é um espaço vetorial pois, dados \(\vec{u}, \vec{v}, \vec{w} \in V\text{,}\) \(\vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T \text{,}\) \(\vec{v} = \beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \) e \(\vec{w} = \gamma_1(-1,0,1)^T + \gamma_2 (0, 1, 1)^T \) e \(\alpha, \beta \in \mathbb{R}\text{,}\) verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em \(\mathbb{R}^3\)):<div class="displaymath">
+\begin{align*}
+(C1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp (\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \in V,
+\end{align*}
+</div>
+<p id="p-26">de modo que a soma de dois elementos de V é um elemento de \(V\)</p>.<div class="displaymath">
+\begin{gather*}
+(C2) \hspace{5mm} \alpha\vec{u} = \alpha\left(\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\in V,
+\end{gather*}
+</div>
+<p id="p-27">de modo que a multiplicação de um elemento de V por um escalar é um elemento de \(V\text{.}\)</p>
+<div class="displaymath">
+\begin{align*}
+(A1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{v} + \vec{u}.
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+(A2) \hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} =\amp \left( \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) + \gamma_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \gamma_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\\
+=\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \left(\beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \gamma_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \gamma_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right),\\
+=\amp \vec{u} + (\vec{v} + \vec{w}).
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{gather*}
+(A3) \hspace{5mm} \vec{0} = 0\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 0\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V e \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V.
+\end{gather*}
+</div>
+<div class="displaymath">
+\begin{align*}
+(A4) \hspace{5mm} \forall \amp \,\, \vec{u} = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V,  \,\, -\vec{u} = (-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V \Longrightarrow \vec{x} + (-\vec{x}) = \vec{0}\\
+\vec{u} +\vec{-u} \amp  = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + (-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\\
+\amp = (\alpha_1-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{0}
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+(A5) \hspace{5mm} \alpha(\vec{u} + \vec{v}) =\amp \alpha\left((\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = (\alpha\alpha_1+\alpha\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha\alpha_2+\alpha\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\\
+=\amp \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) left + \alpha\beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\beta_2 \left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) =  \alpha\vec{u} + \alpha\vec{v}
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+(A6) \hspace{5mm} (\alpha + \beta) \vec{u} =\amp (\alpha + \beta)\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha + \beta)\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha\vec{u} + \beta\vec{u},
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+(A7) \hspace{5mm} (\alpha\beta) \vec{u} =\amp (\alpha \beta)\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha \beta)\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp \alpha(\beta\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha(\beta\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha(\beta\vec{u}),
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{gather*}
+(A8) \hspace{5mm} 1 \vec{u} = 1\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 1\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{u} 
+\end{gather*}
+</div>
+<p id="p-28">Portanto \(V\) é um espaço vetorial.</p></article></div>
+<p id="p-29">O código abaixo plota o plano gerado pelos vetores do exemplo anterior.</p>
+<div class="sagecell-sage" id="sage-22"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+point  = np.array([1, 2, 3])
+
+u = np.array([-1,0,1])
+v = np.array([0,1,1])
+
+normal = np.cross(u,v)
+
+# a plane is a*x+b*y+c*z+d=0
+# [a,b,c] is the normal. Thus, we have to calculate
+# d and we're set
+d = -point.dot(normal)
+
+# create x,y
+xx, yy = np.meshgrid(range(10), range(10))
+
+# calculate corresponding z
+z = (-normal[0] * xx - normal[1] * yy - d) * 1. /normal[2]
+
+
+# Create the figure
+fig = plt.figure()
+
+# Add an axes
+ax = fig.add_subplot(111,projection='3d')
+
+# plot the surface
+ax.plot_surface(xx, yy, z, alpha=0.2)
+
+plt.show()
+</script></div>
+<article class="theorem theorem-like" id="theorem-1"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.7</span><span class="period">.</span>
+</h6>
+<p id="p-30">Se \(V\) é um espaço vetorial e \(\vec{x} \in V\text{,}\) então:</p>
+<ol class="decimal">
+<li id="li-9"><p id="p-derived-li-9">\(\displaystyle 0 \vec{x} = \vec{0}, \)</p></li>
+<li id="li-10"><p id="p-derived-li-10">\(\displaystyle \vec{x}  + \vec{y} = \vec{0} \,\, \Longrightarrow \,\, \vec{y} = - \vec{x}, \)</p></li>
+<li id="li-11"><p id="p-derived-li-11">\(\displaystyle (-1) \vec{x} = -\vec{x}, \)</p></li>
+</ol></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><ol class="decimal">
+<li id="li-12"><p id="p-derived-li-12">\(\displaystyle \vec{x} = 1\vec{x} = (1+ 0 )\vec{x} = \vec{x} + 0\vec{x} \Longrightarrow  -\vec{x} + \vec{x} = -\vec{x} + \vec{x} + 0\vec{x} \Longrightarrow \vec{0} = 0\vec{x}, \)</p></li>
+<li id="li-13"><p id="p-derived-li-13">\(\displaystyle \vec{0} = \vec{x} + \vec{y} \Longrightarrow  -\vec{x} + \vec{0} = -\vec{x} + \vec{x} + \vec{y} \Longrightarrow -\vec{x} = \vec{y}, \)</p></li>
+<li id="li-14"><p id="p-derived-li-14">\(\displaystyle \vec{0} = (1-1) \vec{x} = \vec{x}+(-1)\vec{x} \Longrightarrow - \vec{x} + \vec{0} = - \vec{x} + \vec{x} +(-1) \vec{x} \Longrightarrow - \vec{x} = (-1) \vec{x} \)</p></li>
+</ol></article></div>
+<article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like">O conjunto de todas as funções reais definidas no intervalo \((a,b)\text{,}\) que têm derivada de ordem \(n\) contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado \(C^n(a,b)\text{.}\) Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.</article></div>
+<article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like">O conjunto de todas as matrizes reais \(n\times m\) (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.</article></div></section></section></div></main>
+</div>
+</body>
+</html>
