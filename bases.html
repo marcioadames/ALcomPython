@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-10-16T07:55:10-03:00       *-->
+<!--*       on 2023-10-17T09:25:21-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -121,6 +121,7 @@
 <li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
 <li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
 <li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -191,10 +192,10 @@ N(A) = \amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0,
 </div></article><p id="p-46">Para determinar se um conjunto \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in \mathbb{R}^n\) gera \(\mathbb{R}^n\text{,}\) devemos, para qualquer vetor \(\vec{x} = (x_1, x_2, \ldots, x_n)^T \in \mathbb{R}^n\text{,}\) mostrar que existem escalares \(\alpha_1, \alpha_2, \ldots, \alpha_k \) tais que \(\vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_k\vec{v}_k\text{.}\) Se escrevemos as coordenadas para cada um dos vetores do conjunto, \(\vec{v}_i = ({v}_{1i},\ldots,{v}_{ni})^T\text{,}\) obtemos o sistema linear (nas variáveis \(\alpha_1, \alpha_2, \ldots, \alpha_k \)):</p>
 <div class="displaymath">
 \begin{align*}
-\alpha_1\vec{v}_1 +  \ldots + \alpha_k\vec{v}_k = \vec{x} \Leftrightarrow \begin{array}{c} \alpha_1{v}_{11} +  \ldots + \alpha_k {v}_{1k} \amp  =  x_1\\
+\alpha_1\vec{v}_1 +  \ldots + \alpha_k\vec{v}_k = \vec{x} \Leftrightarrow \left\{\begin{array}{c} \alpha_1{v}_{11} +  \ldots + \alpha_k {v}_{1k} \amp  =  x_1\\
 \alpha_1{v}_{21} +  \ldots + \alpha_k {v}_{2k} \amp  =  x_2\\
 \vdots \amp  =  \vdots\\
-\alpha_1{v}_{n1} +  \ldots + \alpha_k {v}_{nk} \amp =  x_n \end{array}\\
+\alpha_1{v}_{n1} +  \ldots + \alpha_k {v}_{nk} \amp =  x_n \end{array}\right.\\
 \Leftrightarrow \left(\begin{array}{c} {v}_{11} \amp  \ldots \amp {v}_{1k} \\
 v_{21} \amp  \ldots \amp {v}_{2k}\\
 \vdots \amp \vdots \amp \vdots\\
@@ -333,7 +334,9 @@ v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp 
 </ol>
 <p class="continuation">Alternativamente, dizemos que \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) formam uma base para \(V\text{.}\)</p></article><article class="example example-like" id="example-12"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-12"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.15</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like">Para verificarmos que \(\vec{i}, \vec{j}, \vec{k}\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <p id="p-69">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like">Para verificarmos que \(\vec{i}, \vec{j}, \vec{k}\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <ol class="decimal">
+<li id="li-44">
+<p id="p-69">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
 <div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \vec{0}
@@ -344,12 +347,17 @@ v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp 
 \begin{equation*}
 \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =0, \\ \alpha_2 = 0, \\ \alpha_3 = 0. \end{array}
 \end{equation*}
-</div> <p id="p-70">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{i}, \vec{j}, \vec{k}\text{,}\) o que ocorre de fato pois</p>
+</div>
+</li>
+<li id="li-45">
+<p id="p-70">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{i}, \vec{j}, \vec{k}\text{,}\) o que ocorre de fato pois</p>
 <div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} 
 \end{equation*}
-</div> De modo que \(\{\vec{i},\vec{j},\vec{k}\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article></div>
+</div>
+</li>
+</ol> De modo que \(\{\vec{i},\vec{j},\vec{k}\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article></div>
 <p id="p-71">Se \(\vec{u}_1, \vec{u}_2\) formam uma base para um espaço vetorial, podemos escrever cada vetor desse espaço como combinação linear dos vetores da base de uma única forma. O código a seguir plota uma base {u1, u2}, um vetor v, faz um print das coordenadas de v nessa base e ilustra o produto das coordenadas com os respectivos vetores da base (cuja soma resulta em v).</p>
 <div class="sagecell-sage" id="sage-25"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
@@ -402,25 +410,30 @@ plt.show()
 </script></div>
 <article class="example example-like" id="example-13"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-13"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like">Para verificarmos que \(\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <p id="p-72">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like">Para verificarmos que \(\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)^T\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <ol class="decimal">
+<li id="li-46">
+<p id="p-72">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
 <div class="displaymath">
 \begin{equation*}
-\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
+\alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \alpha_3 \vec{v}_3 = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
 \end{equation*}
 </div>
 <p class="continuation">é \(\alpha_1 = \alpha_2 = \alpha_3 =0,\) para verificarmos isso, escrevemos o sistema acima na forma matricial</p>
 <div class="displaymath">
 \begin{equation*}
-\left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+\left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
 \end{equation*}
 </div>
 <p class="continuation">e verificamos que esse sistema admite solução única pois a matriz</p>
 <div class="displaymath">
 \begin{equation*}
-A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)
+A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
 \end{equation*}
 </div>
-<p class="continuation">tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p> <p id="p-73">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{v}_1, \vec{v}_2, \vec{v}_3\text{,}\) o que ocorre de fato pois, escrevendo o sistema acima na forma matricial</p>
+<p class="continuation">tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p>
+</li>
+<li id="li-47">
+<p id="p-73">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{v}_1, \vec{v}_2, \vec{v}_3\text{,}\) o que ocorre de fato pois, escrevendo o sistema acima na forma matricial</p>
 <div class="displaymath">
 \begin{equation*}
 \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix},
@@ -429,10 +442,12 @@ A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \a
 <p class="continuation">verificamos que esse sistema admite solução (\(\vec{\alpha} = A^{-1} \vec{x}\)) para qualquer \(\vec{x} \in \mathbb{R}^3\text{,}\)  pois a matriz</p>
 <div class="displaymath">
 \begin{equation*}
-A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)
+A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
 \end{equation*}
 </div>
-<p class="continuation">é tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p> De modo que \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article></div>
+<p class="continuation">é tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p>
+</li>
+</ol> De modo que \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article></div>
 <article class="example example-like" id="example-14"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-14"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.17</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like">Para verificarmos que \(\vec{v}_1 = (\sqrt{2}/2,-\sqrt{2}/2,0)^T, \vec{v}_2 = (\sqrt{3}/3,\sqrt{3}/3,\sqrt{3}/3)^T, \vec{v}_3 = (\sqrt{6}/6,\sqrt{6}/6,-2\sqrt{6}/6)\) formam uma base para \(\mathbb{R}^3\text{,}\) observamos que a matriz<div class="displaymath">
@@ -682,7 +697,152 @@ V = np.array([[0, 2, -1],
 
 # printing the base change matrix
 print(np.linalg.inv(V).dot(U))
-</script></div></section></section></div></main>
+</script></div></section><section class="subsection" id="esp_linha"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.5</span> <span class="title">Espaço Linha e Espaço Coluna</span>
+</h3>
+<article class="definition definition-like" id="definition-11"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.37</span><span class="period">.</span>
+</h6>
+<p id="p-90">Seja \(A\) uma matriz \(m \times n\text{.}\) O subespaço de \(\mathbb{R}^{1 \times n}\) coberto pelos vetores linha de \(A\) é chamado de de espaço linha de \(A\text{.}\) O subespaço de \(\mathbb{R}^m\) coberto pelos vetores coluna de \(A\) é chamado de espaço coluna de \(A\text{.}\)</p></article><article class="example example-like" id="example-18"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-18"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.38</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-18"><article class="example example-like">Para a matriz<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0\end{pmatrix}\text{,}
+\end{equation*}
+</div>o espaço linha é formado pelas triplas da forma:<div class="displaymath">
+\begin{equation*}
+\alpha_1 (1, 0, 0) + \alpha_2 (0, 1, 0) = (\alpha_1, \alpha_2, 0)\text{,}
+\end{equation*}
+</div>ou seja, é igual ao \(Span((1, 0, 0),(0, 1, 0))\text{.}\) O espaço coluna é formado pelos vetores da forma:<div class="displaymath">
+\begin{equation*}
+\alpha_1 \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \alpha_1 \\ \alpha_2 \end{pmatrix}\text{,}
+\end{equation*}
+</div>ou seja, é igual ao \(Span\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right)\text{.}\)</article></div>
+<article class="example example-like" id="example-19"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.39</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like">Para a matriz<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
+1 \amp 0 \amp -1 \amp 1\\
+1 \amp 1 \amp 1 \amp 0\\
+1 \amp 0 \amp -1 \amp 1\end{pmatrix}\text{,}
+\end{equation*}
+</div>temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:<div class="displaymath">
+\begin{equation*}
+\alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 0) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, 0)\text{,}
+\end{equation*}
+</div>ou seja, é igual ao \(Span((1, 1, 1, 0),(1, 0, -1, 0))\text{.}\) Denotando \(\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4\) para as colunas de \(A\text{,}\) observamos que \(\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2\) e \(\vec{a}_4 = \vec{a}_1 - \vec{a}_2\) e o espaço coluna é formado pelos vetores da forma:<div class="displaymath">
+\begin{equation*}
+\alpha_1 \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \alpha_1 + \alpha_2 \\ \alpha_1 \\ \alpha_1 + \alpha_2 \\ \alpha_1 \end{pmatrix}\text{,}
+\end{equation*}
+</div>ou seja, é igual ao \(Span\left(\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} \right)\text{.}\)</article></div>
+<article class="theorem theorem-like" id="theorem-6"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.40</span><span class="period">.</span>
+</h6>Duas matrizes equivalentes por linhas têm o mesmo espaço linha.</article><article class="hiddenproof" id="proof-10"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-10"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-10"><article class="hiddenproof">A completar.</article></div>
+<article class="definition definition-like" id="definition-12"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.41</span><span class="period">.</span>
+</h6>
+<p id="p-91">O posto (rank em inglês) de uma matriz \(A\text{,}\) denotado \(\mbox{posto}(A)\) ou \(\mbox{rank}(A)\text{,}\) é a dimensão do espaço linha<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 4 </sup></a> de \(A\text{.}\)</p>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">ou do espaço coluna, pois, ambas são iguais</div></div></article><article class="remark remark-like" id="remark-7"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">8.42</span><span class="period">.</span>
+</h6>O posto de uma matriz \(A\) é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.43</span><span class="period">.</span>
+</h6>A dimensão do espaço linha de uma matriz \(A^{m \times n}\) é igual à dimensão do seu espaço coluna.</article><article class="hiddenproof" id="proof-11"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof">A completar.</article></div>
+<article class="remark remark-like" id="remark-8"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">8.44</span><span class="period">.</span>
+</h6>As colunas da matriz \(A\) na forma escalonada não formam uma base para o espaço coluna de\(A\text{,}\) apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de \(A\text{.}\)</article><article class="remark remark-like" id="remark-9"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">8.45</span><span class="period">.</span>
+</h6>O espaço linha de \(A\) é igual ao espaço coluna de \(A^T\) (se transpormos os vetores).</article><article class="exercise exercise-like" id="exercise-16"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-16"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.46</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-16"><article class="exercise exercise-like">Determine o posto da matriz<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
+1 \amp 1 \amp -1 \amp 1 \amp 2\\
+1 \amp 1 \amp 1 \amp 0 \amp -2\\
+1 \amp 1 \amp -1 \amp 1 \amp 2\end{pmatrix}
+\end{equation*}
+</div>e bases para seu espaço linha e espaço coluna.</article></div>
+<article class="exercise exercise-like" id="exercise-17"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-17"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.47</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-17"><article class="exercise exercise-like">Determine o posto da matriz<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
+1 \amp -1 \amp -1 \amp 1 \amp 2\\
+1 \amp 1 \amp 1 \amp 2 \amp -2\\
+1 \amp -1 \amp -1 \amp 1 \amp 2\end{pmatrix}
+\end{equation*}
+</div>e bases para seu espaço linha e espaço coluna.</article></div>
+<p id="p-92">O código abaixo permite colocar uma matriz na forma escalonada.</p>
+<div class="sagecell-sage" id="sage-28"><script type="text/x-sage"># Write an array representing the augmented matrix
+import numpy as np
+import fractions
+np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+
+# inputing the matrices
+
+A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
+I = np.identity(4)
+AI = np.concatenate((A, I), axis=1)
+
+#Step by step Gaussian Elimination:
+
+def Gaussian_elimination(A,prin=True):
+    a=0
+    if prin==True:
+        print('A='+str(A))
+    for j in range(A.shape[1]-1): #search pivot in each column
+        b=0
+        for i in range(a,A.shape[0]):
+            if A[i,j] != 0: #choose row with not null pivot
+                if a !=i:
+                    A[[a,i]]=A[[i,a]]
+                    if prin==True:
+                        print('~'+str(A))
+                if A[a,j]!=1:
+                    A[a]=A[a]/A[a,j]
+                    if prin==True:
+                        print('~'+str(A))
+                a=a+1
+                b=1
+                break
+        if b==1:
+            for i in range(a,A.shape[0]):
+                if A[i,j] != 0:
+                    A[i]=A[i]-A[a-1]*A[i,j]
+                if prin==True:
+                    print('~'+str(A))
+    return A
+
+    def Gauss_Jordan(A,prin=True):
+        B=Gaussian_elimination(A,prin)
+        #print('jordan')
+        a=0
+        for i in range(A.shape[0]): #search pivot in each line
+            b=0
+            for j in range(A.shape[1]):
+                if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                    b=j
+                    for k in range(B.shape[0]-i-1):
+                        B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                        if prin==True:
+                                print('~'+str(B))                
+        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+        return B
+    B = Gauss_Jordan(AI)
+</script></div>
+<article class="remark remark-like" id="remark-10"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">8.48</span><span class="period">.</span>
+</h6>Um sistema linear \(A\vec{x} = \vec{b}\) tem solução se, e somente se, \(\vec{b}\) está no espaço coluna de \(A\text{.}\)</article><article class="definition definition-like" id="definition-13"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.49</span><span class="period">.</span>
+</h6>
+<p id="p-93">A nulidade de uma matriz \(A\text{,}\) denotado \(\mbox{nul}(A)\text{,}\) é a dimensão do seu espaço nulo.</p></article><article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.50</span><span class="period">.</span><span class="space"> </span><span class="title">do núcleo e da imagem.</span>
+</h6>Para qualquer matriz \(A^{m \times n}\) vale:<div class="displaymath">
+\begin{equation*}
+\mbox{posto} (A) + \mbox{nul}(A) = n.
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-12"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof">A completar.</article></div></section></section></div></main>
 </div>
 </body>
 </html>

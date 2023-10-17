@@ -1488,10 +1488,10 @@ print(np.linalg.inv(A))
                 <p>
                     Para determinar se um conjunto <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in \mathbb{R}^n</m> gera <m>\mathbb{R}^n</m>, devemos, para qualquer vetor <m>\vec{x} = (x_1, x_2, \ldots, x_n)^T \in \mathbb{R}^n</m>, mostrar que existem escalares <m>\alpha_1, \alpha_2, \ldots, \alpha_k </m> tais que <m>\vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_k\vec{v}_k</m>. Se escrevemos as coordenadas para cada um dos vetores do conjunto, <m>\vec{v}_i = ({v}_{1i},\ldots,{v}_{ni})^T</m>, obtemos o sistema linear (nas variáveis <m>\alpha_1, \alpha_2, \ldots, \alpha_k </m>):
                     <md>
-                        <mrow>\alpha_1\vec{v}_1 +  \ldots + \alpha_k\vec{v}_k = \vec{x} \Leftrightarrow \begin{array}{c} \alpha_1{v}_{11} +  \ldots + \alpha_k {v}_{1k} \amp  =  x_1\\
+                        <mrow>\alpha_1\vec{v}_1 +  \ldots + \alpha_k\vec{v}_k = \vec{x} \Leftrightarrow \left\{\begin{array}{c} \alpha_1{v}_{11} +  \ldots + \alpha_k {v}_{1k} \amp  =  x_1\\
                         \alpha_1{v}_{21} +  \ldots + \alpha_k {v}_{2k} \amp  =  x_2\\
                         \vdots \amp  =  \vdots\\
-                        \alpha_1{v}_{n1} +  \ldots + \alpha_k {v}_{nk} \amp =  x_n \end{array}</mrow>
+                        \alpha_1{v}_{n1} +  \ldots + \alpha_k {v}_{nk} \amp =  x_n \end{array}\right.</mrow>
                         <mrow>\Leftrightarrow \left(\begin{array}{c} {v}_{11} \amp  \ldots \amp {v}_{1k} \\
                         v_{21} \amp  \ldots \amp {v}_{2k}\\
                         \vdots \amp \vdots \amp \vdots\\
@@ -1720,7 +1720,7 @@ print(np.linalg.inv(A))
                 <example>
                     <statement>
                         Para verificarmos que <m>\vec{i}, \vec{j}, \vec{k}</m> formam uma base para <m>\mathbb{R}^3</m>, precisamos verificar que:
-                        <il>
+                        <ol>
                             <li><p>
                                 esses vetores são L.I. Para isso precisamos mostrar que a única solução de
                                 <me>
@@ -1739,7 +1739,7 @@ print(np.linalg.inv(A))
                                 esses vetores geram <m>\mathbb{R}^3</m>. Para isso precisamos mostrar que qualquer vetor <m>\vec{x} = (x, y, z)^T \in \mathbb{R}^3</m> pode ser escrito como uma combinação linear de <m>\vec{i}, \vec{j}, \vec{k}</m>, o que ocorre de fato pois
                                 <me>\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} </me>
                             </p></li>
-                        </il>
+                        </ol>
                         De modo que <m>\{\vec{i},\vec{j},\vec{k}\}</m> é uma base para <m>\mathbb{R}^3</m>.
                     </statement>
                 </example>
@@ -1806,12 +1806,12 @@ print(np.linalg.inv(A))
 
                 <example>
                     <statement>
-                        Para verificarmos que <m>\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)</m> formam uma base para <m>\mathbb{R}^3</m>, precisamos verificar que:
-                        <il>
+                        Para verificarmos que <m>\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)^T</m> formam uma base para <m>\mathbb{R}^3</m>, precisamos verificar que:
+                        <ol>
                             <li><p>
                                 esses vetores são L.I. Para isso precisamos mostrar que a única solução de
                                 <me>
-                                    \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
+                                    \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \alpha_3 \vec{v}_3 = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
                                 </me>
                                 é 
                                 <m>
@@ -1819,11 +1819,11 @@ print(np.linalg.inv(A))
                                 </m>
                                 para verificarmos isso, escrevemos o sistema acima na forma matricial
                                 <me>
-                                    \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+                                    \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
                                 </me>
                                 e verificamos que esse sistema admite solução única pois a matriz 
                                 <me>
-                                    A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)
+                                    A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
                                 </me>
                                 tem determinante <m>\det(A) = 6 \neq 0</m> e é, portanto inversível.
                             </p></li>
@@ -1834,11 +1834,11 @@ print(np.linalg.inv(A))
                                 </me>
                                 verificamos que esse sistema admite solução (<m>\vec{\alpha} = A^{-1} \vec{x}</m>) para qualquer <m>\vec{x} \in \mathbb{R}^3</m>,  pois a matriz 
                                 <me>
-                                    A = \left(\begin{array}{ccc} 1 \amp -1 \amp 1 \\ 1 \amp 2 \amp 1 \\ -1 \amp 0 \amp 1 \end{array}\right)
+                                    A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
                                 </me>
                                 é tem determinante <m>\det(A) = 6 \neq 0</m> e é, portanto inversível.
                             </p></li>
-                        </il>
+                        </ol>
                         De modo que <m>\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}</m> é uma base para <m>\mathbb{R}^3</m>.
                     </statement>
                 </example>
@@ -2243,6 +2243,261 @@ print(np.linalg.inv(A))
                         Base change matrix
                     </output>
                 </sage>
+
+
+
+            </subsection>
+
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="esp_linha">
+                <title>Espaço Linha e Espaço Coluna</title>
+
+
+                <definition>
+                    <notation>
+                      <usage><m>V</m></usage>
+                      <description>espaço vetorial</description>
+                    </notation>
+                  
+                    <statement>
+                        <p>
+                            Seja <m>A</m> uma matriz <m>m \times n</m>. O subespaço de <m>\mathbb{R}^{1 \times n}</m> coberto pelos vetores linha de <m>A</m> é chamado de de <bf>espaço linha</bf> de <m>A</m>. O subespaço de <m>\mathbb{R}^m</m> coberto pelos vetores coluna de <m>A</m> é chamado de <bf>espaço coluna</bf> de <m>A</m>.
+                        </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    <statement>
+                        Para a matriz
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 0 \amp 0 \\
+                            0 \amp 1 \amp 0\end{pmatrix}
+                        </me>,
+                        o espaço linha é formado pelas triplas da forma:
+                        <me>
+                            \alpha_1 (1, 0, 0) + \alpha_2 (0, 1, 0) = (\alpha_1, \alpha_2, 0)
+                        </me>,
+                        ou seja, é igual ao <m>Span((1, 0, 0),(0, 1, 0))</m>.
+
+                        O espaço coluna é formado pelos vetores da forma:
+                        <me>
+                            \alpha_1 \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \alpha_1 \\ \alpha_2 \end{pmatrix}
+                        </me>,
+                        ou seja, é igual ao <m>Span\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right)</m>.
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        Para a matriz
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
+                            1 \amp 0 \amp -1 \amp 1\\
+                            1 \amp 1 \amp 1 \amp 0\\
+                            1 \amp 0 \amp -1 \amp 1\end{pmatrix}
+                        </me>,
+                        temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:
+                        <me>
+                            \alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 0) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, 0)
+                        </me>,
+                        ou seja, é igual ao <m>Span((1, 1, 1, 0),(1, 0, -1, 0))</m>.
+
+                        Denotando <m>\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4</m> para as colunas de <m>A</m>, observamos que <m>\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2</m> e <m>\vec{a}_4 = \vec{a}_1 - \vec{a}_2</m> e o espaço coluna é formado pelos vetores da forma:
+                        <me>
+                            \alpha_1 \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \alpha_1 + \alpha_2 \\ \alpha_1 \\ \alpha_1 + \alpha_2 \\ \alpha_1 \end{pmatrix}
+                        </me>,
+                        ou seja, é igual ao <m>Span\left(\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} \right)</m>.
+                    </statement>
+                </example>
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Duas matrizes equivalentes por linhas têm o mesmo espaço linha.
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+
+                <definition>
+                    <notation>
+                      <usage><m>\mbox{rank}</m></usage>
+                      <description>posto</description>
+                    </notation>
+                  
+                    <statement>
+                        <p>
+                            O <bf>posto</bf> (<it>rank</it> em inglês) de uma matriz <m>A</m>, denotado <m>\mbox{posto}(A)</m> ou <m>\mbox{rank}(A)</m>, é a dimensão do espaço linha<fn>ou do espaço coluna, pois, ambas são iguais</fn> de <m>A</m>.
+                        </p>
+                    </statement>
+                </definition>
+
+
+                <remark>
+                    O posto de uma matriz <m>A</m> é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de <m>A</m>.
+                </remark>
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    A dimensão do espaço linha de uma matriz <m>A^{m \times n}</m> é igual à dimensão do seu espaço coluna.
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+                <remark>
+                    As colunas da matriz <m>A</m> na forma escalonada <bf>não formam uma base para o espaço coluna de</bf> <m>A</m>, apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de <m>A</m>.
+                </remark>
+
+                <remark>
+                    O espaço linha de <m>A</m> é igual ao espaço coluna de <m>A^T</m> (se transpormos os vetores).
+                </remark>
+
+                <exercise>
+                    <statement>
+                        Determine o posto da matriz
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
+                            1 \amp 1 \amp -1 \amp 1 \amp 2\\
+                            1 \amp 1 \amp 1 \amp 0 \amp -2\\
+                            1 \amp 1 \amp -1 \amp 1 \amp 2\end{pmatrix}
+                        </me>
+                        e bases para seu espaço linha e espaço coluna.
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        Determine o posto da matriz
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
+                            1 \amp -1 \amp -1 \amp 1 \amp 2\\
+                            1 \amp 1 \amp 1 \amp 2 \amp -2\\
+                            1 \amp -1 \amp -1 \amp 1 \amp 2\end{pmatrix}
+                        </me>
+                        e bases para seu espaço linha e espaço coluna.
+                    </statement>
+                </exercise>
+
+
+                <p>
+                    O código abaixo permite colocar uma matriz na forma escalonada.
+                </p> 
+
+                <sage>
+                    <input>
+                    # Write an array representing the augmented matrix
+                    import numpy as np
+                    import fractions
+                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+
+                    # inputing the matrices
+
+                    A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
+                    I = np.identity(4)
+                    AI = np.concatenate((A, I), axis=1)
+
+                    #Step by step Gaussian Elimination:
+
+                    def Gaussian_elimination(A,prin=True):
+                        a=0
+                        if prin==True:
+                            print('A='+str(A))
+                        for j in range(A.shape[1]-1): #search pivot in each column
+                            b=0
+                            for i in range(a,A.shape[0]):
+                                if A[i,j] != 0: #choose row with not null pivot
+                                    if a !=i:
+                                        A[[a,i]]=A[[i,a]]
+                                        if prin==True:
+                                            print('~'+str(A))
+                                    if A[a,j]!=1:
+                                        A[a]=A[a]/A[a,j]
+                                        if prin==True:
+                                            print('~'+str(A))
+                                    a=a+1
+                                    b=1
+                                    break
+                            if b==1:
+                                for i in range(a,A.shape[0]):
+                                    if A[i,j] != 0:
+                                        A[i]=A[i]-A[a-1]*A[i,j]
+                                    if prin==True:
+                                        print('~'+str(A))
+                        return A
+
+                        def Gauss_Jordan(A,prin=True):
+                            B=Gaussian_elimination(A,prin)
+                            #print('jordan')
+                            a=0
+                            for i in range(A.shape[0]): #search pivot in each line
+                                b=0
+                                for j in range(A.shape[1]):
+                                    if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                                        b=j
+                                        for k in range(B.shape[0]-i-1):
+                                            B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                            if prin==True:
+                                                    print('~'+str(B))                
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            return B
+                        B = Gauss_Jordan(AI)
+                    </input>
+                    <output>
+                        solution
+                    </output>
+                </sage>
+
+
+                <remark>
+                    Um sistema linear <m>A\vec{x} = \vec{b}</m> tem solução se, e somente se, <m>\vec{b}</m> está no espaço coluna de <m>A</m>.
+                </remark>
+
+                <definition>
+                    <notation>
+                      <usage><m>\mbox{nul}</m></usage>
+                      <description>nulidade</description>
+                    </notation>
+                  
+                    <statement>
+                        <p>
+                            A <bf>nulidade</bf> de uma matriz <m>A</m>, denotado <m>\mbox{nul}(A)</m>, é a dimensão do seu espaço nulo.
+                        </p>
+                    </statement>
+                </definition>
+
+
+                <theorem>
+                    <title> do núcleo e da imagem</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Para qualquer matriz <m>A^{m \times n}</m> vale:
+                    <me>
+                        \mbox{posto} (A) + \mbox{nul}(A) = n.
+                    </me>
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+
+
 
 
 
