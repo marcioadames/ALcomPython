@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-10-17T15:39:24-03:00       *-->
+<!--*       on 2023-10-17T15:46:42-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -129,11 +129,11 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="espacos-vetoriais"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6</span> <span class="title">Espaços Vetoriais</span>
 </h2>
-<p id="p-19">O conceito de Espaço Vetorial trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de vetores, assim como \(\mathbb{R}^3\) com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de \(\mathbb{R}^n\) e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em \(\mathbb{R}^n\) e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em \(\mathbb{R}^3\text{.}\)</p>
+<p id="p-20">O conceito de Espaço Vetorial trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de vetores, assim como \(\mathbb{R}^3\) com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de \(\mathbb{R}^n\) e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em \(\mathbb{R}^n\) e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em \(\mathbb{R}^3\text{.}\)</p>
 <section class="subsection" id="Rn_vecs"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.1</span> <span class="title">Vetores em \(\mathbb{R}^n\)</span>
 </h3>
-<p id="p-20">Um vetor \(\vec{x}\) representa o conjunto de todos os segmentos orientados em \(\mathbb{R}^3\) com o mesmo comprimento, direção e sentido.</p>
+<p id="p-21">Um vetor \(\vec{x}\) representa o conjunto de todos os segmentos orientados em \(\mathbb{R}^3\) com o mesmo comprimento, direção e sentido.</p>
 <div class="sagecell-sage" id="sage-19"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt #library for plots
 import random #library for random number generation
@@ -171,8 +171,8 @@ for xy in zip(starting_points_x[0:3], starting_points_y[0:3]):
 
 plt.show()
 </script></div>
-<p id="p-21">Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor \(\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)\) e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.</p>
-<p id="p-22">O comprimento ou a norma de um vetor \(\vec{x} = \left(x_1, \ldots, x_n\right)^T\) em \(\mathbb{R}^n\) pode ser calculado por</p>
+<p id="p-22">Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor \(\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)\) e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.</p>
+<p id="p-23">O comprimento ou a norma de um vetor \(\vec{x} = \left(x_1, \ldots, x_n\right)^T\) em \(\mathbb{R}^n\) pode ser calculado por</p>
 <div class="displaymath">
 \begin{equation*}
 \|\vec{x}\| = \sqrt{x_1^2 + x^2+ \cdots + x_n^2}\text{.}
@@ -233,7 +233,7 @@ plt.show()
 <article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.1</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like">Calcule o comprimento de três representantes de um vetor \(\vec{x} \in \mathbb{R}^2\) gerados pelo códico acima.</article></div>
-<p id="p-23">Para vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x} = (x_1, \ldots, x_n)^T\) e \(\vec{y} = (y_1, \ldots, y_n)^T\text{,}\)e um escalar \(\alpha \in \mathbb{R}\text{,}\) definimos as operações fundamentais de multiplicação por escalar e adição de vetores por:</p>
+<p id="p-24">Para vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x} = (x_1, \ldots, x_n)^T\) e \(\vec{y} = (y_1, \ldots, y_n)^T\text{,}\)e um escalar \(\alpha \in \mathbb{R}\text{,}\) definimos as operações fundamentais de multiplicação por escalar e adição de vetores por:</p>
 <div class="displaymath">
 \begin{equation*}
 \alpha \cdot \vec{x} = \alpha\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} :=  \begin{pmatrix}\alpha x_1\\ \vdots \\ \alpha x_n\end{pmatrix}; \,\,\,\,\, \vec{x} + \vec{y} = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} + \begin{pmatrix}y_1\\ \vdots \\ y_n\end{pmatrix} := \begin{pmatrix}x_1+y_1\\ \vdots \\ x_n+y_n\end{pmatrix}
@@ -292,11 +292,11 @@ plt.show()
 </script></div></section><section class="subsection" id="Esp_vet"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2</span> <span class="title">Espaços Vetoriais</span>
 </h3>
-<p id="p-24">Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do \(\mathbb{R}^n\text{,}\) de modo operarmos com eles de modo semelhante ao \(\mathbb{R}^n\text{,}\) todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.</p>
+<p id="p-25">Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do \(\mathbb{R}^n\text{,}\) de modo operarmos com eles de modo semelhante ao \(\mathbb{R}^n\text{,}\) todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.</p>
 <article class="definition definition-like" id="definition-1"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.2</span><span class="period">.</span>
 </h6>
-<p id="p-25">Seja \(E\) um conjunto de escalares (usualmente \(\mathbb{C}\) ou \(\mathbb{C}\text{,}\) mas qualquer corpo serviria). Um espaço vetorial \((V,E,\oplus,\odot)\) é um conjunto sobre o qual estão definidas duas operações:</p>
+<p id="p-26">Seja \(E\) um conjunto de escalares (usualmente \(\mathbb{C}\) ou \(\mathbb{C}\text{,}\) mas qualquer corpo serviria). Um espaço vetorial \((V,E,\oplus,\odot)\) é um conjunto sobre o qual estão definidas duas operações:</p>
 <div class="displaymath">
 \begin{align*}
 \oplus: \amp V \times V: \to V, \\
@@ -345,12 +345,12 @@ plt.show()
 =\amp (\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \in V,
 \end{align*}
 </div>
-<p id="p-26">de modo que a soma de dois elementos de V é um elemento de \(V\)</p>.<div class="displaymath">
+<p id="p-27">de modo que a soma de dois elementos de V é um elemento de \(V\)</p>.<div class="displaymath">
 \begin{gather*}
 (C2) \hspace{5mm} \alpha\vec{u} = \alpha\left(\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\in V,
 \end{gather*}
 </div>
-<p id="p-27">de modo que a multiplicação de um elemento de V por um escalar é um elemento de \(V\text{.}\)</p>
+<p id="p-28">de modo que a multiplicação de um elemento de V por um escalar é um elemento de \(V\text{.}\)</p>
 <div class="displaymath">
 \begin{align*}
 (A1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
@@ -399,8 +399,8 @@ plt.show()
 (A8) \hspace{5mm} 1 \vec{u} = 1\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 1\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{u} 
 \end{gather*}
 </div>
-<p id="p-28">Portanto \(V\) é um espaço vetorial.</p></article></div>
-<p id="p-29">O código abaixo plota o plano gerado pelos vetores do exemplo anterior.</p>
+<p id="p-29">Portanto \(V\) é um espaço vetorial.</p></article></div>
+<p id="p-30">O código abaixo plota o plano gerado pelos vetores do exemplo anterior.</p>
 <div class="sagecell-sage" id="sage-22"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -438,7 +438,7 @@ plt.show()
 <article class="theorem theorem-like" id="theorem-1"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.7</span><span class="period">.</span>
 </h6>
-<p id="p-30">Se \(V\) é um espaço vetorial e \(\vec{x} \in V\text{,}\) então:</p>
+<p id="p-31">Se \(V\) é um espaço vetorial e \(\vec{x} \in V\text{,}\) então:</p>
 <ol class="decimal">
 <li id="li-9"><p id="p-derived-li-9">\(\displaystyle 0 \vec{x} = \vec{0}, \)</p></li>
 <li id="li-10"><p id="p-derived-li-10">\(\displaystyle \vec{x}  + \vec{y} = \vec{0} \,\, \Longrightarrow \,\, \vec{y} = - \vec{x}, \)</p></li>

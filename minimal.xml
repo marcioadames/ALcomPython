@@ -66,6 +66,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
             <abstract>
                 <p>Notas de aula de um curso de Álgebra Linear com python. Trabalho em progresso...</p>
+                <p>This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International license (see details here https://creativecommons.org/licenses/by-nc/4.0/legalcode.en)</p>
             </abstract>
 
         </frontmatter>
