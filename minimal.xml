@@ -266,43 +266,41 @@ for i in range(B.shape[0]):
 
             <sage>
                 <input>
-# Write an array representing the augmented matrix
-import numpy as np
-import fractions #for fractions (comment the line below, for decimals)
-np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                    # Write an array representing the augmented matrix
+                import numpy as np
+                import fractions
+                A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
 
 
-A= np.array([[1.,2.,1.,3.],[3.,-1.,-3.,-1.],[2.,3.,1.,4.]])
+                #Step by step Gaussian Elimination:
 
-
-#Step by step Gaussian Elimination:
-
-def Gaussian_elimination(A,prin=True):
-    a=0
-    if prin==True:
-        print('A='+str(A))
-    for j in range(A.shape[1]-1): #search pivot in each column
-        b=0
-        for i in range(a,A.shape[0]):
-            if A[i,j] != 0: #choose row with not null pivot
-                if a !=i:
-                    A[[a,i]]=A[[i,a]]
+                def Gaussian_elimination(A,prin=True):
+                    a=0
                     if prin==True:
-                        print('~'+str(A))
-                if A[a,j]!=1:
-                    A[a]=A[a]/A[a,j]
-                    if prin==True:
-                        print('~'+str(A))
-                a=a+1
-                b=1
-                break
-        if b==1:
-            for i in range(a,A.shape[0]):
-                if A[i,j] != 0:
-                    A[i]=A[i]-A[a-1]*A[i,j]
-                if prin==True:
-                    print('~'+str(A))
-    return A
+                        print('A='+str(A))
+                    for j in range(A.shape[1]): #search pivot in each column
+                        b=0
+                        for i in range(a,A.shape[0]):
+                            if A[i,j] != 0: #choose row with not null pivot
+                                if a !=i:
+                                    A[[a,i]]=A[[i,a]]
+                                    if prin==True:
+                                        print('~'+str(A))
+                                if A[a,j]!=1:
+                                    A[a]=A[a]/A[a,j]
+                                    if prin==True:
+                                        print('~'+str(A))
+                                a=a+1
+                                b=1
+                                break
+                        if b==1:
+                            for i in range(a,A.shape[0]):
+                                if A[i,j] != 0:
+                                    A[i]=A[i]-A[a-1]*A[i,j]
+                                if prin==True:
+                                    print('~'+str(A))
+                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                    return A
                 </input>
                 <output>
                 solution
@@ -541,39 +539,41 @@ print(np.linalg.inv(A))
 
                         <sage>
                             <input>
-            # Write an array representing the augmented matrix
-            import numpy as np
-            import fractions
-            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-
-            #Step by step Gaussian Elimination:
-
-            def Gaussian_elimination(A,prin=True):
-                a=0
-                if prin==True:
-                    print('A='+str(A))
-                for j in range(A.shape[1]-1): #search pivot in each column
-                    b=0
-                    for i in range(a,A.shape[0]):
-                        if A[i,j] != 0: #choose row with not null pivot
-                            if a !=i:
-                                A[[a,i]]=A[[i,a]]
-                                if prin==True:
-                                    print('~'+str(A))
-                            if A[a,j]!=1:
-                                A[a]=A[a]/A[a,j]
-                                if prin==True:
-                                    print('~'+str(A))
-                            a=a+1
-                            b=1
-                            break
-                    if b==1:
-                        for i in range(a,A.shape[0]):
-                            if A[i,j] != 0:
-                                A[i]=A[i]-A[a-1]*A[i,j]
-                            if prin==True:
-                                print('~'+str(A))
-                return A
+                                # Write an array representing the augmented matrix
+                                import numpy as np
+                                import fractions
+                                A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
+        
+        
+                                #Step by step Gaussian Elimination:
+        
+                                def Gaussian_elimination(A,prin=True):
+                                    a=0
+                                    if prin==True:
+                                        print('A='+str(A))
+                                    for j in range(A.shape[1]): #search pivot in each column
+                                        b=0
+                                        for i in range(a,A.shape[0]):
+                                            if A[i,j] != 0: #choose row with not null pivot
+                                                if a !=i:
+                                                    A[[a,i]]=A[[i,a]]
+                                                    if prin==True:
+                                                        print('~'+str(A))
+                                                if A[a,j]!=1:
+                                                    A[a]=A[a]/A[a,j]
+                                                    if prin==True:
+                                                        print('~'+str(A))
+                                                a=a+1
+                                                b=1
+                                                break
+                                        if b==1:
+                                            for i in range(a,A.shape[0]):
+                                                if A[i,j] != 0:
+                                                    A[i]=A[i]-A[a-1]*A[i,j]
+                                                if prin==True:
+                                                    print('~'+str(A))
+                                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                    return A
                             </input>
                             <output>
                             solution
@@ -584,26 +584,26 @@ print(np.linalg.inv(A))
                         
                         <sage>
                             <input>
-            A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
-            I = np.identity(4)
-            AI = np.concatenate((A, I), axis=1)
+                                A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
+                                I = np.identity(4)
+                                AI = np.concatenate((A, I), axis=1)
 
-            def Gauss_Jordan(A,prin=True):
-                B=Gaussian_elimination(A,prin)
-                #print('jordan')
-                a=0
-                for i in range(A.shape[0]): #search pivot in each line
-                    b=0
-                    for j in range(A.shape[1]):
-                        if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
-                            b=j
-                            for k in range(B.shape[0]-i-1):
-                                B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
-                                if prin==True:
-                                        print('~'+str(B))                
-                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-                return B
-            B = Gauss_Jordan(AI)
+                                def Gauss_Jordan(A,prin=True):
+                                    B=Gaussian_elimination(A,prin)
+                                    #print('jordan')
+                                    a=0
+                                    for i in range(A.shape[0]): #search pivot in each line
+                                        b=0
+                                        for j in range(A.shape[1]):
+                                            if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                                                b=j
+                                                for k in range(B.shape[0]-i-1):
+                                                    B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                                    if prin==True:
+                                                            print('~'+str(B))                
+                                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                    return B
+                                B = Gauss_Jordan(AI)
                             </input>
                             <output>
                             solution
@@ -2075,7 +2075,7 @@ print(np.linalg.inv(A))
                     <statement>
                         Considere a base <m>U = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}</m> para <m>\mathbb{R}^3</m> e o vetor <m>\vec{v} = (1, -1, 3)^T</m> (na base canônica). As coordenadas de <m>\vec{v}</m> na base <m>U</m> são encontradas resolvendo o sistema
                         <me>
-                            \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = v^\mathcal{U}_1\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + v^\mathcal{U}_2\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} v^\mathcal{U}_3 = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} v^\mathcal{U}_1 \\ v^\mathcal{U}_2 \\ v^\mathcal{U}_3 \end{pmatrix} = \vec{v}^\mathcal{U}.
+                            \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = v^\mathcal{U}_1\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + v^\mathcal{U}_2\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} + v^\mathcal{U}_3 \begin{pmatrix} 2\\ 1 \\ -1 \end{pmatrix}= \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} v^\mathcal{U}_1 \\ v^\mathcal{U}_2 \\ v^\mathcal{U}_3 \end{pmatrix}.
                         </me>
                         Dessa forma
                         <md>
@@ -2304,9 +2304,9 @@ print(np.linalg.inv(A))
                         </me>,
                         temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:
                         <me>
-                            \alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 0) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, 0)
+                            \alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 1) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, \alpha_@)
                         </me>,
-                        ou seja, é igual ao <m>Span((1, 1, 1, 0),(1, 0, -1, 0))</m>.
+                        ou seja, é igual ao <m>Span((1, 1, 1, 0),(1, 0, -1, 1))</m>.
 
                         Denotando <m>\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4</m> para as colunas de <m>A</m>, observamos que <m>\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2</m> e <m>\vec{a}_4 = \vec{a}_1 - \vec{a}_2</m> e o espaço coluna é formado pelos vetores da forma:
                         <me>
@@ -2400,62 +2400,42 @@ print(np.linalg.inv(A))
 
                 <sage>
                     <input>
-                    # Write an array representing the augmented matrix
-                    import numpy as np
-                    import fractions
-                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                        # Write an array representing the augmented matrix
+                        import numpy as np
+                        import fractions
+                        A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
 
-                    # inputing the matrices
 
-                    A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
-                    I = np.identity(4)
-                    AI = np.concatenate((A, I), axis=1)
+                        #Step by step Gaussian Elimination:
 
-                    #Step by step Gaussian Elimination:
-
-                    def Gaussian_elimination(A,prin=True):
-                        a=0
-                        if prin==True:
-                            print('A='+str(A))
-                        for j in range(A.shape[1]-1): #search pivot in each column
-                            b=0
-                            for i in range(a,A.shape[0]):
-                                if A[i,j] != 0: #choose row with not null pivot
-                                    if a !=i:
-                                        A[[a,i]]=A[[i,a]]
-                                        if prin==True:
-                                            print('~'+str(A))
-                                    if A[a,j]!=1:
-                                        A[a]=A[a]/A[a,j]
-                                        if prin==True:
-                                            print('~'+str(A))
-                                    a=a+1
-                                    b=1
-                                    break
-                            if b==1:
-                                for i in range(a,A.shape[0]):
-                                    if A[i,j] != 0:
-                                        A[i]=A[i]-A[a-1]*A[i,j]
-                                    if prin==True:
-                                        print('~'+str(A))
-                        return A
-
-                        def Gauss_Jordan(A,prin=True):
-                            B=Gaussian_elimination(A,prin)
-                            #print('jordan')
+                        def Gaussian_elimination(A,prin=True):
                             a=0
-                            for i in range(A.shape[0]): #search pivot in each line
+                            if prin==True:
+                                print('A='+str(A))
+                            for j in range(A.shape[1]): #search pivot in each column
                                 b=0
-                                for j in range(A.shape[1]):
-                                    if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
-                                        b=j
-                                        for k in range(B.shape[0]-i-1):
-                                            B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                for i in range(a,A.shape[0]):
+                                    if A[i,j] != 0: #choose row with not null pivot
+                                        if a !=i:
+                                            A[[a,i]]=A[[i,a]]
                                             if prin==True:
-                                                    print('~'+str(B))                
-                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-                            return B
-                        B = Gauss_Jordan(AI)
+                                                print('~'+str(A))
+                                        if A[a,j]!=1:
+                                            A[a]=A[a]/A[a,j]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                        a=a+1
+                                        b=1
+                                        break
+                                if b==1:
+                                    for i in range(a,A.shape[0]):
+                                        if A[i,j] != 0:
+                                            A[i]=A[i]-A[a-1]*A[i,j]
+                                        if prin==True:
+                                            print('~'+str(A))
+                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            return A
+                        Gaussian_elimination(A)
                     </input>
                     <output>
                         solution

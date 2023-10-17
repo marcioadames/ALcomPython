@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-10-17T09:25:21-03:00       *-->
+<!--*       on 2023-10-17T15:39:25-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -588,7 +588,7 @@ U = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \en
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.29</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-base_canon_u"><article class="example example-like">Considere a base \(U = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\) para \(\mathbb{R}^3\) e o vetor \(\vec{v} = (1, -1, 3)^T\) (na base canônica). As coordenadas de \(\vec{v}\) na base \(U\) são encontradas resolvendo o sistema<div class="displaymath">
 \begin{equation*}
-\begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = v^\mathcal{U}_1\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + v^\mathcal{U}_2\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} v^\mathcal{U}_3 = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} v^\mathcal{U}_1 \\ v^\mathcal{U}_2 \\ v^\mathcal{U}_3 \end{pmatrix} = \vec{v}^\mathcal{U}.
+\begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = v^\mathcal{U}_1\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + v^\mathcal{U}_2\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} + v^\mathcal{U}_3 \begin{pmatrix} 2\\ 1 \\ -1 \end{pmatrix}= \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} v^\mathcal{U}_1 \\ v^\mathcal{U}_2 \\ v^\mathcal{U}_3 \end{pmatrix}.
 \end{equation*}
 </div>Dessa forma<div class="displaymath">
 \begin{align*}
@@ -730,9 +730,9 @@ A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
 \end{equation*}
 </div>temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:<div class="displaymath">
 \begin{equation*}
-\alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 0) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, 0)\text{,}
+\alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 1) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, \alpha_@)\text{,}
 \end{equation*}
-</div>ou seja, é igual ao \(Span((1, 1, 1, 0),(1, 0, -1, 0))\text{.}\) Denotando \(\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4\) para as colunas de \(A\text{,}\) observamos que \(\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2\) e \(\vec{a}_4 = \vec{a}_1 - \vec{a}_2\) e o espaço coluna é formado pelos vetores da forma:<div class="displaymath">
+</div>ou seja, é igual ao \(Span((1, 1, 1, 0),(1, 0, -1, 1))\text{.}\) Denotando \(\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4\) para as colunas de \(A\text{,}\) observamos que \(\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2\) e \(\vec{a}_4 = \vec{a}_1 - \vec{a}_2\) e o espaço coluna é formado pelos vetores da forma:<div class="displaymath">
 \begin{equation*}
 \alpha_1 \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \alpha_1 + \alpha_2 \\ \alpha_1 \\ \alpha_1 + \alpha_2 \\ \alpha_1 \end{pmatrix}\text{,}
 \end{equation*}
@@ -777,13 +777,8 @@ A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
 <div class="sagecell-sage" id="sage-28"><script type="text/x-sage"># Write an array representing the augmented matrix
 import numpy as np
 import fractions
-np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
 
-# inputing the matrices
-
-A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
-I = np.identity(4)
-AI = np.concatenate((A, I), axis=1)
 
 #Step by step Gaussian Elimination:
 
@@ -791,7 +786,7 @@ def Gaussian_elimination(A,prin=True):
     a=0
     if prin==True:
         print('A='+str(A))
-    for j in range(A.shape[1]-1): #search pivot in each column
+    for j in range(A.shape[1]): #search pivot in each column
         b=0
         for i in range(a,A.shape[0]):
             if A[i,j] != 0: #choose row with not null pivot
@@ -812,24 +807,9 @@ def Gaussian_elimination(A,prin=True):
                     A[i]=A[i]-A[a-1]*A[i,j]
                 if prin==True:
                     print('~'+str(A))
-    return A
-
-    def Gauss_Jordan(A,prin=True):
-        B=Gaussian_elimination(A,prin)
-        #print('jordan')
-        a=0
-        for i in range(A.shape[0]): #search pivot in each line
-            b=0
-            for j in range(A.shape[1]):
-                if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
-                    b=j
-                    for k in range(B.shape[0]-i-1):
-                        B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
-                        if prin==True:
-                                print('~'+str(B))                
         np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-        return B
-    B = Gauss_Jordan(AI)
+    return A
+Gaussian_elimination(A)
 </script></div>
 <article class="remark remark-like" id="remark-10"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">8.48</span><span class="period">.</span>
