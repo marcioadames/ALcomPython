@@ -2488,6 +2488,355 @@ print(np.linalg.inv(A))
         </section>
 
 
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->                                                                                                    
+
+
+
+        <section xml:id="produto_interno">
+            <title>Produto interno e ortogonalidade em <m>\mathbb{R}^n</m>.</title>
+           
+            <intro>
+               <p>
+                Ao tomarmos uma base para um espaço vetorial, buscamos, com frequência, uma base formada por vetores ortogonais (perpendiculares) entre si ou temos apenas alguns vetores e desejamos adicionar outros vetores para "completar" a base. Nessa seção construíremos os conceitos e teoremas necessários para fazer isso em <m>\mathbb{R}^n</m>.
+               </p>
+           </intro>
+           
+            <subsection xml:id="inner_prod">
+            
+               <title>Produto Interno (ou escalar) em <m>\mathbb{R}^n</m></title>
+
+
+               <definition>
+                    <notation>
+                    <usage><m>\langle \vec{x}, \vec{y} \rangle \,\, \mbox{ ou }\,\, \vec{x} \cdot \vec{y}  \,\, \mbox{ ou } \,\, \vec{x}^T\vec{y}</m></usage>
+                    <description>produto interno</description>
+                    </notation>
+                
+                    <statement>
+                        <p>
+                            Dados <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m>\vec{x}=(x_1, x_2, \ldots, x_n)</m>, <m>\vec{y}=(y_1, y_2, \ldots, y_n)</m>, definimos o <bf>produto interno</bf> (ou <bf>produto escalar</bf>) de <m>\vec{x}</m> e <m>\vec{y}</m> como
+                            <me>
+                                \langle \vec{x}, \vec{y}\rangle = x_1y_1+x_2y_2 + \cdots +x_ny_n.
+                            </me>
+                            O produto interno também é denotado por <m>\vec{x} \cdot \vec{y}</m> ou <m>\vec{x}^T \vec{y}</m>.
+                        </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    <statement>
+                        Dados <m>\vec{x} = (2, -1, 4)^T </m> e <m>\vec{y} = (3, 2, -1)^T </m>,
+                        <me>
+                            \langle \vec{x}, \vec{y}\rangle = 6 -2 -4 = 0
+                        </me>.
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        Dados <m>\vec{x} = (3, -1, 2)^T </m> e <m>\vec{y} = (1, 2, 6)^T </m>,
+                        <me>
+                            \vec{x} \cdot \vec{y} = 3 -2 +12 = 13
+                        </me>.
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        Dados <m>\vec{x} = (1, -1, 2)^T </m> e <m>\vec{y} = (-1, 3, 3)^T </m>,
+                        <me>
+                            \vec{x}^T\vec{y} = (1, -1, 2)\begin{pmatrix} -1\\ 3\\ 3\end{pmatrix} = -1-3+6 = 2
+                        </me>.
+                    </statement>
+                </example>
+
+
+                <theorem>
+                    <title> Propriedades do produto interno</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Se <m>\vec{x}, \vec{y}, \vec{z} \in \mathbb{R}^n</m> e <m>\alpha</m> é um escalar, então
+                    <ol>
+                        <li><m>\vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}</m></li>
+                        <li><m>\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})</m>.</li>
+                        <li><m>\vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}</m></li>
+                    </ol>
+                  </statement>
+                
+                  <proof>
+                    Exercício.
+                  </proof>
+                </theorem>
+
+
+
+                <definition>
+                    <notation>
+                    <usage><m>\| \vec{x}\|</m></usage>
+                    <description>comprimento</description>
+                    </notation>
+                
+                    <statement>
+                        <p>
+                            O <bf>comprimento (euclidiano)</bf> (ou <bf>norma</bf>) de um vetor <m>\vec{x}\in \mathbb{R}^n</m> é 
+                            <me>
+                                \| \vec{x}\|  = \sqrt{\vec{x} \cdot \vec{x}} = \sqrt{x_1^2+x_2^2 + \cdots +x_n^2}.
+                            </me>
+                        </p>
+                    </statement>
+                </definition>
+
+
+                <p>Em particular a distância entre os pontos finais de dois vetores <m>\vec{x} \mbox{ e } \vec{y} \in \mathbb{R}^n</m> é igual a <m>\|\vec{x} - \vec{y}\| = \|\vec{y} - \vec{x}\|</m>.</p>
+
+                <example>
+                    <statement>
+                        Dados <m>\vec{x} = (3, 4)^T </m> e <m>\vec{y} = (-1, 7)^T </m>,
+                        <me>
+                            \|\vec{x} - \vec{y}\| = \sqrt{4^2+3^2} = \sqrt{25} = 5 
+                        </me>.
+                    </statement>
+                </example>
+
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+                        zero = np.zeros(2)
+
+                        x = np.array([3,4])
+                        y = np.array([-1, 7])
+
+
+                        #plotting the vectors
+                        fig, ax = plt.subplots(figsize=(5, 5))     
+                        ax.set_xlim(xmin=-3, xmax=5)
+                        ax.set_ylim(ymin=-3, ymax=5)
+                        ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        plt.grid()
+
+                        head_width =0.3
+                        head_length = 1.5*head_width
+
+                        def cor(x):
+                            x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            return np.array([x_new,y_new])
+
+                        plt.arrow(0,0,cor(x)[0], cor(x)[1], head_width =head_width)
+                        plt.annotate('x', cor(x)/2 + np.array([0.2,-0.2]))
+
+                        plt.arrow(0,0,cor(y)[0], cor(y)[1], head_width =head_width, color = 'blue')
+                        plt.annotate('y', cor(y)/2 + np.array([-0.2,-0.3]))
+
+                        plt.arrow(x[0],x[1],-cor(y)[0], -cor(y)[1], head_width =head_width, color = 'red')
+                        plt.annotate('-y', x/2+ cor(x-y)/2 + np.array([0.2,+0.1]))
+
+                        plt.arrow(0,0,cor(x-y)[0], cor(x-y)[1], head_width =head_width, color = 'pink')
+                        plt.annotate('x-y', cor(x-y)/2 + np.array([0.1,-0.1]))
+
+                        plt.arrow(y[0], y[1],cor(x-y)[0], cor(x-y)[1], head_width =head_width, color = 'pink')
+                        plt.annotate('x-y', cor(x-y)/2 + np.array([0.1,-0.1])+y)
+
+                        plt.show()
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
+
+                <theorem>
+                    <!-- <title> do núcleo e da imagem</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Se <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m> n =2\,\, \mbox{ ou }\,\, 3</m> são vetores não nulos e <m>\theta</m> é o ângulo entre eles, então
+                    <me>
+                        \vec{x}\cdot \vec{y} = \|\vec{x}\| \|\vec{y}\| \cos \theta.
+                    </me>
+                  </statement>
+                
+                  <proof>
+                    Pela Lei dos cossenos
+                    <me>
+                        \|\vec{x} - \vec{y}\|^2 = \|\vec{x}\|^2 + \|\vec{y}\|^2 - 2\|\vec{x}\| \|\vec{y}\| \cos \theta.
+                    </me>
+                     Por outro lado,
+                     <md>
+                        <mrow>\|\vec{x} - \vec{y}\|^2 =\amp  \langle \vec{x} - \vec{y}, \vec{x} - \vec{y}\rangle</mrow>
+                        <mrow>  =\amp  \langle \vec{x}, \vec{x} \rangle + \langle \vec{y}, \vec{y}\rangle  -\langle \vec{x}, \vec{y}\rangle -\langle \vec{y}, \vec{x}\rangle </mrow>
+                        <mrow> =\amp \|\vec{x}\|^2 + \|\vec{y}\|^2 -2 \langle \vec{x}, \vec{y}\rangle.</mrow>
+                     </md>
+                     Como as expressões são iguais à <m>\|\vec{x} - \vec{y}\|^2</m>, elas são iguais entre si e
+                     <md>
+                        <mrow>\|\vec{x}\|^2 + \|\vec{y}\|^2 -\amp 2\|\vec{x}\| \|\vec{y}\| \cos \theta = \|\vec{x}\|^2 + \|\vec{y}\|^2 -2 \langle \vec{x}, \vec{y}\rangle</mrow>
+                        <mrow>\amp  \Leftrightarrow \|\vec{x}\| \|\vec{y}\| \cos \theta = \langle \vec{x}, \vec{y}\rangle</mrow>
+                     </md>
+                  </proof>
+                </theorem>
+
+
+
+                <p>Podemos utilizar o teorema acima como um método para definir o ângulo entre dois vetores para <m>\mathbb{R}^n</m>, <m>n</m> qualquer.</p>
+
+                <remark>
+                    Se <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m> são vetores não nulos, suas direções são os vetores unitários
+                    <me>
+                        \vec{u} = \frac{1}{\|\vec{x}\|}\vec{x}, \,\,\, \vec{v} = \frac{1}{\|\vec{y}\|}\vec{y},
+                    </me>
+                    e o ângulo entre eles é definido através de
+                    <me>
+                        \cos \theta = \frac{\vec{x}^T\vec{y}}{\|\vec{x}\| \|\vec{y}\|} = \vec{u}^T\vec{v} \Longrightarrow \theta = \mbox{arccos}\left( \frac{\vec{x}^T\vec{y}}{\|\vec{x}\| \|\vec{y}\|} \right).
+                    </me>
+                    Em  particular, dizemos que <m>\vec{x}</m> e <m>\vec{y}</m> são ortogonis se <m>\vec{x}^T\vec{y}=0</m>.
+                </remark>
+
+
+                <example>
+                    <statement>
+                        O ângulo entre os vetores
+                        <me>
+                            \vec{x} = \begin{pmatrix} -1\\ 3\\ 3\end{pmatrix}, \,\,\, \vec{y} = \begin{pmatrix} 2\\ -1\\ 2\end{pmatrix}
+                        </me>
+                        e seus vetores unitários é...
+                    </statement>
+                </example>
+
+
+
+            </subsection>
+
+
+        
+
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="projecoes">
+                <title>Projeções escalares e vetoriais</title>
+
+                <p>
+                    A projeção vetorial de um vetor <m>\vec{x} \neq \vec{0}</m> na direção do vetor <m>\vec{y} \neq \vec{0}</m> é um vetor <m>\vec{p}</m>, múltiplo de <m>\vec{y}</m> tal que <m>(\vec{x}-\vec{p}) \perp \vec{y}.</m>.   
+                </p>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+                        zero = np.zeros(2)
+
+                        x = np.array([1.5,3])
+                        y = np.array([3, 1])
+
+                        alpha = x.dot(y)/np.linalg.norm(y)
+
+                        p = alpha*y/np.linalg.norm(y)
+
+                        z = x-p
+
+                        #plotting the vectors
+                        fig, ax = plt.subplots(figsize=(5, 5))     
+                        ax.set_xlim(xmin=-3, xmax=5)
+                        ax.set_ylim(ymin=-3, ymax=5)
+                        ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        plt.grid()
+
+                        head_width =0.3
+                        head_length = 1.5*head_width
+
+                        def cor(x):
+                            x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            return np.array([x_new,y_new])
+
+                        plt.arrow(0,0,cor(x)[0], cor(x)[1], head_width =head_width)
+                        plt.annotate('x', cor(x)/2 + np.array([0.2,-0.2]))
+
+                        plt.arrow(0,0,cor(y)[0], cor(y)[1], head_width =head_width, color = 'blue')
+                        plt.annotate('y', cor(y)/1.1 + np.array([0.1,-0.2]))
+
+                        plt.arrow(0,0,cor(p)[0], cor(p)[1], head_width =head_width, color = 'purple')
+                        plt.annotate('p', cor(p)/2 + np.array([-0.,-0.2]))
+
+                        plt.arrow(p[0],p[1],cor(z)[0], cor(z)[1], head_width =head_width, color = 'red')
+                        plt.annotate('z', cor(z)/2 + p + np.array([-0.2,-0.3]))
+
+                        plt.show()
+
+                        print('alpha = ', alpha)
+                        print('p = ', p)
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
+                <p>
+                    Dados vetores <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, queremos escrever
+                    <me>
+                        \vec{x} = \alpha \vec{u} +\vec{z}, \,\,\, \vec{u} = \frac{1}{\|\vec{y}\|}\vec{y}, \,\,\, \vec{p} = \alpha \vec{u},
+                    </me>
+                    com <m>\vec{z} \perp \vec{y}</m>. Ou seja, vamos decompor <m>\vec{x}</m> na soma de um vetor na direção de <m>\vec{y}</m> com um vetor perpendicular a <m>\vec{y}</m>.
+                </p>
+
+
+                <p>
+                    Note que <m>\alpha = \| \vec{p} \| = \|\vec{x}\|\cos \theta </m>, mas <m>\cos \theta = \vec{x}^T\vec{y}/(\|\vec{x}\|\|\vec{y}\|)</m>
+                    <md>
+                        <mrow>\Longrightarrow \amp \alpha = \|\vec{x}\|\frac{\vec{x}^T\vec{y}}{\|\vec{x}\|\|\vec{y}\|} =\frac{\vec{x}^T\vec{y}}{\|\vec{y}\|}</mrow>
+                        <mrow>\Longrightarrow \amp p = \alpha  \vec{u} = \alpha \frac{\vec{y}}{\|\vec{y}\|} = \frac{\vec{x}^T\vec{y}}{\|\vec{y}\|^2}\vec{y}.</mrow>
+                    </md>
+                </p>
+
+                <p><m>\alpha</m> é a <bf>projeção escalar</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
+
+                <p><m>\vec{p}</m> é a <bf>projeção vetorial</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
+
+                <exercise>
+                    <statement>
+                        Encontre as projeções escalares e vetoriais dos vetores <m>\vec{x}</m> e <m>\vec{y}</m> na direção do vetor <m>\vec{z}</m> para
+                        <me>
+                            \vec{x} = \begin{pmatrix} 1 \\ -1 \\ 2\end{pmatrix}, \,\,\, \vec{y} = \begin{pmatrix} 2 \\ 1 \\ 0\end{pmatrix}, \,\,\, \vec{z} = \begin{pmatrix} 3 \\ -1 \\-2\end{pmatrix}.
+                        </me>
+                    </statement>
+                </exercise>
+
+            </subsection>
+
+
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="Gram-Schmidt">
+                <title>Ortogonalização de Gram-Schmidt</title>
+
+
+
+            </subsection>
+
+
+        </section>
+
+
 
     </article>
 
