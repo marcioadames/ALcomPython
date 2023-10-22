@@ -2622,10 +2622,10 @@ print(np.linalg.inv(A))
 
                         #plotting the vectors
                         fig, ax = plt.subplots(figsize=(5, 5))     
-                        ax.set_xlim(xmin=-3, xmax=5)
-                        ax.set_ylim(ymin=-3, ymax=5)
-                        ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
-                        ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        ax.set_xlim(xmin=-3, xmax=7)
+                        ax.set_ylim(ymin=-3, ymax=7)
+                        ax.xaxis.set_ticks([-2,-1,0,1,2,3,4,5,6])
+                        ax.yaxis.set_ticks([-2,-1,0,1,2,3,4,5,6])
                         plt.grid()
 
                         head_width =0.3
@@ -2807,7 +2807,7 @@ print(np.linalg.inv(A))
 
                 <p><m>\alpha</m> é a <bf>projeção escalar</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
 
-                <p><m>\vec{p}</m> é a <bf>projeção vetorial</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
+                <p><m>\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}</m> é a <bf>projeção vetorial</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
 
                 <exercise>
                     <statement>
@@ -2827,8 +2827,267 @@ print(np.linalg.inv(A))
                 
 
             <subsection xml:id="Gram-Schmidt">
-                <title>Ortogonalização de Gram-Schmidt</title>
+                <title>Conjuntos ortogonais e ortogonalização de Gram-Schmidt</title>
 
+
+                <definition>
+                    <notation>
+                    <!-- <usage><m>\| \vec{x}\|</m></usage> -->
+                    <description>conjuntos ortonormais</description>
+                    </notation>
+                
+                    <statement>
+                        <p>
+                            Sejam <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> um conjunto de vetores em um espaço vetorial <m>V</m> munido com produto interno. Se <m>\langle \vec{v}_i, \vec{v}_j \rangle = 0</m> sempre que <m>i \neq j</m>, então o conjunto é dito <bf>ortogonal</bf>. Além disso, se <m>\langle \vec{v}_i, \vec{v}_i \rangle = 1</m> para todo <m>i = 1, \ldots, n</m>, o conjunto é dito <bf>ortonormal</bf>.
+                        </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    <statement>
+                        O conjunto formado pelos pelos vetores
+                        <me>
+                            \vec{v}_1 \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
+                        </me>
+                        é ortogonal pois <m>\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 </m>, <m>\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0</m> e <m>\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0</m>. Todavia, o conjunto não é ortonormal pois <m>\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 </m>. Podemos obter um conjunto ortonormal a partie de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:
+                        <me>
+                            \vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+                        </me>
+                    </statement>
+                </example>
+
+
+                <theorem>
+                    <!-- <title> do núcleo e da imagem</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Se <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> é um conjunto ortogonal de vetores não nulos em um espaço vetorial <m>V</m> com produto interno, então <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> é Linearmente Independente.
+                  </statement>
+                
+                  <proof>
+                    <md>
+                        <mrow>\amp \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}</mrow>
+                        <mrow>\Longrightarrow \amp \langle \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n, \vec{v}_i\rangle = \langle \vec{0}, \vec{v}_i\rangle =0</mrow>
+                        <mrow>\Longrightarrow \amp 0 = \langle \alpha_1\vec{v}_1 , \vec{v}_i\rangle + \langle\alpha_2 \vec{v}_2, \vec{v}_i\rangle + \cdots + \langle\alpha_n\vec{v}_n, \vec{v}_i\rangle = \alpha_i \| \vec{v}_i\|^2</mrow>
+                        <mrow> \Longrightarrow \amp \alpha_i =0.</mrow>
+                    </md>
+                    Isso vale para qualquer <m>i = 1, \ldots, n</m>, de modo que a única solução de <m>\alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}</m> é <m>\alpha_1=\alpha_2= \cdots = \alpha_n = 0</m>.
+                  </proof>
+                </theorem>
+
+
+                <theorem xml:id = "coord_prod_int">
+                    <!-- <title> do núcleo e da imagem</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Seja <m>\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> é uma base ortonormal para um espaço vetorial <m>V</m> com produto interno. Se <m>\vec{v} = \sum v_i \vec{u}_i</m>, então <m>v_i = \langle \vec{v}, \vec{u}_i \rangle</m>.
+                  </statement>
+                
+                  <proof>
+                    <me>
+                        \langle \vec{v}, \vec{u}_i\rangle = \sum v_i\rangle \vec{u}_i, \vec{u}_i \rangle = v_i.
+                    </me>
+                  </proof>
+                </theorem>
+
+                <p>
+                    O <xref ref= "coord_prod_int"></xref> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.
+                </p>
+
+
+                <exercise>
+                    <statement>
+                        Calcule as coordenadas do vetor <m>\vec{v} = (2, 3, -4)^T</m> na base formada pelso vetores
+                        <me>
+                            \vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+                        </me>
+                    </statement>
+                </exercise>
+
+
+                <p>
+                    Suponha que temos dois vetores <m>\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2</m> L.I. e buscamos uma base ortonormal <m>\vec{u}_1, \vec{u}_2</m> que contenha um vetor  na direção de <m>\vec{x}_1</m>. Podemos fazer isso do através dos seguintes vetores:
+                    <ol>
+                        <li><m>\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)</m>,</li>
+                        <li><m>\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 </m>,</li>
+                        <li><m>\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)</m>.</li>
+                    </ol>
+                </p>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+
+                        x1 = np.array([1.5,3])
+                        x2 = np.array([3, 1])
+
+                        u1 = x1/np.linalg.norm(x1)
+
+
+                        p1 = (u1.dot(x2))*u1
+
+                        z = x2-p1
+
+                        u2= z/np.linalg.norm(z)
+
+
+                        #plotting the vectors
+                        fig, ax = plt.subplots(figsize=(5, 5))     
+                        ax.set_xlim(xmin=-3, xmax=5)
+                        ax.set_ylim(ymin=-3, ymax=5)
+                        ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+                        plt.grid()
+
+                        head_width =0.3
+                        head_length = 1.5*head_width
+
+                        def cor(x):
+                            x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+                            return np.array([x_new,y_new])
+
+                        plt.arrow(0,0,cor(x1)[0], cor(x1)[1], head_width =head_width)
+                        plt.annotate('x1', cor(x1)/2 + np.array([-0.3,0.6]))
+
+                        plt.arrow(0,0,cor(x2)[0], cor(x2)[1], head_width =head_width, color = 'blue')
+                        plt.annotate('x2', cor(x2)/1.1 + np.array([0.1,-0.2]))
+
+                        plt.arrow(0,0,cor(p1)[0], cor(p1)[1], head_width =head_width, color = 'purple')
+                        plt.annotate('p1', cor(p1)/2 + np.array([0.2,0.2]))
+
+                        plt.arrow(0,0,cor(u1)[0], cor(u1)[1], head_width =head_width, color = 'red')
+                        plt.annotate('u1', cor(p1)/2 + np.array([-0.7,-0.3]))
+
+                        plt.arrow(p1[0],p1[1],cor(z)[0], cor(z)[1], head_width =head_width, color = 'red')
+
+                        plt.arrow(0,0,cor(u2)[0], cor(u2)[1], head_width =head_width, color = 'red')
+                        plt.annotate('u2', cor(u2)/2 + np.array([-0.2,-0.3]))
+
+                        plt.show()
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
+                <p>
+                    Note que a base obtida pelo processo acima é, de fato, ortonormal, pois <m>\|\vec{u}_1\|  = \|\vec{u}_2\| = 1</m>  e
+                    <md>
+                        <mrow>\langle \vec{u}_1, \vec{u}_2 \rangle =\amp \left\lt \vec{u}_1, \frac{\vec{x}_2 - \vec{p}_1}{\|\vec{x}_2 - \vec{p}_1\|}  \right\gt = \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1, \vec{p}_1\rangle) </mrow>
+                        <mrow> =\amp \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1,  \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1\rangle) = 0.</mrow>
+                    </md>   
+                </p>
+
+
+
+                <p>
+                    Suponha, agora, que temos três vetores <m>\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3</m> L.I. e buscamos uma base ortonormal <m>\vec{u}_1, \vec{u}_2, \vec{u}_3</m> que contenha um vetor  na direção de <m>\vec{x}_1</m>. Podemos fazer isso do através dos seguintes vetores:
+                    <ol>
+                        <li><m>\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)</m>,</li>
+                        <li><m>\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 </m>,</li>
+                        <li><m>\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)</m>,</li>
+                        <li><m>\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 </m>,</li>
+                        <li><m>\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)</m>.</li>
+                    </ol>
+                </p>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+
+                        x1 = np.array([1.5,3, 2])
+                        x2 = np.array([3, 1, -1])
+                        x3 = np.array([0, -2, 1])
+
+                        u1 = x1/np.linalg.norm(x1)
+                        p1 = (u1.dot(x2))*u1
+                        z1 = x2-p1
+                        u2 = z1/np.linalg.norm(z1)
+                        q2 = (u1.dot(x3))*u1
+                        r2 = (u2.dot(x3))*u2
+                        p2 = q2 + r2
+                        z2 = x3 - p2
+                        u3 = z2/np.linalg.norm(z2)
+                        import pandas as pd
+                        import plotly.graph_objects as go
+
+
+                        df = pd.DataFrame(dict(
+                            X=[0,x1[0],0,x2[0], 0,x3[0], 0,u1[0], 0, u2[0], 0, u3[0], p1[0], x2[0], p2[0], x3[0]], 
+                            Y=[0,x1[1],0,x2[1], 0,x3[1], 0,u1[1], 0, u2[1], 0, u3[1], p1[1], x2[1], p2[1], x3[1]],
+                            Z=[0,x1[2],0,x2[2], 0,x3[2], 0,u1[2], 0, u2[2], 0, u3[2], p1[2], x2[2], p2[2], x3[2]],
+                            color=["x1", "x1", "x2", "x2", "x3", "x3", "u1", "u1", "u2", "u2", "u3", "u3", "z1", "z1", "z2", "z2"]
+                        ))
+
+                        df1 = pd.DataFrame(dict(
+                            X=[x1[0],x2[0],x3[0], u1[0], u2[0], u3[0]], 
+                            Y=[x1[1],x2[1],x3[1], u1[1], u2[1], u3[1]],
+                            Z=[x1[2],x2[2],x3[2], u1[2], u2[2], u3[2]],
+                            color=["x1", "x2", "x3", "u1", "u2", "u3"],
+                            text=["x1", "x2", "x3", "u1", "u2", "u3"]
+                        ))
+
+                        import plotly.express as px
+
+                        fig1 = px.line_3d(df, x='X', y='Y', z='Z', color="color", markers=False)
+                        fig2 =px.line_3d(df1, x='X', y='Y', z='Z', color="color", markers=True, symbol_sequence=['diamond'], text="text")
+                        fig3 = go.Figure(data=fig1.data + fig2.data)
+                        fig3.update_layout(showlegend=False,font = dict(size = 30),
+                                        scene = dict(xaxis_title='', yaxis_title='', zaxis_title='',
+                                            xaxis = dict(tickfont=dict(size=12,) ),
+                                            yaxis = dict(tickfont=dict(size=12,) ),
+                                            zaxis = dict(tickfont=dict(size=12,) ),))
+                        fig3.write_html("yourfile.html")
+                        print("u1 = ", u1)
+                        print("u2 = ", u2)
+                        print("u3 = ", u3)
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
+                <exercise>
+                    <statement>
+                        Utilize o processo descrito acima para encontrar uma base para <m>\mathbb{R}^3</m> a partir de <m>\vec{x}_1 = (1, -2, 3)^T</m>, <m>\vec{x}_2 = (1, -2, -1)^T</m>, <m>\vec{x}_1 = (-1, -2, 1)^T</m>.
+                    </statement>
+                </exercise>
+
+                <p><it>Processo de ortogonalização de Gram-Schmidt.</it></p>
+
+                <p>Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</p>
+
+                <p>Seja <m>\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}</m> uma base para um espaço com produto interno <m>V</m>. Obtemos uma base <it>ortonormal</it> para <m>V</m> definindo:</p>
+                <me>
+                    \vec{u}_1 = \frac{\vec{x}_1}{\|\vec{x}_1\|}
+                </me>
+                <p>e definindo <m>\vec{u}_2, \ldots, \vec{u}_n</m> recursivamente por</p>
+                <me>
+                    \vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{n} \rangle \vec{u}_{n}, 
+                </me>
+                <me>
+                    \vec{u}_{k+1}= \frac{\vec{x}_{k+1} - \vec{p}_{k}}{\| \vec{x}_{k+1} - \vec{p}_{k} \|}
+                </me>
+
+                <exercise>
+                    <statement>
+                        Encontre uma base ortonormal para o espaço coluna de
+                        <me>
+                            A = \begin{pmatrix}
+                            1 \amp 1 \amp 5 \amp 1 \\
+                            -1 \amp -2 \amp -8 \amp 0 \\
+                            0 \amp 0 \amp 0 \amp 1 \\
+                            0 \amp 1 \amp 3 \amp 1  
+                            \end{pmatrix}
+                        </me>
+                    </statement>
+                </exercise>
 
 
             </subsection>

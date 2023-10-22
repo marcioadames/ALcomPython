@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-10-18T19:58:09-03:00       *-->
+<!--*       on 2023-10-22T18:30:29-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -128,7 +128,7 @@
 <a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">9</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
 <li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
 <li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
-<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Ortogonalização de Gram-Schmidt</a></li>
+<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -204,10 +204,10 @@ y = np.array([-1, 7])
 
 #plotting the vectors
 fig, ax = plt.subplots(figsize=(5, 5))     
-ax.set_xlim(xmin=-3, xmax=5)
-ax.set_ylim(ymin=-3, ymax=5)
-ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
-ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+ax.set_xlim(xmin=-3, xmax=7)
+ax.set_ylim(ymin=-3, ymax=7)
+ax.xaxis.set_ticks([-2,-1,0,1,2,3,4,5,6])
+ax.yaxis.set_ticks([-2,-1,0,1,2,3,4,5,6])
 plt.grid()
 
 head_width =0.3
@@ -340,7 +340,7 @@ print('p = ', p)
 \end{align*}
 </div>
 <p id="p-103">\(\alpha\) é a projeção escalar de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
-<p id="p-104">\(\vec{p}\) é a projeção vetorial de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
+<p id="p-104">\(\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}\) é a projeção vetorial de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
 <article class="exercise exercise-like" id="exercise-18"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-18"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.11</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-18"><article class="exercise exercise-like">Encontre as projeções escalares e vetoriais dos vetores \(\vec{x}\) e \(\vec{y}\) na direção do vetor \(\vec{z}\) para<div class="displaymath">
@@ -348,8 +348,205 @@ print('p = ', p)
 \vec{x} = \begin{pmatrix} 1 \\ -1 \\ 2\end{pmatrix}, \,\,\, \vec{y} = \begin{pmatrix} 2 \\ 1 \\ 0\end{pmatrix}, \,\,\, \vec{z} = \begin{pmatrix} 3 \\ -1 \\-2\end{pmatrix}.
 \end{equation*}
 </div></article></div></section><section class="subsection" id="Gram-Schmidt"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.3</span> <span class="title">Ortogonalização de Gram-Schmidt</span>
-</h3></section></section></div></main>
+<span class="type">Subsection</span> <span class="codenumber">9.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span>
+</h3>
+<article class="definition definition-like" id="definition-16"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.12</span><span class="period">.</span>
+</h6>
+<p id="p-105">Sejam \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) um conjunto de vetores em um espaço vetorial \(V\) munido com produto interno. Se \(\langle \vec{v}_i, \vec{v}_j \rangle = 0\) sempre que \(i \neq j\text{,}\) então o conjunto é dito ortogonal. Além disso, se \(\langle \vec{v}_i, \vec{v}_i \rangle = 1\) para todo \(i = 1, \ldots, n\text{,}\) o conjunto é dito ortonormal.</p></article><article class="example example-like" id="example-25"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.13</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like">O conjunto formado pelos pelos vetores<div class="displaymath">
+\begin{equation*}
+\vec{v}_1 \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
+\end{equation*}
+</div>é ortogonal pois \(\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 \text{,}\) \(\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0\) e \(\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0\text{.}\) Todavia, o conjunto não é ortonormal pois \(\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 \text{.}\) Podemos obter um conjunto ortonormal a partie de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:<div class="displaymath">
+\begin{equation*}
+\vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.14</span><span class="period">.</span>
+</h6>Se \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é um conjunto ortogonal de vetores não nulos em um espaço vetorial \(V\) com produto interno, então \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é Linearmente Independente.</article><article class="hiddenproof" id="proof-15"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><div class="displaymath">
+\begin{align*}
+\amp \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}\\
+\Longrightarrow \amp \langle \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n, \vec{v}_i\rangle = \langle \vec{0}, \vec{v}_i\rangle =0\\
+\Longrightarrow \amp 0 = \langle \alpha_1\vec{v}_1 , \vec{v}_i\rangle + \langle\alpha_2 \vec{v}_2, \vec{v}_i\rangle + \cdots + \langle\alpha_n\vec{v}_n, \vec{v}_i\rangle = \alpha_i \| \vec{v}_i\|^2\\
+\Longrightarrow \amp \alpha_i =0.
+\end{align*}
+</div>Isso vale para qualquer \(i = 1, \ldots, n\text{,}\) de modo que a única solução de \(\alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}\) é \(\alpha_1=\alpha_2= \cdots = \alpha_n = 0\text{.}\)</article></div>
+<article class="theorem theorem-like" id="coord_prod_int"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.15</span><span class="period">.</span>
+</h6>Seja \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) é uma base ortonormal para um espaço vetorial \(V\) com produto interno. Se \(\vec{v} = \sum v_i \vec{u}_i\text{,}\) então \(v_i = \langle \vec{v}, \vec{u}_i \rangle\text{.}\)</article><article class="hiddenproof" id="proof-16"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><div class="displaymath">
+\begin{equation*}
+\langle \vec{v}, \vec{u}_i\rangle = \sum v_i\rangle \vec{u}_i, \vec{u}_i \rangle = v_i.
+\end{equation*}
+</div></article></div>
+<p id="p-106">O <a class="xref" data-knowl="./knowl/coord_prod_int.html" title="Theorem 9.15">Theorem 9.15</a> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.</p>
+<article class="exercise exercise-like" id="exercise-19"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-19"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-19"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelso vetores<div class="displaymath">
+\begin{equation*}
+\vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<p id="p-107">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
+<ol class="decimal">
+<li id="li-63"><p id="p-derived-li-63">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-64"><p id="p-derived-li-64">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-65"><p id="p-derived-li-65">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</p></li>
+</ol>
+<div class="sagecell-sage" id="sage-31"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+
+x1 = np.array([1.5,3])
+x2 = np.array([3, 1])
+
+u1 = x1/np.linalg.norm(x1)
+
+
+p1 = (u1.dot(x2))*u1
+
+z = x2-p1
+
+u2= z/np.linalg.norm(z)
+
+
+#plotting the vectors
+fig, ax = plt.subplots(figsize=(5, 5))     
+ax.set_xlim(xmin=-3, xmax=5)
+ax.set_ylim(ymin=-3, ymax=5)
+ax.xaxis.set_ticks([-2,-1,0,1,2,3,4])
+ax.yaxis.set_ticks([-2,-1,0,1,2,3,4])
+plt.grid()
+
+head_width =0.3
+head_length = 1.5*head_width
+
+def cor(x):
+    x_new = x[0]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+    y_new = x[1]/(head_length+np.sqrt(x[0]^2+x[1]^2))*np.sqrt(x[0]^2+x[1]^2)
+    return np.array([x_new,y_new])
+
+plt.arrow(0,0,cor(x1)[0], cor(x1)[1], head_width =head_width)
+plt.annotate('x1', cor(x1)/2 + np.array([-0.3,0.6]))
+
+plt.arrow(0,0,cor(x2)[0], cor(x2)[1], head_width =head_width, color = 'blue')
+plt.annotate('x2', cor(x2)/1.1 + np.array([0.1,-0.2]))
+
+plt.arrow(0,0,cor(p1)[0], cor(p1)[1], head_width =head_width, color = 'purple')
+plt.annotate('p1', cor(p1)/2 + np.array([0.2,0.2]))
+
+plt.arrow(0,0,cor(u1)[0], cor(u1)[1], head_width =head_width, color = 'red')
+plt.annotate('u1', cor(p1)/2 + np.array([-0.7,-0.3]))
+
+plt.arrow(p1[0],p1[1],cor(z)[0], cor(z)[1], head_width =head_width, color = 'red')
+
+plt.arrow(0,0,cor(u2)[0], cor(u2)[1], head_width =head_width, color = 'red')
+plt.annotate('u2', cor(u2)/2 + np.array([-0.2,-0.3]))
+
+plt.show()
+</script></div>
+<p id="p-108">Note que a base obtida pelo processo acima é, de fato, ortonormal, pois \(\|\vec{u}_1\|  = \|\vec{u}_2\| = 1\)  e</p>
+<div class="displaymath">
+\begin{align*}
+\langle \vec{u}_1, \vec{u}_2 \rangle =\amp \left\lt \vec{u}_1, \frac{\vec{x}_2 - \vec{p}_1}{\|\vec{x}_2 - \vec{p}_1\|}  \right\gt = \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1, \vec{p}_1\rangle) \\
+=\amp \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1,  \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1\rangle) = 0.
+\end{align*}
+</div>
+<p id="p-109">Suponha, agora, que temos três vetores \(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
+<ol class="decimal">
+<li id="li-66"><p id="p-derived-li-66">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-67"><p id="p-derived-li-67">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-68"><p id="p-derived-li-68">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
+<li id="li-69"><p id="p-derived-li-69">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
+<li id="li-70"><p id="p-derived-li-70">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
+</ol>
+<div class="sagecell-sage" id="sage-32"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+
+x1 = np.array([1.5,3, 2])
+x2 = np.array([3, 1, -1])
+x3 = np.array([0, -2, 1])
+
+u1 = x1/np.linalg.norm(x1)
+p1 = (u1.dot(x2))*u1
+z1 = x2-p1
+u2 = z1/np.linalg.norm(z1)
+q2 = (u1.dot(x3))*u1
+r2 = (u2.dot(x3))*u2
+p2 = q2 + r2
+z2 = x3 - p2
+u3 = z2/np.linalg.norm(z2)
+import pandas as pd
+import plotly.graph_objects as go
+
+
+df = pd.DataFrame(dict(
+    X=[0,x1[0],0,x2[0], 0,x3[0], 0,u1[0], 0, u2[0], 0, u3[0], p1[0], x2[0], p2[0], x3[0]], 
+    Y=[0,x1[1],0,x2[1], 0,x3[1], 0,u1[1], 0, u2[1], 0, u3[1], p1[1], x2[1], p2[1], x3[1]],
+    Z=[0,x1[2],0,x2[2], 0,x3[2], 0,u1[2], 0, u2[2], 0, u3[2], p1[2], x2[2], p2[2], x3[2]],
+    color=["x1", "x1", "x2", "x2", "x3", "x3", "u1", "u1", "u2", "u2", "u3", "u3", "z1", "z1", "z2", "z2"]
+))
+
+df1 = pd.DataFrame(dict(
+    X=[x1[0],x2[0],x3[0], u1[0], u2[0], u3[0]], 
+    Y=[x1[1],x2[1],x3[1], u1[1], u2[1], u3[1]],
+    Z=[x1[2],x2[2],x3[2], u1[2], u2[2], u3[2]],
+    color=["x1", "x2", "x3", "u1", "u2", "u3"],
+    text=["x1", "x2", "x3", "u1", "u2", "u3"]
+))
+
+import plotly.express as px
+
+fig1 = px.line_3d(df, x='X', y='Y', z='Z', color="color", markers=False)
+fig2 =px.line_3d(df1, x='X', y='Y', z='Z', color="color", markers=True, symbol_sequence=['diamond'], text="text")
+fig3 = go.Figure(data=fig1.data + fig2.data)
+fig3.update_layout(showlegend=False,font = dict(size = 30),
+                scene = dict(xaxis_title='', yaxis_title='', zaxis_title='',
+                    xaxis = dict(tickfont=dict(size=12,) ),
+                    yaxis = dict(tickfont=dict(size=12,) ),
+                    zaxis = dict(tickfont=dict(size=12,) ),))
+fig3.write_html("yourfile.html")
+print("u1 = ", u1)
+print("u2 = ", u2)
+print("u3 = ", u3)
+</script></div>
+<article class="exercise exercise-like" id="exercise-20"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-20"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.17</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-20"><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para \(\mathbb{R}^3\) a partir de \(\vec{x}_1 = (1, -2, 3)^T\text{,}\) \(\vec{x}_2 = (1, -2, -1)^T\text{,}\) \(\vec{x}_1 = (-1, -2, 1)^T\text{.}\)</article></div>
+<p id="p-110">Processo de ortogonalização de Gram-Schmidt.</p>
+<p id="p-111">Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</p>
+<p id="p-112">Seja \(\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}\) uma base para um espaço com produto interno \(V\text{.}\) Obtemos uma base ortonormal para \(V\) definindo:</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{u}_1 = \frac{\vec{x}_1}{\|\vec{x}_1\|}
+\end{equation*}
+</div>
+<p id="p-113">e definindo \(\vec{u}_2, \ldots, \vec{u}_n\) recursivamente por</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{n} \rangle \vec{u}_{n}, 
+\end{equation*}
+</div>
+<div class="displaymath">
+\begin{equation*}
+\vec{u}_{k+1}= \frac{\vec{x}_{k+1} - \vec{p}_{k}}{\| \vec{x}_{k+1} - \vec{p}_{k} \|}
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="exercise-21"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-21"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-21"><article class="exercise exercise-like">Encontre uma base ortonormal para o espaço coluna de<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix}
+1 \amp 1 \amp 5 \amp 1 \\
+-1 \amp -2 \amp -8 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1 \\
+0 \amp 1 \amp 3 \amp 1  
+\end{pmatrix}
+\end{equation*}
+</div></article></div></section></section></div></main>
 </div>
 </body>
 </html>
