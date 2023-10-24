@@ -2848,11 +2848,11 @@ print(np.linalg.inv(A))
                     <statement>
                         O conjunto formado pelos pelos vetores
                         <me>
-                            \vec{v}_1 \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
+                            \vec{v}_1 = \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 = \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_3 = \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
                         </me>
-                        é ortogonal pois <m>\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 </m>, <m>\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0</m> e <m>\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0</m>. Todavia, o conjunto não é ortonormal pois <m>\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 </m>. Podemos obter um conjunto ortonormal a partie de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:
+                        é ortogonal pois <m>\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 </m>, <m>\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0</m> e <m>\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0</m>. Todavia, o conjunto não é ortonormal pois <m>\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 </m>. Podemos obter um conjunto ortonormal a partir de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:
                         <me>
-                            \vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+                            \vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
                         </me>
                     </statement>
                 </example>
@@ -2898,9 +2898,9 @@ print(np.linalg.inv(A))
 
                 <exercise>
                     <statement>
-                        Calcule as coordenadas do vetor <m>\vec{v} = (2, 3, -4)^T</m> na base formada pelso vetores
+                        Calcule as coordenadas do vetor <m>\vec{v} = (2, 3, -4)^T</m> na base formada pelos vetores
                         <me>
-                            \vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+                            \vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
                         </me>
                     </statement>
                 </exercise>
@@ -3055,7 +3055,7 @@ print(np.linalg.inv(A))
 
                 <exercise>
                     <statement>
-                        Utilize o processo descrito acima para encontrar uma base para <m>\mathbb{R}^3</m> a partir de <m>\vec{x}_1 = (1, -2, 3)^T</m>, <m>\vec{x}_2 = (1, -2, -1)^T</m>, <m>\vec{x}_1 = (-1, -2, 1)^T</m>.
+                        Utilize o processo descrito acima para encontrar uma base para <m>\mathbb{R}^3</m> a partir de <m>\vec{x}_1 = (1, -2, 3)^T</m>, <m>\vec{x}_2 = (1, -2, -1)^T</m>, <m>\vec{x}_3 = (-1, -2, 1)^T</m>.
                     </statement>
                 </exercise>
 
@@ -3069,7 +3069,7 @@ print(np.linalg.inv(A))
                 </me>
                 <p>e definindo <m>\vec{u}_2, \ldots, \vec{u}_n</m> recursivamente por</p>
                 <me>
-                    \vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{n} \rangle \vec{u}_{n}, 
+                    \vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{k} \rangle \vec{u}_{k}, 
                 </me>
                 <me>
                     \vec{u}_{k+1}= \frac{\vec{x}_{k+1} - \vec{p}_{k}}{\| \vec{x}_{k+1} - \vec{p}_{k} \|}
@@ -3088,6 +3088,8 @@ print(np.linalg.inv(A))
                         </me>
                     </statement>
                 </exercise>
+
+                <remark>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que <m>\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}</m> forma uma base ortonormal para <m>\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)</m> para qualquer <m>k = 1,2,\ldots,n</m>. Deixamos para o leitor a verificação dessa propriedade.</remark>
 
 
             </subsection>

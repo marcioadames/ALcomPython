@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-10-22T18:30:29-03:00       *-->
+<!--*       on 2023-10-23T14:58:26-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -357,11 +357,11 @@ print('p = ', p)
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.13</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like">O conjunto formado pelos pelos vetores<div class="displaymath">
 \begin{equation*}
-\vec{v}_1 \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
+\vec{v}_1 = \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 = \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_3 = \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
 \end{equation*}
-</div>é ortogonal pois \(\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 \text{,}\) \(\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0\) e \(\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0\text{.}\) Todavia, o conjunto não é ortonormal pois \(\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 \text{.}\) Podemos obter um conjunto ortonormal a partie de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:<div class="displaymath">
+</div>é ortogonal pois \(\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 \text{,}\) \(\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0\) e \(\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0\text{.}\) Todavia, o conjunto não é ortonormal pois \(\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 \text{.}\) Podemos obter um conjunto ortonormal a partir de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:<div class="displaymath">
 \begin{equation*}
-\vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+\vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
 \end{equation*}
 </div></article></div>
 <article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
@@ -384,9 +384,9 @@ print('p = ', p)
 <p id="p-106">O <a class="xref" data-knowl="./knowl/coord_prod_int.html" title="Theorem 9.15">Theorem 9.15</a> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.</p>
 <article class="exercise exercise-like" id="exercise-19"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-19"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-19"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelso vetores<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-19"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelos vetores<div class="displaymath">
 \begin{equation*}
-\vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{v}_2 \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{v}_1 \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+\vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
 \end{equation*}
 </div></article></div>
 <p id="p-107">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
@@ -515,7 +515,7 @@ print("u3 = ", u3)
 </script></div>
 <article class="exercise exercise-like" id="exercise-20"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-20"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.17</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-20"><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para \(\mathbb{R}^3\) a partir de \(\vec{x}_1 = (1, -2, 3)^T\text{,}\) \(\vec{x}_2 = (1, -2, -1)^T\text{,}\) \(\vec{x}_1 = (-1, -2, 1)^T\text{.}\)</article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-20"><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para \(\mathbb{R}^3\) a partir de \(\vec{x}_1 = (1, -2, 3)^T\text{,}\) \(\vec{x}_2 = (1, -2, -1)^T\text{,}\) \(\vec{x}_3 = (-1, -2, 1)^T\text{.}\)</article></div>
 <p id="p-110">Processo de ortogonalização de Gram-Schmidt.</p>
 <p id="p-111">Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</p>
 <p id="p-112">Seja \(\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}\) uma base para um espaço com produto interno \(V\text{.}\) Obtemos uma base ortonormal para \(V\) definindo:</p>
@@ -527,7 +527,7 @@ print("u3 = ", u3)
 <p id="p-113">e definindo \(\vec{u}_2, \ldots, \vec{u}_n\) recursivamente por</p>
 <div class="displaymath">
 \begin{equation*}
-\vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{n} \rangle \vec{u}_{n}, 
+\vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{k} \rangle \vec{u}_{k}, 
 \end{equation*}
 </div>
 <div class="displaymath">
@@ -546,7 +546,10 @@ A = \begin{pmatrix}
 0 \amp 1 \amp 3 \amp 1  
 \end{pmatrix}
 \end{equation*}
-</div></article></div></section></section></div></main>
+</div></article></div>
+<article class="remark remark-like" id="remark-12"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.19</span><span class="period">.</span>
+</h6>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\) forma uma base ortonormal para \(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\) para qualquer \(k = 1,2,\ldots,n\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article></section></section></div></main>
 </div>
 </body>
 </html>
