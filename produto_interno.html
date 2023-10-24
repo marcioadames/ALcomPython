@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-10-23T14:58:26-03:00       *-->
+<!--*       on 2023-10-24T12:26:49-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -386,7 +386,7 @@ print('p = ', p)
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.16</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-19"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelos vetores<div class="displaymath">
 \begin{equation*}
-\vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+\vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
 \end{equation*}
 </div></article></div>
 <p id="p-107">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
@@ -549,7 +549,15 @@ A = \begin{pmatrix}
 </div></article></div>
 <article class="remark remark-like" id="remark-12"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.19</span><span class="period">.</span>
-</h6>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\) forma uma base ortonormal para \(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\) para qualquer \(k = 1,2,\ldots,n\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article></section></section></div></main>
+</h6>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\) formam uma base ortonormal para \(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\) para qualquer \(k = 1,2,\ldots,n\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article><article class="remark remark-like" id="remark-13"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.20</span><span class="period">.</span>
+</h6>Se \(\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) forma uma base ortonormal para \(\athbb{R}^n\text{,}\) então a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica<div class="displaymath">
+\begin{equation*}
+U = \begin{pmatrix} | \amp | \amp \cdots \amp |\\
+\vec{u}_1 \amp \vec{u}_2 \amp \cdots \amp \vec{u}_n\\
+| \amp | \amp \cdots \amp |\\\end{pmatrix}
+\end{equation*}
+</div>tem inversa \(U^{-1} = U^T\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article></section></section></div></main>
 </div>
 </body>
 </html>

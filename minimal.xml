@@ -2900,7 +2900,7 @@ print(np.linalg.inv(A))
                     <statement>
                         Calcule as coordenadas do vetor <m>\vec{v} = (2, 3, -4)^T</m> na base formada pelos vetores
                         <me>
-                            \vec{u}_1 \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
+                            \vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
                         </me>
                     </statement>
                 </exercise>
@@ -3089,7 +3089,14 @@ print(np.linalg.inv(A))
                     </statement>
                 </exercise>
 
-                <remark>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que <m>\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}</m> forma uma base ortonormal para <m>\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)</m> para qualquer <m>k = 1,2,\ldots,n</m>. Deixamos para o leitor a verificação dessa propriedade.</remark>
+                <remark>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que <m>\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}</m> formam uma base ortonormal para <m>\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)</m> para qualquer <m>k = 1,2,\ldots,n</m>. Deixamos para o leitor a verificação dessa propriedade.</remark>
+
+                <remark>Se <m>\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> forma uma base ortonormal para <m>\athbb{R}^n</m>, então a matriz de mudança de base da base <m>\mathcal{U}</m> para a base canônica
+                    <me>
+                        U = \begin{pmatrix} | \amp | \amp \cdots \amp |\\
+                        \vec{u}_1 \amp \vec{u}_2 \amp \cdots \amp \vec{u}_n\\
+                        | \amp | \amp \cdots \amp |\\\end{pmatrix}
+                    </me> tem inversa <m>U^{-1} = U^T</m>. Deixamos para o leitor a verificação dessa propriedade.</remark>
 
 
             </subsection>
