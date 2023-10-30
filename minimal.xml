@@ -544,37 +544,37 @@ print(np.linalg.inv(A))
                                 import numpy as np
                                 import fractions
                                 A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
-        
-        
+
+
                                 #Step by step Gaussian Elimination:
-        
+
                                 def Gaussian_elimination(A,prin=True):
-                                    a=0
-                                    if prin==True:
-                                        print('A='+str(A))
-                                    for j in range(A.shape[1]): #search pivot in each column
-                                        b=0
-                                        for i in range(a,A.shape[0]):
-                                            if A[i,j] != 0: #choose row with not null pivot
-                                                if a !=i:
-                                                    A[[a,i]]=A[[i,a]]
-                                                    if prin==True:
-                                                        print('~'+str(A))
-                                                if A[a,j]!=1:
-                                                    A[a]=A[a]/A[a,j]
-                                                    if prin==True:
-                                                        print('~'+str(A))
-                                                a=a+1
-                                                b=1
-                                                break
-                                        if b==1:
-                                            for i in range(a,A.shape[0]):
-                                                if A[i,j] != 0:
-                                                    A[i]=A[i]-A[a-1]*A[i,j]
+                                a=0
+                                if prin==True:
+                                    print('A='+str(A))
+                                for j in range(A.shape[1]): #search pivot in each column
+                                    b=0
+                                    for i in range(a,A.shape[0]):
+                                        if A[i,j] != 0: #choose row with not null pivot
+                                            if a !=i:
+                                                A[[a,i]]=A[[i,a]]
                                                 if prin==True:
                                                     print('~'+str(A))
-                                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-                                    return A
+                                            if A[a,j]!=1:
+                                                A[a]=A[a]/A[a,j]
+                                                if prin==True:
+                                                    print('~'+str(A))
+                                            a=a+1
+                                            b=1
+                                            break
+                                    if b==1:
+                                        for i in range(a,A.shape[0]):
+                                            if A[i,j] != 0:
+                                                A[i]=A[i]-A[a-1]*A[i,j]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                return A
                             </input>
                             <output>
                             solution
@@ -3089,9 +3089,9 @@ print(np.linalg.inv(A))
                     </statement>
                 </exercise>
 
-                <remark>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que <m>\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}</m> formam uma base ortonormal para <m>\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)</m> para qualquer <m>k = 1,2,\ldots,n</m>. Deixamos para o leitor a verificação dessa propriedade.</remark>
+                <remark>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que <m>\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}</m> é uma base ortonormal para <m>\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)</m> para qualquer <m>k = 1,2,\ldots,n</m>. Deixamos para o leitor a verificação dessa propriedade.</remark>
 
-                <remark>Se <m>\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> forma uma base ortonormal para <m>\athbb{R}^n</m>, então a matriz de mudança de base da base <m>\mathcal{U}</m> para a base canônica
+                <remark>Se <m>\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> é uma base ortonormal para <m>\mathbb{R}^n</m>, então a matriz de mudança de base da base <m>\mathcal{U}</m> para a base canônica
                     <me>
                         U = \begin{pmatrix} | \amp | \amp \cdots \amp |\\
                         \vec{u}_1 \amp \vec{u}_2 \amp \cdots \amp \vec{u}_n\\
