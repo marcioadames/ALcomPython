@@ -66,7 +66,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
             <abstract>
                 <p>Notas de aula de um curso de Álgebra Linear com python. Trabalho em progresso...</p>
-                <p>This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International license (see details here https://creativecommons.org/licenses/by-nc/4.0/legalcode.en)</p>
+                <p>Todos os direitos reservados. All rights reserved.</p>
             </abstract>
 
         </frontmatter>
@@ -3105,6 +3105,176 @@ print(np.linalg.inv(A))
         </section>
 
 
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->                                                                                                    
+
+
+
+        <section xml:id="Transformacoes_lineares">
+            <title>Transformações Lineares</title>
+           
+            <intro>
+               <p>
+                Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.
+               </p>
+           </intro>
+           
+            <subsection xml:id="trans_lin">
+                <title>Transformações Lineares</title>
+                <definition>
+                    <notation>
+                    <usage><m>L</m></usage>
+                    <description>transformação linear</description>
+                    </notation>
+                
+                    <statement>
+                        <p>
+                            Um mapeamento<fn>uma função</fn>  <m>L : V \to W</m>, de um espaço vetorial <m>(V,E,\cdot, +)</m> para um espaço vetorial <m>(W,E,\odot,\oplus)</m> é dita uma <bf>transformação linear</bf> <fn>também chamado de <bf>mapeamento</bf> linear, <bf>operador linear</bf> ou <bf>função linear</bf> (dependendo do contexto)</fn> se 
+                            <me>
+                                L(\alpha \cdot \vec{u} + \beta \vec{v}) = \alpha \odot L(\vec{u}) \oplus \beta \odot L(\vec{v}).
+                            </me>
+                        </p>
+                    </statement>
+                </definition>
+
+
+
+
+                <example>
+                    <statement>
+                        Seja <m>L: \mathbb{R}^2 \to \mathbb{R}^2</m> a função definida por
+                        <me>
+                            L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} -x_2 \\ x_1 \end{pmatrix}
+                        </me>
+                        é uma transformação linear, pois <m>\ldots</m>
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        Seja <m>L: \mathbb{R}^2 \to \mathbb{R}^2</m> a função definida por
+                        <me>
+                            L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_1^2 \\ x_2 \end{pmatrix}
+                        </me>
+                        não é uma transformação linear, pois <m>\ldots</m>
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        O mapeamento <m>L: \mathbb{R}^2 \to \mathbb{R}^3</m> definido por
+                        <me>
+                            L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 \\x_1 + x_2 \end{pmatrix}
+                        </me>
+                        é uma transformação linear, pois <m>\ldots</m>
+
+                        Podemos notar que
+                        <me>
+                            L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}.
+                        </me>
+                    </statement>
+                </example>
+
+
+                <exercise>
+                    <statement>
+                        Seja <m>A</m> é uma matriz <m>m \times n</m>. Mostre que a função
+                        <md>
+                            <mrow>L: \amp \mathbb{R}^m \to \mathbb{R}^n,</mrow>
+                            <mrow>\amp L(\vec{v}) = A\vec{v}</mrow>
+                        </md>
+                        é uma transformação linear.
+                    </statement>
+                </exercise>
+
+
+                <lemma xml:id = "linear_trans_prop">
+                    <!-- <title> do núcleo e da imagem</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Se <m>L: V \to W</m> é uma transformação linear e <m>\vec{v}, \vec{v}_1, \ldots, \vec{v}_n \in V</m>, então
+                    <ol>
+                        <li><m>L(\vec{0}_V) = \vec{0}_W;</m></li>
+                        <li><m> L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);</m></li>
+                        <li><m>L(-\vec{v}) = L(\vec{v});</m></li>
+                    </ol>
+                  </statement>
+                
+                  <proof>
+                    <ol>
+                        <li><m>L(\vec{0}_V) = L(0\vec{v}) = 0L(\vec{v}) = \vec{0}_W;</m></li>
+                        <li><md>
+                            <mrow>L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n)  =\amp L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_{n-1} \vec{v}_{n-1}) +\alpha_n L(\vec{v}_n) = \cdots </mrow>
+                            <mrow> =\amp \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);</mrow>
+                            </md></li>
+                        <li><m>L(-\vec{v}) = L(\vec{v});</m></li>
+                    </ol>
+                  </proof>
+                </lemma>
+
+
+                <example>
+                    <statement>
+                        Seja <m>V</m> um espaço vetorial. O operador identidade <m>I: V \to V</m> definido por
+                        <me>
+                            I(\vec{v}) = \vec{v}, \,\,\, \forall \vec{v} \in V
+                        </me>
+                        é uma transformação linear, pois <m>\ldots</m>
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        O mapeamento <m>D:C^1(a,b) \to C(a,b)</m>, que associa a cada função a sua derivada é um operador linear
+                        <me>
+                            D(f) = f'
+                        </me>
+                        pois, para quaisquer <m>\alpha, \beta \in \mathbb{R}</m> e <m>f,g \in C^1(a,b)</m>,
+                        <me>
+                            D(\alpha f + \beta g) = (\alpha f + \beta g)' = \alpha f' + \beta g'.
+                        </me>
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        Seja <m>P^3</m> o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e <m>\mathcal{U} = \{1, x, x^2, x^3\}</m> é uma base para esse espaço. O operador <m>D:P^3 \to P^3</m> definido por <m>D(p) = 2 p'' - 3p' + p</m> é um operador linear, pois ...
+                        
+                        Se <m>p(x) = ax^3 + bx^2 + cx + d</m>, então suas coordenadas na base <m>\mathcal{U}</m> são <m>(d, c, b, a)^T</m> e as coordenadas de <m>D(p)</m> na base <m>\mathcal{U}</m> são
+                        <me>
+                            D(p) = \begin{pmatrix}
+                            0 \amp 1 \amp -3 \amp 2  \\
+                            0 \amp 0 \amp 1 \amp -3  \\
+                            0 \amp 0 \amp 0 \amp 1 \\
+                            0 \amp 0 \amp 0 \amp 0 
+                            \end{pmatrix}
+                            \begin{pmatrix}
+                            d \\
+                            c \\
+                            b \\
+                            a
+                            \end{pmatrix}
+                        </me>
+                    </statement>
+                </example>
+
+
+
+
+
+            </subsection>
+
+        </section>
 
     </article>
 

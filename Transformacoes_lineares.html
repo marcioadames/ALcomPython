@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2023-11-02T11:01:48-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Transformações Lineares</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
+<p class="byline">Márcio Rostirolla Adames</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">1</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
+<li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">2</span> <span class="title">Gaussian Elimination</span></a></li>
+<li class="link"><a href="section-Gauss-Jordan.html" data-scroll="section-Gauss-Jordan"><span class="codenumber">3</span> <span class="title">Gauss-Jordan reduction</span></a></li>
+<li class="link"><a href="section-Matrices.html" data-scroll="section-Matrices"><span class="codenumber">4</span> <span class="title">Basic commands for matrices.</span></a></li>
+<li class="link">
+<a href="ElDecomp.html" data-scroll="ElDecomp"><span class="codenumber">5</span> <span class="title">Decompositions; Inverse finding</span></a><ul>
+<li><a href="ElDecomp.html#LU" data-scroll="LU">Decomposition PA = LU</a></li>
+<li><a href="ElDecomp.html#InverseAI" data-scroll="InverseAI">Finding the inverse through Gauss - Jordan reduction</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">6</span> <span class="title">Espaços Vetoriais</span></a><ul>
+<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
+<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="subescos.html" data-scroll="subescos"><span class="codenumber">7</span> <span class="title">Subespaços Vetoriais</span></a><ul>
+<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
+<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="bases.html" data-scroll="bases"><span class="codenumber">8</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
+<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
+<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
+<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
+<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">9</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
+<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
+<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
+<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">10</span> <span class="title">Transformações Lineares</span></a><ul><li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Transformacoes_lineares"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">10</span> <span class="title">Transformações Lineares</span>
+</h2>
+<p id="p-114">Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.</p>
+<section class="subsection" id="trans_lin"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">10.1</span> <span class="title">Transformações Lineares</span>
+</h3>
+<article class="definition definition-like" id="definition-17"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">10.1</span><span class="period">.</span>
+</h6>
+<p id="p-115">Um mapeamento<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a>  \(L : V \to W\text{,}\) de um espaço vetorial \((V,E,\cdot, +)\) para um espaço vetorial \((W,E,\odot,\oplus)\) é dita uma transformação linear <a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 2 </sup></a> se</p>
+<div class="displaymath">
+\begin{equation*}
+L(\alpha \cdot \vec{u} + \beta \vec{v}) = \alpha \odot L(\vec{u}) \oplus \beta \odot L(\vec{v}).
+\end{equation*}
+</div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn">uma função</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">também chamado de mapeamento linear, operador linear ou função linear (dependendo do contexto)</div></div></article><article class="example example-like" id="example-26"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like">Seja \(L: \mathbb{R}^2 \to \mathbb{R}^2\) a função definida por<div class="displaymath">
+\begin{equation*}
+L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} -x_2 \\ x_1 \end{pmatrix}
+\end{equation*}
+</div>é uma transformação linear, pois \(\ldots\)</article></div>
+<article class="example example-like" id="example-27"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like">Seja \(L: \mathbb{R}^2 \to \mathbb{R}^2\) a função definida por<div class="displaymath">
+\begin{equation*}
+L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_1^2 \\ x_2 \end{pmatrix}
+\end{equation*}
+</div>não é uma transformação linear, pois \(\ldots\)</article></div>
+<article class="example example-like" id="example-28"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-28"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-28"><article class="example example-like">O mapeamento \(L: \mathbb{R}^2 \to \mathbb{R}^3\) definido por<div class="displaymath">
+\begin{equation*}
+L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 \\x_1 + x_2 \end{pmatrix}
+\end{equation*}
+</div>é uma transformação linear, pois \(\ldots\) Podemos notar que<div class="displaymath">
+\begin{equation*}
+L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-22"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-22"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-22"><article class="exercise exercise-like">Seja \(A\) é uma matriz \(m \times n\text{.}\) Mostre que a função<div class="displaymath">
+\begin{align*}
+L: \amp \mathbb{R}^m \to \mathbb{R}^n,\\
+\amp L(\vec{v}) = A\vec{v}
+\end{align*}
+</div>é uma transformação linear.</article></div>
+<article class="lemma theorem-like" id="linear_trans_prop"><h6 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.6</span><span class="period">.</span>
+</h6>Se \(L: V \to W\) é uma transformação linear e \(\vec{v}, \vec{v}_1, \ldots, \vec{v}_n \in V\text{,}\) então <ol class="decimal">
+<li id="li-71"><p id="p-derived-li-71">\(\displaystyle L(\vec{0}_V) = \vec{0}_W;\)</p></li>
+<li id="li-72"><p id="p-derived-li-72">\(\displaystyle L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);\)</p></li>
+<li id="li-73"><p id="p-derived-li-73">\(\displaystyle L(-\vec{v}) = L(\vec{v});\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><ol class="decimal">
+<li id="li-74"><p id="p-derived-li-74">\(\displaystyle L(\vec{0}_V) = L(0\vec{v}) = 0L(\vec{v}) = \vec{0}_W;\)</p></li>
+<li id="li-75"><p id="p-derived-li-75"><div class="displaymath">
+\begin{align*}
+L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n)  =\amp L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_{n-1} \vec{v}_{n-1}) +\alpha_n L(\vec{v}_n) = \cdots \\
+=\amp \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);
+\end{align*}
+</div></p></li>
+<li id="li-76"><p id="p-derived-li-76">\(\displaystyle L(-\vec{v}) = L(\vec{v});\)</p></li>
+</ol></article></div>
+<article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like">Seja \(V\) um espaço vetorial. O operador identidade \(I: V \to V\) definido por<div class="displaymath">
+\begin{equation*}
+I(\vec{v}) = \vec{v}, \,\,\, \forall \vec{v} \in V
+\end{equation*}
+</div>é uma transformação linear, pois \(\ldots\)</article></div>
+<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like">O mapeamento \(D:C^1(a,b) \to C(a,b)\text{,}\) que associa a cada função a sua derivada é um operador linear<div class="displaymath">
+\begin{equation*}
+D(f) = f'
+\end{equation*}
+</div>pois, para quaisquer \(\alpha, \beta \in \mathbb{R}\) e \(f,g \in C^1(a,b)\text{,}\)<div class="displaymath">
+\begin{equation*}
+D(\alpha f + \beta g) = (\alpha f + \beta g)' = \alpha f' + \beta g'.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like">Seja \(P^3\) o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e \(\mathcal{U} = \{1, x, x^2, x^3\}\) é uma base para esse espaço. O operador \(D:P^3 \to P^3\) definido por \(D(p) = 2 p'' - 3p' + p\) é um operador linear, pois ... Se \(p(x) = ax^3 + bx^2 + cx + d\text{,}\) então suas coordenadas na base \(\mathcal{U}\) são \((d, c, b, a)^T\) e as coordenadas de \(D(p)\) na base \(\mathcal{U}\) são<div class="displaymath">
+\begin{equation*}
+D(p) = \begin{pmatrix}
+0 \amp 1 \amp -3 \amp 2  \\
+0 \amp 0 \amp 1 \amp -3  \\
+0 \amp 0 \amp 0 \amp 1 \\
+0 \amp 0 \amp 0 \amp 0 
+\end{pmatrix}
+\begin{pmatrix}
+d \\
+c \\
+b \\
+a
+\end{pmatrix}
+\end{equation*}
+</div></article></div></section></section></div></main>
+</div>
+</body>
+</html>
