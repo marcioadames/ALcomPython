@@ -3167,6 +3167,24 @@ print(np.linalg.inv(A))
                     </statement>
                 </example>
 
+                <example>
+                    <statement>
+                        O mapeamento <m>L: \mathbb{R}^3 \to \mathbb{R}^2</m> definido por
+                        <me>
+                            L\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+                        </me>
+                        é uma transformação linear, pois <m>\ldots</m>
+
+                        Podemos notar que
+                        <me>
+                            L\begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix}.
+                        </me>
+                        Essa transformação linear é a projeção do espaço <m>\mathbb{R}^3</m> em <m>\mathbb{R}^2</m>.
+                    </statement>
+                </example>
+
+
+
 
                 <example>
                     <statement>
@@ -3248,21 +3266,21 @@ print(np.linalg.inv(A))
 
                 <example>
                     <statement>
-                        Seja <m>P^3</m> o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e <m>\mathcal{U} = \{1, x, x^2, x^3\}</m> é uma base para esse espaço. O operador <m>D:P^3 \to P^3</m> definido por <m>D(p) = 2 p'' - 3p' + p</m> é um operador linear, pois ...
+                        Seja <m>P^3</m> o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e <m>\mathcal{U} = \{x^3, x^2, x, 1\}</m> é uma base para esse espaço. O operador <m>D:P^3 \to P^3</m> definido por <m>D(p) = 2 p'' - 3p' + p</m> é um operador linear, pois ...
                         
-                        Se <m>p(x) = ax^3 + bx^2 + cx + d</m>, então suas coordenadas na base <m>\mathcal{U}</m> são <m>(d, c, b, a)^T</m> e as coordenadas de <m>D(p)</m> na base <m>\mathcal{U}</m> são
+                        Se <m>p(x) = ax^3 + bx^2 + cx + d</m>, então suas coordenadas na base <m>\mathcal{U}</m> são <m>(a, b, c, d)^T</m> e <m>D(p) = a x^3 + (-9a+b)x^2 + (12a-6b+c)x + (4b-3c+d)</m>, de modo que as suas coordenadas na base <m>\mathcal{U}</m> são iguais a
                         <me>
                             D(p) = \begin{pmatrix}
-                            0 \amp 1 \amp -3 \amp 2  \\
-                            0 \amp 0 \amp 1 \amp -3  \\
-                            0 \amp 0 \amp 0 \amp 1 \\
-                            0 \amp 0 \amp 0 \amp 0 
+                            1 \amp 0 \amp 0 \amp 0  \\
+                            -9 \amp 1 \amp 0 \amp 0  \\
+                            12 \amp -6 \amp 1 \amp 0 \\
+                            0 \amp 4 \amp -3 \amp 1 
                             \end{pmatrix}
                             \begin{pmatrix}
-                            d \\
-                            c \\
+                            a \\
                             b \\
-                            a
+                            c \\
+                            d
                             \end{pmatrix}
                         </me>
                     </statement>
