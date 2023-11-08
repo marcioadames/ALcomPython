@@ -3183,6 +3183,59 @@ print(np.linalg.inv(A))
                     </statement>
                 </example>
 
+                <p>O código abaixo faz um plot da projeção do exemplo acima.</p>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+
+                        x1 = np.array([1,0, 0])
+                        x2 = np.array([0, 1, 0])
+                        x3 = np.array([0.5, 0.5, 1])
+
+                        q2 = (x1.dot(x3))*x1
+                        r2 = (x2.dot(x3))*x2
+                        p2 = q2 + r2
+                        z2 = x3 - p2
+
+                        import pandas as pd
+                        import plotly.graph_objects as go
+
+
+                        df = pd.DataFrame(dict(
+                            X=[0,x1[0],0,x2[0], 0,x3[0], p2[0], x3[0]], 
+                            Y=[0,x1[1],0,x2[1], 0,x3[1], p2[1], x3[1]],
+                            Z=[0,x1[2],0,x2[2], 0,x3[2], p2[2], x3[2]],
+                            color=["x1", "x1", "x2", "x2", "x3", "x3", "z2", "z2"]
+                        ))
+
+                        df1 = pd.DataFrame(dict(
+                            X=[x1[0],x2[0],x3[0],p2[0]], 
+                            Y=[x1[1],x2[1],x3[1],p2[1]],
+                            Z=[x1[2],x2[2],x3[2],p2[2]],
+                            color=["x1", "x2", "x3","z2"],
+                            text=["x", "y", "v","p"]
+                        ))
+
+                        import plotly.express as px
+
+                        fig1 = px.line_3d(df, x='X', y='Y', z='Z', color="color", markers=False)
+                        fig2 =px.line_3d(df1, x='X', y='Y', z='Z', color="color", markers=True, symbol_sequence=['diamond'], text="text")
+                        fig3 = go.Figure(data=fig1.data + fig2.data)
+                        fig3.update_layout(showlegend=False,font = dict(size = 30),
+                                        scene = dict(xaxis_title='', yaxis_title='', zaxis_title='',
+                                            xaxis = dict(tickfont=dict(size=12,) ),
+                                            yaxis = dict(tickfont=dict(size=12,) ),
+                                            zaxis = dict(tickfont=dict(size=12,) ),))
+                        fig3.write_html("yourfile.html")
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
 
 
 
@@ -3287,6 +3340,228 @@ print(np.linalg.inv(A))
                 </example>
 
 
+
+
+
+            </subsection>
+
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="matriz_lin_trans">
+                <title>Representação Matricial de Transformações Lineares</title>
+
+
+                <theorem xml:id = "rep_matricial">
+                    <title> da Representação Matricial</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Sejam <m>L:U \to V</m> uma transformação linear entre dois espaços vetoriais <m>U</m> e <m>V</m> e <m>\mathcal{U} = \{\vec{u}_1, \ldots, \vec{u}_n\}</m>, <m>\mathcal{V} = \{\vec{v}_1, \ldots, \vec{v}_m\}</m> bases para esses espaços vetoriais, respectivamente. Se um vetor <m>\vec{u}</m> tem coordenadas <m>\vec{u}^\mathcal{U} = (u_1^{\mathcal{U}}, u_2^{\mathcal{U}}, \ldots, u_n^{\mathcal{U}})</m>, então existe uma matriz <m>A=(a_{ij})</m>, <m>m \times n</m>, tal que as coordenadas de <m>L(\vec{u})</m> na base <m>\mathcal{V}</m> são dadas por
+                    <me>
+                        L(\vec{u})^\mathcal{V} = A\vec{u}^\mathcal{U}.
+                    </me>
+                    As colunas dessa matriz são obtidas calculando <m>\vec{a}_j = L(\vec{u}_j)^\mathcal{V}</m>, <m>j=1,\ldots, n</m>, de modo que <m>a_{ij} = L(\vec{u}_j)^\mathcal{V}_i</m>.
+                  </statement>
+                
+                  <proof>
+                    <md>
+                        <mrow>L(\vec{u}) =\amp u_1^{\mathcal{U}}L(\vec{u}_1) + u_2^{\mathcal{U}}L(\vec{u}_2) + \cdots + u_n^{\mathcal{U}} L(\vec{u}_n)</mrow>
+                        <mrow>= \amp u_1^{\mathcal{U}}(L(\vec{u}_1)^\mathcal{V}_1 \vec{v}_1 + \cdots + L(\vec{u}_1)^\mathcal{V}_m \vec{v}_m) + \cdots + u_n^{\mathcal{U}} (L(\vec{u}_n)^\mathcal{V}_1 \vec{v}_1 + \cdots + L(\vec{u}_n)^\mathcal{V}_m \vec{v}_m) </mrow>
+                        <mrow>= \amp (u_1^{\mathcal{U}}L(\vec{u}_1)^\mathcal{V}_1 + \cdots + u_n^{\mathcal{U}} (L(\vec{u}_n)^\mathcal{V}_1))\vec{v}_1 + \cdots + (u_1^{\mathcal{U}}L(\vec{u}_1)^\mathcal{V}_m  + \cdots +  u_n^{\mathcal{U}}L(\vec{u}_n)^\mathcal{V}_m)\vec{v}_m </mrow>
+                        <mrow> = \amp (L(\vec{u}_1)^\mathcal{V}_1, \ldots,  (L(\vec{u}_n)^\mathcal{V}_1)) \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} \vec{v}_1 + \cdots + (L(\vec{u}_1)^\mathcal{V}_m, \ldots,  (L(\vec{u}_n)^\mathcal{V}_m)) \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} \vec{v}_m </mrow>,
+                    </md>
+                    de modo que as coordenadas de <m>L(\vec{u})</m> na base <m>\mathcal{V}</m> são
+                    <me>
+                        L(\vec{u})^{\mathcal{V}} = \begin{pmatrix} L(\vec{u}_1)^\mathcal{V}_1 \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}_1\\ \vdots \amp \ddots \amp \vdots \\ L(\vec{u}_1)^\mathcal{V}_m \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}_m \end{pmatrix} \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} = \begin{pmatrix} | \amp \cdots \amp  | \\ L(\vec{u}_1)^\mathcal{V} \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}\\ | \amp \cdots \amp  | \end{pmatrix} \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix}.
+                    </me>
+                  </proof>
+                </theorem>
+
+                <p>Dizemos que <m>A</m> representa <m>L</m> nas bases <m>\mathcal{U}</m> e <m>\mathcal{V}</m>.</p>
+
+
+                <example>
+                    <statement>
+                        Seja  <m>L: \mathbb{R}^3 \to \mathbb{R}^4</m>, a transformação linear definida por
+                        <me>
+                            L \begin{pmatrix} x_1\\ x_2\\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 - x_3 \\ -x_2\\ -x_1 - x_2 + x_3 \\ x_2 - x_3 \end{pmatrix}.
+                        </me>
+                        A matriz que representa <m>L</m> nas bases canônicas de <m>\mathbb{R}^3</m> e <m>\mathbb{R}^4</m> é 
+                        <me>
+                            A = \begin{pmatrix}
+                            1 \amp 0 \amp -1  \\
+                            0 \amp -1 \amp 0  \\
+                            -1 \amp -1 \amp 1 \\
+                            0 \amp 1 \amp -1 
+                            \end{pmatrix},
+                        </me>
+                        de modo que <m>L(\vec{x}) = A\vec{x}</m>.
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        A matriz que representa a transformação linear do exemplo anterior nas bases <m>\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}</m> e na base canônica <m>\mathbb{R}^4</m> é 
+                        <me>
+                            A = \begin{pmatrix}
+                            0 \amp -1 \amp 0  \\
+                            0 \amp 1 \amp -1  \\
+                            0 \amp 2 \amp 1 \\
+                            -1 \amp -2 \amp 0 
+                            \end{pmatrix},
+                        </me>
+                        de modo que <m>L(\vec{x}^\mathcal{U}) = A\vec{x}</m>.
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        A matriz que representa a transformação linear do exemplo anterior nas bases <m>\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}</m> e <m>\mathcal{V} = \{(1,0,0,-1)^T, (0,1,1,0)^T, (1,0,0,1)^T, (0,-1,1,0)^T\}</m> tem colunas <m>V^{-1} (0,0,0,-1)^T</m>, <m>V^{-1} (-1,1,2,-2)^T</m> e <m>V^{-1} (0,-1,1,0)^T</m>, nessa ordem.
+                    </statement>
+                </example>
+
+
+                <example xml:id="ex_proj">
+                    <statement>
+                        Seja <m>P: \mathcal{R}^3 \to \mathcal{R}^3</m> a projeção no plano que passa pela origem e têm vetores diretores <m>\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T</m>. Para representá-la na base <m>\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (1,-1,1)^T\}</m> notamos que <m>\vec{u}_2 \perp \vec{u}_3 </m> e
+                        <md>
+                            <mrow>\mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_1 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_1 + \mbox{proj}_{\vec{u}_3} \vec{u}_1 = \vec{0}</mrow>,
+                            <mrow>\mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_2 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_2 + \mbox{proj}_{\vec{u}_3} \vec{u}_2 = \vec{u}_2</mrow>,
+                            <mrow>\mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_3 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_3 + \mbox{proj}_{\vec{u}_3} \vec{u}_3 = \vec{u}_3</mrow>,
+                        </md>
+                        de modo que, nessa base, a <m>P</m> é representada pela matriz
+                        <me>
+                            A^{\mathcal{U}} = \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}.
+                        </me>
+
+                    </statement>
+                </example>
+
+                <p>Como representar a matriz do exemplo anterior na base canônica?</p>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+                        
+                        
+                        v = np.array([0.2,0.5,0.4])
+                        
+                        x1 = np.array([1,0, 1])
+                        x2 = np.array([0, -1, 1])
+                        x3 = np.array([-1, 1, 1])
+                        
+                        u1 = x1/x1.dot(x1)
+                        u2 = x2/x2.dot(x2)
+                        u3 = x3/x3.dot(x3)
+                        
+                        q2 = (u3.dot(v))*u3
+                        r2 = (u2.dot(v))*u2
+                        p2 = q2 + r2
+                        z2 = v - p2
+                        
+                        import pandas as pd
+                        import plotly.graph_objects as go
+                        
+                        
+                        df = pd.DataFrame(dict(
+                            X=[0,x3[0],0,x2[0], 0,v[0], p2[0], v[0]], 
+                            Y=[0,x3[1],0,x2[1], 0,v[1], p2[1], v[1]],
+                            Z=[0,x3[2],0,x2[2], 0,v[2], p2[2], v[2]],
+                            color=["x1", "x1", "x2", "x2", "x3", "x3", "z2", "z2"]
+                        ))
+                        
+                        df1 = pd.DataFrame(dict(
+                            X=[x3[0],x2[0],v[0],p2[0]], 
+                            Y=[x3[1],x2[1],v[1],p2[1]],
+                            Z=[x3[2],x2[2],v[2],p2[2]],
+                            color=["x1", "x2", "x3","z2"],
+                            text=["x", "y", "v","p"]
+                        ))
+                        
+                        import plotly.express as px
+                        
+                        fig1 = px.line_3d(df, x='X', y='Y', z='Z', color="color", markers=False)
+                        fig2 =px.line_3d(df1, x='X', y='Y', z='Z', color="color", markers=True, symbol_sequence=['diamond'], text="text")
+                        fig3 = go.Figure(data=fig1.data + fig2.data)
+                        fig3.update_layout(showlegend=False,font = dict(size = 30),
+                                        scene = dict(xaxis_title='', yaxis_title='', zaxis_title='',
+                                            xaxis = dict(tickfont=dict(size=12,) ),
+                                            yaxis = dict(tickfont=dict(size=12,) ),
+                                            zaxis = dict(tickfont=dict(size=12,) ),))
+                        fig3.write_html("yourfile.html")
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
+
+
+                <theorem xml:id = "mud_base">
+                    <title> da Mudança de Base</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Sejam <m>\mathcal{U}</m> e <m>\mathcal{V}</m> bases para um espaço vetorial <m>V</m>, <m>S</m> a matriz de mudança de base da base <m>\mathcal{V}</m> para a base <m>\mathcal{U}</m>. Se <m>L</m> é um operador linear em <m>V</m> representado pela matriz <m>A^{\mathcal{U}}</m> na base <m>\mathcal{U}</m>, então a matriz que representa <m>L</m> na base <m>\mathcal{V}</m> é
+                    <me>
+                        A^{\mathcal{V}} = S^{-1}A^{\mathcal{U}}S.
+                    </me>
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+                <example>
+                    <statement>
+                        Para calcularmos a matriz que representa a projeção do <xref ref="ex_proj"></xref> na base canônica, precisamos da matriz de mudança de base e sua inversa
+                        <me>
+                            U = \begin{pmatrix}
+                            1\amp 0 \amp 1 \\
+                            1\amp 1 \amp -1 \\
+                            -1\amp 1 \amp  1
+                            \end{pmatrix}
+                            \,\,\,\,\,\,
+                            U^{-1} = \begin{pmatrix}
+                            1/2\amp  1/4 \amp  -1/4\\
+                            0 \amp  1/2 \amp  1/2\\
+                            1/2\amp  -1/4 \amp 1/4 
+                            \end{pmatrix}
+                        </me>
+                        de modo que
+                        <me>
+                            A = \begin{pmatrix}
+                            1/2\amp  1/4 \amp  -1/4\\
+                            0 \amp  1/2 \amp  1/2\\
+                            1/2\amp  -1/4 \amp 1/4 
+                            \end{pmatrix} 
+                            \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}
+                            \begin{pmatrix}
+                            1\amp 0 \amp 1 \\
+                            1\amp 1 \amp -1 \\
+                            -1\amp 1 \amp  1
+                            \end{pmatrix}
+                            = \cdots
+                        </me>
+                    </statement>
+                </example>
+
+
+                <exercise>
+                    <statement>
+                        Determine a matriz da rotação de <m>\theta</m> radianos em torno do eixo <m>(1,1,-1)^T</m>, no sentido anti-horário, na base <m>\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (1,-1,1)^T\}</m>.
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        Determine a matriz da rotação de <m>\theta</m> radianos em torno do eixo <m>(1,1,-1)^T</m>, no sentido anti-horário, na base canônica.
+                    </statement>
+                </exercise>
 
 
 
