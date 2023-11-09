@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-11-08T14:02:06-03:00       *-->
+<!--*       on 2023-11-09T15:07:27-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -239,18 +239,29 @@ L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0
 </div></article></div>
 <article class="exercise exercise-like" id="exercise-22"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-22"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-22"><article class="exercise exercise-like">Seja \(A\) é uma matriz \(m \times n\text{.}\) Mostre que a função<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-22"><article class="exercise exercise-like">Seja \(A\) é uma matriz \(n \times m\text{.}\) Mostre que a função<div class="displaymath">
 \begin{align*}
 L: \amp \mathbb{R}^m \to \mathbb{R}^n,\\
 \amp L(\vec{v}) = A\vec{v}
 \end{align*}
 </div>é uma transformação linear.</article></div>
+<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.7</span><span class="period">.</span><span class="space"> </span><span class="title">Rotação no plano.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like">Seja \(R_\theta: \mathbb{R}^2 \to \mathbb{R}^2\) a operação que os vetores do plano em \(\theta\) radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar:<div class="displaymath">
+\begin{equation*}
+\vec{v} = (r \mbox{cos}(\alpha), r \mbox{sen}(\alpha))^T
+\end{equation*}
+</div>e percebemos que rodar \(\theta\) no sentido anti-horário significa somar \(\theta\) ao ângulo, de modo que<div class="displaymath">
+\begin{equation*}
+R_\theta(\vec{v}) = \begin{pmatrix} r \mbox{cos}(\alpha+\theta)\\ r \mbox{sen}(\alpha+\theta)\end{pmatrix} = \begin{pmatrix} r(\mbox{cos}(\alpha)^2 -\mbox{sen}(\theta)^2)\\ r (2\mbox{sen}(\alpha)\mbox{cos}(\theta))\end{pmatrix} = \begin{pmatrix} \mbox{cos}(\theta) \amp -\mbox{sen}(\theta)\\ \mbox{sen}(\theta) \amp \mbox{cos}(\theta) \end{pmatrix}\begin{pmatrix} r \mbox{cos}(\alpha)\\ r \mbox{sen}(\alpha)\end{pmatrix}
+\end{equation*}
+</div>Pelo exercício anterior, a rotação é uma transformação linear.</article></div>
 <article class="lemma theorem-like" id="linear_trans_prop"><h6 class="heading">
-<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.7</span><span class="period">.</span>
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.8</span><span class="period">.</span>
 </h6>Se \(L: V \to W\) é uma transformação linear e \(\vec{v}, \vec{v}_1, \ldots, \vec{v}_n \in V\text{,}\) então <ol class="decimal">
 <li id="li-71"><p id="p-derived-li-71">\(\displaystyle L(\vec{0}_V) = \vec{0}_W;\)</p></li>
-<li id="li-72"><p id="p-derived-li-72">\(\displaystyle L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);\)</p></li>
-<li id="li-73"><p id="p-derived-li-73">\(\displaystyle L(-\vec{v}) = L(\vec{v});\)</p></li>
+<li id="li-72"><p id="p-derived-li-72">\(\displaystyle L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + \alpha_n L(\vec{v}_n);\)</p></li>
+<li id="li-73"><p id="p-derived-li-73">\(\displaystyle L(-\vec{v}) = -L(\vec{v});\)</p></li>
 </ol></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><ol class="decimal">
 <li id="li-74"><p id="p-derived-li-74">\(\displaystyle L(\vec{0}_V) = L(0\vec{v}) = 0L(\vec{v}) = \vec{0}_W;\)</p></li>
 <li id="li-75"><p id="p-derived-li-75"><div class="displaymath">
@@ -259,18 +270,18 @@ L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n)  =\amp L(\alpha_1 \vec{v}_1
 =\amp \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);
 \end{align*}
 </div></p></li>
-<li id="li-76"><p id="p-derived-li-76">\(\displaystyle L(-\vec{v}) = L(\vec{v});\)</p></li>
+<li id="li-76"><p id="p-derived-li-76">\(\displaystyle L(\vec{v}) + L(-\vec{v}) = L(\vec{v})-  L(\vec{v}) = \vec{0};\)</p></li>
 </ol></article></div>
-<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like">Seja \(V\) um espaço vetorial. O operador identidade \(I: V \to V\) definido por<div class="displaymath">
+<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like">Seja \(V\) um espaço vetorial. O operador identidade \(I: V \to V\) definido por<div class="displaymath">
 \begin{equation*}
 I(\vec{v}) = \vec{v}, \,\,\, \forall \vec{v} \in V
 \end{equation*}
 </div>é uma transformação linear, pois \(\ldots\)</article></div>
-<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.9</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like">O mapeamento \(D:C^1(a,b) \to C(a,b)\text{,}\) que associa a cada função a sua derivada é um operador linear<div class="displaymath">
+<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">O mapeamento \(D:C^1(a,b) \to C(a,b)\text{,}\) que associa a cada função a sua derivada é um operador linear<div class="displaymath">
 \begin{equation*}
 D(f) = f'
 \end{equation*}
@@ -279,9 +290,9 @@ D(f) = f'
 D(\alpha f + \beta g) = (\alpha f + \beta g)' = \alpha f' + \beta g'.
 \end{equation*}
 </div></article></div>
-<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.10</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">Seja \(P^3\) o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e \(\mathcal{U} = \{x^3, x^2, x, 1\}\) é uma base para esse espaço. O operador \(D:P^3 \to P^3\) definido por \(D(p) = 2 p'' - 3p' + p\) é um operador linear, pois ... Se \(p(x) = ax^3 + bx^2 + cx + d\text{,}\) então suas coordenadas na base \(\mathcal{U}\) são \((a, b, c, d)^T\) e \(D(p) = a x^3 + (-9a+b)x^2 + (12a-6b+c)x + (4b-3c+d)\text{,}\) de modo que as suas coordenadas na base \(\mathcal{U}\) são iguais a<div class="displaymath">
+<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.11</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like">Seja \(P^3\) o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e \(\mathcal{U} = \{x^3, x^2, x, 1\}\) é uma base para esse espaço. O operador \(D:P^3 \to P^3\) definido por \(D(p) = 2 p'' - 3p' + p\) é um operador linear, pois ... Se \(p(x) = ax^3 + bx^2 + cx + d\text{,}\) então suas coordenadas na base \(\mathcal{U}\) são \((a, b, c, d)^T\) e \(D(p) = a x^3 + (-9a+b)x^2 + (12a-6b+c)x + (4b-3c+d)\text{,}\) de modo que as suas coordenadas na base \(\mathcal{U}\) são iguais a<div class="displaymath">
 \begin{equation*}
 D(p) = \begin{pmatrix}
 1 \amp 0 \amp 0 \amp 0  \\
@@ -300,7 +311,7 @@ d
 <span class="type">Subsection</span> <span class="codenumber">10.2</span> <span class="title">Representação Matricial de Transformações Lineares</span>
 </h3>
 <article class="theorem theorem-like" id="rep_matricial"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.11</span><span class="period">.</span><span class="space"> </span><span class="title">da Representação Matricial.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.12</span><span class="period">.</span><span class="space"> </span><span class="title">da Representação Matricial.</span>
 </h6>Sejam \(L:U \to V\) uma transformação linear entre dois espaços vetoriais \(U\) e \(V\) e \(\mathcal{U} = \{\vec{u}_1, \ldots, \vec{u}_n\}\text{,}\) \(\mathcal{V} = \{\vec{v}_1, \ldots, \vec{v}_m\}\) bases para esses espaços vetoriais, respectivamente. Se um vetor \(\vec{u}\) tem coordenadas \(\vec{u}^\mathcal{U} = (u_1^{\mathcal{U}}, u_2^{\mathcal{U}}, \ldots, u_n^{\mathcal{U}})\text{,}\) então existe uma matriz \(A=(a_{ij})\text{,}\) \(m \times n\text{,}\) tal que as coordenadas de \(L(\vec{u})\) na base \(\mathcal{V}\) são dadas por<div class="displaymath">
 \begin{equation*}
 L(\vec{u})^\mathcal{V} = A\vec{u}^\mathcal{U}.
@@ -318,9 +329,9 @@ L(\vec{u})^{\mathcal{V}} = \begin{pmatrix} L(\vec{u}_1)^\mathcal{V}_1 \amp \cdot
 \end{equation*}
 </div></article></div>
 <p id="p-117">Dizemos que \(A\) representa \(L\) nas bases \(\mathcal{U}\) e \(\mathcal{V}\text{.}\)</p>
-<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.12</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like">Seja  \(L: \mathbb{R}^3 \to \mathbb{R}^4\text{,}\) a transformação linear definida por<div class="displaymath">
+<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.13</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like">Seja  \(L: \mathbb{R}^3 \to \mathbb{R}^4\text{,}\) a transformação linear definida por<div class="displaymath">
 \begin{equation*}
 L \begin{pmatrix} x_1\\ x_2\\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 - x_3 \\ -x_2\\ -x_1 - x_2 + x_3 \\ x_2 - x_3 \end{pmatrix}.
 \end{equation*}
@@ -334,24 +345,24 @@ A = \begin{pmatrix}
 \end{pmatrix},
 \end{equation*}
 </div>de modo que \(L(\vec{x}) = A\vec{x}\text{.}\)</article></div>
-<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.13</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases \(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\) e na base canônica \(\mathbb{R}^4\) é<div class="displaymath">
+<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.14</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases \(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\) e na base canônica \(\mathbb{R}^4\) é<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
-0 \amp -1 \amp 0  \\
+0 \amp -1 \amp 2 \\
 0 \amp 1 \amp -1  \\
 0 \amp 2 \amp 1 \\
 -1 \amp -2 \amp 0 
 \end{pmatrix},
 \end{equation*}
-</div>de modo que \(L(\vec{x}^\mathcal{U}) = A\vec{x}\text{.}\)</article></div>
-<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases \(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\) e \(\mathcal{V} = \{(1,0,0,-1)^T, (0,1,1,0)^T, (1,0,0,1)^T, (0,-1,1,0)^T\}\) tem colunas \(V^{-1} (0,0,0,-1)^T\text{,}\) \(V^{-1} (-1,1,2,-2)^T\) e \(V^{-1} (0,-1,1,0)^T\text{,}\) nessa ordem.</article></div>
-<article class="example example-like" id="ex_proj"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex_proj"><h6 class="heading">
+</div>de modo que \(L(\vec{x}) = A\vec{x}^\mathcal{U}\text{.}\)</article></div>
+<article class="example example-like" id="example-36"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.15</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex_proj"><article class="example example-like">Seja \(P: \mathcal{R}^3 \to \mathcal{R}^3\) a projeção no plano que passa pela origem e têm vetores diretores \(\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\text{.}\) Para representá-la na base \(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (1,-1,1)^T\}\) notamos que \(\vec{u}_2 \perp \vec{u}_3 \) e<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases \(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\) e \(\mathcal{V} = \{(1,0,0,-1)^T, (0,1,1,0)^T, (1,0,0,1)^T, (0,-1,1,0)^T\}\) tem colunas \(V^{-1} (0,0,0,-1)^T\text{,}\) \(V^{-1} (-1,1,2,-2)^T\) e \(V^{-1} (0,-1,1,0)^T\text{,}\) nessa ordem.</article></div>
+<article class="example example-like" id="ex_proj"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex_proj"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex_proj"><article class="example example-like">Seja \(P: \mathcal{R}^3 \to \mathcal{R}^3\) a projeção no plano que passa pela origem e têm vetores diretores \(\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\text{.}\) Para representá-la na base \(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}\) notamos que \(\vec{u}_2 \perp \vec{u}_3 \) e<div class="displaymath">
 \begin{align*}
 \mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_1 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_1 + \mbox{proj}_{\vec{u}_3} \vec{u}_1 = \vec{0}\\
 \mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_2 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_2 + \mbox{proj}_{\vec{u}_3} \vec{u}_2 = \vec{u}_2\\
@@ -414,49 +425,86 @@ fig3.update_layout(showlegend=False,font = dict(size = 30),
 fig3.write_html("yourfile.html")
 </script></div>
 <article class="theorem theorem-like" id="mud_base"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.16</span><span class="period">.</span><span class="space"> </span><span class="title">da Mudança de Base.</span>
-</h6>Sejam \(\mathcal{U}\) e \(\mathcal{V}\) bases para um espaço vetorial \(V\text{,}\) \(S\) a matriz de mudança de base da base \(\mathcal{V}\) para a base \(\mathcal{U}\text{.}\) Se \(L\) é um operador linear em \(V\) representado pela matriz \(A^{\mathcal{U}}\) na base \(\mathcal{U}\text{,}\) então a matriz que representa \(L\) na base \(\mathcal{V}\) é<div class="displaymath">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.17</span><span class="period">.</span><span class="space"> </span><span class="title">da Mudança de Base.</span>
+</h6>Sejam \(\mathcal{U}\) e \(\mathcal{V}\) bases para um espaço vetorial \(V\text{,}\) \(S\) a matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\text{.}\) Se \(L\) é um operador linear em \(V\) representado pela matriz \(A^{\mathcal{U}}\) na base \(\mathcal{U}\text{,}\) então a matriz que representa \(L\) na base \(\mathcal{V}\) é<div class="displaymath">
 \begin{equation*}
-A^{\mathcal{V}} = S^{-1}A^{\mathcal{U}}S.
+A^{\mathcal{V}} = SA^{\mathcal{U}}S^{-1}.
 \end{equation*}
 </div></article><article class="hiddenproof" id="proof-19"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof">A completar.</article></div>
-<article class="example example-like" id="example-37"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-37"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.17</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-37"><article class="example example-like">Para calcularmos a matriz que representa a projeção do <a class="xref" data-knowl="./knowl/ex_proj.html" title="Example 10.15">Example 10.15</a> na base canônica, precisamos da matriz de mudança de base e sua inversa<div class="displaymath">
+<p id="p-119">Esse teorema é frequentemente utilizado com \(\mathcal{V}\) sendo a base canônica, e \(S=U\) sendo a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica.</p>
+<div class="sagecell-sage" id="sage-35"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots()
+plt.xlim( (-4.6, 1) )  # set the xlim to xmin, xmax
+plt.ylim((-0.1,2.5))    # set the xlim to xmin, xmax
+
+fig.patch.set_visible(False)
+ax.axis('off')
+
+
+plt.annotate('E', [-0.1,0.1], fontsize=20, style= 'italic' )
+plt.arrow(0,2.15,0,-1.7, head_width =0.1)
+plt.annotate('U', [-0.1,2.2], fontsize=20, style= 'italic' )
+plt.arrow(-3.75,2.3,3.5,0, head_width =0.1)
+plt.annotate('U', [-4.1,2.2], fontsize=20, style= 'italic' )
+plt.arrow(-3.8,0.2,3.4,0, head_width =0.1)
+plt.annotate('E', [-4.1,0.1], fontsize=20, style= 'italic' )
+plt.arrow(-4,0.3,0,1.7, head_width =0.1)
+
+plt.annotate('U', [0.1,1.2], fontsize=20)
+plt.annotate('L', [-2,2.4], fontsize=20)
+plt.annotate('U', [-1.85,2.5], fontsize=10)
+
+plt.annotate('L', [-2.3,-0.1], fontsize=20)
+plt.annotate('U', [-2.1,0], fontsize=10)
+plt.annotate('U', [-1.95,-0.1], fontsize=20)
+plt.annotate('-1', [-1.72,0], fontsize=10)
+plt.annotate('U', [-2.6,-0.1], fontsize=20)
+
+plt.annotate('-1', [-4.2,1.3], fontsize=10)
+plt.annotate('U', [-4.4,1.2], fontsize=20)
+
+
+plt.show()
+</script></div>
+<article class="example example-like" id="example-38"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-38"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-38"><article class="example example-like">Para calcularmos a matriz que representa a projeção do <a class="xref" data-knowl="./knowl/ex_proj.html" title="Example 10.16">Example 10.16</a> na base canônica, precisamos da matriz de mudança de base e sua inversa<div class="displaymath">
 \begin{equation*}
 U = \begin{pmatrix}
-1\amp 0 \amp 1 \\
+1\amp 0 \amp 2 \\
 1\amp 1 \amp -1 \\
 -1\amp 1 \amp  1
 \end{pmatrix}
 \,\,\,\,\,\,
 U^{-1} = \begin{pmatrix}
-1/2\amp  1/4 \amp  -1/4\\
+1/3\amp  1/3 \amp  -1/3\\
 0 \amp  1/2 \amp  1/2\\
-1/2\amp  -1/4 \amp 1/4 
+1/3\amp  -1/6 \amp 1/6 
 \end{pmatrix}
 \end{equation*}
 </div>de modo que<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
-1/2\amp  1/4 \amp  -1/4\\
-0 \amp  1/2 \amp  1/2\\
-1/2\amp  -1/4 \amp 1/4 
-\end{pmatrix} 
-\begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}
-\begin{pmatrix}
 1\amp 0 \amp 1 \\
 1\amp 1 \amp -1 \\
 -1\amp 1 \amp  1
+\end{pmatrix} 
+\begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}
+\begin{pmatrix}
+1/3\amp  1/3 \amp  -1/3\\
+0 \amp  1/2 \amp  1/2\\
+1/3\amp  -1/6 \amp 1/6 
 \end{pmatrix}
 = \cdots
 \end{equation*}
 </div></article></div>
 <article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.18</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like">Determine a matriz da rotação de \(\theta\) radianos em torno do eixo \((1,1,-1)^T\text{,}\) no sentido anti-horário, na base \(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (1,-1,1)^T\}\text{.}\)</article></div>
-<article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.19</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like">Determine a matriz da rotação de \(\theta\) radianos em torno do eixo \((1,1,-1)^T\text{,}\) no sentido anti-horário, na base \(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}\text{.}\)</article></div>
+<article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.20</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-24"><article class="exercise exercise-like">Determine a matriz da rotação de \(\theta\) radianos em torno do eixo \((1,1,-1)^T\text{,}\) no sentido anti-horário, na base canônica.</article></div></section></section></div></main>
 </div>
 </body>

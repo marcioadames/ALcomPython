@@ -3257,7 +3257,7 @@ print(np.linalg.inv(A))
 
                 <exercise>
                     <statement>
-                        Seja <m>A</m> é uma matriz <m>m \times n</m>. Mostre que a função
+                        Seja <m>A</m> é uma matriz <m>n \times m</m>. Mostre que a função
                         <md>
                             <mrow>L: \amp \mathbb{R}^m \to \mathbb{R}^n,</mrow>
                             <mrow>\amp L(\vec{v}) = A\vec{v}</mrow>
@@ -3267,6 +3267,22 @@ print(np.linalg.inv(A))
                 </exercise>
 
 
+                <example>
+                    <title>Rotação no plano</title>
+                    <statement>
+                        Seja <m>R_\theta: \mathbb{R}^2 \to \mathbb{R}^2</m> a operação que os vetores do plano em <m>\theta</m> radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar:
+                        <me>
+                            \vec{v} = (r \mbox{cos}(\alpha), r \mbox{sen}(\alpha))^T
+                        </me>
+                        e percebemos que rodar <m>\theta</m> no sentido anti-horário significa somar <m>\theta</m> ao ângulo, de modo que
+                        <me>
+                            R_\theta(\vec{v}) = \begin{pmatrix} r \mbox{cos}(\alpha+\theta)\\ r \mbox{sen}(\alpha+\theta)\end{pmatrix} = \begin{pmatrix} r(\mbox{cos}(\alpha)^2 -\mbox{sen}(\theta)^2)\\ r (2\mbox{sen}(\alpha)\mbox{cos}(\theta))\end{pmatrix} = \begin{pmatrix} \mbox{cos}(\theta) \amp -\mbox{sen}(\theta)\\ \mbox{sen}(\theta) \amp \mbox{cos}(\theta) \end{pmatrix}\begin{pmatrix} r \mbox{cos}(\alpha)\\ r \mbox{sen}(\alpha)\end{pmatrix}
+                        </me>
+                        Pelo exercício anterior, a rotação é uma transformação linear.
+                    </statement>
+                </example>
+
+
                 <lemma xml:id = "linear_trans_prop">
                     <!-- <title> do núcleo e da imagem</title> -->
                     <!-- <creator>I. Newton</creator> -->
@@ -3274,8 +3290,8 @@ print(np.linalg.inv(A))
                     Se <m>L: V \to W</m> é uma transformação linear e <m>\vec{v}, \vec{v}_1, \ldots, \vec{v}_n \in V</m>, então
                     <ol>
                         <li><m>L(\vec{0}_V) = \vec{0}_W;</m></li>
-                        <li><m> L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);</m></li>
-                        <li><m>L(-\vec{v}) = L(\vec{v});</m></li>
+                        <li><m> L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + \alpha_n L(\vec{v}_n);</m></li>
+                        <li><m>L(-\vec{v}) = -L(\vec{v});</m></li>
                     </ol>
                   </statement>
                 
@@ -3286,7 +3302,7 @@ print(np.linalg.inv(A))
                             <mrow>L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n)  =\amp L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_{n-1} \vec{v}_{n-1}) +\alpha_n L(\vec{v}_n) = \cdots </mrow>
                             <mrow> =\amp \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);</mrow>
                             </md></li>
-                        <li><m>L(-\vec{v}) = L(\vec{v});</m></li>
+                        <li><m> L(\vec{v}) + L(-\vec{v}) = L(\vec{v})-  L(\vec{v}) = \vec{0};</m></li>
                     </ol>
                   </proof>
                 </lemma>
@@ -3407,13 +3423,13 @@ print(np.linalg.inv(A))
                         A matriz que representa a transformação linear do exemplo anterior nas bases <m>\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}</m> e na base canônica <m>\mathbb{R}^4</m> é 
                         <me>
                             A = \begin{pmatrix}
-                            0 \amp -1 \amp 0  \\
+                            0 \amp -1 \amp 2 \\
                             0 \amp 1 \amp -1  \\
                             0 \amp 2 \amp 1 \\
                             -1 \amp -2 \amp 0 
                             \end{pmatrix},
                         </me>
-                        de modo que <m>L(\vec{x}^\mathcal{U}) = A\vec{x}</m>.
+                        de modo que <m>L(\vec{x}) = A\vec{x}^\mathcal{U}</m>.
                     </statement>
                 </example>
 
@@ -3427,7 +3443,7 @@ print(np.linalg.inv(A))
 
                 <example xml:id="ex_proj">
                     <statement>
-                        Seja <m>P: \mathcal{R}^3 \to \mathcal{R}^3</m> a projeção no plano que passa pela origem e têm vetores diretores <m>\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T</m>. Para representá-la na base <m>\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (1,-1,1)^T\}</m> notamos que <m>\vec{u}_2 \perp \vec{u}_3 </m> e
+                        Seja <m>P: \mathcal{R}^3 \to \mathcal{R}^3</m> a projeção no plano que passa pela origem e têm vetores diretores <m>\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T</m>. Para representá-la na base <m>\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}</m> notamos que <m>\vec{u}_2 \perp \vec{u}_3 </m> e
                         <md>
                             <mrow>\mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_1 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_1 + \mbox{proj}_{\vec{u}_3} \vec{u}_1 = \vec{0}</mrow>,
                             <mrow>\mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_2 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_2 + \mbox{proj}_{\vec{u}_3} \vec{u}_2 = \vec{u}_2</mrow>,
@@ -3501,13 +3517,14 @@ print(np.linalg.inv(A))
                 </sage>
 
 
+
                 <theorem xml:id = "mud_base">
                     <title> da Mudança de Base</title>
                     <!-- <creator>I. Newton</creator> -->
                   <statement>
-                    Sejam <m>\mathcal{U}</m> e <m>\mathcal{V}</m> bases para um espaço vetorial <m>V</m>, <m>S</m> a matriz de mudança de base da base <m>\mathcal{V}</m> para a base <m>\mathcal{U}</m>. Se <m>L</m> é um operador linear em <m>V</m> representado pela matriz <m>A^{\mathcal{U}}</m> na base <m>\mathcal{U}</m>, então a matriz que representa <m>L</m> na base <m>\mathcal{V}</m> é
+                    Sejam <m>\mathcal{U}</m> e <m>\mathcal{V}</m> bases para um espaço vetorial <m>V</m>, <m>S</m> a matriz de mudança de base da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m>. Se <m>L</m> é um operador linear em <m>V</m> representado pela matriz <m>A^{\mathcal{U}}</m> na base <m>\mathcal{U}</m>, então a matriz que representa <m>L</m> na base <m>\mathcal{V}</m> é
                     <me>
-                        A^{\mathcal{V}} = S^{-1}A^{\mathcal{U}}S.
+                        A^{\mathcal{V}} = SA^{\mathcal{U}}S^{-1}.
                     </me>
                   </statement>
                 
@@ -3516,34 +3533,79 @@ print(np.linalg.inv(A))
                   </proof>
                 </theorem>
 
+                <p>Esse teorema é frequentemente utilizado com <m>\mathcal{V}</m> sendo a base canônica, e <m>S=U</m> sendo a matriz de mudança de base da base <m>\mathcal{U}</m> para a base canônica.</p>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+
+                        fig, ax = plt.subplots()
+                        plt.xlim( (-4.6, 1) )  # set the xlim to xmin, xmax
+                        plt.ylim((-0.1,2.5))    # set the xlim to xmin, xmax
+
+                        fig.patch.set_visible(False)
+                        ax.axis('off')
+
+
+                        plt.annotate('E', [-0.1,0.1], fontsize=20, style= 'italic' )
+                        plt.arrow(0,2.15,0,-1.7, head_width =0.1)
+                        plt.annotate('U', [-0.1,2.2], fontsize=20, style= 'italic' )
+                        plt.arrow(-3.75,2.3,3.5,0, head_width =0.1)
+                        plt.annotate('U', [-4.1,2.2], fontsize=20, style= 'italic' )
+                        plt.arrow(-3.8,0.2,3.4,0, head_width =0.1)
+                        plt.annotate('E', [-4.1,0.1], fontsize=20, style= 'italic' )
+                        plt.arrow(-4,0.3,0,1.7, head_width =0.1)
+
+                        plt.annotate('U', [0.1,1.2], fontsize=20)
+                        plt.annotate('L', [-2,2.4], fontsize=20)
+                        plt.annotate('U', [-1.85,2.5], fontsize=10)
+
+                        plt.annotate('L', [-2.3,-0.1], fontsize=20)
+                        plt.annotate('U', [-2.1,0], fontsize=10)
+                        plt.annotate('U', [-1.95,-0.1], fontsize=20)
+                        plt.annotate('-1', [-1.72,0], fontsize=10)
+                        plt.annotate('U', [-2.6,-0.1], fontsize=20)
+
+                        plt.annotate('-1', [-4.2,1.3], fontsize=10)
+                        plt.annotate('U', [-4.4,1.2], fontsize=20)
+
+
+                        plt.show()
+                    </input>
+                    <output>
+                        diagram
+                    </output>
+                </sage>
+
                 <example>
                     <statement>
                         Para calcularmos a matriz que representa a projeção do <xref ref="ex_proj"></xref> na base canônica, precisamos da matriz de mudança de base e sua inversa
                         <me>
                             U = \begin{pmatrix}
-                            1\amp 0 \amp 1 \\
+                            1\amp 0 \amp 2 \\
                             1\amp 1 \amp -1 \\
                             -1\amp 1 \amp  1
                             \end{pmatrix}
                             \,\,\,\,\,\,
                             U^{-1} = \begin{pmatrix}
-                            1/2\amp  1/4 \amp  -1/4\\
+                            1/3\amp  1/3 \amp  -1/3\\
                             0 \amp  1/2 \amp  1/2\\
-                            1/2\amp  -1/4 \amp 1/4 
+                            1/3\amp  -1/6 \amp 1/6 
                             \end{pmatrix}
                         </me>
                         de modo que
                         <me>
                             A = \begin{pmatrix}
-                            1/2\amp  1/4 \amp  -1/4\\
-                            0 \amp  1/2 \amp  1/2\\
-                            1/2\amp  -1/4 \amp 1/4 
-                            \end{pmatrix} 
-                            \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}
-                            \begin{pmatrix}
                             1\amp 0 \amp 1 \\
                             1\amp 1 \amp -1 \\
                             -1\amp 1 \amp  1
+                            \end{pmatrix} 
+                            \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}
+                            \begin{pmatrix}
+                            1/3\amp  1/3 \amp  -1/3\\
+                            0 \amp  1/2 \amp  1/2\\
+                            1/3\amp  -1/6 \amp 1/6 
                             \end{pmatrix}
                             = \cdots
                         </me>
@@ -3551,9 +3613,12 @@ print(np.linalg.inv(A))
                 </example>
 
 
+
+
+
                 <exercise>
                     <statement>
-                        Determine a matriz da rotação de <m>\theta</m> radianos em torno do eixo <m>(1,1,-1)^T</m>, no sentido anti-horário, na base <m>\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (1,-1,1)^T\}</m>.
+                        Determine a matriz da rotação de <m>\theta</m> radianos em torno do eixo <m>(1,1,-1)^T</m>, no sentido anti-horário, na base <m>\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}</m>.
                     </statement>
                 </exercise>
 
