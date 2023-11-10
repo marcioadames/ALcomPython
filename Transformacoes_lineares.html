@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-11-09T15:07:27-03:00       *-->
+<!--*       on 2023-11-10T09:59:22-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -142,14 +142,14 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Transformacoes_lineares"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">10</span> <span class="title">Transformações Lineares</span>
 </h2>
-<p id="p-114">Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.</p>
+<p id="p-115">Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.</p>
 <section class="subsection" id="trans_lin"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">10.1</span> <span class="title">Transformações Lineares</span>
 </h3>
 <article class="definition definition-like" id="definition-17"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">10.1</span><span class="period">.</span>
 </h6>
-<p id="p-115">Um mapeamento<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a>  \(L : V \to W\text{,}\) de um espaço vetorial \((V,E,\cdot, +)\) para um espaço vetorial \((W,E,\odot,\oplus)\) é dita uma transformação linear <a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 2 </sup></a> se</p>
+<p id="p-116">Um mapeamento<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a>  \(L : V \to W\text{,}\) de um espaço vetorial \((V,E,\cdot, +)\) para um espaço vetorial \((W,E,\odot,\oplus)\) é dita uma transformação linear <a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 2 </sup></a> se</p>
 <div class="displaymath">
 \begin{equation*}
 L(\alpha \cdot \vec{u} + \beta \vec{v}) = \alpha \odot L(\vec{u}) \oplus \beta \odot L(\vec{v}).
@@ -181,8 +181,8 @@ L\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 \e
 L\begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix}.
 \end{equation*}
 </div>Essa transformação linear é a projeção do espaço \(\mathbb{R}^3\) em \(\mathbb{R}^2\text{.}\)</article></div>
-<p id="p-116">O código abaixo faz um plot da projeção do exemplo acima.</p>
-<div class="sagecell-sage" id="sage-33"><script type="text/x-sage">import matplotlib.pyplot as plt
+<p id="p-117">O código abaixo faz um plot da projeção do exemplo acima.</p>
+<div class="sagecell-sage" id="sage-34"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -328,7 +328,7 @@ L(\vec{u}) =\amp u_1^{\mathcal{U}}L(\vec{u}_1) + u_2^{\mathcal{U}}L(\vec{u}_2) +
 L(\vec{u})^{\mathcal{V}} = \begin{pmatrix} L(\vec{u}_1)^\mathcal{V}_1 \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}_1\\ \vdots \amp \ddots \amp \vdots \\ L(\vec{u}_1)^\mathcal{V}_m \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}_m \end{pmatrix} \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} = \begin{pmatrix} | \amp \cdots \amp  | \\ L(\vec{u}_1)^\mathcal{V} \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}\\ | \amp \cdots \amp  | \end{pmatrix} \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix}.
 \end{equation*}
 </div></article></div>
-<p id="p-117">Dizemos que \(A\) representa \(L\) nas bases \(\mathcal{U}\) e \(\mathcal{V}\text{.}\)</p>
+<p id="p-118">Dizemos que \(A\) representa \(L\) nas bases \(\mathcal{U}\) e \(\mathcal{V}\text{.}\)</p>
 <article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">10.13</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like">Seja  \(L: \mathbb{R}^3 \to \mathbb{R}^4\text{,}\) a transformação linear definida por<div class="displaymath">
@@ -373,8 +373,8 @@ A = \begin{pmatrix}
 A^{\mathcal{U}} = \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}.
 \end{equation*}
 </div></article></div>
-<p id="p-118">Como representar a matriz do exemplo anterior na base canônica?</p>
-<div class="sagecell-sage" id="sage-34"><script type="text/x-sage">import matplotlib.pyplot as plt
+<p id="p-119">Como representar a matriz do exemplo anterior na base canônica?</p>
+<div class="sagecell-sage" id="sage-35"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -431,8 +431,8 @@ fig3.write_html("yourfile.html")
 A^{\mathcal{V}} = SA^{\mathcal{U}}S^{-1}.
 \end{equation*}
 </div></article><article class="hiddenproof" id="proof-19"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof">A completar.</article></div>
-<p id="p-119">Esse teorema é frequentemente utilizado com \(\mathcal{V}\) sendo a base canônica, e \(S=U\) sendo a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica.</p>
-<div class="sagecell-sage" id="sage-35"><script type="text/x-sage">import matplotlib.pyplot as plt
+<p id="p-120">Esse teorema é frequentemente utilizado com \(\mathcal{V}\) sendo a base canônica, e \(S=U\) sendo a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica.</p>
+<div class="sagecell-sage" id="sage-36"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig, ax = plt.subplots()

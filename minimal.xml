@@ -1651,10 +1651,81 @@ print(np.linalg.inv(A))
                     <ol>
                         <li> <p>Se <m>k \gt n</m>, então <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k</m> são L.D. pois o sistema associado tem mais incógnitas do que equações.</p></li>
                         <li> <p>Se <m>k \lt n</m>, então podemos colocar o sistema associado <m>(A|\vec{0})</m> na forma escalonada e verificar se temos <m>k</m> linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que <m>k</m> linhas não nulas, o sistema é L.D.</p></li>
-                        <li> <p>Se <m>k = n</m>, então a matriz <m>A</m> é quadrada e o sistema <m>A \vec{alpha} = \vec{0}</m> tem solução única se, e somente se, a matriz <m>A</m> é inversível, de modo que basta verificar que <m>\det(A) \neq 0</m>. </p></li>
+                        <li> <p>Se <m>k = n</m>, então a matriz <m>A</m> é quadrada e o sistema <m>A \vec{\alpha} = \vec{0}</m> tem solução única se, e somente se, a matriz <m>A</m> é inversível, de modo que basta verificar que <m>\det(A) \neq 0</m>. </p></li>
                     </ol>
 
                 </remark>
+
+                <p>O código a seguir pode ser utilizado para encontrar um subconjunto L.I. dentro de um conjunto de vetores.</p>
+
+                <sage>
+                    <input>
+                        import numpy as np
+                        import fractions
+
+
+                        # add as vectors copying the second line
+
+                        A = np.array([1.,2.,1.,3.])
+                        A = np.vstack([A,np.array([1.,2.,1.,3.])])
+                        A = np.vstack([A,np.array([1.,2.,-1.,3.])])
+
+                        # store the values
+                        C = A.copy()
+
+                        # tranaspose to get vectors on columns
+
+                        A = np.transpose(A)
+
+
+
+
+                        #Step by step Gaussian Elimination:
+
+                        def Gaussian_elimination(A,prin=True):
+                            a=0
+                            if prin==True:
+                                print('A='+str(A))
+                            for j in range(A.shape[1]-1): #search pivot in each column
+                                b=0
+                                for i in range(a,A.shape[0]):
+                                    if A[i,j] != 0: #choose row with not null pivot
+                                        if a !=i:
+                                            A[[a,i]]=A[[i,a]]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                        if A[a,j]!=1:
+                                            A[a]=A[a]/A[a,j]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                        a=a+1
+                                        b=1
+                                        break
+                                if b==1:
+                                    for i in range(a,A.shape[0]):
+                                        if A[i,j] != 0:
+                                            A[i]=A[i]-A[a-1]*A[i,j]
+                                        if prin==True:
+                                            print('~'+str(A))
+                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            return A
+                        B = Gaussian_elimination(A, prin = False)
+
+                        print("A na forma escalonada")
+                        print(B)
+
+                        a=0
+
+                        for i in range(len(B)):
+                            if np.count_nonzero(B[i]) != 0 :
+                                a += 1
+                                I = np.nonzero(B[i])
+                                print(a, "vetor da base ",C[I[0][0]])
+                    </input>
+                    <output>
+                        vectors
+                    </output>
+                </sage>
 
 
                 <exercise>
