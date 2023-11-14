@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-11-14T10:47:35-03:00       *-->
+<!--*       on 2023-11-14T18:40:28-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -84,10 +84,10 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="auto_val.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="auto_val.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -137,6 +137,9 @@
 <li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
 <li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
 </ul>
+</li>
+<li class="link">
+<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span></a><ul><li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li></ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -515,10 +518,10 @@ import numpy as np
 
 
 
-x1 = np.array([1,0, 1])
-x2 = np.array([0, -1, 1])
-x3 = np.array([-1, 1, 1])
-x4 = np.array([-1, 2, 3])
+x1 = np.array([0,0, 0])
+x2 = np.array([0, 1, 0])
+x3 = np.array([0, 1, 1])
+x4 = np.array([1, 1, 1])
 
 A = np.array([[1,2,2],[3,1,1],[-1,2,-1]])
 
@@ -549,13 +552,32 @@ fig1.write_html("yourfile.html")
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-25"><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo \(\theta\) no sentido anti-horário em torno do eixo y.</article></div>
 <article class="exercise exercise-like" id="exercise-26"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-26"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.22</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-26"><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo \(\theta\) no sentido anti-horário em torno do eixo \((1\sqrt{6}, -1\sqrt{6}, 2\sqrt{6})^T\text{.}\)</article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-26"><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo \(\theta\) no sentido anti-horário em torno do eixo \((1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T\text{.}\)</article></div>
 <article class="exercise exercise-like" id="exercise-27"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-27"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.23</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-27"><article class="exercise exercise-like">Encontre uma matriz que dilata a direção x por 2, a direção y por 0.5 e a direção z por 3.</article></div>
 <article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">10.24</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like">Encontre uma matriz que dilata a direção \((1\sqrt{6}, -1\sqrt{6}, 2\sqrt{6})^T\) por 2, a direção \((1\sqrt{2}, 1\sqrt{2}, 0)^T\) por 0.5 e a direção \((-1\sqrt{3}, 1\sqrt{3}, 1\sqrt{3})^T\) por 3.</article></div>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like">Encontre uma matriz que dilata a direção \((1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T\) por 2, a direção \((1/\sqrt{2}, 1/\sqrt{2}, 0)^T\) por 0.5 e a direção \((-1/\sqrt{3}, 1/\sqrt{3}, 1/\sqrt{3})^T\) por 3.</article></div>
+<div class="sagecell-sage" id="sage-38"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+import scipy as sci
+
+
+
+x1 = np.array([0,0, 0])
+x2 = np.array([1, -1, 2])
+x3 = np.array([0, 1, 1])
+x4 = np.array([1, 1, 1])
+
+theta = np.pi/4
+
+A = np.array([[1,0,0],[0,np.cos(theta),-np.sin(theta)],[0,np.sin(theta),np.cos(theta)]])
+
+U = np.array([[1/np.sqrt(6),-1/np.sqrt(6),2/np.sqrt(6)],[1/np.sqrt(2),1/np.sqrt(2),0],[-1/np.sqrt(3),1/np.sqrt(3),1/np.sqrt(3)]])
+U = np.transpose(U)
+B = U.dot(A.dot(sci.linalg.inv(U)))
+</script></div>
 <p id="p-122">Translações não são transformações lineares, contudo podemos representá-las como matrizes utilizando uma dimensão adicional. Dado um ponto no plano \(x = (x1,x2)^T\text{,}\) podemos transladá-lo por \(a\text{,}\) \(b\text{,}\) através das duas primeiras coordenadas do vetor:</p>
 <div class="displaymath">
 \begin{equation*}
@@ -563,7 +585,7 @@ T_{a,b}(x) = \begin{pmatrix} 1 \amp 0 \amp a \\ 0 \amp 1 \amp b\\ 0 \amp 0 \amp 
 \end{equation*}
 </div>
 <p id="p-123">Verifique isso com o código a seguir:</p>
-<div class="sagecell-sage" id="sage-38"><script type="text/x-sage"># credits: https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/Applications_LT.html
+<div class="sagecell-sage" id="sage-39"><script type="text/x-sage"># credits: https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/Applications_LT.html
 
 %matplotlib inline  
 import matplotlib.pyplot as plt

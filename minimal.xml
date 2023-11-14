@@ -3494,7 +3494,7 @@ print(np.linalg.inv(A))
                         A matriz que representa a transformação linear do exemplo anterior nas bases <m>\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}</m> e na base canônica <m>\mathbb{R}^4</m> é 
                         <me>
                             A = \begin{pmatrix}
-                            0 \amp -1 \amp 2 \\
+                            0 \amp -1 \amp -2 \\
                             0 \amp 1 \amp -1  \\
                             0 \amp 2 \amp 1 \\
                             -1 \amp -2 \amp 0 
@@ -3720,10 +3720,10 @@ print(np.linalg.inv(A))
                         
                         
                         
-                        x1 = np.array([1,0, 1])
-                        x2 = np.array([0, -1, 1])
-                        x3 = np.array([-1, 1, 1])
-                        x4 = np.array([-1, 1, 1])
+                        x1 = np.array([0,0, 0])
+                        x2 = np.array([0, 1, 0])
+                        x3 = np.array([0, 1, 1])
+                        x4 = np.array([1, 1, 1])
                         
                         A = np.array([[1,2,2],[3,1,1],[-1,2,-1]])
                         
@@ -3756,7 +3756,7 @@ print(np.linalg.inv(A))
 
                 <exercise>
                     <statement>
-                        Encontre uma matriz que representa uma rotação em torno do eixo y.
+                        Encontre uma matriz que representa uma rotação de ângulo <m>\theta</m> no sentido anti-horário em torno do eixo y.
                     </statement>
 
                 </exercise>
@@ -3764,7 +3764,7 @@ print(np.linalg.inv(A))
 
                 <exercise>
                     <statement>
-                        Encontre uma matriz que representa uma rotação em torno do eixo <m>(1\sqrt{6}, -1\sqrt{6}, 2\sqrt{6})^T</m>.
+                        Encontre uma matriz que representa uma rotação de ângulo <m>\theta</m> no sentido anti-horário em torno do eixo <m>(1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T</m>.
                     </statement>
 
                 </exercise>
@@ -3779,9 +3779,35 @@ print(np.linalg.inv(A))
 
                 <exercise>
                     <statement>
-                        Encontre uma matriz que dilata a direção <m>(1\sqrt{6}, -1\sqrt{6}, 2\sqrt{6})^T</m> por 2, a direção <m>(1\sqrt{2}, 1\sqrt{2}, 0)^T</m> por 0.5 e a direção <m>(-1\sqrt{3}, 1\sqrt{3}, 1\sqrt{3})^T</m> por 3.
+                        Encontre uma matriz que dilata a direção <m>(1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T</m> por 2, a direção <m>(1/\sqrt{2}, 1/\sqrt{2}, 0)^T</m> por 0.5 e a direção <m>(-1/\sqrt{3}, 1/\sqrt{3}, 1/\sqrt{3})^T</m> por 3.
                     </statement>
                 </exercise>
+
+                <sage>
+                    <input>
+                        import matplotlib.pyplot as plt
+                        import numpy as np
+                        import scipy as sci
+
+
+
+                        x1 = np.array([0,0, 0])
+                        x2 = np.array([1, -1, 2])
+                        x3 = np.array([0, 1, 1])
+                        x4 = np.array([1, 1, 1])
+
+                        theta = np.pi/4
+
+                        A = np.array([[1,0,0],[0,np.cos(theta),-np.sin(theta)],[0,np.sin(theta),np.cos(theta)]])
+
+                        U = np.array([[1/np.sqrt(6),-1/np.sqrt(6),2/np.sqrt(6)],[1/np.sqrt(2),1/np.sqrt(2),0],[-1/np.sqrt(3),1/np.sqrt(3),1/np.sqrt(3)]])
+                        U = np.transpose(U)
+                        B = U.dot(A.dot(sci.linalg.inv(U)))
+                    </input>
+                    <output>
+                        plot
+                    </output>
+                </sage>
 
 
                 <p>Translações não são transformações lineares, contudo podemos representá-las como matrizes utilizando uma dimensão adicional. Dado um ponto no plano <m>x = (x1,x2)^T</m>, podemos transladá-lo por <m>a</m>, <m>b</m>, através das duas primeiras coordenadas do vetor:</p>
@@ -3847,7 +3873,178 @@ print(np.linalg.inv(A))
             </subsection>
 
 
+        </section>
 
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->                                                                                                    
+
+
+
+        <section xml:id="auto_val">
+            <title>Autovalores e autovetores</title>
+           
+            <intro>
+               <p>
+                Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?
+                </p>
+                <p>
+                Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos. 
+               </p>
+           </intro>
+           
+            <subsection xml:id="auto_val_sub">
+                <title>Autovalores e autovetores</title>
+
+                <definition>
+                    <notation>
+                    <usage><m>\lambda</m></usage>
+                    <description>autovalor</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>A</m> uma matriz <m>n \times n</m>. Um número (real ou complexo) <m>\lambda</m> é dito um <bf>autovalor</bf> de <m>A</m> se existe um vetor não nulo <m>\vec{x}</m> tal que <m>A\vec{x} = \lambda \vec{x}</m>. <m>\vec{x}</m> é dito um <bf>autovetor</bf> associado ao autovalor <m>\lambda</m>.
+                    </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    <statement>
+                        A matriz,
+                        <me>
+                            A = \begin{pmatrix} 2 \amp 4 \\ 1 \amp 2  \end{pmatrix},
+                        </me>
+                        admite <m>4</m> como autovalor porque o vetor <m>\vec{x} = (2, 1)^T</m> satisfaz <m>A\vec{x} = (8, 4)^T = 4(2,1)^T = 4\vec{x}</m>. Outro autovalor dessa matrix é 0 pois o vetor <m>\vec{x} = (2, -1)^T</m> satisfaz <m>A\vec{x} = (0, 0)^T = 0(2,-1)^T = 0\vec{x}</m>.
+                    </statement>
+                </example>
+
+                <p> Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
+
+                <remark>
+                    Se existe um vetor não nulo <m>\vec{x}</m> tal que <m>A\vec{x} = \lambda \vec{x}</m>, temos que <m>A\vec{x} - \lambda \vec{x} = \vec{0}</m> e, portanto, <m>(A - \lambda I) \vec{x} = \vec{0}</m>, ou seja, essa equação tem solução não nula e a matriz <m>(A - \lambda I)</m> não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos <m>Det(A - \lambda I) = 0</m>. O polinômio <m>p(\lambda) = Det(A - \lambda I)</m> é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema <m>(A - \lambda I) \vec{x} = \vec{0}</m> para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.
+                </remark>
+
+                <example>
+                    <statement>
+                        A matriz,
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix},
+                        </me>
+                        tem polinômio característico
+                        <me>
+                            p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-lambda  \end{pmatrix} = \lambda^2 -4,
+                        </me>
+                        que têm raízes 2 e -2.
+
+                        Os autovetores associados ao autovalor 2 são encontrados resolvendo
+                        <me>
+                            \begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 // 1 \end{pmatrix}.
+                        </me>
+
+                        Os autovetores associados ao autovalor -2 são encontrados resolvendo
+                        <me>
+                            \begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 // -1 \end{pmatrix}.
+                        </me>
+                    </statement>
+                </example>
+
+                <exercise>
+                    Encontre os autovalores e autovetores associados para matriz
+                    <me>
+                        A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
+                    </me>
+                </exercise>
+
+                <p>
+                    Confira a sua resposta com o código abaixo.
+                </p>
+
+                <sage>
+                    <input>
+                        import scipy as sci
+                        import numpy as np
+
+                        A = np.array([[3,0,1],[0,2,0],[0,0,2]])
+
+                        sci.linalg.eig(A)
+                    </input>
+                    <output>
+                        eigenvalues and eigenvectors
+                    </output>
+                </sage>
+
+
+                <p>Podemos pensar na matriz <m>A</m> como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores, temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:</p>
+                <me>
+                    A = P D P^{-1}
+                </me>
+
+                <p> Encontrar matrizes <m>P</m> (de autovetores) e <m>D</m> (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</p>
+
+                <exercise>
+                    Diagonalize a matriz
+                    <me>
+                        A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
+                    </me>
+                </exercise>
+
+                <p> O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
+
+                <sage>
+                    <input>
+                        import scipy as sci
+                        import numpy as np
+                        
+                        A = np.array([[3,0,1],[0,2,0],[0,0,2]])
+                        
+                        B = sci.linalg.eig(A)
+                        
+                        print('D = ', np.diag(B[0]))
+                        
+                        print('P = ', B[1])
+                        
+                        print('A = ?', B[1].dot(np.diag(B[0]).dot(np.linalg.inv(B[1]))))
+                    </input>
+                    <output>
+                        matrix
+                    </output>
+                </sage>
+
+                <p>Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
+                <me>
+                    A^2 = (P D P^{-1})(P D P^{-1}) = P D^2 P^{-1} \,\,\,\, A^n = (P D P^{-1})\cdots(P D P^{-1}) = P D^n P^{-1} 
+                </me>
+                <p>e, para uma matriz diagonal,</p>
+                <me>
+                    D = \begin{pmatrix}
+                    \lambda_1 \amp 0 \amp 0 \amp \cdots \amp 0 \\
+                    0 \amp \lambda_2 \amp 0 \amp \cdots \amp 0 \\
+                    \vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\
+                    0 \amp 0 \amp 0 \amp \cdots \amp \lambda_n                    
+                    \end{pmatrix}, \,\,\,\,\,
+                    D^m = \begin{pmatrix}
+                    \lambda_1^m \amp 0 \amp 0 \amp \cdots \amp 0 \\
+                    0 \amp \lambda_2^m \amp 0 \amp \cdots \amp 0 \\
+                    \vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\
+                    0 \amp 0 \amp 0 \amp \cdots \amp \lambda_n^m                    
+                    \end{pmatrix}
+                </me>
+
+                <exercise>
+                    <statement>
+                        Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, <m>30\%</m> dos não comprometidos passam a ser comprometidos e <m>20\%</m> dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?
+                    </statement>
+                </exercise>
+
+
+            </subsection>
 
 
 

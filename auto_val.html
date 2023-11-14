@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2023-11-14T18:40:28-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Autovalores e autovetores</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
+<p class="byline">Márcio Rostirolla Adames</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Transformacoes_lineares.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Transformacoes_lineares.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">1</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
+<li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">2</span> <span class="title">Gaussian Elimination</span></a></li>
+<li class="link"><a href="section-Gauss-Jordan.html" data-scroll="section-Gauss-Jordan"><span class="codenumber">3</span> <span class="title">Gauss-Jordan reduction</span></a></li>
+<li class="link"><a href="section-Matrices.html" data-scroll="section-Matrices"><span class="codenumber">4</span> <span class="title">Basic commands for matrices.</span></a></li>
+<li class="link">
+<a href="ElDecomp.html" data-scroll="ElDecomp"><span class="codenumber">5</span> <span class="title">Decompositions; Inverse finding</span></a><ul>
+<li><a href="ElDecomp.html#LU" data-scroll="LU">Decomposition PA = LU</a></li>
+<li><a href="ElDecomp.html#InverseAI" data-scroll="InverseAI">Finding the inverse through Gauss - Jordan reduction</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">6</span> <span class="title">Espaços Vetoriais</span></a><ul>
+<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
+<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="subescos.html" data-scroll="subescos"><span class="codenumber">7</span> <span class="title">Subespaços Vetoriais</span></a><ul>
+<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
+<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="bases.html" data-scroll="bases"><span class="codenumber">8</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
+<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
+<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
+<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
+<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">9</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
+<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
+<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
+<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">10</span> <span class="title">Transformações Lineares</span></a><ul>
+<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span></a><ul><li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="auto_val"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span>
+</h2>
+<p id="p-124">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</p> <p id="p-125">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</p>
+<section class="subsection" id="auto_val_sub"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">11.1</span> <span class="title">Autovalores e autovetores</span>
+</h3>
+<article class="definition definition-like" id="definition-18"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.1</span><span class="period">.</span>
+</h6>
+<p id="p-126">Seja \(A\) uma matriz \(n \times n\text{.}\) Um número (real ou complexo) \(\lambda\) é dito um autovalor de \(A\) se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{.}\) \(\vec{x}\) é dito um autovetor associado ao autovalor \(\lambda\text{.}\)</p></article><article class="example example-like" id="example-39"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-39"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-39"><article class="example example-like">A matriz,<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 2 \amp 4 \\ 1 \amp 2  \end{pmatrix},
+\end{equation*}
+</div>admite \(4\) como autovalor porque o vetor \(\vec{x} = (2, 1)^T\) satisfaz \(A\vec{x} = (8, 4)^T = 4(2,1)^T = 4\vec{x}\text{.}\) Outro autovalor dessa matrix é 0 pois o vetor \(\vec{x} = (2, -1)^T\) satisfaz \(A\vec{x} = (0, 0)^T = 0(2,-1)^T = 0\vec{x}\text{.}\)</article></div>
+<p id="p-127">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
+<article class="remark remark-like" id="remark-14"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.3</span><span class="period">.</span>
+</h6>Se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{,}\) temos que \(A\vec{x} - \lambda \vec{x} = \vec{0}\) e, portanto, \((A - \lambda I) \vec{x} = \vec{0}\text{,}\) ou seja, essa equação tem solução não nula e a matriz \((A - \lambda I)\) não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos \(Det(A - \lambda I) = 0\text{.}\) O polinômio \(p(\lambda) = Det(A - \lambda I)\) é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema \((A - \lambda I) \vec{x} = \vec{0}\) para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.</article><article class="example example-like" id="example-40"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-40"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-40"><article class="example example-like">A matriz,<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix},
+\end{equation*}
+</div>tem polinômio característico<div class="displaymath">
+\begin{equation*}
+p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-lambda  \end{pmatrix} = \lambda^2 -4,
+\end{equation*}
+</div>que têm raízes 2 e -2. Os autovetores associados ao autovalor 2 são encontrados resolvendo<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 // 1 \end{pmatrix}.
+\end{equation*}
+</div>Os autovetores associados ao autovalor -2 são encontrados resolvendo<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 // -1 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-29"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-29"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-29"><article class="exercise exercise-like"><div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<p id="p-128">Confira a sua resposta com o código abaixo.</p>
+<div class="sagecell-sage" id="sage-40"><script type="text/x-sage">import scipy as sci
+import numpy as np
+
+A = np.array([[3,0,1],[0,2,0],[0,0,2]])
+
+sci.linalg.eig(A)
+</script></div>
+<p id="p-129">Podemos pensar na matriz \(A\) como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores, temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:</p>
+<div class="displaymath">
+\begin{equation*}
+A = P D P^{-1}
+\end{equation*}
+</div>
+<p id="p-130">Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</p>
+<article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like"><div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<p id="p-131">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
+<div class="sagecell-sage" id="sage-41"><script type="text/x-sage">import scipy as sci
+import numpy as np
+
+A = np.array([[3,0,1],[0,2,0],[0,0,2]])
+
+B = sci.linalg.eig(A)
+
+print('D = ', np.diag(B[0]))
+
+print('P = ', B[1])
+
+print('A = ?', B[1].dot(np.diag(B[0]).dot(np.linalg.inv(B[1]))))
+</script></div>
+<p id="p-132">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
+<div class="displaymath">
+\begin{equation*}
+A^2 = (P D P^{-1})(P D P^{-1}) = P D^2 P^{-1} \,\,\,\, A^n = (P D P^{-1})\cdots(P D P^{-1}) = P D^n P^{-1} 
+\end{equation*}
+</div>
+<p id="p-133">e, para uma matriz diagonal,</p>
+<div class="displaymath">
+\begin{equation*}
+D = \begin{pmatrix}
+\lambda_1 \amp 0 \amp 0 \amp \cdots \amp 0 \\
+0 \amp \lambda_2 \amp 0 \amp \cdots \amp 0 \\
+\vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\
+0 \amp 0 \amp 0 \amp \cdots \amp \lambda_n                    
+\end{pmatrix}, \,\,\,\,\,
+D^m = \begin{pmatrix}
+\lambda_1^m \amp 0 \amp 0 \amp \cdots \amp 0 \\
+0 \amp \lambda_2^m \amp 0 \amp \cdots \amp 0 \\
+\vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\
+0 \amp 0 \amp 0 \amp \cdots \amp \lambda_n^m                    
+\end{pmatrix}
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="exercise-31"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-31"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, \(30\%\) dos não comprometidos passam a ser comprometidos e \(20\%\) dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></div></section></section></div></main>
+</div>
+</body>
+</html>
