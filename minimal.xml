@@ -3699,6 +3699,25 @@ print(np.linalg.inv(A))
                     </statement>
                 </exercise>
 
+                <p>Temos a situação que se duas matrizes <m>A</m> e <m>B</m> representam a mesma transformação linear, em bases <m>\mathcal{U}</m> e  <m>\mathcal{V}</m>, respectivamente, e <m>S</m> é a matriz de mudança de base da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m>, então <m>B = S A S^{-1}</m>. Isso nos motiva a introduzir a seguinte definição:</p>
+
+
+                <definition>
+                    <notation>
+                    <usage><m>B = S A S^{-1}</m></usage>
+                    <description>matrizes similares</description>
+                    </notation>
+                
+                    <statement>
+                        <p>
+                            Duas matrizes <m>n \times n</m>, <m>A</m> e <m>B</m>, são ditas similares se existe uma matriz <m>n \times n</m> inversível <m>S</m> tal que
+                            <me>
+                                B = S A S^{-1}.
+                            </me>
+                        </p>
+                    </statement>
+                </definition>
+
 
 
             </subsection>
@@ -3809,6 +3828,7 @@ print(np.linalg.inv(A))
                     </output>
                 </sage>
 
+                
 
                 <p>Translações não são transformações lineares, contudo podemos representá-las como matrizes utilizando uma dimensão adicional. Dado um ponto no plano <m>x = (x1,x2)^T</m>, podemos transladá-lo por <m>a</m>, <m>b</m>, através das duas primeiras coordenadas do vetor:</p>
                 <me>
@@ -3939,18 +3959,18 @@ print(np.linalg.inv(A))
                         </me>
                         tem polinômio característico
                         <me>
-                            p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-lambda  \end{pmatrix} = \lambda^2 -4,
+                            p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-\lambda  \end{pmatrix} = \lambda^2 -4,
                         </me>
                         que têm raízes 2 e -2.
 
                         Os autovetores associados ao autovalor 2 são encontrados resolvendo
                         <me>
-                            \begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 // 1 \end{pmatrix}.
+                            \begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 \\ 1 \end{pmatrix}.
                         </me>
 
                         Os autovetores associados ao autovalor -2 são encontrados resolvendo
                         <me>
-                            \begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 // -1 \end{pmatrix}.
+                            \begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 \\ -1 \end{pmatrix}.
                         </me>
                     </statement>
                 </example>

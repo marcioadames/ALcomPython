@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-11-14T18:40:28-03:00       *-->
+<!--*       on 2023-11-16T13:21:26-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -146,21 +146,21 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="auto_val"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span>
 </h2>
-<p id="p-124">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</p> <p id="p-125">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</p>
+<p id="p-126">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</p> <p id="p-127">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</p>
 <section class="subsection" id="auto_val_sub"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">11.1</span> <span class="title">Autovalores e autovetores</span>
 </h3>
-<article class="definition definition-like" id="definition-18"><h6 class="heading">
+<article class="definition definition-like" id="definition-19"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.1</span><span class="period">.</span>
 </h6>
-<p id="p-126">Seja \(A\) uma matriz \(n \times n\text{.}\) Um número (real ou complexo) \(\lambda\) é dito um autovalor de \(A\) se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{.}\) \(\vec{x}\) é dito um autovetor associado ao autovalor \(\lambda\text{.}\)</p></article><article class="example example-like" id="example-39"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-39"><h6 class="heading">
+<p id="p-128">Seja \(A\) uma matriz \(n \times n\text{.}\) Um número (real ou complexo) \(\lambda\) é dito um autovalor de \(A\) se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{.}\) \(\vec{x}\) é dito um autovetor associado ao autovalor \(\lambda\text{.}\)</p></article><article class="example example-like" id="example-39"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-39"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-39"><article class="example example-like">A matriz,<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 2 \amp 4 \\ 1 \amp 2  \end{pmatrix},
 \end{equation*}
 </div>admite \(4\) como autovalor porque o vetor \(\vec{x} = (2, 1)^T\) satisfaz \(A\vec{x} = (8, 4)^T = 4(2,1)^T = 4\vec{x}\text{.}\) Outro autovalor dessa matrix é 0 pois o vetor \(\vec{x} = (2, -1)^T\) satisfaz \(A\vec{x} = (0, 0)^T = 0(2,-1)^T = 0\vec{x}\text{.}\)</article></div>
-<p id="p-127">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
+<p id="p-129">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
 <article class="remark remark-like" id="remark-14"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.3</span><span class="period">.</span>
 </h6>Se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{,}\) temos que \(A\vec{x} - \lambda \vec{x} = \vec{0}\) e, portanto, \((A - \lambda I) \vec{x} = \vec{0}\text{,}\) ou seja, essa equação tem solução não nula e a matriz \((A - \lambda I)\) não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos \(Det(A - \lambda I) = 0\text{.}\) O polinômio \(p(\lambda) = Det(A - \lambda I)\) é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema \((A - \lambda I) \vec{x} = \vec{0}\) para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.</article><article class="example example-like" id="example-40"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-40"><h6 class="heading">
@@ -171,15 +171,15 @@ A = \begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix},
 \end{equation*}
 </div>tem polinômio característico<div class="displaymath">
 \begin{equation*}
-p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-lambda  \end{pmatrix} = \lambda^2 -4,
+p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-\lambda  \end{pmatrix} = \lambda^2 -4,
 \end{equation*}
 </div>que têm raízes 2 e -2. Os autovetores associados ao autovalor 2 são encontrados resolvendo<div class="displaymath">
 \begin{equation*}
-\begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 // 1 \end{pmatrix}.
+\begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 \\ 1 \end{pmatrix}.
 \end{equation*}
 </div>Os autovetores associados ao autovalor -2 são encontrados resolvendo<div class="displaymath">
 \begin{equation*}
-\begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \begin{pmatrix}0 // 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 // x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 // -1 \end{pmatrix}.
+\begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 \\ -1 \end{pmatrix}.
 \end{equation*}
 </div></article></div>
 <article class="exercise exercise-like" id="exercise-29"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-29"><h6 class="heading">
@@ -189,7 +189,7 @@ p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\la
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-128">Confira a sua resposta com o código abaixo.</p>
+<p id="p-130">Confira a sua resposta com o código abaixo.</p>
 <div class="sagecell-sage" id="sage-40"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
@@ -197,13 +197,13 @@ A = np.array([[3,0,1],[0,2,0],[0,0,2]])
 
 sci.linalg.eig(A)
 </script></div>
-<p id="p-129">Podemos pensar na matriz \(A\) como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores, temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:</p>
+<p id="p-131">Podemos pensar na matriz \(A\) como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores, temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:</p>
 <div class="displaymath">
 \begin{equation*}
 A = P D P^{-1}
 \end{equation*}
 </div>
-<p id="p-130">Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</p>
+<p id="p-132">Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</p>
 <article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.6</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like"><div class="displaymath">
@@ -211,7 +211,7 @@ A = P D P^{-1}
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-131">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
+<p id="p-133">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
 <div class="sagecell-sage" id="sage-41"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
@@ -225,13 +225,13 @@ print('P = ', B[1])
 
 print('A = ?', B[1].dot(np.diag(B[0]).dot(np.linalg.inv(B[1]))))
 </script></div>
-<p id="p-132">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
+<p id="p-134">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
 <div class="displaymath">
 \begin{equation*}
 A^2 = (P D P^{-1})(P D P^{-1}) = P D^2 P^{-1} \,\,\,\, A^n = (P D P^{-1})\cdots(P D P^{-1}) = P D^n P^{-1} 
 \end{equation*}
 </div>
-<p id="p-133">e, para uma matriz diagonal,</p>
+<p id="p-135">e, para uma matriz diagonal,</p>
 <div class="displaymath">
 \begin{equation*}
 D = \begin{pmatrix}
