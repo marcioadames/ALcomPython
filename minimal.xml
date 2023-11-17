@@ -4001,12 +4001,13 @@ print(np.linalg.inv(A))
                 </sage>
 
 
-                <p>Podemos pensar na matriz <m>A</m> como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores, temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:</p>
+                <remark>Podemos pensar na matriz <m>A</m> como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores (supondo que exista uma), temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:
                 <me>
                     A = P D P^{-1}
                 </me>
+                Encontrar matrizes <m>P</m> (de autovetores) e <m>D</m> (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</remark>
 
-                <p> Encontrar matrizes <m>P</m> (de autovetores) e <m>D</m> (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</p>
+                <p>Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.</p>
 
                 <exercise>
                     Diagonalize a matriz
@@ -4062,6 +4063,97 @@ print(np.linalg.inv(A))
                         Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, <m>30\%</m> dos não comprometidos passam a ser comprometidos e <m>20\%</m> dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?
                     </statement>
                 </exercise>
+
+
+            </subsection>
+
+            <!--  *********************************************************
+            *************************************************************** -->
+                
+
+            <subsection xml:id="autoval_teormas">
+                <title>Resultados e dificuldades relacionados a autovetores e autovalores.</title>
+
+                <p>Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.</p>
+
+                <theorem xml:id = "autovetores_LI">
+                    <!--<title> </title>-->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                   Seja <m>A</m> uma matriz <m>n \times n</m>. Autovetores associados a autovalores distintos são linearmente independentes. 
+                  </statement>
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+                <p>O <xref ref="autovetores_LI"></xref> garante que se o polinômio característico tem <m>n</m> raízes distintas, teremos <m>n</m> autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.</p>
+
+                <theorem xml:id = "matriz_simetrica">
+                    <title></title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    Seja <m>A</m> uma matriz real<fn>Na qual todos os coeficientes são reais</fn> <m>n \times n</m> simétrica. Então, seus autovalores e autovetores são reais e a matriz <m>A</m> tem <m>n</m> autovetores distintos. Além disso, <m>A</m> admite uma base de autovetores ortonormais.
+                  </statement>
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+                
+                <p>Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz <m>P</m> é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.</p>
+
+                <remark>Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau <m>n</m> sempre pode ser decomposto no produto de monômios de grau <m>n</m>. Em particular
+                <me>
+                    p(\lambda) = \pm (\lambda^n + a_{n-1} \lambda^{n-1} + \cdots + a_1 \lambda + a_0) = \pm(\lambda-\lambda_n)(\lambda-\lambda_{n-1})\cdots(\lambda-\lambda_1),
+                </me>
+                onde <m>\lambda</m> é a variável complexa, <m>\lambda_i</m>, <m>i = 1, 2, \ldots, n</m> são as raízes (possivelmente complexas) e <m>a_i</m> os coeficientes, <m>i = 1, 2, \ldots, n</m>.
+                </remark>
+
+
+                <definition>
+                    <notation>
+                    <!-- <usage><m>\lambda</m></usage> -->
+                    <description>multiplicidades algébrica e geométrica</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>p(\lambda)</m> o polinômio característico de uma matriz real <m>A</m>, <m> n \times n </m>. O número de vezes que um autovalor aparece na decomposição no produto de monômios de <m>p(\lambda)</m> é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de <m>A - \lambda_k I</m>, <m>N(A - \lambda_k I)</m> é a multiplicidade geométrica do autovalor <m>\lambda_k</m>.
+                    </p>
+                    </statement>
+                </definition>
+
+                <example>
+                    <statement>
+                        <me>A = \begin{pmatrix} 1 \amp 3 \\ 0 \amp 1 \end{pmatrix}</me>
+                    </statement>
+                </example>
+
+
+                <example>
+                    <statement>
+                        <me>A = \begin{pmatrix} 2 \amp 3 \amp 0\\ 0 \amp 2 \amp -4 \\ 0 \amp 0 \amp 1 \end{pmatrix}</me>
+                    </statement>
+                </example>
+
+                <p>Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.</p>
+
+                <example>
+                    <statement>
+                        Diagonalize a matriz
+                        <me>A = \begin{pmatrix} 0 \amp 2 \amp -1\\ 2 \amp 3 \amp -2 \\ -1 \amp -2 \amp 0 \end{pmatrix}</me>
+                    </statement>
+                </example>
+
+
+                <p>Se uma matriz tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados <m>\lambda_i, \overline{\lambda}_i</m>, com autovetores complexos <m>\vec{x}_i, \overline{\vec{x}}_i</m> e é possível escrever um bloco <m>2 \times 2</m> na diagonal da forma:</p>
+
+                <me>
+                    \begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix}
+                </me>
+
+                <p>Para mais informações sobre esse processo, ver <url>https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan</url></p>
+
 
 
             </subsection>

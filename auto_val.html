@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-11-16T13:21:26-03:00       *-->
+<!--*       on 2023-11-17T14:43:51-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -139,7 +139,10 @@
 </ul>
 </li>
 <li class="link active">
-<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span></a><ul><li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li></ul>
+<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span></a><ul>
+<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
+<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
+</ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -197,21 +200,21 @@ A = np.array([[3,0,1],[0,2,0],[0,0,2]])
 
 sci.linalg.eig(A)
 </script></div>
-<p id="p-131">Podemos pensar na matriz \(A\) como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores, temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:</p>
-<div class="displaymath">
+<article class="remark remark-like" id="remark-15"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.6</span><span class="period">.</span>
+</h6>Podemos pensar na matriz \(A\) como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores (supondo que exista uma), temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:<div class="displaymath">
 \begin{equation*}
 A = P D P^{-1}
 \end{equation*}
-</div>
-<p id="p-132">Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</p>
+</div>Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</article><p id="p-131">Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.</p>
 <article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.6</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.7</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like"><div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-133">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
+<p id="p-132">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
 <div class="sagecell-sage" id="sage-41"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
@@ -225,13 +228,13 @@ print('P = ', B[1])
 
 print('A = ?', B[1].dot(np.diag(B[0]).dot(np.linalg.inv(B[1]))))
 </script></div>
-<p id="p-134">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
+<p id="p-133">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
 <div class="displaymath">
 \begin{equation*}
 A^2 = (P D P^{-1})(P D P^{-1}) = P D^2 P^{-1} \,\,\,\, A^n = (P D P^{-1})\cdots(P D P^{-1}) = P D^n P^{-1} 
 \end{equation*}
 </div>
-<p id="p-135">e, para uma matriz diagonal,</p>
+<p id="p-134">e, para uma matriz diagonal,</p>
 <div class="displaymath">
 \begin{equation*}
 D = \begin{pmatrix}
@@ -249,8 +252,57 @@ D^m = \begin{pmatrix}
 \end{equation*}
 </div>
 <article class="exercise exercise-like" id="exercise-31"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-31"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, \(30\%\) dos não comprometidos passam a ser comprometidos e \(20\%\) dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></div></section></section></div></main>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, \(30\%\) dos não comprometidos passam a ser comprometidos e \(20\%\) dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></div></section><section class="subsection" id="autoval_teormas"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">11.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span>
+</h3>
+<p id="p-135">Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.</p>
+<article class="theorem theorem-like" id="autovetores_LI"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.9</span><span class="period">.</span>
+</h6>Seja \(A\) uma matriz \(n \times n\text{.}\) Autovetores associados a autovalores distintos são linearmente independentes.</article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof">A completar.</article></div>
+<p id="p-136">O <a class="xref" data-knowl="./knowl/autovetores_LI.html" title="Theorem 11.9">Theorem 11.9</a> garante que se o polinômio característico tem \(n\) raízes distintas, teremos \(n\) autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.</p>
+<article class="theorem theorem-like" id="matriz_simetrica"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.10</span><span class="period">.</span><span class="space"> </span><span class="title">.</span>
+</h6>Seja \(A\) uma matriz real<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 1 </sup></a>\(n \times n\) simétrica. Então, seus autovalores e autovetores são reais e a matriz \(A\) tem \(n\) autovetores distintos. Além disso, \(A\) admite uma base de autovetores ortonormais.</article><article class="hiddenproof" id="proof-21"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof">A completar.</article></div>
+<p id="p-137">Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz \(P\) é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.</p>
+<article class="remark remark-like" id="remark-16"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.11</span><span class="period">.</span>
+</h6>Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau \(n\) sempre pode ser decomposto no produto de monômios de grau \(n\text{.}\) Em particular<div class="displaymath">
+\begin{equation*}
+p(\lambda) = \pm (\lambda^n + a_{n-1} \lambda^{n-1} + \cdots + a_1 \lambda + a_0) = \pm(\lambda-\lambda_n)(\lambda-\lambda_{n-1})\cdots(\lambda-\lambda_1),
+\end{equation*}
+</div>onde \(\lambda\) é a variável complexa, \(\lambda_i\text{,}\) \(i = 1, 2, \ldots, n\) são as raízes (possivelmente complexas) e \(a_i\) os coeficientes, \(i = 1, 2, \ldots, n\text{.}\)</article><article class="definition definition-like" id="definition-20"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.12</span><span class="period">.</span>
+</h6>
+<p id="p-138">Seja \(p(\lambda)\) o polinômio característico de uma matriz real \(A\text{,}\) \(n \times n \text{.}\) O número de vezes que um autovalor aparece na decomposição no produto de monômios de \(p(\lambda)\) é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de \(A - \lambda_k I\text{,}\) \(N(A - \lambda_k I)\) é a multiplicidade geométrica do autovalor \(\lambda_k\text{.}\)</p></article><article class="example example-like" id="example-41"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-41"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.13</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like"><div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 3 \\ 0 \amp 1 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-42"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.14</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 2 \amp 3 \amp 0\\ 0 \amp 2 \amp -4 \\ 0 \amp 0 \amp 1 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<p id="p-139">Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.</p>
+<article class="example example-like" id="example-43"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.15</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like">Diagonalize a matriz<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 0 \amp 2 \amp -1\\ 2 \amp 3 \amp -2 \\ -1 \amp -2 \amp 0 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<p id="p-140">Se uma matriz tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados \(\lambda_i, \overline{\lambda}_i\text{,}\) com autovetores complexos \(\vec{x}_i, \overline{\vec{x}}_i\) e é possível escrever um bloco \(2 \times 2\) na diagonal da forma:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-141">Para mais informações sobre esse processo, ver <a class="external" href="" target="_blank">https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan</a></p></section></section></div></main>
 </div>
 </body>
 </html>
