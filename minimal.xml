@@ -4146,19 +4146,106 @@ print(np.linalg.inv(A))
                 </example>
 
 
-                <p>Se uma matriz tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados <m>\lambda_i, \overline{\lambda}_i</m>, com autovetores complexos <m>\vec{x}_i, \overline{\vec{x}}_i</m> e é possível escrever um bloco <m>2 \times 2</m> na diagonal da forma:</p>
+                <p>Se uma matriz <m>A</m> tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados <m>\lambda_k, \overline{\lambda}_k</m>, com autovetores complexos <m>\vec{x}_k, \overline{\vec{x}}_k</m>. Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor <m>\vec{x}_k = \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k)</m> associado ao autovalor <m>\lambda_k = r \mbox{cos} (\theta) + i r \mbox{sen} (\theta)</m> (escrito na forma polar)</p>.
+                    
+                <md>
+                    <mrow>A \vec{x}_k =\amp \lambda_k \vec{x}_k = (r \mbox{cos} (\theta) + i r \mbox{sen} (\theta))( \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k))</mrow>
+                    <mrow> =\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)),</mrow>
+                    <mrow>A \bar{\vec{x}_k} =\amp \bar{\lambda_k}\bar{ \vec{x}_k} = (r \mbox{cos} (\theta) - i r \mbox{sen} (\theta))( \mbox{Re}(\vec{x}_k) - i \mbox{Im}(\vec{x}_k))</mrow>
+                    <mrow> =\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) - i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)).</mrow>
+                </md>
 
+                <p>Assim, lembrando que <m>2 \mbox{Re}(\vec{x}_k) = \vec{x}_k + \bar{\vec{x}_k}</m> e <m>2 \mbox{Im}(\vec{x}_k) = -i\vec{x}_k + i \bar{\vec{x}_k}</m>, temos</p>
                 <me>
-                    \begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix}
+                    A \mbox{Re}(\vec{x}_k) =  r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)
+                </me>
+                <me>
+                    A \mbox{Im}(\vec{x}_k) =  r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)
                 </me>
 
-                <p>Para mais informações sobre esse processo, ver <url>https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan</url></p>
+
+                <p>Desse modo, se <m>\vec{u} = a \mbox{Re}(\vec{x}_k) + b \mbox{Im}(\vec{x}_k)</m>, com <m>a,b</m> reais, temos:</p>
+                <md>
+                    <mrow>A \vec{u} = \amp a(r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + b(r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k))</mrow>
+                    <mrow> =\amp (r \mbox{cos} (\theta), r \mbox{sen} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Re}(\vec{x}_k) + (-r \mbox{sen} (\theta), r \mbox{cos} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Im}(\vec{x}_k),</mrow>
+                </md>
+                <p>e é possível escrever um bloco <m>2 \times 2</m> na diagonal da forma:</p>
+                <me>
+                    \begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix},
+                </me>
+                <p>de modo que autovalores complexos indicam a rotações no plano definido por <m>\mbox{Re}(\vec{x}_k)</m> e <m>\mbox{Im}(\vec{x}_k)</m>. Deixamos ao leitor a verificação do fato que <m>\mbox{Re}(\vec{x}_k)</m> e <m>\mbox{Im}(\vec{x}_k)</m> são linearmente independentes.</p>
+
+                <example>
+                    <statement>
+                        <me>A = \begin{pmatrix} 4/5 \amp -3/5 \amp 0 \\ 3/5 \amp 4/5 \amp 0 \\ 1 \amp 2 \amp 2 \end{pmatrix}</me>
+                    </statement>
+                </example>
+
+                <p>Para mais informações sobre esse processo, ver <url href="https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan" visual="wikipedia.org">Forma de Jordan</url>.</p>
 
 
 
             </subsection>
 
 
+
+        <!--  *********************************************************
+        *************************************************************** -->
+            
+
+        <subsection xml:id="aplicacoes">
+            <title>Aplicações: sistemas de EDOs lineares de primeira ordem.</title>
+
+            <p>As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém <m>y_0</m> átomos radioativos. É natural pensar que o número de átomos, <m>y(t)</m>, que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:</p>
+            <me>
+                \frac{dy}{dt}(t) = \lambda y(t), \,\,\,\, y(0) = y_0. 
+            </me>
+            <p> Um problema assim é chamado de uma equação diferencial ordinária e sua solução é <m>y(t) = y_0 e^{\lambda t}</m>.</p>
+
+            <p>Em outros problemas pode-se ter múltiplas funções simultaneamente.</p>
+
+            <example>
+                <statement>
+                    Uma amostra formada por dois isótopos radioativos com quantidades iniciais <m>y_1 = 3\times 10^{5}</m> e <m>y_2 = 2\times 10^{4}</m>  e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ... 
+                </statement>
+            </example>
+
+
+            <example>
+                <statement>
+                    Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo <m>A</m> decai no isótopo <m>B</m>, que decai no isótopo <m>C</m>. Uma amostra formada pelos isótopos <m>A</m>, <m>B</m> e <m>C</m> com quantidades iniciais <m>y_1 = 3\times 10^{5}</m> e <m>y_2 = 2\times 10^{4}</m> e <m>y_3 = 4\times 10^{4}</m> e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ... 
+                </statement>
+            </example>
+
+            <p>Consideremos o sistema de equações diferenciais (com condições iniciais associadas):</p>
+            <md>
+                <mrow>y_1' =\amp a_{11}y_1 + a_{12}y_2 + \cdots + a_{1n} y_n, \,\,\, y_1(0) = y^*_1,</mrow>
+                <mrow>y_2' =\amp a_{21}y_1 + a_{22}y_2 + \cdots + a_{2n} y_n, \,\,\, y_2(0) = y^*_2,</mrow>
+                <mrow> \vdots \amp</mrow>
+                <mrow>y_n' =\amp a_{n1}y_1 + a_{n2}y_2 + \cdots + a_{nn} y_n, \,\,\, y_n(0) = y^*_n,</mrow>
+            </md>
+            <p>que pose ser escrito na forma</p>
+            <me>
+                \vec{y}'(t) = A\vec{y}(t), \,\,\, \vec{y}(0) = \vec{y^*}.
+            </me>
+
+            <p>Se a matriz A tem <m>n</m> autovalores reais, <m>\lambda_1, \ldots, \lambda_n</m>,(não necessariamente distintos) e  a eles estão associados <n>n</n> autovetores LI, <m>\vec{x}_1, \ldots, \vec{x}_n</m>, então a solução do sistema de EDOs é</p>
+            <me>
+                \vec{y}'(t) = c_1e^{\lambda_1 t}\vec{x}_1 + c_2e^{\lambda_2 t}\vec{x}_2 + \cdots + c_ne^{\lambda_n t}\vec{x}_n, \,\, \mbox{ onde } \,\, \vec{y^*} = c_1\vec{x}_1 + c_2\vec{x}_2 + \cdots + c_ne^\vec{x}_n.
+            </me>
+
+            <exercise>
+                <statement>
+                    Resolva o sistema
+                    <md>
+                        <mrow>y_1' =\amp 3y_1 + 2y_2 - 3y_3, \,\,\, y_1(0) = 1,</mrow>
+                        <mrow>y_2' =\amp 2y_1 + 3y_2 - 3y_3, \,\,\, y_2(0) = 2,</mrow>
+                        <mrow>y_3' =\amp 3y_1 + 3y_2 - 4y_3, \,\,\, y_n(0) = -1,</mrow>
+                    </md>
+                </statement>
+            </exercise>
+
+        </subsection>
 
         </section>
 

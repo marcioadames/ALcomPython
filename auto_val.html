@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2023-11-17T14:43:51-03:00       *-->
+<!--*       on 2023-11-22T19:11:40-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -142,6 +142,7 @@
 <a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">11</span> <span class="title">Autovalores e autovetores</span></a><ul>
 <li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
 <li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
+<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -296,13 +297,94 @@ A = \begin{pmatrix} 2 \amp 3 \amp 0\\ 0 \amp 2 \amp -4 \\ 0 \amp 0 \amp 1 \end{p
 A = \begin{pmatrix} 0 \amp 2 \amp -1\\ 2 \amp 3 \amp -2 \\ -1 \amp -2 \amp 0 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-140">Se uma matriz tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados \(\lambda_i, \overline{\lambda}_i\text{,}\) com autovetores complexos \(\vec{x}_i, \overline{\vec{x}}_i\) e é possível escrever um bloco \(2 \times 2\) na diagonal da forma:</p>
+<p id="p-140">Se uma matriz \(A\) tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados \(\lambda_k, \overline{\lambda}_k\text{,}\) com autovetores complexos \(\vec{x}_k, \overline{\vec{x}}_k\text{.}\) Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor \(\vec{x}_k = \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k)\) associado ao autovalor \(\lambda_k = r \mbox{cos} (\theta) + i r \mbox{sen} (\theta)\) (escrito na forma polar)</p>.<div class="displaymath">
+\begin{align*}
+A \vec{x}_k =\amp \lambda_k \vec{x}_k = (r \mbox{cos} (\theta) + i r \mbox{sen} (\theta))( \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k))\\
+=\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)),\\
+A \bar{\vec{x}_k} =\amp \bar{\lambda_k}\bar{ \vec{x}_k} = (r \mbox{cos} (\theta) - i r \mbox{sen} (\theta))( \mbox{Re}(\vec{x}_k) - i \mbox{Im}(\vec{x}_k))\\
+=\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) - i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)).
+\end{align*}
+</div>
+<p id="p-141">Assim, lembrando que \(2 \mbox{Re}(\vec{x}_k) = \vec{x}_k + \bar{\vec{x}_k}\) e \(2 \mbox{Im}(\vec{x}_k) = -i\vec{x}_k + i \bar{\vec{x}_k}\text{,}\) temos</p>
 <div class="displaymath">
 \begin{equation*}
-\begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix}
+A \mbox{Re}(\vec{x}_k) =  r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)
 \end{equation*}
 </div>
-<p id="p-141">Para mais informações sobre esse processo, ver <a class="external" href="" target="_blank">https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan</a></p></section></section></div></main>
+<div class="displaymath">
+\begin{equation*}
+A \mbox{Im}(\vec{x}_k) =  r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)
+\end{equation*}
+</div>
+<p id="p-142">Desse modo, se \(\vec{u} = a \mbox{Re}(\vec{x}_k) + b \mbox{Im}(\vec{x}_k)\text{,}\) com \(a,b\) reais, temos:</p>
+<div class="displaymath">
+\begin{align*}
+A \vec{u} = \amp a(r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + b(r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k))\\
+=\amp (r \mbox{cos} (\theta), r \mbox{sen} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Re}(\vec{x}_k) + (-r \mbox{sen} (\theta), r \mbox{cos} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Im}(\vec{x}_k),
+\end{align*}
+</div>
+<p id="p-143">e é possível escrever um bloco \(2 \times 2\) na diagonal da forma:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix},
+\end{equation*}
+</div>
+<p id="p-144">de modo que autovalores complexos indicam a rotações no plano definido por \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\text{.}\) Deixamos ao leitor a verificação do fato que \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\) são linearmente independentes.</p>
+<article class="example example-like" id="example-44"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-44"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 4/5 \amp -3/5 \amp 0 \\ 3/5 \amp 4/5 \amp 0 \\ 1 \amp 2 \amp 2 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<p id="p-145">Para mais informações sobre esse processo, ver <a class="external" href="https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan" target="_blank">Forma de Jordan</a><a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 2 </sup></a>.</p>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn"><code class="code-inline tex2jax_ignore">wikipedia.org</code></div></div></section><section class="subsection" id="aplicacoes"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">11.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span>
+</h3>
+<p id="p-146">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém \(y_0\) átomos radioativos. É natural pensar que o número de átomos, \(y(t)\text{,}\) que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{dy}{dt}(t) = \lambda y(t), \,\,\,\, y(0) = y_0. 
+\end{equation*}
+</div>
+<p id="p-147">Um problema assim é chamado de uma equação diferencial ordinária e sua solução é \(y(t) = y_0 e^{\lambda t}\text{.}\)</p>
+<p id="p-148">Em outros problemas pode-se ter múltiplas funções simultaneamente.</p>
+<article class="example example-like" id="example-45"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-45"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.17</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-45"><article class="example example-like">Uma amostra formada por dois isótopos radioativos com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\)  e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
+<article class="example example-like" id="example-46"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-46"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-46"><article class="example example-like">Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo \(A\) decai no isótopo \(B\text{,}\) que decai no isótopo \(C\text{.}\) Uma amostra formada pelos isótopos \(A\text{,}\) \(B\) e \(C\) com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\) e \(y_3 = 4\times 10^{4}\) e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
+<p id="p-149">Consideremos o sistema de equações diferenciais (com condições iniciais associadas):</p>
+<div class="displaymath">
+\begin{align*}
+y_1' =\amp a_{11}y_1 + a_{12}y_2 + \cdots + a_{1n} y_n, \,\,\, y_1(0) = y^*_1,\\
+y_2' =\amp a_{21}y_1 + a_{22}y_2 + \cdots + a_{2n} y_n, \,\,\, y_2(0) = y^*_2,\\
+\vdots \amp\\
+y_n' =\amp a_{n1}y_1 + a_{n2}y_2 + \cdots + a_{nn} y_n, \,\,\, y_n(0) = y^*_n,
+\end{align*}
+</div>
+<p id="p-150">que pose ser escrito na forma</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{y}'(t) = A\vec{y}(t), \,\,\, \vec{y}(0) = \vec{y^*}.
+\end{equation*}
+</div>
+<p id="p-151">Se a matriz A tem \(n\) autovalores reais, \(\lambda_1, \ldots, \lambda_n\text{,}\)(não necessariamente distintos) e  a eles estão associados \(\text{}\) autovetores LI, \(\vec{x}_1, \ldots, \vec{x}_n\text{,}\) então a solução do sistema de EDOs é</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{y}'(t) = c_1e^{\lambda_1 t}\vec{x}_1 + c_2e^{\lambda_2 t}\vec{x}_2 + \cdots + c_ne^{\lambda_n t}\vec{x}_n, \,\, \mbox{ onde } \,\, \vec{y^*} = c_1\vec{x}_1 + c_2\vec{x}_2 + \cdots + c_ne^\vec{x}_n.
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="exercise-32"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-32"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.19</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-32"><article class="exercise exercise-like">Resolva o sistema<div class="displaymath">
+\begin{align*}
+y_1' =\amp 3y_1 + 2y_2 - 3y_3, \,\,\, y_1(0) = 1,\\
+y_2' =\amp 2y_1 + 3y_2 - 3y_3, \,\,\, y_2(0) = 2,\\
+y_3' =\amp 3y_1 + 3y_2 - 4y_3, \,\,\, y_n(0) = -1,
+\end{align*}
+</div></article></div></section></section></div></main>
 </div>
 </body>
 </html>
