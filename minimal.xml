@@ -4260,14 +4260,14 @@ print(np.linalg.inv(A))
                 <statement>
                     Consideremos o PVI
                     <me>
-                        3y'' + 2y' + y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
+                        3y'' + 2y' - y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
                     </me>
                     Podemos definir variáveis <m>y_1 (t) = y(t)</m>, <m>y_2 (t) = y'(t)</m>, de modo que obtemos o sistema
                     <me>
                         \begin{array}{l}
                         y_1'(t) = y_2(t), \,\,\, y_1(0) =1,\\
-                        y_2'(t) = -\frac{2}{3} y_2(t)-\frac{1}{3} y_1(t) , \,\,\, y_2(0) =2,
-                        \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ -1/3 \amp -2/3 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+                        y_2'(t) = -\frac{2}{3} y_2(t)+\frac{1}{3} y_1(t) , \,\,\, y_2(0) =2,
+                        \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ 1/3 \amp -2/3 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
                     </me>
                     Autovalores, autovetores, ...
                 </statement>
@@ -4278,14 +4278,14 @@ print(np.linalg.inv(A))
                 <statement>
                     Consideremos o PVI
                     <me>
-                        y'' + 2y' - 2y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
+                        y'' + 2y' + 2y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
                     </me>
                     Podemos definir variáveis <m>y_1 (t) = y(t)</m>, <m>y_2 (t) = y'(t)</m>, de modo que obtemos o sistema
                     <me>
                         \begin{array}{l}
                         y_1'(t) = y_2(t), \,\,\, y_1(0) =1,\\
-                        y_2'(t) = -2 y_2(t) + 2y_1(t) , \,\,\, y_2(0) =2,
-                        \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 2 \\ 1 \amp -2 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+                        y_2'(t) = -2 y_2(t) - 2y_1(t) , \,\,\, y_2(0) =2,
+                        \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ -2 \amp -2 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
                     </me>
                     Autovalores, autovetores, ...
                 </statement>
