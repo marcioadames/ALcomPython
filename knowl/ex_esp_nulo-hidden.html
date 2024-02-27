@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2024-02-27T11:47:38-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example example-like">O espaço nulo da matriz<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A = \left(\begin{array}{cccc} 1 \amp 1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 0 \amp 1 \end{array} \right)
+\end{equation*}
+</div>consiste das soluções de \(A\vec{x} = \vec{0}\text{,}\) ou seja, soluções do sistema<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{gather*}
+\begin{array}{c} x_1 + x_2 + x_3 = 0\\ 2x_1 + x_2 + x_4 = 0\end{array} \Leftrightarrow \begin{array}{c} x_2 + 2x_3 -x_4 = 0\\ 2x_1 + x_2 + x_4 = 0\end{array} \Leftrightarrow \begin{array}{c} x_1 = x_3 - x_4 \\ x_2 =  2x_3 - x_4 \end{array}, 
+\end{gather*}
+</div>
+<p>denotando \(\alpha = x_3\) e \(\beta = x_4\text{,}\) temos:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+N(A) =\amp \{\vec{x} \in \mathbb{R}^4 | \vec{x} = (\alpha -\beta, -2\alpha + \beta, \alpha, \beta)^T \}\\
+=\amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0, 1)^T, \,\, \alpha, \beta \in \mathbb{R}\}
+\end{align*}
+</div></article></body>
+</html>

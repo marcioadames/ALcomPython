@@ -72,6 +72,92 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
         </frontmatter>
 
 
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+
+        <section xml:id="sistemas-lineares">
+            <title>Sistemas de Equações Lineares </title>
+
+            <intro>
+               <p>Nessa seção introduzimos sistemas lineares e áplicações práticas. </p>
+            </intro>
+               
+               
+               <subsection xml:id="Proj1">
+               <title>Projeto 1 - Criando uma dieta</title>
+               
+               <p>Desenvolva os itens abaixo para determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais com alimentos da sua escolha.</p>
+               
+               <exercise>
+                <p>Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras no site <url href="https://tabnut.dis.epm.br/alimento">https://tabnut.dis.epm.br/alimento</url> de 5 alimentos de sua escolha.</p>
+                <solution>Exemplo de solução (seus alimentos serão, provavelmente, diferentes).</solution>
+               </exercise>
+               
+               <exercise>
+                <p>Escreva um sistema linear que represente o problema que você está tentando resolver.</p>
+                <solution>Algum texto.</solution>
+               </exercise>
+               
+               <exercise>
+                <p>Utilize o código na <xref ref="sol_lin_sys"></xref>  para resolver o sistema linear.</p>
+                <solution>Algum texto.</solution>
+               </exercise>
+               
+               <remark xml:id="sol_lin_sys">
+               <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+                <sage>
+                  <input>
+                    1+3
+                  </input>
+                  <output>
+                    soma
+                  </output>
+                </sage>
+                </remark>
+               
+               </subsection>
+               
+               <exercise>
+                <p>A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta. </p>
+                <solution>Algum texto.</solution>
+               </exercise>
+               
+               <exercise>
+                <p>Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu? </p>
+                <solution>Algum texto.</solution>
+               </exercise>
+
+               <exercise>
+                <p>Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
+                <solution>Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é minimizar determinadas variáveis, como a seguir:</solution>
+               </exercise>
+               
+               <remark xml:id="minmax_lin_sys">
+               <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+                <sage>
+                  <input>
+                    1+3
+                  </input>
+                  <output>
+                    soma
+                  </output>
+                </sage>
+                </remark>
+               
+               
+           </section>
+           
+
+
+
+
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+
         <section xml:id="section-computation">
             <title>Solve symbolic system and  elementary operations</title>
 
@@ -251,6 +337,52 @@ for i in range(B.shape[0]):
                 solution
                 </output>
             </sage>
+            
+             <p><m>\int_0^3 x^2 dx</m>.</p>
+               <me>x = \frac{3}{2}</me>
+               
+               <md>
+                <mrow>a =\amp 3x^2 -9</mrow>
+                <mrow> =\amp y^2 -1</mrow>
+                </md>
+
+                <table>
+                  <title>A simple table</title>
+                  <tabular halign="center">
+                    <row header="yes" bottom="minor" >
+                      <cell>Variable <m>x</m></cell>
+                      <cell>Variable <m>y</m></cell>
+                      <cell>Conjunction <m>x\wedge y</m></cell>
+                      <cell>Disjunction <m>x\vee y</m></cell>
+                    </row>
+                    <row>
+                      <cell>T</cell>
+                      <cell>T</cell>
+                      <cell>T</cell>
+                      <cell>T</cell>
+                    </row>
+                    <row>
+                      <cell>T</cell>
+                      <cell>F</cell>
+                      <cell>F</cell>
+                      <cell>T</cell>
+                    </row>
+                    <row>
+                      <cell>F</cell>
+                      <cell>T</cell>
+                      <cell>F</cell>
+                      <cell>T</cell>
+                    </row>
+                    <row>
+                      <cell>F</cell>
+                      <cell>F</cell>
+                      <cell>F</cell>
+                      <cell>F</cell>
+                    </row>
+                  </tabular>
+
+                </table>
+
 
         </section>
         
