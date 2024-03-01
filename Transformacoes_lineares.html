@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
+<!--*       on 2024-03-01T09:58:15-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
-<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<html lang="en-US">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Transformações Lineares</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="article">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
   },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+    renderActions: {
+        findScript: [10, function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -53,204 +37,164 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        },
-        ""
-      ]
-    }
+        }, '']
+    },
   },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
   },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
-    }
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
   },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "linkKey": "linked-sage",
-  "autoeval": false,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext article ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
-<p class="byline">Márcio Rostirolla Adames</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
-<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
-<div class="search-results-controls">
-<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
-</div>
-<h2 class="search-results-heading">Search Results: </h2>
-<div id="searchempty" class="searchempty"><span>No results.</span></div>
-<ol id="searchresults" class="searchresults"></ol>
-</div>
-</div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="produto_interno.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="auto_val.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+<body class="pretext-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
-\definecolor{fillinmathshade}{gray}{0.9}
-\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
-\)</span></div>
-<div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
-<li class="toc-item toc-frontmatter">
-<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
+<p class="byline">Márcio Rostirolla Adames</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="auto_val.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="produto_interno.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="auto_val.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul><li><a href="sistemas-lineares.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li></ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Proj1" class="internal"><span class="codenumber">1.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li></ul>
-</li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-computation.html" class="internal"><span class="codenumber">2</span> <span class="title">Solve symbolic system and  elementary operations</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gaussian.html" class="internal"><span class="codenumber">3</span> <span class="title">Gaussian Elimination</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gauss-Jordan.html" class="internal"><span class="codenumber">4</span> <span class="title">Gauss-Jordan reduction</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Matrices.html" class="internal"><span class="codenumber">5</span> <span class="title">Basic commands for matrices.</span></a></div></li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="ElDecomp.html" class="internal"><span class="codenumber">6</span> <span class="title">Decompositions; Inverse finding</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#LU" class="internal"><span class="codenumber">6.1</span> <span class="title">Decomposition PA = LU</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#InverseAI" class="internal"><span class="codenumber">6.2</span> <span class="title">Finding the inverse through Gauss - Jordan reduction</span></a></div></li>
+<li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">2</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
+<li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">3</span> <span class="title">Gaussian Elimination</span></a></li>
+<li class="link"><a href="section-Gauss-Jordan.html" data-scroll="section-Gauss-Jordan"><span class="codenumber">4</span> <span class="title">Gauss-Jordan reduction</span></a></li>
+<li class="link"><a href="section-Matrices.html" data-scroll="section-Matrices"><span class="codenumber">5</span> <span class="title">Basic commands for matrices.</span></a></li>
+<li class="link">
+<a href="ElDecomp.html" data-scroll="ElDecomp"><span class="codenumber">6</span> <span class="title">Decompositions; Inverse finding</span></a><ul>
+<li><a href="ElDecomp.html#LU" data-scroll="LU">Decomposition PA = LU</a></li>
+<li><a href="ElDecomp.html#InverseAI" data-scroll="InverseAI">Finding the inverse through Gauss - Jordan reduction</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">7</span> <span class="title">Espaços Vetoriais</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">7.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">7.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
+<li class="link">
+<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">7</span> <span class="title">Espaços Vetoriais</span></a><ul>
+<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
+<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">8</span> <span class="title">Subespaços Vetoriais</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">8.1</span> <span class="title">Subespaço</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">8.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
+<li class="link">
+<a href="subescos.html" data-scroll="subescos"><span class="codenumber">8</span> <span class="title">Subespaços Vetoriais</span></a><ul>
+<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
+<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">9</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">9.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">9.2</span> <span class="title">Dependência Linear</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">9.3</span> <span class="title">Bases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">9.4</span> <span class="title">Mudança de base</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">9.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
+<li class="link">
+<a href="bases.html" data-scroll="bases"><span class="codenumber">9</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
+<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
+<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
+<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
+<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">10</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">10.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">10.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">10.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
+<li class="link">
+<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">10</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
+<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
+<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
+<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
-<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">11</span> <span class="title">Transformações Lineares</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">11.1</span> <span class="title">Transformações Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">11.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">11.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
+<li class="link active">
+<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">11</span> <span class="title">Transformações Lineares</span></a><ul>
+<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">12</span> <span class="title">Autovalores e autovetores</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">12.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">12.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">12.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">12.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
+<li class="link">
+<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">12</span> <span class="title">Autovalores e autovetores</span></a><ul>
+<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
+<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
+<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
+<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
 </ul>
 </li>
-</ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="Transformacoes_lineares"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">11</span><span class="space"> </span><span class="title">Transformações Lineares</span>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Transformacoes_lineares"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">11</span> <span class="title">Transformações Lineares</span>
 </h2>
-<div class="para" id="Transformacoes_lineares-2-1">Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.</div>
+<p id="p-126">Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.</p>
 <section class="subsection" id="trans_lin"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.1</span><span class="space"> </span><span class="title">Transformações Lineares</span>
+<span class="type">Subsection</span> <span class="codenumber">11.1</span> <span class="title">Transformações Lineares</span>
 </h3>
-<article class="definition definition-like" id="trans_lin-2"><h4 class="heading">
+<article class="definition definition-like" id="definition-17"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.1</span><span class="period">.</span>
-</h4> <div class="para logical" id="trans_lin-2-2-1">
-<div class="para">Um mapeamento<details class="ptx-footnote" aria-live="polite" id="trans_lin-2-2-1-1"><summary class="ptx-footnote__number" title="Footnote 11.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="trans_lin-2-2-1-1">uma função</div></details>  <span class="process-math">\(L : V \to W\text{,}\)</span> de um espaço vetorial <span class="process-math">\((V,E,\cdot, +)\)</span> para um espaço vetorial <span class="process-math">\((W,E,\odot,\oplus)\)</span> é dita uma transformação linear <details class="ptx-footnote" aria-live="polite" id="trans_lin-2-2-1-6"><summary class="ptx-footnote__number" title="Footnote 11.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="trans_lin-2-2-1-6">também chamado de mapeamento linear, operador linear ou função linear (dependendo do contexto)</div></details> se</div>
-<div class="displaymath process-math">
+</h6>
+<p id="p-127">Um mapeamento<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a>  \(L : V \to W\text{,}\) de um espaço vetorial \((V,E,\cdot, +)\) para um espaço vetorial \((W,E,\odot,\oplus)\) é dita uma transformação linear <a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 2 </sup></a> se</p>
+<div class="displaymath">
 \begin{equation*}
 L(\alpha \cdot \vec{u} + \beta \vec{v}) = \alpha \odot L(\vec{u}) \oplus \beta \odot L(\vec{v}).
 \end{equation*}
 </div>
-</div></article><details id="trans_lin-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn">uma função</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">também chamado de mapeamento linear, operador linear ou função linear (dependendo do contexto)</div></div></article><article class="example example-like" id="example-26"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Seja <span class="process-math">\(L: \mathbb{R}^2 \to \mathbb{R}^2\)</span> a função definida por<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like">Seja \(L: \mathbb{R}^2 \to \mathbb{R}^2\) a função definida por<div class="displaymath">
 \begin{equation*}
 L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} -x_2 \\ x_1 \end{pmatrix}
 \end{equation*}
-</div>é uma transformação linear, pois <span class="process-math">\(\ldots\)</span></article></details><details id="trans_lin-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>é uma transformação linear, pois \(\ldots\)</article></div>
+<article class="example example-like" id="example-27"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Seja <span class="process-math">\(L: \mathbb{R}^2 \to \mathbb{R}^2\)</span> a função definida por<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like">Seja \(L: \mathbb{R}^2 \to \mathbb{R}^2\) a função definida por<div class="displaymath">
 \begin{equation*}
 L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_1^2 \\ x_2 \end{pmatrix}
 \end{equation*}
-</div>não é uma transformação linear, pois <span class="process-math">\(\ldots\)</span></article></details><details id="trans_lin-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>não é uma transformação linear, pois \(\ldots\)</article></div>
+<article class="example example-like" id="example-28"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-28"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.4</span><span class="period">.</span>
-</h4></summary><article class="example example-like">O mapeamento <span class="process-math">\(L: \mathbb{R}^3 \to \mathbb{R}^2\)</span> definido por<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-28"><article class="example example-like">O mapeamento \(L: \mathbb{R}^3 \to \mathbb{R}^2\) definido por<div class="displaymath">
 \begin{equation*}
 L\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
 \end{equation*}
-</div>é uma transformação linear, pois <span class="process-math">\(\ldots\)</span> Podemos notar que<div class="displaymath process-math">
+</div>é uma transformação linear, pois \(\ldots\) Podemos notar que<div class="displaymath">
 \begin{equation*}
 L\begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix}.
 \end{equation*}
-</div>Essa transformação linear é a projeção do espaço <span class="process-math">\(\mathbb{R}^3\)</span> em <span class="process-math">\(\mathbb{R}^2\text{.}\)</span></article></details><div class="para" id="trans_lin-6">O código abaixo faz um plot da projeção do exemplo acima.</div>
-<pre id="trans_lin-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</div>Essa transformação linear é a projeção do espaço \(\mathbb{R}^3\) em \(\mathbb{R}^2\text{.}\)</article></div>
+<p id="p-128">O código abaixo faz um plot da projeção do exemplo acima.</p>
+<div class="sagecell-sage" id="sage-36"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -293,68 +237,74 @@ fig3.update_layout(showlegend=False,font = dict(size = 30),
                     yaxis = dict(tickfont=dict(size=12,) ),
                     zaxis = dict(tickfont=dict(size=12,) ),))
 fig3.write_html("yourfile.html")
-</script></pre>
-<details id="trans_lin-8" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</script></div>
+<article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.5</span><span class="period">.</span>
-</h4></summary><article class="example example-like">O mapeamento <span class="process-math">\(L: \mathbb{R}^2 \to \mathbb{R}^3\)</span> definido por<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like">O mapeamento \(L: \mathbb{R}^2 \to \mathbb{R}^3\) definido por<div class="displaymath">
 \begin{equation*}
 L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 \\x_1 + x_2 \end{pmatrix}
 \end{equation*}
-</div>é uma transformação linear, pois <span class="process-math">\(\ldots\)</span> Podemos notar que<div class="displaymath process-math">
+</div>é uma transformação linear, pois \(\ldots\) Podemos notar que<div class="displaymath">
 \begin{equation*}
 L\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}.
 \end{equation*}
-</div></article></details><details id="trans_lin-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.6</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Seja <span class="process-math">\(A\)</span> é uma matriz <span class="process-math">\(n \times m\text{.}\)</span> Mostre que a função<div class="displaymath process-math" id="trans_lin-9-1-3">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like">Seja \(A\) é uma matriz \(n \times m\text{.}\) Mostre que a função<div class="displaymath">
 \begin{align*}
 L: \amp \mathbb{R}^m \to \mathbb{R}^n,\\
 \amp L(\vec{v}) = A\vec{v}
 \end{align*}
-</div>é uma transformação linear.</article></details><details id="trans_lin-10" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>é uma transformação linear.</article></div>
+<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.7</span><span class="period">.</span><span class="space"> </span><span class="title">Rotação no plano.</span>
-</h4></summary><article class="example example-like">Seja <span class="process-math">\(R_\theta: \mathbb{R}^2 \to \mathbb{R}^2\)</span> a operação que os vetores do plano em <span class="process-math">\(\theta\)</span> radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar:<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like">Seja \(R_\theta: \mathbb{R}^2 \to \mathbb{R}^2\) a operação que os vetores do plano em \(\theta\) radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar:<div class="displaymath">
 \begin{equation*}
 \vec{v} = (r \mbox{cos}(\alpha), r \mbox{sen}(\alpha))^T
 \end{equation*}
-</div>e percebemos que rodar <span class="process-math">\(\theta\)</span> no sentido anti-horário significa somar <span class="process-math">\(\theta\)</span> ao ângulo, de modo que<div class="displaymath process-math">
+</div>e percebemos que rodar \(\theta\) no sentido anti-horário significa somar \(\theta\) ao ângulo, de modo que<div class="displaymath">
 \begin{equation*}
 R_\theta(\vec{v}) = \begin{pmatrix} r \mbox{cos}(\alpha+\theta)\\ r \mbox{sen}(\alpha+\theta)\end{pmatrix} = \begin{pmatrix} r(\mbox{cos}(\alpha)^2 -\mbox{sen}(\theta)^2)\\ r (2\mbox{sen}(\alpha)\mbox{cos}(\theta))\end{pmatrix} = \begin{pmatrix} \mbox{cos}(\theta) \amp -\mbox{sen}(\theta)\\ \mbox{sen}(\theta) \amp \mbox{cos}(\theta) \end{pmatrix}\begin{pmatrix} r \mbox{cos}(\alpha)\\ r \mbox{sen}(\alpha)\end{pmatrix}
 \end{equation*}
-</div>Pelo exercício anterior, a rotação é uma transformação linear.</article></details><article class="lemma theorem-like" id="linear_trans_prop"><h4 class="heading">
+</div>Pelo exercício anterior, a rotação é uma transformação linear.</article></div>
+<article class="lemma theorem-like" id="linear_trans_prop"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">11.8</span><span class="period">.</span>
-</h4>Se <span class="process-math">\(L: V \to W\)</span> é uma transformação linear e <span class="process-math">\(\vec{v}, \vec{v}_1, \ldots, \vec{v}_n \in V\text{,}\)</span> então <ol class="decimal">
-<li id="linear_trans_prop-1-3-1"><div class="para" id="p-derived-linear_trans_prop-1-3-1"><span class="process-math">\(\displaystyle L(\vec{0}_V) = \vec{0}_W;\)</span></div></li>
-<li id="linear_trans_prop-1-3-2"><div class="para" id="p-derived-linear_trans_prop-1-3-2"><span class="process-math">\(\displaystyle L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + \alpha_n L(\vec{v}_n);\)</span></div></li>
-<li id="linear_trans_prop-1-3-3"><div class="para" id="p-derived-linear_trans_prop-1-3-3"><span class="process-math">\(\displaystyle L(-\vec{v}) = -L(\vec{v});\)</span></div></li>
-</ol></article><details id="linear_trans_prop-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><ol class="decimal">
-<li id="linear_trans_prop-2-1-1"><div class="para" id="p-derived-linear_trans_prop-2-1-1"><span class="process-math">\(\displaystyle L(\vec{0}_V) = L(0\vec{v}) = 0L(\vec{v}) = \vec{0}_W;\)</span></div></li>
-<li id="linear_trans_prop-2-1-2"><div class="para" id="p-derived-linear_trans_prop-2-1-2"><div class="displaymath process-math" id="linear_trans_prop-2-1-2-1">
+</h6>Se \(L: V \to W\) é uma transformação linear e \(\vec{v}, \vec{v}_1, \ldots, \vec{v}_n \in V\text{,}\) então <ol class="decimal">
+<li id="li-71"><p id="p-derived-li-71">\(\displaystyle L(\vec{0}_V) = \vec{0}_W;\)</p></li>
+<li id="li-72"><p id="p-derived-li-72">\(\displaystyle L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n) = \alpha_1 L(\vec{v}_1) +  \cdots + \alpha_n L(\vec{v}_n);\)</p></li>
+<li id="li-73"><p id="p-derived-li-73">\(\displaystyle L(-\vec{v}) = -L(\vec{v});\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><ol class="decimal">
+<li id="li-74"><p id="p-derived-li-74">\(\displaystyle L(\vec{0}_V) = L(0\vec{v}) = 0L(\vec{v}) = \vec{0}_W;\)</p></li>
+<li id="li-75"><p id="p-derived-li-75"><div class="displaymath">
 \begin{align*}
 L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_n \vec{v}_n)  =\amp L(\alpha_1 \vec{v}_1 +  \cdots + \alpha_{n-1} \vec{v}_{n-1}) +\alpha_n L(\vec{v}_n) = \cdots \\
 =\amp \alpha_1 L(\vec{v}_1) +  \cdots + L(\alpha_n \vec{v}_n);
 \end{align*}
-</div></div></li>
-<li id="linear_trans_prop-2-1-3"><div class="para" id="p-derived-linear_trans_prop-2-1-3"><span class="process-math">\(\displaystyle L(\vec{v}) + L(-\vec{v}) = L(\vec{v})-  L(\vec{v}) = \vec{0};\)</span></div></li>
-</ol></article></details><details id="trans_lin-12" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></p></li>
+<li id="li-76"><p id="p-derived-li-76">\(\displaystyle L(\vec{v}) + L(-\vec{v}) = L(\vec{v})-  L(\vec{v}) = \vec{0};\)</p></li>
+</ol></article></div>
+<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.9</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Seja <span class="process-math">\(V\)</span> um espaço vetorial. O operador identidade <span class="process-math">\(I: V \to V\)</span> definido por<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like">Seja \(V\) um espaço vetorial. O operador identidade \(I: V \to V\) definido por<div class="displaymath">
 \begin{equation*}
 I(\vec{v}) = \vec{v}, \,\,\, \forall \vec{v} \in V
 \end{equation*}
-</div>é uma transformação linear, pois <span class="process-math">\(\ldots\)</span></article></details><details id="trans_lin-13" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>é uma transformação linear, pois \(\ldots\)</article></div>
+<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.10</span><span class="period">.</span>
-</h4></summary><article class="example example-like">O mapeamento <span class="process-math">\(D:C^1(a,b) \to C(a,b)\text{,}\)</span> que associa a cada função a sua derivada é um operador linear<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">O mapeamento \(D:C^1(a,b) \to C(a,b)\text{,}\) que associa a cada função a sua derivada é um operador linear<div class="displaymath">
 \begin{equation*}
 D(f) = f'
 \end{equation*}
-</div>pois, para quaisquer <span class="process-math">\(\alpha, \beta \in \mathbb{R}\)</span> e <span class="process-math">\(f,g \in C^1(a,b)\text{,}\)</span><div class="displaymath process-math">
+</div>pois, para quaisquer \(\alpha, \beta \in \mathbb{R}\) e \(f,g \in C^1(a,b)\text{,}\)<div class="displaymath">
 \begin{equation*}
 D(\alpha f + \beta g) = (\alpha f + \beta g)' = \alpha f' + \beta g'.
 \end{equation*}
-</div></article></details><details id="trans_lin-14" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.11</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Seja <span class="process-math">\(P^3\)</span> o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e <span class="process-math">\(\mathcal{U} = \{x^3, x^2, x, 1\}\)</span> é uma base para esse espaço. O operador <span class="process-math">\(D:P^3 \to P^3\)</span> definido por <span class="process-math">\(D(p) = 2 p'' - 3p' + p\)</span> é um operador linear, pois ... Se <span class="process-math">\(p(x) = ax^3 + bx^2 + cx + d\text{,}\)</span> então suas coordenadas na base <span class="process-math">\(\mathcal{U}\)</span> são <span class="process-math">\((a, b, c, d)^T\)</span> e <span class="process-math">\(D(p) = a x^3 + (-9a+b)x^2 + (12a-6b+c)x + (4b-3c+d)\text{,}\)</span> de modo que as suas coordenadas na base <span class="process-math">\(\mathcal{U}\)</span> são iguais a<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like">Seja \(P^3\) o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e \(\mathcal{U} = \{x^3, x^2, x, 1\}\) é uma base para esse espaço. O operador \(D:P^3 \to P^3\) definido por \(D(p) = 2 p'' - 3p' + p\) é um operador linear, pois ... Se \(p(x) = ax^3 + bx^2 + cx + d\text{,}\) então suas coordenadas na base \(\mathcal{U}\) são \((a, b, c, d)^T\) e \(D(p) = a x^3 + (-9a+b)x^2 + (12a-6b+c)x + (4b-3c+d)\text{,}\) de modo que as suas coordenadas na base \(\mathcal{U}\) são iguais a<div class="displaymath">
 \begin{equation*}
 D(p) = \begin{pmatrix}
 1 \amp 0 \amp 0 \amp 0  \\
@@ -369,35 +319,35 @@ c \\
 d
 \end{pmatrix}
 \end{equation*}
-</div></article></details></section><section class="subsection" id="matriz_lin_trans"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.2</span><span class="space"> </span><span class="title">Representação Matricial de Transformações Lineares</span>
+</div></article></div></section><section class="subsection" id="matriz_lin_trans"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">11.2</span> <span class="title">Representação Matricial de Transformações Lineares</span>
 </h3>
-<article class="theorem theorem-like" id="rep_matricial"><h4 class="heading">
+<article class="theorem theorem-like" id="rep_matricial"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.12</span><span class="period">.</span><span class="space"> </span><span class="title">da Representação Matricial.</span>
-</h4>Sejam <span class="process-math">\(L:U \to V\)</span> uma transformação linear entre dois espaços vetoriais <span class="process-math">\(U\)</span> e <span class="process-math">\(V\)</span> e <span class="process-math">\(\mathcal{U} = \{\vec{u}_1, \ldots, \vec{u}_n\}\text{,}\)</span> <span class="process-math">\(\mathcal{V} = \{\vec{v}_1, \ldots, \vec{v}_m\}\)</span> bases para esses espaços vetoriais, respectivamente. Se um vetor <span class="process-math">\(\vec{u}\)</span> tem coordenadas <span class="process-math">\(\vec{u}^\mathcal{U} = (u_1^{\mathcal{U}}, u_2^{\mathcal{U}}, \ldots, u_n^{\mathcal{U}})\text{,}\)</span> então existe uma matriz <span class="process-math">\(A=(a_{ij})\text{,}\)</span> <span class="process-math">\(m \times n\text{,}\)</span> tal que as coordenadas de <span class="process-math">\(L(\vec{u})\)</span> na base <span class="process-math">\(\mathcal{V}\)</span> são dadas por<div class="displaymath process-math">
+</h6>Sejam \(L:U \to V\) uma transformação linear entre dois espaços vetoriais \(U\) e \(V\) e \(\mathcal{U} = \{\vec{u}_1, \ldots, \vec{u}_n\}\text{,}\) \(\mathcal{V} = \{\vec{v}_1, \ldots, \vec{v}_m\}\) bases para esses espaços vetoriais, respectivamente. Se um vetor \(\vec{u}\) tem coordenadas \(\vec{u}^\mathcal{U} = (u_1^{\mathcal{U}}, u_2^{\mathcal{U}}, \ldots, u_n^{\mathcal{U}})\text{,}\) então existe uma matriz \(A=(a_{ij})\text{,}\) \(m \times n\text{,}\) tal que as coordenadas de \(L(\vec{u})\) na base \(\mathcal{V}\) são dadas por<div class="displaymath">
 \begin{equation*}
 L(\vec{u})^\mathcal{V} = A\vec{u}^\mathcal{U}.
 \end{equation*}
-</div>As colunas dessa matriz são obtidas calculando <span class="process-math">\(\vec{a}_j = L(\vec{u}_j)^\mathcal{V}\text{,}\)</span> <span class="process-math">\(j=1,\ldots, n\text{,}\)</span> de modo que <span class="process-math">\(a_{ij} = L(\vec{u}_j)^\mathcal{V}_i\text{.}\)</span></article><details id="rep_matricial-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="displaymath process-math" id="rep_matricial-3-1">
+</div>As colunas dessa matriz são obtidas calculando \(\vec{a}_j = L(\vec{u}_j)^\mathcal{V}\text{,}\) \(j=1,\ldots, n\text{,}\) de modo que \(a_{ij} = L(\vec{u}_j)^\mathcal{V}_i\text{.}\)</article><article class="hiddenproof" id="proof-18"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><div class="displaymath">
 \begin{align*}
 L(\vec{u}) =\amp u_1^{\mathcal{U}}L(\vec{u}_1) + u_2^{\mathcal{U}}L(\vec{u}_2) + \cdots + u_n^{\mathcal{U}} L(\vec{u}_n)\\
 = \amp u_1^{\mathcal{U}}(L(\vec{u}_1)^\mathcal{V}_1 \vec{v}_1 + \cdots + L(\vec{u}_1)^\mathcal{V}_m \vec{v}_m) + \cdots + u_n^{\mathcal{U}} (L(\vec{u}_n)^\mathcal{V}_1 \vec{v}_1 + \cdots + L(\vec{u}_n)^\mathcal{V}_m \vec{v}_m) \\
 = \amp (u_1^{\mathcal{U}}L(\vec{u}_1)^\mathcal{V}_1 + \cdots + u_n^{\mathcal{U}} (L(\vec{u}_n)^\mathcal{V}_1))\vec{v}_1 + \cdots + (u_1^{\mathcal{U}}L(\vec{u}_1)^\mathcal{V}_m  + \cdots +  u_n^{\mathcal{U}}L(\vec{u}_n)^\mathcal{V}_m)\vec{v}_m \\
 = \amp (L(\vec{u}_1)^\mathcal{V}_1, \ldots,  (L(\vec{u}_n)^\mathcal{V}_1)) \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} \vec{v}_1 + \cdots + (L(\vec{u}_1)^\mathcal{V}_m, \ldots,  (L(\vec{u}_n)^\mathcal{V}_m)) \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} \vec{v}_m 
 \end{align*}
-</div>de modo que as coordenadas de <span class="process-math">\(L(\vec{u})\)</span> na base <span class="process-math">\(\mathcal{V}\)</span> são<div class="displaymath process-math">
+</div>de modo que as coordenadas de \(L(\vec{u})\) na base \(\mathcal{V}\) são<div class="displaymath">
 \begin{equation*}
 L(\vec{u})^{\mathcal{V}} = \begin{pmatrix} L(\vec{u}_1)^\mathcal{V}_1 \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}_1\\ \vdots \amp \ddots \amp \vdots \\ L(\vec{u}_1)^\mathcal{V}_m \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}_m \end{pmatrix} \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix} = \begin{pmatrix} | \amp \cdots \amp  | \\ L(\vec{u}_1)^\mathcal{V} \amp \cdots \amp  L(\vec{u}_n)^\mathcal{V}\\ | \amp \cdots \amp  | \end{pmatrix} \begin{pmatrix} u_1^{\mathcal{U}} \\ \vdots \\ u_n^{\mathcal{U}}\end{pmatrix}.
 \end{equation*}
-</div></article></details><div class="para" id="matriz_lin_trans-3">Dizemos que <span class="process-math">\(A\)</span> representa <span class="process-math">\(L\)</span> nas bases <span class="process-math">\(\mathcal{U}\)</span> e <span class="process-math">\(\mathcal{V}\text{.}\)</span>
-</div>
-<details id="matriz_lin_trans-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<p id="p-129">Dizemos que \(A\) representa \(L\) nas bases \(\mathcal{U}\) e \(\mathcal{V}\text{.}\)</p>
+<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.13</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Seja  <span class="process-math">\(L: \mathbb{R}^3 \to \mathbb{R}^4\text{,}\)</span> a transformação linear definida por<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like">Seja  \(L: \mathbb{R}^3 \to \mathbb{R}^4\text{,}\) a transformação linear definida por<div class="displaymath">
 \begin{equation*}
 L \begin{pmatrix} x_1\\ x_2\\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 - x_3 \\ -x_2\\ -x_1 - x_2 + x_3 \\ x_2 - x_3 \end{pmatrix}.
 \end{equation*}
-</div>A matriz que representa <span class="process-math">\(L\)</span> nas bases canônicas de <span class="process-math">\(\mathbb{R}^3\)</span> e <span class="process-math">\(\mathbb{R}^4\)</span> é<div class="displaymath process-math">
+</div>A matriz que representa \(L\) nas bases canônicas de \(\mathbb{R}^3\) e \(\mathbb{R}^4\) é<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
 1 \amp 0 \amp -1  \\
@@ -406,9 +356,10 @@ A = \begin{pmatrix}
 0 \amp 1 \amp -1 
 \end{pmatrix},
 \end{equation*}
-</div>de modo que <span class="process-math">\(L(\vec{x}) = A\vec{x}\text{.}\)</span></article></details><details id="matriz_lin_trans-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>de modo que \(L(\vec{x}) = A\vec{x}\text{.}\)</article></div>
+<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.14</span><span class="period">.</span>
-</h4></summary><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases <span class="process-math">\(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\)</span> e na base canônica <span class="process-math">\(\mathbb{R}^4\)</span> é<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases \(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\) e na base canônica \(\mathbb{R}^4\) é<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
 0 \amp -1 \amp -2 \\
@@ -417,22 +368,25 @@ A = \begin{pmatrix}
 -1 \amp -2 \amp 0 
 \end{pmatrix},
 \end{equation*}
-</div>de modo que <span class="process-math">\(L(\vec{x}) = A\vec{x}^\mathcal{U}\text{.}\)</span></article></details><details id="matriz_lin_trans-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>de modo que \(L(\vec{x}) = A\vec{x}^\mathcal{U}\text{.}\)</article></div>
+<article class="example example-like" id="example-36"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.15</span><span class="period">.</span>
-</h4></summary><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases <span class="process-math">\(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\)</span> e <span class="process-math">\(\mathcal{V} = \{(1,0,0,-1)^T, (0,1,1,0)^T, (1,0,0,1)^T, (0,-1,1,0)^T\}\)</span> tem colunas <span class="process-math">\(V^{-1} (0,0,0,-1)^T\text{,}\)</span> <span class="process-math">\(V^{-1} (-1,1,2,-2)^T\)</span> e <span class="process-math">\(V^{-1} (0,-1,1,0)^T\text{,}\)</span> nessa ordem.</article></details><details id="ex_proj" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like">A matriz que representa a transformação linear do exemplo anterior nas bases \(\mathcal{U} = \{(1,0,1)^T, (0,-1,1)^T, (-1,1,1)^T\}\) e \(\mathcal{V} = \{(1,0,0,-1)^T, (0,1,1,0)^T, (1,0,0,1)^T, (0,-1,1,0)^T\}\) tem colunas \(V^{-1} (0,0,0,-1)^T\text{,}\) \(V^{-1} (-1,1,2,-2)^T\) e \(V^{-1} (0,-1,1,0)^T\text{,}\) nessa ordem.</article></div>
+<article class="example example-like" id="ex_proj"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex_proj"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.16</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Seja <span class="process-math">\(P: \mathcal{R}^3 \to \mathcal{R}^3\)</span> a projeção no plano que passa pela origem e têm vetores diretores <span class="process-math">\(\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\text{.}\)</span> Para representá-la na base <span class="process-math">\(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}\)</span> notamos que <span class="process-math">\(\vec{u}_2 \perp \vec{u}_3 \)</span> e<div class="displaymath process-math" id="ex_proj-1-5">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex_proj"><article class="example example-like">Seja \(P: \mathcal{R}^3 \to \mathcal{R}^3\) a projeção no plano que passa pela origem e têm vetores diretores \(\vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\text{.}\) Para representá-la na base \(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}\) notamos que \(\vec{u}_2 \perp \vec{u}_3 \) e<div class="displaymath">
 \begin{align*}
 \mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_1 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_1 + \mbox{proj}_{\vec{u}_3} \vec{u}_1 = \vec{0}\\
 \mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_2 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_2 + \mbox{proj}_{\vec{u}_3} \vec{u}_2 = \vec{u}_2\\
 \mbox{proj}_{\vec{u}_2 \vec{u}_3} \vec{u}_3 =\amp \mbox{proj}_{\vec{u}_2} \vec{u}_3 + \mbox{proj}_{\vec{u}_3} \vec{u}_3 = \vec{u}_3
 \end{align*}
-</div>de modo que, nessa base, a <span class="process-math">\(P\)</span> é representada pela matriz<div class="displaymath process-math">
+</div>de modo que, nessa base, a \(P\) é representada pela matriz<div class="displaymath">
 \begin{equation*}
 A^{\mathcal{U}} = \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1\end{pmatrix}.
 \end{equation*}
-</div></article></details><div class="para" id="matriz_lin_trans-8">Como representar a matriz do exemplo anterior na base canônica?</div>
-<pre id="matriz_lin_trans-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</div></article></div>
+<p id="p-130">Como representar a matriz do exemplo anterior na base canônica?</p>
+<div class="sagecell-sage" id="sage-37"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -481,15 +435,16 @@ fig3.update_layout(showlegend=False,font = dict(size = 30),
                     yaxis = dict(tickfont=dict(size=12,) ),
                     zaxis = dict(tickfont=dict(size=12,) ),))
 fig3.write_html("yourfile.html")
-</script></pre>
-<article class="theorem theorem-like" id="mud_base"><h4 class="heading">
+</script></div>
+<article class="theorem theorem-like" id="mud_base"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.17</span><span class="period">.</span><span class="space"> </span><span class="title">da Mudança de Base.</span>
-</h4>Sejam <span class="process-math">\(\mathcal{U}\)</span> e <span class="process-math">\(\mathcal{V}\)</span> bases para um espaço vetorial <span class="process-math">\(V\text{,}\)</span> <span class="process-math">\(S\)</span> a matriz de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base <span class="process-math">\(\mathcal{V}\text{.}\)</span> Se <span class="process-math">\(L\)</span> é um operador linear em <span class="process-math">\(V\)</span> representado pela matriz <span class="process-math">\(A^{\mathcal{U}}\)</span> na base <span class="process-math">\(\mathcal{U}\text{,}\)</span> então a matriz que representa <span class="process-math">\(L\)</span> na base <span class="process-math">\(\mathcal{V}\)</span> é<div class="displaymath process-math">
+</h6>Sejam \(\mathcal{U}\) e \(\mathcal{V}\) bases para um espaço vetorial \(V\text{,}\) \(S\) a matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\text{.}\) Se \(L\) é um operador linear em \(V\) representado pela matriz \(A^{\mathcal{U}}\) na base \(\mathcal{U}\text{,}\) então a matriz que representa \(L\) na base \(\mathcal{V}\) é<div class="displaymath">
 \begin{equation*}
 A^{\mathcal{V}} = SA^{\mathcal{U}}S^{-1}.
 \end{equation*}
-</div></article><details id="mud_base-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><div class="para" id="matriz_lin_trans-11">Esse teorema é frequentemente utilizado com <span class="process-math">\(\mathcal{V}\)</span> sendo a base canônica, e <span class="process-math">\(S=U\)</span> sendo a matriz de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base canônica.</div>
-<pre id="matriz_lin_trans-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</div></article><article class="hiddenproof" id="proof-19"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof">A completar.</article></div>
+<p id="p-131">Esse teorema é frequentemente utilizado com \(\mathcal{V}\) sendo a base canônica, e \(S=U\) sendo a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica.</p>
+<div class="sagecell-sage" id="sage-38"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig, ax = plt.subplots()
@@ -524,10 +479,10 @@ plt.annotate('U', [-4.4,1.2], fontsize=20)
 
 
 plt.show()
-</script></pre>
-<details id="matriz_lin_trans-13" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</script></div>
+<article class="example example-like" id="example-38"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-38"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.18</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Para calcularmos a matriz que representa a projeção do <a href="" class="xref" data-knowl="./knowl/xref/ex_proj.html" title="Example 11.16">Example 11.16</a> na base canônica, precisamos da matriz de mudança de base e sua inversa<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_proj.html">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-38"><article class="example example-like">Para calcularmos a matriz que representa a projeção do <a class="xref" data-knowl="./knowl/ex_proj.html" title="Example 11.16">Example 11.16</a> na base canônica, precisamos da matriz de mudança de base e sua inversa<div class="displaymath">
 \begin{equation*}
 U = \begin{pmatrix}
 1\amp 0 \amp 2 \\
@@ -541,7 +496,7 @@ U^{-1} = \begin{pmatrix}
 1/3\amp  -1/6 \amp 1/6 
 \end{pmatrix}
 \end{equation*}
-</div>de modo que<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_proj.html">
+</div>de modo que<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
 1\amp 0 \amp 1 \\
@@ -556,25 +511,27 @@ A = \begin{pmatrix}
 \end{pmatrix}
 = \cdots
 \end{equation*}
-</div></article></details><details id="matriz_lin_trans-14" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-29"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-29"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.19</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Determine a matriz da rotação de <span class="process-math">\(\theta\)</span> radianos em torno do eixo <span class="process-math">\((1,1,-1)^T\text{,}\)</span> no sentido anti-horário, na base <span class="process-math">\(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}\text{.}\)</span></article></details><details id="matriz_lin_trans-15" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-29"><article class="exercise exercise-like">Determine a matriz da rotação de \(\theta\) radianos em torno do eixo \((1,1,-1)^T\text{,}\) no sentido anti-horário, na base \(\mathcal{U} = \{\vec{u}_1 = (1,1,-1)^T, \vec{u}_2 = (0,1,1)^T, \vec{u}_3 = (2,-1,1)^T\}\text{.}\)</article></div>
+<article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.20</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Determine a matriz da rotação de <span class="process-math">\(\theta\)</span> radianos em torno do eixo <span class="process-math">\((1,1,-1)^T\text{,}\)</span> no sentido anti-horário, na base canônica.</article></details><div class="para" id="matriz_lin_trans-16">Temos a situação que se duas matrizes <span class="process-math">\(A\)</span> e <span class="process-math">\(B\)</span> representam a mesma transformação linear, em bases <span class="process-math">\(\mathcal{U}\)</span> e  <span class="process-math">\(\mathcal{V}\text{,}\)</span> respectivamente, e <span class="process-math">\(S\)</span> é a matriz de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base <span class="process-math">\(\mathcal{V}\text{,}\)</span> então <span class="process-math">\(B = S A S^{-1}\text{.}\)</span> Isso nos motiva a introduzir a seguinte definição:</div>
-<article class="definition definition-like" id="matriz_lin_trans-17"><h4 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like">Determine a matriz da rotação de \(\theta\) radianos em torno do eixo \((1,1,-1)^T\text{,}\) no sentido anti-horário, na base canônica.</article></div>
+<p id="p-132">Temos a situação que se duas matrizes \(A\) e \(B\) representam a mesma transformação linear, em bases \(\mathcal{U}\) e  \(\mathcal{V}\text{,}\) respectivamente, e \(S\) é a matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\text{,}\) então \(B = S A S^{-1}\text{.}\) Isso nos motiva a introduzir a seguinte definição:</p>
+<article class="definition definition-like" id="definition-18"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.21</span><span class="period">.</span>
-</h4> <div class="para logical" id="matriz_lin_trans-17-2-1">
-<div class="para">Duas matrizes <span class="process-math">\(n \times n\text{,}\)</span> <span class="process-math">\(A\)</span> e <span class="process-math">\(B\text{,}\)</span> são ditas similares se existe uma matriz <span class="process-math">\(n \times n\)</span> inversível <span class="process-math">\(S\)</span> tal que</div>
-<div class="displaymath process-math">
+</h6>
+<p id="p-133">Duas matrizes \(n \times n\text{,}\) \(A\) e \(B\text{,}\) são ditas similares se existe uma matriz \(n \times n\) inversível \(S\) tal que</p>
+<div class="displaymath">
 \begin{equation*}
 B = S A S^{-1}.
 \end{equation*}
-</div>
 </div></article></section><section class="subsection" id="trans_lineares_prob"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.3</span><span class="space"> </span><span class="title">Problemas envolvendo transformações Lineares</span>
+<span class="type">Subsection</span> <span class="codenumber">11.3</span> <span class="title">Problemas envolvendo transformações Lineares</span>
 </h3>
-<div class="para" id="trans_lineares_prob-2">Utilize o código abaixo para testar as respostas de seus exercícios</div>
-<pre id="trans_lineares_prob-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+<p id="p-134">Utilize o código abaixo para testar as respostas de seus exercícios</p>
+<div class="sagecell-sage" id="sage-39"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -607,16 +564,20 @@ import plotly.express as px
 
 fig1 = px.line_3d(df, x='X', y='Y', z='Z', color="color", markers=False)
 fig1.write_html("yourfile.html")
-</script></pre>
-<details id="trans_lineares_prob-4" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</script></div>
+<article class="exercise exercise-like" id="exercise-31"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-31"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.22</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo <span class="process-math">\(\theta\)</span> no sentido anti-horário em torno do eixo y.</article></details><details id="trans_lineares_prob-5" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo \(\theta\) no sentido anti-horário em torno do eixo y.</article></div>
+<article class="exercise exercise-like" id="exercise-32"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-32"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.23</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo <span class="process-math">\(\theta\)</span> no sentido anti-horário em torno do eixo <span class="process-math">\((1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T\text{.}\)</span></article></details><details id="trans_lineares_prob-6" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-32"><article class="exercise exercise-like">Encontre uma matriz que representa uma rotação de ângulo \(\theta\) no sentido anti-horário em torno do eixo \((1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T\text{.}\)</article></div>
+<article class="exercise exercise-like" id="exercise-33"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-33"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.24</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre uma matriz que dilata a direção x por 2, a direção y por 0.5 e a direção z por 3.</article></details><details id="trans_lineares_prob-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-33"><article class="exercise exercise-like">Encontre uma matriz que dilata a direção x por 2, a direção y por 0.5 e a direção z por 3.</article></div>
+<article class="exercise exercise-like" id="exercise-34"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-34"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.25</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre uma matriz que dilata a direção <span class="process-math">\((1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T\)</span> por 2, a direção <span class="process-math">\((1/\sqrt{2}, 1/\sqrt{2}, 0)^T\)</span> por 0.5 e a direção <span class="process-math">\((-1/\sqrt{3}, 1/\sqrt{3}, 1/\sqrt{3})^T\)</span> por 3.</article></details><pre id="trans_lineares_prob-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-34"><article class="exercise exercise-like">Encontre uma matriz que dilata a direção \((1/\sqrt{6}, -1/\sqrt{6}, 2/\sqrt{6})^T\) por 2, a direção \((1/\sqrt{2}, 1/\sqrt{2}, 0)^T\) por 0.5 e a direção \((-1/\sqrt{3}, 1/\sqrt{3}, 1/\sqrt{3})^T\) por 3.</article></div>
+<div class="sagecell-sage" id="sage-40"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sci
 
@@ -634,15 +595,15 @@ A = np.array([[1,0,0],[0,np.cos(theta),-np.sin(theta)],[0,np.sin(theta),np.cos(t
 U = np.array([[1/np.sqrt(6),-1/np.sqrt(6),2/np.sqrt(6)],[1/np.sqrt(2),1/np.sqrt(2),0],[-1/np.sqrt(3),1/np.sqrt(3),1/np.sqrt(3)]])
 U = np.transpose(U)
 B = U.dot(A.dot(sci.linalg.inv(U)))
-</script></pre>
-<div class="para" id="trans_lineares_prob-9">Translações não são transformações lineares, contudo podemos representá-las como matrizes utilizando uma dimensão adicional. Dado um ponto no plano <span class="process-math">\(x = (x1,x2)^T\text{,}\)</span> podemos transladá-lo por <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> através das duas primeiras coordenadas do vetor:</div>
-<div class="displaymath process-math">
+</script></div>
+<p id="p-135">Translações não são transformações lineares, contudo podemos representá-las como matrizes utilizando uma dimensão adicional. Dado um ponto no plano \(x = (x1,x2)^T\text{,}\) podemos transladá-lo por \(a\text{,}\) \(b\text{,}\) através das duas primeiras coordenadas do vetor:</p>
+<div class="displaymath">
 \begin{equation*}
 T_{a,b}(x) = \begin{pmatrix} 1 \amp 0 \amp a \\ 0 \amp 1 \amp b\\ 0 \amp 0 \amp 1\end{pmatrix} \begin{pmatrix} x1 \\ x2 \\ 1 \end{pmatrix}.
 \end{equation*}
 </div>
-<div class="para" id="trans_lineares_prob-11">Verifique isso com o código a seguir:</div>
-<pre id="trans_lineares_prob-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># credits: https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/Applications_LT.html
+<p id="p-136">Verifique isso com o código a seguir:</p>
+<div class="sagecell-sage" id="sage-41"><script type="text/x-sage"># credits: https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/Applications_LT.html
 
 %matplotlib inline  
 import matplotlib.pyplot as plt
@@ -685,13 +646,7 @@ ax.grid(True)
 ax.axis([-1,6,-1,6])
 ax.set_aspect('equal')
 ax.set_title("Translation");
-</script></pre></section></section></div>
-<div class="ptx-content-footer">
-<a class="previous-button button" href="produto_interno.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="auto_val.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
-</div></main>
-</div>
-<div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</script></div></section></section></div></main>
 </div>
 </body>
 </html>
