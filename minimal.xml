@@ -1019,7 +1019,7 @@ print(np.linalg.inv(A))
             <title>Espaços Vetoriais</title>
            
             <intro>
-               <p>O conceito de <bf>Espaço Vetorial</bf> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <bf>vetores</bf>, assim como <m>\mathbb{R}^3</m> com as operações usuais, 
+               <p>O conceito de <term>Espaço Vetorial</term> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <term>vetores</term>, assim como <m>\mathbb{R}^3</m> com as operações usuais, 
                e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de <m>\mathbb{R}^n</m> e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores 
                em <m>\mathbb{R}^n</m> e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a 
                ilustração de subespaços de dimensão 1 ou 2 em <m>\mathbb{R}^3</m>.</p>
@@ -1028,7 +1028,7 @@ print(np.linalg.inv(A))
             <subsection xml:id="Rn_vecs">
                <title>Vetores em <m>\mathbb{R}^n</m></title>
                
-                <p>Um <bf>vetor</bf> <m>\vec{x}</m> representa o conjunto de todos os segmentos orientados em <m>\mathbb{R}^3</m> com o mesmo comprimento, direção e sentido.</p>
+                <p>Um <term>vetor</term> <m>\vec{x}</m> representa o conjunto de todos os segmentos orientados em <m>\mathbb{R}^3</m> com o mesmo comprimento, direção e sentido.</p>
                 
                 <sage>
                     <input>
@@ -1081,7 +1081,7 @@ print(np.linalg.inv(A))
                 </p>
 
                 <p>
-                    O <bf>comprimento</bf> ou a <bf>norma</bf> de um vetor <m>\vec{x} = \left(x_1, \ldots, x_n\right)^T</m> em <m>\mathbb{R}^n</m> pode ser calculado por <me>\|\vec{x}\| = \sqrt{x_1^2 + x^2+ \cdots + x_n^2}</me>. No exemplo acima <me>\|\vec{x}\| = \sqrt{1^2+2^2}=\sqrt{5}</me>. Qualquer segmento orientado em <m>\vec{x}</m> poderia ter sido utilizado para calcular o comprimento.
+                    O <term>comprimento</term> ou a <term>norma</term> de um vetor <m>\vec{x} = \left(x_1, \ldots, x_n\right)^T</m> em <m>\mathbb{R}^n</m> pode ser calculado por <me>\|\vec{x}\| = \sqrt{x_1^2 + x^2+ \cdots + x_n^2}</me>. No exemplo acima <me>\|\vec{x}\| = \sqrt{1^2+2^2}=\sqrt{5}</me>. Qualquer segmento orientado em <m>\vec{x}</m> poderia ter sido utilizado para calcular o comprimento.
                 </p>
                 <sage>
                     <input>
@@ -1143,11 +1143,11 @@ print(np.linalg.inv(A))
                 </exercise>
 
                 <p>
-                    Para vetores <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m>\vec{x} = (x_1, \ldots, x_n)^T</m> e <m>\vec{y} = (y_1, \ldots, y_n)^T</m>,e um escalar <m>\alpha \in \mathbb{R}</m>, definimos as operações fundamentais de <bf>multiplicação por escalar</bf> e <bf>adição</bf> de vetores por:
+                    Para vetores <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m>\vec{x} = (x_1, \ldots, x_n)^T</m> e <m>\vec{y} = (y_1, \ldots, y_n)^T</m>,e um escalar <m>\alpha \in \mathbb{R}</m>, definimos as operações fundamentais de <term>multiplicação por escalar</term> e <term>adição</term> de vetores por:
                     <me>
                         \alpha \cdot \vec{x} = \alpha\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} :=  \begin{pmatrix}\alpha x_1\\ \vdots \\ \alpha x_n\end{pmatrix}; \,\,\,\,\, \vec{x} + \vec{y} = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} + \begin{pmatrix}y_1\\ \vdots \\ y_n\end{pmatrix} := \begin{pmatrix}x_1+y_1\\ \vdots \\ x_n+y_n\end{pmatrix}
                     </me>
-                    A <bf>subtração</bf> de vetores é definida a partir da multiplicação por escalar e da adição como <m>\vec{x} - \vec{y} := \vec{x} +(-1) \vec{y}</m>.
+                    A <term>subtração</term> de vetores é definida a partir da multiplicação por escalar e da adição como <m>\vec{x} - \vec{y} := \vec{x} +(-1) \vec{y}</m>.
                 </p>
 
 
@@ -1229,7 +1229,7 @@ print(np.linalg.inv(A))
                   
                     <statement>
                       <p>
-                        Seja <m>E</m> um conjunto de escalares (usualmente <m>\mathbb{C}</m> ou <m>\mathbb{C}</m>, mas qualquer <it>corpo</it> serviria). Um <bf>espaço vetorial</bf> <m>(V,E,\oplus,\odot)</m> é um conjunto sobre o qual estão definidas duas operações:
+                        Seja <m>E</m> um conjunto de escalares (usualmente <m>\mathbb{C}</m> ou <m>\mathbb{C}</m>, mas qualquer <it>corpo</it> serviria). Um <term>espaço vetorial</term> <m>(V,E,\oplus,\odot)</m> é um conjunto sobre o qual estão definidas duas operações:
                         <md>
                             <mrow>\oplus: \amp V \times V: \to V, </mrow>
                             <mrow>(C1) \hspace{9mm} \amp \vec{u}, \vec{v} \in V \Rightarrow \vec{u} \oplus \vec{v}</mrow>
@@ -1247,7 +1247,7 @@ print(np.linalg.inv(A))
                             <li>(A7)   <m>\hspace{5mm} (\alpha\beta)\vec{u} = \alpha(\beta\vec{u}),</m></li>
                             <li>(A8)   <m>\hspace{5mm} 1\vec{u} = \vec{u}.</m></li>
                         </dl>
-                        V é dito o <bf>conjunto universal</bf>, os elementos de V são ditos <bf>vetores</bf> e os elementos de E são ditos <bf>escalares</bf>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.
+                        V é dito o <term>conjunto universal</term>, os elementos de V são ditos <term>vetores</term> e os elementos de E são ditos <term>escalares</term>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.
                       </p>
                     </statement>
                 </definition>
@@ -1462,7 +1462,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>S \subset V</m> um subconjunto de <m>V</m>. <m>S</m> é dito um <bf>subespaço (vetorial)</bf> de <m>V</m> se, e somente se:
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>S \subset V</m> um subconjunto de <m>V</m>. <m>S</m> é dito um <term>subespaço (vetorial)</term> de <m>V</m> se, e somente se:
                         <ol>
                             <li><m>S \neq \emptyset,</m></li>
                             <li><m>\alpha \odot \vec{u} \in S, \,\, \forall   \,\, \vec{u} \in S, \,\, \alpha \in E,</m></li>
@@ -1576,7 +1576,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Seja <m>A \in \mathbb{R}^{n \times m}</m>. O conjunto de todas as soluções de <m>A\vec{x} =\vec{0}</m> é chamado de <bf>espaço nulo</bf> de <m>A</m> e denotado <m>N(A)</m>: 
+                        Seja <m>A \in \mathbb{R}^{n \times m}</m>. O conjunto de todas as soluções de <m>A\vec{x} =\vec{0}</m> é chamado de <term>espaço nulo</term> de <m>A</m> e denotado <m>N(A)</m>: 
                         <me>
                             N(A) = \{\vec{x} \in \mathbb{R}^m | A\vec{x} = \vec{0}\}.
                         </me>
@@ -1758,7 +1758,7 @@ print(np.linalg.inv(A))
            
             <intro>
                <p>
-                Muitas vezes representamos vetores de <m>\mathbb{R}^3</m> como <m>\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}</m>. Os vetores <m>\{ \vec{i}, \vec{j}, \vec{k} \}</m> formam o que chamamos de uma <bf>base</bf> para <m>\mathbb{R}^3</m>. Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos <bf>spans</bf> na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos <bf>independância linear</bf> na segunda subseção).
+                Muitas vezes representamos vetores de <m>\mathbb{R}^3</m> como <m>\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}</m>. Os vetores <m>\{ \vec{i}, \vec{j}, \vec{k} \}</m> formam o que chamamos de uma <term>base</term> para <m>\mathbb{R}^3</m>. Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos <term>spans</term> na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos <term>independância linear</term> na segunda subseção).
                </p>
            </intro>
            
@@ -1777,7 +1777,7 @@ print(np.linalg.inv(A))
                         <me>
                             \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \ldots + \alpha_n \vec{v}_n
                         </me>
-                        é dita uma <bf>combinação linear</bf> de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m>. O conjunto de todas as combinações lineares de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> é chamado de <bf>Span de</bf>  <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> (as nomenclaturas <bf>cobertura de</bf> ou <bf>espaço vetorial gerado por</bf> também são utilizadas na literatura): 
+                        é dita uma <term>combinação linear</term> de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m>. O conjunto de todas as combinações lineares de <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> é chamado de <term>Span de</term>  <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> (as nomenclaturas <term>cobertura de</term> ou <term>espaço vetorial gerado por</term> também são utilizadas na literatura): 
                         <me>
                             Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) = \{\vec{x} \in V | \vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2+ \ldots + \alpha_n \vec{v}_n\}.
                         </me>
@@ -1854,7 +1854,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.</m> O conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}</m> é um <bf>conjunto de geradores</bf> (ou <bf>gera</bf>) <m>V</m> se, e somente se, qualquer vetor de <m>\vec{v} \in V</m> pode ser escrito como uma combinação linear de <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m>, ou seja,
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.</m> O conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}</m> é um <term>conjunto de geradores</term> (ou <term>gera</term>) <m>V</m> se, e somente se, qualquer vetor de <m>\vec{v} \in V</m> pode ser escrito como uma combinação linear de <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m>, ou seja,
                         <me>
                             \vec{v} \in V \Longrightarrow \exists \alpha_1, \alpha_2, \ldots, \alpha_n \in E \,\, \| \,\, \vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n.
                         </me>
@@ -1965,11 +1965,11 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Seja <m>(V, E, \oplus, \odot)</m> um espaço vetorial. Os vetores <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V</m> são ditos <bf>linearmente independentes (L.I.)</bf> se a única solução<fn>Note que <m>\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0</m> sempre é uma solução da equação.</fn> de 
+                        Seja <m>(V, E, \oplus, \odot)</m> um espaço vetorial. Os vetores <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V</m> são ditos <term>linearmente independentes (L.I.)</term> se a única solução<fn>Note que <m>\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0</m> sempre é uma solução da equação.</fn> de 
                         <me>
                             \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0}
                         </me>
-                         é <m>\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0</m>. Caso exista alguma solução não nula dessa equação, o conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}</m> é dito <bf>linearmente dependente (L.D.)</bf>.
+                         é <m>\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0</m>. Caso exista alguma solução não nula dessa equação, o conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}</m> é dito <term>linearmente dependente (L.D.)</term>.
                     </p>
                     </statement>
                 </definition>
@@ -2155,12 +2155,12 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V</m> vetores. O conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}</m> é uma <bf>base</bf> para <m>V</m> se, e somente se,
+                        Sejam <m>(V, E, \oplus, \odot)</m> um espaço vetorial e <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V</m> vetores. O conjunto <m>\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}</m> é uma <term>base</term> para <m>V</m> se, e somente se,
                         <ol>
                             <li><p><m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> são linearmente independentes,</p></li>
                             <li><p><m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> cobrem <m>V</m>.</p></li>
                         </ol>
-                         Alternativamente, dizemos que <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> <bf>formam uma base</bf> para <m>V</m>.
+                         Alternativamente, dizemos que <m>\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n</m> <term>formam uma base</term> para <m>V</m>.
                     </p>
                     </statement>
                 </definition>
@@ -2382,7 +2382,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Seja <m>(V, E, \oplus, \odot)</m> um espaço vetorial. Se <m>V</m> tem uma base de <m>n</m> vetores, dizemos que <m>V</m> tem <bf>dimensão</bf> <m>n</m>. O (sub)espaço  <m>\{\vec{0}\}</m> é dito ter dimensão <bf>nula</bf> ou <m>0</m>. Em ambos os casos dizemos que <m>V</m> tem <bf>dimensão finita</bf>. Caso não exista um conjunto de vetores que cobre <m>V</m> com um número finito de elementos, dizemos que <m>V</m> tem <bf>dimensão infinita</bf>.
+                        Seja <m>(V, E, \oplus, \odot)</m> um espaço vetorial. Se <m>V</m> tem uma base de <m>n</m> vetores, dizemos que <m>V</m> tem <term>dimensão</term> <m>n</m>. O (sub)espaço  <m>\{\vec{0}\}</m> é dito ter dimensão <term>nula</term> ou <m>0</m>. Em ambos os casos dizemos que <m>V</m> tem <term>dimensão finita</term>. Caso não exista um conjunto de vetores que cobre <m>V</m> com um número finito de elementos, dizemos que <m>V</m> tem <term>dimensão infinita</term>.
                     </p>
                     </statement>
                 </definition>
@@ -2488,7 +2488,7 @@ print(np.linalg.inv(A))
                         <me>
                             \vec{v} = v_1^\mathcal{U}\vec{u}_1 + v_2^\mathcal{U}\vec{u}_2 + \ldots + v_n^\mathcal{U} \vec{u}_n
                         </me>
-                        é chamada de (conjunto de) <bf>coordenadas de</bf> <m>\vec{v}</m> na base <m>\mathcal{U}</m> e escrevemos
+                        é chamada de (conjunto de) <term>coordenadas de</term> <m>\vec{v}</m> na base <m>\mathcal{U}</m> e escrevemos
                         <me>
                             \vec{v}^\mathcal{U} = (v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})^T.
                         </me>
@@ -2515,7 +2515,7 @@ print(np.linalg.inv(A))
                         <me>
                             U = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix}
                         </me>
-                        é a <bf>matriz de mudança de base</bf> da base <m>U</m> para a base canônica.
+                        é a <term>matriz de mudança de base</term> da base <m>U</m> para a base canônica.
                     </statement>
                 </example>
 
@@ -2539,7 +2539,7 @@ print(np.linalg.inv(A))
                         <me>
                             U^{-1} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix}
                         </me>
-                        é a <bf>matriz de mudança de base</bf> da base canônica para a base <m>\mathcal{U}</m>.
+                        é a <term>matriz de mudança de base</term> da base canônica para a base <m>\mathcal{U}</m>.
                     </statement>
                 </example>
 
@@ -2573,7 +2573,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Sejam <m>(V,E,\oplus, \odot)</m> um espaço vetorial e <m>\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> e <m>\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> bases para <m>V</m>. Cada vetor da base <m>\mathcal{U}</m> tem coordenadas na base <m>\mathcal{V}</m>, <m>\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T</m>. A <bf>matriz de mudança de base</bf> da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m> é a matriz
+                        Sejam <m>(V,E,\oplus, \odot)</m> um espaço vetorial e <m>\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}</m> e <m>\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> bases para <m>V</m>. Cada vetor da base <m>\mathcal{U}</m> tem coordenadas na base <m>\mathcal{V}</m>, <m>\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T</m>. A <term>matriz de mudança de base</term> da base <m>\mathcal{U}</m> para a base <m>\mathcal{V}</m> é a matriz
                         <me>
                             A = \begin{pmatrix} | \amp  | \amp  \amp | \\ \vec{u}_1^\mathcal{V} \amp \vec{u}_2^\mathcal{V} \amp \cdots \amp \vec{u}_n^\mathcal{V} \\ | \amp | \amp  \amp | \end{pmatrix} = \begin{pmatrix} a_{11} \amp  a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ a_{n1} \amp a_{n2} \amp \cdots \amp a_{nn} \end{pmatrix}.
                         </me>
@@ -2714,7 +2714,7 @@ print(np.linalg.inv(A))
                   
                     <statement>
                         <p>
-                            Seja <m>A</m> uma matriz <m>m \times n</m>. O subespaço de <m>\mathbb{R}^{1 \times n}</m> coberto pelos vetores linha de <m>A</m> é chamado de de <bf>espaço linha</bf> de <m>A</m>. O subespaço de <m>\mathbb{R}^m</m> coberto pelos vetores coluna de <m>A</m> é chamado de <bf>espaço coluna</bf> de <m>A</m>.
+                            Seja <m>A</m> uma matriz <m>m \times n</m>. O subespaço de <m>\mathbb{R}^{1 \times n}</m> coberto pelos vetores linha de <m>A</m> é chamado de de <term>espaço linha</term> de <m>A</m>. O subespaço de <m>\mathbb{R}^m</m> coberto pelos vetores coluna de <m>A</m> é chamado de <term>espaço coluna</term> de <m>A</m>.
                         </p>
                     </statement>
                 </definition>
@@ -2786,7 +2786,7 @@ print(np.linalg.inv(A))
                   
                     <statement>
                         <p>
-                            O <bf>posto</bf> (<it>rank</it> em inglês) de uma matriz <m>A</m>, denotado <m>\mbox{posto}(A)</m> ou <m>\mbox{rank}(A)</m>, é a dimensão do espaço linha<fn>ou do espaço coluna, pois, ambas são iguais</fn> de <m>A</m>.
+                            O <term>posto</term> (<it>rank</it> em inglês) de uma matriz <m>A</m>, denotado <m>\mbox{posto}(A)</m> ou <m>\mbox{rank}(A)</m>, é a dimensão do espaço linha<fn>ou do espaço coluna, pois, ambas são iguais</fn> de <m>A</m>.
                         </p>
                     </statement>
                 </definition>
@@ -2809,7 +2809,7 @@ print(np.linalg.inv(A))
                 </theorem>
 
                 <remark>
-                    As colunas da matriz <m>A</m> na forma escalonada <bf>não formam uma base para o espaço coluna de</bf> <m>A</m>, apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de <m>A</m>.
+                    As colunas da matriz <m>A</m> na forma escalonada <term>não formam uma base para o espaço coluna de</term> <m>A</m>, apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de <m>A</m>.
                 </remark>
 
                 <remark>
@@ -2904,7 +2904,7 @@ print(np.linalg.inv(A))
                   
                     <statement>
                         <p>
-                            A <bf>nulidade</bf> de uma matriz <m>A</m>, denotado <m>\mbox{nul}(A)</m>, é a dimensão do seu espaço nulo.
+                            A <term>nulidade</term> de uma matriz <m>A</m>, denotado <m>\mbox{nul}(A)</m>, é a dimensão do seu espaço nulo.
                         </p>
                     </statement>
                 </definition>
@@ -2969,7 +2969,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                         <p>
-                            Dados <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m>\vec{x}=(x_1, x_2, \ldots, x_n)</m>, <m>\vec{y}=(y_1, y_2, \ldots, y_n)</m>, definimos o <bf>produto interno</bf> (ou <bf>produto escalar</bf>) de <m>\vec{x}</m> e <m>\vec{y}</m> como
+                            Dados <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, <m>\vec{x}=(x_1, x_2, \ldots, x_n)</m>, <m>\vec{y}=(y_1, y_2, \ldots, y_n)</m>, definimos o <term>produto interno</term> (ou <term>produto escalar</term>) de <m>\vec{x}</m> e <m>\vec{y}</m> como
                             <me>
                                 \langle \vec{x}, \vec{y}\rangle = x_1y_1+x_2y_2 + \cdots +x_ny_n.
                             </me>
@@ -3036,7 +3036,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                         <p>
-                            O <bf>comprimento (euclidiano)</bf> (ou <bf>norma</bf>) de um vetor <m>\vec{x}\in \mathbb{R}^n</m> é 
+                            O <term>comprimento (euclidiano)</term> (ou <term>norma</term>) de um vetor <m>\vec{x}\in \mathbb{R}^n</m> é 
                             <me>
                                 \| \vec{x}\|  = \sqrt{\vec{x} \cdot \vec{x}} = \sqrt{x_1^2+x_2^2 + \cdots +x_n^2}.
                             </me>
@@ -3253,9 +3253,9 @@ print(np.linalg.inv(A))
                     </md>
                 </p>
 
-                <p><m>\alpha</m> é a <bf>projeção escalar</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
+                <p><m>\alpha</m> é a <term>projeção escalar</term> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
 
-                <p><m>\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}</m> é a <bf>projeção vetorial</bf> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
+                <p><m>\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}</m> é a <term>projeção vetorial</term> de <m>\vec{x}</m> sobre <m>\vec{y}</m>.</p>
 
                 <exercise>
                     <statement>
@@ -3286,7 +3286,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                         <p>
-                            Sejam <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> um conjunto de vetores em um espaço vetorial <m>V</m> munido com produto interno. Se <m>\langle \vec{v}_i, \vec{v}_j \rangle = 0</m> sempre que <m>i \neq j</m>, então o conjunto é dito <bf>ortogonal</bf>. Além disso, se <m>\langle \vec{v}_i, \vec{v}_i \rangle = 1</m> para todo <m>i = 1, \ldots, n</m>, o conjunto é dito <bf>ortonormal</bf>.
+                            Sejam <m>\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}</m> um conjunto de vetores em um espaço vetorial <m>V</m> munido com produto interno. Se <m>\langle \vec{v}_i, \vec{v}_j \rangle = 0</m> sempre que <m>i \neq j</m>, então o conjunto é dito <term>ortogonal</term>. Além disso, se <m>\langle \vec{v}_i, \vec{v}_i \rangle = 1</m> para todo <m>i = 1, \ldots, n</m>, o conjunto é dito <term>ortonormal</term>.
                         </p>
                     </statement>
                 </definition>
@@ -3583,7 +3583,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                         <p>
-                            Um mapeamento<fn>uma função</fn>  <m>L : V \to W</m>, de um espaço vetorial <m>(V,E,\cdot, +)</m> para um espaço vetorial <m>(W,E,\odot,\oplus)</m> é dita uma <bf>transformação linear</bf> <fn>também chamado de <bf>mapeamento</bf> linear, <bf>operador linear</bf> ou <bf>função linear</bf> (dependendo do contexto)</fn> se 
+                            Um mapeamento<fn>uma função</fn>  <m>L : V \to W</m>, de um espaço vetorial <m>(V,E,\cdot, +)</m> para um espaço vetorial <m>(W,E,\odot,\oplus)</m> é dita uma <term>transformação linear</term> <fn>também chamado de <term>mapeamento</term> linear, <term>operador linear</term> ou <term>função linear</term> (dependendo do contexto)</fn> se 
                             <me>
                                 L(\alpha \cdot \vec{u} + \beta \vec{v}) = \alpha \odot L(\vec{u}) \oplus \beta \odot L(\vec{v}).
                             </me>
@@ -4306,7 +4306,7 @@ print(np.linalg.inv(A))
                 
                     <statement>
                     <p>
-                        Seja <m>A</m> uma matriz <m>n \times n</m>. Um número (real ou complexo) <m>\lambda</m> é dito um <bf>autovalor</bf> de <m>A</m> se existe um vetor não nulo <m>\vec{x}</m> tal que <m>A\vec{x} = \lambda \vec{x}</m>. <m>\vec{x}</m> é dito um <bf>autovetor</bf> associado ao autovalor <m>\lambda</m>.
+                        Seja <m>A</m> uma matriz <m>n \times n</m>. Um número (real ou complexo) <m>\lambda</m> é dito um <term>autovalor</term> de <m>A</m> se existe um vetor não nulo <m>\vec{x}</m> tal que <m>A\vec{x} = \lambda \vec{x}</m>. <m>\vec{x}</m> é dito um <term>autovetor</term> associado ao autovalor <m>\lambda</m>.
                     </p>
                     </statement>
                 </definition>

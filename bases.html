@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-03T12:28:16-03:00       *-->
+<!--*       on 2024-03-03T12:32:26-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -157,7 +157,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="bases"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9</span> <span class="title">Base de um Espaço Vetorial</span>
 </h2>
-<p id="p-66">Muitas vezes representamos vetores de \(\mathbb{R}^3\) como \(\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}\text{.}\) Os vetores \(\{ \vec{i}, \vec{j}, \vec{k} \}\) formam o que chamamos de uma base para \(\mathbb{R}^3\text{.}\) Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos spans na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos independância linear na segunda subseção).</p>
+<p id="p-66">Muitas vezes representamos vetores de \(\mathbb{R}^3\) como \(\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}\text{.}\) Os vetores \(\{ \vec{i}, \vec{j}, \vec{k} \}\) formam o que chamamos de uma <dfn class="terminology">base</dfn> para \(\mathbb{R}^3\text{.}\) Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos <dfn class="terminology">spans</dfn> na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos <dfn class="terminology">independância linear</dfn> na segunda subseção).</p>
 <section class="subsection" id="coberturas"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">9.1</span> <span class="title">Spans (Coberturas)</span>
 </h3>
@@ -170,7 +170,7 @@
 \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \ldots + \alpha_n \vec{v}_n
 \end{equation*}
 </div>
-<p class="continuation">é dita uma combinação linear de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{.}\) O conjunto de todas as combinações lineares de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) é chamado de Span de  \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) (as nomenclaturas cobertura de ou espaço vetorial gerado por também são utilizadas na literatura):</p>
+<p class="continuation">é dita uma <dfn class="terminology">combinação linear</dfn> de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{.}\) O conjunto de todas as combinações lineares de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) é chamado de <dfn class="terminology">Span de</dfn>  \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) (as nomenclaturas <dfn class="terminology">cobertura de</dfn> ou <dfn class="terminology">espaço vetorial gerado por</dfn> também são utilizadas na literatura):</p>
 <div class="displaymath">
 \begin{equation*}
 Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) = \{\vec{x} \in V | \vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2+ \ldots + \alpha_n \vec{v}_n\}.
@@ -212,7 +212,7 @@ N(A) = \amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0,
 <article class="definition definition-like" id="definition-6"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.6</span><span class="period">.</span>
 </h6>
-<p id="p-69">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.\) O conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\) é um conjunto de geradores (ou gera) \(V\) se, e somente se, qualquer vetor de \(\vec{v} \in V\) pode ser escrito como uma combinação linear de \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\text{,}\) ou seja,</p>
+<p id="p-69">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.\) O conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\) é um <dfn class="terminology">conjunto de geradores</dfn> (ou <dfn class="terminology">gera</dfn>) \(V\) se, e somente se, qualquer vetor de \(\vec{v} \in V\) pode ser escrito como uma combinação linear de \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\text{,}\) ou seja,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{v} \in V \Longrightarrow \exists \alpha_1, \alpha_2, \ldots, \alpha_n \in E \,\, \| \,\, \vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n.
@@ -283,13 +283,13 @@ x_n
 <article class="definition definition-like" id="definition-7"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.9</span><span class="period">.</span>
 </h6>
-<p id="p-79">Seja \((V, E, \oplus, \odot)\) um espaço vetorial. Os vetores \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V\) são ditos linearmente independentes (L.I.) se a única solução<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 2 </sup></a> de</p>
+<p id="p-79">Seja \((V, E, \oplus, \odot)\) um espaço vetorial. Os vetores \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V\) são ditos <dfn class="terminology">linearmente independentes (L.I.)</dfn> se a única solução<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 2 </sup></a> de</p>
 <div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0}
 \end{equation*}
 </div>
-<p class="continuation">é \(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\text{.}\) Caso exista alguma solução não nula dessa equação, o conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}\) é dito linearmente dependente (L.D.).</p>
+<p class="continuation">é \(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\text{.}\) Caso exista alguma solução não nula dessa equação, o conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}\) é dito <dfn class="terminology">linearmente dependente (L.D.)</dfn>.</p>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn">Note que \(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\) sempre é uma solução da equação.</div></div></article><article class="example example-like" id="example-16"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-16"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.10</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like">Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="decimal">
@@ -418,12 +418,12 @@ for i in range(len(B)):
 <article class="definition definition-like" id="definition-8"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.14</span><span class="period">.</span>
 </h6>
-<p id="p-91">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V\) vetores. O conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\) é uma base para \(V\) se, e somente se,</p>
+<p id="p-91">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V\) vetores. O conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\) é uma <dfn class="terminology">base</dfn> para \(V\) se, e somente se,</p>
 <ol class="decimal">
 <li id="li-53"><p id="p-92">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) são linearmente independentes,</p></li>
 <li id="li-54"><p id="p-93">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) cobrem \(V\text{.}\)</p></li>
 </ol>
-<p class="continuation">Alternativamente, dizemos que \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) formam uma base para \(V\text{.}\)</p></article><article class="example example-like" id="example-17"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h6 class="heading">
+<p class="continuation">Alternativamente, dizemos que \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) <dfn class="terminology">formam uma base</dfn> para \(V\text{.}\)</p></article><article class="example example-like" id="example-17"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.15</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like">Para verificarmos que \(\vec{i}, \vec{j}, \vec{k}\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <ol class="decimal">
 <li id="li-55">
@@ -583,7 +583,7 @@ A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \v
 <article class="definition definition-like" id="definition-9"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.22</span><span class="period">.</span>
 </h6>
-<p id="p-103">Seja \((V, E, \oplus, \odot)\) um espaço vetorial. Se \(V\) tem uma base de \(n\) vetores, dizemos que \(V\) tem dimensão \(n\text{.}\) O (sub)espaço  \(\{\vec{0}\}\) é dito ter dimensão nula ou \(0\text{.}\) Em ambos os casos dizemos que \(V\) tem dimensão finita. Caso não exista um conjunto de vetores que cobre \(V\) com um número finito de elementos, dizemos que \(V\) tem dimensão infinita.</p></article><article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
+<p id="p-103">Seja \((V, E, \oplus, \odot)\) um espaço vetorial. Se \(V\) tem uma base de \(n\) vetores, dizemos que \(V\) tem <dfn class="terminology">dimensão</dfn> \(n\text{.}\) O (sub)espaço  \(\{\vec{0}\}\) é dito ter dimensão <dfn class="terminology">nula</dfn> ou \(0\text{.}\) Em ambos os casos dizemos que \(V\) tem <dfn class="terminology">dimensão finita</dfn>. Caso não exista um conjunto de vetores que cobre \(V\) com um número finito de elementos, dizemos que \(V\) tem <dfn class="terminology">dimensão infinita</dfn>.</p></article><article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.23</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like">Determine  uma base para os seguintes conjuntos e determine suas dimensões <ol class="decimal">
 <li id="li-59"><p id="p-derived-li-59">O conjunto das matrizes reais \(3 \times 3\) triangulares inferiores.</p></li>
@@ -652,7 +652,7 @@ A = \left(\begin{array}{ccc} 5 \amp 1 \amp  2\\
 \vec{v} = v_1^\mathcal{U}\vec{u}_1 + v_2^\mathcal{U}\vec{u}_2 + \ldots + v_n^\mathcal{U} \vec{u}_n
 \end{equation*}
 </div>
-<p class="continuation">é chamada de (conjunto de) coordenadas de \(\vec{v}\) na base \(\mathcal{U}\) e escrevemos</p>
+<p class="continuation">é chamada de (conjunto de) <dfn class="terminology">coordenadas de</dfn> \(\vec{v}\) na base \(\mathcal{U}\) e escrevemos</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{v}^\mathcal{U} = (v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})^T.
@@ -674,7 +674,7 @@ A = \left(\begin{array}{ccc} 5 \amp 1 \amp  2\\
 \begin{equation*}
 U = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix}
 \end{equation*}
-</div>é a matriz de mudança de base da base \(U\) para a base canônica.</article></div>
+</div>é a <dfn class="terminology">matriz de mudança de base</dfn> da base \(U\) para a base canônica.</article></div>
 <article class="example example-like" id="base_canon_u"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-base_canon_u"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.29</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-base_canon_u"><article class="example example-like">Considere a base \(U = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\) para \(\mathbb{R}^3\) e o vetor \(\vec{v} = (1, -1, 3)^T\) (na base canônica). As coordenadas de \(\vec{v}\) na base \(U\) são encontradas resolvendo o sistema<div class="displaymath">
@@ -690,7 +690,7 @@ U = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \en
 \begin{equation*}
 U^{-1} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix}
 \end{equation*}
-</div>é a matriz de mudança de base da base canônica para a base \(\mathcal{U}\text{.}\)</article></div>
+</div>é a <dfn class="terminology">matriz de mudança de base</dfn> da base canônica para a base \(\mathcal{U}\text{.}\)</article></div>
 <p id="p-112">O exemplo a seguir complementa os anteriores.</p>
 <article class="example example-like" id="base_canoninca_na_u"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-base_canoninca_na_u"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.30</span><span class="period">.</span>
@@ -704,7 +704,7 @@ U^{-1} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{
 <article class="definition definition-like" id="definition-11"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.31</span><span class="period">.</span>
 </h6>
-<p id="p-113">Sejam \((V,E,\oplus, \odot)\) um espaço vetorial e \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) e \(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) bases para \(V\text{.}\) Cada vetor da base \(\mathcal{U}\) tem coordenadas na base \(\mathcal{V}\text{,}\) \(\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T\text{.}\) A matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\) é a matriz</p>
+<p id="p-113">Sejam \((V,E,\oplus, \odot)\) um espaço vetorial e \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) e \(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) bases para \(V\text{.}\) Cada vetor da base \(\mathcal{U}\) tem coordenadas na base \(\mathcal{V}\text{,}\) \(\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T\text{.}\) A <dfn class="terminology">matriz de mudança de base</dfn> da base \(\mathcal{U}\) para a base \(\mathcal{V}\) é a matriz</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} | \amp  | \amp  \amp | \\ \vec{u}_1^\mathcal{V} \amp \vec{u}_2^\mathcal{V} \amp \cdots \amp \vec{u}_n^\mathcal{V} \\ | \amp | \amp  \amp | \end{pmatrix} = \begin{pmatrix} a_{11} \amp  a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ a_{n1} \amp a_{n2} \amp \cdots \amp a_{nn} \end{pmatrix}.
@@ -794,7 +794,7 @@ print(np.linalg.inv(V).dot(U))
 <article class="definition definition-like" id="definition-12"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.37</span><span class="period">.</span>
 </h6>
-<p id="p-115">Seja \(A\) uma matriz \(m \times n\text{.}\) O subespaço de \(\mathbb{R}^{1 \times n}\) coberto pelos vetores linha de \(A\) é chamado de de espaço linha de \(A\text{.}\) O subespaço de \(\mathbb{R}^m\) coberto pelos vetores coluna de \(A\) é chamado de espaço coluna de \(A\text{.}\)</p></article><article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
+<p id="p-115">Seja \(A\) uma matriz \(m \times n\text{.}\) O subespaço de \(\mathbb{R}^{1 \times n}\) coberto pelos vetores linha de \(A\) é chamado de de <dfn class="terminology">espaço linha</dfn> de \(A\text{.}\) O subespaço de \(\mathbb{R}^m\) coberto pelos vetores coluna de \(A\) é chamado de <dfn class="terminology">espaço coluna</dfn> de \(A\text{.}\)</p></article><article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.38</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like">Para a matriz<div class="displaymath">
 \begin{equation*}
@@ -834,7 +834,7 @@ A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
 <article class="definition definition-like" id="definition-13"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.41</span><span class="period">.</span>
 </h6>
-<p id="p-116">O posto (rank em inglês) de uma matriz \(A\text{,}\) denotado \(\mbox{posto}(A)\) ou \(\mbox{rank}(A)\text{,}\) é a dimensão do espaço linha<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 4 </sup></a> de \(A\text{.}\)</p>
+<p id="p-116">O <dfn class="terminology">posto</dfn> (rank em inglês) de uma matriz \(A\text{,}\) denotado \(\mbox{posto}(A)\) ou \(\mbox{rank}(A)\text{,}\) é a dimensão do espaço linha<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 4 </sup></a> de \(A\text{.}\)</p>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">ou do espaço coluna, pois, ambas são iguais</div></div></article><article class="remark remark-like" id="remark-11"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.42</span><span class="period">.</span>
 </h6>O posto de uma matriz \(A\) é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
@@ -842,7 +842,7 @@ A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
 </h6>A dimensão do espaço linha de uma matriz \(A^{m \times n}\) é igual à dimensão do seu espaço coluna.</article><article class="hiddenproof" id="proof-11"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof">A completar.</article></div>
 <article class="remark remark-like" id="remark-12"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.44</span><span class="period">.</span>
-</h6>As colunas da matriz \(A\) na forma escalonada não formam uma base para o espaço coluna de\(A\text{,}\) apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de \(A\text{.}\)</article><article class="remark remark-like" id="remark-13"><h6 class="heading">
+</h6>As colunas da matriz \(A\) na forma escalonada <dfn class="terminology">não formam uma base para o espaço coluna de</dfn>\(A\text{,}\) apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de \(A\text{.}\)</article><article class="remark remark-like" id="remark-13"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.45</span><span class="period">.</span>
 </h6>O espaço linha de \(A\) é igual ao espaço coluna de \(A^T\) (se transpormos os vetores).</article><article class="exercise exercise-like" id="exercise-27"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-27"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.46</span><span class="period">.</span>
@@ -907,7 +907,7 @@ Gaussian_elimination(A)
 </h6>Um sistema linear \(A\vec{x} = \vec{b}\) tem solução se, e somente se, \(\vec{b}\) está no espaço coluna de \(A\text{.}\)</article><article class="definition definition-like" id="definition-14"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.49</span><span class="period">.</span>
 </h6>
-<p id="p-118">A nulidade de uma matriz \(A\text{,}\) denotado \(\mbox{nul}(A)\text{,}\) é a dimensão do seu espaço nulo.</p></article><article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
+<p id="p-118">A <dfn class="terminology">nulidade</dfn> de uma matriz \(A\text{,}\) denotado \(\mbox{nul}(A)\text{,}\) é a dimensão do seu espaço nulo.</p></article><article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.50</span><span class="period">.</span><span class="space"> </span><span class="title">do núcleo e da imagem.</span>
 </h6>Para qualquer matriz \(A^{m \times n}\) vale:<div class="displaymath">
 \begin{equation*}
