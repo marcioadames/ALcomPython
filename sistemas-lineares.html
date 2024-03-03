@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-01T09:58:14-03:00       *-->
+<!--*       on 2024-03-03T12:28:16-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -94,7 +94,10 @@
 <nav id="toc"><ul>
 <li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link active">
-<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul><li><a href="sistemas-lineares.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li></ul>
+<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
+<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
+<li><a href="sistemas-lineares.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li>
+</ul>
 </li>
 <li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">2</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
 <li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">3</span> <span class="title">Gaussian Elimination</span></a></li>
@@ -154,45 +157,227 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sistemas-lineares"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span>
 </h2>
-<p id="p-3">Nessa seção introduzimos sistemas lineares e áplicações práticas.</p>
-<section class="subsection" id="Proj1"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.1</span> <span class="title">Projeto 1 - Criando uma dieta</span>
+<p id="p-3">Nessa seção introduzimos sistemas lineares e áplicações práticas. Sistemas lineares são, provavelmente, o tipo de problema matemático mais frequênte em aplicações práticas. Algumas razões para essa afirmação são:</p> <ol class="decimal">
+<li id="li-1"><p id="p-derived-li-1">Muitos problemas práticos são lineares por natureza.</p></li>
+<li id="li-2"><p id="p-derived-li-2">A teoria de sistemas lineares permite compreender tais problemas e resolvê-los (equações diferencias, em contra-partida, podem não ser solúveis diretamente).</p></li>
+<li id="li-3"><p id="p-derived-li-3">Métodos computacionais funcionam bem para a solução de problemas lineares.</p></li>
+<li id="li-4"><p id="p-derived-li-4">Problemas mais complexos (como equações diferenciais) podem ser reduzidos a problemas lineares em vários casos de interesse.</p></li>
+<li id="li-5"><p id="p-derived-li-5">Para problemas não lineares, muitas vezes utilizamos aproximações lineares ou métodos que envolvem problemas lineares em diversas etapas de suas soluções.</p></li>
+</ol>
+<section class="subsection" id="sis-lin-sub"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span>
 </h3>
-<p id="p-4">Desenvolva os itens abaixo para determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais com alimentos da sua escolha.</p>
-<article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-5">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras no site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a> de 5 alimentos de sua escolha.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes).</div></div></article></div>
+<article class="definition definition-like" id="definition-1"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
+</h6>Uma equação linear em \(n\) variáveis \(x_1, x_2, \ldots, x_n\) é uma equação da forma<div class="displaymath">
+\begin{equation*}
+a_1x_1+a_2x_2+\cdots+a_nx_n = b,
+\end{equation*}
+</div>onde \(a_1, a_2, \cdots, a_n, b\) são constantes reais (ou complexas) chamadas de coeficientes do sistema. Um sistema \(m \times n\) de equações lineares é um conjunto de \(equações lineares\) em \(n\) variáveis.<div class="displaymath">
+\begin{align*}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n \amp= b_1,\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n \amp= b_2,\\
+\vdots  \amp = \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n \amp= b_m.
+\end{align*}
+</div>Encontrar uma solução do sistema (ou resolver o sistema) é determinar um conjunto de valores para as variáveis, de modo que todas as equações sejam satisfeitas simultaneamente.</article><article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like">O sistema \(2 \times 2\)<div class="displaymath">
+\begin{align*}
+x_1+2x_2 \amp= 1,\\
+2x_1+5x_2 \amp= 7,
+\end{align*}
+</div>pode ser resolvido somando ou subtraindo múltiplos de uma equação nas outras linhas eliminando variáveis (denotando \(L_1\) para a primeira equação e \(L_2\) para a segunda) e substituindo valores encontrados.<div class="displaymath">
+\begin{align*}
+\begin{array}{c} x_1+2x_2 \amp= 1,\\ 2x_1+5x_2 \amp= 7,\end{array} \,\,\, \overset{L_2 \to L_2 - 2 L_1}{\Longleftrightarrow} \,\,\, \begin{array}{c} x_1+2x_2 \amp= 1,\\ x_2 \amp= 5,\end{array} \,\,\, \overset{x_2 \to 5}{\Longleftrightarrow} \,\,\, \begin{array}{c} x_1 \amp= -9,\\ x_2 \amp= 5.\end{array}
+\end{align*}
+</div></article></div>
+<article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like">Podemos tentar resolver o sistema \(3 \times 2\)<div class="displaymath">
+\begin{align*}
+x_1+2x_2 \amp= 1,\\
+2x_1+5x_2 \amp= 7,\\
+2x_1+5x_2 \amp= 4,
+\end{align*}
+</div>encontrando<div class="displaymath">
+\begin{align*}
+\begin{array}{c} x_1+2x_2 \amp= 1,\\ 2x_1+5x_2 \amp= 7, \\ 2x_1+5x_2 \amp= 4, \end{array} \,\,\, \underset{L_3 \to L_3 - 2 L_1}{\overset{L_2 \to L_2 - 2 L_1}{\Longleftrightarrow}} \,\,\, \begin{array}{r} x_1+2x_2 \amp= 1,\\ x_2 \amp= 5, \\ x_2 \amp= 2.\end{array}
+\end{align*}
+</div>Chegando a uma contradição. De modo que o sistema não tem solução.</article></div>
+<article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like">O sistema \(2 \times 3\)<div class="displaymath">
+\begin{align*}
+x_1+2x_2 - x_3\amp= 1,\\
+2x_1+5x_2 + x_3\amp= 7,
+\end{align*}
+</div>pode ser resolvido somando ou subtraindo múltiplos de uma equação nas outras linhas eliminando variáveis e substituindo valores encontrados.<div class="displaymath">
+\begin{align*}
+\begin{array}{r} x_1+2x_2 -x_3 \amp= 1,\\ 2x_1+5x_2 + x_3\amp= 7,\end{array} \,\,\, \overset{L_2 \to L_2 - 2 L_1}{\Longleftrightarrow} \,\,\, \begin{array}{r} x_1+2x_2 -x_3\amp= 1,\\ x_2 +3x_3 \amp= 5,\end{array} \,\,\, \overset{x_2 \to 5 - 3x_3}{\Longleftrightarrow} \,\,\, \begin{array}{r} x_1 \amp= -9+7x_3,\\ x_2 \amp= 5- 3x_3,\end{array}
+\end{align*}
+</div>de modo que para cada valor de \(x_3\) uma solução distinta e, assim, infinitas soluções.</article></div>
+<article class="remark remark-like" id="remark-1"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
+</h6>Um sistema linear é dito compatível se admite soluções. Sistemas compatíveis podem ter solução única ou infinitas soluções (Não é possível que um sistema linear tenha \(n\) soluções \(n=2, 3, 4, \ldots \) soluções). Um sistema linear é dito incompatível se não admite soluções.</article><p id="p-4">Exemplos geométicos são importantes, por exemplo, em computação gráfica. para determinar se algo movendo-se em linha reta (como um projétil em um jogo ou um raio de luz em uma animação *ray tracing) precisamos calcular o ponto de interseção de uma reta com um triângulo (pedaço de plano).</p>
+<article class="exercise exercise-like" id="line_inters"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-line_inters"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-line_inters"><article class="exercise exercise-like"><p id="p-5">Considere as retas dadas pelas equações:</p>
+<ol class="decimal">
+<li id="li-6"><p id="p-derived-li-6">2y-3x =1,</p></li>
+<li id="li-7"><p id="p-derived-li-7">y + 2x =2,</p></li>
+<li id="li-8"><p id="p-derived-li-8">-2y-4x =a,</p></li>
+</ol>
+<p class="continuation">encontre os pontos de interseção dos pares de retas 1. e 2.; 2. e 3. para \(a = 0\) e 2. e 3. para \(a = -4\text{.}\)</p></article></div>
 <article class="exercise exercise-like" id="exercise-2"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><p id="p-6">Escreva um sistema linear que represente o problema que você está tentando resolver.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">Algum texto.</div></div></article></div>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><p id="p-6">Utilize o código abaixo para plotar as retas do exercício <a class="xref" data-knowl="./knowl/line_inters.html" title="Checkpoint 1.6">Checkpoint 1.6</a>.</p></article></div>
+<div class="sagecell-sage" id="sage-1"><script type="text/x-sage">import matplotlib.pyplot as plt
+
+def linePoints(a=0,b=0,c=0,ref = [-1.,1.]):
+    """given a,b,c for straight line as ax+by+c=0, 
+    return a pair of points based on ref values
+    e.g linePoints(-1,1,2) == [(-1.0, -3.0), (1.0, -1.0)]
+    """
+    if (a==0 and b==0):
+        raise Exception("linePoints: a and b cannot both be zero")
+    return [(-c/a,p) if b==0 else (p,(-c-a*p)/b) for p in ref]
+
+# test linePoints function: 
+assert linePoints(-1,1,2) == [(-1.0, -3.0), (1.0, -1.0)], "linePoints error"
+
+# draw a test chart with matplotlib:
+fig,ax = plt.subplots()
+ax.axline(*linePoints(a=2,b=1,c=1),color="red",label="1.")   
+ax.axline(*linePoints(a=1,b=2,c=3),color="blue",label="2.")
+ax.set_aspect('equal')
+plt.xlim([-6,6])
+plt.ylim([-6,6])
+plt.grid()
+plt.legend()
+#plt.savefig('linePoints.png')
+plt.show()
+</script></div>
 <article class="exercise exercise-like" id="exercise-3"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><p id="p-7">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 1.4">Remark 1.4</a>  para resolver o sistema linear.</p>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><p id="p-7">Utilize o código abaixo para verificar se as soluções encontradas no <a class="xref" data-knowl="./knowl/line_inters.html" title="Checkpoint 1.6">Checkpoint 1.6</a> estão corretas.</p></article></div>
+<div class="sagecell-sage" id="sage-2"><script type="text/x-sage">from sympy import *
+x, y = symbols(['x', 'y'])
+system = [Eq(3*x + 4*y, 7), Eq(5*x + 6*y, 8)]
+soln = solve(system, [x, y])
+print(soln)
+</script></div>
+<p id="p-8">Os pontos \((x,y,z) \in \mathbb{R}^3\) que estão em um plano no espaço pode ser determinado pelo vetor normal ao plano \(\vec{n} = (n_1, n_2, n_3)\) e por um ponto \(P = (p_1, p_2, p_3)\) satisfazem a equação:</p>
+<div class="displaymath">
+\begin{equation*}
+n_1(x-p_1) + n_2(y-p_2) + n_3(z-p_3) = 0
+\end{equation*}
+</div>
+<article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like">A equação cartesiana do plano com normal \(\vec{n} = (1,-1,2)\) e que passa pelo ponto \(P = (1,2,3)\) é<div class="displaymath">
+\begin{equation*}
+1(x-1)-1(y-2)+2(z-3) = 0 \Leftrightarrow x-y+2z = 5.
+\end{equation*}
+</div></article></div>
+<div class="sagecell-sage" id="sage-3"><script type="text/x-sage">n1 = vector([1,-1,2]) #A normal vector for the first plane
+p1 = vector([1,1,1]) #A point on the first plane
+n2 = vector([2,1,1]) #A normal vector for the second plane
+p2 = vector([-2,1,0]) #A point on the second plane
+var('x y z')
+r = vector([x,y,z])
+eq1= n1.dot_product(r-p1)==0 #Equation of the first plane
+eq2= n2.dot_product(r-p2)==0 #Equation of the second plane
+pl1 = implicit_plot3d(eq1, (x,-5,5), (y,-5,5), (z,-5,5), color='red')
+pl2 = implicit_plot3d(eq2, (x,-5,5), (y,-5,5), (z,-5,5), color='blue')
+sol = solve([eq1,eq2], x, y)[0]
+vecsol = vector([sol[0].rhs(), sol[1].rhs(), z]) #The line of intersection, using z as parameter
+inter = parametric_plot3d(vecsol, (z,-5,5), color='magenta', thickness=8)
+#show(pl1+pl2+inter, axes=True, aspect_ratio=1)
+show(pl1, axes=True, aspect_ratio=1)
+</script></div>
+<p id="p-9">Podemos tentar o processo contrário: dada uma equação como determinar o plano que contém todas as soluções? Considerando uma equação da forma</p>
+<div class="displaymath">
+\begin{equation*}
+ax+by+cz =d,
+\end{equation*}
+</div>
+<p class="continuation">sabemos que o vetor normal é \(\vec{n} = (a,b,c)\) e podemos usar como ponto do plano qualquer valores \(x,y,z\) que satisfaçam a equação acima. Se \(c\neq 0\text{,}\) por exemplo, podemos tomar \(P = (0,0,-d/c)\text{.}\)</p>
+<p id="p-10">As soluções de sistemas lineares de três variáveis correspondem a interseções de planos no espaço, podendo ser um plano todo, uma reta, um ponto ou vazio.</p>
+<article class="exercise exercise-like" id="exercise-4"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-11">Resolva o sistema a seguir manualmente. Em seguida utilize os códigos acima verificar se sua solução está correta e plotar o plano que contém as soluções.</p>
+<div class="displaymath">
+\begin{align*}
+x - 2y - 3z\amp= 1,\\
+2x + 5y - z \amp= 7,\\
+2x + 3y - 4z \amp= 8,
+\end{align*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-5"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.11</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-12">Resolva o sistema a seguir manualmente. Em seguida utilize os códigos acima verificar se sua solução está correta e plotar o plano que contém as soluções.</p>
+<div class="displaymath">
+\begin{align*}
+x - 2y - 3z\amp= 1,\\
+2x + 5y - z \amp= 7,\\
+3x + 3y - 4z \amp= 8,
+\end{align*}
+</div></article></div>
+<article class="remark remark-like" id="remark-2"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
+</h6>Dois sistemas lineares são ditos equivalentes se possuem as mesmas soluções. Dado um sistema linear, podemos realizar três tipos de operações em suas linhas para obter sistemas equivalentes: <ol class="decimal">
+<li id="li-9"><p id="p-derived-li-9">Trocar duas linhas de lugar.</p></li>
+<li id="li-10"><p id="p-derived-li-10">Multiplicar uma linha por um número real não nulo.</p></li>
+<li id="li-11"><p id="p-derived-li-11">Substituir uma linha pela soma dela com um múltiplo não nulo de outra linha.</p></li>
+</ol></article><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-13">Todos os sistemas a seguir são equivalentes.</p>
+<div class="displaymath">
+\begin{align*}
+\amp \begin{array}{rl} x_1+2x_2 + x_3 \amp= 1,\\ 2x_1+5x_2 + 3x_3\amp= 7, \\ 2x_1+5x_2 + 4x_3\amp= 7,\end{array} \,\,\, \overset{L_2 \to L_2 - 2 L_1}{\Longleftrightarrow} \,\,\, \begin{array}{rl} x_1+2x_2 +x_3\amp= 1,\\ x_2 +x_3 \amp= 5, \\ 2x_1+5x_2 + 4x_3\amp= 7, \end{array} \,\,\, \overset{L_3 \to L_3 - 2 L_1}{\Longleftrightarrow}\\
+\amp \begin{array}{rl} x_1+2x_2 +x_3\amp= 1,\\ x_2 +x_3 \amp= 5, \\ x_2 + 2x_3\amp= 5, \end{array} \,\,\,\overset{L_3 \to L_3 - L_2}{\Longleftrightarrow} \,\,\, \begin{array}{rl} x_1+2x_2 +x_3\amp= 1,\\ x_2 +x_3 \amp= 5, \\ x_3\amp= 0. \end{array}
+\end{align*}
+</div>
+<p id="p-14">O último sistema está na <dfn class="terminology">forma triangular</dfn>. Quando um sistema está na forma triângular, podemos determinar determinar o valor de uma variável e substituir seu valor nas outras equações para reduzir o número de variáveis. Repetimos esse processo até resolver o sistema.</p></article></div>
+<p id="p-15">Ao resolver um sistema, utilizamos uma variável com coeficiente não nulo em uma equação para remover essa mesma variável das demais equações. Repetimos o processo até ter uma única variável restante em uma das equações. Assim precisamos de pelo menos \(n\) equações para eliminar \(n\) variáveis. Se tivermos mais do que \(n\) equações, chegar a sistemas sem solução. Em muitos problemas reais o foco está em sistemas \(n \times n\text{.}\)</p></section><section class="subsection" id="Proj1"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2</span> <span class="title">Projeto 1 - Criando uma dieta</span>
+</h3>
+<p id="p-16">Desenvolva os itens abaixo para determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais com alimentos da sua escolha.</p>
+<article class="exercise exercise-like" id="exercise-6"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.14</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><p id="p-17">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras no site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a> de 5 alimentos de sua escolha.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes).</div></div></article></div>
+<article class="exercise exercise-like" id="exercise-7"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-7"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-7"><article class="exercise exercise-like"><p id="p-18">Escreva um sistema linear que represente o problema que você está tentando resolver.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">Algum texto.</div></div></article></div>
+<article class="exercise exercise-like" id="exercise-8"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-8"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-8"><article class="exercise exercise-like"><p id="p-19">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 1.17">Remark 1.17</a>  para resolver o sistema linear.</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">Algum texto.</div></div></article></div>
 <article class="remark remark-like" id="sol_lin_sys"><h6 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.17</span><span class="period">.</span>
 </h6>
-<p id="p-8">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-1"><script type="text/x-sage">1+3
-</script></div></article></section><article class="exercise exercise-like" id="exercise-4"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-9">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
+<p id="p-20">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+<div class="sagecell-sage" id="sage-4"><script type="text/x-sage">1+3
+</script></div></article></section><article class="exercise exercise-like" id="exercise-9"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-9"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-9"><article class="exercise exercise-like"><p id="p-21">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">Algum texto.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-5"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-10">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
+<article class="exercise exercise-like" id="exercise-10"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-10"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-10"><article class="exercise exercise-like"><p id="p-22">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">Algum texto.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-6"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><p id="p-11">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
+<article class="exercise exercise-like" id="exercise-11"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-11"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.20</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-11"><article class="exercise exercise-like"><p id="p-23">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é minimizar determinadas variáveis, como a seguir:</div></div></article></div>
 <article class="remark remark-like" id="minmax_lin_sys"><h6 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.21</span><span class="period">.</span>
 </h6>
-<p id="p-12">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-2"><script type="text/x-sage">1+3
+<p id="p-24">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+<div class="sagecell-sage" id="sage-5"><script type="text/x-sage">1+3
 </script></div></article></section></div></main>
 </div>
 </body>

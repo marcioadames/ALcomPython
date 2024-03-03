@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-01T09:58:15-03:00       *-->
+<!--*       on 2024-03-03T12:28:16-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,36 +15,18 @@
 </head>
 <body>
 <article class="definition definition-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.2</span><span class="period">.</span>
-</h6>
-<p>Seja \(E\) um conjunto de escalares (usualmente \(\mathbb{C}\) ou \(\mathbb{C}\text{,}\) mas qualquer corpo serviria). Um espaço vetorial \((V,E,\oplus,\odot)\) é um conjunto sobre o qual estão definidas duas operações:</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
+</h6>Uma equação linear em \(n\) variáveis \(x_1, x_2, \ldots, x_n\) é uma equação da forma<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_1x_1+a_2x_2+\cdots+a_nx_n = b,
+\end{equation*}
+</div>onde \(a_1, a_2, \cdots, a_n, b\) são constantes reais (ou complexas) chamadas de coeficientes do sistema. Um sistema \(m \times n\) de equações lineares é um conjunto de \(equações lineares\) em \(n\) variáveis.<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\oplus: \amp V \times V: \to V, \\
-(C1) \hspace{9mm} \amp \vec{u}, \vec{v} \in V \Rightarrow \vec{u} \oplus \vec{v}\\
-\odot: \amp E \times V: \to V, \\
-(C2) \hspace{9mm} \amp \alpha \in E, \vec{v} \in V \Rightarrow \alpha\vec{u}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n \amp= b_1,\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n \amp= b_2,\\
+\vdots  \amp = \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n \amp= b_m.
 \end{align*}
-</div>
-<p class="continuation">e as operações satisfazem as seguintes propriedades para quaisquer \(\vec{u}, \vec{v}, \vec{w} \in V\) e \(\alpha, \beta \in E\text{:}\)</p>
-<dl xmlns:svg="http://www.w3.org/2000/svg" class="description-list">
-<dt></dt>
-<dd>(A1)   \(\hspace{5mm} \vec{u} + \vec{v} = \vec{v} + \vec{u},\)</dd>
-<dt></dt>
-<dd>(A2)   \(\hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} = \vec{u} + (\vec{v} + \vec{w}),\)</dd>
-<dt></dt>
-<dd>(A3)   \(\hspace{5mm} \exists \,\,\, \vec{0} \in V; \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V,\)</dd>
-<dt></dt>
-<dd>(A4)   \(\hspace{5mm} \forall \,\, \vec{u} \in V, \exists ! \,\,\, -\vec{u} \in V; \vec{x} + (-\vec{x}) = \vec{0}\)</dd>
-<dt></dt>
-<dd>(A5)   \(\hspace{5mm} \alpha(\vec{u} + \vec{v}) = \alpha\vec{u} + \alpha\vec{v},\)</dd>
-<dt></dt>
-<dd>(A6)   \(\hspace{5mm} (\alpha + \beta) \vec{u} = \alpha\vec{u} + \beta\vec{u},\)</dd>
-<dt></dt>
-<dd>(A7)   \(\hspace{5mm} (\alpha\beta)\vec{u} = \alpha(\beta\vec{u}),\)</dd>
-<dt></dt>
-<dd>(A8)   \(\hspace{5mm} 1\vec{u} = \vec{u}.\)</dd>
-</dl>
-<p class="continuation">V é dito o conjunto universal, os elementos de V são ditos vetores e os elementos de E são ditos escalares. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.</p></article><span class="incontext"><a href="espacos-vetoriais.html#definition-1">in-context</a></span>
+</div>Encontrar uma solução do sistema (ou resolver o sistema) é determinar um conjunto de valores para as variáveis, de modo que todas as equações sejam satisfeitas simultaneamente.</article><span class="incontext"><a href="sistemas-lineares.html#definition-1">in-context</a></span>
 </body>
 </html>
