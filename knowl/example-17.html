@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-03T12:32:26-03:00       *-->
+<!--*       on 2024-03-05T19:53:53-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,30 +15,27 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.15</span><span class="period">.</span>
-</h6>Para verificarmos que \(\vec{i}, \vec{j}, \vec{k}\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <ol class="decimal">
-<li>
-<p>esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.10</span><span class="period">.</span><span class="space"> </span><span class="title">Matriz de uma projeção.</span>
+</h6>Uma matriz \(A \in \mathbb{R}^{3 \times 3}\) representa uma projeção em um plano que passa pela origem se \(A^2 = A\) (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz \(A\) tem essa propriedade:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \vec{0}
+A = \left(\begin{array}{ccc} 5/6 \amp 1/6 \amp  1/3\\
+1/6 \amp  5/6 \amp -1/3\\
+1/3 \amp -1/3 \amp  1/3 \end{array} \right).
 \end{equation*}
+</div>O núcleo de \(A\) dá a direção normal ao plano de projeção. Para encontrar \(N(A)\) precisamos resolver \(A\vec{x} = \vec{0},\) o que pode ser feito por eliminação Gaussiana:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\left(\begin{array}{ccc|c} 5/6 \amp 1/6 \amp  1/3 \amp 0\\
+1/6 \amp  5/6 \amp -1/3 \amp 0\\
+1/3 \amp -1/3 \amp  1/3 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+1 \amp  5 \amp -2 \amp 0\\
+1 \amp -1 \amp  1 \amp 0 \end{array} \right)\\
+\sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+0 \amp  24/5 \amp -12/5 \amp 0\\
+0 \amp -6/5 \amp  -3/4 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+0 \amp  1 \amp -1/2 \amp 0\\
+0 \amp 0 \amp  0 \amp 0 \end{array} \right).
+\end{align*}
 </div>
-<p class="continuation">é \(\alpha_1 = \alpha_2 = \alpha_3 =0,\) o que ocorre de fato pois</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =0, \\ \alpha_2 = 0, \\ \alpha_3 = 0. \end{array}
-\end{equation*}
-</div>
-</li>
-<li>
-<p>esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{i}, \vec{j}, \vec{k}\text{,}\) o que ocorre de fato pois</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} 
-\end{equation*}
-</div>
-</li>
-</ol> De modo que \(\{\vec{i},\vec{j},\vec{k}\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article><span class="incontext"><a href="bases.html#example-17">in-context</a></span>
+<p>de modo que \(x_2 = x_3/2\) e \(x_1 = -x_3/2\) e \(N(A) = \{\vec{x} \in \mathbb{R}^3 | \vec{x} = \alpha (1/2, -1/2, 1)^T\}\) e um vetor normal ao plano é \((1/2, -1/2, 1)^T\text{.}\)</p></article><span class="incontext"><a href="subescos.html#example-17">in-context</a></span>
 </body>
 </html>

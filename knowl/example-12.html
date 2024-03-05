@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-03T11:50:09-03:00       *-->
+<!--*       on 2024-03-05T19:53:53-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,27 +15,67 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.10</span><span class="period">.</span><span class="space"> </span><span class="title">Matriz de uma projeção.</span>
-</h6>Uma matriz \(A \in \mathbb{R}^{3 \times 3}\) representa uma projeção em um plano que passa pela origem se \(A^2 = A\) (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz \(A\) tem essa propriedade:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-A = \left(\begin{array}{ccc} 5/6 \amp 1/6 \amp  1/3\\
-1/6 \amp  5/6 \amp -1/3\\
-1/3 \amp -1/3 \amp  1/3 \end{array} \right).
-\end{equation*}
-</div>O núcleo de \(A\) dá a direção normal ao plano de projeção. Para encontrar \(N(A)\) precisamos resolver \(A\vec{x} = \vec{0},\) o que pode ser feito por eliminação Gaussiana:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.6</span><span class="period">.</span>
+</h6>O conjunto  \(V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}\text{,}\) com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^3\) é um espaço vetorial pois, dados \(\vec{u}, \vec{v}, \vec{w} \in V\text{,}\) \(\vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T \text{,}\) \(\vec{v} = \beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \) e \(\vec{w} = \gamma_1(-1,0,1)^T + \gamma_2 (0, 1, 1)^T \) e \(\alpha, \beta \in \mathbb{R}\text{,}\) verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em \(\mathbb{R}^3\)):<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\left(\begin{array}{ccc|c} 5/6 \amp 1/6 \amp  1/3 \amp 0\\
-1/6 \amp  5/6 \amp -1/3 \amp 0\\
-1/3 \amp -1/3 \amp  1/3 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
-1 \amp  5 \amp -2 \amp 0\\
-1 \amp -1 \amp  1 \amp 0 \end{array} \right)\\
-\sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
-0 \amp  24/5 \amp -12/5 \amp 0\\
-0 \amp -6/5 \amp  -3/4 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
-0 \amp  1 \amp -1/2 \amp 0\\
-0 \amp 0 \amp  0 \amp 0 \end{array} \right).
+(C1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp (\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \in V,
 \end{align*}
 </div>
-<p>de modo que \(x_2 = x_3/2\) e \(x_1 = -x_3/2\) e \(N(A) = \{\vec{x} \in \mathbb{R}^3 | \vec{x} = \alpha (1/2, -1/2, 1)^T\}\) e um vetor normal ao plano é \((1/2, -1/2, 1)^T\text{.}\)</p></article><span class="incontext"><a href="subescos.html#example-12">in-context</a></span>
+<p>de modo que a soma de dois elementos de V é um elemento de \(V\)</p>.<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{gather*}
+(C2) \hspace{5mm} \alpha\vec{u} = \alpha\left(\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\in V,
+\end{gather*}
+</div>
+<p>de modo que a multiplicação de um elemento de V por um escalar é um elemento de \(V\text{.}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+(A1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{v} + \vec{u}.
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+(A2) \hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} =\amp \left( \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) + \gamma_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \gamma_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\\
+=\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \left(\beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \gamma_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \gamma_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right),\\
+=\amp \vec{u} + (\vec{v} + \vec{w}).
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{gather*}
+(A3) \hspace{5mm} \vec{0} = 0\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 0\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V e \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V.
+\end{gather*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+(A4) \hspace{5mm} \forall \amp \,\, \vec{u} = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V,  \,\, -\vec{u} = (-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\in V \Longrightarrow \vec{x} + (-\vec{x}) = \vec{0}\\
+\vec{u} +\vec{-u} \amp  = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + (-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\\
+\amp = (\alpha_1-\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2-\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{0}
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+(A5) \hspace{5mm} \alpha(\vec{u} + \vec{v}) =\amp \alpha\left((\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = (\alpha\alpha_1+\alpha\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha\alpha_2+\alpha\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\\
+=\amp \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) left + \alpha\beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\beta_2 \left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) =  \alpha\vec{u} + \alpha\vec{v}
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+(A6) \hspace{5mm} (\alpha + \beta) \vec{u} =\amp (\alpha + \beta)\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha + \beta)\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha\vec{u} + \beta\vec{u},
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+(A7) \hspace{5mm} (\alpha\beta) \vec{u} =\amp (\alpha \beta)\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha \beta)\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
+=\amp \alpha(\beta\alpha_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha(\beta\alpha_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha(\beta\vec{u}),
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{gather*}
+(A8) \hspace{5mm} 1 \vec{u} = 1\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 1\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{u} 
+\end{gather*}
+</div>
+<p>Portanto \(V\) é um espaço vetorial.</p></article><span class="incontext"><a href="espacos-vetoriais.html#example-12">in-context</a></span>
 </body>
 </html>

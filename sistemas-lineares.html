@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-03T12:32:25-03:00       *-->
+<!--*       on 2024-03-05T19:53:52-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -96,6 +96,7 @@
 <li class="link active">
 <a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
 <li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
+<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
 <li><a href="sistemas-lineares.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li>
 </ul>
 </li>
@@ -327,9 +328,9 @@ x - 2y - 3z\amp= 1,\\
 <article class="remark remark-like" id="remark-2"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
 </h6>Dois sistemas lineares são ditos equivalentes se possuem as mesmas soluções. Dado um sistema linear, podemos realizar três tipos de operações em suas linhas para obter sistemas equivalentes: <ol class="decimal">
-<li id="li-9"><p id="p-derived-li-9">Trocar duas linhas de lugar.</p></li>
-<li id="li-10"><p id="p-derived-li-10">Multiplicar uma linha por um número real não nulo.</p></li>
-<li id="li-11"><p id="p-derived-li-11">Substituir uma linha pela soma dela com um múltiplo não nulo de outra linha.</p></li>
+<li id="li-9"><p id="p-derived-li-9">Trocar duas equações de lugar.</p></li>
+<li id="li-10"><p id="p-derived-li-10">Multiplicar uma equação por um número real não nulo.</p></li>
+<li id="li-11"><p id="p-derived-li-11">Substituir uma equação pela soma dela com um múltiplo não nulo de outra equação.</p></li>
 </ol></article><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-13">Todos os sistemas a seguir são equivalentes.</p>
@@ -340,44 +341,333 @@ x - 2y - 3z\amp= 1,\\
 \end{align*}
 </div>
 <p id="p-14">O último sistema está na <dfn class="terminology">forma triangular</dfn>. Quando um sistema está na forma triângular, podemos determinar determinar o valor de uma variável e substituir seu valor nas outras equações para reduzir o número de variáveis. Repetimos esse processo até resolver o sistema.</p></article></div>
-<p id="p-15">Ao resolver um sistema, utilizamos uma variável com coeficiente não nulo em uma equação para remover essa mesma variável das demais equações. Repetimos o processo até ter uma única variável restante em uma das equações. Assim precisamos de pelo menos \(n\) equações para eliminar \(n\) variáveis. Se tivermos mais do que \(n\) equações, chegar a sistemas sem solução. Em muitos problemas reais o foco está em sistemas \(n \times n\text{.}\)</p></section><section class="subsection" id="Proj1"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.2</span> <span class="title">Projeto 1 - Criando uma dieta</span>
+<p id="p-15">Ao resolver um sistema, utilizamos uma variável com coeficiente não nulo em uma equação para remover essa mesma variável das demais equações. Repetimos o processo até ter uma única variável restante em uma das equações. Assim precisamos de pelo menos \(n\) equações para eliminar \(n\) variáveis. Se tivermos mais do que \(n\) equações, chegar a sistemas sem solução. Em muitos problemas reais o foco está em sistemas \(n \times n\text{.}\)</p></section><section class="subsection" id="matrix-sis-lin"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span>
 </h3>
-<p id="p-16">Desenvolva os itens abaixo para determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais com alimentos da sua escolha.</p>
-<article class="exercise exercise-like" id="exercise-6"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><p id="p-17">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras no site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a> de 5 alimentos de sua escolha.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes).</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-7"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-7"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-7"><article class="exercise exercise-like"><p id="p-18">Escreva um sistema linear que represente o problema que você está tentando resolver.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">Algum texto.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-8"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-8"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-8"><article class="exercise exercise-like"><p id="p-19">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 1.17">Remark 1.17</a>  para resolver o sistema linear.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">Algum texto.</div></div></article></div>
-<article class="remark remark-like" id="sol_lin_sys"><h6 class="heading">
+<p id="p-16">Considere um sistema de equações lineares:</p>
+<div class="displaymath">
+\begin{align*}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n \amp= b_1,\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n \amp= b_2,\\
+\vdots  \amp = \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n \amp= b_m.
+\end{align*}
+</div>
+<p id="p-17">Para resolver o sistema precisamos dos coeficientes de cada variável. As variáveis \(x_1, x_2, \ldots, x_n\) são apenas nomes. Podemos deixar esses nomes de lado e formar matrizes associadas ao sistema.</p>
+<ol class="decimal">
+<li id="li-12"><p id="p-derived-li-12">A <dfn class="terminology">matriz de coeficientes do sistema</dfn>:<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix}
+a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
+a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+\end{pmatrix}
+\end{equation*}
+</div></p></li>
+<li id="li-13"><p id="p-derived-li-13">O <dfn class="terminology">vetor coluna de constantes</dfn>:<div class="displaymath">
+\begin{equation*}
+\vec{b} = \begin{pmatrix}
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{m}
+\end{pmatrix}
+\end{equation*}
+</div></p></li>
+<li id="li-14"><p id="p-derived-li-14">A <dfn class="terminology">matriz ampliada do sistema</dfn>:<div class="displaymath">
+\begin{equation*}
+(A | \vec{b}) = \left(\begin{array}{cccc|c}
+a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \amp b_1\\
+a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \amp b_2\\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots \amp \vdots\\
+a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \amp b_m
+\end{array} \right)
+\end{equation*}
+</div></p></li>
+</ol>
+<article class="remark remark-like" id="remark-3"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.14</span><span class="period">.</span>
+</h6>Podemos agregar quaisquer duas matrizes com o mesmo número de linhas. Dadas<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix}
+a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
+a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+\end{pmatrix}  \,\,\, \mbox{e} \,\,\, B = \begin{pmatrix}
+b_{11} \amp b_{12} \amp \cdots \amp b_{1r}\\
+b_{21} \amp b_{22} \amp \cdots \amp b_{2r}\\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+b_{m1} \amp b_{m2} \amp \cdots \amp b_{mr}
+\end{pmatrix},
+\end{equation*}
+</div>A matriz <dfn class="terminology">agregada</dfn>\(\, (A | B)\) é a matriz \(m \times (n+r)\)<div class="displaymath">
+\begin{equation*}
+(A | B) = \left(\begin{array}{cccc|cccc}
+a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \amp b_{11} \amp b_{12} \amp \cdots \amp b_{1r}\\
+a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \amp b_{21} \amp b_{22} \amp \cdots \amp b_{2r}\\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots \amp \vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \amp b_{m1} \amp b_{m2} \amp \cdots \amp b_{mr}
+\end{array} \right).
+\end{equation*}
+</div></article><article class="example example-like" id="gauss_example"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-gauss_example"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-gauss_example"><article class="example example-like"><p id="p-18">No sistema</p>
+<div class="displaymath">
+\begin{align*}
+x - 2y - 3z\amp= 1,\\
+2x + 5y - z \amp= 7,\\
+2x + 3y - 4z \amp= 8,
+\end{align*}
+</div>
+<p id="p-19">A matriz de coeficientes do sistema:</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix}
+1 \amp -2 \amp -3\\
+2 \amp 5 \amp -1\\
+2 \amp 3 \amp -4
+\end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-20">O vetor coluna de constantes:</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{b} = \begin{pmatrix}
+1\\
+7\\
+8
+\end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-21">A matriz ampliada do sistema:</p>
+<div class="displaymath">
+\begin{equation*}
+(A | \vec{b}) = \left(\begin{array}{ccc|c}
+1 \amp -2 \amp -3 \amp 1\\
+2 \amp 5 \amp -1\amp 7\\
+2 \amp 3 \amp -4 \amp 8
+\end{array} \right)
+\end{equation*}
+</div></article></div>
+<p id="p-22">Para resolver o sistema linear podemos operar nas linhas da matriz ampliada. Os coeficientes da \(i\)-ésima coluna correspondem aos coeficientes de \(x_i\) nas respectivas equações. Podemos realizar três tipos de operações (<dfn class="terminology">operações elementares</dfn>) nas linhas da matriz ampliada:</p>
+<ol class="decimal">
+<li id="li-15"><p id="p-derived-li-15">Trocar duas linhas de lugar.</p></li>
+<li id="li-16"><p id="p-derived-li-16">Multiplicar uma linha por um número real não nulo.</p></li>
+<li id="li-17"><p id="p-derived-li-17">Substituir uma linha pela soma dela com um múltiplo não nulo de outra linha.</p></li>
+</ol>
+<p id="p-23">O objetivo dessas operações é colocar a matriz ampliada na forma escada.</p>
+<article class="definition definition-like" id="definition-2"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
+</h6>
+<p id="p-24">Uma matriz está na <dfn class="terminology">forma escada</dfn> se:</p>
+<ol class="decimal">
+<li id="li-18"><p id="p-derived-li-18">o primeiro elemento não nulo de cada linha é 1;</p></li>
+<li id="li-19"><p id="p-derived-li-19">se a linha \(k\) não é nula, o número de zeros no início da linha é menor do que o número de zeros no início da linha \(k-1\text{,}\) \(k \geq 2\text{;}\)</p></li>
+<li id="li-20"><p id="p-derived-li-20">as linhas nulas estão abaixo das demais.</p></li>
+</ol></article><p id="p-25">O código a seguir pode ser utilizado para colocar a matriz do <a class="xref" data-knowl="./knowl/gauss_example.html" title="Example 1.15">Example 1.15</a> na forma escada utilizando as operações elementares.</p>
+<div class="sagecell-sage" id="sage-4"><script type="text/x-sage"># Write an array representing the augmented matrix
+import numpy as np
+import fractions
+A= np.array([[1, -2, -3, 1], [2, 5, -1, 7], [2, 3, -4, 8]], dtype=float)
+
+
+#Step by step Gaussian Elimination:
+
+def Gaussian_elimination(A,prin=True):
+    a=0
+    if prin==True:
+        print('A='+str(A))
+    for j in range(A.shape[1]-1): #search pivot in each column
+        b=0
+        for i in range(a,A.shape[0]):
+            if A[i,j] != 0: #choose row with not null pivot
+                if a !=i:
+                    A[[a,i]]=A[[i,a]]
+                    if prin==True:
+                        print('~'+str(A))
+                if A[a,j]!=1:
+                    A[a]=A[a]/A[a,j]
+                    if prin==True:
+                        print('~'+str(A))
+                a=a+1
+                b=1
+                break
+        if b==1:
+            for i in range(a,A.shape[0]):
+                if A[i,j] != 0:
+                    A[i]=A[i]-A[a-1]*A[i,j]
+                if prin==True:
+                    print('~'+str(A))
+        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return A
+B=Gaussian_elimination(A)
+</script></div>
+<article class="remark remark-like" id="remark-4"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.17</span><span class="period">.</span>
 </h6>
-<p id="p-20">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-4"><script type="text/x-sage">1+3
-</script></div></article></section><article class="exercise exercise-like" id="exercise-9"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-9"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-9"><article class="exercise exercise-like"><p id="p-21">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">Algum texto.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-10"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-10"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-10"><article class="exercise exercise-like"><p id="p-22">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">Algum texto.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-11"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-11"><h6 class="heading">
+<p id="p-26">A estratégia utilizada para colocar uma matriz na forma escada consiste trocar linhas para ter um elemento não nulo no canto superior esquerdo. Depois dividimoa a linha por esse elemento para que o elemento no canto superior esquerdo seja 1. Em seguida, utilizamos operações elementares do tipo 3. para zerar os elementos das outras linhas naquela coluna.</p>
+<p id="p-27">Em seguida tentamos repetir esse processo para a segunda coluna. Caso todos os elementos da segunda coluna tenham zerado na primeira etapa, partimos para a terceira coluna. Repetimos isso até chegar à última coluna. Esse processo é chamado de <dfn class="terminology">eliminação Gaussiana</dfn> ou de <dfn class="terminology">colocar a matriz na forma escada reduzida por linhas</dfn>.</p></article><p id="p-28">Ao colocarmos uma matriz na forma escada reduzida por linhas, a posição do primeiro elemento não nulo obtido em uma linha é chamado de <dfn class="terminology">pivô</dfn> daquela linha se todos os elementos na mesma coluna abaixo dele são nulos.</p>
+<article class="example example-like" id="example-7"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like"><p id="p-29">Pivôs em diversas linhas:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix}
+\boxed{ 1} \amp  2    \amp   -2 \amp 2 \\
+3 \amp  4    \amp   -2 \amp 2 \\
+2 \amp  4    \amp  -4  \amp 2 \\
+2 \amp  4    \amp   -4 \amp 4 
+\end{pmatrix}
+\begin{pmatrix}
+\boxed{1} \amp  2    \amp   -2 \amp 2 \\
+0 \amp  \boxed{-2}    \amp   4 \amp -4 \\
+0 \amp  0    \amp  0  \amp \boxed{-2} \\
+0 \amp  0    \amp   0 \amp 0 
+\end{pmatrix}
+\end{equation*}
+</div></article></div>
+<p id="p-30">Após realizarmos a eliminação Gaussiana, podemos fazer a <dfn class="terminology">substituição reversa</dfn> para encontrar os valores das variáveis (podem depender de algumas variáveis livres), iniciando pela última equação e substituindo os valores encontrados nas demais equações. O código abaixo permite fazer isso para uma matriz que já tenha passado pela eliminação Gaussiana.</p>
+<div class="sagecell-sage" id="sage-5"><script type="text/x-sage"># PRECISA RODAR A ELIMINAÇÃO GAUSSIANA PRIMEIRO
+import sympy
+import sys
+
+def back_subs(B):
+    m,n = B.shape
+    x = []
+    y=[]
+    for i in range(n):
+        x.append(['x'+str(i+1)])
+        y.append(['x'+str(i+1)])
+    
+    for i in range(m):
+        w=0
+        for j in range(n-1):
+            if B[m-i-1,j] != 0:
+                w+=1
+                x[m-i-1] = str(B[m-i-1,n-1])
+                for k in range(j+1, n-1):
+                    x[m-i-1] = '('+x[m-i-1] +'-'+ str(B[m-i-1,k])+'*'+str(x[k])+')'
+                break
+        if w ==0 and B[m-i-1,n-1] !=0:
+            print('sistema inconsistente')
+            sys.exit()
+    for i in range(m):
+        try:
+            x[i]=sympy.sympify(x[i])
+        except:
+            pass
+        try:
+            x[i]=fractions.Fraction(str(x[i])).limit_denominator()
+        except:
+            pass
+        print(y[i][0]+'='+str(x[i]))
+        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return
+back_subs(B)
+</script></div>
+<article class="example example-like" id="example-8"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-31">O sistema</p>
+<div class="displaymath">
+\begin{align*}
+x - 2y - 3z\amp= 1,\\
+2x + 5y - z \amp= 7,\\
+2x + 3y - 4z \amp= 8,
+\end{align*}
+</div>tem matriz ampliada<div class="displaymath">
+\begin{equation*}
+\left(\begin{array}{ccc|c}
+1 \amp -2 \amp -3 \amp 1\\
+2 \amp 5 \amp -1\amp 7\\
+2 \amp 3 \amp -4 \amp 8
+\end{array} \right) \sim \cdots \sim \left(\begin{array}{ccc|c}
+1 \amp -2 \amp -3 \amp 1\\
+0 \amp 1 \amp 5/9\amp 5/9\\
+0 \amp 0 \amp 1 \amp -19/17
+\end{array} \right)
+\end{equation*}
+</div>de modo que \(x_3 = -19/17\text{,}\) \(x_2 = 5/9 +19/17 \times 5/9 = 20/17\) e \(x_1 = 1 + 2\times 20/17 - 3 \times 19/17 = 0.\)</article></div>
+<article class="exercise exercise-like" id="exercise-6"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.20</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-11"><article class="exercise exercise-like"><p id="p-23">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><p id="p-32">Utilize a eliminação Gaussiana seguida da substituição reversa para resolver os sistemas a seguir. Mostre os passos das contas que realizar. Em seguida compare os resultados obtidos com os resultados apresentados pelo computador nos códigos acima.</p>
+<ol class="decimal">
+<li id="li-21"><p id="p-derived-li-21"><div class="displaymath">
+\begin{align*}
+2x - 2y - 6z\amp= 8,\\
+3x -5y - z \amp= 0.
+\end{align*}
+</div></p></li>
+<li id="li-22"><p id="p-derived-li-22"><div class="displaymath">
+\begin{align*}
+x - y \amp= 1,\\
+-x -y - z \amp= -1,\\
+-y + z \amp= 1.
+\end{align*}
+</div></p></li>
+<li id="li-23"><p id="p-derived-li-23"><div class="displaymath">
+\begin{align*}
+x - y + z\amp= 1,\\
+-x -y - z \amp= -1,\\
+-y + z \amp= 1,\\
+-2y + z \amp= 2.
+\end{align*}
+</div></p></li>
+<li id="li-24"><p id="p-derived-li-24"><div class="displaymath">
+\begin{align*}
+x - y + z\amp= 1,\\
+-x -y - z \amp= -1,\\
+-y + z \amp= 1,\\
+-2y  \amp= 0.
+\end{align*}
+</div></p></li>
+</ol></article></div>
+<article class="example example-like" id="example-9"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.21</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like">Circuitos elétricos. Livro do Leon, pág. 18.</article></div>
+<article class="exercise exercise-like" id="exercise-7"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-7"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.22</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-7"><article class="exercise exercise-like"><p id="p-33">Encontre as correntes \(i_1, i_2, \ldots, i_6\) no circuito da imagem.</p>
+<figure class="figure figure-like" id="figure-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/RC_circuit.png" class="contained" alt=""></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.23<span class="period">.</span></span><span class="space"> </span>Circuito RC (fonte Leon)</figcaption></figure></article></div></section><section class="subsection" id="Proj1"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3</span> <span class="title">Projeto 1 - Criando uma dieta</span>
+</h3>
+<p id="p-34">Desenvolva os itens abaixo para determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais com alimentos da sua escolha.</p>
+<article class="exercise exercise-like" id="exercise-8"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-8"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.24</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-8"><article class="exercise exercise-like"><p id="p-35">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras no site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a> de 5 alimentos de sua escolha.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes).</div></div></article></div>
+<article class="exercise exercise-like" id="exercise-9"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-9"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.25</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-9"><article class="exercise exercise-like"><p id="p-36">Escreva um sistema linear que represente o problema que você está tentando resolver.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">Algum texto.</div></div></article></div>
+<article class="exercise exercise-like" id="exercise-10"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-10"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.26</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-10"><article class="exercise exercise-like"><p id="p-37">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 1.27">Remark 1.27</a>  para resolver o sistema linear.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">Algum texto.</div></div></article></div>
+<article class="remark remark-like" id="sol_lin_sys"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.27</span><span class="period">.</span>
+</h6>
+<p id="p-38">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+<div class="sagecell-sage" id="sage-6"><script type="text/x-sage">1+3
+</script></div></article></section><article class="exercise exercise-like" id="exercise-11"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-11"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.28</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-11"><article class="exercise exercise-like"><p id="p-39">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">Algum texto.</div></div></article></div>
+<article class="exercise exercise-like" id="exercise-12"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-12"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.29</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-12"><article class="exercise exercise-like"><p id="p-40">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">Algum texto.</div></div></article></div>
+<article class="exercise exercise-like" id="exercise-13"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-13"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.30</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-13"><article class="exercise exercise-like"><p id="p-41">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é minimizar determinadas variáveis, como a seguir:</div></div></article></div>
 <article class="remark remark-like" id="minmax_lin_sys"><h6 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.21</span><span class="period">.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.31</span><span class="period">.</span>
 </h6>
-<p id="p-24">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-5"><script type="text/x-sage">1+3
+<p id="p-42">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+<div class="sagecell-sage" id="sage-7"><script type="text/x-sage">1+3
 </script></div></article></section></div></main>
 </div>
 </body>

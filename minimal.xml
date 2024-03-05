@@ -303,9 +303,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <remark>
                         Dois sistemas lineares são ditos equivalentes se possuem as mesmas soluções. Dado um sistema linear, podemos realizar três tipos de operações em suas linhas para obter sistemas equivalentes:
                         <ol>
-                            <li>Trocar duas linhas de lugar.</li>
-                            <li>Multiplicar uma linha por um número real não nulo.</li>
-                            <li>Substituir uma linha pela soma dela com um múltiplo não nulo de outra linha.</li>
+                            <li>Trocar duas equações de lugar.</li>
+                            <li>Multiplicar uma equação por um número real não nulo.</li>
+                            <li>Substituir uma equação pela soma dela com um múltiplo não nulo de outra equação.</li>
                         </ol>
                     </remark>
 
@@ -320,6 +320,334 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                     <p>Ao resolver um sistema, utilizamos uma variável com coeficiente não nulo em uma equação para remover essa mesma variável das demais equações. Repetimos o processo até ter uma única variável restante em uma das equações. Assim precisamos de pelo menos <m>n</m> equações para eliminar <m>n</m> variáveis. Se tivermos mais do que <m>n</m> equações, chegar a sistemas sem solução. Em muitos problemas reais o foco está em sistemas <m>n \times n</m>. </p>
 
+
+
+
+
+                </subsection>
+
+
+                <!--  *********************************************************
+                *************************************************************** -->
+                    
+
+                <subsection xml:id="matrix-sis-lin">
+                    <title>Matrizes representando sistemas lineares</title>
+
+                    <p> Considere um sistema de equações lineares:</p>
+                      <md>
+                        <mrow>a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n \amp= b_1,</mrow>
+                        <mrow>a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n \amp= b_2,</mrow>
+                        <mrow> \vdots  \amp = \vdots</mrow>
+                        <mrow>a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n \amp= b_m.</mrow>
+                      </md>
+                      <p>Para resolver o sistema precisamos dos coeficientes de cada variável. As variáveis <m>x_1, x_2, \ldots, x_n</m> são apenas nomes. Podemos deixar esses nomes de lado e formar matrizes associadas ao sistema.</p>
+                      <ol>
+                        <li>A <term>matriz de coeficientes do sistema</term>:
+                        <me>
+                            A = \begin{pmatrix}
+                            a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
+                            a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+                            \vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+                            a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+                            \end{pmatrix}
+                        </me></li>
+                        <li>O <term>vetor coluna de constantes</term>:
+                            <me>
+                                \vec{b} = \begin{pmatrix}
+                                b_{1}\\
+                                b_{2}\\
+                                \vdots\\
+                                b_{m}
+                                \end{pmatrix}
+                            </me></li>
+                            <li>A <term>matriz ampliada do sistema</term>:
+                                <me>
+                                    (A | \vec{b}) = \left(\begin{array}{cccc|c}
+                                    a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \amp b_1\\
+                                    a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \amp b_2\\
+                                    \vdots  \amp \vdots  \amp \ddots \amp \vdots \amp \vdots\\
+                                    a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \amp b_m
+                                    \end{array} \right)
+                                </me></li>
+                      </ol>
+
+                      <remark>
+                        Podemos agregar quaisquer duas matrizes com o mesmo número de linhas. Dadas
+                        <me>
+                            A = \begin{pmatrix}
+                            a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
+                            a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+                            \vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+                            a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+                            \end{pmatrix}  \,\,\, \mbox{e} \,\,\, B = \begin{pmatrix}
+                            b_{11} \amp b_{12} \amp \cdots \amp b_{1r}\\
+                            b_{21} \amp b_{22} \amp \cdots \amp b_{2r}\\
+                            \vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+                            b_{m1} \amp b_{m2} \amp \cdots \amp b_{mr}
+                            \end{pmatrix},
+                        </me>
+                        A matriz <term>agregada</term> <m>\, (A | B)</m> é a matriz <m>m \times (n+r)</m>
+                        <me>
+                            (A | B) = \left(\begin{array}{cccc|cccc}
+                            a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \amp b_{11} \amp b_{12} \amp \cdots \amp b_{1r}\\
+                            a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \amp b_{21} \amp b_{22} \amp \cdots \amp b_{2r}\\
+                            \vdots  \amp \vdots  \amp \ddots \amp \vdots \amp \vdots  \amp \vdots  \amp \ddots \amp \vdots\\
+                            a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \amp b_{m1} \amp b_{m2} \amp \cdots \amp b_{mr}
+                            \end{array} \right).
+                        </me>
+                      </remark>
+
+
+                      <example xml:id = "gauss_example">
+                        <p>No sistema</p>
+                        <md>
+                            <mrow>x - 2y - 3z\amp= 1,</mrow>
+                            <mrow>2x + 5y - z \amp= 7,</mrow>
+                            <mrow>2x + 3y - 4z \amp= 8,</mrow>
+                        </md>
+                        <p> A matriz de coeficientes do sistema:</p>
+                        <me>
+                            A = \begin{pmatrix}
+                            1 \amp -2 \amp -3\\
+                            2 \amp 5 \amp -1\\
+                            2 \amp 3 \amp -4
+                            \end{pmatrix}
+                        </me>
+                        <p>O vetor coluna de constantes:</p>
+                            <me>
+                                \vec{b} = \begin{pmatrix}
+                                1\\
+                                7\\
+                                8
+                                \end{pmatrix}
+                            </me>
+                            <p>A matriz ampliada do sistema:</p>
+                                <me>
+                                    (A | \vec{b}) = \left(\begin{array}{ccc|c}
+                                    1 \amp -2 \amp -3 \amp 1\\
+                                    2 \amp 5 \amp -1\amp 7\\
+                                    2 \amp 3 \amp -4 \amp 8
+                                    \end{array} \right)
+                                </me>
+                      </example>
+
+                      <p>Para resolver o sistema linear podemos operar nas linhas da matriz ampliada. Os coeficientes da <m>i</m>-ésima coluna correspondem aos coeficientes de <m>x_i</m> nas respectivas equações. Podemos realizar três tipos de operações (<term>operações elementares</term>) nas linhas da matriz ampliada:</p>
+                      <ol>
+                        <li>Trocar duas linhas de lugar.</li>
+                        <li>Multiplicar uma linha por um número real não nulo.</li>
+                        <li>Substituir uma linha pela soma dela com um múltiplo não nulo de outra linha.</li>
+                      </ol>
+
+                      <p>O objetivo dessas operações é colocar a matriz ampliada na forma escada.</p>
+
+                      <definition>
+                        <notation>
+                          <!-- <usage><m>V</m></usage> -->
+                          <description>forma escada</description>
+                        </notation>
+                      
+                        <statement>
+                          <p>Uma matriz está na <term>forma escada</term> se:</p>
+                          <ol>
+                            <li>o primeiro elemento não nulo de cada linha é 1;</li>
+                            <li>se a linha <m>k</m> não é nula, o número de zeros no início da linha é menor do que o número de zeros no início da linha <m>k-1</m>, <m>k \geq 2</m>;</li>
+                            <li>as linhas nulas estão abaixo das demais.</li>
+                          </ol>
+                        </statement>
+                    </definition>
+
+                    <p>O código a seguir pode ser utilizado para colocar a matriz do <xref ref="gauss_example"></xref> na forma escada utilizando as operações elementares.</p>
+
+                      <sage>
+                          <input>
+                            # Write an array representing the augmented matrix
+                            import numpy as np
+                            import fractions
+                            A= np.array([[1, -2, -3, 1], [2, 5, -1, 7], [2, 3, -4, 8]], dtype=float)
+
+
+                            #Step by step Gaussian Elimination:
+
+                            def Gaussian_elimination(A,prin=True):
+                                a=0
+                                if prin==True:
+                                    print('A='+str(A))
+                                for j in range(A.shape[1]-1): #search pivot in each column
+                                    b=0
+                                    for i in range(a,A.shape[0]):
+                                        if A[i,j] != 0: #choose row with not null pivot
+                                            if a !=i:
+                                                A[[a,i]]=A[[i,a]]
+                                                if prin==True:
+                                                    print('~'+str(A))
+                                            if A[a,j]!=1:
+                                                A[a]=A[a]/A[a,j]
+                                                if prin==True:
+                                                    print('~'+str(A))
+                                            a=a+1
+                                            b=1
+                                            break
+                                    if b==1:
+                                        for i in range(a,A.shape[0]):
+                                            if A[i,j] != 0:
+                                                A[i]=A[i]-A[a-1]*A[i,j]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                return A
+                            B=Gaussian_elimination(A)
+                          </input>
+                          <output>
+                          solution
+                          </output>
+                      </sage>
+                      
+                        <remark>
+                          <p>A estratégia utilizada para colocar uma matriz na forma escada consiste trocar linhas para ter um elemento não nulo no canto superior esquerdo. Depois dividimoa a linha por esse elemento para que o elemento no canto superior esquerdo seja 1. Em seguida, utilizamos operações elementares do tipo 3. para zerar os elementos das outras linhas naquela coluna.</p>
+                          <p>Em seguida tentamos repetir esse processo para a segunda coluna. Caso todos os elementos da segunda coluna tenham zerado na primeira etapa, partimos para a terceira coluna. Repetimos isso até chegar à última coluna. Esse processo é chamado de <term>eliminação Gaussiana</term> ou de <term>colocar a matriz na forma escada reduzida por linhas</term>.</p>
+                        </remark>
+                        <p> Ao colocarmos uma matriz na forma escada reduzida por linhas, a posição do primeiro elemento não nulo obtido em uma linha é chamado de <term>pivô</term> daquela linha se todos os elementos na mesma coluna abaixo dele são nulos.</p>
+
+                        <example>
+                            <p>Pivôs em diversas linhas:</p>
+                            <me>
+                                \begin{pmatrix}
+                                \boxed{ 1} \amp  2    \amp   -2 \amp 2 \\
+                                3 \amp  4    \amp   -2 \amp 2 \\
+                                2 \amp  4    \amp  -4  \amp 2 \\
+                                2 \amp  4    \amp   -4 \amp 4 
+                                \end{pmatrix}
+                                \begin{pmatrix}
+                                \boxed{1} \amp  2    \amp   -2 \amp 2 \\
+                                0 \amp  \boxed{-2}    \amp   4 \amp -4 \\
+                                0 \amp  0    \amp  0  \amp \boxed{-2} \\
+                                0 \amp  0    \amp   0 \amp 0 
+                                \end{pmatrix}
+                            </me>
+                        </example>
+
+
+                        <p>Após realizarmos a eliminação Gaussiana, podemos fazer a <term>substituição reversa</term> para encontrar os valores das variáveis (podem depender de algumas variáveis livres), iniciando pela última equação e substituindo os valores encontrados nas demais equações. O código abaixo permite fazer isso para uma matriz que já tenha passado pela eliminação Gaussiana.</p>
+
+
+
+                      <sage>
+                          <input>
+                            # PRECISA RODAR A ELIMINAÇÃO GAUSSIANA PRIMEIRO
+                            import sympy
+                            import sys
+                            
+                            def back_subs(B):
+                                m,n = B.shape
+                                x = []
+                                y=[]
+                                for i in range(n):
+                                    x.append(['x'+str(i+1)])
+                                    y.append(['x'+str(i+1)])
+                                
+                                for i in range(m):
+                                    w=0
+                                    for j in range(n-1):
+                                        if B[m-i-1,j] != 0:
+                                            w+=1
+                                            x[m-i-1] = str(B[m-i-1,n-1])
+                                            for k in range(j+1, n-1):
+                                                x[m-i-1] = '('+x[m-i-1] +'-'+ str(B[m-i-1,k])+'*'+str(x[k])+')'
+                                            break
+                                    if w ==0 and B[m-i-1,n-1] !=0:
+                                        print('sistema inconsistente')
+                                        sys.exit()
+                                for i in range(m):
+                                    try:
+                                        x[i]=sympy.sympify(x[i])
+                                    except:
+                                        pass
+                                    try:
+                                        x[i]=fractions.Fraction(str(x[i])).limit_denominator()
+                                    except:
+                                        pass
+                                    print(y[i][0]+'='+str(x[i]))
+                                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                return
+                            back_subs(B)
+                          </input>
+                          <output>
+                          solution
+                          </output>
+                      </sage>
+
+                      <example>
+                        <p>O sistema</p>
+                        <md>
+                            <mrow>x - 2y - 3z\amp= 1,</mrow>
+                            <mrow>2x + 5y - z \amp= 7,</mrow>
+                            <mrow>2x + 3y - 4z \amp= 8,</mrow>
+                        </md>
+                        tem matriz ampliada
+                        <me>
+                            \left(\begin{array}{ccc|c}
+                                    1 \amp -2 \amp -3 \amp 1\\
+                                    2 \amp 5 \amp -1\amp 7\\
+                                    2 \amp 3 \amp -4 \amp 8
+                                    \end{array} \right) \sim \cdots \sim \left(\begin{array}{ccc|c}
+                                    1 \amp -2 \amp -3 \amp 1\\
+                                    0 \amp 1 \amp 5/9\amp 5/9\\
+                                    0 \amp 0 \amp 1 \amp -19/17
+                                    \end{array} \right)
+                        </me>
+                        de modo que <m>x_3 = -19/17</m>, <m>x_2 = 5/9 +19/17 \times 5/9 = 20/17</m> e <m>x_1 = 1 + 2\times 20/17 - 3 \times 19/17 = 0.</m>
+
+                      </example>
+
+                    <exercise>
+                        <p>Utilize a eliminação Gaussiana seguida da substituição reversa para resolver os sistemas a seguir. Mostre os passos das contas que realizar. Em seguida compare os resultados obtidos com os resultados apresentados pelo computador nos códigos acima.</p>
+                        <ol>
+                            <li>
+                                <md>
+                                    <mrow>2x - 2y - 6z\amp= 8,</mrow>
+                                    <mrow>3x -5y - z \amp= 0.</mrow>
+                                </md>
+                            </li>
+                            <li>
+                                <md>
+                                    <mrow>x - y \amp= 1,</mrow>
+                                    <mrow>-x -y - z \amp= -1,</mrow>
+                                    <mrow> -y + z \amp= 1.</mrow>
+                                </md>
+                            </li>
+                            <li>
+                                <md>
+                                    <mrow>x - y + z\amp= 1,</mrow>
+                                    <mrow>-x -y - z \amp= -1,</mrow>
+                                    <mrow> -y + z \amp= 1,</mrow>
+                                    <mrow> -2y + z \amp= 2.</mrow>
+                                </md>
+                            </li>
+                            <li>
+                                <md>
+                                    <mrow>x - y + z\amp= 1,</mrow>
+                                    <mrow>-x -y - z \amp= -1,</mrow>
+                                    <mrow> -y + z \amp= 1,</mrow>
+                                    <mrow> -2y  \amp= 0.</mrow>
+                                </md>
+                            </li>
+                        </ol>
+                    </exercise>
+
+
+
+                    <example>
+                        Circuitos elétricos. Livro do Leon, pág. 18.
+                    </example>
+
+                    <exercise>
+                        <p>Encontre as correntes <m>i_1, i_2, \ldots, i_6</m> no circuito da imagem.</p>
+                        <figure>
+                            <caption>Circuito RC (fonte Leon)</caption>
+                            <image source="images/RC_circuit.png"/>
+                        </figure>
+                    </exercise>
 
 
 

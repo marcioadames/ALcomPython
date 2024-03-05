@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-03T12:32:26-03:00       *-->
+<!--*       on 2024-03-05T19:53:53-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,15 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.17</span><span class="period">.</span>
-</h6>Para verificarmos que \(\vec{v}_1 = (\sqrt{2}/2,-\sqrt{2}/2,0)^T, \vec{v}_2 = (\sqrt{3}/3,\sqrt{3}/3,\sqrt{3}/3)^T, \vec{v}_3 = (\sqrt{6}/6,\sqrt{6}/6,-2\sqrt{6}/6)\) formam uma base para \(\mathbb{R}^3\text{,}\) observamos que a matriz<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3</span><span class="period">.</span>
+</h6>Denotamos por \(\vec{e}_i \in \mathbb{R}^n\) o vetor cuja \(i\)-ésima entrada é igual a 1 e todas as demais são nulas<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \vec{v}_3 \\ | \amp | \amp | \end{array}\right) = \left(\begin{array}{ccc} \sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ -\sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ 0 \amp \sqrt{3}/3 \amp -2\sqrt{6}/6 \end{array}\right)
+\vec{e}_i = (0, \ldots, 0, 1, 0, \ldots, 0)
 \end{equation*}
-</div>tem determinante \(\det(A) = 1\) e portanto é inversível, de modo que o sistema \(A\vec{\alpha} = \vec{x}\) tem solução \(\alpha = A^{-1} \vec{x}\) para qualquer \(\vec{x} \in \mathbb{R}^3\) e \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) geram \(\mathbb{R}^3\text{,}\) além disso, a solução é única para qualquer \(\vec{x} \in \mathbb{R}^3\text{,}\) em particular para \(\vec{x} = \vec{0}\text{,}\) de modo que os vetores são L.I. Dessa forma, \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) formam uma base para \(\mathbb{R}^3\text{.}\)</article><span class="incontext"><a href="bases.html#example-19">in-context</a></span>
+</div>para \(\vec{e}_1,\vec{e}_2,\vec{e}_3 \in \mathbb{R}^3\text{,}\) \(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3)\) é formado por todos os vetores da forma<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\alpha\left(\begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right) + \beta\left(\begin{array}{c} 0 \\ 1 \\ 0 \end{array} \right) + \gamma\left(\begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) = \left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array} \right),
+\end{equation*}
+</div>de modo que \(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3) = \mathbb{R}^3\text{.}\)</article><span class="incontext"><a href="bases.html#example-19">in-context</a></span>
 </body>
 </html>
