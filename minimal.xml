@@ -334,6 +334,8 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <subsection xml:id="matrix-sis-lin">
                     <title>Matrizes representando sistemas lineares</title>
 
+                    <!--INICIAR COM EXEMPLO! ADICIONAR-->
+
                     <p> Considere um sistema de equações lineares:</p>
                       <md>
                         <mrow>a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n \amp= b_1,</mrow>
