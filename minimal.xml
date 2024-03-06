@@ -603,20 +603,20 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <exercise>
                         <p>Utilize a eliminação Gaussiana seguida da substituição reversa para resolver os sistemas a seguir. Mostre os passos das contas que realizar. Em seguida compare os resultados obtidos com os resultados apresentados pelo computador nos códigos acima.</p>
                         <ol>
-                            <li>
+                            <li>Sistema 1
                                 <md>
                                     <mrow>2x - 2y - 6z\amp= 8,</mrow>
                                     <mrow>3x -5y - z \amp= 0.</mrow>
                                 </md>
                             </li>
-                            <li>
+                            <li>Sistema 2
                                 <md>
                                     <mrow>x - y \amp= 1,</mrow>
                                     <mrow>-x -y - z \amp= -1,</mrow>
                                     <mrow> -y + z \amp= 1.</mrow>
                                 </md>
                             </li>
-                            <li>
+                            <li>Sistema 3
                                 <md>
                                     <mrow>x - y + z\amp= 1,</mrow>
                                     <mrow>-x -y - z \amp= -1,</mrow>
@@ -624,7 +624,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     <mrow> -2y + z \amp= 2.</mrow>
                                 </md>
                             </li>
-                            <li>
+                            <li>Sistema 4
                                 <md>
                                     <mrow>x - y + z\amp= 1,</mrow>
                                     <mrow>-x -y - z \amp= -1,</mrow>
