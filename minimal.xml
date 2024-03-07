@@ -318,7 +318,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <p>O último sistema está na <term>forma triangular</term>. Quando um sistema está na forma triângular, podemos determinar determinar o valor de uma variável e substituir seu valor nas outras equações para reduzir o número de variáveis. Repetimos esse processo até resolver o sistema.</p>
                     </example>
 
-                    <p>Ao resolver um sistema, utilizamos uma variável com coeficiente não nulo em uma equação para remover essa mesma variável das demais equações. Repetimos o processo até ter uma única variável restante em uma das equações. Assim precisamos de pelo menos <m>n</m> equações para eliminar <m>n</m> variáveis. Se tivermos mais do que <m>n</m> equações, chegar a sistemas sem solução. Em muitos problemas reais o foco está em sistemas <m>n \times n</m>. </p>
+                    <p>Ao resolver um sistema, utilizamos uma variável com coeficiente não nulo em uma equação para remover essa mesma variável das demais equações. Repetimos o processo até ter uma única variável restante em uma das equações. Assim precisamos de pelo menos <m>n</m> equações para eliminar <m>n</m> variáveis. Se tivermos mais do que <m>n</m> equações, podemos chegar a sistemas sem solução. Em muitos problemas reais o foco está em sistemas <m>n \times n</m>. </p>
 
 
 
@@ -656,72 +656,717 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                 </subsection>
 
+
                 <!--  *********************************************************
                 *************************************************************** -->
                
                
-               <subsection xml:id="Proj1">
-               <title>Projeto 1 - Criando uma dieta</title>
-               
-               <p>Desenvolva os itens abaixo para determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais com alimentos da sua escolha.</p>
-               
-               <exercise>
-                <p>Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras no site <url href="https://tabnut.dis.epm.br/alimento">https://tabnut.dis.epm.br/alimento</url> de 5 alimentos de sua escolha.</p>
-                <solution>Exemplo de solução (seus alimentos serão, provavelmente, diferentes).</solution>
-               </exercise>
-               
-               <exercise>
-                <p>Escreva um sistema linear que represente o problema que você está tentando resolver.</p>
-                <solution>Algum texto.</solution>
-               </exercise>
-               
-               <exercise>
-                <p>Utilize o código na <xref ref="sol_lin_sys"></xref>  para resolver o sistema linear.</p>
-                <solution>Algum texto.</solution>
-               </exercise>
-               
-               <remark xml:id="sol_lin_sys">
-               <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-                <sage>
-                  <input>
-                    1+3
-                  </input>
-                  <output>
-                    soma
-                  </output>
-                </sage>
-                </remark>
-               
-               </subsection>
-               
-               <exercise>
-                <p>A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta. </p>
-                <solution>Algum texto.</solution>
-               </exercise>
-               
-               <exercise>
-                <p>Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu? </p>
-                <solution>Algum texto.</solution>
-               </exercise>
+               <subsection xml:id="Gauss-Jordan-red">
+                <title>Redução de Gauss Jordan</title>
 
-               <exercise>
-                <p>Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
-                <solution>Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é minimizar determinadas variáveis, como a seguir:</solution>
-               </exercise>
-               
-               <remark xml:id="minmax_lin_sys">
-               <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+                <p> Na seção enterior vimos como utilizar a eliminação Gaussiana na matriz ampliada de um sistema para colocá-la na forma escada e, em seguida resolver o sistema utilizando substituição reversa. Alternativamente, poderíamos seguir fazendo operações elementares nas linhas da matriz ampliada para zerar coeficientes acima de um pivô.</p>
+                
+                <example>
+                    <p>O sistema</p>
+                    <md>
+                        <mrow>x - 2y - 3z\amp= 1,</mrow>
+                        <mrow>2x -2y - 2z \amp= 6,</mrow>
+                        <mrow>2x - 4z \amp= 8,</mrow>
+                        <mrow>5x -7y + 4z \amp= 46/3,</mrow>
+                    </md>
+                    tem matriz ampliada
+                    <me>
+                        \left(\begin{array}{ccc|c}
+                                1 \amp -2 \amp -3 \amp 1\\
+                                2 \amp -2 \amp -2\amp 6\\
+                                2 \amp 0 \amp -4 \amp 8\\
+                                5 \amp -7 \amp 4 \amp 46/3
+                                \end{array} \right) \sim \cdots \sim \left(\begin{array}{ccc|c}
+                                1 \amp 0 \amp 0 \amp 14/3\\
+                                0 \amp 1 \amp 0\amp 4/3\\
+                                0 \amp 0 \amp 1 \amp 1/3\\
+                                0 \amp 0 \amp 0 \amp 0
+                                \end{array} \right)
+                    </me>
+                    assim o sistema tem solução única <m>x=14/3,\,\, y= 4/3, \,\, z = 1/3</m>.
+                </example>
+
                 <sage>
-                  <input>
-                    1+3
-                  </input>
-                  <output>
-                    soma
-                  </output>
+                    <input>
+                      # Write an array representing the augmented matrix
+                      import numpy as np
+                      import fractions
+                      A= np.array([[1, -2, -3, 1], [2, -2, -2, 6], [2, 0, -4, 8], [5, -7, 4, 46/3]], dtype=float)
+
+
+                      #Step by step Gaussian Elimination:
+
+                      def Gaussian_elimination(A,prin=True):
+                          a=0
+                          if prin==True:
+                              print('A='+str(A))
+                          for j in range(A.shape[1]-1): #search pivot in each column
+                              b=0
+                              for i in range(a,A.shape[0]):
+                                  if A[i,j] != 0: #choose row with not null pivot
+                                      if a !=i:
+                                          A[[a,i]]=A[[i,a]]
+                                          if prin==True:
+                                              print('~'+str(A))
+                                      if A[a,j]!=1:
+                                          A[a]=A[a]/A[a,j]
+                                          if prin==True:
+                                              print('~'+str(A))
+                                      a=a+1
+                                      b=1
+                                      break
+                              if b==1:
+                                  for i in range(a,A.shape[0]):
+                                      if A[i,j] != 0:
+                                          A[i]=A[i]-A[a-1]*A[i,j]
+                                      if prin==True:
+                                          print('~'+str(A))
+                              np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                          return A
+                      B=Gaussian_elimination(A)
+                    </input>
+                    <output>
+                    solution
+                    </output>
                 </sage>
+
+                <sage>
+                    <input>
+                        def Gauss_Jordan(A,prin=True):
+                            B=Gaussian_elimination(A,prin)
+                            #print('jordan')
+                            a=0
+                            for i in range(A.shape[0]): #search pivot in each line
+                                b=0
+                                for j in range(A.shape[1]):
+                                    if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                                        b=j
+                                        for k in range(B.shape[0]-i-1):
+                                            B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                            if prin==True:
+                                                    print('~'+str(B))                
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            return B
+                        Gauss_Jordan(B)
+                    </input>
+                    <output>
+                    solution
+                    </output>
+                </sage>
+
+                <example>
+                    <p>O sistema</p>
+                    <md>
+                        <mrow>x - 2y - 3z\amp= 1,</mrow>
+                        <mrow>2x -2y - 2z \amp= 6,</mrow>
+                    </md>
+                    tem matriz ampliada
+                    <me>
+                        \left(\begin{array}{ccc|c}
+                                1 \amp -2 \amp -3 \amp 1\\
+                                2 \amp -2 \amp -2\amp 6
+                                \end{array} \right) \sim \cdots \sim \left(\begin{array}{ccc|c}
+                                1 \amp 0 \amp 1 \amp 5\\
+                                0 \amp 1 \amp 2\amp 2
+                                \end{array} \right)
+                    </me>
+                    assim o sistema tem infinitas soluções <m>y=2-2\alpha,\,\, x= 5 - \alpha, \,\, z = \alpha.</m>.
+                </example>
+
+                <example>
+                    <p>O sistema</p>
+                    <md>
+                        <mrow>x - 2y - 3z\amp= 1,</mrow>
+                        <mrow>2x -2y - 2z \amp= 6,</mrow>
+                        <mrow>2x - 4z \amp= 8,</mrow>
+                        <mrow>5x -7y + 4z \amp= 46/3,</mrow>
+                    </md>
+                    tem matriz ampliada
+                    <me>
+                        \left(\begin{array}{ccc|c}
+                                1 \amp -2 \amp -3 \amp 1\\
+                                2 \amp -2 \amp -2\amp 6\\
+                                2 \amp 0 \amp -4 \amp 8\\
+                                5 \amp -7 \amp 4 \amp 1
+                                \end{array} \right) \sim \cdots \sim \left(\begin{array}{ccc|c}
+                                1 \amp -2 \amp -3 \amp 1\\
+                                0 \amp 1 \amp 2\amp 2\\
+                                0 \amp 0 \amp 1 \amp 1/3\\
+                                0 \amp 0 \amp 0 \amp -43/3
+                                \end{array} \right)
+                    </me>
+                    assim o sistema não tem solução, pois a última equação implica em <m>0x+0y+0z = -43/3</m>.
+                </example>
+
+                <definition>
+                    <notation>
+                    <!-- usage><m>S</m></usage -->
+                    <description>forma escada reduzidq</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        A matriz <m>A</m> está na <term>forma escada reduzida por linhas</term> se:
+                    </p>
+                    <ol>
+                        <li><m>A</m> está na forma escada;</li>
+                        <li>o único elemento não nulo de uma coluna com um pivô é o elemento na posição do pivô.</li>
+                    </ol>
+                    </statement>
+                </definition>
+
+                <remark>
+                    Chamamos de <term>redução de Gauss-Jordan</term> o processo de usar operações elementares nas linhas de uma matriz para encontrar uma matriz equivalente por linhas na forma escada reduzida por linhas.
                 </remark>
+
+                <example>
+                    <p>As matrizes a seguir estão na forma escada reduzida por linhas:</p>
+                    <me>
+                        A = \left(\begin{array}{cccc}
+                                1 \amp 0 \amp 0 \amp 14/3\\
+                                0 \amp 1 \amp 0\amp 4/3\\
+                                0 \amp 0 \amp 1 \amp 1/3\\
+                                0 \amp 0 \amp 0 \amp 0
+                                \end{array} \right), \,\,\,
+                        B = \left(\begin{array}{cccc}
+                        1 \amp 0 \amp 3 \amp 0\\
+                        0 \amp 1 \amp 2 \amp 0\\
+                        0 \amp 0 \amp 0 \amp 1\\
+                        0 \amp 0 \amp 0 \amp 0
+                        \end{array} \right), \,\,\,
+                        C = \left(\begin{array}{cccc}
+                        1 \amp 2 \amp 0 \amp -5 \amp 3\\
+                        0 \amp 0 \amp 1 \amp 2 \amp 2\\
+                        0 \amp 0 \amp 0 \amp 0 \amp 0
+                        \end{array} \right),
+                    </me>
+                </example>
+
+                <example>
+                    <p>As matrizes a seguir não estão na forma escada reduzida por linhas:</p>
+                    <me>
+                        A = \left(\begin{array}{cccc}
+                                1 \amp 2 \amp 0 \amp 14/3\\
+                                0 \amp 1 \amp 0\amp 4/3\\
+                                0 \amp 0 \amp 1 \amp 1/3\\
+                                0 \amp 0 \amp 0 \amp 0
+                                \end{array} \right), \,\,\,
+                        B = \left(\begin{array}{cccc}
+                        1 \amp 0 \amp 3 \amp 0\\
+                        0 \amp -2 \amp 2 \amp 0\\
+                        0 \amp 0 \amp 0 \amp 1\\
+                        0 \amp 0 \amp 0 \amp 0
+                        \end{array} \right), \,\,\,
+                        C = \left(\begin{array}{cccc}
+                        1 \amp 0 \amp 0 \amp -5 \amp 3\\
+                        0 \amp 0 \amp 1 \amp 2 \amp 2\\
+                        0 \amp 1 \amp 0 \amp -2 \amp 0
+                        \end{array} \right).
+                    </me>
+                </example>
+
+
+                <exercise>
+                    <p>O diagrama abaixo representa o fluxo de veículos em algumas ruas de uma cidade. Os círculos azuis representam cruzamentos. Os números e variáveis (<m>x_1, \ldots, l_5</m>) representam a quantidade de carros entrando e saindo dos cruzamentos mostrados (em carros por hora). O número de carros que entra (por hora) em cada cruzamento é igual ao número de carros que sai. </p>
+                    <figure>
+                        <caption>Diagrama de tráfego.</caption>
+                        <image source="images/traffic_flow.png"/>
+                    </figure>
+                    <ol>
+                        <li>Escreva um sistema que represente o diagrama.</li>
+                        <li>Resolva o sistema encontrado utilizando a redução de Gauss-Jordan.</li>
+                        <li>Determine o fluxo em cada rua para <m>x_3 = x_5 =50</m>.</li>
+                        <li>Se o fluxo no cruzamento inferior esquerdo mudar para 200 carros por hora, qual o valor dos demais fluxos.</li>
+                        <li>Refaça os cálculos anteriores para o caso de revertermos a direção de <m>x_3</m>.</li>
+                    </ol>
+                </exercise>
+
+                <exercise>
+                    <p>Encontre matrizes equivalentes por linha às matrizes seguintes, que estejam na forma escada reduzida por linhas.</p>
+                    <me>
+                        A = \left(\begin{array}{cccc}
+                                1 \amp 1 \amp 2 \amp -1\\
+                                2 \amp -1 \amp 1\amp 1\\
+                                -1 \amp 1 \amp 1 \amp 2\\
+                                1 \amp 2 \amp 1 \amp -2
+                                \end{array} \right), \,\,\,
+                        B = \left(\begin{array}{cccc}
+                        1 \amp 0 \amp 3\\
+                        1 \amp 1 \amp 2\\
+                        -1 \amp 3 \amp 2\\
+                        1 \amp 1 \amp 1
+                        \end{array} \right), \,\,\,
+                        C = \left(\begin{array}{cccc}
+                        1 \amp 2 \amp 0 \amp -5 \amp 3\\
+                        2 \amp -1 \amp 1 \amp 2 \amp 2\\
+                        4 \amp 2 \amp 1 \amp 3 \amp 5
+                        \end{array} \right),
+                    </me>
+                </exercise>
                
-               
+                </subsection>
+
+            </section>
+
+
+
+
+
+
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+        
+        
+            <section xml:id = "Projects">
+
+                <title>Projetos</title>
+
+                <intro>
+
+                    <p>Essa seção reúne projetos utilizando álgebra linear. ** Em construção**</p>
+                    
+                </intro>
+                
+                <subsection xml:id="Proj1">
+                    <title>Projeto 1 - Criando uma dieta</title>
+                    
+                    <p>Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar 
+                    a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.
+                    </p>
+                    
+                    <exercise>
+                     <p>Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site <url href="https://tabnut.dis.epm.br/alimento">https://tabnut.dis.epm.br/alimento</url></p>
+                     <solution>
+                         Exemplo de solução (seus alimentos serão, provavelmente, diferentes):
+                         <ol>
+                             <li>Arroz, branco, grao longo, normal, cozido</li>
+                             <li>Feijao, preto, semente madura, cozido, sem sal</li>
+                             <li>Frango, carne branca, so carne, pronto para consumo, assado</li>
+                             <li>Alface, crespa, crua</li>
+                             <li>Tomate, vermelho, maduro, cru</li>
+                         </ol>
+                         <ol></ol>
+                         Obs: As quantidades informadas se referem a uma porção de 100 gramas do alimento mencionado.
+                         <table>
+                         <tabular>
+                             <row>
+                             <cell halign="center">
+                                 Alimento
+                             </cell>
+                             <cell>
+                                 Fibra
+                             </cell>
+                             <cell>
+                                 Carboidratos
+                             </cell>
+                             <cell>
+                                 Sódio
+                             </cell>
+                             <cell>
+                                 Proteínas
+                             </cell>
+                             <cell>
+                                 Gorduras
+                             </cell>
+                             </row>
+                             <row>
+                             <cell>
+                                 1
+                             </cell>
+                             <cell>
+                                 0,4 g
+                             </cell>
+                             <cell>
+                                 28,17 g
+                             </cell>
+                             <cell>
+                                 1 mg
+                             </cell>
+                             <cell>
+                                 2,69 g
+                             </cell>
+                             <cell>
+                                 0,28 g
+                             </cell>
+                             </row>
+                             <row>
+                             <cell>
+                                 2
+                             </cell>
+                             <cell>
+                                 8,7 g
+                             </cell>
+                             <cell>
+                                 23,71 g
+                             </cell>
+                             <cell>
+                                 1 mg
+                             </cell>
+                             <cell>
+                                 8,86 g
+                             </cell>
+                             <cell>
+                                 0,54 g
+                             </cell>
+                             </row>
+                             <row>
+                             <cell>
+                                 3
+                             </cell>
+                             <cell>
+                                 0 g
+                             </cell>
+                             <cell>
+                                 0 g
+                             </cell>
+                             <cell>
+                                 51 mg
+                             </cell>
+                             <cell>
+                                 27,13 g
+                             </cell>
+                             <cell>
+                                 4,07 g
+                             </cell>
+                             </row>
+                             <row>
+                             <cell>
+                                 4
+                             </cell>
+                             <cell>
+                                 1,2 g
+                             </cell>
+                             <cell>
+                                 2,97 g
+                             </cell>
+                             <cell>
+                                 10 mg
+                             </cell>
+                             <cell>
+                                 0,9 g
+                             </cell>
+                             <cell>
+                                 0,14 g
+                             </cell>
+                             </row>
+                             <row>
+                             <cell>
+                                 5
+                             </cell>
+                             <cell>
+                                 1,2 g
+                             </cell>
+                             <cell>
+                                 3,89 g
+                             </cell>
+                             <cell>
+                                 5 mg
+                             </cell>
+                             <cell>
+                                 0,88 g
+                             </cell>
+                             <cell>
+                                 0,2 g
+                             </cell>
+                             </row>
+                         </tabular>
+                         </table>
+                     </solution>
+                    </exercise>
+                    
+                    <exercise>
+                     <p>Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta.</p>
+                     <solution>
+                     Um exemplo de solução, utilizando os alimentos citados anteriormente, é:
+                     <ol>
+                         <li> Fibra alimentar: 20.6 g</li>
+                         <li> Carboidratos: 110.62 g</li>
+                         <li> Sódio: 172 mg</li>
+                         <li> Proteínas: 106.27 g</li>
+                         <li> Gorduras: 14.19 g</li>
+                     </ol>
+                      <md>  
+                       <mrow> \amp 0,4\, x_1 + 8,7\, x_2 + 1,2\, x_4 + 1,2\, x_5 = 20,6 </mrow>
+                       <mrow> \amp 28,17\, x_1 + 23,71\,x_2 + 2,97\, x_4 + 3,89\, x_5 = 110,62</mrow>
+                       <mrow> \amp x_1 + x_2 + 51\, x_3 + 10\, x_4 + 5\, x_5 = 172</mrow>
+                       <mrow> \amp 2,69\, x_1 + 8,86\, x_2 + 27,13\, x_3 + 0,9\, x_4 + 0,88\, x_5 = 106,27</mrow>
+                       <mrow> \amp 0,28\, x_1 + 0,54\, x_2 + 4,07\, x_3 + 0,14\, x_4 + 0,2\, x_5 = 14,19</mrow>
+                      </md>
+                     </solution>
+                    </exercise>
+                    
+                    <exercise>
+                     <p>Utilize o código na <xref ref="sol_lin_sys"></xref>  para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir.</p>
+                     <solution>
+                      Para o exemplo anterior, a solução devolvida pelo programa foi:
+                      <ol></ol>
+                      Você deverá consumir diariamente:
+                      <ul>
+                      <li>200.0 g de Arroz</li>
+                      <li>200.0 g de Feijão</li>
+                      <li>300.0 g de Frango</li>
+                      <li>100.0 g de Alface</li>
+                      <li>100.0 g de Tomate</li>
+                      </ul>
+                     </solution>
+                    </exercise>
+                    
+                    <remark xml:id="sol_lin_sys">
+                    <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+                     <sage>
+                       <input>
+                         import numpy as np
+                         import fractions
+     
+                         # Aqui estão os rótulos do problema
+                         und = "g"  # Unidade de massa
+                         foods = ["Arroz", "Feijão", "Frango", "Alface", "Tomate"]  # Lista de alimentos (Em ordem)
+                         quant = 100  # A cada quantos gramas/quilos/etc de comida temos a quantidade listada de nutrientes?
+                         negSol = True  # Caso esteja setado como "False", o programa gerará um erro caso as soluções sejam negativas
+     
+                         # Esta variável define o número de casas decimais para arredondamento dos resultados
+                         decPlaces = 2
+     
+                         # Coloque aqui a matriz AMPLIADA do sistema:
+                         ampl = [[   0.4,    8.7,     0,   1.2,   1.2,    20.6],
+                                 [ 28.17,  23.71,     0,  2.97,  3.89,  110.62],
+                                 [     1,      1,    51,    10,     5,     172],
+                                 [  2.69,   8.86, 27.13,   0.9,  0.88,  106.27],
+                                 [  0.28,   0.54,  4.07,  0.14,   0.2,   14.19]]
+     
+                         # Estes códigos são referentes às funções que realizam a redução de Gauss-Jordan
+     
+                         def gaussianElimination(A,prin=True):
+                             a=0
+                             A = A + fractions.Fraction()
+     
+                             if prin==True:
+                                 print('A='+str(A))
+                             for j in range(np.shape(A)[1]-1):
+                                 b=0
+                                 for i in range(a,np.shape(A)[0]):
+                                     if A[i,j] != 0:
+                                         if a !=i:
+                                             A[[a,i]]=A[[i,a]]
+                                             if prin==True:
+                                                 print('\n~'+str(A))
+                                         if A[a,j]!=1:
+                                             A[a]=A[a]/A[a,j]
+                                             if prin==True:
+                                                 print('\n~'+str(A))
+                                         a=a+1
+                                         b=1
+                                         break
+                                 if b==1:
+                                     for i in range(a,np.shape(A)[0]):
+                                         if A[i,j] != 0:
+                                             A[i]=A[i]-A[a-1]*A[i,j]
+                                         if prin==True:
+                                             print('\n~'+str(A))
+     
+                                 i = 0
+                                 for line in A:
+                                     j = 0
+                                     for elem in line:
+                                         A[i][j] = float(elem)
+                                         j += 1
+                                     i += 1
+     
+                                 np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                             return A
+     
+                         def gaussJordan(A,prin=True):
+                             B=gaussianElimination(A,prin)
+                             #print('jordan')
+                             a=0
+                             for i in range(np.shape(A)[0]):
+                                 b=0
+                                 for j in range(np.shape(A)[1]):
+                                     if B[np.shape(B)[0]-i-1,j] == 1 and b==0:
+                                         b=j
+                                         for k in range(np.shape(B)[0]-i-1):
+                                             B[np.shape(B)[0]-i-2-k]=B[np.shape(B)[0]-i-2-k]- B[np.shape(B)[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                             if prin==True:
+                                                     print('\n~'+str(B))                
+                             np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                             return B
+     
+                         ampl = np.array(ampl)
+                         done = False
+     
+                         # Dimensões da matriz de coeficientes A
+                         m = np.shape(ampl)[0]
+                         n = np.shape(ampl)[1] - 1
+     
+                         # Extraindo a matriz de coeficientes da matriz ampliada
+                         A = ampl[0:m, 0:n]
+                         A = np.array(A)
+     
+                         # Agora iremos verificar em qual caso o sistema se encaixa: Solução única, sem solução ou infinitas soluções
+                         # Para isso, verificaremos o posto da matriz de coeficientes A e o posto da matriz ampliada
+                         rankA = np.linalg.matrix_rank(A)
+                         rankAmpl = np.linalg.matrix_rank(ampl)
+     
+                         # Para resolver o sistema linear, será feita a redução de Gauss-Jordan na matriz ampliada:
+                         print("Escalonamento passo a passo da matriz ampliada do sistema:\n")
+                         esc = gaussJordan(ampl)
+     
+                         # Devido ao truncamento em python, vamos filtrar valores infinitesimais para evitar que fiquem como "-0.0"
+                         i = 0
+                         changed = False
+                         while i &lt; m:
+                             if round(esc[i][n], decPlaces) == -0.0:
+                                 esc[i][n] = 0
+                                 changed = True
+                             i+=1
+     
+                         if changed == True:
+                             esc = gaussJordan(esc, prin=False)
+     
+                         # Imprimindo na tela a matriz ampliada escalonada reduzida
+                         print("\nMatriz ampliada escalonada reduzida do sistema:")
+                         print(esc, "\n")
+     
+                         # Aqui verificamos se o sistema é sem solução. De acordo com o teorema, se o posto da matriz ampliada
+                         # for diferente do posto da matriz de coeficientes, o sistema não tem solução
+                         if rankA != rankAmpl:
+                             raise Exception("O sistema não possui soluções reais!")
+     
+                         # Aqui verificamos se o sistema é de solução única
+                         sol = []
+                         if rankA == n:
+                             for i in range(rankA):
+                                 sol.append((esc[i][n])*quant)
+     
+                             # Aqui filtramos os valores: Valores negativos não fazem sentido nesse contexto
+                             if negSol == False:
+                                 for elem in sol:
+                                     if elem &lt; 0:
+                                         raise Exception("O sistema linear possui solução negativa")
+     
+                             # Aqui vamos imprimir os resultados de maneira formatada
+                             print("Você deverá consumir diariamente:")
+                             for i in range(n):
+                                 print(f'{round(sol[i], decPlaces)} {und} de {foods[i]}')
+                             done = True
+     
+                         # Se a execução do programa chegar até aqui, temos várias soluções.
+                         # Iremos trabalhar com otimização linear para interpretar os resultados.
+     
+                         if not done:
+                             # inicialização de contadores
+                             i = 0
+                             j = 0
+     
+                             # Array que contem as linhas com as variaveis fixas
+                             fixas = []
+                             # Array que contem as variáveis fixas
+                             varsFixas = []
+                             # Array com as linhas que contém variáveis livres
+                             livres = []
+     
+                             while i &lt; rankA:
+                                 livres.append(i)
+                                 i += 1
+     
+                             # Aqui filtramos valores negativos:
+                             if negSol == False:
+                                 for line in esc:
+                                     if line[n] &lt; 0:
+                                         raise Exception("O sistema linear possui solução negativa")
+     
+     
+                             # Aqui verificaremos as linhas da matriz escalonada reduzida em busca
+                             # de linhas que possuam apenas um número não nulo, em busca de variáveis
+                             # cujo valor seja fixado
+     
+                             i = 0
+                             while i &lt; rankA:
+                                 notNullCount = 0
+                                 j = 0
+                                 while j &lt; n:
+                                     if esc[i][j] != 0:
+                                         notNullCount += 1
+                                         k = j
+                                     j += 1
+                                 if notNullCount == 1:
+                                     livres.remove(i)
+                                     varsFixas.append(k)
+                                     fixas.append(i)
+                                 i += 1
+     
+     
+                             # Já sabendo as relações entre variáveis fixas e livres, vamos imprimir
+                             # na tela os resultados (por ora, sem otimização)
+     
+                             print("Você deverá consumir diariamente:")
+                             for i in fixas:
+                                     print(f'{round(esc[i][n]*quant, decPlaces)} {und} de {foods[varsFixas[i]]}')
+     
+                             for i in livres:
+                                 varsLivres = []
+                                 j = 0
+                                 while j &lt; n:
+                                     if esc[i][j] != 0:
+                                         varsLivres.append(j)
+                                         k=j
+                                     j += 1
+     
+                                 print("Você pode escolher consumir diariamente:")
+                                 for j in range(len(varsLivres) - 1):
+                                     print(f'{foods[varsLivres[j]]},', end=" ")
+                                 print(f'{foods[k]},', end=" ")
+                                 print(f'De modo que:')
+                                 for j in range(len(varsLivres) - 1):
+                                     print(f'{esc[i][varsLivres[j]]} porção de {foods[varsLivres[j]]} +', end=" ")
+                                 print(f'{esc[i][k]} porção de {foods[k]} totalize {round(esc[i][n]*quant, decPlaces)}{und}')
+                       </input>
+                       <output>
+                         out
+                       </output>
+                     </sage>
+                     </remark>
+                    
+                    
+                    <exercise>
+                     <p>A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta. </p>
+                     <solution>
+                     Reflita se, dentro do contexto da dieta, sua solução faz sentido. Nesse contexto, fazem sentido soluções negativas?
+                     Mude o parâmetro "negSol" do código em <xref ref="sol_lin_sys"></xref> para "False". O programa irá bloquear automaticamente
+                     qualquer solução negativa que aparecer!
+                     </solution>
+                    </exercise>
+                    
+                    <exercise>
+                     <p>Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu? </p>
+                     <solution>Algum texto.</solution>
+                    </exercise>
+     
+                    <exercise>
+                     <p>Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
+                     <solution>Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é minimizar determinadas variáveis, como a seguir:</solution>
+                    </exercise>
+                    
+                    <remark xml:id="minmax_lin_sys">
+                    <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+                     <sage>
+                       <input>
+                         1+3
+                       </input>
+                       <output>
+                         soma
+                       </output>
+                     </sage>
+                     </remark>
+     
+                </subsection>
            </section>
            
 
