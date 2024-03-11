@@ -1218,7 +1218,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                     <example>
                         <p>
-                            No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <m>10\%</m> das pessoas saudáveis focam doentes, nenhuma adquire resistência sem ficar doente, <m>10\%</m> das doentes morrem, <m>30\%</m> das doentes se recuperam e adquirem resistÊncia, as outras doentes continuam doentes, <m>50\%</m> das pessoas com resistência permanece com a resistência e <m>50%</m> das pessoas com resistência, perde a resistência (mas continua saudável).
+                            No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <m>10\%</m> das pessoas saudáveis ficam doentes, nenhuma adquire resistência antes de ficar doente, <m>10\%</m> das doentes morrem, <m>30\%</m> das doentes se recuperam e adquirem resistência, as outras doentes continuam doentes, <m>50\%</m> das pessoas com resistência permanece com a resistência e <m>50%</m> das pessoas com resistência, perde a resistência (mas continua saudável).
                         </p>
                         <p>
                             Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?
@@ -1227,7 +1227,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                     <exercise>
                         <p>
-                            No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <m>10\%</m> das pessoas saudáveis focam doentes, nenhuma adquire resistência sem ficar doente, <m>10\%</m> das doentes morrem, <m>30\%</m> das doentes se recuperam e adquirem resistÊncia, as outras doentes continuam doentes, <m>50\%</m> das pessoas com resistência permanece com a resistência e <m>50%</m> das pessoas com resistência, perde a resistência (mas continua saudável).
+                            No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <m>20\%</m> das pessoas saudáveis ficam doentes, nenhuma adquire resistência antes de ficar doente, <m>5\%</m> das doentes morrem, <m>30\%</m> das doentes se recuperam, <m>30\%</m> das doentes se recuperam adquirem resistência, as outras doentes continuam doentes, <m>80\%</m> das pessoas com resistência permanece com a resistência e <m>50%</m> das pessoas com resistência, perde a resistência (mas continua saudável).
                         </p>
                         <p>
                             Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?
