@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-07T14:46:50-03:00       *-->
+<!--*       on 2024-03-11T12:47:26-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -27,7 +27,7 @@
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
 </h6>
 <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-8"><script type="text/x-sage">                    import numpy as np
+<div class="sagecell-sage" id="sage-12"><script type="text/x-sage">                    import numpy as np
                     import fractions
 
                     # Aqui estão os rótulos do problema
@@ -84,7 +84,7 @@
                                     j += 1
                                 i += 1
 
-                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                         return A
 
                     def gaussJordan(A,prin=True):

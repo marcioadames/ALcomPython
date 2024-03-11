@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-07T14:46:50-03:00       *-->
+<!--*       on 2024-03-11T12:23:22-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,16 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.3</span><span class="period">.</span>
-</h6>Denotamos por \(\vec{e}_i \in \mathbb{R}^n\) o vetor cuja \(i\)-ésima entrada é igual a 1 e todas as demais são nulas<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2</span><span class="period">.</span>
+</h6>No <a class="xref" data-knowl="./knowl/ex_esp_nulo.html" title="Example 9.8">Example 9.8</a>, o espaço nulo da matriz<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\vec{e}_i = (0, \ldots, 0, 1, 0, \ldots, 0)
+A = \left(\begin{array}{cccc} 1 \amp 1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 0 \amp 1 \end{array} \right)
 \end{equation*}
-</div>para \(\vec{e}_1,\vec{e}_2,\vec{e}_3 \in \mathbb{R}^3\text{,}\) \(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3)\) é formado por todos os vetores da forma<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\alpha\left(\begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right) + \beta\left(\begin{array}{c} 0 \\ 1 \\ 0 \end{array} \right) + \gamma\left(\begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) = \left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array} \right),
-\end{equation*}
-</div>de modo que \(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3) = \mathbb{R}^3\text{.}\)</article><span class="incontext"><a href="bases.html#example-24">in-context</a></span>
+</div>é igual ao \(Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T)\text{:}\)<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+N(A) = \amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0, 1)^T, \,\, \alpha, \beta\in \mathbb{R}\} \\
+=\amp Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T).
+\end{align*}
+</div></article><span class="incontext"><a href="bases.html#example-24">in-context</a></span>
 </body>
 </html>

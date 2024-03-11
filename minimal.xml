@@ -467,6 +467,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             import numpy as np
                             import fractions
                             A= np.array([[1, -2, -3, 1], [2, 5, -1, 7], [2, 3, -4, 8]], dtype=float)
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
 
 
                             #Step by step Gaussian Elimination:
@@ -496,7 +497,6 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                                 A[i]=A[i]-A[a-1]*A[i,j]
                                             if prin==True:
                                                 print('~'+str(A))
-                                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                                 return A
                             B=Gaussian_elimination(A)
                           </input>
@@ -539,6 +539,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             # PRECISA RODAR A ELIMINAÇÃO GAUSSIANA PRIMEIRO
                             import sympy
                             import sys
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                             
                             def back_subs(B):
                                 m,n = B.shape
@@ -570,7 +571,6 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     except:
                                         pass
                                     print(y[i][0]+'='+str(x[i]))
-                                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                                 return
                             back_subs(B)
                           </input>
@@ -697,6 +697,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                       import numpy as np
                       import fractions
                       A= np.array([[1, -2, -3, 1], [2, -2, -2, 6], [2, 0, -4, 8], [5, -7, 4, 46/3]], dtype=float)
+                      np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
 
 
                       #Step by step Gaussian Elimination:
@@ -726,7 +727,6 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                           A[i]=A[i]-A[a-1]*A[i,j]
                                       if prin==True:
                                           print('~'+str(A))
-                              np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                           return A
                       B=Gaussian_elimination(A)
                     </input>
@@ -738,6 +738,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <sage>
                     <input>
                         def Gauss_Jordan(A,prin=True):
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                             B=Gaussian_elimination(A,prin)
                             #print('jordan')
                             a=0
@@ -750,7 +751,6 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                             B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
                                             if prin==True:
                                                     print('~'+str(B))                
-                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                             return B
                         Gauss_Jordan(B)
                     </input>
@@ -872,7 +872,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 
                 <exercise>
-                    <p>O diagrama abaixo representa o fluxo de veículos em algumas ruas de uma cidade. Os círculos azuis representam cruzamentos. Os números e variáveis (<m>x_1, \ldots, l_5</m>) representam a quantidade de carros entrando e saindo dos cruzamentos mostrados (em carros por hora). O número de carros que entra (por hora) em cada cruzamento é igual ao número de carros que sai. </p>
+                    <p>O diagrama abaixo representa o fluxo de veículos em algumas ruas de uma cidade. Os círculos azuis representam cruzamentos. Os números e variáveis (<m>x_1, \ldots, x_5</m>) representam a quantidade de carros entrando e saindo dos cruzamentos mostrados (em carros por hora). O número de carros que entra (por hora) em cada cruzamento é igual ao número de carros que sai. </p>
                     <figure>
                         <caption>Diagrama de tráfego.</caption>
                         <image source="images/traffic_flow.png"/>
@@ -881,7 +881,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <li>Escreva um sistema que represente o diagrama.</li>
                         <li>Resolva o sistema encontrado utilizando a redução de Gauss-Jordan.</li>
                         <li>Determine o fluxo em cada rua para <m>x_3 = x_5 =50</m>.</li>
-                        <li>Se o fluxo no cruzamento inferior esquerdo mudar para 200 carros por hora, qual o valor dos demais fluxos.</li>
+                        <li>Se a entrade de carros no cruzamento inferior esquerdo mudar para 200 carros por hora, qual o valor dos demais fluxos.</li>
                         <li>Refaça os cálculos anteriores para o caso de revertermos a direção de <m>x_3</m>.</li>
                     </ol>
                 </exercise>
@@ -911,6 +911,341 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                
                 </subsection>
 
+                <!--  *********************************************************
+                *************************************************************** -->
+               
+               
+                <subsection xml:id="matrizes_operacoes">
+                    <title>Matrizes e operações</title>
+
+                    <p>Nessa seção formalizamos o conceito de matriz (que já temos utilizados) e como realizar operações aritméticas com elas.</p>
+
+
+                    <definition>
+                        <notation>
+                        <usage><m>A</m></usage>
+                        <description>matriz</description>
+                        </notation>
+                    
+                        <statement>
+                        <p>
+                            Uma <term>matriz</term> <m>A = (a_{ij})</m> <m>m \times n</m> é um arranjo de <m>mn</m> números (reais ou complexos, usualmente) em <m>m</m> linhas com <m>n</m> números cada.
+                        </p>
+                        <me>
+                            A = \begin{pmatrix}
+                            a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
+                            a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                            a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+                            \end{pmatrix}
+                        </me>
+                        <p>Denotamos de <m>a_{ij}</m> o número que está na <m>i</m>-ésima linha e <m>j</m>-ésima coluna e dizemos o <term>elemento</term> <m>ij</m> da matriz <m>A</m>.</p>
+                        <p>As matrizes <m>m \times 1</m> são chamadas de <term>vetores</term> (coluna) e denotadas <m>\vec{a}</m>:</p>
+                        <me>
+                            \vec{a} = \begin{pmatrix}
+                            a_{1}\\
+                            a_{2}\\
+                            \vdots\\
+                            a_{m1}
+                            \end{pmatrix}
+                        </me>
+                        <p>Uma matriz <m>1 \times n</m> é um <term>vetor linha</term>: <m>\vec{a}^T = (a_1, a_2, \ldots, a_n)</m>.</p>
+                        </statement>
+                    </definition>
+
+
+                    <definition>
+                        <notation>
+                        <!--usage><m>A</m></usage-->
+                        <description>operações elementares</description>
+                        </notation>
+                    
+                        <statement>
+                        <p>
+                            Duas matrizes <m>A = (a_{ij})</m> e <m>B = (b_{ij})</m>, ambas <m>m \times n</m>, são <term>iguais</term> se <m>a_{ij} = b_{ij}</m> para todo <m>i \in \{0,1,2,\ldots,m\}</m>, <m>j \in \{0,1,2,\ldots,n\}</m>. Por outro lado, <m>A \neq B</m> se existem <m>i,j</m> tais que <m>a_{ij} \neq b_{ij}</m> ou se as matrizes têm dimensões diferentes. 
+                        </p>
+                        <p>
+                            A <term>soma</term> de duas matrizes <m>A = (a_{ij})</m> e <m>B = (b_{ij})</m>, ambas <m>m \times n</m>, é a matriz <m>C = (c_{ij})</m>, <m>m \times n</m>, definida por <m>c_{ij} = a_{ij} + b_{ij}</m>. (somamos apenas matrizes com o mesmo número de linhas e colunas) Análogo para subtração.
+                        </p>
+                        <p>
+                            O <term>produto de um número real</term> <m>\alpha</m> e <term> uma matriz</term> <m>A = (a_{ij})</m>, <m>m \times n</m>, é a matriz <m>C = (c_{ij}),</m> <m>m \times n</m>, definida por <m>c_{ij} = \alpha a_{ij}</m>.
+                        </p>
+                        <p>
+                            O <term>produto</term> de uma matriz <m>A = (a_{ij})</m>, <m>m \times n</m>, e outra matriz <m>B = (b_{ij})</m>,  <m>n \times r</m>, é a matriz <m>C = (c_{ij}),</m> <m>m \times r</m>, definida por <m>c_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{nj}</m>. (o número de colunas de <m>A</m> precisa ser igual ao número de linhas de <m>B</m>).
+                        </p>
+                        </statement>
+                    </definition>
+
+
+                    <example>
+                        <p>Sejam</p>
+                        <me>
+                            \alpha = 7; \,\,\, \beta = 1/2; \,\, A = \begin{pmatrix}
+                            2 \amp -1 \amp 0\\
+                            1 \amp -1 \amp 1\\
+                            2 \amp 0 \amp -2\\
+                            3 \amp 1 \amp -1
+                            \end{pmatrix}\,\,\,
+                            B = \begin{pmatrix}
+                            3 \amp -2 \amp 1\\
+                            0 \amp 1 \amp -1\\
+                            1 \amp 1 \amp -1
+                            \end{pmatrix}
+                        </me>
+                        <me>
+                            C = \begin{pmatrix}
+                            1 \amp 1 \amp 1 \amp 0\\
+                            0 \amp -1 \amp -1 \amp -1\\
+                            2 \amp 0 \amp 2 \amp 1\\
+                            2 \amp 1 \amp -1 \amp 0
+                            \end{pmatrix}\,\,\,
+                            D = \begin{pmatrix}
+                            1 \amp -2 \amp 1 \\
+                            1 \amp 1 \amp -1 \\
+                            1 \amp 2 \amp 0 
+                            \end{pmatrix}\,\,\,
+                            \vec{v} = \begin{pmatrix}
+                            2 \\
+                            -2\\
+                            -1
+                            \end{pmatrix}\,\,\,
+                            \vec{u} = \begin{pmatrix}
+                            1 \\
+                            -1\\
+                            1
+                            \end{pmatrix}
+                        </me>
+                        <p>
+                            Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado
+                        </p>
+                        <ol>
+                            <li>\alpha B;</li>
+                            <li>\beta \vec{v};</li>
+                            <li>A + B;</li>
+                            <li>B - D;</li>
+                            <li>2\vec{v}-3\vec{u};</li>
+                            <li>AB;</li>
+                            <li>BA;</li>
+                            <li>A\vec{u}</li>
+                        </ol>
+                    </example>
+
+                    <p>Os códigos a seguir podem ser utilizados para realizar operações básicas com matrizes.</p>
+
+                    <p>Matrizes no Python.</p> 
+
+                    <sage>
+                        <input>
+                        import numpy as np
+                        
+                        A = np.array([[1, 2, 3], [3, 4, 5]])
+                        print(A)
+                        
+                        A = np.array([[1.1, 2, 3], [3, 4, 5]]) # Array of floats
+                        print(A)
+                        
+                        A = np.array([[1, 2, 3], [3, 4, 5]], dtype = complex) # Array of complex numbers
+                        print(A)
+                        </input>
+                        <output>
+                        solution
+                        </output>
+                    </sage>
+                    
+                    
+                    <p>Matrizes de zeros e uns.</p> 
+        
+                    <sage>
+                        <input>
+                        import numpy as np
+                        
+                        zeors_array = np.zeros( (2, 3) )
+                        print(zeors_array)
+                        
+                        
+                        ones_array = np.ones( (1, 5), dtype=np.int32 ) # specifying dtype
+                        print(ones_array)    
+                        </input>
+                        <output>
+                        solution
+                        </output>
+                    </sage>       
+                    
+                    
+                    <p>Mostrar linhas ou elementos.</p> 
+        
+                    <sage>
+                        <input>
+                        import numpy as np
+                        
+                        A = np.array([[1, 4, 5, 12],
+                            [-5, 8, 9, 0],
+                            [-6, 7, 11, 19]])
+                        
+                        #  Third element of second row
+                        print("A[2][1] =", A[2][1])  
+                        
+                        # Third row
+                        print("A[2] =", A[2])
+                        
+                        # First column
+                        print("A[:,0] =", A[:,0])    
+                        </input>
+                        <output>
+                        solution
+                        </output>
+                    </sage>            
+                    
+        
+        
+                    <p>Soma e produto.</p> 
+        
+                    <sage>
+                        <input>
+                        import numpy as np
+                        
+                        A = np.array([[3, 6, 7], [5, -3, 0]])
+                        B = np.array([[1, 1], [2, 1], [3, -3]])
+                        C = A.dot(B)
+                        print(C)
+                        D = np.array([[1, 2], [-2, 3]])
+                        print(C+D)
+                        print(D^3)
+                        </input>
+                        <output>
+                        solution
+                        </output>
+                    </sage>
+
+
+                    <exercise>
+                        <p>Sejam</p>
+                        <me>
+                            \alpha = 2; \,\,\, \beta = 1/3; \,\, A = \begin{pmatrix}
+                            5 \amp -1 \amp 1\\
+                            2 \amp -1 \amp 1\\
+                            2 \amp -2 \amp -1\\
+                            0 \amp 1 \amp -1
+                            \end{pmatrix}\,\,\,
+                            B = \begin{pmatrix}
+                            1 \amp -1 \amp 2\\
+                            0 \amp 3 \amp -1\\
+                            2 \amp 1 \amp -1
+                            \end{pmatrix}
+                        </me>
+                        <me>
+                            C = \begin{pmatrix}
+                            2 \amp 1 \amp 1 \amp 0\\
+                            0 \amp -4 \amp -1 \amp -2\\
+                            3 \amp 1 \amp 3 \amp -1\\
+                            -2 \amp -1 \amp 2 \amp 1
+                            \end{pmatrix}\,\,\,
+                            D = \begin{pmatrix}
+                            -1 \amp 2 \amp -1 \\
+                            -1 \amp -1 \amp 1 \\
+                            -1 \amp 0 \amp 2 
+                            \end{pmatrix}\,\,\,
+                            \vec{v} = \begin{pmatrix}
+                            -1\\
+                            2\\
+                            1
+                            \end{pmatrix}\,\,\,
+                            \vec{u} = \begin{pmatrix}
+                            -1 \\
+                            2\\
+                            2
+                            \end{pmatrix}
+                        </me>
+                        <p>
+                            Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado
+                        </p>
+                        <ol>
+                            <li><m>\alpha B;</m></li>
+                            <li><m>\beta \vec{v};</m></li>
+                            <li><m>A + B;</m></li>
+                            <li><m>B - D;</m></li>
+                            <li><m>2\vec{v}-3\vec{u};</m></li>
+                            <li><m>AB;</m></li>
+                            <li><m>BA;</m></li>
+                            <li><m>A\vec{u};</m></li>
+                            <li><m>C\vec{u}.</m></li>
+                        </ol>
+                    </exercise>
+
+                    <example>
+                        <p>Para as matrizes</p>
+                        <me>
+                            A = \begin{pmatrix}
+                            a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
+                            a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                            a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+                            \end{pmatrix}, \,\,\, \vec{x} = \begin{pmatrix}
+                            x_{1}\\
+                            x_{2}\\
+                            \vdots\\
+                            x_{n}
+                            \end{pmatrix}
+                        </me>
+                        <p>temos</p>
+                        <me>A\vec{x} = \begin{pmatrix}
+                            a_{11} x_1 + a_{12} x_2 + \cdots + \amp a_{1n} x_n\\
+                            a_{21} x_1 + a_{22} x_2 + \cdots + \amp a_{2n} x_n\\
+                            \vdots\\
+                            a_{m1} x_1 + a_{m2} x_2 + \cdots + \amp a_{mn} x_n
+                            \end{pmatrix}
+                        </me>
+                    </example>
+
+                    <exercise>
+                        <p>Para as matrizes</p>
+                        <me>
+                            A = \begin{pmatrix}
+                            a_{11} \amp a_{12} \amp a_{13} \amp a_{14}\\
+                            a_{21} \amp a_{22} \amp a_{23} \amp a_{24}\\
+                            a_{31} \amp a_{32} \amp a_{33} \amp a_{34}
+                            \end{pmatrix}, \,\,\, \vec{x} = \begin{pmatrix}
+                            x_{1}\\
+                            x_{2}\\
+                            x_{3}\\
+                            x_{4}
+                            \end{pmatrix}
+                        </me>
+                        <p>calcule</p>
+                        <me>A\vec{x}.
+                        </me>
+                    </exercise>
+
+                    <example>
+                        <p>
+                            No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <m>10\%</m> das pessoas saudáveis focam doentes, nenhuma adquire resistência sem ficar doente, <m>10\%</m> das doentes morrem, <m>30\%</m> das doentes se recuperam e adquirem resistÊncia, as outras doentes continuam doentes, <m>50\%</m> das pessoas com resistência permanece com a resistência e <m>50%</m> das pessoas com resistência, perde a resistência (mas continua saudável).
+                        </p>
+                        <p>
+                            Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?
+                        </p>
+                    </example>
+
+                    <exercise>
+                        <p>
+                            No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <m>10\%</m> das pessoas saudáveis focam doentes, nenhuma adquire resistência sem ficar doente, <m>10\%</m> das doentes morrem, <m>30\%</m> das doentes se recuperam e adquirem resistÊncia, as outras doentes continuam doentes, <m>50\%</m> das pessoas com resistência permanece com a resistência e <m>50%</m> das pessoas com resistência, perde a resistência (mas continua saudável).
+                        </p>
+                        <p>
+                            Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?
+                        </p>
+                    </exercise>
+
+
+
+
+
+
+
+
+                </subsection>
+
+
+
+
             </section>
 
 
@@ -931,7 +1266,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <intro>
 
                     <p>Essa seção reúne projetos utilizando álgebra linear. ** Em construção**</p>
-                    
+
                 </intro>
                 
                 <subsection xml:id="Proj1">
@@ -1179,7 +1514,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                          j += 1
                                      i += 1
      
-                                 np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                             np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                              return A
      
                          def gaussJordan(A,prin=True):
@@ -1508,7 +1843,7 @@ def Gaussian_elimination(A,prin=True):
                     A[i]=A[i]-A[a-1]*A[i,j]
                 if prin==True:
                     print('~'+str(A))
-        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
     return A
 Gaussian_elimination(A)
                 </input>
@@ -1652,7 +1987,7 @@ for i in range(B.shape[0]):
                                     A[i]=A[i]-A[a-1]*A[i,j]
                                 if prin==True:
                                     print('~'+str(A))
-                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                     return A
                 </input>
                 <output>
@@ -3059,7 +3394,7 @@ print(np.linalg.inv(A))
                                             A[i]=A[i]-A[a-1]*A[i,j]
                                         if prin==True:
                                             print('~'+str(A))
-                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                             return A
                         B = Gaussian_elimination(A, prin = False)
 
@@ -3857,7 +4192,7 @@ print(np.linalg.inv(A))
                                             A[i]=A[i]-A[a-1]*A[i,j]
                                         if prin==True:
                                             print('~'+str(A))
-                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
                             return A
                         Gaussian_elimination(A)
                     </input>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-07T14:46:50-03:00       *-->
+<!--*       on 2024-03-11T12:47:25-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -98,6 +98,7 @@
 <li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
 <li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
 <li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+<li><a href="sistemas-lineares.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
 </ul>
 </li>
 <li class="link">
@@ -161,26 +162,26 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="auto_val"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">13</span> <span class="title">Autovalores e autovetores</span>
 </h2>
-<p id="p-177">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</p> <p id="p-178">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</p>
+<p id="p-203">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</p> <p id="p-204">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</p>
 <section class="subsection" id="auto_val_sub"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">13.1</span> <span class="title">Autovalores e autovetores</span>
 </h3>
-<article class="definition definition-like" id="definition-22"><h6 class="heading">
+<article class="definition definition-like" id="definition-24"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">13.1</span><span class="period">.</span>
 </h6>
-<p id="p-179">Seja \(A\) uma matriz \(n \times n\text{.}\) Um número (real ou complexo) \(\lambda\) é dito um <dfn class="terminology">autovalor</dfn> de \(A\) se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{.}\) \(\vec{x}\) é dito um <dfn class="terminology">autovetor</dfn> associado ao autovalor \(\lambda\text{.}\)</p></article><article class="example example-like" id="example-53"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-53"><h6 class="heading">
+<p id="p-205">Seja \(A\) uma matriz \(n \times n\text{.}\) Um número (real ou complexo) \(\lambda\) é dito um <dfn class="terminology">autovalor</dfn> de \(A\) se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{.}\) \(\vec{x}\) é dito um <dfn class="terminology">autovetor</dfn> associado ao autovalor \(\lambda\text{.}\)</p></article><article class="example example-like" id="example-56"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.2</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-53"><article class="example example-like">A matriz,<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like">A matriz,<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 2 \amp 4 \\ 1 \amp 2  \end{pmatrix},
 \end{equation*}
 </div>admite \(4\) como autovalor porque o vetor \(\vec{x} = (2, 1)^T\) satisfaz \(A\vec{x} = (8, 4)^T = 4(2,1)^T = 4\vec{x}\text{.}\) Outro autovalor dessa matrix é 0 pois o vetor \(\vec{x} = (2, -1)^T\) satisfaz \(A\vec{x} = (0, 0)^T = 0(2,-1)^T = 0\vec{x}\text{.}\)</article></div>
-<p id="p-180">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
+<p id="p-206">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
 <article class="remark remark-like" id="remark-21"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">13.3</span><span class="period">.</span>
-</h6>Se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{,}\) temos que \(A\vec{x} - \lambda \vec{x} = \vec{0}\) e, portanto, \((A - \lambda I) \vec{x} = \vec{0}\text{,}\) ou seja, essa equação tem solução não nula e a matriz \((A - \lambda I)\) não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos \(Det(A - \lambda I) = 0\text{.}\) O polinômio \(p(\lambda) = Det(A - \lambda I)\) é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema \((A - \lambda I) \vec{x} = \vec{0}\) para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.</article><article class="example example-like" id="example-54"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-54"><h6 class="heading">
+</h6>Se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{,}\) temos que \(A\vec{x} - \lambda \vec{x} = \vec{0}\) e, portanto, \((A - \lambda I) \vec{x} = \vec{0}\text{,}\) ou seja, essa equação tem solução não nula e a matriz \((A - \lambda I)\) não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos \(Det(A - \lambda I) = 0\text{.}\) O polinômio \(p(\lambda) = Det(A - \lambda I)\) é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema \((A - \lambda I) \vec{x} = \vec{0}\) para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.</article><article class="example example-like" id="example-57"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-54"><article class="example example-like">A matriz,<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like">A matriz,<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix},
 \end{equation*}
@@ -197,15 +198,15 @@ p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\la
 \begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 \\ -1 \end{pmatrix}.
 \end{equation*}
 </div></article></div>
-<article class="exercise exercise-like" id="exercise-44"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-44"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-47"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-47"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">13.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-44"><article class="exercise exercise-like"><div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-47"><article class="exercise exercise-like"><div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-181">Confira a sua resposta com o código abaixo.</p>
-<div class="sagecell-sage" id="sage-49"><script type="text/x-sage">import scipy as sci
+<p id="p-207">Confira a sua resposta com o código abaixo.</p>
+<div class="sagecell-sage" id="sage-53"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
 A = np.array([[3,0,1],[0,2,0],[0,0,2]])
@@ -218,16 +219,16 @@ sci.linalg.eig(A)
 \begin{equation*}
 A = P D P^{-1}
 \end{equation*}
-</div>Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</article><p id="p-182">Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.</p>
-<article class="exercise exercise-like" id="exercise-45"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-45"><h6 class="heading">
+</div>Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</article><p id="p-208">Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.</p>
+<article class="exercise exercise-like" id="exercise-48"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-48"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">13.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-45"><article class="exercise exercise-like"><div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-48"><article class="exercise exercise-like"><div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-183">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
-<div class="sagecell-sage" id="sage-50"><script type="text/x-sage">import scipy as sci
+<p id="p-209">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
+<div class="sagecell-sage" id="sage-54"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
 A = np.array([[3,0,1],[0,2,0],[0,0,2]])
@@ -240,13 +241,13 @@ print('P = ', B[1])
 
 print('A = ?', B[1].dot(np.diag(B[0]).dot(np.linalg.inv(B[1]))))
 </script></div>
-<p id="p-184">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
+<p id="p-210">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
 <div class="displaymath">
 \begin{equation*}
 A^2 = (P D P^{-1})(P D P^{-1}) = P D^2 P^{-1} \,\,\,\, A^n = (P D P^{-1})\cdots(P D P^{-1}) = P D^n P^{-1} 
 \end{equation*}
 </div>
-<p id="p-185">e, para uma matriz diagonal,</p>
+<p id="p-211">e, para uma matriz diagonal,</p>
 <div class="displaymath">
 \begin{equation*}
 D = \begin{pmatrix}
@@ -263,52 +264,52 @@ D^m = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-46"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-46"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-49"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-49"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">13.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-46"><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, \(30\%\) dos não comprometidos passam a ser comprometidos e \(20\%\) dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></div></section><section class="subsection" id="autoval_teormas"><h3 class="heading hide-type">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-49"><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, \(30\%\) dos não comprometidos passam a ser comprometidos e \(20\%\) dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></div></section><section class="subsection" id="autoval_teormas"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">13.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span>
 </h3>
-<p id="p-186">Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.</p>
+<p id="p-212">Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.</p>
 <article class="theorem theorem-like" id="autovetores_LI"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">13.9</span><span class="period">.</span>
 </h6>Seja \(A\) uma matriz \(n \times n\text{.}\) Autovetores associados a autovalores distintos são linearmente independentes.</article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof">A completar.</article></div>
-<p id="p-187">O <a class="xref" data-knowl="./knowl/autovetores_LI.html" title="Theorem 13.9">Theorem 13.9</a> garante que se o polinômio característico tem \(n\) raízes distintas, teremos \(n\) autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.</p>
+<p id="p-213">O <a class="xref" data-knowl="./knowl/autovetores_LI.html" title="Theorem 13.9">Theorem 13.9</a> garante que se o polinômio característico tem \(n\) raízes distintas, teremos \(n\) autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.</p>
 <article class="theorem theorem-like" id="matriz_simetrica"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">13.10</span><span class="period">.</span><span class="space"> </span><span class="title">.</span>
 </h6>Seja \(A\) uma matriz real<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 1 </sup></a>\(n \times n\) simétrica. Então, seus autovalores e autovetores são reais e a matriz \(A\) tem \(n\) autovetores distintos. Além disso, \(A\) admite uma base de autovetores ortonormais.</article><article class="hiddenproof" id="proof-21"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof">A completar.</article></div>
-<p id="p-188">Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz \(P\) é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.</p>
+<p id="p-214">Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz \(P\) é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.</p>
 <article class="remark remark-like" id="remark-23"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">13.11</span><span class="period">.</span>
 </h6>Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau \(n\) sempre pode ser decomposto no produto de monômios de grau \(n\text{.}\) Em particular<div class="displaymath">
 \begin{equation*}
 p(\lambda) = \pm (\lambda^n + a_{n-1} \lambda^{n-1} + \cdots + a_1 \lambda + a_0) = \pm(\lambda-\lambda_n)(\lambda-\lambda_{n-1})\cdots(\lambda-\lambda_1),
 \end{equation*}
-</div>onde \(\lambda\) é a variável complexa, \(\lambda_i\text{,}\) \(i = 1, 2, \ldots, n\) são as raízes (possivelmente complexas) e \(a_i\) os coeficientes, \(i = 1, 2, \ldots, n\text{.}\)</article><article class="definition definition-like" id="definition-23"><h6 class="heading">
+</div>onde \(\lambda\) é a variável complexa, \(\lambda_i\text{,}\) \(i = 1, 2, \ldots, n\) são as raízes (possivelmente complexas) e \(a_i\) os coeficientes, \(i = 1, 2, \ldots, n\text{.}\)</article><article class="definition definition-like" id="definition-25"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">13.12</span><span class="period">.</span>
 </h6>
-<p id="p-189">Seja \(p(\lambda)\) o polinômio característico de uma matriz real \(A\text{,}\) \(n \times n \text{.}\) O número de vezes que um autovalor aparece na decomposição no produto de monômios de \(p(\lambda)\) é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de \(A - \lambda_k I\text{,}\) \(N(A - \lambda_k I)\) é a multiplicidade geométrica do autovalor \(\lambda_k\text{.}\)</p></article><article class="example example-like" id="example-55"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-55"><h6 class="heading">
+<p id="p-215">Seja \(p(\lambda)\) o polinômio característico de uma matriz real \(A\text{,}\) \(n \times n \text{.}\) O número de vezes que um autovalor aparece na decomposição no produto de monômios de \(p(\lambda)\) é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de \(A - \lambda_k I\text{,}\) \(N(A - \lambda_k I)\) é a multiplicidade geométrica do autovalor \(\lambda_k\text{.}\)</p></article><article class="example example-like" id="example-58"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.13</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-55"><article class="example example-like"><div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like"><div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 3 \\ 0 \amp 1 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<article class="example example-like" id="example-56"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h6 class="heading">
+<article class="example example-like" id="example-59"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-59"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like"><div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 2 \amp 3 \amp 0\\ 0 \amp 2 \amp -4 \\ 0 \amp 0 \amp 1 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-190">Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.</p>
-<article class="example example-like" id="example-57"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h6 class="heading">
+<p id="p-216">Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.</p>
+<article class="example example-like" id="example-60"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-60"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.15</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like">Diagonalize a matriz<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-60"><article class="example example-like">Diagonalize a matriz<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 0 \amp 2 \amp -1\\ 2 \amp 3 \amp -2 \\ -1 \amp -2 \amp 0 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-191">Se uma matriz \(A\) tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados \(\lambda_k, \overline{\lambda}_k\text{,}\) com autovetores complexos \(\vec{x}_k, \overline{\vec{x}}_k\text{.}\) Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor \(\vec{x}_k = \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k)\) associado ao autovalor \(\lambda_k = r \mbox{cos} (\theta) + i r \mbox{sen} (\theta)\) (escrito na forma polar)</p>.<div class="displaymath">
+<p id="p-217">Se uma matriz \(A\) tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados \(\lambda_k, \overline{\lambda}_k\text{,}\) com autovetores complexos \(\vec{x}_k, \overline{\vec{x}}_k\text{.}\) Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor \(\vec{x}_k = \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k)\) associado ao autovalor \(\lambda_k = r \mbox{cos} (\theta) + i r \mbox{sen} (\theta)\) (escrito na forma polar)</p>.<div class="displaymath">
 \begin{align*}
 A \vec{x}_k =\amp \lambda_k \vec{x}_k = (r \mbox{cos} (\theta) + i r \mbox{sen} (\theta))( \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k))\\
 =\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)),\\
@@ -316,7 +317,7 @@ A \bar{\vec{x}_k} =\amp \bar{\lambda_k}\bar{ \vec{x}_k} = (r \mbox{cos} (\theta)
 =\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) - i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)).
 \end{align*}
 </div>
-<p id="p-192">Assim, lembrando que \(2 \mbox{Re}(\vec{x}_k) = \vec{x}_k + \bar{\vec{x}_k}\) e \(2 \mbox{Im}(\vec{x}_k) = -i\vec{x}_k + i \bar{\vec{x}_k}\text{,}\) temos</p>
+<p id="p-218">Assim, lembrando que \(2 \mbox{Re}(\vec{x}_k) = \vec{x}_k + \bar{\vec{x}_k}\) e \(2 \mbox{Im}(\vec{x}_k) = -i\vec{x}_k + i \bar{\vec{x}_k}\text{,}\) temos</p>
 <div class="displaymath">
 \begin{equation*}
 A \mbox{Re}(\vec{x}_k) =  r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)
@@ -327,46 +328,46 @@ A \mbox{Re}(\vec{x}_k) =  r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{s
 A \mbox{Im}(\vec{x}_k) =  r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)
 \end{equation*}
 </div>
-<p id="p-193">Desse modo, se \(\vec{u} = a \mbox{Re}(\vec{x}_k) + b \mbox{Im}(\vec{x}_k)\text{,}\) com \(a,b\) reais, temos:</p>
+<p id="p-219">Desse modo, se \(\vec{u} = a \mbox{Re}(\vec{x}_k) + b \mbox{Im}(\vec{x}_k)\text{,}\) com \(a,b\) reais, temos:</p>
 <div class="displaymath">
 \begin{align*}
 A \vec{u} = \amp a(r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + b(r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k))\\
 =\amp (r \mbox{cos} (\theta), r \mbox{sen} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Re}(\vec{x}_k) + (-r \mbox{sen} (\theta), r \mbox{cos} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Im}(\vec{x}_k),
 \end{align*}
 </div>
-<p id="p-194">e é possível escrever um bloco \(2 \times 2\) na diagonal da forma:</p>
+<p id="p-220">e é possível escrever um bloco \(2 \times 2\) na diagonal da forma:</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix},
 \end{equation*}
 </div>
-<p id="p-195">de modo que autovalores complexos indicam a rotações no plano definido por \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\text{.}\) Deixamos ao leitor a verificação do fato que \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\) são linearmente independentes.</p>
-<article class="example example-like" id="example-58"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h6 class="heading">
+<p id="p-221">de modo que autovalores complexos indicam a rotações no plano definido por \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\text{.}\) Deixamos ao leitor a verificação do fato que \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\) são linearmente independentes.</p>
+<article class="example example-like" id="example-61"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-61"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like"><div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-61"><article class="example example-like"><div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 4/5 \amp -3/5 \amp 0 \\ 3/5 \amp 4/5 \amp 0 \\ 1 \amp 2 \amp 2 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-196">Para mais informações sobre esse processo, ver <a class="external" href="https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan" target="_blank">Forma de Jordan</a><a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 2 </sup></a>.</p>
+<p id="p-222">Para mais informações sobre esse processo, ver <a class="external" href="https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan" target="_blank">Forma de Jordan</a><a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 2 </sup></a>.</p>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn"><code class="code-inline tex2jax_ignore">wikipedia.org</code></div></div></section><section class="subsection" id="aplicacoes"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">13.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span>
 </h3>
-<p id="p-197">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém \(y_0\) átomos radioativos. É natural pensar que o número de átomos, \(y(t)\text{,}\) que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:</p>
+<p id="p-223">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém \(y_0\) átomos radioativos. É natural pensar que o número de átomos, \(y(t)\text{,}\) que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt}(t) = \lambda y(t), \,\,\,\, y(0) = y_0. 
 \end{equation*}
 </div>
-<p id="p-198">Um problema assim é chamado de uma equação diferencial ordinária e sua solução é \(y(t) = y_0 e^{\lambda t}\text{.}\)</p>
-<p id="p-199">Em outros problemas pode-se ter múltiplas funções simultaneamente.</p>
-<article class="example example-like" id="example-59"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-59"><h6 class="heading">
+<p id="p-224">Um problema assim é chamado de uma equação diferencial ordinária e sua solução é \(y(t) = y_0 e^{\lambda t}\text{.}\)</p>
+<p id="p-225">Em outros problemas pode-se ter múltiplas funções simultaneamente.</p>
+<article class="example example-like" id="example-62"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-62"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.17</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like">Uma amostra formada por dois isótopos radioativos com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\)  e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
-<article class="example example-like" id="example-60"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-60"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-62"><article class="example example-like">Uma amostra formada por dois isótopos radioativos com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\)  e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
+<article class="example example-like" id="example-63"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-63"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.18</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-60"><article class="example example-like">Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo \(A\) decai no isótopo \(B\text{,}\) que decai no isótopo \(C\text{.}\) Uma amostra formada pelos isótopos \(A\text{,}\) \(B\) e \(C\) com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\) e \(y_3 = 4\times 10^{4}\) e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
-<p id="p-200">Consideremos o sistema de equações diferenciais (com condições iniciais associadas):</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-63"><article class="example example-like">Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo \(A\) decai no isótopo \(B\text{,}\) que decai no isótopo \(C\text{.}\) Uma amostra formada pelos isótopos \(A\text{,}\) \(B\) e \(C\) com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\) e \(y_3 = 4\times 10^{4}\) e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
+<p id="p-226">Consideremos o sistema de equações diferenciais (com condições iniciais associadas):</p>
 <div class="displaymath">
 \begin{align*}
 y_1' =\amp a_{11}y_1 + a_{12}y_2 + \cdots + a_{1n} y_n, \,\,\, y_1(0) = y^*_1,\\
@@ -375,21 +376,21 @@ y_2' =\amp a_{21}y_1 + a_{22}y_2 + \cdots + a_{2n} y_n, \,\,\, y_2(0) = y^*_2,\\
 y_n' =\amp a_{n1}y_1 + a_{n2}y_2 + \cdots + a_{nn} y_n, \,\,\, y_n(0) = y^*_n,
 \end{align*}
 </div>
-<p id="p-201">que pose ser escrito na forma</p>
+<p id="p-227">que pose ser escrito na forma</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{y}'(t) = A\vec{y}(t), \,\,\, \vec{y}(0) = \vec{y^*}.
 \end{equation*}
 </div>
-<p id="p-202">Se a matriz A tem \(n\) autovalores reais, \(\lambda_1, \ldots, \lambda_n\text{,}\)(não necessariamente distintos) e  a eles estão associados \(\text{}\) autovetores LI, \(\vec{x}_1, \ldots, \vec{x}_n\text{,}\) então a solução do sistema de EDOs é</p>
+<p id="p-228">Se a matriz A tem \(n\) autovalores reais, \(\lambda_1, \ldots, \lambda_n\text{,}\)(não necessariamente distintos) e  a eles estão associados \(\text{}\) autovetores LI, \(\vec{x}_1, \ldots, \vec{x}_n\text{,}\) então a solução do sistema de EDOs é</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{y}'(t) = c_1e^{\lambda_1 t}\vec{x}_1 + c_2e^{\lambda_2 t}\vec{x}_2 + \cdots + c_ne^{\lambda_n t}\vec{x}_n, \,\, \mbox{ onde } \,\, \vec{y^*} = c_1\vec{x}_1 + c_2\vec{x}_2 + \cdots + c_ne^\vec{x}_n.
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-47"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-47"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-50"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-50"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">13.19</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-47"><article class="exercise exercise-like">Resolva o sistema<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-50"><article class="exercise exercise-like">Resolva o sistema<div class="displaymath">
 \begin{align*}
 y_1' =\amp 3y_1 + 2y_2 - 3y_3, \,\,\, y_1(0) = 1,\\
 y_2' =\amp 2y_1 + 3y_2 - 3y_3, \,\,\, y_2(0) = 2,\\
@@ -398,10 +399,10 @@ y_3' =\amp 3y_1 + 3y_2 - 4y_3, \,\,\, y_n(0) = -1,
 </div></article></div></section><section class="subsection" id="aplicacoes_2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">13.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span>
 </h3>
-<p id="p-203">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Muitas vezes essas leis envolvem derivadas de segunda ordem. Por exemplo a segunda lei de Newton, \(F = m a\text{,}\) ao lembrarmos que a aceleração é a taxa de variação da velocidade e a velocidade é a taxa de variação da posição: \(F = ma = mv' = mx''\text{.}\) Vejamos como resolver uma EDO linear de segunda ordem num exemplo.</p>
-<article class="example example-like" id="example-61"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-61"><h6 class="heading">
+<p id="p-229">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Muitas vezes essas leis envolvem derivadas de segunda ordem. Por exemplo a segunda lei de Newton, \(F = m a\text{,}\) ao lembrarmos que a aceleração é a taxa de variação da velocidade e a velocidade é a taxa de variação da posição: \(F = ma = mv' = mx''\text{.}\) Vejamos como resolver uma EDO linear de segunda ordem num exemplo.</p>
+<article class="example example-like" id="example-64"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-64"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.20</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-61"><article class="example example-like">Consideremos o PVI<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-64"><article class="example example-like">Consideremos o PVI<div class="displaymath">
 \begin{equation*}
 3y'' + 2y' - y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
 \end{equation*}
@@ -413,9 +414,9 @@ y_2'(t) = -\frac{2}{3} y_2(t)+\frac{1}{3} y_1(t) , \,\,\, y_2(0) =2,
 \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ 1/3 \amp -2/3 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
 \end{equation*}
 </div>Autovalores, autovetores, ...</article></div>
-<article class="example example-like" id="example-62"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-62"><h6 class="heading">
+<article class="example example-like" id="example-65"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-65"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.21</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-62"><article class="example example-like">Consideremos o PVI<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-65"><article class="example example-like">Consideremos o PVI<div class="displaymath">
 \begin{equation*}
 y'' + 2y' + 2y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
 \end{equation*}
@@ -427,10 +428,10 @@ y_2'(t) = -2 y_2(t) - 2y_1(t) , \,\,\, y_2(0) =2,
 \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ -2 \amp -2 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
 \end{equation*}
 </div>Autovalores, autovetores, ...</article></div>
-<p id="p-204">Podemos ter um sistema de equações lineares de segunda ordem.</p>
-<article class="example example-like" id="example-63"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-63"><h6 class="heading">
+<p id="p-230">Podemos ter um sistema de equações lineares de segunda ordem.</p>
+<article class="example example-like" id="example-66"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-66"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">13.22</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-63"><article class="example example-like">Consideremos o PVI<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-66"><article class="example example-like">Consideremos o PVI<div class="displaymath">
 \begin{align*}
 \amp y_1'' = 2y_1 + y_2 + y_1' + y_2', \,\,\, y_1(0) = 1, \,\,\, y_2(0) = 0.\\
 \amp y_2'' = -5y_1 +2y_2 +5 y_1' -y_2', \,\,\, y_1'(0) = 4, \,\,\, y_2'(0) = -2,
@@ -444,19 +445,19 @@ y_2'(t) = -2 y_2(t) - 2y_1(t) , \,\,\, y_2(0) =2,
 \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix}' = \left(\begin{array}{cc|cc} 0 \amp 0 \amp 1 \amp 0\\ 0\amp 0\amp 0 \amp 1\\ \hline 2\amp 1\amp 1 \amp 1 \\ -5\amp 2\amp 5\amp -1\\ \end{array} \right) \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix}, \,\,\,\, \begin{pmatrix} y_1(0) \\ y_2(0) \\ y_3(0) \\ y_4(0) \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 4 \\ -2 \end{pmatrix}
 \end{equation*}
 </div>Autovalores, autovetores, ...</article></div>
-<p id="p-205">Consideremos o sistema de equações diferenciais (com condições iniciais associadas), escrito na forma matricial, denotando \(\vec{y} = (y_1, y_2, \ldots, y_n)^T\text{,}\) como:</p>
+<p id="p-231">Consideremos o sistema de equações diferenciais (com condições iniciais associadas), escrito na forma matricial, denotando \(\vec{y} = (y_1, y_2, \ldots, y_n)^T\text{,}\) como:</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{y}'' = A_1 \vec{y} + A_2 \vec{y}', \,\,\,\, \vec{y}(0) = \vec{y}^*_0, \,\, \vec{y}'(0) = \vec{y}^{**}_0.
 \end{equation*}
 </div>
-<p id="p-206">Podemos definir as variáveis \(y_{n+1} = y_1', y_{n+2} =y_2', \ldots, y_{2n} = y_n'\) e, denotando, \(\vec{y}_1 = \vec{y} = (y_1, y_2, \ldots, y_n)^T\) e \(\vec{y}_2 = (y_{n+1}, y_{n+2}, \ldots, y_{2n})^T\text{,}\) temos o problema linear</p>
+<p id="p-232">Podemos definir as variáveis \(y_{n+1} = y_1', y_{n+2} =y_2', \ldots, y_{2n} = y_n'\) e, denotando, \(\vec{y}_1 = \vec{y} = (y_1, y_2, \ldots, y_n)^T\) e \(\vec{y}_2 = (y_{n+1}, y_{n+2}, \ldots, y_{2n})^T\text{,}\) temos o problema linear</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} \vec{y}_1 \\ \vec{y}_2\end{pmatrix}' = \left(\begin{array}{c|c} 0 \amp I \\ \hline A_1 \amp A_2\end{array}\right) \begin{pmatrix} \vec{y}_1 \\ \vec{y}_2\end{pmatrix}, \,\,\, \begin{pmatrix} \vec{y}_1(0) \\ \vec{y}_2(0) \end{pmatrix} = \begin{pmatrix} \vec{y}^{*}_0 \\ \vec{y}^{**}_0\end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-207">Que pode ser resolvido pelo método de autovalores e autovetores.</p></section></section></div></main>
+<p id="p-233">Que pode ser resolvido pelo método de autovalores e autovetores.</p></section></section></div></main>
 </div>
 </body>
 </html>

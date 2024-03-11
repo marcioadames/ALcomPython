@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-07T14:46:51-03:00       *-->
+<!--*       on 2024-03-11T12:47:26-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,22 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.4</span><span class="period">.</span>
-</h6>Dados \(\vec{x} = (1, -1, 2)^T \) e \(\vec{y} = (-1, 3, 3)^T \text{,}\)<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.39</span><span class="period">.</span>
+</h6>Para a matriz<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\vec{x}^T\vec{y} = (1, -1, 2)\begin{pmatrix} -1\\ 3\\ 3\end{pmatrix} = -1-3+6 = 2\text{.}
+A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
+1 \amp 0 \amp -1 \amp 1\\
+1 \amp 1 \amp 1 \amp 0\\
+1 \amp 0 \amp -1 \amp 1\end{pmatrix}\text{,}
 \end{equation*}
-</div></article><span class="incontext"><a href="produto_interno.html#example-36">in-context</a></span>
+</div>temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 1) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, \alpha_@)\text{,}
+\end{equation*}
+</div>ou seja, é igual ao \(Span((1, 1, 1, 0),(1, 0, -1, 1))\text{.}\) Denotando \(\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4\) para as colunas de \(A\text{,}\) observamos que \(\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2\) e \(\vec{a}_4 = \vec{a}_1 - \vec{a}_2\) e o espaço coluna é formado pelos vetores da forma:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\alpha_1 \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \alpha_1 + \alpha_2 \\ \alpha_1 \\ \alpha_1 + \alpha_2 \\ \alpha_1 \end{pmatrix}\text{,}
+\end{equation*}
+</div>ou seja, é igual ao \(Span\left(\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} \right)\text{.}\)</article><span class="incontext"><a href="bases.html#example-36">in-context</a></span>
 </body>
 </html>

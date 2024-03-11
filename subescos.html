@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-07T14:46:49-03:00       *-->
+<!--*       on 2024-03-11T12:47:25-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -98,6 +98,7 @@
 <li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
 <li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
 <li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+<li><a href="sistemas-lineares.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
 </ul>
 </li>
 <li class="link">
@@ -161,41 +162,41 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="subescos"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9</span> <span class="title">Subespaços Vetoriais</span>
 </h2>
-<p id="p-83">Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial</p>
+<p id="p-109">Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial</p>
 <section class="subsection" id="subespacos-subsection"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">9.1</span> <span class="title">Subespaço</span>
 </h3>
-<article class="definition definition-like" id="definition-5"><h6 class="heading">
+<article class="definition definition-like" id="definition-7"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1</span><span class="period">.</span>
 </h6>
-<p id="p-84">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(S \subset V\) um subconjunto de \(V\text{.}\) \(S\) é dito um <dfn class="terminology">subespaço (vetorial)</dfn> de \(V\) se, e somente se:</p>
+<p id="p-110">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(S \subset V\) um subconjunto de \(V\text{.}\) \(S\) é dito um <dfn class="terminology">subespaço (vetorial)</dfn> de \(V\) se, e somente se:</p>
 <ol class="decimal">
-<li id="li-61"><p id="p-derived-li-61">\(\displaystyle S \neq \emptyset,\)</p></li>
-<li id="li-62"><p id="p-derived-li-62">\(\displaystyle \alpha \odot \vec{u} \in S, \,\, \forall   \,\, \vec{u} \in S, \,\, \alpha \in E,\)</p></li>
-<li id="li-63"><p id="p-derived-li-63">\(\displaystyle \vec{u} \oplus \vec{v} \in S, \,\, \forall   \,\, \vec{u}, \vec{v} \in S.\)</p></li>
-</ol></article><p id="p-85">A primeira condição diz que o subconjunto não é vazio, a segunda dis que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.</p>
+<li id="li-78"><p id="p-derived-li-78">\(\displaystyle S \neq \emptyset,\)</p></li>
+<li id="li-79"><p id="p-derived-li-79">\(\displaystyle \alpha \odot \vec{u} \in S, \,\, \forall   \,\, \vec{u} \in S, \,\, \alpha \in E,\)</p></li>
+<li id="li-80"><p id="p-derived-li-80">\(\displaystyle \vec{u} \oplus \vec{v} \in S, \,\, \forall   \,\, \vec{u}, \vec{v} \in S.\)</p></li>
+</ol></article><p id="p-111">A primeira condição diz que o subconjunto não é vazio, a segunda dis que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.</p>
 <article class="lemma theorem-like" id="lemma-1"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">9.2</span><span class="period">.</span>
 </h6>
-<p id="p-86">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(S \subset V\) um subespaço vetorial. Então \((S, E, \oplus, \odot)\) é um espaço vetorial.</p></article><article class="hiddenproof" id="proof-2"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof">Como \(S \subset V\) e \(S\) tem o mesmo conjunto de escalares e operações, valem as propriedades \(A1  - /A8\) desde que \(\alpha \odot \vec{x}\) e \(\vec{x} \oplus \vec{y}\) sejam elementos de \(S\text{,}\) o que é requerido pela definição de subespaço vetorial.</article></div>
-<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h6 class="heading">
+<p id="p-112">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(S \subset V\) um subespaço vetorial. Então \((S, E, \oplus, \odot)\) é um espaço vetorial.</p></article><article class="hiddenproof" id="proof-2"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof">Como \(S \subset V\) e \(S\) tem o mesmo conjunto de escalares e operações, valem as propriedades \(A1  - /A8\) desde que \(\alpha \odot \vec{x}\) e \(\vec{x} \oplus \vec{y}\) sejam elementos de \(S\text{,}\) o que é requerido pela definição de subespaço vetorial.</article></div>
+<article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like">O conjunto  \(V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}\text{,}\) com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^3\) é um subespaço vetorial de \(\mathbb{R}^3\) pois, dados \(\alpha \in \mathbb{R}\) e  \(\vec{u} =\alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T \text{,}\) \(\vec{v} =\beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \in V\text{:}\) <ol class="decimal">
-<li id="li-64"><p id="p-derived-li-64">\(\displaystyle \vec{0} = 0 (-1,0,1)^T + 0 (0, 1, 1)^T \in V \Longrightarrow V \neq \emptyset,\)</p></li>
-<li id="li-65"><p id="p-derived-li-65">\(\displaystyle \alpha\vec{u} = \alpha \alpha_1(-1,0,1)^T + \alpha \alpha_2 (0, 1, 1)^T \in V,\)</p></li>
-<li id="li-66"><p id="p-derived-li-66">\(\displaystyle \vec{u} + \vec{v} = (\alpha_1+\beta_1)(-1,0,1)^T + (\alpha_2 +\beta_2) (0, 1, 1)^T \in V.\)</p></li>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like">O conjunto  \(V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}\text{,}\) com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^3\) é um subespaço vetorial de \(\mathbb{R}^3\) pois, dados \(\alpha \in \mathbb{R}\) e  \(\vec{u} =\alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T \text{,}\) \(\vec{v} =\beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \in V\text{:}\) <ol class="decimal">
+<li id="li-81"><p id="p-derived-li-81">\(\displaystyle \vec{0} = 0 (-1,0,1)^T + 0 (0, 1, 1)^T \in V \Longrightarrow V \neq \emptyset,\)</p></li>
+<li id="li-82"><p id="p-derived-li-82">\(\displaystyle \alpha\vec{u} = \alpha \alpha_1(-1,0,1)^T + \alpha \alpha_2 (0, 1, 1)^T \in V,\)</p></li>
+<li id="li-83"><p id="p-derived-li-83">\(\displaystyle \vec{u} + \vec{v} = (\alpha_1+\beta_1)(-1,0,1)^T + (\alpha_2 +\beta_2) (0, 1, 1)^T \in V.\)</p></li>
 </ol>
-<p id="p-87">Assim \(V\) é um subespaço de \(\mathbb{R}^3\) e automaticamente um espaço vetorial (não precisávamos verificar todas as propriedades, como feito no exemplo anterior).</p></article></div>
-<article class="exercise exercise-like" id="exercise-18"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-18"><h6 class="heading">
+<p id="p-113">Assim \(V\) é um subespaço de \(\mathbb{R}^3\) e automaticamente um espaço vetorial (não precisávamos verificar todas as propriedades, como feito no exemplo anterior).</p></article></div>
+<article class="exercise exercise-like" id="exercise-21"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-21"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-18"><article class="exercise exercise-like">Verifique que \(S = \left\{ A \in \mathbb{R}^{2\times2} \left| A = \left(\begin{array}{cc} a_{11} \amp a_{12} \\ -a_{12} \amp a_{22} \end{array}\right) \right.\right\}\) é um subespaço de \(\mathbb{R}^{2\times2} \text{.}\)</article></div>
-<article class="exercise exercise-like" id="exercise-19"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-19"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-21"><article class="exercise exercise-like">Verifique que \(S = \left\{ A \in \mathbb{R}^{2\times2} \left| A = \left(\begin{array}{cc} a_{11} \amp a_{12} \\ -a_{12} \amp a_{22} \end{array}\right) \right.\right\}\) é um subespaço de \(\mathbb{R}^{2\times2} \text{.}\)</article></div>
+<article class="exercise exercise-like" id="exercise-22"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-22"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-19"><article class="exercise exercise-like">Verifique que \(S = \left\{ f \in C^2(a,b) \left| f''(x) + f(x) =0 \,\, \forall \,\, x \in (a,b) \right.\right\}\) é um subespaço de \(C^2(a,b) \text{.}\)</article></div>
-<article class="exercise exercise-like" id="exercise-20"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-20"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-22"><article class="exercise exercise-like">Verifique que \(S = \left\{ f \in C^2(a,b) \left| f''(x) + f(x) =0 \,\, \forall \,\, x \in (a,b) \right.\right\}\) é um subespaço de \(C^2(a,b) \text{.}\)</article></div>
+<article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-20"><article class="exercise exercise-like">Utilize o código abaixo para esboçar o subespaço de \(S = \{\vec{u} \in \mathbb{R}^3| \vec{u} = \alpha_1 (1,1,0)^T + \alpha_2 (-1,1,1)^T \}.\)</article></div>
-<div class="sagecell-sage" id="sage-32"><script type="text/x-sage">import numpy as np
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like">Utilize o código abaixo para esboçar o subespaço de \(S = \{\vec{u} \in \mathbb{R}^3| \vec{u} = \alpha_1 (1,1,0)^T + \alpha_2 (-1,1,1)^T \}.\)</article></div>
+<div class="sagecell-sage" id="sage-36"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -231,10 +232,10 @@ plt.show()
 </script></div></section><section class="subsection" id="Esp_nulo"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">9.2</span> <span class="title">Espaço Nulo de uma matriz</span>
 </h3>
-<article class="definition definition-like" id="definition-6"><h6 class="heading">
+<article class="definition definition-like" id="definition-8"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.7</span><span class="period">.</span>
 </h6>
-<p id="p-88">Seja \(A \in \mathbb{R}^{n \times m}\text{.}\) O conjunto de todas as soluções de \(A\vec{x} =\vec{0}\) é chamado de <dfn class="terminology">espaço nulo</dfn> de \(A\) e denotado \(N(A)\text{:}\)</p>
+<p id="p-114">Seja \(A \in \mathbb{R}^{n \times m}\text{.}\) O conjunto de todas as soluções de \(A\vec{x} =\vec{0}\) é chamado de <dfn class="terminology">espaço nulo</dfn> de \(A\) e denotado \(N(A)\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
 N(A) = \{\vec{x} \in \mathbb{R}^m | A\vec{x} = \vec{0}\}.
@@ -250,7 +251,7 @@ A = \left(\begin{array}{cccc} 1 \amp 1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 0 \amp 1 \
 \begin{array}{c} x_1 + x_2 + x_3 = 0\\ 2x_1 + x_2 + x_4 = 0\end{array} \Leftrightarrow \begin{array}{c} x_2 + 2x_3 -x_4 = 0\\ 2x_1 + x_2 + x_4 = 0\end{array} \Leftrightarrow \begin{array}{c} x_1 = x_3 - x_4 \\ x_2 =  2x_3 - x_4 \end{array}, 
 \end{gather*}
 </div>
-<p id="p-89">denotando \(\alpha = x_3\) e \(\beta = x_4\text{,}\) temos:</p>
+<p id="p-115">denotando \(\alpha = x_3\) e \(\beta = x_4\text{,}\) temos:</p>
 <div class="displaymath">
 \begin{align*}
 N(A) =\amp \{\vec{x} \in \mathbb{R}^4 | \vec{x} = (\alpha -\beta, -2\alpha + \beta, \alpha, \beta)^T \}\\
@@ -260,14 +261,14 @@ N(A) =\amp \{\vec{x} \in \mathbb{R}^4 | \vec{x} = (\alpha -\beta, -2\alpha + \be
 <article class="lemma theorem-like" id="lemma-2"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">9.9</span><span class="period">.</span>
 </h6>
-<p id="p-90">Para qualquer matriz \(A \in \mathbb{R}^{n \times m}\text{,}\) \(N(A)\) é um subespaço de \(\mathbb{R}^m\text{.}\)</p></article><article class="hiddenproof" id="proof-3"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof">Dados \(\vec{x}, \vec{y} \in N(A)\) e \(\alpha \in \mathbb{R}\text{:}\) <ol class="decimal">
-<li id="li-67"><p id="p-derived-li-67">\(\displaystyle A\vec{0} = \vec{0} \Longrightarrow  \vec{0} \in N(A) \Longrightarrow N(A) \neq \emptyset,\)</p></li>
-<li id="li-68"><p id="p-derived-li-68">\(\displaystyle A(\alpha\vec{x}) = \alpha A \vec{x} = \vec{0} \Longrightarrow \alpha\vec{x} \in N(A),\)</p></li>
-<li id="li-69"><p id="p-derived-li-69">\(\displaystyle A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} = \vec{0} + \vec{0} = \vec{0} \Longrightarrow \vec{x}+\vec{y} \in N(A).\)</p></li>
+<p id="p-116">Para qualquer matriz \(A \in \mathbb{R}^{n \times m}\text{,}\) \(N(A)\) é um subespaço de \(\mathbb{R}^m\text{.}\)</p></article><article class="hiddenproof" id="proof-3"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof">Dados \(\vec{x}, \vec{y} \in N(A)\) e \(\alpha \in \mathbb{R}\text{:}\) <ol class="decimal">
+<li id="li-84"><p id="p-derived-li-84">\(\displaystyle A\vec{0} = \vec{0} \Longrightarrow  \vec{0} \in N(A) \Longrightarrow N(A) \neq \emptyset,\)</p></li>
+<li id="li-85"><p id="p-derived-li-85">\(\displaystyle A(\alpha\vec{x}) = \alpha A \vec{x} = \vec{0} \Longrightarrow \alpha\vec{x} \in N(A),\)</p></li>
+<li id="li-86"><p id="p-derived-li-86">\(\displaystyle A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} = \vec{0} + \vec{0} = \vec{0} \Longrightarrow \vec{x}+\vec{y} \in N(A).\)</p></li>
 </ol></article></div>
-<article class="example example-like" id="example-22"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-22"><h6 class="heading">
+<article class="example example-like" id="example-25"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.10</span><span class="period">.</span><span class="space"> </span><span class="title">Matriz de uma projeção.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-22"><article class="example example-like">Uma matriz \(A \in \mathbb{R}^{3 \times 3}\) representa uma projeção em um plano que passa pela origem se \(A^2 = A\) (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz \(A\) tem essa propriedade:<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like">Uma matriz \(A \in \mathbb{R}^{3 \times 3}\) representa uma projeção em um plano que passa pela origem se \(A^2 = A\) (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz \(A\) tem essa propriedade:<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} 5/6 \amp 1/6 \amp  1/3\\
 1/6 \amp  5/6 \amp -1/3\\
@@ -287,9 +288,9 @@ A = \left(\begin{array}{ccc} 5/6 \amp 1/6 \amp  1/3\\
 0 \amp 0 \amp  0 \amp 0 \end{array} \right).
 \end{align*}
 </div>
-<p id="p-91">de modo que \(x_2 = x_3/2\) e \(x_1 = -x_3/2\) e \(N(A) = \{\vec{x} \in \mathbb{R}^3 | \vec{x} = \alpha (1/2, -1/2, 1)^T\}\) e um vetor normal ao plano é \((1/2, -1/2, 1)^T\text{.}\)</p></article></div>
-<p id="p-92">O código plota um o plano que passa pela origem se dermos como imput o vetor normal a esse plano.</p>
-<div class="sagecell-sage" id="sage-33"><script type="text/x-sage">import numpy as np
+<p id="p-117">de modo que \(x_2 = x_3/2\) e \(x_1 = -x_3/2\) e \(N(A) = \{\vec{x} \in \mathbb{R}^3 | \vec{x} = \alpha (1/2, -1/2, 1)^T\}\) e um vetor normal ao plano é \((1/2, -1/2, 1)^T\text{.}\)</p></article></div>
+<p id="p-118">O código plota um o plano que passa pela origem se dermos como imput o vetor normal a esse plano.</p>
+<div class="sagecell-sage" id="sage-37"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -320,9 +321,9 @@ ax.plot_surface(xx, yy, z, alpha=0.2)
 
 plt.show()
 </script></div>
-<article class="exercise exercise-like" id="exercise-21"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-21"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.11</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-21"><article class="exercise exercise-like">Verifique se a matriz<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-24"><article class="exercise exercise-like">Verifique se a matriz<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} 0,5 \amp  0 \amp  0,5\\
 0\amp  1\amp 0 \\
@@ -334,7 +335,7 @@ A = \left(\begin{array}{ccc} 0,5 \amp  0 \amp  0,5\\
 </h6>Note que \(N(A)\) não pode ser vazio, pois \(\vec{0} \in N(A)\) uma vez que \(A\vec{0} = \vec{0}\) para qualquer matriz.</article><article class="lemma theorem-like" id="lemma-3"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">9.13</span><span class="period">.</span>
 </h6>
-<p id="p-93">Considere o sistema \(A\vec{x} = \vec{b}\text{,}\)  então a diferença entre duas soluções do sistema está em \(N(A)\text{.}\) Além disso, a soma de uma solução do sistema com um elemento do núcleo é também solução do sistema.</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof">Dados \(\vec{x}, \vec{y}\) soluções de \(A\vec{x} = \vec{b}\text{,}\) temos:<div class="displaymath">
+<p id="p-119">Considere o sistema \(A\vec{x} = \vec{b}\text{,}\)  então a diferença entre duas soluções do sistema está em \(N(A)\text{.}\) Além disso, a soma de uma solução do sistema com um elemento do núcleo é também solução do sistema.</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof">Dados \(\vec{x}, \vec{y}\) soluções de \(A\vec{x} = \vec{b}\text{,}\) temos:<div class="displaymath">
 \begin{equation*}
 A(\vec{x} - \vec{y}) = A\vec{x} - A\vec{y} = \vec{b} - \vec{b} = \vec{0}.
 \end{equation*}
