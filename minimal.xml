@@ -1686,11 +1686,14 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
      
                     <exercise>
                      <p>Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
-                     <solution>Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é minimizar determinadas variáveis, como a seguir:</solution>
+                     <solution>O sistema, que originalmente admitia apenas uma solução, admite, agora, infinitas soluções. Como lidar com esse resultado? Uma possibilidade é fixar os valores das variáveis livres a seu critério. 
+                               Outra opção (mais utilizada em problemas práticos) é otimizar determinadas variáveis, ou seja, maximizar ou minimizar seu valor. Vejamos a seguir:</solution>
                     </exercise>
-                    
+                    como
                     <remark xml:id="minmax_lin_sys">
-                    <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+                    <p>Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. Para otimizar corretamente, escreva/altere as funções
+                       objetivo e as funções limitadoras, conforme explicação e modelo.
+                    </p>
                      <sage>
                        <input>
                          1+3
