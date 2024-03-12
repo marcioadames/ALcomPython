@@ -507,9 +507,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                       
                         <remark>
                           <p>A estratégia utilizada para colocar uma matriz na forma escada consiste trocar linhas para ter um elemento não nulo no canto superior esquerdo. Depois dividimoa a linha por esse elemento para que o elemento no canto superior esquerdo seja 1. Em seguida, utilizamos operações elementares do tipo 3. para zerar os elementos das outras linhas naquela coluna.</p>
-                          <p>Em seguida tentamos repetir esse processo para a segunda coluna. Caso todos os elementos da segunda coluna tenham zerado na primeira etapa, partimos para a terceira coluna. Repetimos isso até chegar à última coluna. Esse processo é chamado de <term>eliminação Gaussiana</term> ou de <term>colocar a matriz na forma escada reduzida por linhas</term>.</p>
+                          <p>Em seguida tentamos repetir esse processo para a segunda coluna. Caso todos os elementos da segunda coluna tenham zerado na primeira etapa, partimos para a terceira coluna. Repetimos isso até chegar à última coluna. Esse processo é chamado de <term>eliminação Gaussiana</term> ou de <term>colocar a matriz na forma escada</term>.</p>
                         </remark>
-                        <p> Ao colocarmos uma matriz na forma escada reduzida por linhas, a posição do primeiro elemento não nulo obtido em uma linha é chamado de <term>pivô</term> daquela linha se todos os elementos na mesma coluna abaixo dele são nulos.</p>
+                        <p> Ao colocarmos uma matriz na forma escada, a posição do primeiro elemento não nulo obtido em uma linha é chamado de <term>pivô</term> daquela linha se todos os elementos na mesma coluna e abaixo dele são nulos.</p>
 
                         <example>
                             <p>Pivôs em diversas linhas:</p>
@@ -806,7 +806,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <definition>
                     <notation>
                     <!-- usage><m>S</m></usage -->
-                    <description>forma escada reduzidq</description>
+                    <description>forma escada reduzida</description>
                     </notation>
                 
                     <statement>
@@ -881,8 +881,8 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <li>Escreva um sistema que represente o diagrama.</li>
                         <li>Resolva o sistema encontrado utilizando a redução de Gauss-Jordan.</li>
                         <li>Determine o fluxo em cada rua para <m>x_3 = x_5 =50</m>.</li>
-                        <li>Se a entrade de carros no cruzamento inferior esquerdo mudar para 200 carros por hora, qual o valor dos demais fluxos.</li>
-                        <li>Refaça os cálculos anteriores para o caso de revertermos a direção de <m>x_3</m>.</li>
+                        <li>Se a entrade de carros no cruzamento inferior esquerdo mudar para 200 carros por hora e no ccanto superior direito para 500 carros por hora, qual o valor dos demais fluxos (mantendo <m>x_3=x_5=50</m>).</li>
+                        <li>Refaça o item anterior para o caso de revertermos a direção de <m>x_3</m>.</li>
                     </ol>
                 </exercise>
 
@@ -1457,211 +1457,211 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <p>Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
                      <sage>
                        <input>
-                         import numpy as np
-                         import fractions
-     
-                         # Aqui estão os rótulos do problema
-                         und = "g"  # Unidade de massa
-                         foods = ["Arroz", "Feijão", "Frango", "Alface", "Tomate"]  # Lista de alimentos (Em ordem)
-                         quant = 100  # A cada quantos gramas/quilos/etc de comida temos a quantidade listada de nutrientes?
-                         negSol = True  # Caso esteja setado como "False", o programa gerará um erro caso as soluções sejam negativas
-     
-                         # Esta variável define o número de casas decimais para arredondamento dos resultados
-                         decPlaces = 2
-     
-                         # Coloque aqui a matriz AMPLIADA do sistema:
-                         ampl = [[   0.4,    8.7,     0,   1.2,   1.2,    20.6],
-                                 [ 28.17,  23.71,     0,  2.97,  3.89,  110.62],
-                                 [     1,      1,    51,    10,     5,     172],
-                                 [  2.69,   8.86, 27.13,   0.9,  0.88,  106.27],
-                                 [  0.28,   0.54,  4.07,  0.14,   0.2,   14.19]]
-     
-                         # Estes códigos são referentes às funções que realizam a redução de Gauss-Jordan
-     
-                         def gaussianElimination(A,prin=True):
-                             a=0
-                             A = A + fractions.Fraction()
-     
-                             if prin==True:
-                                 print('A='+str(A))
-                             for j in range(np.shape(A)[1]-1):
-                                 b=0
-                                 for i in range(a,np.shape(A)[0]):
-                                     if A[i,j] != 0:
-                                         if a !=i:
-                                             A[[a,i]]=A[[i,a]]
-                                             if prin==True:
-                                                 print('\n~'+str(A))
-                                         if A[a,j]!=1:
-                                             A[a]=A[a]/A[a,j]
-                                             if prin==True:
-                                                 print('\n~'+str(A))
-                                         a=a+1
-                                         b=1
-                                         break
-                                 if b==1:
-                                     for i in range(a,np.shape(A)[0]):
-                                         if A[i,j] != 0:
-                                             A[i]=A[i]-A[a-1]*A[i,j]
-                                         if prin==True:
-                                             print('\n~'+str(A))
-     
-                                 i = 0
-                                 for line in A:
-                                     j = 0
-                                     for elem in line:
-                                         A[i][j] = float(elem)
-                                         j += 1
-                                     i += 1
-     
-                             np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-                             return A
-     
-                         def gaussJordan(A,prin=True):
-                             B=gaussianElimination(A,prin)
-                             #print('jordan')
-                             a=0
-                             for i in range(np.shape(A)[0]):
-                                 b=0
-                                 for j in range(np.shape(A)[1]):
-                                     if B[np.shape(B)[0]-i-1,j] == 1 and b==0:
-                                         b=j
-                                         for k in range(np.shape(B)[0]-i-1):
-                                             B[np.shape(B)[0]-i-2-k]=B[np.shape(B)[0]-i-2-k]- B[np.shape(B)[0]-i-2-k,j]*B[B.shape[0]-i-1]
-                                             if prin==True:
-                                                     print('\n~'+str(B))                
-                             np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-                             return B
-     
-                         ampl = np.array(ampl)
-                         done = False
-     
-                         # Dimensões da matriz de coeficientes A
-                         m = np.shape(ampl)[0]
-                         n = np.shape(ampl)[1] - 1
-     
-                         # Extraindo a matriz de coeficientes da matriz ampliada
-                         A = ampl[0:m, 0:n]
-                         A = np.array(A)
-     
-                         # Agora iremos verificar em qual caso o sistema se encaixa: Solução única, sem solução ou infinitas soluções
-                         # Para isso, verificaremos o posto da matriz de coeficientes A e o posto da matriz ampliada
-                         rankA = np.linalg.matrix_rank(A)
-                         rankAmpl = np.linalg.matrix_rank(ampl)
-     
-                         # Para resolver o sistema linear, será feita a redução de Gauss-Jordan na matriz ampliada:
-                         print("Escalonamento passo a passo da matriz ampliada do sistema:\n")
-                         esc = gaussJordan(ampl)
-     
-                         # Devido ao truncamento em python, vamos filtrar valores infinitesimais para evitar que fiquem como "-0.0"
-                         i = 0
-                         changed = False
-                         while i &lt; m:
-                             if round(esc[i][n], decPlaces) == -0.0:
-                                 esc[i][n] = 0
-                                 changed = True
-                             i+=1
-     
-                         if changed == True:
-                             esc = gaussJordan(esc, prin=False)
-     
-                         # Imprimindo na tela a matriz ampliada escalonada reduzida
-                         print("\nMatriz ampliada escalonada reduzida do sistema:")
-                         print(esc, "\n")
-     
-                         # Aqui verificamos se o sistema é sem solução. De acordo com o teorema, se o posto da matriz ampliada
-                         # for diferente do posto da matriz de coeficientes, o sistema não tem solução
-                         if rankA != rankAmpl:
-                             raise Exception("O sistema não possui soluções reais!")
-     
-                         # Aqui verificamos se o sistema é de solução única
-                         sol = []
-                         if rankA == n:
-                             for i in range(rankA):
-                                 sol.append((esc[i][n])*quant)
-     
-                             # Aqui filtramos os valores: Valores negativos não fazem sentido nesse contexto
-                             if negSol == False:
-                                 for elem in sol:
-                                     if elem &lt; 0:
-                                         raise Exception("O sistema linear possui solução negativa")
-     
-                             # Aqui vamos imprimir os resultados de maneira formatada
-                             print("Você deverá consumir diariamente:")
-                             for i in range(n):
-                                 print(f'{round(sol[i], decPlaces)} {und} de {foods[i]}')
-                             done = True
-     
-                         # Se a execução do programa chegar até aqui, temos várias soluções.
-                         # Iremos trabalhar com otimização linear para interpretar os resultados.
-     
-                         if not done:
-                             # inicialização de contadores
-                             i = 0
-                             j = 0
-     
-                             # Array que contem as linhas com as variaveis fixas
-                             fixas = []
-                             # Array que contem as variáveis fixas
-                             varsFixas = []
-                             # Array com as linhas que contém variáveis livres
-                             livres = []
-     
-                             while i &lt; rankA:
-                                 livres.append(i)
-                                 i += 1
-     
-                             # Aqui filtramos valores negativos:
-                             if negSol == False:
-                                 for line in esc:
-                                     if line[n] &lt; 0:
-                                         raise Exception("O sistema linear possui solução negativa")
-     
-     
-                             # Aqui verificaremos as linhas da matriz escalonada reduzida em busca
-                             # de linhas que possuam apenas um número não nulo, em busca de variáveis
-                             # cujo valor seja fixado
-     
-                             i = 0
-                             while i &lt; rankA:
-                                 notNullCount = 0
-                                 j = 0
-                                 while j &lt; n:
-                                     if esc[i][j] != 0:
-                                         notNullCount += 1
-                                         k = j
-                                     j += 1
-                                 if notNullCount == 1:
-                                     livres.remove(i)
-                                     varsFixas.append(k)
-                                     fixas.append(i)
-                                 i += 1
-     
-     
-                             # Já sabendo as relações entre variáveis fixas e livres, vamos imprimir
-                             # na tela os resultados (por ora, sem otimização)
-     
-                             print("Você deverá consumir diariamente:")
-                             for i in fixas:
-                                     print(f'{round(esc[i][n]*quant, decPlaces)} {und} de {foods[varsFixas[i]]}')
-     
-                             for i in livres:
-                                 varsLivres = []
-                                 j = 0
-                                 while j &lt; n:
-                                     if esc[i][j] != 0:
-                                         varsLivres.append(j)
-                                         k=j
-                                     j += 1
-     
-                                 print("Você pode escolher consumir diariamente:")
-                                 for j in range(len(varsLivres) - 1):
-                                     print(f'{foods[varsLivres[j]]},', end=" ")
-                                 print(f'{foods[k]},', end=" ")
-                                 print(f'De modo que:')
-                                 for j in range(len(varsLivres) - 1):
-                                     print(f'{esc[i][varsLivres[j]]} porção de {foods[varsLivres[j]]} +', end=" ")
-                                 print(f'{esc[i][k]} porção de {foods[k]} totalize {round(esc[i][n]*quant, decPlaces)}{und}')
+                        import numpy as np
+                        import fractions
+
+                        # Aqui estão os rótulos do problema
+                        und = "g"  # Unidade de massa
+                        foods = ["Arroz", "Feijão", "Frango", "Alface", "Tomate"]  # Lista de alimentos (Em ordem)
+                        quant = 100  # A cada quantos gramas/quilos/etc de comida temos a quantidade listada de nutrientes?
+                        negSol = True  # Caso esteja setado como "False", o programa gerará um erro caso as soluções sejam negativas
+
+                        # Esta variável define o número de casas decimais para arredondamento dos resultados
+                        decPlaces = 2
+
+                        # Coloque aqui a matriz AMPLIADA do sistema:
+                        ampl = [[   0.4,    8.7,     0,   1.2,   1.2,    20.6],
+                                [ 28.17,  23.71,     0,  2.97,  3.89,  110.62],
+                                [     1,      1,    51,    10,     5,     172],
+                                [  2.69,   8.86, 27.13,   0.9,  0.88,  106.27],
+                                [  0.28,   0.54,  4.07,  0.14,   0.2,   14.19]]
+
+                        # Estes códigos são referentes às funções que realizam a redução de Gauss-Jordan
+
+                        def gaussianElimination(A,prin=True):
+                            a=0
+                            A = A + fractions.Fraction()
+
+                            if prin==True:
+                                print('A='+str(A))
+                            for j in range(np.shape(A)[1]-1):
+                                b=0
+                                for i in range(a,np.shape(A)[0]):
+                                    if A[i,j] != 0:
+                                        if a !=i:
+                                            A[[a,i]]=A[[i,a]]
+                                            if prin==True:
+                                                print('\n~'+str(A))
+                                        if A[a,j]!=1:
+                                            A[a]=A[a]/A[a,j]
+                                            if prin==True:
+                                                print('\n~'+str(A))
+                                        a=a+1
+                                        b=1
+                                        break
+                                if b==1:
+                                    for i in range(a,np.shape(A)[0]):
+                                        if A[i,j] != 0:
+                                            A[i]=A[i]-A[a-1]*A[i,j]
+                                        if prin==True:
+                                            print('\n~'+str(A))
+
+                                i = 0
+                                for line in A:
+                                    j = 0
+                                    for elem in line:
+                                        A[i][j] = float(elem)
+                                        j += 1
+                                    i += 1
+
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            return A
+
+                        def gaussJordan(A,prin=True):
+                            B=gaussianElimination(A,prin)
+                            #print('jordan')
+                            a=0
+                            for i in range(np.shape(A)[0]):
+                                b=0
+                                for j in range(np.shape(A)[1]):
+                                    if B[np.shape(B)[0]-i-1,j] == 1 and b==0:
+                                        b=j
+                                        for k in range(np.shape(B)[0]-i-1):
+                                            B[np.shape(B)[0]-i-2-k]=B[np.shape(B)[0]-i-2-k]- B[np.shape(B)[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                            if prin==True:
+                                                    print('\n~'+str(B))                
+                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                            return B
+
+                        ampl = np.array(ampl)
+                        done = False
+
+                        # Dimensões da matriz de coeficientes A
+                        m = np.shape(ampl)[0]
+                        n = np.shape(ampl)[1] - 1
+
+                        # Extraindo a matriz de coeficientes da matriz ampliada
+                        A = ampl[0:m, 0:n]
+                        A = np.array(A)
+
+                        # Agora iremos verificar em qual caso o sistema se encaixa: Solução única, sem solução ou infinitas soluções
+                        # Para isso, verificaremos o posto da matriz de coeficientes A e o posto da matriz ampliada
+                        rankA = np.linalg.matrix_rank(A)
+                        rankAmpl = np.linalg.matrix_rank(ampl)
+
+                        # Para resolver o sistema linear, será feita a redução de Gauss-Jordan na matriz ampliada:
+                        print("Escalonamento passo a passo da matriz ampliada do sistema:\n")
+                        esc = gaussJordan(ampl)
+
+                        # Devido ao truncamento em python, vamos filtrar valores infinitesimais para evitar que fiquem como "-0.0"
+                        i = 0
+                        changed = False
+                        while i &lt; m:
+                            if round(esc[i][n], decPlaces) == -0.0:
+                                esc[i][n] = 0
+                                changed = True
+                            i+=1
+
+                        if changed == True:
+                            esc = gaussJordan(esc, prin=False)
+
+                        # Imprimindo na tela a matriz ampliada escalonada reduzida
+                        print("\nMatriz ampliada escalonada reduzida do sistema:")
+                        print(esc, "\n")
+
+                        # Aqui verificamos se o sistema é sem solução. De acordo com o teorema, se o posto da matriz ampliada
+                        # for diferente do posto da matriz de coeficientes, o sistema não tem solução
+                        if rankA != rankAmpl:
+                            raise Exception("O sistema não possui soluções reais!")
+
+                        # Aqui verificamos se o sistema é de solução única
+                        sol = []
+                        if rankA == n:
+                            for i in range(rankA):
+                                sol.append((esc[i][n])*quant)
+
+                            # Aqui filtramos os valores: Valores negativos não fazem sentido nesse contexto
+                            if negSol == False:
+                                for elem in sol:
+                                    if elem &lt; 0:
+                                        raise Exception("O sistema linear possui solução negativa")
+
+                            # Aqui vamos imprimir os resultados de maneira formatada
+                            print("Você deverá consumir diariamente:")
+                            for i in range(n):
+                                print(f'{round(sol[i], decPlaces)} {und} de {foods[i]}')
+                            done = True
+
+                        # Se a execução do programa chegar até aqui, temos várias soluções.
+                        # Iremos trabalhar com otimização linear para interpretar os resultados.
+
+                        if not done:
+                            # inicialização de contadores
+                            i = 0
+                            j = 0
+
+                            # Array que contem as linhas com as variaveis fixas
+                            fixas = []
+                            # Array que contem as variáveis fixas
+                            varsFixas = []
+                            # Array com as linhas que contém variáveis livres
+                            livres = []
+
+                            while i &lt; rankA:
+                                livres.append(i)
+                                i += 1
+
+                            # Aqui filtramos valores negativos:
+                            if negSol == False:
+                                for line in esc:
+                                    if line[n] &lt; 0:
+                                        raise Exception("O sistema linear possui solução negativa")
+
+
+                            # Aqui verificaremos as linhas da matriz escalonada reduzida em busca
+                            # de linhas que possuam apenas um número não nulo, em busca de variáveis
+                            # cujo valor seja fixado
+
+                            i = 0
+                            while i &lt; rankA:
+                                notNullCount = 0
+                                j = 0
+                                while j &lt; n:
+                                    if esc[i][j] != 0:
+                                        notNullCount += 1
+                                        k = j
+                                    j += 1
+                                if notNullCount == 1:
+                                    livres.remove(i)
+                                    varsFixas.append(k)
+                                    fixas.append(i)
+                                i += 1
+
+
+                            # Já sabendo as relações entre variáveis fixas e livres, vamos imprimir
+                            # na tela os resultados (por ora, sem otimização)
+
+                            print("Você deverá consumir diariamente:")
+                            for i in fixas:
+                                    print(f'{round(esc[i][n]*quant, decPlaces)} {und} de {foods[varsFixas[i]]}')
+
+                            for i in livres:
+                                varsLivres = []
+                                j = 0
+                                while j &lt; n:
+                                    if esc[i][j] != 0:
+                                        varsLivres.append(j)
+                                        k=j
+                                    j += 1
+
+                                print("Você pode escolher consumir diariamente:")
+                                for j in range(len(varsLivres) - 1):
+                                    print(f'{foods[varsLivres[j]]},', end=" ")
+                                print(f'{foods[k]},', end=" ")
+                                print(f'De modo que:')
+                                for j in range(len(varsLivres) - 1):
+                                    print(f'{esc[i][varsLivres[j]]} porção de {foods[varsLivres[j]]} +', end=" ")
+                                print(f'{esc[i][k]} porção de {foods[k]} totalize {round(esc[i][n]*quant, decPlaces)}{und}')
                        </input>
                        <output>
                          out
