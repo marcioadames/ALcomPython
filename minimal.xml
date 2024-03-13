@@ -1019,14 +1019,14 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado
                         </p>
                         <ol>
-                            <li>\alpha B;</li>
-                            <li>\beta \vec{v};</li>
-                            <li>A + B;</li>
-                            <li>B - D;</li>
-                            <li>2\vec{v}-3\vec{u};</li>
-                            <li>AB;</li>
-                            <li>BA;</li>
-                            <li>A\vec{u}</li>
+                            <li><m>\alpha B</m>;</li>
+                            <li><m>\beta \vec{v}</m>;</li>
+                            <li><m>A + B</m>;</li>
+                            <li><m>B - D</m>;</li>
+                            <li><m>2\vec{v}-3\vec{u}</m>;</li>
+                            <li><m>AB</m>;</li>
+                            <li><m>BA</m>;</li>
+                            <li><m>A\vec{u}</m></li>
                         </ol>
                     </example>
 
