@@ -911,9 +911,23 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                
                 </subsection>
 
-                <!--  *********************************************************
-                *************************************************************** -->
-               
+            </section>
+
+        <!--  *********************************************************
+        ***************************************************************
+        ***************************************************************
+        *************************************************************** -->
+        
+        
+        <section xml:id = "Matrices">
+
+            <title>Matrizes</title>
+
+            <intro>
+
+                <p>Utilizamos matrizes ampliadas para resolver sistemas lineares nas seções anteriores. Nessa seção começamos a explorar outras aplicações de matrizes para estudar e resolver sistemas lineares. Ao fazer isso estamos criando uma estrutura que nos permite estudar transformações lineares e susas diversas aplicações.</p>
+
+            </intro>
                
                 <subsection xml:id="matrizes_operacoes">
                     <title>Matrizes e operações</title>
@@ -971,7 +985,10 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             O <term>produto de um número real</term> <m>\alpha</m> e <term> uma matriz</term> <m>A = (a_{ij})</m>, <m>m \times n</m>, é a matriz <m>C = (c_{ij}),</m> <m>m \times n</m>, definida por <m>c_{ij} = \alpha a_{ij}</m>.
                         </p>
                         <p>
-                            O <term>produto</term> de uma matriz <m>A = (a_{ij})</m>, <m>m \times n</m>, e outra matriz <m>B = (b_{ij})</m>,  <m>n \times r</m>, é a matriz <m>C = (c_{ij}),</m> <m>m \times r</m>, definida por <m>c_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{nj}</m>. (o número de colunas de <m>A</m> precisa ser igual ao número de linhas de <m>B</m>).
+                            O <term>produto</term> de uma matriz <m>A = (a_{ij})</m>, <m>m \times n</m>, e outra matriz <m>B = (b_{ij})</m>,  <m>n \times r</m>, é a matriz <m>AB = (c_{ij}),</m> <m>m \times r</m>, definida por <m>c_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{nj}</m>. (o número de colunas de <m>A</m> precisa ser igual ao número de linhas de <m>B</m>).
+                        </p>
+                        <p>
+                            A <m>n</m>-ésima <term>potência</term> de uma matriz quadrada <m>A = (a_{ij})</m>, <m>m \times m</m>, é a matriz <m>A^n : = A \ldots A.</m> (o prudoto de <m>n</m> cópias da matriz <m>A</m>).
                         </p>
                         </statement>
                     </definition>
@@ -1174,7 +1191,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         </ol>
                     </exercise>
 
-                    <example>
+                    <example xml:id="rep_matrix">
                         <p>Para as matrizes</p>
                         <me>
                             A = \begin{pmatrix}
@@ -1237,13 +1254,252 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </exercise>
 
 
+                </subsection>
+
+                <!--  *********************************************************
+                *************************************************************** -->
+               
+               
+               <subsection xml:id="Matrix_rep_mult">
+                <title>Representação Matricial e Multiplicação de Matrizes</title>
+
+                <p>Observamos no <xref ref="rep_matrix"> exemplo </xref> que</p>
+                <me>A\vec{x} = \begin{pmatrix}
+                    a_{11} x_1 + a_{12} x_2 + \cdots + \amp a_{1n} x_n\\
+                    a_{21} x_1 + a_{22} x_2 + \cdots + \amp a_{2n} x_n\\
+                    \vdots\\
+                    a_{m1} x_1 + a_{m2} x_2 + \cdots + \amp a_{mn} x_n
+                    \end{pmatrix}
+                </me>
+                <p>desse modo, o sistema linear</p>
+                <me>A\vec{x} = \begin{array}{c}
+                    a_{11} x_1 + a_{12} x_2 + \cdots + \amp a_{1n} x_n = b_1,\\
+                    a_{21} x_1 + a_{22} x_2 + \cdots + \amp a_{2n} x_n = b_2,\\
+                    \vdots\\
+                    a_{m1} x_1 + a_{m2} x_2 + \cdots + \amp a_{mn} x_n = b_m,
+                    \end{array}
+                </me>
+                <p>é equivalente à equação matricial</p>
+                <me>\begin{pmatrix}
+                    a_{11} \amp a_{12} \amp \cdots  \amp a_{1n}\\
+                    a_{21} \amp a_{22} \amp \cdots  \amp a_{2n}\\
+                    \vdots\\
+                    a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    x_1\\
+                    x_2\\
+                    \vdots\\
+                    x_n
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                    b_1\\
+                    b_2\\
+                    \vdots\\
+                    b_m
+                    \end{pmatrix}
+                    =\vec{b}
+                </me>
+                <p>onde <m>\vec{b}</m> é o nome que damos ao vetor <m>(b_1, b_2, \cdots, b_m)</m>. Assim um sistema linear pode ser escrito na forma <m>A\vec{x} = \vec{b}</m>. Chamamos essa forma de <term>forma matricial do sistema</term>. Isso é particularmente importante pois é análogo à equação linear <m>ax=b</m>, cuja solução é <m>x=b/a</m>.</p>
+
+
+                <theorem xml:id="prop_op_matr">
+                    <title>Propriedades das operações básicas</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Dados <m>\alpha, \beta \in \mathbb{R}</m> e matrizes <m>A, B</m> e <m>C</m>. Então, se as operaçõesa seguir estiverem definidas (as dimensões das matrizes forem adequadas para permitir as operações), vale:</p>
+                      <ol marker="A">
+                        <li> <m> A + B = B + A, </m> </li>
+                        <li> <m> (A + B) + C = A + (B + C), </m> </li>
+                        <li> <m> (AB)C = A(BC), </m> </li>
+                        <li> <m> A(B+C) = AB + AC, </m> </li>
+                        <li> <m> (A+B)C = AC + BC, </m> </li>
+                        <li> <m> (\alpha \beta) A = \alpha(\beta A), </m> </li>
+                        <li> <m> \alpha(AB) = (\alpha A)B = A(\alpha B), </m> </li>
+                        <li> <m> (\alpha + \beta) A = \alpha A + \beta A. </m> </li>
+                      </ol>
+                  </statement>
+                
+                 <proof>
+                    A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.
+                </proof>
+                </theorem>
+
+                <exercise>
+                    <p>Para cada uma das propriedades no <xref ref="prop_op_matr"></xref>, dê exemplos de constantes e matrizes para as quais as operações fazem sentido. Em seguida calcule o lado esquerdo e o lado direito de cada igualdade e verifique que o mesmo resultado é obtido. Verifique seua cálculos utilizando os códigos em python.</p>
+                </exercise>
+
+                <remark>Os produtos matriciais <m>AB</m> e <m>BA</m> só fazem sentido se ambas <m>A</m> e <m>B</m> são matrizes quadradas de mesma dimensão <m>n \times n</m>. Todavia <m>AB \neq BA</m> em geral. </remark>
+
+                <exercise>
+                    <p>Defina matrizes <m>3 \times 3</m>, <m>A, B</m>, tais que <m>AB \neq BA</m> e calcule <m>AB</m> e <m>BA</m>. Em seguida comprove seus cálculos utilizando o computador.</p>
+                </exercise>
+
+                <definition>
+                    <notation>
+                    <usage><m>A^T</m></usage>
+                    <description>transposta</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>A</m> uma matrix <m>m \times n</m>. A <term>transposta</term> de <m>A</m>, denotada <m>A^T</m> é a matriz <m>n \times m</m>, <m>B = (b_{ij})</m> definida através de <m>b_{ij} = a_{ji}.</m>. 
+                    </p>
+                    </statement>
+                </definition>
 
 
 
+                <example>
+                    <ol>
+                        <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -2 \\ -1 \amp 4 \\ 2 \amp 3 \end{pmatrix}</m>.</li>
+                        <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \\ 2 \amp 1\amp -2\end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -2 \ amp 2\\ -1 \amp 4 \amp 1\\ 2 \amp 3 amp -2 \end{pmatrix}</m>.</li>
+                        <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2\end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2 \end{pmatrix}</m>.</li>
+                    </ol>
+                </example>
+
+                <definition>
+                    <notation>
+                    <usage><m>A=A^T</m></usage>
+                    <description>simétrica</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Se <m>A = A^T</m>, dizemos que <m>A</m> é uma matriz <term>simétrica</term>. 
+                    </p>
+                    </statement>
+                </definition>
 
 
+                <theorem xml:id="prop_transp">
+                    <title>Propriedades da transposta</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Dados <m>\alpha \in \mathbb{R}</m> e matrizes <m>A, B</m>. Então, se as operaçõesa seguir estiverem definidas (as dimensões das matrizes forem adequadas para permitir as operações), vale:</p>
+                      <ol marker="A">
+                        <li> <m> (A^T)^T = A, </m> </li>
+                        <li> <m> (\alpha A)^T = \alpha A^T, </m> </li>
+                        <li> <m> (A+B)^T = A^T+B^T, </m> </li>
+                        <li> <m> (AB)^T = B^TA^T. </m> </li>
+                      </ol>
+                  </statement>
+                
+                 <proof>
+                    A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.
+                </proof>
+                </theorem>
+
+                <exercise>
+                    <p>Para cada uma das propriedades no <xref ref="prop_transp"></xref>, dê exemplos de constantes e matrizes para as quais as operações fazem sentido. Em seguida calcule o lado esquerdo e o lado direito de cada igualdade e verifique que o mesmo resultado é obtido. Verifique seua cálculos utilizando os códigos em python.</p>
+                </exercise>
+
+
+                <definition>
+                    <notation>
+                    <usage><m>I</m></usage>
+                    <description>identidade</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        A matrix identidade, <m>I</m>, <m>n \times n</m>, <m>I=(\delta_{ij})</m>, onde <m>\delta_{ij} = 0</m>, se <m>i\neq j</m>, e <m>\delta_{ij} = 1</m>, se <m>i = j</m>.
+                        <me>
+                            \begin{pmatrix}
+                            1 \amp 0 \amp \cdots  \amp 0\\
+                            0 \amp 1 \amp \cdots  \amp 0\\
+                            \vdots\\
+                            0 \amp 0 \amp \cdots \amp 1
+                            \end{pmatrix}
+                        </me>
+                    </p>
+                    </statement>
+                </definition>
+
+                <theorem>
+                    <!-- title>Propriedades das operações básicas</title -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      Sejam <m>I</m> a matriz identidade <m>n \times n</m>, <m>A</m> uma matriz <m>m \times n</m> e <m>B</m> uma matriz <m>n \times r</m></p>
+                      <ol marker="A">
+                        <li> <m> AI = I, </m> </li>
+                        <li> <m> IB = B. </m> </li>
+                      </ol>
+                  </statement>
+                
+                 <proof>
+                    A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.
+                </proof>
+                </theorem>
+
+                <definition>
+                    <notation>
+                    <usage><m>A^{-1}</m></usage>
+                    <description>inversa</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Uma matrix <m>A</m>, <m>n \times n</m>, é <term>inversível</term> (também chamada de <term>não singular</term>) se existe uma matriz <m>B</m>, <m>n \times n</m>, tal que <m>AB = BA = I</m>. <m>B</m> é dita a matriz inversa de <m>A</m> e denotada <m>A^{-1}=B</m>.
+                    </p>
+                    </statement>
+                </definition>
+
+
+                <example>
+                    <ol>
+                        <li>Para <m>A = \begin{pmatrix} 1 \amp -1\\ -2 \amp 4 \end{pmatrix}</m> a inversa é matriz <m>A^{-1} = \begin{pmatrix} 2 \amp 1/2 \\ 1 \amp 1/2 \end{pmatrix}</m> pois <m>AA^{-1}=A^{-1}A=I</m>.</li>
+                        <li>Para <m>A = \begin{pmatrix} -1 \amp 2\\ 2 \amp 3 \end{pmatrix}</m> a inversa é matriz <m>A = \begin{pmatrix} -3/7 \amp 2/7\\ 2/7 \amp 1/7 \end{pmatrix}</m> pois <m>AA^{-1} = A^{-1}A=I</m>.</li>
+                    </ol>
+                </example>
+
+                <remark>
+                    Se <m>ad-bc \neq 0</m>, então a matriz
+                    <me>
+                        A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}
+                    </me>
+                    é inversível e
+                    <me>
+                        A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d \amp -b \\ -c \amp a \end{pmatrix}.
+                    </me>
+                    Como pode ser verificado diretamente calculando <m>AA^{-1}</m> e <m>A^{-1}A</m>.
+                </remark>
+
+
+                <remark>
+                    Um sistema linear escrito na forma matricial <m>A\vec{x} = \vec{b}</m>, pode ser resolvido multiplicando à esquerda ambos os lados da equação por <m>A^{-1}</m>, se <m>A</m> é inversível: 
+                    <me>
+                        \vec{x} = (A^{-1}A)\vec{x} = A^{-1}(A\vec{x}) = A^{-1}\vec{b}.
+                    </me>
+                </remark>
 
                 </subsection>
+                
+
+                <exercise>
+                    <p>Escreva o sistema abaixo na forma matricial, <m>A\vec{x} = \vec{b}</m>, calcule <m>A^{-1}</m>, e resolva o sistema calculando <m>\vec{x} = A^{-1}\vec{b}</m>. Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</p>
+                    <me>
+                        <me>A\vec{x} = \begin{array}{c}
+                            x + 2 y = 3,\\
+                            2 x  - y = 2.
+                            \end{array}
+                        </me>
+                    </me>
+                </exercise>
+
+                <exercise>
+                    <p>Escreva o sistema abaixo na forma matricial, <m>A\vec{x} = \vec{b}</m>, calcule <m>A^{-1}</m>, e resolva o sistema calculando <m>\vec{x} = A^{-1}\vec{b}</m>. Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</p>
+                    <me>
+                        <me>A\vec{x} = \begin{array}{c}
+                            -1 x - y = 2,\\
+                            2 x +  3y = -1.
+                            \end{array}
+                        </me>
+                    </me>
+                </exercise>
 
 
 
