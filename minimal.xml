@@ -1693,7 +1693,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </exercise>
                     como
                     <remark xml:id="minmax_lin_sys">
-                    <p>Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseja fazer com um número diferente, escreva/altere as funções
+                    <p>Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva/altere as funções
                        objetivo e as funções limitadoras, conforme explicação e modelo no código.
                     </p>
                      <sage>
