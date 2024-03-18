@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-18T11:57:05-03:00       *-->
+<!--*       on 2024-03-18T13:13:50-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -26,8 +26,336 @@
 <article class="remark remark-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.9</span><span class="period">.</span>
 </h6>
-<p>Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. Para otimizar corretamente, escreva/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo.</p>
-<div class="sagecell-sage" id="sage-13"><script type="text/x-sage">1+3
+<p>Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.</p>
+<div class="sagecell-sage" id="sage-13"><script type="text/x-sage">import numpy as np
+import fractions
+from scipy.optimize import minimize
+
+# Aqui estão os rótulos do problema
+und = "g"  # Unidade de massa
+foods = ["Arroz", "Feijão", "Frango", "Alface", "Tomate"]  # Lista de alimentos (Em ordem)
+quant = 100  # A cada quantos gramas/quilos/etc de comida temos a quantidade listada de nutrientes?
+optimize = True
+choiceMinMax = 1    # 1 para maximizar, 2 para minimizar
+choiceFood = 2      # 0 para arroz, 1 para feijão, 2 para frango, 3 para alface, 4 para tomate
+                    # Escolha choiceFood = 99 para minimizar/maximizar a qtd total
+
+# Esta variável define o número de casas decimais para arredondamento dos resultados
+decPlaces = 2
+
+# Coloque aqui a matriz AMPLIADA do sistema:
+ampl = []
+
+# Estes códigos são referentes às funções que realizam a redução de Gauss-Jordan
+
+def gaussianElimination(A,prin=True):
+    a=0
+    A = A + fractions.Fraction()
+
+    if prin==True:
+        print('A='+str(A))
+    for j in range(np.shape(A)[1]-1):
+        b=0
+        for i in range(a,np.shape(A)[0]):
+            if A[i,j] != 0:
+                if a !=i:
+                    A[[a,i]]=A[[i,a]]
+                    if prin==True:
+                        print('\n~'+str(A))
+                if A[a,j]!=1:
+                    A[a]=A[a]/A[a,j]
+                    if prin==True:
+                        print('\n~'+str(A))
+                a=a+1
+                b=1
+                break
+        if b==1:
+            for i in range(a,np.shape(A)[0]):
+                if A[i,j] != 0:
+                    A[i]=A[i]-A[a-1]*A[i,j]
+                if prin==True:
+                    print('\n~'+str(A))
+
+        i = 0
+        for line in A:
+            j = 0
+            for elem in line:
+                A[i][j] = float(elem)
+                j += 1
+            i += 1
+
+        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return A
+
+def gaussJordan(A,prin=True):
+    B=gaussianElimination(A,prin)
+    #print('jordan')
+    a=0
+    for i in range(np.shape(A)[0]):
+        b=0
+        for j in range(np.shape(A)[1]):
+            if B[np.shape(B)[0]-i-1,j] == 1 and b==0:
+                b=j
+                for k in range(np.shape(B)[0]-i-1):
+                    B[np.shape(B)[0]-i-2-k]=B[np.shape(B)[0]-i-2-k]- B[np.shape(B)[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                    if prin==True:
+                            print('\n~'+str(B))                
+    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return B
+
+ampl = np.array(ampl)
+
+# Dimensões da matriz de coeficientes A
+m = np.shape(ampl)[0]
+n = np.shape(ampl)[1] - 1
+
+# Extraindo a matriz de coeficientes da matriz ampliada
+A = ampl[0:m, 0:n]
+A = np.array(A)
+
+# Agora iremos verificar em qual caso o sistema se encaixa: Solução única, sem solução ou infinitas soluções
+# Para isso, verificaremos o posto da matriz de coeficientes A e o posto da matriz ampliada
+rankA = np.linalg.matrix_rank(A)
+rankAmpl = np.linalg.matrix_rank(ampl)
+
+# Para resolver o sistema linear, será feita a redução de Gauss-Jordan na matriz ampliada:
+print("Escalonamento passo a passo da matriz ampliada do sistema:\n")
+esc = gaussJordan(ampl)
+
+# Devido ao truncamento em python, vamos filtrar valores infinitesimais para evitar que fiquem como "-0.0"
+i = 0
+changed = False
+while i < m:
+    if round(esc[i][n], decPlaces) == -0.0:
+        esc[i][n] = 0
+        changed = True
+    i+=1
+
+if changed == True:
+    esc = gaussJordan(esc, prin=False)
+
+# Imprimindo na tela a matriz ampliada escalonada reduzida
+print("\nMatriz ampliada escalonada reduzida do sistema:")
+print(esc, "\n")
+
+# Aqui verificamos se o sistema é sem solução. De acordo com o teorema, se o posto da matriz ampliada
+# for diferente do posto da matriz de coeficientes, o sistema não tem solução
+if rankA != rankAmpl:
+    raise Exception("O sistema não possui soluções reais!")
+
+# Aqui verificamos se o sistema é de solução única
+sol = []
+if rankA == n:
+    for i in range(rankA):
+        sol.append((esc[i][n])*quant)
+
+    # Aqui filtramos os valores: Valores negativos não fazem sentido nesse contexto
+    for elem in sol:
+        if elem < 0:
+            raise Exception("O sistema linear possui solução negativa")
+
+    # Aqui vamos imprimir os resultados de maneira formatada
+    print("Você deverá consumir diariamente:")
+    for i in range(n):
+        print(f'{round(sol[i], decPlaces)} {und} de {foods[i]}')
+    sair = 1
+
+# Se a execução do programa chegar até aqui, temos várias soluções.
+# Iremos trabalhar com otimização linear para interpretar os resultados.
+
+if not sair:
+    # inicialização de contadores
+    i = 0
+    j = 0
+
+    # Array que contem as linhas com as variaveis fixas
+    fixas = []
+    # Array que contem as variáveis fixas
+    varsFixas = []
+    # Array com as linhas que contém variáveis livres
+    livres = []
+
+    while i < rankA:
+        livres.append(i)
+        i += 1
+
+    # Aqui filtramos valores negativos:
+    for line in esc:
+        if line[n] < 0:
+            raise Exception("O sistema linear possui solução negativa")
+
+
+    # Aqui verificaremos as linhas da matriz escalonada reduzida em busca
+    # de linhas que possuam apenas um número não nulo, em busca de variáveis
+    # cujo valor seja fixado
+
+    i = 0
+    while i < rankA:
+        notNullCount = 0
+        j = 0
+        while j < n:
+            if esc[i][j] != 0:
+                notNullCount += 1
+                k = j
+            j += 1
+        if notNullCount == 1:
+            livres.remove(i)
+            varsFixas.append(k)
+            fixas.append(i)
+        i += 1
+
+
+    # Já sabendo as relações entre variáveis fixas e livres, vamos imprimir
+    # na tela os resultados (por ora, sem otimização)
+
+    print("Você deverá consumir diariamente:")
+    for i in fixas:
+            print(f'{round(esc[i][n]*quant, decPlaces)} {und} de {foods[varsFixas[i]]}')
+
+    for i in livres:
+        varsLivres = []
+        j = 0
+        while j < n:
+            if esc[i][j] != 0:
+                varsLivres.append(j)
+                k=j
+            j += 1
+
+        print("Você pode escolher consumir diariamente:")
+        for j in range(len(varsLivres) - 1):
+            print(f'{foods[varsLivres[j]]},', end=" ")
+        print(f'{foods[k]},', end=" ")
+        print(f'De modo que:')
+        for j in range(len(varsLivres) - 1):
+            print(f'{esc[i][varsLivres[j]]} porção de {foods[varsLivres[j]]} +', end=" ")
+        print(f'{esc[i][k]} porção de {foods[k]} totalize {round(esc[i][n]*quant, decPlaces)}{und}')
+
+    # Aqui será realizada a otimização dos resultados, ou seja,
+    # No caso onde temos variáveis livres, podemos escolher qual
+    # Desejamos otimizar o maximizar!
+        
+    if optimize:
+        print("\nOtimização com scipy:")
+        if choiceMinMax != 1 and choiceMinMax != 2:
+            raise Exception("Escolha um valor de \"choiceMinMax\" válido!")
+
+        if choiceFood in varsLivres:
+            if choiceMinMax == 1:
+                sign = -1
+                def objective(x):
+                    return -x[choiceFood]
+            else:
+                sign = 1
+                def objective(x):
+                    return x[choiceFood]
+
+        elif choiceFood == 99:  
+                if choiceMinMax == 1:
+                    sign = -1
+                    def objective(x):
+                        return -sum(x)
+                else:
+                    sign = 1
+                    def objective(x):
+                        return sum(x)
+                    
+        else:
+            raise Exception("Escolha um valor de \"choiceFood\" válido! O valor deve corresponder a uma das variáveis livres!")
+
+        # Defina as funções de limitação da seguinte forma, substituindo N pelo número da linha da matriz escalonada do sistema;
+        '''
+        def constraintN(x):
+            x1 = x[0]
+            x2 = x[1]
+            x3 = x[2]       DECLARE O NÚMERO DE VARIÁVEIS DO SEU SISTEMA!!
+            x4 = x[3]
+            ...
+            xk = x[k-1]
+
+            return esc[N][0] * x1 + esc[N][1] * x2 + esc[N][2] * x3 + esc[N][3] * x4 - esc[N][n]
+        '''
+        # Observe que deve existir uma função por linha nãu nula!
+
+        def constraint1(x):
+            x1 = x[0]
+            x2 = x[1]
+            x3 = x[2]
+            x4 = x[3]
+            x5 = x[4]
+            x6 = x[5]
+            x7 = x[6]
+            return esc[0][0] * x1 + esc[0][1] * x2 + esc[0][2] * x3 + esc[0][3] * x4 + esc[0][4] * x5 + esc[0][5] * x6 + esc[0][6] * x7 - esc[0][n]
+
+        def constraint2(x):
+            x1 = x[0]
+            x2 = x[1]
+            x3 = x[2]
+            x4 = x[3]
+            x5 = x[4]
+            x6 = x[5]
+            x7 = x[6]
+            return esc[1][0] * x1 + esc[1][1] * x2 + esc[1][2] * x3 + esc[1][3] * x4 + esc[1][4] * x5 + esc[1][5] * x6 + esc[1][6] * x7 - esc[1][n]
+
+        def constraint3(x):
+            x1 = x[0]
+            x2 = x[1]
+            x3 = x[2]
+            x4 = x[3]
+            x5 = x[4]
+            x6 = x[5]
+            x7 = x[6]
+            return esc[2][0] * x1 + esc[2][1] * x2 + esc[2][2] * x3 + esc[2][3] * x4 + esc[2][4] * x5 + esc[2][5] * x6 + esc[2][6] * x7 - esc[2][n]
+
+        def constraint4(x):
+            x1 = x[0]
+            x2 = x[1]
+            x3 = x[2]
+            x4 = x[3]
+            x5 = x[4]
+            x6 = x[5]
+            x7 = x[6]
+            return esc[3][0] * x1 + esc[3][1] * x2 + esc[3][2] * x3 + esc[3][3] * x4 + esc[3][4] * x5 + esc[3][5] * x6 + esc[3][6] * x7 - esc[3][n]
+
+        def constraint5(x):
+            x1 = x[0]
+            x2 = x[1]
+            x3 = x[2]
+            x4 = x[3]
+            x5 = x[4]
+            x6 = x[5]
+            x7 = x[6]
+            return esc[3][0] * x1 + esc[3][1] * x2 + esc[3][2] * x3 + esc[3][3] * x4 + esc[3][4] * x5 + esc[4][5] * x6 + esc[4][6] * x7 - esc[4][n]
+
+        # Declare todas as funções de limitações como constraints do numpy. Basta seguir o modelo:
+        '''
+        conN = {'type': 'eq', 'fun': constraintN}
+        '''
+        con1 = {'type': 'eq', 'fun': constraint1}
+        con2 = {'type': 'eq', 'fun': constraint2}
+        con3 = {'type': 'eq', 'fun': constraint3}
+        con4 = {'type': 'eq', 'fun': constraint4}
+        con5 = {'type': 'eq', 'fun': constraint5}
+
+        # Adicione todas as constraints na lista a seguir:
+        cons = [con1, con2, con3, con4, con5]
+
+        # Aqui são declarados os limites de otimização (Essa parte evita numeros negativos, não mexa aqui)
+        b = (0.0,0xFF)
+        bnds = []
+        for i in range(n):
+            bnds.append(b)
+
+        # Aqui estão os "chutes iniciais" para a otimização: (não mexa aqui)
+        x0 = []
+        for i in range(n):
+            x0.append(0)
+
+        sol = minimize(objective, x0, bounds=bnds, constraints=cons)
+
+        print("\nOtimização concluida. Você deverá consumir:")
+        for i in range(n):
+            qtd = round(sol['x'][i]*quant, decPlaces)
+            print(f'{qtd} {und} de {foods[i]}')
 </script></div></article><span class="incontext"><a href="Projects.html#minmax_lin_sys">in-context</a></span>
 </body>
 </html>
