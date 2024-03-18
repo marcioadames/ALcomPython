@@ -1354,7 +1354,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <example>
                     <ol>
                         <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -2 \\ -1 \amp 4 \\ 2 \amp 3 \end{pmatrix}</m>.</li>
-                        <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \\ 2 \amp 1\amp -2\end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -2 \ amp 2\\ -1 \amp 4 \amp 1\\ 2 \amp 3 amp -2 \end{pmatrix}</m>.</li>
+                        <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \\ 2 \amp 1\amp -2\end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -2 \amp 2\\ -1 \amp 4 \amp 1\\ 2 \amp 3 \amp -2 \end{pmatrix}</m>.</li>
                         <li>Para <m>A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2\end{pmatrix}</m>, a transposta é a matriz <m>A^T = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2 \end{pmatrix}</m>.</li>
                     </ol>
                 </example>
