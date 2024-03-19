@@ -1499,7 +1499,208 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </me>
                 </exercise>
 
+                <!--  *********************************************************
+                *************************************************************** -->
+               
+               
+                <subsection xml:id="matrix_mult_meaning">
+                    <title>Matrizes elementares</title>
 
+                    <exercise>
+                        <p>Observe as seguintes multiplicações matriciais e tente descrever o efeito que as matrizes à esquerda têm sobre as matrizes à direita.</p>
+                        <ol>
+                            <li><m>\begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 3 \amp 9 \amp 27\\ 0 \amp 0 \amp 0 \end{pmatrix}</m></li>
+                            <li><m>\begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 1 \amp 2 \amp 4 \end{pmatrix}</m></li>
+                            <li><m>\begin{pmatrix} 4 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 4 \amp 8 \amp 16\\ 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix}</m></li>
+                            <li><m>\begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ -1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ -1 \amp -2 \amp -4 \end{pmatrix}</m></li>
+                        </ol>
+                    </exercise>
+
+
+                    <exercise>
+                        <p>Observe as seguintes multiplicações matriciais e tente descrever o efeito que as matrizes à esquerda têm sobre as matrizes à direita.</p>
+                        <ol>
+                            <li><m>\begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} -1 \amp -3 \amp -9\\ 3 \amp 9 \amp 27\\ 1 \amp 2 \amp 4 \end{pmatrix}</m></li>
+                            <li><m>\begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -5 \amp -15 \amp -45 \end{pmatrix}</m></li>
+                            <li><m>\begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ 2 \amp 6 \amp 18 \end{pmatrix}</m></li>
+                            <li><m>\begin{pmatrix} 1 \amp 0 \amp 0\\ 2 \amp 1 \amp 0\\ 0 \amp 0 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 5 \amp 13 \amp 25\\ -1 \amp -3 \amp -9 \end{pmatrix}</m></li>
+                        </ol>
+                    </exercise>
+
+
+                    <p>Uma <term>matriz elementar do tipo I</term> é obtida trocando duas linhas da matriz identidade <m>I</m>. Com frequência denotamos uma matriz elementar do tipo I por <m>E_1</m> ou <m>T_{ij}</m> para indicar que trocamos a linha <m>i</m> pela linha <m>j</m>. Multiplicar uma matriz <m>A</m> por <m>E_1</m> à esquerda, ou seja, calcular <m>E_1A</m>, tem o efeito de trocar as duas linhas da matriz <m>A</m> correspondentes às linhas trocadas na matriz <m>I</m>.</p>
+
+                    <example>
+                        <m>T_{31} A = E_1 A = \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{31} \amp a_{32} \amp a_{33}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{11} \amp a_{12} \amp a_{13} \end{pmatrix}</m>
+                    </example>
+
+
+                    <p>Uma <term>matriz elementar do tipo II</term> é obtida multiplicando uma linha da matriz identidade <m>I</m> por uma constante não nula. Com frequência denotamos uma matriz elementar do tipo II por <m>E_2</m> ou <m>D_{i}(\alpha)</m> para indicar que multiplicamos a linha <m>i</m> por <m>\alpha</m>. Multiplicar uma matriz <m>A</m> por <m>E_2</m> à esquerda, ou seja, calcular <m>E_2A</m>, tem o efeito de multiplicar pela constatne a linha da matriz <m>A</m> correspondente.</p>
+                    <example>
+                        <m>D_{3}(\alpha) A = E_2 A = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp \alpha \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ \alpha a_{31} \amp \alpha a_{32} \amp \alpha a_{33} \end{pmatrix}</m>
+                    </example>
+
+                    <p>Uma <term>matriz elementar do tipo III</term> é obtida somando uma linha da matriz identidade <m>I</m> a uma outra linha multiplicada por uma constante não nula. Com frequência denotamos uma matriz elementar do tipo III por <m>E_3</m> ou <m>U_{ij}(\alpha)</m> para indicar que somamos a linha <m>i</m> multiplicada por <m>\alpha</m> à linha <m>j</m>. Multiplicar uma matriz <m>A</m> por <m>E_3</m> à esquerda, ou seja, calcular <m>E_3A</m>, tem o efeito de adicionar a linha da matriz <m>A</m> outra linha multiplicada por uma constante.</p>
+                    <example>
+                        <m>U_{23} (\alpha) A =E_3 A = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp \alpha \amp 1 \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ \alpha a_{21} +  a_{31} \amp \alpha a_{22} + a_{32} \amp \alpha a_{23} + a_{33} \end{pmatrix}</m>
+                    </example>
+
+
+                    <remark>
+                        Multiplicar por uma matriz elementar à esquerda corresponde a realizar uma das operações elementares nas linhas da matriz <m>A</m>.
+                    </remark>
+
+                    <theorem>
+                        <!-- <title>Optional</title> -->
+                        <!-- <creator>I. Newton</creator> -->
+                      <statement>
+                        <p>
+                          As matrizes elementares do tipo I, II e III são inversíveis. Além disso
+                          <me>
+                            T_{ij}^{-1} = T_{ij}, \,\,\, D_{i}(\alpha)^{-1} = D_{i}(1/\alpha), \,\,\,  U_{ij}(\alpha)^{-1} = U_{ij}(-\alpha).
+                          </me>
+                        </p>
+                      </statement>
+                    
+                      <proof>
+                        Verificamos diretamente efetuando as multiplicações.
+                      </proof>
+                    </theorem>
+
+                    <exercise>
+                        <p>Encontre as inversas das matrizes a seguir e verifique que a resposta está correta calculando o produto da matriz original com a matriz inversa.</p>
+                        <ol>
+                            <li><m>E_1 = \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix}.</m></li>
+                            <li><m>E_2 =\begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix}. </m></li>
+                            <li><m>E_3 = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix}. </m></li>
+                        </ol>
+                    </exercise>
+
+
+                    <p>Se for possível realizar operações nas linhas de uma matriz <m>A</m> até transform=a-la na identidade, existem matrizes elementares <m>E_1, E_2, \ldots, E_k</m> (correspondentes às operações realizadas) tais que:</p>
+                    <me>
+                        E_k \ldots E_2 E_1 A = I,
+                    </me>
+                    <p>ou seja, ao multiplicar <m>A</m> por <m>(E_k \ldots E_2 E_1)</m> à esquerda obtemos a identidade. Assim <m>A^{-1} = E_k \ldots E_2 E_1</m>.</p>
+
+                    <p>Por outro lado, observe que se calcularmos o produto de <m>(E_k \ldots E_2 E_1)</m> com a matriz ampliada <m>(A|I)</m> temos:</p>
+                    <me>
+                        (E_k \ldots E_2 E_1)(A|I) = (I| E_k \ldots E_2 E_1) = (I|A^{-1}),
+                    </me>
+                    <p>
+                        Ou seja, ao aplicarmos eliminação de Gauss-Jordan à matriz ampliada <m>(A|I)</m>, obteremos a inversa de <m>A</m> no lado direito, quando tivermos a matriz identidade <m>I</m> no lado esquerdo.
+                    </p>
+
+
+                    <exercise>
+                        <p>Utilize o método da Gauss-Jordan para encontrar as inversas das matrizes a seguir, se possível:</p>
+                        <ol>
+                            <li>
+                                <m>A = \begin{pmatrix} 1 \amp 1 \amp -1 \\ -2 \amp 1 \amp -1\\ 0 \amp 1 \amp 1\end{pmatrix},</m>
+                            </li>
+                            <li>
+                                <m>B = \begin{pmatrix} 1 \amp 2 \amp 1 \\ -1 \amp 1 \amp -1\\ -2 \amp 0 \amp 2\end{pmatrix},</m>
+                            </li>
+                            <li>
+                                <m>C = \begin{pmatrix} 1 \amp 2 \amp 1 \\ -1 \amp 1 \amp -1\\ 0 \amp 3 \amp 0\end{pmatrix},</m>
+                            </li>
+                            <li>
+                                <m>D = \begin{pmatrix} 1 \amp 2 \amp 1 \amp 2 \\ -1 \amp 1 \amp -1 \amp 1\\ -2 \amp 0 \amp 2 \amp 0 \\ 1 \amp -1 \amp -1 \amp 1 \end{pmatrix}.</m>
+                            </li>
+                        </ol>
+                    </exercise>
+
+
+                    <sage>
+                        <input>
+                        # Write an array representing the augmented matrix
+                        import numpy as np
+                        import fractions
+                        A= np.array([[1, -2, -3, 1, 0, 0], [2, -2, -2, 0, 1, 0], [2, 0, -4, 0, 0, 1]], dtype=float)
+                        np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+
+
+                        #Step by step Gaussian Elimination:
+
+                        def Gaussian_elimination(A,prin=True):
+                            a=0
+                            if prin==True:
+                                print('A='+str(A))
+                            for j in range(A.shape[1]-1): #search pivot in each column
+                                b=0
+                                for i in range(a,A.shape[0]):
+                                    if A[i,j] != 0: #choose row with not null pivot
+                                        if a !=i:
+                                            A[[a,i]]=A[[i,a]]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                        if A[a,j]!=1:
+                                            A[a]=A[a]/A[a,j]
+                                            if prin==True:
+                                                print('~'+str(A))
+                                        a=a+1
+                                        b=1
+                                        break
+                                if b==1:
+                                    for i in range(a,A.shape[0]):
+                                        if A[i,j] != 0:
+                                            A[i]=A[i]-A[a-1]*A[i,j]
+                                        if prin==True:
+                                            print('~'+str(A))
+                            return A
+                        B=Gaussian_elimination(A)
+                        </input>
+                        <output>
+                        solution
+                        </output>
+                    </sage>
+    
+                    <sage>
+                        <input>
+                            def Gauss_Jordan(A,prin=True):
+                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                B=Gaussian_elimination(A,prin)
+                                #print('jordan')
+                                a=0
+                                for i in range(A.shape[0]): #search pivot in each line
+                                    b=0
+                                    for j in range(A.shape[1]):
+                                        if B[B.shape[0]-i-1,j] == 1 and b==0: #choose column with a '1' pivot
+                                            b=j
+                                            for k in range(B.shape[0]-i-1):
+                                                B[B.shape[0]-i-2-k]=B[B.shape[0]-i-2-k]- B[B.shape[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                                if prin==True:
+                                                        print('~'+str(B))                
+                                return B
+                            Gauss_Jordan(B)
+                        </input>
+                        <output>
+                        solution
+                        </output>
+                    </sage>
+
+
+                    <exercise>
+                        <p>Verifique, calculando o produto, que as matrizes obtidas no exercício anterios são, de fato, inversas.</p>
+                    </exercise>
+
+                    <sage>
+                        <input>
+                        import numpy as np
+                        import fractions
+                        A= np.array([[1, 0, 0], [2, 1, 0], [0, 0, 1]], dtype=float)
+                        B= np.array([[1, 0, 0], [-2, 1, 0], [0, 0, 1]], dtype=float)
+                        print("AB=",A.dot(B))
+                        print("BA=",B.dot(A))
+                        </input>
+                        <output>
+                            
+                        </output>
+                    </sage>
+
+
+
+                </subsection>
 
 
             </section>
