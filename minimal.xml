@@ -1482,22 +1482,20 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <exercise>
                     <p>Escreva o sistema abaixo na forma matricial, <m>A\vec{x} = \vec{b}</m>, calcule <m>A^{-1}</m>, e resolva o sistema calculando <m>\vec{x} = A^{-1}\vec{b}</m>. Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</p>
                     <me>
-                        <me>A\vec{x} = \begin{array}{c}
-                            x + 2 y = 3,\\
-                            2 x  - y = 2.
-                            \end{array}
-                        </me>
+                        \begin{array}{c}
+                        x + 2 y = 3,\\
+                        2 x  - y = 2.
+                        \end{array}
                     </me>
                 </exercise>
 
                 <exercise>
                     <p>Escreva o sistema abaixo na forma matricial, <m>A\vec{x} = \vec{b}</m>, calcule <m>A^{-1}</m>, e resolva o sistema calculando <m>\vec{x} = A^{-1}\vec{b}</m>. Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</p>
                     <me>
-                        <me>A\vec{x} = \begin{array}{c}
-                            -1 x - y = 2,\\
-                            2 x +  3y = -1.
-                            \end{array}
-                        </me>
+                        \begin{array}{c}
+                        -1 x - y = 2,\\
+                        2 x +  3y = -1.
+                        \end{array}
                     </me>
                 </exercise>
 
