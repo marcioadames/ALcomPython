@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-19T15:44:00-03:00       *-->
+<!--*       on 2024-03-21T15:11:54-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,27 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.17</span><span class="period">.</span>
-</h6>Para verificarmos que \(\vec{v}_1 = (\sqrt{2}/2,-\sqrt{2}/2,0)^T, \vec{v}_2 = (\sqrt{3}/3,\sqrt{3}/3,\sqrt{3}/3)^T, \vec{v}_3 = (\sqrt{6}/6,\sqrt{6}/6,-2\sqrt{6}/6)\) formam uma base para \(\mathbb{R}^3\text{,}\) observamos que a matriz<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.10</span><span class="period">.</span><span class="space"> </span><span class="title">Matriz de uma projeção.</span>
+</h6>Uma matriz \(A \in \mathbb{R}^{3 \times 3}\) representa uma projeção em um plano que passa pela origem se \(A^2 = A\) (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz \(A\) tem essa propriedade:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \vec{v}_3 \\ | \amp | \amp | \end{array}\right) = \left(\begin{array}{ccc} \sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ -\sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ 0 \amp \sqrt{3}/3 \amp -2\sqrt{6}/6 \end{array}\right)
+A = \left(\begin{array}{ccc} 5/6 \amp 1/6 \amp  1/3\\
+1/6 \amp  5/6 \amp -1/3\\
+1/3 \amp -1/3 \amp  1/3 \end{array} \right).
 \end{equation*}
-</div>tem determinante \(\det(A) = 1\) e portanto é inversível, de modo que o sistema \(A\vec{\alpha} = \vec{x}\) tem solução \(\alpha = A^{-1} \vec{x}\) para qualquer \(\vec{x} \in \mathbb{R}^3\) e \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) geram \(\mathbb{R}^3\text{,}\) além disso, a solução é única para qualquer \(\vec{x} \in \mathbb{R}^3\text{,}\) em particular para \(\vec{x} = \vec{0}\text{,}\) de modo que os vetores são L.I. Dessa forma, \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) formam uma base para \(\mathbb{R}^3\text{.}\)</article><span class="incontext"><a href="bases.html#example-36">in-context</a></span>
+</div>O núcleo de \(A\) dá a direção normal ao plano de projeção. Para encontrar \(N(A)\) precisamos resolver \(A\vec{x} = \vec{0},\) o que pode ser feito por eliminação Gaussiana:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\left(\begin{array}{ccc|c} 5/6 \amp 1/6 \amp  1/3 \amp 0\\
+1/6 \amp  5/6 \amp -1/3 \amp 0\\
+1/3 \amp -1/3 \amp  1/3 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+1 \amp  5 \amp -2 \amp 0\\
+1 \amp -1 \amp  1 \amp 0 \end{array} \right)\\
+\sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+0 \amp  24/5 \amp -12/5 \amp 0\\
+0 \amp -6/5 \amp  -3/4 \amp 0 \end{array} \right) \sim \left(\begin{array}{ccc|c} 1 \amp 1/5 \amp  2/5 \amp 0\\
+0 \amp  1 \amp -1/2 \amp 0\\
+0 \amp 0 \amp  0 \amp 0 \end{array} \right).
+\end{align*}
+</div>
+<p>de modo que \(x_2 = x_3/2\) e \(x_1 = -x_3/2\) e \(N(A) = \{\vec{x} \in \mathbb{R}^3 | \vec{x} = \alpha (1/2, -1/2, 1)^T\}\) e um vetor normal ao plano é \((1/2, -1/2, 1)^T\text{.}\)</p></article><span class="incontext"><a href="subescos.html#example-36">in-context</a></span>
 </body>
 </html>

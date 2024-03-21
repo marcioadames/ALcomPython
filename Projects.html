@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-19T15:43:59-03:00       *-->
+<!--*       on 2024-03-21T15:11:53-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -105,6 +105,7 @@
 <li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
 <li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
 <li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
+<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
 </ul>
 </li>
 <li class="link active">
@@ -168,20 +169,20 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Projects"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3</span> <span class="title">Projetos</span>
 </h2>
-<p id="p-100">Essa seção reúne projetos utilizando álgebra linear. ** Em construção**</p>
+<p id="p-115">Essa seção reúne projetos utilizando álgebra linear. ** Em construção**</p>
 <section class="subsection" id="Proj1"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span>
 </h3>
-<p id="p-101">Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.</p>
-<article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
+<p id="p-116">Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.</p>
+<article class="exercise exercise-like" id="exercise-26"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-26"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like"><p id="p-102">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a></p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-26"><article class="exercise exercise-like"><p id="p-117">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a></p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes): <ol class="decimal">
-<li id="li-83"><p id="p-derived-li-83">Arroz, branco, grao longo, normal, cozido</p></li>
-<li id="li-84"><p id="p-derived-li-84">Feijao, preto, semente madura, cozido, sem sal</p></li>
-<li id="li-85"><p id="p-derived-li-85">Frango, carne branca, so carne, pronto para consumo, assado</p></li>
-<li id="li-86"><p id="p-derived-li-86">Alface, crespa, crua</p></li>
-<li id="li-87"><p id="p-derived-li-87">Tomate, vermelho, maduro, cru</p></li>
+<li id="li-93"><p id="p-derived-li-93">Arroz, branco, grao longo, normal, cozido</p></li>
+<li id="li-94"><p id="p-derived-li-94">Feijao, preto, semente madura, cozido, sem sal</p></li>
+<li id="li-95"><p id="p-derived-li-95">Frango, carne branca, so carne, pronto para consumo, assado</p></li>
+<li id="li-96"><p id="p-derived-li-96">Alface, crespa, crua</p></li>
+<li id="li-97"><p id="p-derived-li-97">Tomate, vermelho, maduro, cru</p></li>
 </ol>
 <ol class="decimal"></ol> Obs: As quantidades informadas se referem a uma porção de 100 gramas do alimento mencionado. <figure class="table table-like" id="table-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.2<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
@@ -234,15 +235,15 @@
 </tr>
 </table></div></figure>
 </div></div></article></div>
-<article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-27"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-27"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-24"><article class="exercise exercise-like"><p id="p-103">Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-27"><article class="exercise exercise-like"><p id="p-118">Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta.</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">Um exemplo de solução, utilizando os alimentos citados anteriormente, é: <ol class="decimal">
-<li id="li-88"><p id="p-derived-li-88">Fibra alimentar: 20.6 g</p></li>
-<li id="li-89"><p id="p-derived-li-89">Carboidratos: 110.62 g</p></li>
-<li id="li-90"><p id="p-derived-li-90">Sódio: 172 mg</p></li>
-<li id="li-91"><p id="p-derived-li-91">Proteínas: 106.27 g</p></li>
-<li id="li-92"><p id="p-derived-li-92">Gorduras: 14.19 g</p></li>
+<li id="li-98"><p id="p-derived-li-98">Fibra alimentar: 20.6 g</p></li>
+<li id="li-99"><p id="p-derived-li-99">Carboidratos: 110.62 g</p></li>
+<li id="li-100"><p id="p-derived-li-100">Sódio: 172 mg</p></li>
+<li id="li-101"><p id="p-derived-li-101">Proteínas: 106.27 g</p></li>
+<li id="li-102"><p id="p-derived-li-102">Gorduras: 14.19 g</p></li>
 </ol>
 <div class="displaymath">
 \begin{align*}
@@ -254,22 +255,22 @@
 \end{align*}
 </div>
 </div></div></article></div>
-<article class="exercise exercise-like" id="exercise-25"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-25"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-25"><article class="exercise exercise-like"><p id="p-104">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a>  para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like"><p id="p-119">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a>  para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir.</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">Para o exemplo anterior, a solução devolvida pelo programa foi: <ol class="decimal"></ol> Você deverá consumir diariamente: <ul class="disc">
-<li id="li-93"><p id="p-derived-li-93">200.0 g de Arroz</p></li>
-<li id="li-94"><p id="p-derived-li-94">200.0 g de Feijão</p></li>
-<li id="li-95"><p id="p-derived-li-95">300.0 g de Frango</p></li>
-<li id="li-96"><p id="p-derived-li-96">100.0 g de Alface</p></li>
-<li id="li-97"><p id="p-derived-li-97">100.0 g de Tomate</p></li>
+<li id="li-103"><p id="p-derived-li-103">200.0 g de Arroz</p></li>
+<li id="li-104"><p id="p-derived-li-104">200.0 g de Feijão</p></li>
+<li id="li-105"><p id="p-derived-li-105">300.0 g de Frango</p></li>
+<li id="li-106"><p id="p-derived-li-106">100.0 g de Alface</p></li>
+<li id="li-107"><p id="p-derived-li-107">100.0 g de Tomate</p></li>
 </ul>
 </div></div></article></div>
 <article class="remark remark-like" id="sol_lin_sys"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.5</span><span class="period">.</span>
 </h6>
-<p id="p-105">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-15"><script type="text/x-sage">import numpy as np
+<p id="p-120">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
+<div class="sagecell-sage" id="sage-18"><script type="text/x-sage">import numpy as np
 import fractions
 
 # Aqui estão os rótulos do problema
@@ -474,22 +475,22 @@ if not done:
         for j in range(len(varsLivres) - 1):
             print(f'{esc[i][varsLivres[j]]} porção de {foods[varsLivres[j]]} +', end=" ")
         print(f'{esc[i][k]} porção de {foods[k]} totalize {round(esc[i][n]*quant, decPlaces)}{und}')
-</script></div></article><article class="exercise exercise-like" id="exercise-26"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-26"><h6 class="heading">
+</script></div></article><article class="exercise exercise-like" id="exercise-29"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-29"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-26"><article class="exercise exercise-like"><p id="p-106">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-29"><article class="exercise exercise-like"><p id="p-121">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">Reflita se, dentro do contexto da dieta, sua solução faz sentido. Nesse contexto, fazem sentido soluções negativas? Mude o parâmetro "negSol" do código em <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a> para "False". O programa irá bloquear automaticamente qualquer solução negativa que aparecer!</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-27"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-27"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-27"><article class="exercise exercise-like"><p id="p-107">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like"><p id="p-122">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">Existem mais equações que variáveis, logo, o sistema não possui soluções reais.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-31"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-31"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like"><p id="p-108">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like"><p id="p-123">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">O sistema, que originalmente admitia apenas uma solução, admite, agora, infinitas soluções. Como lidar com esse resultado? Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é otimizar determinadas variáveis, ou seja, maximizar ou minimizar seu valor. Vejamos a seguir:</div></div></article></div> como <article class="remark remark-like" id="minmax_lin_sys"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.9</span><span class="period">.</span>
 </h6>
-<p id="p-109">Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.</p>
-<div class="sagecell-sage" id="sage-16"><script type="text/x-sage">import numpy as np
+<p id="p-124">Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.</p>
+<div class="sagecell-sage" id="sage-19"><script type="text/x-sage">import numpy as np
 import fractions
 from scipy.optimize import minimize
 

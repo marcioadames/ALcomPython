@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-19T15:43:58-03:00       *-->
+<!--*       on 2024-03-21T15:11:53-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -105,6 +105,7 @@
 <li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
 <li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
 <li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
+<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
 </ul>
 </li>
 <li class="link">
@@ -644,7 +645,7 @@ T_{ij}^{-1} = T_{ij}, \,\,\, D_{i}(\alpha)^{-1} = D_{i}(1/\alpha), \,\,\,  U_{ij
 <li id="li-77"><p id="p-derived-li-77">\(\displaystyle E_2 =\begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix}. \)</p></li>
 <li id="li-78"><p id="p-derived-li-78">\(\displaystyle E_3 = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix}. \)</p></li>
 </ol></article></div>
-<p id="p-94">Se for possível realizar operações nas linhas de uma matriz \(A\) até transform=a-la na identidade, existem matrizes elementares \(E_1, E_2, \ldots, E_k\) (correspondentes às operações realizadas) tais que:</p>
+<p id="p-94">Se for possível realizar operações nas linhas de uma matriz \(A\) até transformá-la na identidade, existem matrizes elementares \(E_1, E_2, \ldots, E_k\) (correspondentes às operações realizadas) tais que:</p>
 <div class="displaymath">
 \begin{equation*}
 E_k \ldots E_2 E_1 A = I,
@@ -730,6 +731,146 @@ A= np.array([[1, 0, 0], [2, 1, 0], [0, 0, 1]], dtype=float)
 B= np.array([[1, 0, 0], [-2, 1, 0], [0, 0, 1]], dtype=float)
 print("AB=",A.dot(B))
 print("BA=",B.dot(A))
+</script></div></section><section class="subsection" id="determinants"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4</span> <span class="title">Determinantes</span>
+</h3>
+<article class="definition definition-like" id="definition-10"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.36</span><span class="period">.</span>
+</h6>
+<p id="p-100">Seja \(A = (a_{ij})\) uma matriz \(n \times n\text{.}\) A <dfn class="terminology">submatriz</dfn> \(M_{ij}\) é a matriz \((n-1) \times (n-1)\) obtida removendo a \(i\)-ésima linha e a \(j\)-ésima coluna de A. Definimos, recursivamente, o <dfn class="terminology">determinante</dfn> de \(A\text{,}\) \(\det(A)\) ou \(|A|\text{,}\) por:</p>
+<ol class="decimal">
+<li id="li-83"><p id="p-derived-li-83">Se \(A\) é uma matriz \(1 \times 1\text{,}\) \(A = (a_{11})\text{,}\) \(\det(A) = a_{11}\text{.}\)</p></li>
+<li id="li-84"><p id="p-derived-li-84">Supondo que está definido o determinante de uma matriz \((n-1)\times(n-1)\text{,}\) definimos o determinante de uma matriz \(A\text{,}\) \(n \times n\text{,}\) como:</p></li>
+</ol>
+<div class="displaymath">
+\begin{align*}
+\det(A) =\amp a_{11} (-1)^{1+1}\det(M_{11}) + a_{12} (-1)^{1+2}\det(M_{12}) + \cdots + a_{1n} (-1)^{1+2}\det(M_{1n})\\
+=\amp\sum_{j=1}^n a_{1j} (-1)^{1+j}\det(M_{1j}) =\sum_{j=1}^n a_{1j} A_{1j}.
+\end{align*}
+</div>
+<p id="p-101">Para cada \(1 \leq i,j \leq n\text{,}\) chamamos o número \(A_{ij} = (-1)^{i+j}\det(M_{ij}),\) de <dfn class="terminology">cofator</dfn> do elemento \(a_{ij}\text{.}\) A soma acima é chamada de <dfn class="terminology">expansão em cofatores pela primeira linha</dfn> de \(A\text{.}\)</p></article><article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like"><p id="p-102">Seja</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} a \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-24"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-24"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.38</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-24"><article class="example example-like"><p id="p-103">Seja</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-25"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like"><p id="p-104">Seja</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-26"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.40</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><p id="p-105">Seja</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \amp a_{14} \\ a_{21} \amp a_{22} \amp a_{23} \amp a_{24} \\ a_{31} \amp a_{32} \amp a_{33} \amp a_{34} \\ a_{41} \amp a_{42} \amp a_{43} \amp a_{44} \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-5"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.41</span><span class="period">.</span>
+</h6>
+<p id="p-106">O determinante de uma matriz pode ser calculado através da expansão em cofatores por qualquer linha ou por qualquer coluna de \(A\text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\det(A) =\sum_{j=1}^n a_{ij} A_{ij} = \sum_{j=1}^n a_{ji} A_{ji}.
+\end{equation*}
+</div>
+<p id="p-107">para qualquer \(i = 1, 2, \ldots, n.\)</p></article><article class="hiddenproof" id="proof-5"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof">A completar.</article></div>
+<article class="example example-like" id="example-27"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.42</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like"><p id="p-108">Seja</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 2 \amp -1 \\ 2 \amp 3 \amp -2 \\ 2 \amp 1 \amp -2 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.43</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like"><p id="p-109">Calcule o determinante de cada uma das matrizes a seguir duas vezes, utilizando a expansão em cofatores da linha \(2\) e da coluna \(3\text{.}\) Após utilize o código abaixo para conferir seus resultados.</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ -1 \amp -1 \amp 1 \\ -2 \amp -1 \amp 1 \end{pmatrix}, \,\,\,\,\, B = \begin{pmatrix} 2 \amp -1 \amp 1 \\ -1 \amp 1 \amp -1 \\ 2 \amp 2 \amp 1 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<div class="sagecell-sage" id="sage-15"><script type="text/x-sage">import numpy as np
+import scipy.linalg as linalg
+
+A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
+linalg.det(A)
+</script></div>
+<article class="theorem theorem-like" id="theorem-6"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.44</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades do determinante.</span>
+</h6>
+<p id="p-110">Seja \(A\) uma matriz \(n \times n\text{:}\)</p>
+<ol class="decimal">
+<li id="li-85"><p id="p-derived-li-85">Se trocarmos duas linhas de \(A\) de lugar, o determinante troca de sinal, ou seja: \(\det(T_{ij}A) = - \det(A)\text{.}\)</p></li>
+<li id="li-86"><p id="p-derived-li-86">Se multiplicamos uma linha de \(A\) por uma constante não nula, o determinante é multiplicado por \(\alpha\text{,}\) ou seja: \(\det(D_{i}(\alpha)A) = \alpha \det(A)\text{.}\)</p></li>
+<li id="li-87"><p id="p-derived-li-87">Se somamos a uma linha de \(A\) outra linha multiplicada por uma constante, o determinante não se altera, ou seja: \(\det(U_{ij}(\alpha)A) = \det(A)\text{.}\)</p></li>
+<li id="li-88"><p id="p-derived-li-88">\(\det(A) = \det(A^T)\text{.}\)</p></li>
+<li id="li-89"><p id="p-derived-li-89">Se \(A\) tem duas linhas ou duas colunas iguais, \(\det(A) = 0\text{.}\)</p></li>
+<li id="li-90"><p id="p-derived-li-90">Se \(A\) tem uma linha nula ou uma coluna nula, \(\det(A) = 0\text{.}\)</p></li>
+<li id="li-91"><p id="p-derived-li-91">Se \(A\) tem duas linhas ou duas colunas iguais, \(\det(A) = 0\text{.}\)</p></li>
+<li id="li-92"><p id="p-derived-li-92">Se \(B\) é uma matriz \(n \times n\text{,}\) \(\det(AB) = \det(A)\det(B)\text{.}\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-6"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof">A completar.</article></div>
+<article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.45</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-24"><article class="exercise exercise-like"><p id="p-111">Para cada uma das propriedades acima, construa exemplos de matrizes \(3 \times 3\) verificando que as propriedades se aplicam. Verifique seus cálculos utilizando os códigos em python disponibilizados.</p></article></div>
+<div class="sagecell-sage" id="sage-16"><script type="text/x-sage">import numpy as np
+import scipy.linalg as linalg
+
+A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
+linalg.det(A)
+</script></div>
+<article class="remark remark-like" id="remark-10"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.46</span><span class="period">.</span>
+</h6>Chamamos de <dfn class="terminology">adjunta</dfn> de uma matriz \(A\text{,}\) e denotamos \(\mbox{adj}(A)\text{,}\) à matriz de cofatores de \(A\) transposta.<div class="displaymath">
+\begin{equation*}
+\mbox{adj}(A) = \begin{pmatrix} A_{11} \amp A_{21} \amp \cdots \amp A_{n1} \\ A_{12} \amp A_{22} \amp \cdots \amp A_{n2} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ A_{1n} \amp A_{2n} \amp \cdots \amp A_{nn} \end{pmatrix},
+\end{equation*}
+</div>onde \(A_{ij}\) é o cofator associado ao elemento \(a_{ij}\) da matriz \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.47</span><span class="period">.</span>
+</h6>
+<p id="p-112">Uma matriz \(A\) é inversível se, e somente se, \(\det(A) \neq 0\text{.}\) Além disso, se \(A\) é inversível,</p>
+<div class="displaymath">
+\begin{equation*}
+A^{-1} = \frac{1}{\det(A)} \mbox{adj}(A)
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-7"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof">A completar.</article></div>
+<article class="example example-like" id="example-28"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-28"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.48</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-28"><article class="example example-like"><p id="p-113">Cálculo da matriz inversa utilizando a matriz de cofatores:</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 2 \amp -1 \\ 2 \amp 3 \amp -2 \\ 2 \amp 1 \amp -2 \end{pmatrix}
+\end{equation*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-25"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-25"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.49</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-25"><article class="exercise exercise-like"><p id="p-114">Calcule as inversas das matrizes a seguir pelo método dos cofatores e utilize o código abaixo para verificar se suas respostas estão corretas.</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ -1 \amp -1 \amp 1 \\ -2 \amp -1 \amp 1 \end{pmatrix}, \,\,\,\,\, B = \begin{pmatrix} 2 \amp -1 \amp 1 \amp 0 \\ -1 \amp 1 \amp -1 \amp 1 \\ 2 \amp 2 \amp 1 \amp -1 \\ 1 \amp -1 \amp -1 \amp 2 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<div class="sagecell-sage" id="sage-17"><script type="text/x-sage">import numpy as np
+import scipy.linalg as linalg
+
+A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
+linalg.inv(A)
 </script></div></section></section></div></main>
 </div>
 </body>

@@ -1577,7 +1577,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </exercise>
 
 
-                    <p>Se for possível realizar operações nas linhas de uma matriz <m>A</m> até transform=a-la na identidade, existem matrizes elementares <m>E_1, E_2, \ldots, E_k</m> (correspondentes às operações realizadas) tais que:</p>
+                    <p>Se for possível realizar operações nas linhas de uma matriz <m>A</m> até transformá-la na identidade, existem matrizes elementares <m>E_1, E_2, \ldots, E_k</m> (correspondentes às operações realizadas) tais que:</p>
                     <me>
                         E_k \ldots E_2 E_1 A = I,
                     </me>
@@ -1701,6 +1701,201 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 
                 </subsection>
+
+
+                <!--  *********************************************************
+                *************************************************************** -->
+               
+               
+               <subsection xml:id="determinants">
+                <title>Determinantes</title>
+
+                <definition>
+                    <notation>
+                    <usage><m>det(A)</m></usage>
+                    <description>determinante</description>
+                    </notation>
+                
+                    <statement>
+                    <p>
+                        Seja <m>A = (a_{ij})</m> uma matriz <m>n \times n</m>. A <term>submatriz</term> <m>M_{ij}</m> é a matriz <m>(n-1) \times (n-1)</m> obtida removendo a <m>i</m>-ésima linha e a <m>j</m>-ésima coluna de A. Definimos, recursivamente, o <term>determinante</term> de <m>A</m>, <m>\det(A)</m> ou <m>|A|</m>, por: </p>
+                        <ol>
+                            <li>Se <m>A</m> é uma matriz <m>1 \times 1</m>, <m>A = (a_{11})</m>, <m>\det(A) = a_{11}</m>.</li>
+                            <li>Supondo que está definido o determinante de uma matriz <m>(n-1)\times(n-1)</m>, definimos o determinante de uma matriz <m>A</m>, <m>n \times n</m>, como:</li>
+                        </ol>
+                        <md><mrow>\det(A) =\amp a_{11} (-1)^{1+1}\det(M_{11}) + a_{12} (-1)^{1+2}\det(M_{12}) + \cdots + a_{1n} (-1)^{1+2}\det(M_{1n})</mrow>
+                            <mrow>=\amp\sum_{j=1}^n a_{1j} (-1)^{1+j}\det(M_{1j}) =\sum_{j=1}^n a_{1j} A_{1j}.</mrow></md>
+                            <p>Para cada <m>1 \leq i,j \leq n</m>, chamamos o número <m>A_{ij} = (-1)^{i+j}\det(M_{ij}),</m> de <term>cofator</term> do elemento <m>a_{ij}</m>. A soma acima é chamada de <term>expansão em cofatores pela primeira linha</term> de <m>A</m>.</p> 
+                    </statement>
+                </definition>
+
+                <example>
+                    <p>Seja
+                    </p>
+                    <me>A = \begin{pmatrix} a \end{pmatrix}.</me>
+                </example>
+
+                <example>
+                    <p>Seja
+                    </p>
+                    <me>A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}.</me>
+                </example>
+
+
+                <example>
+                    <p>Seja
+                    </p>
+                    <me>A = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix}.</me>
+                </example>
+
+                <example>
+                    <p>Seja
+                    </p>
+                    <me>A = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \amp a_{14} \\ a_{21} \amp a_{22} \amp a_{23} \amp a_{24} \\ a_{31} \amp a_{32} \amp a_{33} \amp a_{34} \\ a_{41} \amp a_{42} \amp a_{43} \amp a_{44} \end{pmatrix}.</me>
+                </example>
+                
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                      O determinante de uma matriz pode ser calculado através da expansão em cofatores por qualquer linha ou por qualquer coluna de <m>A</m>:</p>
+                      <me>\det(A) =\sum_{j=1}^n a_{ij} A_{ij} = \sum_{j=1}^n a_{ji} A_{ji}.</me>
+                    <p>para qualquer <m>i = 1, 2, \ldots, n.</m></p>
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+                <example>
+                    <p>Seja
+                    </p>
+                    <me>A = \begin{pmatrix} 1 \amp 2 \amp -1 \\ 2 \amp 3 \amp -2 \\ 2 \amp 1 \amp -2 \end{pmatrix}.</me>
+                </example>
+
+                <exercise> <p>Calcule o determinante de cada uma das matrizes a seguir duas vezes, utilizando a expansão em cofatores da linha <m>2</m> e da coluna <m>3</m>. Após utilize o código abaixo para conferir seus resultados. </p>
+                <me>
+                    A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ -1 \amp -1 \amp 1 \\ -2 \amp -1 \amp 1 \end{pmatrix}, \,\,\,\,\, B = \begin{pmatrix} 2 \amp -1 \amp 1 \\ -1 \amp 1 \amp -1 \\ 2 \amp 2 \amp 1 \end{pmatrix}.
+                </me></exercise>
+
+                <sage>
+                    <input>
+                    import numpy as np
+                    import scipy.linalg as linalg
+
+                    A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
+                    linalg.det(A)
+                    </input>
+                    <output>
+                        Calculation
+                    </output>
+                </sage>
+
+                <theorem>
+                    <title>Propriedades do determinante</title>
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>Seja <m>A</m> uma matriz <m>n \times n</m>:</p>
+                    <ol>
+                        <li>Se trocarmos duas linhas de <m>A</m> de lugar, o determinante troca de sinal, ou seja: <m>\det(T_{ij}A) = - \det(A)</m>.</li>
+                        <li>Se multiplicamos uma linha de <m>A</m> por uma constante não nula, o determinante é multiplicado por <m>\alpha</m>, ou seja: <m>\det(D_{i}(\alpha)A) = \alpha \det(A)</m>.</li>
+                        <li>Se somamos a uma linha de <m>A</m> outra linha multiplicada por uma constante, o determinante não se altera, ou seja: <m>\det(U_{ij}(\alpha)A) = \det(A)</m>.</li>
+                        <li><m>\det(A) = \det(A^T)</m>.</li>
+                        <li> Se <m>A</m> tem duas linhas ou duas colunas iguais, <m>\det(A) = 0</m>.</li>
+                        <li> Se <m>A</m> tem uma linha nula ou uma coluna nula, <m>\det(A) = 0</m>.</li>
+                        <li> Se <m>A</m> tem duas linhas ou duas colunas iguais, <m>\det(A) = 0</m>.</li>
+                        <li> Se <m>B</m> é uma matriz <m>n \times n</m>, <m>\det(AB) = \det(A)\det(B)</m>.</li>
+                    </ol>
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+
+
+                <exercise>
+                    <p>Para cada uma das propriedades acima, construa exemplos de matrizes <m>3 \times 3</m> verificando que as propriedades se aplicam. Verifique seus cálculos utilizando os códigos em python disponibilizados.</p>
+                </exercise>
+
+
+
+                <sage>
+                    <input>
+                    import numpy as np
+                    import scipy.linalg as linalg
+
+                    A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
+                    linalg.det(A)
+                    </input>
+                    <output>
+                        Calculation
+                    </output>
+                </sage>
+
+                <remark>
+                    Chamamos de <term>adjunta</term> de uma matriz <m>A</m>, e denotamos <m>\mbox{adj}(A)</m>, à matriz de cofatores de <m>A</m> transposta.
+                    <me>
+                        \mbox{adj}(A) = \begin{pmatrix} A_{11} \amp A_{21} \amp \cdots \amp A_{n1} \\ A_{12} \amp A_{22} \amp \cdots \amp A_{n2} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ A_{1n} \amp A_{2n} \amp \cdots \amp A_{nn} \end{pmatrix},
+                    </me>
+                    onde <m>A_{ij}</m> é o cofator associado ao elemento <m>a_{ij}</m> da matriz <m>A</m>.
+                </remark>
+
+            
+
+                <theorem>
+                    <!-- <title>Optional</title> -->
+                    <!-- <creator>I. Newton</creator> -->
+                  <statement>
+                    <p>
+                    Uma matriz <m>A</m> é inversível se, e somente se, <m>\det(A) \neq 0</m>. Além disso, se <m>A</m> é inversível,
+                    </p>
+                    <me>
+                        A^{-1} = \frac{1}{\det(A)} \mbox{adj}(A)
+                    </me>
+                  </statement>
+                
+                  <proof>
+                    A completar.
+                  </proof>
+                </theorem>
+
+                <example>
+                    <p>Cálculo da matriz inversa utilizando a matriz de cofatores:</p>
+                    <me>
+                        A = \begin{pmatrix} 1 \amp 2 \amp -1 \\ 2 \amp 3 \amp -2 \\ 2 \amp 1 \amp -2 \end{pmatrix}
+                    </me>
+                </example>
+
+
+                <exercise>
+                    <p>Calcule as inversas das matrizes a seguir pelo método dos cofatores e utilize o código abaixo para verificar se suas respostas estão corretas.</p>
+                    <me>
+                        A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ -1 \amp -1 \amp 1 \\ -2 \amp -1 \amp 1 \end{pmatrix}, \,\,\,\,\, B = \begin{pmatrix} 2 \amp -1 \amp 1 \amp 0 \\ -1 \amp 1 \amp -1 \amp 1 \\ 2 \amp 2 \amp 1 \amp -1 \\ 1 \amp -1 \amp -1 \amp 2 \end{pmatrix}.
+                        </me>
+                </exercise>
+
+
+
+                <sage>
+                    <input>
+                    import numpy as np
+                    import scipy.linalg as linalg
+
+                    A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
+                    linalg.inv(A)
+                    </input>
+                    <output>
+                        Calculation
+                    </output>
+                </sage>
+
+
+               </subsection>
 
 
             </section>
