@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-21T15:11:53-03:00       *-->
+<!--*       on 2024-03-27T11:05:38-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -106,6 +106,7 @@
 <li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
 <li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
 <li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
+<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
 </ul>
 </li>
 <li class="link">
@@ -823,8 +824,7 @@ linalg.det(A)
 <li id="li-88"><p id="p-derived-li-88">\(\det(A) = \det(A^T)\text{.}\)</p></li>
 <li id="li-89"><p id="p-derived-li-89">Se \(A\) tem duas linhas ou duas colunas iguais, \(\det(A) = 0\text{.}\)</p></li>
 <li id="li-90"><p id="p-derived-li-90">Se \(A\) tem uma linha nula ou uma coluna nula, \(\det(A) = 0\text{.}\)</p></li>
-<li id="li-91"><p id="p-derived-li-91">Se \(A\) tem duas linhas ou duas colunas iguais, \(\det(A) = 0\text{.}\)</p></li>
-<li id="li-92"><p id="p-derived-li-92">Se \(B\) é uma matriz \(n \times n\text{,}\) \(\det(AB) = \det(A)\det(B)\text{.}\)</p></li>
+<li id="li-91"><p id="p-derived-li-91">Se \(B\) é uma matriz \(n \times n\text{,}\) \(\det(AB) = \det(A)\det(B)\text{.}\)</p></li>
 </ol></article><article class="hiddenproof" id="proof-6"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof">A completar.</article></div>
 <article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.45</span><span class="period">.</span>
@@ -871,7 +871,285 @@ import scipy.linalg as linalg
 
 A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
 linalg.inv(A)
-</script></div></section></section></div></main>
+</script></div></section><section class="subsection" id="Coding_message"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span>
+</h3>
+<p id="p-115">Mandar mensagens em código é fundamental na sociedade moderna. Não queremos que nossas mensagens privadas sejam vistas por estranhos na internet, que eles tenham acesso a imagens privadas, dados pessoas ou informações detalhadas sobre nossa saúde. A privacidade de outras informações é relevante por questões de segurança, como dados financeiros (incluindo senhas), endereços e outras.</p>
+<p id="p-116">Existem diversas formas de codificar mensagens. A maneira mais simples seja, talvez, simplesmente trocar letras por números (na lista abaixo \(\_\) representa um espaço):</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}{cccccc}
+{\_} \amp A \amp B \amp C \amp \cdots \amp Z \\
+0 \amp 1 \amp 2 \amp 3 \amp \cdots \amp 26
+\end{array}
+\end{equation*}
+</div>
+<p id="p-117">Assim a mensagem SEGUE O BARCO seria codificada por [19.,  5.,  7., 21.,  5.,  0., 15.,  0.,  2.,  1., 18., 3., 15.]. O código abaixo pode ser utizado para codificar uma mensagem assim.</p>
+<div class="sagecell-sage" id="sage-18"><script type="text/x-sage"># loading libraries 
+import numpy as np 
+
+
+# string to convert  
+b = "SEGUE O BARCO"
+listb = list(b) 
+lenb = len(listb) 
+
+a  =  np.zeros(lenb) 
+
+
+# Lists of Alphabets and its values 
+capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+# Loop to convert Word to Values that  
+# are further useful for Encoding 
+for i in range(lenb): 
+    for j in range(len(capitalalpha)): 
+        if(listb[i]  == capitalalpha[j]): 
+            a[i] = int(j)
+            break
+values= np.array(a)               
+values
+</script></div>
+<p id="p-118">Podemos desfazer essa operação com o código a seguir:</p>
+<div class="sagecell-sage" id="sage-19"><script type="text/x-sage"># loading libraries 
+import numpy as np 
+
+
+# string to convert  
+b = np.array([15.,  0., 16., 18., 15.,  6.,  5., 19., 19., 15., 18.,  0.,  6.,
+9.,  3., 15., 21.,  0., 12., 15., 21.,  3., 15.])
+listb = list(b) 
+lenb = len(listb) 
+
+a  =  listofzeros = [0] * len(b)
+
+
+# Lists of Alphabets and its values 
+capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+# Loop to convert Word to Values that  
+# are further useful for Encoding 
+for i in range(lenb): 
+    for j in range(len(capitalalpha)): 
+        if(listb[i]  == j): 
+            a[i] = capitalalpha[j]
+            break
+                
+print(a)
+</script></div>
+<article class="exercise exercise-like" id="exercise-26"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-26"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.50</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-26"><article class="exercise exercise-like"><p id="p-119">Escreva uma mensagem curta (pode ser uma palavra apenas), converta a mensagem em números manualmente e verifique que os "outputs" dos códigos acima correspondem ao que você obteve para a sua mensagem.</p></article></div>
+<p id="p-120">Esse código seria fácil de ser quebrado, podemos melhorá-lo se embaralharmos as letras. Para isso precisamos criar um mapa que troca as posições dos números na lista \(0, 1, 2, \ldots, 26\text{.}\) Uma maneira de fazer isso é multiplicar o vetor coluna \((0, 1, 2, \ldots, 26)^T\) por uma <dfn class="terminology">matriz de permutação</dfn>, que é obtida trocando linhas das matriz identidade. Por exemplo, para trocar as posições das letras \(({\_}, A, B, C, D)\) para \((B, {\_}, A, D, C)\) multiplicamos à esquerda o vetor \((0, 1, 2, 3, 4)^T\) pela matriz de permutação \(P \) a seguir, obtendo o vetor \(\vec{b}\) indicando a posição na lista dos símbolos \({\_}, A, B, C, D,\) respectivamente:</p>
+<div class="displaymath">
+\begin{equation*}
+P\begin{pmatrix}
+0\\ 1\\ 2\\ 3\\ 4
+\end{pmatrix} =
+\begin{pmatrix}
+0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+0 \amp 0 \amp 0 \amp 1 \amp 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\ 1\\ 2\\ 3\\ 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\ 2\\ 0\\ 4\\ 3
+\end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-121">Desse modo a palavra "ABA", ficaria codificada como "[2, 0, 2]". Podemos fazer um código que codifique uma mensagem trocando letras do seguinte modo:</p>
+<div class="sagecell-sage" id="sage-20"><script type="text/x-sage">import numpy as np
+P = np.eye(27, dtype='int') #identity of size 27 x 27
+np.random.shuffle(P) # create a random permutation
+
+P #show the permutation matrix
+</script></div>
+<div class="sagecell-sage" id="sage-21"><script type="text/x-sage"># loading libraries 
+import numpy as np 
+
+# string to convert  
+b = "SEGUE O BARCO"
+listb = list(b) 
+lenb = len(listb) 
+
+a  =  np.zeros(lenb) 
+
+
+
+indexes = range(27)
+shuffled = P.dot(indexes)
+
+# Lists of Alphabets and its values 
+capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+# Loop to convert Word to Values that  
+# are further useful for Encoding 
+for i in range(lenb): 
+    for j in range(len(capitalalpha)): 
+        if(listb[i]  == capitalalpha[j]): 
+            a[i] = shuffled[j]
+            break
+values= np.array(a)               
+values
+</script></div>
+<article class="remark remark-like" id="remark-11"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.51</span><span class="period">.</span>
+</h6>A inversa de uma matriz de permutações é igual a sua transposta (isso não vale para qualquer matriz).</article><p id="p-122">Alguém que conheça a permutação que utilizamos pode desfazer a codificação multiplicando à esquerda o vetor \(\vec{b}\) pela inversa (= transposta, nesse caso) da matriz de permutação.</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix}
+0\\ 1\\ 2\\ 3\\ 4
+\end{pmatrix} = P^T \vec{b} =
+\begin{pmatrix}
+0 \amp  0 \amp 1 \amp 0 \amp 0 \\
+1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+0 \amp 0 \amp 0 \amp 1 \amp 0
+\end{pmatrix}
+\begin{pmatrix}
+1\\ 2\\ 0\\ 4\\ 3
+\end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-123">O código a seguir desfaz a permutação para decodificar a mensagem:</p>
+<div class="sagecell-sage" id="sage-22"><script type="text/x-sage"># loading libraries 
+import numpy as np 
+
+
+# string to convert  
+b = np.array([19.,  5.,  7., 21.,  5.,  0., 15.,  0.,  2.,  1., 18.,  3., 15.])
+listb = list(b) 
+lenb = len(listb) 
+
+a  =  listofzeros = [0] * len(b)
+
+
+reverse = P.transpose().dot(shuffled) #reverting the shuffling opperation
+
+
+# Lists of Alphabets and its values 
+capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+# Loop to convert Word to Values that  
+# are further useful for Encoding 
+for i in range(lenb): 
+    for j in range(len(capitalalpha)): 
+        if(listb[i]  == j): 
+            a[i] = capitalalpha[int(reverse[j])]
+            break
+                
+print(a)
+</script></div>
+<article class="exercise exercise-like" id="exercise-27"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-27"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.52</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-27"><article class="exercise exercise-like"><p id="p-124">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz de permutações e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva matriz de permutações de um colega e decodifique-a.</p></article></div>
+<p id="p-125">Outra maneira de tentar encriptar uma mensagem seria utilizar uma matriz para embaralhá-la. Começamos com uma mensagem, substituímos as letras por números, quebramos a lista de números em \(n\) linhas (preenchendo com zeros no final, se necessário). Multiplicamos à esquerda o resultado por uma matriz \(n \times n\) inversível (conhecida pelo remetente (nós) e pelo destinatário). O destinatário multiplica à esquerda o dado enviado e pode desfazer o código.</p>
+<p id="p-126">Por exemplo, a palavra \(CARRO\) seria codificada como \([3, 1, 18, 18, 15]\text{,}\) que poderia ser quebrada em 3 linhas formando a matriz</p>
+<div class="displaymath">
+\begin{equation*}
+M = \begin{pmatrix} 3 \amp 1 \\ 18 \amp 18\\ 15 \amp 0 \end{pmatrix}.
+\end{equation*}
+</div>Em seguida multiplicaríamos essa matriz por uma matriz inversível \(A\) (combinada entre as partes), por exemplo:<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 1 \\ 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp - 1\end{pmatrix}.
+\end{equation*}
+</div>Então enviamos a mensagem criptografada, \(C\text{:}\)<div class="displaymath">
+\begin{equation*}
+C = A \times M = \begin{pmatrix} 36 \amp 19 \\ -3 \amp -18\\ -15 \amp 0 \end{pmatrix}
+\end{equation*}
+</div>O destinatário multiplica essa matriz à esquerda por \(A^{-1}\) para retornar a matriz original e conseguir desvendar o código.<div class="displaymath">
+\begin{equation*}
+M = A^{-1} C = \begin{pmatrix} 1 \amp 1 \amp 2\\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp - 1\end{pmatrix} \begin{pmatrix} 36 \amp 19 \\ -3 \amp -18\\ -15 \amp 0 \end{pmatrix}.
+\end{equation*}
+</div>
+<p id="p-127">Os códigos a seguir prepara a mensagem para enviar.</p>
+<div class="sagecell-sage" id="sage-23"><script type="text/x-sage">import numpy as np
+A = np.array([[1,1,1],[-1,0,1],[0,1,0]]) #secret matrix
+A
+</script></div>
+<div class="sagecell-sage" id="sage-24"><script type="text/x-sage"># loading libraries 
+import numpy as np 
+
+# string to convert  
+b = "SEGUE O BARCO"
+listb = list(b)
+lenb = len(listb) 
+
+a  =  np.zeros(lenb) 
+
+
+A = np.array([[1,1,1],[-1,0,1],[0,1,0]]) #secret matrix
+
+a_size= A.shape[0]
+
+
+# Lists of Alphabets and its values 
+capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+# Loop to convert Word to Values that  
+# are further useful for Encoding 
+for i in range(lenb): 
+    for j in range(len(capitalalpha)): 
+        if(listb[i]  == capitalalpha[j]): 
+            a[i] = j
+            break
+values= np.array(a)
+values = np.pad(values,(0,3*(int(lenb/3)+1)-lenb))
+values = values.reshape((3,int(lenb/3)+1))
+values = A.dot(values)
+values
+</script></div>
+<p id="p-128">O código a seguir desfaz multiplicação matricial e decodifica a mensagem:</p>
+<div class="sagecell-sage" id="sage-25"><script type="text/x-sage"># loading libraries 
+import numpy as np 
+
+
+# string to convert  
+b = np.linalg.inv(A).dot(values)
+
+listb = list(b.reshape((1,b.shape[0]*b.shape[1]))[0]) 
+lenb = len(listb) 
+
+
+a  =  [0] * lenb
+
+
+
+
+# Lists of Alphabets and its values 
+capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+# Loop to convert Word to Values that  
+# are further useful for Encoding 
+for i in range(lenb): 
+    for j in range(len(capitalalpha)): 
+        if(listb[i]  == j): 
+            a[i] = capitalalpha[j]
+            break
+                
+print(a)
+</script></div>
+<article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.53</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like"><p id="p-129">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz secreta \(A\) e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva secreta de um colega e decodifique-a.</p></article></div></section></section></div></main>
 </div>
 </body>
 </html>

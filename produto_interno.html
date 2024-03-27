@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-21T15:11:53-03:00       *-->
+<!--*       on 2024-03-27T11:05:39-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -106,6 +106,7 @@
 <li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
 <li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
 <li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
+<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
 </ul>
 </li>
 <li class="link">
@@ -169,14 +170,14 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="produto_interno"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span>
 </h2>
-<p id="p-219">Ao tomarmos uma base para um espaço vetorial, buscamos, com frequência, uma base formada por vetores ortogonais (perpendiculares) entre si ou temos apenas alguns vetores e desejamos adicionar outros vetores para "completar" a base. Nessa seção construíremos os conceitos e teoremas necessários para fazer isso em \(\mathbb{R}^n\text{.}\)</p>
+<p id="p-234">Ao tomarmos uma base para um espaço vetorial, buscamos, com frequência, uma base formada por vetores ortogonais (perpendiculares) entre si ou temos apenas alguns vetores e desejamos adicionar outros vetores para "completar" a base. Nessa seção construíremos os conceitos e teoremas necessários para fazer isso em \(\mathbb{R}^n\text{.}\)</p>
 <section class="subsection" id="inner_prod"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">12.1</span> <span class="title">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</span>
 </h3>
 <article class="definition definition-like" id="definition-24"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">12.1</span><span class="period">.</span>
 </h6>
-<p id="p-220">Dados \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x}=(x_1, x_2, \ldots, x_n)\text{,}\) \(\vec{y}=(y_1, y_2, \ldots, y_n)\text{,}\) definimos o <dfn class="terminology">produto interno</dfn> (ou <dfn class="terminology">produto escalar</dfn>) de \(\vec{x}\) e \(\vec{y}\) como</p>
+<p id="p-235">Dados \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x}=(x_1, x_2, \ldots, x_n)\text{,}\) \(\vec{y}=(y_1, y_2, \ldots, y_n)\text{,}\) definimos o <dfn class="terminology">produto interno</dfn> (ou <dfn class="terminology">produto escalar</dfn>) de \(\vec{x}\) e \(\vec{y}\) como</p>
 <div class="displaymath">
 \begin{equation*}
 \langle \vec{x}, \vec{y}\rangle = x_1y_1+x_2y_2 + \cdots +x_ny_n.
@@ -206,19 +207,19 @@
 <article class="theorem theorem-like" id="theorem-16"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">12.5</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades do produto interno.</span>
 </h6>Se \(\vec{x}, \vec{y}, \vec{z} \in \mathbb{R}^n\) e \(\alpha\) é um escalar, então <ol class="decimal">
-<li id="li-167"><p id="p-derived-li-167">\(\displaystyle \vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</p></li>
-<li id="li-168"><p id="p-derived-li-168">\(\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})\text{.}\)</p></li>
-<li id="li-169"><p id="p-derived-li-169">\(\displaystyle \vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}\)</p></li>
+<li id="li-166"><p id="p-derived-li-166">\(\displaystyle \vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</p></li>
+<li id="li-167"><p id="p-derived-li-167">\(\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})\text{.}\)</p></li>
+<li id="li-168"><p id="p-derived-li-168">\(\displaystyle \vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}\)</p></li>
 </ol></article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof">Exercício.</article></div>
 <article class="definition definition-like" id="definition-25"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">12.6</span><span class="period">.</span>
 </h6>
-<p id="p-221">O <dfn class="terminology">comprimento (euclidiano)</dfn> (ou <dfn class="terminology">norma</dfn>) de um vetor \(\vec{x}\in \mathbb{R}^n\) é</p>
+<p id="p-236">O <dfn class="terminology">comprimento (euclidiano)</dfn> (ou <dfn class="terminology">norma</dfn>) de um vetor \(\vec{x}\in \mathbb{R}^n\) é</p>
 <div class="displaymath">
 \begin{equation*}
 \| \vec{x}\|  = \sqrt{\vec{x} \cdot \vec{x}} = \sqrt{x_1^2+x_2^2 + \cdots +x_n^2}.
 \end{equation*}
-</div></article><p id="p-222">Em particular a distância entre os pontos finais de dois vetores \(\vec{x} \mbox{ e } \vec{y} \in \mathbb{R}^n\) é igual a \(\|\vec{x} - \vec{y}\| = \|\vec{y} - \vec{x}\|\text{.}\)</p>
+</div></article><p id="p-237">Em particular a distância entre os pontos finais de dois vetores \(\vec{x} \mbox{ e } \vec{y} \in \mathbb{R}^n\) é igual a \(\|\vec{x} - \vec{y}\| = \|\vec{y} - \vec{x}\|\text{.}\)</p>
 <article class="example example-like" id="example-51"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-51"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.7</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-51"><article class="example example-like">Dados \(\vec{x} = (3, 4)^T \) e \(\vec{y} = (-1, 7)^T \text{,}\)<div class="displaymath">
@@ -226,7 +227,7 @@
 \|\vec{x} - \vec{y}\| = \sqrt{4^2+3^2} = \sqrt{25} = 5 \text{.}
 \end{equation*}
 </div></article></div>
-<div class="sagecell-sage" id="sage-49"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="sagecell-sage" id="sage-57"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 zero = np.zeros(2)
@@ -290,8 +291,8 @@ plt.show()
 \amp  \Leftrightarrow \|\vec{x}\| \|\vec{y}\| \cos \theta = \langle \vec{x}, \vec{y}\rangle
 \end{align*}
 </div></article></div>
-<p id="p-223">Podemos utilizar o teorema acima como um método para definir o ângulo entre dois vetores para \(\mathbb{R}^n\text{,}\) \(n\) qualquer.</p>
-<article class="remark remark-like" id="remark-23"><h6 class="heading">
+<p id="p-238">Podemos utilizar o teorema acima como um método para definir o ângulo entre dois vetores para \(\mathbb{R}^n\text{,}\) \(n\) qualquer.</p>
+<article class="remark remark-like" id="remark-24"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">12.9</span><span class="period">.</span>
 </h6>Se \(\vec{x}, \vec{y} \in \mathbb{R}^n\) são vetores não nulos, suas direções são os vetores unitários<div class="displaymath">
 \begin{equation*}
@@ -310,8 +311,8 @@ plt.show()
 </div>e seus vetores unitários é...</article></div></section><section class="subsection" id="projecoes"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">12.2</span> <span class="title">Projeções escalares e vetoriais</span>
 </h3>
-<p id="p-224">A projeção vetorial de um vetor \(\vec{x} \neq \vec{0}\) na direção do vetor \(\vec{y} \neq \vec{0}\) é um vetor \(\vec{p}\text{,}\) múltiplo de \(\vec{y}\) tal que \((\vec{x}-\vec{p}) \perp \vec{y}.\text{.}\)</p>
-<div class="sagecell-sage" id="sage-50"><script type="text/x-sage">import matplotlib.pyplot as plt
+<p id="p-239">A projeção vetorial de um vetor \(\vec{x} \neq \vec{0}\) na direção do vetor \(\vec{y} \neq \vec{0}\) é um vetor \(\vec{p}\text{,}\) múltiplo de \(\vec{y}\) tal que \((\vec{x}-\vec{p}) \perp \vec{y}.\text{.}\)</p>
+<div class="sagecell-sage" id="sage-58"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 zero = np.zeros(2)
@@ -358,25 +359,25 @@ plt.show()
 print('alpha = ', alpha)
 print('p = ', p)
 </script></div>
-<p id="p-225">Dados vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) queremos escrever</p>
+<p id="p-240">Dados vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) queremos escrever</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{x} = \alpha \vec{u} +\vec{z}, \,\,\, \vec{u} = \frac{1}{\|\vec{y}\|}\vec{y}, \,\,\, \vec{p} = \alpha \vec{u},
 \end{equation*}
 </div>
 <p class="continuation">com \(\vec{z} \perp \vec{y}\text{.}\) Ou seja, vamos decompor \(\vec{x}\) na soma de um vetor na direção de \(\vec{y}\) com um vetor perpendicular a \(\vec{y}\text{.}\)</p>
-<p id="p-226">Note que \(\alpha = \| \vec{p} \| = \|\vec{x}\|\cos \theta \text{,}\) mas \(\cos \theta = \vec{x}^T\vec{y}/(\|\vec{x}\|\|\vec{y}\|)\)</p>
+<p id="p-241">Note que \(\alpha = \| \vec{p} \| = \|\vec{x}\|\cos \theta \text{,}\) mas \(\cos \theta = \vec{x}^T\vec{y}/(\|\vec{x}\|\|\vec{y}\|)\)</p>
 <div class="displaymath">
 \begin{align*}
 \Longrightarrow \amp \alpha = \|\vec{x}\|\frac{\vec{x}^T\vec{y}}{\|\vec{x}\|\|\vec{y}\|} =\frac{\vec{x}^T\vec{y}}{\|\vec{y}\|}\\
 \Longrightarrow \amp p = \alpha  \vec{u} = \alpha \frac{\vec{y}}{\|\vec{y}\|} = \frac{\vec{x}^T\vec{y}}{\|\vec{y}\|^2}\vec{y}.
 \end{align*}
 </div>
-<p id="p-227">\(\alpha\) é a <dfn class="terminology">projeção escalar</dfn> de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
-<p id="p-228">\(\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}\) é a <dfn class="terminology">projeção vetorial</dfn> de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
-<article class="exercise exercise-like" id="exercise-49"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-49"><h6 class="heading">
+<p id="p-242">\(\alpha\) é a <dfn class="terminology">projeção escalar</dfn> de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
+<p id="p-243">\(\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}\) é a <dfn class="terminology">projeção vetorial</dfn> de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
+<article class="exercise exercise-like" id="exercise-52"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-52"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">12.11</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-49"><article class="exercise exercise-like">Encontre as projeções escalares e vetoriais dos vetores \(\vec{x}\) e \(\vec{y}\) na direção do vetor \(\vec{z}\) para<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-52"><article class="exercise exercise-like">Encontre as projeções escalares e vetoriais dos vetores \(\vec{x}\) e \(\vec{y}\) na direção do vetor \(\vec{z}\) para<div class="displaymath">
 \begin{equation*}
 \vec{x} = \begin{pmatrix} 1 \\ -1 \\ 2\end{pmatrix}, \,\,\, \vec{y} = \begin{pmatrix} 2 \\ 1 \\ 0\end{pmatrix}, \,\,\, \vec{z} = \begin{pmatrix} 3 \\ -1 \\-2\end{pmatrix}.
 \end{equation*}
@@ -386,7 +387,7 @@ print('p = ', p)
 <article class="definition definition-like" id="definition-26"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">12.12</span><span class="period">.</span>
 </h6>
-<p id="p-229">Sejam \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) um conjunto de vetores em um espaço vetorial \(V\) munido com produto interno. Se \(\langle \vec{v}_i, \vec{v}_j \rangle = 0\) sempre que \(i \neq j\text{,}\) então o conjunto é dito <dfn class="terminology">ortogonal</dfn>. Além disso, se \(\langle \vec{v}_i, \vec{v}_i \rangle = 1\) para todo \(i = 1, \ldots, n\text{,}\) o conjunto é dito <dfn class="terminology">ortonormal</dfn>.</p></article><article class="example example-like" id="example-53"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-53"><h6 class="heading">
+<p id="p-244">Sejam \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) um conjunto de vetores em um espaço vetorial \(V\) munido com produto interno. Se \(\langle \vec{v}_i, \vec{v}_j \rangle = 0\) sempre que \(i \neq j\text{,}\) então o conjunto é dito <dfn class="terminology">ortogonal</dfn>. Além disso, se \(\langle \vec{v}_i, \vec{v}_i \rangle = 1\) para todo \(i = 1, \ldots, n\text{,}\) o conjunto é dito <dfn class="terminology">ortonormal</dfn>.</p></article><article class="example example-like" id="example-53"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-53"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.13</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-53"><article class="example example-like">O conjunto formado pelos pelos vetores<div class="displaymath">
 \begin{equation*}
@@ -414,21 +415,21 @@ print('p = ', p)
 \langle \vec{v}, \vec{u}_i\rangle = \sum v_i\rangle \vec{u}_i, \vec{u}_i \rangle = v_i.
 \end{equation*}
 </div></article></div>
-<p id="p-230">O <a class="xref" data-knowl="./knowl/coord_prod_int.html" title="Theorem 12.15">Theorem 12.15</a> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.</p>
-<article class="exercise exercise-like" id="exercise-50"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-50"><h6 class="heading">
+<p id="p-245">O <a class="xref" data-knowl="./knowl/coord_prod_int.html" title="Theorem 12.15">Theorem 12.15</a> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.</p>
+<article class="exercise exercise-like" id="exercise-53"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-53"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">12.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-50"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelos vetores<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-53"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelos vetores<div class="displaymath">
 \begin{equation*}
 \vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
 \end{equation*}
 </div></article></div>
-<p id="p-231">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
+<p id="p-246">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
 <ol class="decimal">
-<li id="li-170"><p id="p-derived-li-170">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
-<li id="li-171"><p id="p-derived-li-171">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
-<li id="li-172"><p id="p-derived-li-172">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</p></li>
+<li id="li-169"><p id="p-derived-li-169">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-170"><p id="p-derived-li-170">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-171"><p id="p-derived-li-171">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</p></li>
 </ol>
-<div class="sagecell-sage" id="sage-51"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="sagecell-sage" id="sage-59"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -480,22 +481,22 @@ plt.annotate('u2', cor(u2)/2 + np.array([-0.2,-0.3]))
 
 plt.show()
 </script></div>
-<p id="p-232">Note que a base obtida pelo processo acima é, de fato, ortonormal, pois \(\|\vec{u}_1\|  = \|\vec{u}_2\| = 1\)  e</p>
+<p id="p-247">Note que a base obtida pelo processo acima é, de fato, ortonormal, pois \(\|\vec{u}_1\|  = \|\vec{u}_2\| = 1\)  e</p>
 <div class="displaymath">
 \begin{align*}
 \langle \vec{u}_1, \vec{u}_2 \rangle =\amp \left\lt \vec{u}_1, \frac{\vec{x}_2 - \vec{p}_1}{\|\vec{x}_2 - \vec{p}_1\|}  \right\gt = \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1, \vec{p}_1\rangle) \\
 =\amp \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1,  \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1\rangle) = 0.
 \end{align*}
 </div>
-<p id="p-233">Suponha, agora, que temos três vetores \(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
+<p id="p-248">Suponha, agora, que temos três vetores \(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
 <ol class="decimal">
-<li id="li-173"><p id="p-derived-li-173">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
-<li id="li-174"><p id="p-derived-li-174">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
-<li id="li-175"><p id="p-derived-li-175">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
-<li id="li-176"><p id="p-derived-li-176">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
-<li id="li-177"><p id="p-derived-li-177">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
+<li id="li-172"><p id="p-derived-li-172">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-173"><p id="p-derived-li-173">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-174"><p id="p-derived-li-174">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
+<li id="li-175"><p id="p-derived-li-175">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
+<li id="li-176"><p id="p-derived-li-176">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
 </ol>
-<div class="sagecell-sage" id="sage-52"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="sagecell-sage" id="sage-60"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -546,18 +547,18 @@ print("u1 = ", u1)
 print("u2 = ", u2)
 print("u3 = ", u3)
 </script></div>
-<article class="exercise exercise-like" id="exercise-51"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-51"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-54"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-54"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">12.17</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-51"><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para \(\mathbb{R}^3\) a partir de \(\vec{x}_1 = (1, -2, 3)^T\text{,}\) \(\vec{x}_2 = (1, -2, -1)^T\text{,}\) \(\vec{x}_3 = (-1, -2, 1)^T\text{.}\)</article></div>
-<p id="p-234">Processo de ortogonalização de Gram-Schmidt.</p>
-<p id="p-235">Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</p>
-<p id="p-236">Seja \(\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}\) uma base para um espaço com produto interno \(V\text{.}\) Obtemos uma base ortonormal para \(V\) definindo:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-54"><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para \(\mathbb{R}^3\) a partir de \(\vec{x}_1 = (1, -2, 3)^T\text{,}\) \(\vec{x}_2 = (1, -2, -1)^T\text{,}\) \(\vec{x}_3 = (-1, -2, 1)^T\text{.}\)</article></div>
+<p id="p-249">Processo de ortogonalização de Gram-Schmidt.</p>
+<p id="p-250">Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</p>
+<p id="p-251">Seja \(\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}\) uma base para um espaço com produto interno \(V\text{.}\) Obtemos uma base ortonormal para \(V\) definindo:</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{u}_1 = \frac{\vec{x}_1}{\|\vec{x}_1\|}
 \end{equation*}
 </div>
-<p id="p-237">e definindo \(\vec{u}_2, \ldots, \vec{u}_n\) recursivamente por</p>
+<p id="p-252">e definindo \(\vec{u}_2, \ldots, \vec{u}_n\) recursivamente por</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{k} \rangle \vec{u}_{k}, 
@@ -568,9 +569,9 @@ print("u3 = ", u3)
 \vec{u}_{k+1}= \frac{\vec{x}_{k+1} - \vec{p}_{k}}{\| \vec{x}_{k+1} - \vec{p}_{k} \|}
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-52"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-52"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-55"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-55"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">12.18</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-52"><article class="exercise exercise-like">Encontre uma base ortonormal para o espaço coluna de<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-55"><article class="exercise exercise-like">Encontre uma base ortonormal para o espaço coluna de<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
 1 \amp 1 \amp 5 \amp 1 \\
@@ -580,9 +581,9 @@ A = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div></article></div>
-<article class="remark remark-like" id="remark-24"><h6 class="heading">
+<article class="remark remark-like" id="remark-25"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">12.19</span><span class="period">.</span>
-</h6>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\) é uma base ortonormal para \(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\) para qualquer \(k = 1,2,\ldots,n\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article><article class="remark remark-like" id="remark-25"><h6 class="heading">
+</h6>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\) é uma base ortonormal para \(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\) para qualquer \(k = 1,2,\ldots,n\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article><article class="remark remark-like" id="remark-26"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">12.20</span><span class="period">.</span>
 </h6>Se \(\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) é uma base ortonormal para \(\mathbb{R}^n\text{,}\) então a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica<div class="displaymath">
 \begin{equation*}

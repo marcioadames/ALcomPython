@@ -1806,7 +1806,6 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <li><m>\det(A) = \det(A^T)</m>.</li>
                         <li> Se <m>A</m> tem duas linhas ou duas colunas iguais, <m>\det(A) = 0</m>.</li>
                         <li> Se <m>A</m> tem uma linha nula ou uma coluna nula, <m>\det(A) = 0</m>.</li>
-                        <li> Se <m>A</m> tem duas linhas ou duas colunas iguais, <m>\det(A) = 0</m>.</li>
                         <li> Se <m>B</m> é uma matriz <m>n \times n</m>, <m>\det(AB) = \det(A)\det(B)</m>.</li>
                     </ol>
                   </statement>
@@ -1897,6 +1896,363 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                </subsection>
 
+
+
+
+                <!--  *********************************************************
+                *************************************************************** -->
+               
+               
+                <subsection xml:id="Coding_message">
+                    <title>Aplicação: mensagens codificadas</title>
+                    <p>Mandar mensagens em código é fundamental na sociedade moderna. Não queremos que nossas mensagens privadas sejam vistas por estranhos na internet, que eles tenham acesso a imagens privadas, dados pessoas ou informações detalhadas sobre nossa saúde. A privacidade de outras informações é relevante por questões de segurança, como dados financeiros (incluindo senhas), endereços e outras.</p>
+
+                    <p>Existem diversas formas de codificar mensagens. A maneira mais simples seja, talvez, simplesmente trocar letras por números (na lista abaixo <m>\_</m> representa um espaço):</p>
+
+                    <me>
+                        \begin{array}{cccccc}
+                        {\_} \amp A \amp B \amp C \amp \cdots \amp Z \\
+                        0 \amp 1 \amp 2 \amp 3 \amp \cdots \amp 26
+                        \end{array}
+                    </me>
+
+                    <p>Assim a mensagem SEGUE O BARCO seria codificada por [19.,  5.,  7., 21.,  5.,  0., 15.,  0.,  2.,  1., 18., 3., 15.]. O código abaixo pode ser utizado para codificar uma mensagem assim.</p>
+
+                    <sage>
+                        <input>
+                            # loading libraries 
+                            import numpy as np 
+                            
+                            
+                            # string to convert  
+                            b = "SEGUE O BARCO"
+                            listb = list(b) 
+                            lenb = len(listb) 
+                            
+                            a  =  np.zeros(lenb) 
+                            
+                            
+                            # Lists of Alphabets and its values 
+                            capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                                            "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                                            "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+                            
+                            # Loop to convert Word to Values that  
+                            # are further useful for Encoding 
+                            for i in range(lenb): 
+                                for j in range(len(capitalalpha)): 
+                                    if(listb[i]  == capitalalpha[j]): 
+                                        a[i] = int(j)
+                                        break
+                            values= np.array(a)               
+                            values
+                        </input>
+                        <output>
+                            mensagem codificada
+                        </output>
+                    </sage>
+
+
+                    <p>Podemos desfazer essa operação com o código a seguir:</p>
+
+                    <sage>
+                        <input>
+                            # loading libraries 
+                            import numpy as np 
+                            
+                            
+                            # string to convert  
+                            b = np.array([15.,  0., 16., 18., 15.,  6.,  5., 19., 19., 15., 18.,  0.,  6.,
+                            9.,  3., 15., 21.,  0., 12., 15., 21.,  3., 15.])
+                            listb = list(b) 
+                            lenb = len(listb) 
+                            
+                            a  =  listofzeros = [0] * len(b)
+                            
+                            
+                            # Lists of Alphabets and its values 
+                            capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                                            "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                                            "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+                            
+                            # Loop to convert Word to Values that  
+                            # are further useful for Encoding 
+                            for i in range(lenb): 
+                                for j in range(len(capitalalpha)): 
+                                    if(listb[i]  == j): 
+                                        a[i] = capitalalpha[j]
+                                        break
+                                            
+                            print(a)
+                        </input>
+                        <output>
+                            mensagem codificada
+                        </output>
+                    </sage>
+
+                    <exercise>
+                        <p>Escreva uma mensagem curta (pode ser uma palavra apenas), converta a mensagem em números manualmente e verifique que os "outputs" dos códigos acima correspondem ao que você obteve para a sua mensagem.</p>
+                    </exercise>
+
+
+                    <p>Esse código seria fácil de ser quebrado, podemos melhorá-lo se embaralharmos as letras. Para isso precisamos criar um mapa que troca as posições dos números na lista <m>0, 1, 2, \ldots, 26</m>. Uma maneira de fazer isso é multiplicar o vetor coluna <m>(0, 1, 2, \ldots, 26)^T</m> por uma <term>matriz de permutação</term>, que é obtida trocando linhas das matriz identidade. Por exemplo, para trocar as posições das letras <m>({\_}, A, B, C, D)</m> para <m>(B, {\_}, A, D, C)</m> multiplicamos à esquerda o vetor <m>(0, 1, 2, 3, 4)^T</m> pela matriz de permutação <m> P </m> a seguir, obtendo o vetor <m>\vec{b}</m> indicando a posição na lista dos símbolos <m>{\_}, A, B, C, D,</m> respectivamente:</p>
+
+                    <me>
+                        P\begin{pmatrix}
+                        0\\ 1\\ 2\\ 3\\ 4
+                        \end{pmatrix} =
+                        \begin{pmatrix}
+                        0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+                        0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+                        1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                        0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+                        0 \amp 0 \amp 0 \amp 1 \amp 0
+                        \end{pmatrix}
+                        \begin{pmatrix}
+                        0\\ 1\\ 2\\ 3\\ 4
+                        \end{pmatrix}
+                        =
+                        \begin{pmatrix}
+                        1\\ 2\\ 0\\ 4\\ 3
+                        \end{pmatrix}
+                    </me>
+
+                    <p>Desse modo a palavra "ABA", ficaria codificada como "[2, 0, 2]". Podemos fazer um código que codifique uma mensagem trocando letras do seguinte modo:</p>
+
+                    <sage>
+                        <input>
+                            import numpy as np
+                            P = np.eye(27, dtype='int') #identity of size 27 x 27
+                            np.random.shuffle(P) # create a random permutation
+
+                            P #show the permutation matrix 
+                        </input>
+                        <output>
+                            x
+                        </output>
+                    </sage>
+
+
+                    <sage>
+                        <input>
+                            # loading libraries 
+                            import numpy as np 
+                            
+                            # string to convert  
+                            b = "SEGUE O BARCO"
+                            listb = list(b) 
+                            lenb = len(listb) 
+                            
+                            a  =  np.zeros(lenb) 
+                            
+                            
+                            
+                            indexes = range(27)
+                            shuffled = P.dot(indexes)
+                            
+                            # Lists of Alphabets and its values 
+                            capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                                            "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                                            "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+                            
+                            # Loop to convert Word to Values that  
+                            # are further useful for Encoding 
+                            for i in range(lenb): 
+                                for j in range(len(capitalalpha)): 
+                                    if(listb[i]  == capitalalpha[j]): 
+                                        a[i] = shuffled[j]
+                                        break
+                            values= np.array(a)               
+                            values
+                        </input>
+                        <output>
+                            mensagem codificada
+                        </output>
+                    </sage>
+
+                    <remark>A inversa de uma matriz de permutações é igual a sua transposta (isso não vale para qualquer matriz).</remark>
+
+
+                    <p>Alguém que conheça a permutação que utilizamos pode desfazer a codificação multiplicando à esquerda o vetor <m>\vec{b}</m> pela inversa (= transposta, nesse caso) da matriz de permutação.</p>
+                    
+                    <me>
+                        \begin{pmatrix}
+                        0\\ 1\\ 2\\ 3\\ 4
+                        \end{pmatrix} = P^T \vec{b} =
+                        \begin{pmatrix}
+                        0 \amp  0 \amp 1 \amp 0 \amp 0 \\
+                        1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                        0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+                        0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+                        0 \amp 0 \amp 0 \amp 1 \amp 0
+                        \end{pmatrix}
+                        \begin{pmatrix}
+                        1\\ 2\\ 0\\ 4\\ 3
+                        \end{pmatrix}
+                    </me>
+                    
+                    <p>O código a seguir desfaz a permutação para decodificar a mensagem:</p>
+
+                    <sage>
+                        <input>
+                        # loading libraries 
+                        import numpy as np 
+
+
+                        # string to convert  
+                        b = np.array([19.,  5.,  7., 21.,  5.,  0., 15.,  0.,  2.,  1., 18.,  3., 15.])
+                        listb = list(b) 
+                        lenb = len(listb) 
+
+                        a  =  listofzeros = [0] * len(b)
+
+
+                        reverse = P.transpose().dot(shuffled) #reverting the shuffling opperation
+
+
+                        # Lists of Alphabets and its values 
+                        capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                                        "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                                        "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+                        # Loop to convert Word to Values that  
+                        # are further useful for Encoding 
+                        for i in range(lenb): 
+                            for j in range(len(capitalalpha)): 
+                                if(listb[i]  == j): 
+                                    a[i] = capitalalpha[int(reverse[j])]
+                                    break
+                                        
+                        print(a)
+                        </input>
+                        <output>
+                            mensagem codificada
+                        </output>
+                    </sage>
+
+                    <exercise>
+                        <p>(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz de permutações e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva matriz de permutações de um colega e decodifique-a.</p>
+                    </exercise>
+
+
+                    <p>Outra maneira de tentar encriptar uma mensagem seria utilizar uma matriz para embaralhá-la. Começamos com uma mensagem, substituímos as letras por números, quebramos a lista de números em <m>n</m> linhas (preenchendo com zeros no final, se necessário). Multiplicamos à esquerda o resultado por uma matriz <m>n \times n</m> inversível (conhecida pelo remetente (nós) e pelo destinatário). O destinatário multiplica à esquerda o dado enviado e pode desfazer o código. </p>
+
+                    <p>Por exemplo, a palavra <m>CARRO</m> seria codificada como <m>[3, 1, 18, 18, 15]</m>, que poderia ser quebrada em 3 linhas formando a matriz </p>
+                    <me>
+                        M = \begin{pmatrix} 3 \amp 1 \\ 18 \amp 18\\ 15 \amp 0 \end{pmatrix}.
+                    </me>
+                    Em seguida multiplicaríamos essa matriz por uma matriz inversível <m>A</m> (combinada entre as partes), por exemplo: <me>
+                        A = \begin{pmatrix} 1 \amp 1 \amp 1 \\ 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp - 1\end{pmatrix}.
+                    </me>
+                    Então enviamos a mensagem criptografada, <m>C</m>:
+                    <me>
+                        C = A \times M = \begin{pmatrix} 36 \amp 19 \\ -3 \amp -18\\ -15 \amp 0 \end{pmatrix}
+                    </me>
+                    O destinatário multiplica essa matriz à esquerda por <m>A^{-1}</m> para retornar a matriz original e conseguir desvendar o código.
+                    <me>
+                        M = A^{-1} C = \begin{pmatrix} 1 \amp 1 \amp 2\\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp - 1\end{pmatrix} \begin{pmatrix} 36 \amp 19 \\ -3 \amp -18\\ -15 \amp 0 \end{pmatrix}.
+                    </me>
+
+                    <p>Os códigos a seguir prepara a mensagem para enviar.</p>
+
+                    <sage>
+                        <input>
+                            import numpy as np
+                            A = np.array([[1,1,1],[-1,0,1],[0,1,0]]) #secret matrix
+                            A
+                        </input>
+                        <output>
+                            x
+                        </output>
+                    </sage>
+
+                    <sage>
+                        <input>
+                            # loading libraries 
+                            import numpy as np 
+
+                            # string to convert  
+                            b = "SEGUE O BARCO"
+                            listb = list(b)
+                            lenb = len(listb) 
+
+                            a  =  np.zeros(lenb) 
+
+
+                            A = np.array([[1,1,1],[-1,0,1],[0,1,0]]) #secret matrix
+
+                            a_size= A.shape[0]
+
+
+                            # Lists of Alphabets and its values 
+                            capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                                            "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                                            "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+                            # Loop to convert Word to Values that  
+                            # are further useful for Encoding 
+                            for i in range(lenb): 
+                                for j in range(len(capitalalpha)): 
+                                    if(listb[i]  == capitalalpha[j]): 
+                                        a[i] = j
+                                        break
+                            values= np.array(a)
+                            values = np.pad(values,(0,3*(int(lenb/3)+1)-lenb))
+                            values = values.reshape((3,int(lenb/3)+1))
+                            values = A.dot(values)
+                            values
+                        </input>
+                        <output>
+                            mensagem codificada
+                        </output>
+                    </sage>
+
+                    
+                    <p>O código a seguir desfaz multiplicação matricial e decodifica a mensagem:</p>
+
+                    <sage>
+                        <input>
+                            # loading libraries 
+                            import numpy as np 
+
+
+                            # string to convert  
+                            b = np.linalg.inv(A).dot(values)
+                            
+                            listb = list(b.reshape((1,b.shape[0]*b.shape[1]))[0]) 
+                            lenb = len(listb) 
+
+
+                            a  =  [0] * lenb
+
+
+
+
+                            # Lists of Alphabets and its values 
+                            capitalalpha = [" ","A", "B", "C", "D", "E", "F", "G", "H", 
+                                            "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+                                            "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
+
+                            # Loop to convert Word to Values that  
+                            # are further useful for Encoding 
+                            for i in range(lenb): 
+                                for j in range(len(capitalalpha)): 
+                                    if(listb[i]  == j): 
+                                        a[i] = capitalalpha[j]
+                                        break
+                                            
+                            print(a)
+                        </input>
+                        <output>
+                            mensagem codificada
+                        </output>
+                    </sage>
+
+                    <exercise>
+                        <p>(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz secreta <m>A</m> e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva secreta de um colega e decodifique-a.</p>
+                    </exercise>
+
+                </subsection>
 
             </section>
 

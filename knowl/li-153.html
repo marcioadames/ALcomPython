@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-21T15:11:54-03:00       *-->
+<!--*       on 2024-03-27T11:05:40-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,26 +15,20 @@
 </head>
 <body>
 <article class="li"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Item</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span>
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span>
 </h6>
-<p>esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
+<p>esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{v}_1, \vec{v}_2, \vec{v}_3\text{,}\) o que ocorre de fato pois, escrevendo o sistema acima na forma matricial</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \alpha_3 \vec{v}_3 = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
+\left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix},
 \end{equation*}
 </div>
-<p class="continuation">é \(\alpha_1 = \alpha_2 = \alpha_3 =0,\) para verificarmos isso, escrevemos o sistema acima na forma matricial</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-\end{equation*}
-</div>
-<p class="continuation">e verificamos que esse sistema admite solução única pois a matriz</p>
+<p class="continuation">verificamos que esse sistema admite solução (\(\vec{\alpha} = A^{-1} \vec{x}\)) para qualquer \(\vec{x} \in \mathbb{R}^3\text{,}\)  pois a matriz</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
 \end{equation*}
 </div>
-<p class="continuation">tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p></article><span class="incontext"><a href="bases.html#li-153">in-context</a></span>
+<p class="continuation">é tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p></article><span class="incontext"><a href="bases.html#li-153">in-context</a></span>
 </body>
 </html>
