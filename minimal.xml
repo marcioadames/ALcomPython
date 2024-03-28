@@ -2255,6 +2255,172 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                 </subsection>
 
+
+                <!--  *********************************************************
+                ***************************************************************-->
+
+                <subsection>
+                    <title>Decomposição LU</title>
+
+                    <definition>
+                        <notation>
+                        <!--usage><m>S</m></usage-->
+                        <description>matriz triângular</description>
+                        </notation>
+                    
+                        <statement>
+                        <p>
+                            Uma matriz <m>A</m> é dita <term>triângular superior</term> se <m>a_{ij} = 0</m> para <m> i \gt j </m>.</p>
+                        <p> Uma matriz <m>A</m> é dita <term>triângular inferior </term> se <m>a_{ij} = 0</m> para <m> i \lt j </m>.</p>
+                        <p> Dizemos que <m>A</m> é <term>triângular</term> se ela for triângular superior ou triângular inferior.</p>
+                        <p>
+                            Uma matriz <m>A</m> é dita <term>diagonal</term> se <m>a_{ij} = 0</m> para <m> i \neq j </m>.
+                        </p>
+                        </statement>
+                    </definition>
+
+
+                    <example>
+                        <p>Matrizes triangulares inferiores:</p>
+                        <me>
+                            L = \begin{pmatrix} 2 \amp 0 \amp 0 \\0 \amp 3\amp 0\\ 1 \amp 4\amp 5\end{pmatrix}, \,\,\,
+                            A = \begin{pmatrix} 0\amp 0 \amp 0 \\ 2 \amp 2 \amp 0 \\ -1\amp 0 \amp 1 \end{pmatrix}, \,\,\,
+                            B = \begin{pmatrix} 4 \amp 0 \\ 1 \amp  0 \end{pmatrix}.
+                        </me>
+                    </example>
+
+                    <example>
+                        <p>Matrizes triangulares superiores:</p>
+                        <me>
+                            U = \begin{pmatrix} 2 \amp 0 \amp 1 \\0 \amp 3\amp 3\\ 0 \amp 0\amp 5\end{pmatrix}, \,\,\,
+                            A = \begin{pmatrix} 1\amp 0 \amp 1 \\ 0 \amp 0 \amp 4 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,\,
+                            B = \begin{pmatrix} 4 \amp -1 \\ 0 \amp  2 \end{pmatrix}.
+                        </me>
+                    </example>
+
+                    <example>
+                        <p>Matrizes diagonais:</p>
+                        <me>
+                            D = \begin{pmatrix} 2 \amp 0 \amp 0 \\0 \amp 3\amp 0\\ 0 \amp 0\amp 2\end{pmatrix}, \,\,\,
+                            A = \begin{pmatrix} 0\amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 7 \end{pmatrix}, \,\,\,
+                            B = \begin{pmatrix} 4 \amp 0 \\ 0 \amp  -2 \end{pmatrix}.
+                        </me>
+                    </example>
+
+                    <example> <p>Todas as matrizes dos três exemplos anteriores são triângulares.</p></example>
+
+                    <p> Muitas matrizes podem ser <term>decompostas</term> como o produto de uma matriz triângular inferior <m>L</m> e uma matriz triângular superior, <m>U.</m> Observe que, por exemplo, a matriz </p>
+                    <me>
+                        A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ 3 \amp -1 \amp 10 \\ 3 \amp 5 \amp 0 \end{pmatrix}
+                    </me>
+                    <p>é igual ao produto das matrizes:</p>
+                    <me>
+                        L = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 3 \amp 4 \amp 0 \\ 3 \amp -2 \amp 2 \end{pmatrix}, \,\,\, U = \begin{pmatrix} 1 \amp 1 \amp 2 \\ 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp -2 \end{pmatrix}.
+                    </me>
+
+                    <lemma>
+                        <!-- <title>Optional</title> -->
+                        <!-- <creator>I. Newton</creator> -->
+                      <statement>
+                        <p>
+                            O produto de duas matrizes triângulares superiores é uma matriz triângular superior.
+                          </p>
+                          <p>
+                            O produto de duas matrizes triângulares inferiores é uma matriz triângular inferior.
+                          </p>
+                          <p>
+                            O produto de duas matrizes diagonais é uma matriz diagonal.
+                          </p>
+                      </statement>
+                    
+                      <proof>
+                        </proof>
+                    </lemma>
+
+                    <p>Vamos realizar operações elementares do tipo III na matriz a seguir para "transformá-la" em uma matriz triângular superior.</p>
+
+                    <me>
+                        A = \begin{pmatrix} 2 \amp 4 \amp 2 \\ 1 \amp 5 \amp 2 \\ 4 \amp -1 \amp 9 \end{pmatrix} \sim 
+                        \begin{pmatrix} 2 \amp 4 \amp 2 \\ 0 \amp 3 \amp 1 \\ 0 \amp -9 \amp 5 \end{pmatrix} \sim
+                        \begin{pmatrix} 2 \amp 4 \amp 2 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 8 \end{pmatrix} = U.                 
+                    </me>
+
+                    <p>Todavia as operações elementares realizadas têm o mesmo efeito que multiplicar pelas seguintes matrizes elementares. </p>
+
+                    <me>
+                        E_1 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ -1/2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,
+                        E_2 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ -2 \amp 0 \amp 1 \end{pmatrix}, \,\,
+                        E_3 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 3 \amp 1 \end{pmatrix}.
+                    </me>
+
+                    <p>Ou seja, encontramos que <m>U = E_3E_2E_1 A</m>, o que é equivalente à <m>E_1^{-1}E_2^{-1}E_3^{-1} U = A</m>. Todavia: </p>
+
+                    <me>
+                        E_1^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 1/2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,
+                        E_2^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 2 \amp 0 \amp 1 \end{pmatrix}, \,\,
+                        E_3^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp -3 \amp 1 \end{pmatrix}.
+                    </me>
+
+                    <p>Assim, <m>A = LU</m>, com:</p>
+                    <me>
+                        L = E_1^{-1} E_2^{-1} E_3^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\2 \amp -5/2 \amp 0 \\ 2 \amp -3 \amp 1 \end{pmatrix}.
+                    </me>
+
+
+                    <exercise>
+                        <p>Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</p>
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \end{pmatrix}.
+                        </me>
+                    </exercise>
+
+                    <exercise>
+                        <p>Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</p>
+                        <me>
+                            A = \begin{pmatrix} 1 \amp 3 \amp 3 \\ 2\amp 2 \amp 6 \\ 2 \amp 5 \amp -1 \end{pmatrix}.
+                        </me>
+                    </exercise>
+                    
+
+                    <p>Se temos um sistema linear escrito na forma matricial <m>A\vec{x} = \vec{b}</m> e temos a <term>decomposição</term> <m>A = LU</m>, podemos definir <m>\vec{y} = U \vec{x}</m> e resolver</p>
+                    <me>
+                        L \vec{y} = \vec{b}, \,\,\, U \vec{x} \vec{y},
+                    </me>
+                    <p>onde a solução de cada um desses sistemas é feita simplesmente por substituição reversa.</p>
+
+                    <p>Vamos resolver o exemplo.</p>
+
+                    <me>
+                        \begin{array}[l]
+                        2x + 4y + 2 z = 2 \\ x + 5y + 2z = 1 \\ 4x -y + 9z = -3
+                        \end{array}                 
+                    </me>
+
+                    <exercise>
+                        <p>Resolva o sistema linear utilizando decomposição LU:</p>
+                        <me>
+                            \begin{array}[l]
+                            x + 2y + 3 z = 2 \\ 4x + 5y + 6z = 1 \\ 7x +8y + 9z = -3
+                            \end{array}                 
+                        </me>    
+                    </exercise>
+
+                    <exercise>
+                        <p>Resolva o sistema linear utilizando decomposição LU:</p>
+                        <me>
+                            \begin{array}[l]
+                            x + 3y + 3 z = 2 \\ 2x + 2y + 6z = 1 \\ 2x +5y -z = -3
+                            \end{array}                 
+                        </me>    
+                    </exercise>
+
+                    <p>Infelizmente nem toda a matriz pode ser decomposta em <m>A = LU</m>. Existe uma variante desse método, chamada de decomposição <m>PA = LU</m>, onde <m>P</m> é uma matriz de permutação. Nesse caso, para resolver <m>A\vec{x} = \vec{b}</m>, multiplicaríamos por P ambos os lados e teríamos <m>LU = PA \vec{x} = P\vec{b}</m>. Que pode ser resolvido pelo método acima.</p>
+
+
+
+
+                </subsection>
+
             </section>
 
 

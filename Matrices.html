@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-27T14:50:40-03:00       *-->
+<!--*       on 2024-03-28T17:44:28-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -107,6 +107,7 @@
 <li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
 <li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
 <li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
+<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
 </ul>
 </li>
 <li class="link">
@@ -1150,7 +1151,148 @@ print(a)
 </script></div>
 <article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.53</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like"><p id="p-129">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz secreta \(A\) e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva secreta de um colega e decodifique-a.</p></article></div></section></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like"><p id="p-129">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz secreta \(A\) e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva secreta de um colega e decodifique-a.</p></article></div></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.6</span> <span class="title">Decomposição LU</span>
+</h3>
+<article class="definition definition-like" id="definition-11"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.54</span><span class="period">.</span>
+</h6>
+<p id="p-130">Uma matriz \(A\) é dita <dfn class="terminology">triângular superior</dfn> se \(a_{ij} = 0\) para \(i \gt j \text{.}\)</p>
+<p id="p-131">Uma matriz \(A\) é dita <dfn class="terminology">triângular inferior</dfn> se \(a_{ij} = 0\) para \(i \lt j \text{.}\)</p>
+<p id="p-132">Dizemos que \(A\) é <dfn class="terminology">triângular</dfn> se ela for triângular superior ou triângular inferior.</p>
+<p id="p-133">Uma matriz \(A\) é dita <dfn class="terminology">diagonal</dfn> se \(a_{ij} = 0\) para \(i \neq j \text{.}\)</p></article><article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.55</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><p id="p-134">Matrizes triangulares inferiores:</p>
+<div class="displaymath">
+\begin{equation*}
+L = \begin{pmatrix} 2 \amp 0 \amp 0 \\0 \amp 3\amp 0\\ 1 \amp 4\amp 5\end{pmatrix}, \,\,\,
+A = \begin{pmatrix} 0\amp 0 \amp 0 \\ 2 \amp 2 \amp 0 \\ -1\amp 0 \amp 1 \end{pmatrix}, \,\,\,
+B = \begin{pmatrix} 4 \amp 0 \\ 1 \amp  0 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.56</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like"><p id="p-135">Matrizes triangulares superiores:</p>
+<div class="displaymath">
+\begin{equation*}
+U = \begin{pmatrix} 2 \amp 0 \amp 1 \\0 \amp 3\amp 3\\ 0 \amp 0\amp 5\end{pmatrix}, \,\,\,
+A = \begin{pmatrix} 1\amp 0 \amp 1 \\ 0 \amp 0 \amp 4 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,\,
+B = \begin{pmatrix} 4 \amp -1 \\ 0 \amp  2 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.57</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-136">Matrizes diagonais:</p>
+<div class="displaymath">
+\begin{equation*}
+D = \begin{pmatrix} 2 \amp 0 \amp 0 \\0 \amp 3\amp 0\\ 0 \amp 0\amp 2\end{pmatrix}, \,\,\,
+A = \begin{pmatrix} 0\amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 7 \end{pmatrix}, \,\,\,
+B = \begin{pmatrix} 4 \amp 0 \\ 0 \amp  -2 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.58</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like"><p id="p-137">Todas as matrizes dos três exemplos anteriores são triângulares.</p></article></div>
+<p id="p-138">Muitas matrizes podem ser <dfn class="terminology">decompostas</dfn> como o produto de uma matriz triângular inferior \(L\) e uma matriz triângular superior, \(U.\) Observe que, por exemplo, a matriz</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ 3 \amp -1 \amp 10 \\ 3 \amp 5 \amp 0 \end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-139">é igual ao produto das matrizes:</p>
+<div class="displaymath">
+\begin{equation*}
+L = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 3 \amp 4 \amp 0 \\ 3 \amp -2 \amp 2 \end{pmatrix}, \,\,\, U = \begin{pmatrix} 1 \amp 1 \amp 2 \\ 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp -2 \end{pmatrix}.
+\end{equation*}
+</div>
+<article class="lemma theorem-like" id="lemma-1"><h6 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.59</span><span class="period">.</span>
+</h6>
+<p id="p-140">O produto de duas matrizes triângulares superiores é uma matriz triângular superior.</p>
+<p id="p-141">O produto de duas matrizes triângulares inferiores é uma matriz triângular inferior.</p>
+<p id="p-142">O produto de duas matrizes diagonais é uma matriz diagonal.</p></article><article class="hiddenproof" id="proof-8"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"></article></div>
+<p id="p-143">Vamos realizar operações elementares do tipo III na matriz a seguir para "transformá-la" em uma matriz triângular superior.</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 2 \amp 4 \amp 2 \\ 1 \amp 5 \amp 2 \\ 4 \amp -1 \amp 9 \end{pmatrix} \sim 
+\begin{pmatrix} 2 \amp 4 \amp 2 \\ 0 \amp 3 \amp 1 \\ 0 \amp -9 \amp 5 \end{pmatrix} \sim
+\begin{pmatrix} 2 \amp 4 \amp 2 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 8 \end{pmatrix} = U.                 
+\end{equation*}
+</div>
+<p id="p-144">Todavia as operações elementares realizadas têm o mesmo efeito que multiplicar pelas seguintes matrizes elementares.</p>
+<div class="displaymath">
+\begin{equation*}
+E_1 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ -1/2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,
+E_2 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ -2 \amp 0 \amp 1 \end{pmatrix}, \,\,
+E_3 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 3 \amp 1 \end{pmatrix}.
+\end{equation*}
+</div>
+<p id="p-145">Ou seja, encontramos que \(U = E_3E_2E_1 A\text{,}\) o que é equivalente à \(E_1^{-1}E_2^{-1}E_3^{-1} U = A\text{.}\) Todavia:</p>
+<div class="displaymath">
+\begin{equation*}
+E_1^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 1/2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,
+E_2^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 2 \amp 0 \amp 1 \end{pmatrix}, \,\,
+E_3^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp -3 \amp 1 \end{pmatrix}.
+\end{equation*}
+</div>
+<p id="p-146">Assim, \(A = LU\text{,}\) com:</p>
+<div class="displaymath">
+\begin{equation*}
+L = E_1^{-1} E_2^{-1} E_3^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\2 \amp -5/2 \amp 0 \\ 2 \amp -3 \amp 1 \end{pmatrix}.
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="exercise-29"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-29"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.60</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-29"><article class="exercise exercise-like"><p id="p-147">Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.61</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like"><p id="p-148">Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{pmatrix} 1 \amp 3 \amp 3 \\ 2\amp 2 \amp 6 \\ 2 \amp 5 \amp -1 \end{pmatrix}.
+\end{equation*}
+</div></article></div>
+<p id="p-149">Se temos um sistema linear escrito na forma matricial \(A\vec{x} = \vec{b}\) e temos a <dfn class="terminology">decomposição</dfn> \(A = LU\text{,}\) podemos definir \(\vec{y} = U \vec{x}\) e resolver</p>
+<div class="displaymath">
+\begin{equation*}
+L \vec{y} = \vec{b}, \,\,\, U \vec{x} \vec{y},
+\end{equation*}
+</div>
+<p id="p-150">onde a solução de cada um desses sistemas é feita simplesmente por substituição reversa.</p>
+<p id="p-151">Vamos resolver o exemplo.</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}[l]
+2x + 4y + 2 z = 2 \\ x + 5y + 2z = 1 \\ 4x -y + 9z = -3
+\end{array}                 
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="exercise-31"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-31"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.62</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like"><p id="p-152">Resolva o sistema linear utilizando decomposição LU:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}[l]
+x + 2y + 3 z = 2 \\ 4x + 5y + 6z = 1 \\ 7x +8y + 9z = -3
+\end{array}                 
+\end{equation*}
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-32"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-32"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.63</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-32"><article class="exercise exercise-like"><p id="p-153">Resolva o sistema linear utilizando decomposição LU:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}[l]
+x + 3y + 3 z = 2 \\ 2x + 2y + 6z = 1 \\ 2x +5y -z = -3
+\end{array}                 
+\end{equation*}
+</div></article></div>
+<p id="p-154">Infelizmente nem toda a matriz pode ser decomposta em \(A = LU\text{.}\) Existe uma variante desse método, chamada de decomposição \(PA = LU\text{,}\) onde \(P\) é uma matriz de permutação. Nesse caso, para resolver \(A\vec{x} = \vec{b}\text{,}\) multiplicaríamos por P ambos os lados e teríamos \(LU = PA \vec{x} = P\vec{b}\text{.}\) Que pode ser resolvido pelo método acima.</p></section></section></div></main>
 </div>
 </body>
 </html>

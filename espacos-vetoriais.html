@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-27T14:50:40-03:00       *-->
+<!--*       on 2024-03-28T17:44:28-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -107,6 +107,7 @@
 <li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
 <li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
 <li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
+<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
 </ul>
 </li>
 <li class="link">
@@ -170,11 +171,11 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="espacos-vetoriais"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9</span> <span class="title">Espaços Vetoriais</span>
 </h2>
-<p id="p-158">O conceito de <dfn class="terminology">Espaço Vetorial</dfn> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <dfn class="terminology">vetores</dfn>, assim como \(\mathbb{R}^3\) com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de \(\mathbb{R}^n\) e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em \(\mathbb{R}^n\) e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em \(\mathbb{R}^3\text{.}\)</p>
+<p id="p-183">O conceito de <dfn class="terminology">Espaço Vetorial</dfn> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <dfn class="terminology">vetores</dfn>, assim como \(\mathbb{R}^3\) com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de \(\mathbb{R}^n\) e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em \(\mathbb{R}^n\) e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em \(\mathbb{R}^3\text{.}\)</p>
 <section class="subsection" id="Rn_vecs"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">9.1</span> <span class="title">Vetores em \(\mathbb{R}^n\)</span>
 </h3>
-<p id="p-159">Um <dfn class="terminology">vetor</dfn> \(\vec{x}\) representa o conjunto de todos os segmentos orientados em \(\mathbb{R}^3\) com o mesmo comprimento, direção e sentido.</p>
+<p id="p-184">Um <dfn class="terminology">vetor</dfn> \(\vec{x}\) representa o conjunto de todos os segmentos orientados em \(\mathbb{R}^3\) com o mesmo comprimento, direção e sentido.</p>
 <div class="sagecell-sage" id="sage-46"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt #library for plots
 import random #library for random number generation
@@ -212,8 +213,8 @@ for xy in zip(starting_points_x[0:3], starting_points_y[0:3]):
 
 plt.show()
 </script></div>
-<p id="p-160">Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor \(\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)\) e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.</p>
-<p id="p-161">O <dfn class="terminology">comprimento</dfn> ou a <dfn class="terminology">norma</dfn> de um vetor \(\vec{x} = \left(x_1, \ldots, x_n\right)^T\) em \(\mathbb{R}^n\) pode ser calculado por</p>
+<p id="p-185">Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor \(\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)\) e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.</p>
+<p id="p-186">O <dfn class="terminology">comprimento</dfn> ou a <dfn class="terminology">norma</dfn> de um vetor \(\vec{x} = \left(x_1, \ldots, x_n\right)^T\) em \(\mathbb{R}^n\) pode ser calculado por</p>
 <div class="displaymath">
 \begin{equation*}
 \|\vec{x}\| = \sqrt{x_1^2 + x^2+ \cdots + x_n^2}\text{.}
@@ -271,10 +272,10 @@ for xy in zip(x_x[0:number_of_points], starting_points_y[0:number_of_points]):
 
 plt.show()
 </script></div>
-<article class="exercise exercise-like" id="exercise-35"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-35"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-39"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-39"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.1</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-35"><article class="exercise exercise-like">Calcule o comprimento de três representantes de um vetor \(\vec{x} \in \mathbb{R}^2\) gerados pelo códico acima.</article></div>
-<p id="p-162">Para vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x} = (x_1, \ldots, x_n)^T\) e \(\vec{y} = (y_1, \ldots, y_n)^T\text{,}\)e um escalar \(\alpha \in \mathbb{R}\text{,}\) definimos as operações fundamentais de <dfn class="terminology">multiplicação por escalar</dfn> e <dfn class="terminology">adição</dfn> de vetores por:</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-39"><article class="exercise exercise-like">Calcule o comprimento de três representantes de um vetor \(\vec{x} \in \mathbb{R}^2\) gerados pelo códico acima.</article></div>
+<p id="p-187">Para vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x} = (x_1, \ldots, x_n)^T\) e \(\vec{y} = (y_1, \ldots, y_n)^T\text{,}\)e um escalar \(\alpha \in \mathbb{R}\text{,}\) definimos as operações fundamentais de <dfn class="terminology">multiplicação por escalar</dfn> e <dfn class="terminology">adição</dfn> de vetores por:</p>
 <div class="displaymath">
 \begin{equation*}
 \alpha \cdot \vec{x} = \alpha\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} :=  \begin{pmatrix}\alpha x_1\\ \vdots \\ \alpha x_n\end{pmatrix}; \,\,\,\,\, \vec{x} + \vec{y} = \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} + \begin{pmatrix}y_1\\ \vdots \\ y_n\end{pmatrix} := \begin{pmatrix}x_1+y_1\\ \vdots \\ x_n+y_n\end{pmatrix}
@@ -333,11 +334,11 @@ plt.show()
 </script></div></section><section class="subsection" id="Esp_vet"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">9.2</span> <span class="title">Espaços Vetoriais</span>
 </h3>
-<p id="p-163">Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do \(\mathbb{R}^n\text{,}\) de modo operarmos com eles de modo semelhante ao \(\mathbb{R}^n\text{,}\) todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.</p>
-<article class="definition definition-like" id="definition-11"><h6 class="heading">
+<p id="p-188">Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do \(\mathbb{R}^n\text{,}\) de modo operarmos com eles de modo semelhante ao \(\mathbb{R}^n\text{,}\) todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.</p>
+<article class="definition definition-like" id="definition-12"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.2</span><span class="period">.</span>
 </h6>
-<p id="p-164">Seja \(E\) um conjunto de escalares (usualmente \(\mathbb{C}\) ou \(\mathbb{C}\text{,}\) mas qualquer corpo serviria). Um <dfn class="terminology">espaço vetorial</dfn> \((V,E,\oplus,\odot)\) é um conjunto sobre o qual estão definidas duas operações:</p>
+<p id="p-189">Seja \(E\) um conjunto de escalares (usualmente \(\mathbb{C}\) ou \(\mathbb{C}\text{,}\) mas qualquer corpo serviria). Um <dfn class="terminology">espaço vetorial</dfn> \((V,E,\oplus,\odot)\) é um conjunto sobre o qual estão definidas duas operações:</p>
 <div class="displaymath">
 \begin{align*}
 \oplus: \amp V \times V: \to V, \\
@@ -365,33 +366,33 @@ plt.show()
 <dt id="li-114"></dt>
 <dd>(A8)   \(\hspace{5mm} 1\vec{u} = \vec{u}.\)</dd>
 </dl>
-<p class="continuation">V é dito o <dfn class="terminology">conjunto universal</dfn>, os elementos de V são ditos <dfn class="terminology">vetores</dfn> e os elementos de E são ditos <dfn class="terminology">escalares</dfn>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.</p></article><article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
+<p class="continuation">V é dito o <dfn class="terminology">conjunto universal</dfn>, os elementos de V são ditos <dfn class="terminology">vetores</dfn> e os elementos de E são ditos <dfn class="terminology">escalares</dfn>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.</p></article><article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like">O conjunto \(V = \{ \vec{u} = (u_1, u_2)^T \in \mathbb{R}^2 | u_2 =1\}\) não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^2\) pois, dados \(\vec{u}, \vec{v} \in V\text{,}\) \(\vec{u} = (u_1, 1)^T\) e \(\vec{v} = (v_1, 1)^T\) temos que<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like">O conjunto \(V = \{ \vec{u} = (u_1, u_2)^T \in \mathbb{R}^2 | u_2 =1\}\) não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^2\) pois, dados \(\vec{u}, \vec{v} \in V\text{,}\) \(\vec{u} = (u_1, 1)^T\) e \(\vec{v} = (v_1, 1)^T\) temos que<div class="displaymath">
 \begin{equation*}
 \vec{u} + \vec{v} = \left( \begin{array}{c} u_1\\ 1 \end{array} \right) + \left( \begin{array}{c} v_1\\ 1 \end{array} \right) = \left( \begin{array}{c} u_1 + v_1\\ 2 \end{array} \right) \notin V.
 \end{equation*}
 </div>Deste modo C1 não é válida e \(V\) não é um espaço vetorial.</article></div>
-<article class="exercise exercise-like" id="exercise-36"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-36"><h6 class="heading">
+<article class="exercise exercise-like" id="exercise-40"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-40"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-36"><article class="exercise exercise-like">Para mostrar que um conjunto \(V\) não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para \(V\) e justifique sua escolha.</article></div>
-<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-40"><article class="exercise exercise-like">Para mostrar que um conjunto \(V\) não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para \(V\) e justifique sua escolha.</article></div>
+<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like">\(\mathbb{R}^n\) com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer \(n \in \mathbb{N}\text{.}\) Para verificar isso é necessário verificar a validade de \(C1, \, C2, \, A1, \, \ldots, \, A8 \text{.}\)</article></div>
-<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like">\(\mathbb{R}^n\) com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer \(n \in \mathbb{N}\text{.}\) Para verificar isso é necessário verificar a validade de \(C1, \, C2, \, A1, \, \ldots, \, A8 \text{.}\)</article></div>
+<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like">O conjunto  \(V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}\text{,}\) com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^3\) é um espaço vetorial pois, dados \(\vec{u}, \vec{v}, \vec{w} \in V\text{,}\) \(\vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T \text{,}\) \(\vec{v} = \beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \) e \(\vec{w} = \gamma_1(-1,0,1)^T + \gamma_2 (0, 1, 1)^T \) e \(\alpha, \beta \in \mathbb{R}\text{,}\) verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em \(\mathbb{R}^3\)):<div class="displaymath">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like">O conjunto  \(V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}\text{,}\) com escalares reais e as operações de adição e multiplicação por escalar herdadas de \(\mathbb{R}^3\) é um espaço vetorial pois, dados \(\vec{u}, \vec{v}, \vec{w} \in V\text{,}\) \(\vec{u} = \alpha_1(-1,0,1)^T + \alpha_2 (0, 1, 1)^T \text{,}\) \(\vec{v} = \beta_1(-1,0,1)^T + \beta_2 (0, 1, 1)^T \) e \(\vec{w} = \gamma_1(-1,0,1)^T + \gamma_2 (0, 1, 1)^T \) e \(\alpha, \beta \in \mathbb{R}\text{,}\) verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em \(\mathbb{R}^3\)):<div class="displaymath">
 \begin{align*}
 (C1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
 =\amp (\alpha_1+\beta_1)\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + (\alpha_2+\beta_2)\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \in V,
 \end{align*}
 </div>
-<p id="p-165">de modo que a soma de dois elementos de V é um elemento de \(V\)</p>.<div class="displaymath">
+<p id="p-190">de modo que a soma de dois elementos de V é um elemento de \(V\)</p>.<div class="displaymath">
 \begin{gather*}
 (C2) \hspace{5mm} \alpha\vec{u} = \alpha\left(\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right)\right) = \alpha\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right),\in V,
 \end{gather*}
 </div>
-<p id="p-166">de modo que a multiplicação de um elemento de V por um escalar é um elemento de \(V\text{.}\)</p>
+<p id="p-191">de modo que a multiplicação de um elemento de V por um escalar é um elemento de \(V\text{.}\)</p>
 <div class="displaymath">
 \begin{align*}
 (A1) \hspace{5mm} \vec{u} + \vec{v} =\amp \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) + \beta_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \beta_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) \\
@@ -440,8 +441,8 @@ plt.show()
 (A8) \hspace{5mm} 1 \vec{u} = 1\alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + 1\alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \alpha_1\left( \begin{array}{c} -1\\ 0 \\ 1 \end{array} \right) + \alpha_2\left( \begin{array}{c} 0\\ 1 \\ 1 \end{array} \right) = \vec{u} 
 \end{gather*}
 </div>
-<p id="p-167">Portanto \(V\) é um espaço vetorial.</p></article></div>
-<p id="p-168">O código abaixo plota o plano gerado pelos vetores do exemplo anterior.</p>
+<p id="p-192">Portanto \(V\) é um espaço vetorial.</p></article></div>
+<p id="p-193">O código abaixo plota o plano gerado pelos vetores do exemplo anterior.</p>
 <div class="sagecell-sage" id="sage-49"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -479,22 +480,22 @@ plt.show()
 <article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.7</span><span class="period">.</span>
 </h6>
-<p id="p-169">Se \(V\) é um espaço vetorial e \(\vec{x} \in V\text{,}\) então:</p>
+<p id="p-194">Se \(V\) é um espaço vetorial e \(\vec{x} \in V\text{,}\) então:</p>
 <ol class="decimal">
 <li id="li-115"><p id="p-derived-li-115">\(\displaystyle 0 \vec{x} = \vec{0}, \)</p></li>
 <li id="li-116"><p id="p-derived-li-116">\(\displaystyle \vec{x}  + \vec{y} = \vec{0} \,\, \Longrightarrow \,\, \vec{y} = - \vec{x}, \)</p></li>
 <li id="li-117"><p id="p-derived-li-117">\(\displaystyle (-1) \vec{x} = -\vec{x}, \)</p></li>
-</ol></article><article class="hiddenproof" id="proof-8"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><ol class="decimal">
+</ol></article><article class="hiddenproof" id="proof-9"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof"><ol class="decimal">
 <li id="li-118"><p id="p-derived-li-118">\(\displaystyle \vec{x} = 1\vec{x} = (1+ 0 )\vec{x} = \vec{x} + 0\vec{x} \Longrightarrow  -\vec{x} + \vec{x} = -\vec{x} + \vec{x} + 0\vec{x} \Longrightarrow \vec{0} = 0\vec{x}, \)</p></li>
 <li id="li-119"><p id="p-derived-li-119">\(\displaystyle \vec{0} = \vec{x} + \vec{y} \Longrightarrow  -\vec{x} + \vec{0} = -\vec{x} + \vec{x} + \vec{y} \Longrightarrow -\vec{x} = \vec{y}, \)</p></li>
 <li id="li-120"><p id="p-derived-li-120">\(\displaystyle \vec{0} = (1-1) \vec{x} = \vec{x}+(-1)\vec{x} \Longrightarrow - \vec{x} + \vec{0} = - \vec{x} + \vec{x} +(-1) \vec{x} \Longrightarrow - \vec{x} = (-1) \vec{x} \)</p></li>
 </ol></article></div>
-<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
+<article class="example example-like" id="example-36"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">O conjunto de todas as funções reais definidas no intervalo \((a,b)\text{,}\) que têm derivada de ordem \(n\) contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado \(C^n(a,b)\text{.}\) Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.</article></div>
-<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like">O conjunto de todas as funções reais definidas no intervalo \((a,b)\text{,}\) que têm derivada de ordem \(n\) contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado \(C^n(a,b)\text{.}\) Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.</article></div>
+<article class="example example-like" id="example-37"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-37"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.9</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like">O conjunto de todas as matrizes reais \(n\times m\) (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.</article></div></section></section></div></main>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-37"><article class="example example-like">O conjunto de todas as matrizes reais \(n\times m\) (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.</article></div></section></section></div></main>
 </div>
 </body>
 </html>

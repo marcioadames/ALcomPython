@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-03-27T14:50:42-03:00       *-->
+<!--*       on 2024-03-28T17:44:30-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,18 +13,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="example example-like">Seja  \(L: \mathbb{R}^3 \to \mathbb{R}^4\text{,}\) a transformação linear definida por<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<body><article class="example example-like">Seja \(R_\theta: \mathbb{R}^2 \to \mathbb{R}^2\) a operação que os vetores do plano em \(\theta\) radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-L \begin{pmatrix} x_1\\ x_2\\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 - x_3 \\ -x_2\\ -x_1 - x_2 + x_3 \\ x_2 - x_3 \end{pmatrix}.
+\vec{v} = (r \mbox{cos}(\alpha), r \mbox{sen}(\alpha))^T
 \end{equation*}
-</div>A matriz que representa \(L\) nas bases canônicas de \(\mathbb{R}^3\) e \(\mathbb{R}^4\) é<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+</div>e percebemos que rodar \(\theta\) no sentido anti-horário significa somar \(\theta\) ao ângulo, de modo que<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-A = \begin{pmatrix}
-1 \amp 0 \amp -1  \\
-0 \amp -1 \amp 0  \\
--1 \amp -1 \amp 1 \\
-0 \amp 1 \amp -1 
-\end{pmatrix},
+R_\theta(\vec{v}) = \begin{pmatrix} r \mbox{cos}(\alpha+\theta)\\ r \mbox{sen}(\alpha+\theta)\end{pmatrix} = \begin{pmatrix} r(\mbox{cos}(\alpha)^2 -\mbox{sen}(\theta)^2)\\ r (2\mbox{sen}(\alpha)\mbox{cos}(\theta))\end{pmatrix} = \begin{pmatrix} \mbox{cos}(\theta) \amp -\mbox{sen}(\theta)\\ \mbox{sen}(\theta) \amp \mbox{cos}(\theta) \end{pmatrix}\begin{pmatrix} r \mbox{cos}(\alpha)\\ r \mbox{sen}(\alpha)\end{pmatrix}
 \end{equation*}
-</div>de modo que \(L(\vec{x}) = A\vec{x}\text{.}\)</article></body>
+</div>Pelo exercício anterior, a rotação é uma transformação linear.</article></body>
 </html>
