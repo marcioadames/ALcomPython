@@ -2384,9 +2384,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                     <p>Se temos um sistema linear escrito na forma matricial <m>A\vec{x} = \vec{b}</m> e temos a <term>decomposição</term> <m>A = LU</m>, podemos definir <m>\vec{y} = U \vec{x}</m> e resolver</p>
                     <me>
-                        L \vec{y} = \vec{b}, \,\,\, U \vec{x} \vec{y},
+                        L \vec{y} = \vec{b}, \,\,\, U \vec{x} = \vec{y},
                     </me>
-                    <p>onde a solução de cada um desses sistemas é feita simplesmente por substituição reversa.</p>
+                    <p>onde a solução de cada um desses sistemas é encontrada, simplesmente, por substituição reversa.</p>
 
                     <p>Vamos resolver o exemplo.</p>
 
