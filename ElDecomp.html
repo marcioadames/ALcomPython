@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-01T17:06:49-03:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
-<head>
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Decompositions; Inverse finding</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    useLabelIds: true,
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+<meta property="og:type" content="article">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,145 +53,194 @@
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.88,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Python)'});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
 });
-</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
-\newcommand{\lt}{&lt;}
-\newcommand{\gt}{&gt;}
-\newcommand{\amp}{&amp;}
-\)</div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
 <p class="byline">Márcio Rostirolla Adames</p>
 </div>
-</div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-Matrices.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="espacos-vetoriais.html" title="Next">Next</a></span></div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-Matrices.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="espacos-vetoriais.html" title="Next">Next</a>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
-<li class="link">
-<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
-<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
-<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
-<li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="section-Matrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="espacos-vetoriais.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#sis-lin-sub" class="internal"><span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#matrix-sis-lin" class="internal"><span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Gauss-Jordan-red" class="internal"><span class="codenumber">1.3</span> <span class="title">Redução de Gauss Jordan</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Matrices.html" data-scroll="Matrices"><span class="codenumber">2</span> <span class="title">Matrizes</span></a><ul>
-<li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
-<li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
-<li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
-<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
-<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
-<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Matrices.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrizes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrizes_operacoes" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrix_rep_mult" class="internal"><span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrix_mult_meaning" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#determinants" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Coding_message" class="internal"><span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrices-10" class="internal"><span class="codenumber">2.6</span> <span class="title">Decomposição LU</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Projects.html" data-scroll="Projects"><span class="codenumber">3</span> <span class="title">Projetos</span></a><ul><li><a href="Projects.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li></ul>
-</li>
-<li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">4</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
-<li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">5</span> <span class="title">Gaussian Elimination</span></a></li>
-<li class="link"><a href="section-Gauss-Jordan.html" data-scroll="section-Gauss-Jordan"><span class="codenumber">6</span> <span class="title">Gauss-Jordan reduction</span></a></li>
-<li class="link"><a href="section-Matrices.html" data-scroll="section-Matrices"><span class="codenumber">7</span> <span class="title">Basic commands for matrices.</span></a></li>
-<li class="link active">
-<a href="ElDecomp.html" data-scroll="ElDecomp"><span class="codenumber">8</span> <span class="title">Decompositions; Inverse finding</span></a><ul>
-<li><a href="ElDecomp.html#LU" data-scroll="LU">Decomposition PA = LU</a></li>
-<li><a href="ElDecomp.html#InverseAI" data-scroll="InverseAI">Finding the inverse through Gauss - Jordan reduction</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Projects.html" class="internal"><span class="codenumber">3</span> <span class="title">Projetos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj1" class="internal"><span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">9</span> <span class="title">Espaços Vetoriais</span></a><ul>
-<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
-<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-computation.html" class="internal"><span class="codenumber">4</span> <span class="title">Solve symbolic system and elementary operations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gaussian.html" class="internal"><span class="codenumber">5</span> <span class="title">Gaussian Elimination</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gauss-Jordan.html" class="internal"><span class="codenumber">6</span> <span class="title">Gauss-Jordan reduction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Matrices.html" class="internal"><span class="codenumber">7</span> <span class="title">Basic commands for matrices.</span></a></div></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="ElDecomp.html" class="internal"><span class="codenumber">8</span> <span class="title">Decompositions; Inverse finding</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#LU" class="internal"><span class="codenumber">8.1</span> <span class="title">Decomposition PA = LU</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#InverseAI" class="internal"><span class="codenumber">8.2</span> <span class="title">Finding the inverse through Gauss - Jordan reduction</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="subescos.html" data-scroll="subescos"><span class="codenumber">10</span> <span class="title">Subespaços Vetoriais</span></a><ul>
-<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
-<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">9</span> <span class="title">Espaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">9.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">9.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="bases.html" data-scroll="bases"><span class="codenumber">11</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
-<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
-<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
-<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
-<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
-<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">10</span> <span class="title">Subespaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">10.1</span> <span class="title">Subespaço</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">10.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">12</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
-<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
-<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
-<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">11</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">11.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">11.2</span> <span class="title">Dependência Linear</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">11.3</span> <span class="title">Bases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">11.4</span> <span class="title">Mudança de base</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">11.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">13</span> <span class="title">Transformações Lineares</span></a><ul>
-<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">12</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">12.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">12.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">12.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">14</span> <span class="title">Autovalores e autovetores</span></a><ul>
-<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
-<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
-<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
-<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">13</span> <span class="title">Transformações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">13.1</span> <span class="title">Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">13.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">13.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
 </ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ElDecomp"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">8</span> <span class="title">Decompositions; Inverse finding</span>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">14</span> <span class="title">Autovalores e autovetores</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">14.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">14.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">14.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">14.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="ElDecomp"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">8</span><span class="space"> </span><span class="title">Decompositions; Inverse finding</span>
 </h2>
 <section class="subsection" id="LU"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.1</span> <span class="title">Decomposition PA = LU</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">8.1</span><span class="space"> </span><span class="title">Decomposition PA = LU</span>
 </h3>
-<p id="p-179">Calculates the decomposition PA=LU. The matrix P only trades lines in A, if need be, then decomposes as LU.</p>
-<div class="sagecell-sage" id="sage-42"><script type="text/x-sage"># PA=LU decomposition
+<div class="para" id="LU-2">Calculates the decomposition PA=LU. The matrix P only trades lines in A, if need be, then decomposes as LU.</div>
+<pre id="LU-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># PA=LU decomposition
 # a matrix using numpy
   
 # Import required package
@@ -201,11 +266,11 @@ pprint.pprint(L)
 
 print('U:')
 pprint.pprint(U)
-</script></div></section><section class="subsection" id="InverseAI"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.2</span> <span class="title">Finding the inverse through Gauss - Jordan reduction</span>
+</script></pre></section><section class="subsection" id="InverseAI"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">8.2</span><span class="space"> </span><span class="title">Finding the inverse through Gauss - Jordan reduction</span>
 </h3>
-<p id="p-180">If we apply Gauss-Jordan reduction in the matrix (A|I), A concatenated with I, we obtain the Identity, if possible, concatenated with the inverse of A. For that we need the method of Gaussian elimination.</p>
-<div class="sagecell-sage" id="sage-43"><script type="text/x-sage"># Write an array representing the augmented matrix
+<div class="para" id="InverseAI-2">If we apply Gauss-Jordan reduction in the matrix (A|I), A concatenated with I, we obtain the Identity, if possible, concatenated with the inverse of A. For that we need the method of Gaussian elimination.</div>
+<pre id="InverseAI-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Write an array representing the augmented matrix
 import numpy as np
 import fractions
 A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
@@ -240,9 +305,9 @@ for j in range(A.shape[1]): #search pivot in each column
                 print('~'+str(A))
     np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
 return A
-</script></div>
-<p id="p-181">Follows from Gaussian elimination to complete the Gauss-Jordan reduction and obtains (I|A^-1)) .</p>
-<div class="sagecell-sage" id="sage-44"><script type="text/x-sage">A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
+</script></pre>
+<div class="para" id="InverseAI-4">Follows from Gaussian elimination to complete the Gauss-Jordan reduction and obtains (I|A^-1)) .</div>
+<pre id="InverseAI-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A = np.array([[1.,1.,3.,3.],[-1.,1.,-1.,3.],[4.,2.,0.,3.],[0.,2.,5.,3.]])
 I = np.identity(4)
 AI = np.concatenate((A, I), axis=1)
 
@@ -262,11 +327,17 @@ def Gauss_Jordan(A,prin=True):
     np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
     return B
 B = Gauss_Jordan(AI)
-</script></div>
-<p id="p-182">We can test the matrix B, found by computing the Gauss-Jordan reduction, by calculating A * B. The result should be (A|I).</p>
-<div class="sagecell-sage" id="sage-45"><script type="text/x-sage">print(A)
+</script></pre>
+<div class="para" id="InverseAI-6">We can test the matrix B, found by computing the Gauss-Jordan reduction, by calculating A * B. The result should be (A|I).</div>
+<pre id="InverseAI-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">print(A)
 print(A.dot(B))
-</script></div></section></section></div></main>
+</script></pre></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-Matrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="espacos-vetoriais.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

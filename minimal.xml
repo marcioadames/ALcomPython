@@ -3205,8 +3205,278 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                          out
                        </output>
                      </sage>
-                     </remark>
+                     </remark>1
      
+                </subsection>
+                <subsection xml:id="Proj2">
+                    <title>Projeto 2 - Análise de circuitos resistivos </title>
+                    <p> 
+                        Em análise de circuitos, utilizamos a Lei de Ohm e as Leis de Kirchhoff de corrente e tensão. Ao encontrar as equações referentes ao circuito utilizando as leis básicas, precisamos montar um sistema linear para encontrar as correntes e quedas de tensão em cada ramo.
+                        Analise os circuitos dados utilizando essas três leis, encontre as equações do circuito e forneça-as ao programa em Python disponibilizado ao final da seção para resolver o sistema e encontras as correntes.
+                    </p>
+                    <p> Leis básicas: </p>
+                    <ul>
+                        <li><alert>Lei de Kirchhoff de Corrente:</alert> Em qualquer nó, a soma das correntes entrando é igual à soma das correntes saindo. </li>
+                        <li><alert>Lei de Kirchhoff de Tensão:</alert> Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.</li>
+                        <li><alert>Lei de Ohm:</alert> A queda de tensão em um elemento resistivo é dada por <m> E = Ri </m> </li>
+                    </ul>
+                    
+                    <exercise> 
+                        <p> Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito: </p>
+                        <figure>
+                            <caption> Circuito 1. Fonte: Leon, S. 2018 </caption>
+                            <image source="images/circuito1.png"/>
+                        </figure>
+                        <solution>
+                            <p> <alert> Aplicação da LKC: </alert> </p>
+                            <p> 
+                                Observamos que, no nó A, entram as correntes <m>i_1</m> e <m>i_3</m>, e sai a corrente <m>i_2</m>. Por outro lado, no nó
+                                B, entra a corrente <m>i_2</m> e saem as correntes <m>i_1</m> e <m>i_3</m>. Assim, obtemos as equações: 
+                            </p>
+                            <md>
+                                <mrow> i_1 - i_2 + i_3 = 0 </mrow>
+                                <mrow> -i_1 + i_2 - i_3 = 0 </mrow>
+                            </md>
+                            <p> <alert> Aplicação da Lei de Ohm: </alert> </p>
+                            <p> Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é: </p>
+                            <ul>
+                                <li> Resistor de 4 ohms: <m> E = 4i_1</m></li>
+                                <li> Resistor de 3 ohms: <m> E = 3i_3</m></li>
+                                <li> Resistor de 2 ohms (à esquerda do nó B): <m> E = 2i_2</m></li>
+                                <li> Resistor de 2 ohms (abaixo do nó B): <m> E = 2i_3</m></li>
+                            </ul>
+                            <p> <alert> Aplicação da LKT: </alert> </p>
+                            <p> Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos: </p>
+                            <md>
+                                <mrow> 4i_1 + 2i_2 = 8 </mrow>
+                                <mrow> 2i_2 + 2i_3 + 3i_3 = 9 </mrow>
+                            </md>
+                            <p> <alert> Ao final temos: </alert> </p>
+                            <md>
+                                <mrow> i_1 - i_2 + i_3 = 0 </mrow>
+                                <mrow> 4i_1 + 2i_2 = 8 </mrow>
+                                <mrow> 2i_2 + 5i_3 = 9 </mrow>
+                            </md>
+                            <p> Agora basta colocar as equações na forma matricial e fornecer ao programa. </p>
+                        </solution>
+                    </exercise>
+
+                    <exercise> 
+                        <p> Obtenha as equações referentes à aplicação das leis básicas no seguin1te cicuito: </p>
+                        <figure>
+                            <caption> Circuito 2. Fonte: Leon, S. 2018 </caption>
+                            <image source="images/circuito2.png"/>
+                        </figure>
+                        <solution>
+                            <p> <alert> Aplicação da LKC: </alert> </p>
+                            <p> 
+                                Observamos que, no nó A, entram as correntes <m>i_1</m> e <m>i_3</m>, e sai a corrente <m>i_2</m>. Por outro lado, no nó
+                                B, entra a corrente <m>i_2</m> e saem as correntes <m>i_1</m> e <m>i_3</m>. Assim, obtemos as equações: 
+                            </p>
+                            <md>
+                                <mrow> i_1 - i_2 + i_3 = 0 </mrow>
+                                <mrow> -i_1 + i_2 - i_3 = 0 </mrow>
+                            </md>
+                            <p> <alert> Aplicação da Lei de Ohm: </alert> </p>
+                            <p> Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é: </p>
+                            <ul>
+                                <li> Resistor de 3 ohms: <m> E = 3i_3</m></li>
+                                <li> Resistor de 2 ohms (acima do nó B): <m> E = 2i_1</m></li>
+                                <li> Resistor de 2 ohms (à esquerda do nó B): <m> E = 2i_2</m></li>
+                            </ul>
+                            <p> <alert> Aplicação da LKT: </alert> </p>
+                            <p> Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos: </p>
+                            <md>
+                                <mrow> 2i_1 + 2i_2 = 16 </mrow>
+                                <mrow> 2i_2 + 3i_3 = 0 </mrow>
+                            </md>
+                            <p> <alert> Ao final temos: </alert> </p>
+                            <md>
+                                <mrow> i_1 - i_2 + i_3 = 0 </mrow>
+                                <mrow> 2i_1 + 2i_2 = 16 </mrow>
+                                <mrow> 2i_2 + 3i_3 = 0 </mrow>
+                            </md>
+                            <p> Agora basta colocar as equações na forma matricial e fornecer ao programa. </p>
+                        </solution>
+                    </exercise>
+
+                    <exercise> 
+                        <p> Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito: </p>
+                        <figure>
+                            <caption> Circuito 3. Fonte: Leon, S. 2018 </caption>
+                            <image source="images/circuito3.png"/>
+                        </figure>
+                        <solution>
+                            <p> <alert> Aplicação da LKC: </alert> </p>
+                            <p> 
+                                Observamos que, no nó A, saem as correntes <m>i_1</m> e <m>i_3</m>, e entra a corrente <m>i_2</m>. Por outro lado, no nó
+                                B, sai a corrente <m>i_2</m> e entram as correntes <m>i_1</m> e <m>i_3</m>. Assim, obtemos as equações: 
+                            </p>
+                            <md>
+                                <mrow> -i_1 + i_2 - i_3 = 0 </mrow>
+                                <mrow> i_1 - i_2 + i_3 = 0 </mrow>
+                            </md>
+                            <p> <alert> Aplicação da Lei de Ohm: </alert> </p>
+                            <p> Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é: </p>
+                            <ul>
+                                <li> Resistor de 4 ohms: <m> E = 4i_2</m></li>
+                                <li> Resistor de 2 ohms (superior): <m> E = 2i_1</m></li>
+                                <li> Resistor de 2 ohms (inferior): <m> E = 2i_3</m></li>
+                            </ul>
+                            <p> <alert> Aplicação da LKT: </alert> </p>
+                            <p> Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos: </p>
+                            <md>
+                                <mrow> 2i_1 + 4i_2 = 20 </mrow>
+                                <mrow> 4i_2 + 2i_3 = 20 </mrow>
+                            </md>
+                            <p> <alert> Ao final temos: </alert> </p>
+                            <md>
+                                <mrow> i_1 - i_2 + i_3 = 0 </mrow>
+                                <mrow> 2i_1 + 4i_2 = 20 </mrow>
+                                <mrow> 4i_2 + 2i_3 = 20 </mrow>
+                            </md>
+                            <p> Agora basta colocar as equações na forma matricial e fornecer ao programa. </p>
+                        </solution>
+                    </exercise>
+
+                    <remark>    
+                        Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos.
+                    <sage>
+                        <input>
+                            import numpy as np
+                            import fractions
+
+                            # Aqui estão os rótulos do problema
+                            und = "A"  # Unidade de corrente
+                            vars = ["i1", "i2", "i3"]
+                            # Esta variável define o número de casas decimais para arredondamento dos resultados
+                            decPlaces = 2
+
+                            # Coloque aqui a matriz AMPLIADA do sistema:
+                            ampl = [[0, 0, 0, 0],
+                                    [0, 0, 0, 0],
+                                    [0, 0, 0, 0]]
+
+                            # Estes códigos são referentes às funções que realizam a redução de Gauss-Jordan
+
+                            def gaussianElimination(A,prin=True):
+                                a=0
+                                A = A + fractions.Fraction()
+
+                                if prin==True:
+                                    print('A='+str(A))
+                                for j in range(np.shape(A)[1]-1):
+                                    b=0
+                                    for i in range(a,np.shape(A)[0]):
+                                        if A[i,j] != 0:
+                                            if a !=i:
+                                                A[[a,i]]=A[[i,a]]
+                                                if prin==True:
+                                                    print('\n~'+str(A))
+                                            if A[a,j]!=1:
+                                                A[a]=A[a]/A[a,j]
+                                                if prin==True:
+                                                    print('\n~'+str(A))
+                                            a=a+1
+                                            b=1
+                                            break
+                                    if b==1:
+                                        for i in range(a,np.shape(A)[0]):
+                                            if A[i,j] != 0:
+                                                A[i]=A[i]-A[a-1]*A[i,j]
+                                            if prin==True:
+                                                print('\n~'+str(A))
+
+                                    i = 0
+                                    for line in A:
+                                        j = 0
+                                        for elem in line:
+                                            A[i][j] = float(elem)
+                                            j += 1
+                                        i += 1
+
+                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                return A
+
+                            def gaussJordan(A,prin=True):
+                                B=gaussianElimination(A,prin)
+                                #print('jordan')
+                                a=0
+                                for i in range(np.shape(A)[0]):
+                                    b=0
+                                    for j in range(np.shape(A)[1]):
+                                        if B[np.shape(B)[0]-i-1,j] == 1 and b==0:
+                                            b=j
+                                            for k in range(np.shape(B)[0]-i-1):
+                                                B[np.shape(B)[0]-i-2-k]=B[np.shape(B)[0]-i-2-k]- B[np.shape(B)[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                                                if prin==True:
+                                                        print('\n~'+str(B))                
+                                np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+                                return B
+
+                            ampl = np.array(ampl)
+                            done = False
+
+                            # Dimensões da matriz de coeficientes A
+                            m = np.shape(ampl)[0]
+                            n = np.shape(ampl)[1] - 1
+
+                            # Extraindo a matriz de coeficientes da matriz ampliada
+                            A = ampl[0:m, 0:n]
+                            A = np.array(A)
+
+                            # Agora iremos verificar em qual caso o sistema se encaixa: Solução única, sem solução ou infinitas soluções
+                            # Para isso, verificaremos o posto da matriz de coeficientes A e o posto da matriz ampliada
+                            rankA = np.linalg.matrix_rank(A)
+                            rankAmpl = np.linalg.matrix_rank(ampl)
+
+                            # Para resolver o sistema linear, será feita a redução de Gauss-Jordan na matriz ampliada:
+                            print("Escalonamento passo a passo da matriz ampliada do sistema:\n")
+                            esc = gaussJordan(ampl)
+
+                            # Devido ao truncamento em python, vamos filtrar valores infinitesimais para evitar que fiquem como "-0.0"
+                            i = 0
+                            changed = False
+                            while i &lt; m:
+                                if round(esc[i][n], decPlaces) == -0.0:
+                                    esc[i][n] = 0
+                                    changed = True
+                                i+=1
+
+                            if changed == True:
+                                esc = gaussJordan(esc, prin=False)
+
+                            # Imprimindo na tela a matriz ampliada escalonada reduzida
+                            print("\nMatriz ampliada escalonada reduzida do sistema:")
+                            print(esc, "\n")
+
+                            # Aqui verificamos se o sistema é sem solução. De acordo com o teorema, se o posto da matriz ampliada
+                            # for diferente do posto da matriz de coeficientes, o sistema não tem solução
+                            if rankA != rankAmpl:
+                                raise Exception("O sistema não possui soluções reais!")
+
+                            # Aqui verificamos se o sistema é de solução única
+                            sol = []
+                            if rankA == n:
+                                for i in range(rankA):
+                                    sol.append((esc[i][n]))
+
+                                # Aqui vamos imprimir os resultados de maneira formatada
+                                print("As correntes encontradas são:")
+                                for i in range(n):
+                                    print(f'{vars[i]} = {round(sol[i], decPlaces)} {und}')
+                                done = True
+                            # Se a execução do programa chegar até aqui, temos várias soluções.
+                            # Nesse contexto, várias soluções não fazem sentido.
+                            if not done:
+                                raise Exception("O sistema não possui solução única!")
+                        </input>    
+                            
+                        <output>
+                            out
+                        </output>
+                    </sage>
+                    </remark>
                 </subsection>
            </section>           
 
@@ -3219,7 +3489,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
         *************************************************************** -->
 
         <section xml:id="section-computation">
-            <title>Solve symbolic system and  elementary operations</title>
+            <title>Solve symbolic system and elementary operations</title>
 
             <p>Solve a linear system.</p> 
 

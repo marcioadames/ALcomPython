@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-01T17:06:48-03:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
-<head>
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Matrizes</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    useLabelIds: true,
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+<meta property="og:type" content="article">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,150 +53,198 @@
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.88,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Python)'});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
 });
-</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
-\newcommand{\lt}{&lt;}
-\newcommand{\gt}{&gt;}
-\newcommand{\amp}{&amp;}
-\)</div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
 <p class="byline">Márcio Rostirolla Adames</p>
 </div>
-</div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sistemas-lineares.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Projects.html" title="Next">Next</a></span></div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sistemas-lineares.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Projects.html" title="Next">Next</a>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
-<li class="link">
-<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
-<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
-<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
-<li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sistemas-lineares.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="Projects.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#sis-lin-sub" class="internal"><span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#matrix-sis-lin" class="internal"><span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Gauss-Jordan-red" class="internal"><span class="codenumber">1.3</span> <span class="title">Redução de Gauss Jordan</span></a></div></li>
 </ul>
 </li>
-<li class="link active">
-<a href="Matrices.html" data-scroll="Matrices"><span class="codenumber">2</span> <span class="title">Matrizes</span></a><ul>
-<li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
-<li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
-<li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
-<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
-<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
-<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="Matrices.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrizes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrizes_operacoes" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrix_rep_mult" class="internal"><span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrix_mult_meaning" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#determinants" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Coding_message" class="internal"><span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrices-10" class="internal"><span class="codenumber">2.6</span> <span class="title">Decomposição LU</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Projects.html" data-scroll="Projects"><span class="codenumber">3</span> <span class="title">Projetos</span></a><ul><li><a href="Projects.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li></ul>
-</li>
-<li class="link"><a href="section-computation.html" data-scroll="section-computation"><span class="codenumber">4</span> <span class="title">Solve symbolic system and  elementary operations</span></a></li>
-<li class="link"><a href="section-Gaussian.html" data-scroll="section-Gaussian"><span class="codenumber">5</span> <span class="title">Gaussian Elimination</span></a></li>
-<li class="link"><a href="section-Gauss-Jordan.html" data-scroll="section-Gauss-Jordan"><span class="codenumber">6</span> <span class="title">Gauss-Jordan reduction</span></a></li>
-<li class="link"><a href="section-Matrices.html" data-scroll="section-Matrices"><span class="codenumber">7</span> <span class="title">Basic commands for matrices.</span></a></li>
-<li class="link">
-<a href="ElDecomp.html" data-scroll="ElDecomp"><span class="codenumber">8</span> <span class="title">Decompositions; Inverse finding</span></a><ul>
-<li><a href="ElDecomp.html#LU" data-scroll="LU">Decomposition PA = LU</a></li>
-<li><a href="ElDecomp.html#InverseAI" data-scroll="InverseAI">Finding the inverse through Gauss - Jordan reduction</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Projects.html" class="internal"><span class="codenumber">3</span> <span class="title">Projetos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj1" class="internal"><span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">9</span> <span class="title">Espaços Vetoriais</span></a><ul>
-<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
-<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-computation.html" class="internal"><span class="codenumber">4</span> <span class="title">Solve symbolic system and elementary operations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gaussian.html" class="internal"><span class="codenumber">5</span> <span class="title">Gaussian Elimination</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gauss-Jordan.html" class="internal"><span class="codenumber">6</span> <span class="title">Gauss-Jordan reduction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Matrices.html" class="internal"><span class="codenumber">7</span> <span class="title">Basic commands for matrices.</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ElDecomp.html" class="internal"><span class="codenumber">8</span> <span class="title">Decompositions; Inverse finding</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#LU" class="internal"><span class="codenumber">8.1</span> <span class="title">Decomposition PA = LU</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#InverseAI" class="internal"><span class="codenumber">8.2</span> <span class="title">Finding the inverse through Gauss - Jordan reduction</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="subescos.html" data-scroll="subescos"><span class="codenumber">10</span> <span class="title">Subespaços Vetoriais</span></a><ul>
-<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
-<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">9</span> <span class="title">Espaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">9.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">9.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="bases.html" data-scroll="bases"><span class="codenumber">11</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
-<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
-<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
-<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
-<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
-<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">10</span> <span class="title">Subespaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">10.1</span> <span class="title">Subespaço</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">10.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">12</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
-<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
-<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
-<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">11</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">11.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">11.2</span> <span class="title">Dependência Linear</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">11.3</span> <span class="title">Bases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">11.4</span> <span class="title">Mudança de base</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">11.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">13</span> <span class="title">Transformações Lineares</span></a><ul>
-<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">12</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">12.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">12.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">12.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">14</span> <span class="title">Autovalores e autovetores</span></a><ul>
-<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
-<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
-<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
-<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">13</span> <span class="title">Transformações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">13.1</span> <span class="title">Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">13.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">13.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
 </ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Matrices"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2</span> <span class="title">Matrizes</span>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">14</span> <span class="title">Autovalores e autovetores</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">14.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">14.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">14.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">14.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="Matrices"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2</span><span class="space"> </span><span class="title">Matrizes</span>
 </h2>
-<p id="p-43">Utilizamos matrizes ampliadas para resolver sistemas lineares nas seções anteriores. Nessa seção começamos a explorar outras aplicações de matrizes para estudar e resolver sistemas lineares. Ao fazer isso estamos criando uma estrutura que nos permite estudar transformações lineares e susas diversas aplicações.</p>
+<div class="para" id="Matrices-2-1">Utilizamos matrizes ampliadas para resolver sistemas lineares nas seções anteriores. Nessa seção começamos a explorar outras aplicações de matrizes para estudar e resolver sistemas lineares. Ao fazer isso estamos criando uma estrutura que nos permite estudar transformações lineares e susas diversas aplicações.</div>
 <section class="subsection" id="matrizes_operacoes"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">Matrizes e operações</span>
 </h3>
-<p id="p-44">Nessa seção formalizamos o conceito de matriz (que já temos utilizados) e como realizar operações aritméticas com elas.</p>
-<article class="definition definition-like" id="definition-4"><h6 class="heading">
+<div class="para" id="matrizes_operacoes-2">Nessa seção formalizamos o conceito de matriz (que já temos utilizados) e como realizar operações aritméticas com elas.</div>
+<article class="definition definition-like" id="matrizes_operacoes-3"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span>
-</h6>
-<p id="p-45">Uma <dfn class="terminology">matriz</dfn> \(A = (a_{ij})\) \(m \times n\) é um arranjo de \(mn\) números (reais ou complexos, usualmente) em \(m\) linhas com \(n\) números cada.</p>
-<div class="displaymath">
+</h4> <div class="para" id="matrizes_operacoes-3-2-1">Uma <dfn class="terminology">matriz</dfn> <span class="process-math">\(A = (a_{ij})\)</span> <span class="process-math">\(m \times n\)</span> é um arranjo de <span class="process-math">\(mn\)</span> números (reais ou complexos, usualmente) em <span class="process-math">\(m\)</span> linhas com <span class="process-math">\(n\)</span> números cada.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix}
 a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
@@ -190,9 +254,10 @@ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-46">Denotamos de \(a_{ij}\) o número que está na \(i\)-ésima linha e \(j\)-ésima coluna e dizemos o <dfn class="terminology">elemento</dfn> \(ij\) da matriz \(A\text{.}\)</p>
-<p id="p-47">As matrizes \(m \times 1\) são chamadas de <dfn class="terminology">vetores</dfn> (coluna) e denotadas \(\vec{a}\text{:}\)</p>
-<div class="displaymath">
+<div class="para" id="matrizes_operacoes-3-2-3">Denotamos de <span class="process-math">\(a_{ij}\)</span> o número que está na <span class="process-math">\(i\)</span>-ésima linha e <span class="process-math">\(j\)</span>-ésima coluna e dizemos o <dfn class="terminology">elemento</dfn> <span class="process-math">\(ij\)</span> da matriz <span class="process-math">\(A\text{.}\)</span>
+</div> <div class="para" id="matrizes_operacoes-3-2-4">As matrizes <span class="process-math">\(m \times 1\)</span> são chamadas de <dfn class="terminology">vetores</dfn> (coluna) e denotadas <span class="process-math">\(\vec{a}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{a} = \begin{pmatrix}
 a_{1}\\
@@ -202,17 +267,14 @@ a_{m1}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-48">Uma matriz \(1 \times n\) é um <dfn class="terminology">vetor linha</dfn>: \(\vec{a}^T = (a_1, a_2, \ldots, a_n)\text{.}\)</p></article><article class="definition definition-like" id="definition-5"><h6 class="heading">
+<div class="para" id="matrizes_operacoes-3-2-6">Uma matriz <span class="process-math">\(1 \times n\)</span> é um <dfn class="terminology">vetor linha</dfn>: <span class="process-math">\(\vec{a}^T = (a_1, a_2, \ldots, a_n)\text{.}\)</span>
+</div></article><article class="definition definition-like" id="matrizes_operacoes-4"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
-</h6>
-<p id="p-49">Duas matrizes \(A = (a_{ij})\) e \(B = (b_{ij})\text{,}\) ambas \(m \times n\text{,}\) são <dfn class="terminology">iguais</dfn> se \(a_{ij} = b_{ij}\) para todo \(i \in \{0,1,2,\ldots,m\}\text{,}\) \(j \in \{0,1,2,\ldots,n\}\text{.}\) Por outro lado, \(A \neq B\) se existem \(i,j\) tais que \(a_{ij} \neq b_{ij}\) ou se as matrizes têm dimensões diferentes.</p>
-<p id="p-50">A <dfn class="terminology">soma</dfn> de duas matrizes \(A = (a_{ij})\) e \(B = (b_{ij})\text{,}\) ambas \(m \times n\text{,}\) é a matriz \(C = (c_{ij})\text{,}\) \(m \times n\text{,}\) definida por \(c_{ij} = a_{ij} + b_{ij}\text{.}\) (somamos apenas matrizes com o mesmo número de linhas e colunas) Análogo para subtração.</p>
-<p id="p-51">O <dfn class="terminology">produto de um número real</dfn> \(\alpha\) e <dfn class="terminology">uma matriz</dfn> \(A = (a_{ij})\text{,}\) \(m \times n\text{,}\) é a matriz \(C = (c_{ij}),\) \(m \times n\text{,}\) definida por \(c_{ij} = \alpha a_{ij}\text{.}\)</p>
-<p id="p-52">O <dfn class="terminology">produto</dfn> de uma matriz \(A = (a_{ij})\text{,}\) \(m \times n\text{,}\) e outra matriz \(B = (b_{ij})\text{,}\)  \(n \times r\text{,}\) é a matriz \(AB = (c_{ij}),\) \(m \times r\text{,}\) definida por \(c_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{nj}\text{.}\) (o número de colunas de \(A\) precisa ser igual ao número de linhas de \(B\)).</p>
-<p id="p-53">A \(n\)-ésima <dfn class="terminology">potência</dfn> de uma matriz quadrada \(A = (a_{ij})\text{,}\) \(m \times m\text{,}\) é a matriz \(A^n : = A \ldots A.\) (o prudoto de \(n\) cópias da matriz \(A\)).</p></article><article class="example example-like" id="example-15"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-15"><h6 class="heading">
+</h4> <div class="para" id="matrizes_operacoes-4-2-1">Duas matrizes <span class="process-math">\(A = (a_{ij})\)</span> e <span class="process-math">\(B = (b_{ij})\text{,}\)</span> ambas <span class="process-math">\(m \times n\text{,}\)</span> são <dfn class="terminology">iguais</dfn> se <span class="process-math">\(a_{ij} = b_{ij}\)</span> para todo <span class="process-math">\(i \in \{0,1,2,\ldots,m\}\text{,}\)</span> <span class="process-math">\(j \in \{0,1,2,\ldots,n\}\text{.}\)</span> Por outro lado, <span class="process-math">\(A \neq B\)</span> se existem <span class="process-math">\(i,j\)</span> tais que <span class="process-math">\(a_{ij} \neq b_{ij}\)</span> ou se as matrizes têm dimensões diferentes.</div> <div class="para" id="matrizes_operacoes-4-2-2">A <dfn class="terminology">soma</dfn> de duas matrizes <span class="process-math">\(A = (a_{ij})\)</span> e <span class="process-math">\(B = (b_{ij})\text{,}\)</span> ambas <span class="process-math">\(m \times n\text{,}\)</span> é a matriz <span class="process-math">\(C = (c_{ij})\text{,}\)</span> <span class="process-math">\(m \times n\text{,}\)</span> definida por <span class="process-math">\(c_{ij} = a_{ij} + b_{ij}\text{.}\)</span> (somamos apenas matrizes com o mesmo número de linhas e colunas) Análogo para subtração.</div> <div class="para" id="matrizes_operacoes-4-2-3">O <dfn class="terminology">produto de um número real</dfn> <span class="process-math">\(\alpha\)</span> e <dfn class="terminology">uma matriz</dfn> <span class="process-math">\(A = (a_{ij})\text{,}\)</span> <span class="process-math">\(m \times n\text{,}\)</span> é a matriz <span class="process-math">\(C = (c_{ij}),\)</span> <span class="process-math">\(m \times n\text{,}\)</span> definida por <span class="process-math">\(c_{ij} = \alpha a_{ij}\text{.}\)</span>
+</div> <div class="para" id="matrizes_operacoes-4-2-4">O <dfn class="terminology">produto</dfn> de uma matriz <span class="process-math">\(A = (a_{ij})\text{,}\)</span> <span class="process-math">\(m \times n\text{,}\)</span> e outra matriz <span class="process-math">\(B = (b_{ij})\text{,}\)</span>  <span class="process-math">\(n \times r\text{,}\)</span> é a matriz <span class="process-math">\(AB = (c_{ij}),\)</span> <span class="process-math">\(m \times r\text{,}\)</span> definida por <span class="process-math">\(c_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{nj}\text{.}\)</span> (o número de colunas de <span class="process-math">\(A\)</span> precisa ser igual ao número de linhas de <span class="process-math">\(B\)</span>).</div> <div class="para" id="matrizes_operacoes-4-2-5">A <span class="process-math">\(n\)</span>-ésima <dfn class="terminology">potência</dfn> de uma matriz quadrada <span class="process-math">\(A = (a_{ij})\text{,}\)</span> <span class="process-math">\(m \times m\text{,}\)</span> é a matriz <span class="process-math">\(A^n : = A \ldots A.\)</span> (o prudoto de <span class="process-math">\(n\)</span> cópias da matriz <span class="process-math">\(A\)</span>).</div></article><details id="matrizes_operacoes-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><p id="p-54">Sejam</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="matrizes_operacoes-5-1">Sejam</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \alpha = 7; \,\,\, \beta = 1/2; \,\, A = \begin{pmatrix}
 2 \amp -1 \amp 0\\
@@ -227,7 +289,7 @@ B = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<div class="displaymath">
+<div class="displaymath process-math">
 \begin{equation*}
 C = \begin{pmatrix}
 1 \amp 1 \amp 1 \amp 0\\
@@ -252,20 +314,18 @@ D = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-55">Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado</p>
-<ol class="decimal">
-<li id="li-32"><p id="p-derived-li-32">\(\alpha B\text{;}\)</p></li>
-<li id="li-33"><p id="p-derived-li-33">\(\beta \vec{v}\text{;}\)</p></li>
-<li id="li-34"><p id="p-derived-li-34">\(A + B\text{;}\)</p></li>
-<li id="li-35"><p id="p-derived-li-35">\(B - D\text{;}\)</p></li>
-<li id="li-36"><p id="p-derived-li-36">\(2\vec{v}-3\vec{u}\text{;}\)</p></li>
-<li id="li-37"><p id="p-derived-li-37">\(AB\text{;}\)</p></li>
-<li id="li-38"><p id="p-derived-li-38">\(BA\text{;}\)</p></li>
-<li id="li-39"><p id="p-derived-li-39">\(\displaystyle A\vec{u}\)</p></li>
-</ol></article></div>
-<p id="p-56">Os códigos a seguir podem ser utilizados para realizar operações básicas com matrizes.</p>
-<p id="p-57">Matrizes no Python.</p>
-<div class="sagecell-sage" id="sage-8"><script type="text/x-sage">import numpy as np
+<div class="para" id="matrizes_operacoes-5-4">Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado</div> <ol class="decimal">
+<li id="matrizes_operacoes-5-5-1"><div class="para" id="p-derived-matrizes_operacoes-5-5-1"><span class="process-math">\(\alpha B\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-2"><div class="para" id="p-derived-matrizes_operacoes-5-5-2"><span class="process-math">\(\beta \vec{v}\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-3"><div class="para" id="p-derived-matrizes_operacoes-5-5-3"><span class="process-math">\(A + B\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-4"><div class="para" id="p-derived-matrizes_operacoes-5-5-4"><span class="process-math">\(B - D\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-5"><div class="para" id="p-derived-matrizes_operacoes-5-5-5"><span class="process-math">\(2\vec{v}-3\vec{u}\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-6"><div class="para" id="p-derived-matrizes_operacoes-5-5-6"><span class="process-math">\(AB\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-7"><div class="para" id="p-derived-matrizes_operacoes-5-5-7"><span class="process-math">\(BA\text{;}\)</span></div></li>
+<li id="matrizes_operacoes-5-5-8"><div class="para" id="p-derived-matrizes_operacoes-5-5-8"><span class="process-math">\(\displaystyle A\vec{u}\)</span></div></li>
+</ol></article></details><div class="para" id="matrizes_operacoes-6">Os códigos a seguir podem ser utilizados para realizar operações básicas com matrizes.</div>
+<div class="para" id="matrizes_operacoes-7">Matrizes no Python.</div>
+<pre id="matrizes_operacoes-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 
 A = np.array([[1, 2, 3], [3, 4, 5]])
 print(A)
@@ -275,9 +335,9 @@ print(A)
 
 A = np.array([[1, 2, 3], [3, 4, 5]], dtype = complex) # Array of complex numbers
 print(A)
-</script></div>
-<p id="p-58">Matrizes de zeros e uns.</p>
-<div class="sagecell-sage" id="sage-9"><script type="text/x-sage">import numpy as np
+</script></pre>
+<div class="para" id="matrizes_operacoes-9">Matrizes de zeros e uns.</div>
+<pre id="matrizes_operacoes-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 
 zeors_array = np.zeros( (2, 3) )
 print(zeors_array)
@@ -285,9 +345,9 @@ print(zeors_array)
 
 ones_array = np.ones( (1, 5), dtype=np.int32 ) # specifying dtype
 print(ones_array)
-</script></div>
-<p id="p-59">Mostrar linhas ou elementos.</p>
-<div class="sagecell-sage" id="sage-10"><script type="text/x-sage">import numpy as np
+</script></pre>
+<div class="para" id="matrizes_operacoes-11">Mostrar linhas ou elementos.</div>
+<pre id="matrizes_operacoes-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 
 A = np.array([[1, 4, 5, 12],
     [-5, 8, 9, 0],
@@ -301,9 +361,9 @@ print("A[2] =", A[2])
 
 # First column
 print("A[:,0] =", A[:,0])
-</script></div>
-<p id="p-60">Soma e produto.</p>
-<div class="sagecell-sage" id="sage-11"><script type="text/x-sage">import numpy as np
+</script></pre>
+<div class="para" id="matrizes_operacoes-13">Soma e produto.</div>
+<pre id="matrizes_operacoes-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 from numpy.linalg import matrix_power
 
 A = np.array([[3, 6, 7], [5, -3, 0]])
@@ -314,11 +374,11 @@ D = np.array([[1, 2], [-2, 3]])
 print("AB+D =",C+D)
 E = matrix_power(D,3)
 print("D^3 =",E)
-</script></div>
-<article class="exercise exercise-like" id="exercise-10"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-10"><h6 class="heading">
+</script></pre>
+<details id="matrizes_operacoes-15" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-10"><article class="exercise exercise-like"><p id="p-61">Sejam</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrizes_operacoes-15-1">Sejam</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \alpha = 2; \,\,\, \beta = 1/3; \,\, A = \begin{pmatrix}
 5 \amp -1 \amp 1\\
@@ -333,7 +393,7 @@ B = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<div class="displaymath">
+<div class="displaymath process-math">
 \begin{equation*}
 C = \begin{pmatrix}
 2 \amp 1 \amp 1 \amp 0\\
@@ -358,22 +418,21 @@ D = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-62">Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado</p>
+<div class="para" id="matrizes_operacoes-15-4">Determine se é possível realizar as seguintes operações. Caso seja, determine o resultado</div>
 <ol class="decimal">
-<li id="li-40"><p id="p-derived-li-40">\(\displaystyle \alpha B;\)</p></li>
-<li id="li-41"><p id="p-derived-li-41">\(\displaystyle \beta \vec{v};\)</p></li>
-<li id="li-42"><p id="p-derived-li-42">\(\displaystyle A + B;\)</p></li>
-<li id="li-43"><p id="p-derived-li-43">\(\displaystyle B - D;\)</p></li>
-<li id="li-44"><p id="p-derived-li-44">\(\displaystyle 2\vec{v}-3\vec{u};\)</p></li>
-<li id="li-45"><p id="p-derived-li-45">\(\displaystyle AB;\)</p></li>
-<li id="li-46"><p id="p-derived-li-46">\(\displaystyle BA;\)</p></li>
-<li id="li-47"><p id="p-derived-li-47">\(\displaystyle A\vec{u};\)</p></li>
-<li id="li-48"><p id="p-derived-li-48">\(\displaystyle C\vec{u}.\)</p></li>
-</ol></article></div>
-<article class="example example-like" id="rep_matrix"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-rep_matrix"><h6 class="heading">
+<li id="matrizes_operacoes-15-5-1"><div class="para" id="p-derived-matrizes_operacoes-15-5-1"><span class="process-math">\(\displaystyle \alpha B;\)</span></div></li>
+<li id="matrizes_operacoes-15-5-2"><div class="para" id="p-derived-matrizes_operacoes-15-5-2"><span class="process-math">\(\displaystyle \beta \vec{v};\)</span></div></li>
+<li id="matrizes_operacoes-15-5-3"><div class="para" id="p-derived-matrizes_operacoes-15-5-3"><span class="process-math">\(\displaystyle A + B;\)</span></div></li>
+<li id="matrizes_operacoes-15-5-4"><div class="para" id="p-derived-matrizes_operacoes-15-5-4"><span class="process-math">\(\displaystyle B - D;\)</span></div></li>
+<li id="matrizes_operacoes-15-5-5"><div class="para" id="p-derived-matrizes_operacoes-15-5-5"><span class="process-math">\(\displaystyle 2\vec{v}-3\vec{u};\)</span></div></li>
+<li id="matrizes_operacoes-15-5-6"><div class="para" id="p-derived-matrizes_operacoes-15-5-6"><span class="process-math">\(\displaystyle AB;\)</span></div></li>
+<li id="matrizes_operacoes-15-5-7"><div class="para" id="p-derived-matrizes_operacoes-15-5-7"><span class="process-math">\(\displaystyle BA;\)</span></div></li>
+<li id="matrizes_operacoes-15-5-8"><div class="para" id="p-derived-matrizes_operacoes-15-5-8"><span class="process-math">\(\displaystyle A\vec{u};\)</span></div></li>
+<li id="matrizes_operacoes-15-5-9"><div class="para" id="p-derived-matrizes_operacoes-15-5-9"><span class="process-math">\(\displaystyle C\vec{u}.\)</span></div></li>
+</ol></article></details><details id="rep_matrix" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-rep_matrix"><article class="example example-like"><p id="p-63">Para as matrizes</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="rep_matrix-1">Para as matrizes</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix}
 a_{11} \amp a_{12} \amp \cdots \amp a_{1n}\\
@@ -388,8 +447,8 @@ x_{n}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-64">temos</p>
-<div class="displaymath">
+<div class="para" id="rep_matrix-3">temos</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A\vec{x} = \begin{pmatrix}
 a_{11} x_1 + a_{12} x_2 + \cdots + \amp a_{1n} x_n\\
@@ -398,11 +457,10 @@ a_{21} x_1 + a_{22} x_2 + \cdots + \amp a_{2n} x_n\\
 a_{m1} x_1 + a_{m2} x_2 + \cdots + \amp a_{mn} x_n
 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-11"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-11"><h6 class="heading">
+</div></article></details><details id="matrizes_operacoes-17" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-11"><article class="exercise exercise-like"><p id="p-65">Para as matrizes</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrizes_operacoes-17-1">Para as matrizes</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix}
 a_{11} \amp a_{12} \amp a_{13} \amp a_{14}\\
@@ -416,24 +474,21 @@ x_{4}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-66">calcule</p>
-<div class="displaymath">
+<div class="para" id="matrizes_operacoes-17-3">calcule</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A\vec{x}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-17"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h6 class="heading">
+</div></article></details><details id="matrizes_operacoes-18" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-67">No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, \(10\%\) das pessoas saudáveis ficam doentes, nenhuma adquire resistência antes de ficar doente, \(10\%\) das doentes morrem, \(30\%\) das doentes se recuperam e adquirem resistência, as outras doentes continuam doentes, \(50\%\) das pessoas com resistência permanece com a resistência e \(50%\) das pessoas com resistência, perde a resistência (mas continua saudável).</p>
-<p id="p-68">Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?</p></article></div>
-<article class="exercise exercise-like" id="exercise-12"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-12"><h6 class="heading">
+</h4></summary><article class="example example-like"><div class="para" id="matrizes_operacoes-18-1">No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <span class="process-math">\(10\%\)</span> das pessoas saudáveis ficam doentes, nenhuma adquire resistência antes de ficar doente, <span class="process-math">\(10\%\)</span> das doentes morrem, <span class="process-math">\(30\%\)</span> das doentes se recuperam e adquirem resistência, as outras doentes continuam doentes, <span class="process-math">\(50\%\)</span> das pessoas com resistência permanece com a resistência e <span class="process-math">\(50%\)</span> das pessoas com resistência, perde a resistência (mas continua saudável).</div> <div class="para" id="matrizes_operacoes-18-2">Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?</div></article></details><details id="matrizes_operacoes-19" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-12"><article class="exercise exercise-like"><p id="p-69">No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, \(20\%\) das pessoas saudáveis ficam doentes, nenhuma adquire resistência antes de ficar doente, \(5\%\) das doentes morrem, \(30\%\) das doentes se recuperam, \(30\%\) das doentes se recuperam adquirem resistência, as outras doentes continuam doentes, \(80\%\) das pessoas com resistência permanece com a resistência e \(50%\) das pessoas com resistência, perde a resistência (mas continua saudável).</p>
-<p id="p-70">Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?</p></article></div></section><section class="subsection" id="Matrix_rep_mult"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrizes_operacoes-19-1">No estudo de uma doença consideramos as pessoas de uma determinada população divididas em 3 grupos: saudáveis (S), doentes (D) e resistentes (R). Suponha que temos uma população inicial de 90.000 S e 10.000 D. Além disso suponha que, a cada ciclo da doença, <span class="process-math">\(20\%\)</span> das pessoas saudáveis ficam doentes, nenhuma adquire resistência antes de ficar doente, <span class="process-math">\(5\%\)</span> das doentes morrem, <span class="process-math">\(30\%\)</span> das doentes se recuperam, <span class="process-math">\(30\%\)</span> das doentes se recuperam adquirem resistência, as outras doentes continuam doentes, <span class="process-math">\(80\%\)</span> das pessoas com resistência permanece com a resistência e <span class="process-math">\(50%\)</span> das pessoas com resistência, perde a resistência (mas continua saudável).</div>
+<div class="para" id="matrizes_operacoes-19-2">Qual o total de pessoas em cada categoria (SDR) após 1 ciclo, após 2 ciclos, após 10 ciclos e após 50 ciclos?</div></article></details></section><section class="subsection" id="Matrix_rep_mult"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.2</span><span class="space"> </span><span class="title">Representação Matricial e Multiplicação de Matrizes</span>
 </h3>
-<p id="p-71">Observamos no <a class="xref" data-knowl="./knowl/rep_matrix.html" title="Example 2.5">exemplo 2.5</a> que</p>
-<div class="displaymath">
+<div class="para" id="Matrix_rep_mult-2">Observamos no <a href="" class="xref" data-knowl="./knowl/xref/rep_matrix.html" title="Example 2.5">exemplo 2.5</a> que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rep_matrix.html ./knowl/xref/prop_op_matr.html ./knowl/xref/prop_transp.html">
 \begin{equation*}
 A\vec{x} = \begin{pmatrix}
 a_{11} x_1 + a_{12} x_2 + \cdots + \amp a_{1n} x_n\\
@@ -443,8 +498,8 @@ a_{m1} x_1 + a_{m2} x_2 + \cdots + \amp a_{mn} x_n
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-72">desse modo, o sistema linear</p>
-<div class="displaymath">
+<div class="para" id="Matrix_rep_mult-4">desse modo, o sistema linear</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rep_matrix.html ./knowl/xref/prop_op_matr.html ./knowl/xref/prop_transp.html">
 \begin{equation*}
 A\vec{x} = \begin{array}{c}
 a_{11} x_1 + a_{12} x_2 + \cdots + \amp a_{1n} x_n = b_1,\\
@@ -454,8 +509,8 @@ a_{m1} x_1 + a_{m2} x_2 + \cdots + \amp a_{mn} x_n = b_m,
 \end{array}
 \end{equation*}
 </div>
-<p id="p-73">é equivalente à equação matricial</p>
-<div class="displaymath">
+<div class="para" id="Matrix_rep_mult-6">é equivalente à equação matricial</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rep_matrix.html ./knowl/xref/prop_op_matr.html ./knowl/xref/prop_transp.html">
 \begin{equation*}
 \begin{pmatrix}
 a_{11} \amp a_{12} \amp \cdots  \amp a_{1n}\\
@@ -478,60 +533,56 @@ b_m
 =\vec{b}
 \end{equation*}
 </div>
-<p id="p-74">onde \(\vec{b}\) é o nome que damos ao vetor \((b_1, b_2, \cdots, b_m)\text{.}\) Assim um sistema linear pode ser escrito na forma \(A\vec{x} = \vec{b}\text{.}\) Chamamos essa forma de <dfn class="terminology">forma matricial do sistema</dfn>. Isso é particularmente importante pois é análogo à equação linear \(ax=b\text{,}\) cuja solução é \(x=b/a\text{.}\)</p>
-<article class="theorem theorem-like" id="prop_op_matr"><h6 class="heading">
+<div class="para" id="Matrix_rep_mult-8">onde <span class="process-math">\(\vec{b}\)</span> é o nome que damos ao vetor <span class="process-math">\((b_1, b_2, \cdots, b_m)\text{.}\)</span> Assim um sistema linear pode ser escrito na forma <span class="process-math">\(A\vec{x} = \vec{b}\text{.}\)</span> Chamamos essa forma de <dfn class="terminology">forma matricial do sistema</dfn>. Isso é particularmente importante pois é análogo à equação linear <span class="process-math">\(ax=b\text{,}\)</span> cuja solução é <span class="process-math">\(x=b/a\text{.}\)</span>
+</div>
+<article class="theorem theorem-like" id="prop_op_matr"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades das operações básicas.</span>
-</h6>
-<p id="p-75">Dados \(\alpha, \beta \in \mathbb{R}\) e matrizes \(A, B\) e \(C\text{.}\) Então, se as operaçõesa seguir estiverem definidas (as dimensões das matrizes forem adequadas para permitir as operações), vale:</p>
-<ol class="decimal">
-<li id="li-49"><p id="p-derived-li-49">\(\displaystyle A + B = B + A, \)</p></li>
-<li id="li-50"><p id="p-derived-li-50">\(\displaystyle (A + B) + C = A + (B + C), \)</p></li>
-<li id="li-51"><p id="p-derived-li-51">\(\displaystyle (AB)C = A(BC), \)</p></li>
-<li id="li-52"><p id="p-derived-li-52">\(\displaystyle A(B+C) = AB + AC, \)</p></li>
-<li id="li-53"><p id="p-derived-li-53">\(\displaystyle (A+B)C = AC + BC, \)</p></li>
-<li id="li-54"><p id="p-derived-li-54">\(\displaystyle (\alpha \beta) A = \alpha(\beta A), \)</p></li>
-<li id="li-55"><p id="p-derived-li-55">\(\displaystyle \alpha(AB) = (\alpha A)B = A(\alpha B), \)</p></li>
-<li id="li-56"><p id="p-derived-li-56">\(\displaystyle (\alpha + \beta) A = \alpha A + \beta A. \)</p></li>
-</ol></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof">A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.</article></div>
-<article class="exercise exercise-like" id="exercise-13"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-13"><h6 class="heading">
+</h4>
+<div class="para" id="prop_op_matr-2-1">Dados <span class="process-math">\(\alpha, \beta \in \mathbb{R}\)</span> e matrizes <span class="process-math">\(A, B\)</span> e <span class="process-math">\(C\text{.}\)</span> Então, se as operaçõesa seguir estiverem definidas (as dimensões das matrizes forem adequadas para permitir as operações), vale:</div> <ol class="upper-alpha">
+<li id="prop_op_matr-2-2-1"><div class="para" id="p-derived-prop_op_matr-2-2-1"><span class="process-math">\(\displaystyle A + B = B + A, \)</span></div></li>
+<li id="prop_op_matr-2-2-2"><div class="para" id="p-derived-prop_op_matr-2-2-2"><span class="process-math">\(\displaystyle (A + B) + C = A + (B + C), \)</span></div></li>
+<li id="prop_op_matr-2-2-3"><div class="para" id="p-derived-prop_op_matr-2-2-3"><span class="process-math">\(\displaystyle (AB)C = A(BC), \)</span></div></li>
+<li id="prop_op_matr-2-2-4"><div class="para" id="p-derived-prop_op_matr-2-2-4"><span class="process-math">\(\displaystyle A(B+C) = AB + AC, \)</span></div></li>
+<li id="prop_op_matr-2-2-5"><div class="para" id="p-derived-prop_op_matr-2-2-5"><span class="process-math">\(\displaystyle (A+B)C = AC + BC, \)</span></div></li>
+<li id="prop_op_matr-2-2-6"><div class="para" id="p-derived-prop_op_matr-2-2-6"><span class="process-math">\(\displaystyle (\alpha \beta) A = \alpha(\beta A), \)</span></div></li>
+<li id="prop_op_matr-2-2-7"><div class="para" id="p-derived-prop_op_matr-2-2-7"><span class="process-math">\(\displaystyle \alpha(AB) = (\alpha A)B = A(\alpha B), \)</span></div></li>
+<li id="prop_op_matr-2-2-8"><div class="para" id="p-derived-prop_op_matr-2-2-8"><span class="process-math">\(\displaystyle (\alpha + \beta) A = \alpha A + \beta A. \)</span></div></li>
+</ol></article><details id="prop_op_matr-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.</article></details><details id="Matrix_rep_mult-10" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-13"><article class="exercise exercise-like"><p id="p-76">Para cada uma das propriedades no <a class="xref" data-knowl="./knowl/prop_op_matr.html" title="Theorem 2.9: Propriedades das operações básicas">Theorem 2.9</a>, dê exemplos de constantes e matrizes para as quais as operações fazem sentido. Em seguida calcule o lado esquerdo e o lado direito de cada igualdade e verifique que o mesmo resultado é obtido. Verifique seua cálculos utilizando os códigos em python.</p></article></div>
-<article class="remark remark-like" id="remark-6"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrix_rep_mult-10-1">Para cada uma das propriedades no <a href="" class="xref" data-knowl="./knowl/xref/prop_op_matr.html" title="Theorem 2.9: Propriedades das operações básicas">Theorem 2.9</a>, dê exemplos de constantes e matrizes para as quais as operações fazem sentido. Em seguida calcule o lado esquerdo e o lado direito de cada igualdade e verifique que o mesmo resultado é obtido. Verifique seua cálculos utilizando os códigos em python.</div></article></details><article class="remark remark-like" id="Matrix_rep_mult-11"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.11</span><span class="period">.</span>
-</h6>Os produtos matriciais \(AB\) e \(BA\) só fazem sentido se ambas \(A\) e \(B\) são matrizes quadradas de mesma dimensão \(n \times n\text{.}\) Todavia \(AB \neq BA\) em geral.</article><article class="exercise exercise-like" id="exercise-14"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-14"><h6 class="heading">
+</h4>Os produtos matriciais <span class="process-math">\(AB\)</span> e <span class="process-math">\(BA\)</span> só fazem sentido se ambas <span class="process-math">\(A\)</span> e <span class="process-math">\(B\)</span> são matrizes quadradas de mesma dimensão <span class="process-math">\(n \times n\text{.}\)</span> Todavia <span class="process-math">\(AB \neq BA\)</span> em geral.</article><details id="Matrix_rep_mult-12" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.12</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-14"><article class="exercise exercise-like"><p id="p-77">Defina matrizes \(3 \times 3\text{,}\) \(A, B\text{,}\) tais que \(AB \neq BA\) e calcule \(AB\) e \(BA\text{.}\) Em seguida comprove seus cálculos utilizando o computador.</p></article></div>
-<article class="definition definition-like" id="definition-6"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrix_rep_mult-12-1">Defina matrizes <span class="process-math">\(3 \times 3\text{,}\)</span> <span class="process-math">\(A, B\text{,}\)</span> tais que <span class="process-math">\(AB \neq BA\)</span> e calcule <span class="process-math">\(AB\)</span> e <span class="process-math">\(BA\text{.}\)</span> Em seguida comprove seus cálculos utilizando o computador.</div></article></details><article class="definition definition-like" id="Matrix_rep_mult-13"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.13</span><span class="period">.</span>
-</h6>
-<p id="p-78">Seja \(A\) uma matrix \(m \times n\text{.}\) A <dfn class="terminology">transposta</dfn> de \(A\text{,}\) denotada \(A^T\) é a matriz \(n \times m\text{,}\) \(B = (b_{ij})\) definida através de \(b_{ij} = a_{ji}.\text{.}\)</p></article><article class="example example-like" id="example-18"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-18"><h6 class="heading">
+</h4> <div class="para" id="Matrix_rep_mult-13-2-1">Seja <span class="process-math">\(A\)</span> uma matrix <span class="process-math">\(m \times n\text{.}\)</span> A <dfn class="terminology">transposta</dfn> de <span class="process-math">\(A\text{,}\)</span> denotada <span class="process-math">\(A^T\)</span> é a matriz <span class="process-math">\(n \times m\text{,}\)</span> <span class="process-math">\(B = (b_{ij})\)</span> definida através de <span class="process-math">\(b_{ij} = a_{ji}.\text{.}\)</span>
+</div></article><details id="Matrix_rep_mult-14" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-18"><article class="example example-like"><ol class="decimal">
-<li id="li-57"><p id="p-derived-li-57">Para \(A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \end{pmatrix}\text{,}\) a transposta é a matriz \(A^T = \begin{pmatrix} 1 \amp -2 \\ -1 \amp 4 \\ 2 \amp 3 \end{pmatrix}\text{.}\)</p></li>
-<li id="li-58"><p id="p-derived-li-58">Para \(A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \\ 2 \amp 1\amp -2\end{pmatrix}\text{,}\) a transposta é a matriz \(A^T = \begin{pmatrix} 1 \amp -2 \amp 2\\ -1 \amp 4 \amp 1\\ 2 \amp 3 \amp -2 \end{pmatrix}\text{.}\)</p></li>
-<li id="li-59"><p id="p-derived-li-59">Para \(A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2\end{pmatrix}\text{,}\) a transposta é a matriz \(A^T = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2 \end{pmatrix}\text{.}\)</p></li>
-</ol></article></div>
-<article class="definition definition-like" id="definition-7"><h6 class="heading">
+</h4></summary><article class="example example-like"><ol class="decimal">
+<li id="Matrix_rep_mult-14-1-1"><div class="para" id="p-derived-Matrix_rep_mult-14-1-1">Para <span class="process-math">\(A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \end{pmatrix}\text{,}\)</span> a transposta é a matriz <span class="process-math">\(A^T = \begin{pmatrix} 1 \amp -2 \\ -1 \amp 4 \\ 2 \amp 3 \end{pmatrix}\text{.}\)</span>
+</div></li>
+<li id="Matrix_rep_mult-14-1-2"><div class="para" id="p-derived-Matrix_rep_mult-14-1-2">Para <span class="process-math">\(A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -2 \amp 4 \amp 3 \\ 2 \amp 1\amp -2\end{pmatrix}\text{,}\)</span> a transposta é a matriz <span class="process-math">\(A^T = \begin{pmatrix} 1 \amp -2 \amp 2\\ -1 \amp 4 \amp 1\\ 2 \amp 3 \amp -2 \end{pmatrix}\text{.}\)</span>
+</div></li>
+<li id="Matrix_rep_mult-14-1-3"><div class="para" id="p-derived-Matrix_rep_mult-14-1-3">Para <span class="process-math">\(A = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2\end{pmatrix}\text{,}\)</span> a transposta é a matriz <span class="process-math">\(A^T = \begin{pmatrix} 1 \amp -1 \amp 2 \\ -1 \amp 4 \amp 3 \\ 2 \amp 3\amp -2 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ol></article></details><article class="definition definition-like" id="Matrix_rep_mult-15"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.15</span><span class="period">.</span>
-</h6>
-<p id="p-79">Se \(A = A^T\text{,}\) dizemos que \(A\) é uma matriz <dfn class="terminology">simétrica</dfn>.</p></article><article class="theorem theorem-like" id="prop_transp"><h6 class="heading">
+</h4> <div class="para" id="Matrix_rep_mult-15-2-1">Se <span class="process-math">\(A = A^T\text{,}\)</span> dizemos que <span class="process-math">\(A\)</span> é uma matriz <dfn class="terminology">simétrica</dfn>.</div></article><article class="theorem theorem-like" id="prop_transp"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.16</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades da transposta.</span>
-</h6>
-<p id="p-80">Dados \(\alpha \in \mathbb{R}\) e matrizes \(A, B\text{.}\) Então, se as operaçõesa seguir estiverem definidas (as dimensões das matrizes forem adequadas para permitir as operações), vale:</p>
-<ol class="decimal">
-<li id="li-60"><p id="p-derived-li-60">\(\displaystyle (A^T)^T = A, \)</p></li>
-<li id="li-61"><p id="p-derived-li-61">\(\displaystyle (\alpha A)^T = \alpha A^T, \)</p></li>
-<li id="li-62"><p id="p-derived-li-62">\(\displaystyle (A+B)^T = A^T+B^T, \)</p></li>
-<li id="li-63"><p id="p-derived-li-63">\(\displaystyle (AB)^T = B^TA^T. \)</p></li>
-</ol></article><article class="hiddenproof" id="proof-2"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof">A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.</article></div>
-<article class="exercise exercise-like" id="exercise-15"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-15"><h6 class="heading">
+</h4>
+<div class="para" id="prop_transp-2-1">Dados <span class="process-math">\(\alpha \in \mathbb{R}\)</span> e matrizes <span class="process-math">\(A, B\text{.}\)</span> Então, se as operaçõesa seguir estiverem definidas (as dimensões das matrizes forem adequadas para permitir as operações), vale:</div> <ol class="upper-alpha">
+<li id="prop_transp-2-2-1"><div class="para" id="p-derived-prop_transp-2-2-1"><span class="process-math">\(\displaystyle (A^T)^T = A, \)</span></div></li>
+<li id="prop_transp-2-2-2"><div class="para" id="p-derived-prop_transp-2-2-2"><span class="process-math">\(\displaystyle (\alpha A)^T = \alpha A^T, \)</span></div></li>
+<li id="prop_transp-2-2-3"><div class="para" id="p-derived-prop_transp-2-2-3"><span class="process-math">\(\displaystyle (A+B)^T = A^T+B^T, \)</span></div></li>
+<li id="prop_transp-2-2-4"><div class="para" id="p-derived-prop_transp-2-2-4"><span class="process-math">\(\displaystyle (AB)^T = B^TA^T. \)</span></div></li>
+</ol></article><details id="prop_transp-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.</article></details><details id="Matrix_rep_mult-17" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.17</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-15"><article class="exercise exercise-like"><p id="p-81">Para cada uma das propriedades no <a class="xref" data-knowl="./knowl/prop_transp.html" title="Theorem 2.16: Propriedades da transposta">Theorem 2.16</a>, dê exemplos de constantes e matrizes para as quais as operações fazem sentido. Em seguida calcule o lado esquerdo e o lado direito de cada igualdade e verifique que o mesmo resultado é obtido. Verifique seua cálculos utilizando os códigos em python.</p></article></div>
-<article class="definition definition-like" id="definition-8"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrix_rep_mult-17-1">Para cada uma das propriedades no <a href="" class="xref" data-knowl="./knowl/xref/prop_transp.html" title="Theorem 2.16: Propriedades da transposta">Theorem 2.16</a>, dê exemplos de constantes e matrizes para as quais as operações fazem sentido. Em seguida calcule o lado esquerdo e o lado direito de cada igualdade e verifique que o mesmo resultado é obtido. Verifique seua cálculos utilizando os códigos em python.</div></article></details><article class="definition definition-like" id="Matrix_rep_mult-18"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.18</span><span class="period">.</span>
-</h6>
-<p id="p-82">A matrix identidade, \(I\text{,}\) \(n \times n\text{,}\) \(I=(\delta_{ij})\text{,}\) onde \(\delta_{ij} = 0\text{,}\) se \(i\neq j\text{,}\) e \(\delta_{ij} = 1\text{,}\) se \(i = j\text{.}\)</p>
-<div class="displaymath">
+</h4> <div class="para logical" id="Matrix_rep_mult-18-2-1">
+<div class="para">A matrix identidade, <span class="process-math">\(I\text{,}\)</span> <span class="process-math">\(n \times n\text{,}\)</span> <span class="process-math">\(I=(\delta_{ij})\text{,}\)</span> onde <span class="process-math">\(\delta_{ij} = 0\text{,}\)</span> se <span class="process-math">\(i\neq j\text{,}\)</span> e <span class="process-math">\(\delta_{ij} = 1\text{,}\)</span> se <span class="process-math">\(i = j\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix}
 1 \amp 0 \amp \cdots  \amp 0\\
@@ -540,137 +591,132 @@ b_m
 0 \amp 0 \amp \cdots \amp 1
 \end{pmatrix}
 \end{equation*}
-</div></article><article class="theorem theorem-like" id="theorem-3"><h6 class="heading">
+</div>
+</div></article><article class="theorem theorem-like" id="Matrix_rep_mult-19"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.19</span><span class="period">.</span>
-</h6>
-<p id="p-83">Sejam \(I\) a matriz identidade \(n \times n\text{,}\) \(A\) uma matriz \(m \times n\) e \(B\) uma matriz \(n \times r\)</p>
-<ol class="decimal">
-<li id="li-64"><p id="p-derived-li-64">\(\displaystyle AI = I, \)</p></li>
-<li id="li-65"><p id="p-derived-li-65">\(\displaystyle IB = B. \)</p></li>
-</ol></article><article class="hiddenproof" id="proof-3"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof">A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.</article></div>
-<article class="definition definition-like" id="definition-9"><h6 class="heading">
+</h4>
+<div class="para" id="Matrix_rep_mult-19-1-1">Sejam <span class="process-math">\(I\)</span> a matriz identidade <span class="process-math">\(n \times n\text{,}\)</span> <span class="process-math">\(A\)</span> uma matriz <span class="process-math">\(m \times n\)</span> e <span class="process-math">\(B\)</span> uma matriz <span class="process-math">\(n \times r\)</span>
+</div> <ol class="upper-alpha">
+<li id="Matrix_rep_mult-19-1-2-1"><div class="para" id="p-derived-Matrix_rep_mult-19-1-2-1"><span class="process-math">\(\displaystyle AI = I, \)</span></div></li>
+<li id="Matrix_rep_mult-19-1-2-2"><div class="para" id="p-derived-Matrix_rep_mult-19-1-2-2"><span class="process-math">\(\displaystyle IB = B. \)</span></div></li>
+</ol></article><details id="Matrix_rep_mult-19-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A demonstração baseia-se em efetuar as operações nos coeficientes e fica a aorgo do leitor como exercício opcional.</article></details><article class="definition definition-like" id="Matrix_rep_mult-20"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
-</h6>
-<p id="p-84">Uma matrix \(A\text{,}\) \(n \times n\text{,}\) é <dfn class="terminology">inversível</dfn> (também chamada de <dfn class="terminology">não singular</dfn>) se existe uma matriz \(B\text{,}\) \(n \times n\text{,}\) tal que \(AB = BA = I\text{.}\) \(B\) é dita a matriz inversa de \(A\) e denotada \(A^{-1}=B\text{.}\)</p></article><article class="example example-like" id="example-19"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h6 class="heading">
+</h4> <div class="para" id="Matrix_rep_mult-20-2-1">Uma matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(n \times n\text{,}\)</span> é <dfn class="terminology">inversível</dfn> (também chamada de <dfn class="terminology">não singular</dfn>) se existe uma matriz <span class="process-math">\(B\text{,}\)</span> <span class="process-math">\(n \times n\text{,}\)</span> tal que <span class="process-math">\(AB = BA = I\text{.}\)</span> <span class="process-math">\(B\)</span> é dita a matriz inversa de <span class="process-math">\(A\)</span> e denotada <span class="process-math">\(A^{-1}=B\text{.}\)</span>
+</div></article><details id="Matrix_rep_mult-21" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.21</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><ol class="decimal">
-<li id="li-66"><p id="p-derived-li-66">Para \(A = \begin{pmatrix} 1 \amp -1\\ -2 \amp 4 \end{pmatrix}\) a inversa é matriz \(A^{-1} = \begin{pmatrix} 2 \amp 1/2 \\ 1 \amp 1/2 \end{pmatrix}\) pois \(AA^{-1}=A^{-1}A=I\text{.}\)</p></li>
-<li id="li-67"><p id="p-derived-li-67">Para \(A = \begin{pmatrix} -1 \amp 2\\ 2 \amp 3 \end{pmatrix}\) a inversa é matriz \(A = \begin{pmatrix} -3/7 \amp 2/7\\ 2/7 \amp 1/7 \end{pmatrix}\) pois \(AA^{-1} = A^{-1}A=I\text{.}\)</p></li>
-</ol></article></div>
-<article class="remark remark-like" id="remark-7"><h6 class="heading">
+</h4></summary><article class="example example-like"><ol class="decimal">
+<li id="Matrix_rep_mult-21-1-1"><div class="para" id="p-derived-Matrix_rep_mult-21-1-1">Para <span class="process-math">\(A = \begin{pmatrix} 1 \amp -1\\ -2 \amp 4 \end{pmatrix}\)</span> a inversa é matriz <span class="process-math">\(A^{-1} = \begin{pmatrix} 2 \amp 1/2 \\ 1 \amp 1/2 \end{pmatrix}\)</span> pois <span class="process-math">\(AA^{-1}=A^{-1}A=I\text{.}\)</span>
+</div></li>
+<li id="Matrix_rep_mult-21-1-2"><div class="para" id="p-derived-Matrix_rep_mult-21-1-2">Para <span class="process-math">\(A = \begin{pmatrix} -1 \amp 2\\ 2 \amp 3 \end{pmatrix}\)</span> a inversa é matriz <span class="process-math">\(A = \begin{pmatrix} -3/7 \amp 2/7\\ 2/7 \amp 1/7 \end{pmatrix}\)</span> pois <span class="process-math">\(AA^{-1} = A^{-1}A=I\text{.}\)</span>
+</div></li>
+</ol></article></details><article class="remark remark-like" id="Matrix_rep_mult-22"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.22</span><span class="period">.</span>
-</h6>Se \(ad-bc \neq 0\text{,}\) então a matriz<div class="displaymath">
+</h4>Se <span class="process-math">\(ad-bc \neq 0\text{,}\)</span> então a matriz<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}
 \end{equation*}
-</div>é inversível e<div class="displaymath">
+</div>é inversível e<div class="displaymath process-math">
 \begin{equation*}
 A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d \amp -b \\ -c \amp a \end{pmatrix}.
 \end{equation*}
-</div>Como pode ser verificado diretamente calculando \(AA^{-1}\) e \(A^{-1}A\text{.}\)</article><article class="remark remark-like" id="remark-8"><h6 class="heading">
+</div>Como pode ser verificado diretamente calculando <span class="process-math">\(AA^{-1}\)</span> e <span class="process-math">\(A^{-1}A\text{.}\)</span></article><article class="remark remark-like" id="Matrix_rep_mult-23"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.23</span><span class="period">.</span>
-</h6>Um sistema linear escrito na forma matricial \(A\vec{x} = \vec{b}\text{,}\) pode ser resolvido multiplicando à esquerda ambos os lados da equação por \(A^{-1}\text{,}\) se \(A\) é inversível:<div class="displaymath">
+</h4>Um sistema linear escrito na forma matricial <span class="process-math">\(A\vec{x} = \vec{b}\text{,}\)</span> pode ser resolvido multiplicando à esquerda ambos os lados da equação por <span class="process-math">\(A^{-1}\text{,}\)</span> se <span class="process-math">\(A\)</span> é inversível:<div class="displaymath process-math">
 \begin{equation*}
 \vec{x} = (A^{-1}A)\vec{x} = A^{-1}(A\vec{x}) = A^{-1}\vec{b}.
 \end{equation*}
-</div></article></section><article class="exercise exercise-like" id="exercise-16"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-16"><h6 class="heading">
+</div></article></section><details id="Matrices-5" class="exercise exercise-like born-hidden-knowl"><summary><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.24</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-16"><article class="exercise exercise-like"><p id="p-85">Escreva o sistema abaixo na forma matricial, \(A\vec{x} = \vec{b}\text{,}\) calcule \(A^{-1}\text{,}\) e resolva o sistema calculando \(\vec{x} = A^{-1}\vec{b}\text{.}\) Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</p>
-<div class="displaymath">
+</h3></summary><article class="exercise exercise-like"><div class="para" id="Matrices-5-1">Escreva o sistema abaixo na forma matricial, <span class="process-math">\(A\vec{x} = \vec{b}\text{,}\)</span> calcule <span class="process-math">\(A^{-1}\text{,}\)</span> e resolva o sistema calculando <span class="process-math">\(\vec{x} = A^{-1}\vec{b}\text{.}\)</span> Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{c}
 x + 2 y = 3,\\
 2 x  - y = 2.
 \end{array}
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-17"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-17"><h6 class="heading">
+</div></article></details><details id="Matrices-6" class="exercise exercise-like born-hidden-knowl"><summary><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-17"><article class="exercise exercise-like"><p id="p-86">Escreva o sistema abaixo na forma matricial, \(A\vec{x} = \vec{b}\text{,}\) calcule \(A^{-1}\text{,}\) e resolva o sistema calculando \(\vec{x} = A^{-1}\vec{b}\text{.}\) Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</p>
-<div class="displaymath">
+</h3></summary><article class="exercise exercise-like"><div class="para" id="Matrices-6-1">Escreva o sistema abaixo na forma matricial, <span class="process-math">\(A\vec{x} = \vec{b}\text{,}\)</span> calcule <span class="process-math">\(A^{-1}\text{,}\)</span> e resolva o sistema calculando <span class="process-math">\(\vec{x} = A^{-1}\vec{b}\text{.}\)</span> Compare suas soluções com os resultados obtidos pelo método de Gauss-Jordan.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{c}
 -1 x - y = 2,\\
 2 x +  3y = -1.
 \end{array}
 \end{equation*}
-</div></article></div>
-<section class="subsection" id="matrix_mult_meaning"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span>
+</div></article></details><section class="subsection" id="matrix_mult_meaning"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">Matrizes elementares</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-18"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-18"><h6 class="heading">
+<details id="matrix_mult_meaning-2" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.26</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-18"><article class="exercise exercise-like"><p id="p-87">Observe as seguintes multiplicações matriciais e tente descrever o efeito que as matrizes à esquerda têm sobre as matrizes à direita.</p>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrix_mult_meaning-2-1">Observe as seguintes multiplicações matriciais e tente descrever o efeito que as matrizes à esquerda têm sobre as matrizes à direita.</div>
 <ol class="decimal">
-<li id="li-68"><p id="p-derived-li-68">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 3 \amp 9 \amp 27\\ 0 \amp 0 \amp 0 \end{pmatrix}\)</p></li>
-<li id="li-69"><p id="p-derived-li-69">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 1 \amp 2 \amp 4 \end{pmatrix}\)</p></li>
-<li id="li-70"><p id="p-derived-li-70">\(\displaystyle \begin{pmatrix} 4 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 4 \amp 8 \amp 16\\ 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix}\)</p></li>
-<li id="li-71"><p id="p-derived-li-71">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ -1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ -1 \amp -2 \amp -4 \end{pmatrix}\)</p></li>
-</ol></article></div>
-<article class="exercise exercise-like" id="exercise-19"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-19"><h6 class="heading">
+<li id="matrix_mult_meaning-2-2-1"><div class="para" id="p-derived-matrix_mult_meaning-2-2-1"><span class="process-math">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 3 \amp 9 \amp 27\\ 0 \amp 0 \amp 0 \end{pmatrix}\)</span></div></li>
+<li id="matrix_mult_meaning-2-2-2"><div class="para" id="p-derived-matrix_mult_meaning-2-2-2"><span class="process-math">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 1 \amp 2 \amp 4 \end{pmatrix}\)</span></div></li>
+<li id="matrix_mult_meaning-2-2-3"><div class="para" id="p-derived-matrix_mult_meaning-2-2-3"><span class="process-math">\(\displaystyle \begin{pmatrix} 4 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 4 \amp 8 \amp 16\\ 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0 \end{pmatrix}\)</span></div></li>
+<li id="matrix_mult_meaning-2-2-4"><div class="para" id="p-derived-matrix_mult_meaning-2-2-4"><span class="process-math">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ -1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 0 \amp 0 \amp 0\\ 0 \amp 0 \amp 0\\ -1 \amp -2 \amp -4 \end{pmatrix}\)</span></div></li>
+</ol></article></details><details id="matrix_mult_meaning-3" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.27</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-19"><article class="exercise exercise-like"><p id="p-88">Observe as seguintes multiplicações matriciais e tente descrever o efeito que as matrizes à esquerda têm sobre as matrizes à direita.</p>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrix_mult_meaning-3-1">Observe as seguintes multiplicações matriciais e tente descrever o efeito que as matrizes à esquerda têm sobre as matrizes à direita.</div>
 <ol class="decimal">
-<li id="li-72"><p id="p-derived-li-72">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} -1 \amp -3 \amp -9\\ 3 \amp 9 \amp 27\\ 1 \amp 2 \amp 4 \end{pmatrix}\)</p></li>
-<li id="li-73"><p id="p-derived-li-73">\(\displaystyle \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -5 \amp -15 \amp -45 \end{pmatrix}\)</p></li>
-<li id="li-74"><p id="p-derived-li-74">\(\displaystyle \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ 2 \amp 6 \amp 18 \end{pmatrix}\)</p></li>
-<li id="li-75"><p id="p-derived-li-75">\(\displaystyle \begin{pmatrix} 1 \amp 0 \amp 0\\ 2 \amp 1 \amp 0\\ 0 \amp 0 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 5 \amp 13 \amp 25\\ -1 \amp -3 \amp -9 \end{pmatrix}\)</p></li>
-</ol></article></div>
-<p id="p-89">Uma <dfn class="terminology">matriz elementar do tipo I</dfn> é obtida trocando duas linhas da matriz identidade \(I\text{.}\) Com frequência denotamos uma matriz elementar do tipo I por \(E_1\) ou \(T_{ij}\) para indicar que trocamos a linha \(i\) pela linha \(j\text{.}\) Multiplicar uma matriz \(A\) por \(E_1\) à esquerda, ou seja, calcular \(E_1A\text{,}\) tem o efeito de trocar as duas linhas da matriz \(A\) correspondentes às linhas trocadas na matriz \(I\text{.}\)</p>
-<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h6 class="heading">
+<li id="matrix_mult_meaning-3-2-1"><div class="para" id="p-derived-matrix_mult_meaning-3-2-1"><span class="process-math">\(\displaystyle \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} -1 \amp -3 \amp -9\\ 3 \amp 9 \amp 27\\ 1 \amp 2 \amp 4 \end{pmatrix}\)</span></div></li>
+<li id="matrix_mult_meaning-3-2-2"><div class="para" id="p-derived-matrix_mult_meaning-3-2-2"><span class="process-math">\(\displaystyle \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -5 \amp -15 \amp -45 \end{pmatrix}\)</span></div></li>
+<li id="matrix_mult_meaning-3-2-3"><div class="para" id="p-derived-matrix_mult_meaning-3-2-3"><span class="process-math">\(\displaystyle \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ 2 \amp 6 \amp 18 \end{pmatrix}\)</span></div></li>
+<li id="matrix_mult_meaning-3-2-4"><div class="para" id="p-derived-matrix_mult_meaning-3-2-4"><span class="process-math">\(\displaystyle \begin{pmatrix} 1 \amp 0 \amp 0\\ 2 \amp 1 \amp 0\\ 0 \amp 0 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 2 \amp 4\\ 3 \amp 9 \amp 27\\ -1 \amp -3 \amp -9 \end{pmatrix} = \begin{pmatrix} 1 \amp 2 \amp 4\\ 5 \amp 13 \amp 25\\ -1 \amp -3 \amp -9 \end{pmatrix}\)</span></div></li>
+</ol></article></details><div class="para" id="matrix_mult_meaning-4">Uma <dfn class="terminology">matriz elementar do tipo I</dfn> é obtida trocando duas linhas da matriz identidade <span class="process-math">\(I\text{.}\)</span> Com frequência denotamos uma matriz elementar do tipo I por <span class="process-math">\(E_1\)</span> ou <span class="process-math">\(T_{ij}\)</span> para indicar que trocamos a linha <span class="process-math">\(i\)</span> pela linha <span class="process-math">\(j\text{.}\)</span> Multiplicar uma matriz <span class="process-math">\(A\)</span> por <span class="process-math">\(E_1\)</span> à esquerda, ou seja, calcular <span class="process-math">\(E_1A\text{,}\)</span> tem o efeito de trocar as duas linhas da matriz <span class="process-math">\(A\)</span> correspondentes às linhas trocadas na matriz <span class="process-math">\(I\text{.}\)</span>
+</div>
+<details id="matrix_mult_meaning-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.28</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like">\(T_{31} A = E_1 A = \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{31} \amp a_{32} \amp a_{33}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{11} \amp a_{12} \amp a_{13} \end{pmatrix}\)</article></div>
-<p id="p-90">Uma <dfn class="terminology">matriz elementar do tipo II</dfn> é obtida multiplicando uma linha da matriz identidade \(I\) por uma constante não nula. Com frequência denotamos uma matriz elementar do tipo II por \(E_2\) ou \(D_{i}(\alpha)\) para indicar que multiplicamos a linha \(i\) por \(\alpha\text{.}\) Multiplicar uma matriz \(A\) por \(E_2\) à esquerda, ou seja, calcular \(E_2A\text{,}\) tem o efeito de multiplicar pela constatne a linha da matriz \(A\) correspondente.</p>
-<article class="example example-like" id="example-21"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-21"><h6 class="heading">
+</h4></summary><article class="example example-like"><span class="process-math">\(T_{31} A = E_1 A = \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{31} \amp a_{32} \amp a_{33}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{11} \amp a_{12} \amp a_{13} \end{pmatrix}\)</span></article></details><div class="para" id="matrix_mult_meaning-6">Uma <dfn class="terminology">matriz elementar do tipo II</dfn> é obtida multiplicando uma linha da matriz identidade <span class="process-math">\(I\)</span> por uma constante não nula. Com frequência denotamos uma matriz elementar do tipo II por <span class="process-math">\(E_2\)</span> ou <span class="process-math">\(D_{i}(\alpha)\)</span> para indicar que multiplicamos a linha <span class="process-math">\(i\)</span> por <span class="process-math">\(\alpha\text{.}\)</span> Multiplicar uma matriz <span class="process-math">\(A\)</span> por <span class="process-math">\(E_2\)</span> à esquerda, ou seja, calcular <span class="process-math">\(E_2A\text{,}\)</span> tem o efeito de multiplicar pela constatne a linha da matriz <span class="process-math">\(A\)</span> correspondente.</div>
+<details id="matrix_mult_meaning-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-21"><article class="example example-like">\(D_{3}(\alpha) A = E_2 A = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp \alpha \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ \alpha a_{31} \amp \alpha a_{32} \amp \alpha a_{33} \end{pmatrix}\)</article></div>
-<p id="p-91">Uma <dfn class="terminology">matriz elementar do tipo III</dfn> é obtida somando uma linha da matriz identidade \(I\) a uma outra linha multiplicada por uma constante não nula. Com frequência denotamos uma matriz elementar do tipo III por \(E_3\) ou \(U_{ij}(\alpha)\) para indicar que somamos a linha \(i\) multiplicada por \(\alpha\) à linha \(j\text{.}\) Multiplicar uma matriz \(A\) por \(E_3\) à esquerda, ou seja, calcular \(E_3A\text{,}\) tem o efeito de adicionar a linha da matriz \(A\) outra linha multiplicada por uma constante.</p>
-<article class="example example-like" id="example-22"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-22"><h6 class="heading">
+</h4></summary><article class="example example-like"><span class="process-math">\(D_{3}(\alpha) A = E_2 A = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp \alpha \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ \alpha a_{31} \amp \alpha a_{32} \amp \alpha a_{33} \end{pmatrix}\)</span></article></details><div class="para" id="matrix_mult_meaning-8">Uma <dfn class="terminology">matriz elementar do tipo III</dfn> é obtida somando uma linha da matriz identidade <span class="process-math">\(I\)</span> a uma outra linha multiplicada por uma constante não nula. Com frequência denotamos uma matriz elementar do tipo III por <span class="process-math">\(E_3\)</span> ou <span class="process-math">\(U_{ij}(\alpha)\)</span> para indicar que somamos a linha <span class="process-math">\(i\)</span> multiplicada por <span class="process-math">\(\alpha\)</span> à linha <span class="process-math">\(j\text{.}\)</span> Multiplicar uma matriz <span class="process-math">\(A\)</span> por <span class="process-math">\(E_3\)</span> à esquerda, ou seja, calcular <span class="process-math">\(E_3A\text{,}\)</span> tem o efeito de adicionar a linha da matriz <span class="process-math">\(A\)</span> outra linha multiplicada por uma constante.</div>
+<details id="matrix_mult_meaning-9" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.30</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-22"><article class="example example-like">\(U_{23} (\alpha) A =E_3 A = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp \alpha \amp 1 \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ \alpha a_{21} +  a_{31} \amp \alpha a_{22} + a_{32} \amp \alpha a_{23} + a_{33} \end{pmatrix}\)</article></div>
-<article class="remark remark-like" id="remark-9"><h6 class="heading">
+</h4></summary><article class="example example-like"><span class="process-math">\(U_{23} (\alpha) A =E_3 A = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp \alpha \amp 1 \end{pmatrix} \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix} = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13}\\ a_{21} \amp a_{22} \amp a_{23}\\ \alpha a_{21} +  a_{31} \amp \alpha a_{22} + a_{32} \amp \alpha a_{23} + a_{33} \end{pmatrix}\)</span></article></details><article class="remark remark-like" id="matrix_mult_meaning-10"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.31</span><span class="period">.</span>
-</h6>Multiplicar por uma matriz elementar à esquerda corresponde a realizar uma das operações elementares nas linhas da matriz \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-4"><h6 class="heading">
+</h4>Multiplicar por uma matriz elementar à esquerda corresponde a realizar uma das operações elementares nas linhas da matriz <span class="process-math">\(A\text{.}\)</span></article><article class="theorem theorem-like" id="matrix_mult_meaning-11"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.32</span><span class="period">.</span>
-</h6>
-<p id="p-92">As matrizes elementares do tipo I, II e III são inversíveis. Além disso</p>
-<div class="displaymath">
+</h4>
+<div class="para logical" id="matrix_mult_meaning-11-1-1">
+<div class="para">As matrizes elementares do tipo I, II e III são inversíveis. Além disso</div>
+<div class="displaymath process-math">
 \begin{equation*}
 T_{ij}^{-1} = T_{ij}, \,\,\, D_{i}(\alpha)^{-1} = D_{i}(1/\alpha), \,\,\,  U_{ij}(\alpha)^{-1} = U_{ij}(-\alpha).
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof">Verificamos diretamente efetuando as multiplicações.</article></div>
-<article class="exercise exercise-like" id="exercise-20"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-20"><h6 class="heading">
+</div>
+</div></article><details id="matrix_mult_meaning-11-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Verificamos diretamente efetuando as multiplicações.</article></details><details id="matrix_mult_meaning-12" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-20"><article class="exercise exercise-like"><p id="p-93">Encontre as inversas das matrizes a seguir e verifique que a resposta está correta calculando o produto da matriz original com a matriz inversa.</p>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrix_mult_meaning-12-1">Encontre as inversas das matrizes a seguir e verifique que a resposta está correta calculando o produto da matriz original com a matriz inversa.</div>
 <ol class="decimal">
-<li id="li-76"><p id="p-derived-li-76">\(\displaystyle E_1 = \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix}.\)</p></li>
-<li id="li-77"><p id="p-derived-li-77">\(\displaystyle E_2 =\begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix}. \)</p></li>
-<li id="li-78"><p id="p-derived-li-78">\(\displaystyle E_3 = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix}. \)</p></li>
-</ol></article></div>
-<p id="p-94">Se for possível realizar operações nas linhas de uma matriz \(A\) até transformá-la na identidade, existem matrizes elementares \(E_1, E_2, \ldots, E_k\) (correspondentes às operações realizadas) tais que:</p>
-<div class="displaymath">
+<li id="matrix_mult_meaning-12-2-1"><div class="para" id="p-derived-matrix_mult_meaning-12-2-1"><span class="process-math">\(\displaystyle E_1 = \begin{pmatrix} 0 \amp 0 \amp 1\\ 0 \amp 1 \amp 0\\ 1 \amp 0 \amp 0 \end{pmatrix}.\)</span></div></li>
+<li id="matrix_mult_meaning-12-2-2"><div class="para" id="p-derived-matrix_mult_meaning-12-2-2"><span class="process-math">\(\displaystyle E_2 =\begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 0 \amp 5 \end{pmatrix}. \)</span></div></li>
+<li id="matrix_mult_meaning-12-2-3"><div class="para" id="p-derived-matrix_mult_meaning-12-2-3"><span class="process-math">\(\displaystyle E_3 = \begin{pmatrix} 1 \amp 0 \amp 0\\ 0 \amp 1 \amp 0\\ 0 \amp 1 \amp 1 \end{pmatrix}. \)</span></div></li>
+</ol></article></details><div class="para" id="matrix_mult_meaning-13">Se for possível realizar operações nas linhas de uma matriz <span class="process-math">\(A\)</span> até transformá-la na identidade, existem matrizes elementares <span class="process-math">\(E_1, E_2, \ldots, E_k\)</span> (correspondentes às operações realizadas) tais que:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 E_k \ldots E_2 E_1 A = I,
 \end{equation*}
 </div>
-<p id="p-95">ou seja, ao multiplicar \(A\) por \((E_k \ldots E_2 E_1)\) à esquerda obtemos a identidade. Assim \(A^{-1} = E_k \ldots E_2 E_1\text{.}\)</p>
-<p id="p-96">Por outro lado, observe que se calcularmos o produto de \((E_k \ldots E_2 E_1)\) com a matriz ampliada \((A|I)\) temos:</p>
-<div class="displaymath">
+<div class="para" id="matrix_mult_meaning-15">ou seja, ao multiplicar <span class="process-math">\(A\)</span> por <span class="process-math">\((E_k \ldots E_2 E_1)\)</span> à esquerda obtemos a identidade. Assim <span class="process-math">\(A^{-1} = E_k \ldots E_2 E_1\text{.}\)</span>
+</div>
+<div class="para" id="matrix_mult_meaning-16">Por outro lado, observe que se calcularmos o produto de <span class="process-math">\((E_k \ldots E_2 E_1)\)</span> com a matriz ampliada <span class="process-math">\((A|I)\)</span> temos:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 (E_k \ldots E_2 E_1)(A|I) = (I| E_k \ldots E_2 E_1) = (I|A^{-1}),
 \end{equation*}
 </div>
-<p id="p-97">Ou seja, ao aplicarmos eliminação de Gauss-Jordan à matriz ampliada \((A|I)\text{,}\) obteremos a inversa de \(A\) no lado direito, quando tivermos a matriz identidade \(I\) no lado esquerdo.</p>
-<article class="exercise exercise-like" id="exercise-21"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-21"><h6 class="heading">
+<div class="para" id="matrix_mult_meaning-18">Ou seja, ao aplicarmos eliminação de Gauss-Jordan à matriz ampliada <span class="process-math">\((A|I)\text{,}\)</span> obteremos a inversa de <span class="process-math">\(A\)</span> no lado direito, quando tivermos a matriz identidade <span class="process-math">\(I\)</span> no lado esquerdo.</div>
+<details id="matrix_mult_meaning-19" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.34</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-21"><article class="exercise exercise-like"><p id="p-98">Utilize o método da Gauss-Jordan para encontrar as inversas das matrizes a seguir, se possível:</p>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrix_mult_meaning-19-1">Utilize o método da Gauss-Jordan para encontrar as inversas das matrizes a seguir, se possível:</div>
 <ol class="decimal">
-<li id="li-79"><p id="p-derived-li-79">\(\displaystyle A = \begin{pmatrix} 1 \amp 1 \amp -1 \\ -2 \amp 1 \amp -1\\ 0 \amp 1 \amp 1\end{pmatrix},\)</p></li>
-<li id="li-80"><p id="p-derived-li-80">\(\displaystyle B = \begin{pmatrix} 1 \amp 2 \amp 1 \\ -1 \amp 1 \amp -1\\ -2 \amp 0 \amp 2\end{pmatrix},\)</p></li>
-<li id="li-81"><p id="p-derived-li-81">\(\displaystyle C = \begin{pmatrix} 1 \amp 2 \amp 1 \\ -1 \amp 1 \amp -1\\ 0 \amp 3 \amp 0\end{pmatrix},\)</p></li>
-<li id="li-82"><p id="p-derived-li-82">\(\displaystyle D = \begin{pmatrix} 1 \amp 2 \amp 1 \amp 2 \\ -1 \amp 1 \amp -1 \amp 1\\ -2 \amp 0 \amp 2 \amp 0 \\ 1 \amp -1 \amp -1 \amp 1 \end{pmatrix}.\)</p></li>
-</ol></article></div>
-<div class="sagecell-sage" id="sage-12"><script type="text/x-sage"># Write an array representing the augmented matrix
+<li id="matrix_mult_meaning-19-2-1"><div class="para" id="p-derived-matrix_mult_meaning-19-2-1"><span class="process-math">\(\displaystyle A = \begin{pmatrix} 1 \amp 1 \amp -1 \\ -2 \amp 1 \amp -1\\ 0 \amp 1 \amp 1\end{pmatrix},\)</span></div></li>
+<li id="matrix_mult_meaning-19-2-2"><div class="para" id="p-derived-matrix_mult_meaning-19-2-2"><span class="process-math">\(\displaystyle B = \begin{pmatrix} 1 \amp 2 \amp 1 \\ -1 \amp 1 \amp -1\\ -2 \amp 0 \amp 2\end{pmatrix},\)</span></div></li>
+<li id="matrix_mult_meaning-19-2-3"><div class="para" id="p-derived-matrix_mult_meaning-19-2-3"><span class="process-math">\(\displaystyle C = \begin{pmatrix} 1 \amp 2 \amp 1 \\ -1 \amp 1 \amp -1\\ 0 \amp 3 \amp 0\end{pmatrix},\)</span></div></li>
+<li id="matrix_mult_meaning-19-2-4"><div class="para" id="p-derived-matrix_mult_meaning-19-2-4"><span class="process-math">\(\displaystyle D = \begin{pmatrix} 1 \amp 2 \amp 1 \amp 2 \\ -1 \amp 1 \amp -1 \amp 1\\ -2 \amp 0 \amp 2 \amp 0 \\ 1 \amp -1 \amp -1 \amp 1 \end{pmatrix}.\)</span></div></li>
+</ol></article></details><pre id="matrix_mult_meaning-20" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Write an array representing the augmented matrix
 import numpy as np
 import fractions
 A= np.array([[1, -2, -3, 1, 0, 0], [2, -2, -2, 0, 1, 0], [2, 0, -4, 0, 0, 1]], dtype=float)
@@ -706,8 +752,8 @@ def Gaussian_elimination(A,prin=True):
                     print('~'+str(A))
     return A
 B=Gaussian_elimination(A)
-</script></div>
-<div class="sagecell-sage" id="sage-13"><script type="text/x-sage">def Gauss_Jordan(A,prin=True):
+</script></pre>
+<pre id="matrix_mult_meaning-21" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def Gauss_Jordan(A,prin=True):
     np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
     B=Gaussian_elimination(A,prin)
     #print('jordan')
@@ -723,161 +769,156 @@ B=Gaussian_elimination(A)
                             print('~'+str(B))                
     return B
 Gauss_Jordan(B)
-</script></div>
-<article class="exercise exercise-like" id="exercise-22"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-22"><h6 class="heading">
+</script></pre>
+<details id="matrix_mult_meaning-22" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.35</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-22"><article class="exercise exercise-like"><p id="p-99">Verifique, calculando o produto, que as matrizes obtidas no exercício anterios são, de fato, inversas.</p></article></div>
-<div class="sagecell-sage" id="sage-14"><script type="text/x-sage">import numpy as np
+</h4></summary><article class="exercise exercise-like"><div class="para" id="matrix_mult_meaning-22-1">Verifique, calculando o produto, que as matrizes obtidas no exercício anterios são, de fato, inversas.</div></article></details><pre id="matrix_mult_meaning-23" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import fractions
 A= np.array([[1, 0, 0], [2, 1, 0], [0, 0, 1]], dtype=float)
 B= np.array([[1, 0, 0], [-2, 1, 0], [0, 0, 1]], dtype=float)
 print("AB=",A.dot(B))
 print("BA=",B.dot(A))
-</script></div></section><section class="subsection" id="determinants"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.4</span> <span class="title">Determinantes</span>
+</script></pre></section><section class="subsection" id="determinants"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4</span><span class="space"> </span><span class="title">Determinantes</span>
 </h3>
-<article class="definition definition-like" id="definition-10"><h6 class="heading">
+<article class="definition definition-like" id="determinants-2"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.36</span><span class="period">.</span>
-</h6>
-<p id="p-100">Seja \(A = (a_{ij})\) uma matriz \(n \times n\text{.}\) A <dfn class="terminology">submatriz</dfn> \(M_{ij}\) é a matriz \((n-1) \times (n-1)\) obtida removendo a \(i\)-ésima linha e a \(j\)-ésima coluna de A. Definimos, recursivamente, o <dfn class="terminology">determinante</dfn> de \(A\text{,}\) \(\det(A)\) ou \(|A|\text{,}\) por:</p>
-<ol class="decimal">
-<li id="li-83"><p id="p-derived-li-83">Se \(A\) é uma matriz \(1 \times 1\text{,}\) \(A = (a_{11})\text{,}\) \(\det(A) = a_{11}\text{.}\)</p></li>
-<li id="li-84"><p id="p-derived-li-84">Supondo que está definido o determinante de uma matriz \((n-1)\times(n-1)\text{,}\) definimos o determinante de uma matriz \(A\text{,}\) \(n \times n\text{,}\) como:</p></li>
+</h4> <div class="para" id="determinants-2-2-1">Seja <span class="process-math">\(A = (a_{ij})\)</span> uma matriz <span class="process-math">\(n \times n\text{.}\)</span> A <dfn class="terminology">submatriz</dfn> <span class="process-math">\(M_{ij}\)</span> é a matriz <span class="process-math">\((n-1) \times (n-1)\)</span> obtida removendo a <span class="process-math">\(i\)</span>-ésima linha e a <span class="process-math">\(j\)</span>-ésima coluna de A. Definimos, recursivamente, o <dfn class="terminology">determinante</dfn> de <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(\det(A)\)</span> ou <span class="process-math">\(|A|\text{,}\)</span> por:</div> <ol class="decimal">
+<li id="determinants-2-2-2-1"><div class="para" id="p-derived-determinants-2-2-2-1">Se <span class="process-math">\(A\)</span> é uma matriz <span class="process-math">\(1 \times 1\text{,}\)</span> <span class="process-math">\(A = (a_{11})\text{,}\)</span> <span class="process-math">\(\det(A) = a_{11}\text{.}\)</span>
+</div></li>
+<li id="determinants-2-2-2-2"><div class="para" id="p-derived-determinants-2-2-2-2">Supondo que está definido o determinante de uma matriz <span class="process-math">\((n-1)\times(n-1)\text{,}\)</span> definimos o determinante de uma matriz <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(n \times n\text{,}\)</span> como:</div></li>
 </ol>
-<div class="displaymath">
+<div class="displaymath process-math" id="determinants-2-2-3">
 \begin{align*}
 \det(A) =\amp a_{11} (-1)^{1+1}\det(M_{11}) + a_{12} (-1)^{1+2}\det(M_{12}) + \cdots + a_{1n} (-1)^{1+2}\det(M_{1n})\\
 =\amp\sum_{j=1}^n a_{1j} (-1)^{1+j}\det(M_{1j}) =\sum_{j=1}^n a_{1j} A_{1j}.
 \end{align*}
 </div>
-<p id="p-101">Para cada \(1 \leq i,j \leq n\text{,}\) chamamos o número \(A_{ij} = (-1)^{i+j}\det(M_{ij}),\) de <dfn class="terminology">cofator</dfn> do elemento \(a_{ij}\text{.}\) A soma acima é chamada de <dfn class="terminology">expansão em cofatores pela primeira linha</dfn> de \(A\text{.}\)</p></article><article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
+<div class="para" id="determinants-2-2-4">Para cada <span class="process-math">\(1 \leq i,j \leq n\text{,}\)</span> chamamos o número <span class="process-math">\(A_{ij} = (-1)^{i+j}\det(M_{ij}),\)</span> de <dfn class="terminology">cofator</dfn> do elemento <span class="process-math">\(a_{ij}\text{.}\)</span> A soma acima é chamada de <dfn class="terminology">expansão em cofatores pela primeira linha</dfn> de <span class="process-math">\(A\text{.}\)</span>
+</div></article><details id="determinants-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like"><p id="p-102">Seja</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="determinants-3-1">Seja</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} a \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-24"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-24"><h6 class="heading">
+</div></article></details><details id="determinants-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.38</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-24"><article class="example example-like"><p id="p-103">Seja</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="determinants-4-1">Seja</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-25"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h6 class="heading">
+</div></article></details><details id="determinants-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like"><p id="p-104">Seja</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="determinants-5-1">Seja</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-26"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h6 class="heading">
+</div></article></details><details id="determinants-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.40</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><p id="p-105">Seja</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="determinants-6-1">Seja</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \amp a_{14} \\ a_{21} \amp a_{22} \amp a_{23} \amp a_{24} \\ a_{31} \amp a_{32} \amp a_{33} \amp a_{34} \\ a_{41} \amp a_{42} \amp a_{43} \amp a_{44} \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="theorem theorem-like" id="theorem-5"><h6 class="heading">
+</div></article></details><article class="theorem theorem-like" id="determinants-7"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.41</span><span class="period">.</span>
-</h6>
-<p id="p-106">O determinante de uma matriz pode ser calculado através da expansão em cofatores por qualquer linha ou por qualquer coluna de \(A\text{:}\)</p>
-<div class="displaymath">
+</h4>
+<div class="para" id="determinants-7-1-1">O determinante de uma matriz pode ser calculado através da expansão em cofatores por qualquer linha ou por qualquer coluna de <span class="process-math">\(A\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \det(A) =\sum_{j=1}^n a_{ij} A_{ij} = \sum_{j=1}^n a_{ji} A_{ji}.
 \end{equation*}
 </div>
-<p id="p-107">para qualquer \(i = 1, 2, \ldots, n.\)</p></article><article class="hiddenproof" id="proof-5"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof">A completar.</article></div>
-<article class="example example-like" id="example-27"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h6 class="heading">
+<div class="para" id="determinants-7-1-3">para qualquer <span class="process-math">\(i = 1, 2, \ldots, n.\)</span>
+</div></article><details id="determinants-7-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><details id="determinants-8" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.42</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like"><p id="p-108">Seja</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="determinants-8-1">Seja</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2 \amp -1 \\ 2 \amp 3 \amp -2 \\ 2 \amp 1 \amp -2 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-23"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h6 class="heading">
+</div></article></details><details id="determinants-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.43</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like"><p id="p-109">Calcule o determinante de cada uma das matrizes a seguir duas vezes, utilizando a expansão em cofatores da linha \(2\) e da coluna \(3\text{.}\) Após utilize o código abaixo para conferir seus resultados.</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="determinants-9-1">Calcule o determinante de cada uma das matrizes a seguir duas vezes, utilizando a expansão em cofatores da linha <span class="process-math">\(2\)</span> e da coluna <span class="process-math">\(3\text{.}\)</span> Após utilize o código abaixo para conferir seus resultados.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ -1 \amp -1 \amp 1 \\ -2 \amp -1 \amp 1 \end{pmatrix}, \,\,\,\,\, B = \begin{pmatrix} 2 \amp -1 \amp 1 \\ -1 \amp 1 \amp -1 \\ 2 \amp 2 \amp 1 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<div class="sagecell-sage" id="sage-15"><script type="text/x-sage">import numpy as np
+</div></article></details><pre id="determinants-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import scipy.linalg as linalg
 
 A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
 linalg.det(A)
-</script></div>
-<article class="theorem theorem-like" id="theorem-6"><h6 class="heading">
+</script></pre>
+<article class="theorem theorem-like" id="determinants-11"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.44</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades do determinante.</span>
-</h6>
-<p id="p-110">Seja \(A\) uma matriz \(n \times n\text{:}\)</p>
-<ol class="decimal">
-<li id="li-85"><p id="p-derived-li-85">Se trocarmos duas linhas de \(A\) de lugar, o determinante troca de sinal, ou seja: \(\det(T_{ij}A) = - \det(A)\text{.}\)</p></li>
-<li id="li-86"><p id="p-derived-li-86">Se multiplicamos uma linha de \(A\) por uma constante não nula, o determinante é multiplicado por \(\alpha\text{,}\) ou seja: \(\det(D_{i}(\alpha)A) = \alpha \det(A)\text{.}\)</p></li>
-<li id="li-87"><p id="p-derived-li-87">Se somamos a uma linha de \(A\) outra linha multiplicada por uma constante, o determinante não se altera, ou seja: \(\det(U_{ij}(\alpha)A) = \det(A)\text{.}\)</p></li>
-<li id="li-88"><p id="p-derived-li-88">\(\det(A) = \det(A^T)\text{.}\)</p></li>
-<li id="li-89"><p id="p-derived-li-89">Se \(A\) tem duas linhas ou duas colunas iguais, \(\det(A) = 0\text{.}\)</p></li>
-<li id="li-90"><p id="p-derived-li-90">Se \(A\) tem uma linha nula ou uma coluna nula, \(\det(A) = 0\text{.}\)</p></li>
-<li id="li-91"><p id="p-derived-li-91">Se \(B\) é uma matriz \(n \times n\text{,}\) \(\det(AB) = \det(A)\det(B)\text{.}\)</p></li>
-</ol></article><article class="hiddenproof" id="proof-6"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof">A completar.</article></div>
-<article class="exercise exercise-like" id="exercise-24"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h6 class="heading">
+</h4>
+<div class="para" id="determinants-11-2-1">Seja <span class="process-math">\(A\)</span> uma matriz <span class="process-math">\(n \times n\text{:}\)</span>
+</div> <ol class="decimal">
+<li id="determinants-11-2-2-1"><div class="para" id="p-derived-determinants-11-2-2-1">Se trocarmos duas linhas de <span class="process-math">\(A\)</span> de lugar, o determinante troca de sinal, ou seja: <span class="process-math">\(\det(T_{ij}A) = - \det(A)\text{.}\)</span>
+</div></li>
+<li id="determinants-11-2-2-2"><div class="para" id="p-derived-determinants-11-2-2-2">Se multiplicamos uma linha de <span class="process-math">\(A\)</span> por uma constante não nula, o determinante é multiplicado por <span class="process-math">\(\alpha\text{,}\)</span> ou seja: <span class="process-math">\(\det(D_{i}(\alpha)A) = \alpha \det(A)\text{.}\)</span>
+</div></li>
+<li id="determinants-11-2-2-3"><div class="para" id="p-derived-determinants-11-2-2-3">Se somamos a uma linha de <span class="process-math">\(A\)</span> outra linha multiplicada por uma constante, o determinante não se altera, ou seja: <span class="process-math">\(\det(U_{ij}(\alpha)A) = \det(A)\text{.}\)</span>
+</div></li>
+<li id="determinants-11-2-2-4"><div class="para" id="p-derived-determinants-11-2-2-4"><span class="process-math">\(\det(A) = \det(A^T)\text{.}\)</span></div></li>
+<li id="determinants-11-2-2-5"><div class="para" id="p-derived-determinants-11-2-2-5">Se <span class="process-math">\(A\)</span> tem duas linhas ou duas colunas iguais, <span class="process-math">\(\det(A) = 0\text{.}\)</span>
+</div></li>
+<li id="determinants-11-2-2-6"><div class="para" id="p-derived-determinants-11-2-2-6">Se <span class="process-math">\(A\)</span> tem uma linha nula ou uma coluna nula, <span class="process-math">\(\det(A) = 0\text{.}\)</span>
+</div></li>
+<li id="determinants-11-2-2-7"><div class="para" id="p-derived-determinants-11-2-2-7">Se <span class="process-math">\(B\)</span> é uma matriz <span class="process-math">\(n \times n\text{,}\)</span> <span class="process-math">\(\det(AB) = \det(A)\det(B)\text{.}\)</span>
+</div></li>
+</ol></article><details id="determinants-11-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><details id="determinants-12" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.45</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-24"><article class="exercise exercise-like"><p id="p-111">Para cada uma das propriedades acima, construa exemplos de matrizes \(3 \times 3\) verificando que as propriedades se aplicam. Verifique seus cálculos utilizando os códigos em python disponibilizados.</p></article></div>
-<div class="sagecell-sage" id="sage-16"><script type="text/x-sage">import numpy as np
+</h4></summary><article class="exercise exercise-like"><div class="para" id="determinants-12-1">Para cada uma das propriedades acima, construa exemplos de matrizes <span class="process-math">\(3 \times 3\)</span> verificando que as propriedades se aplicam. Verifique seus cálculos utilizando os códigos em python disponibilizados.</div></article></details><pre id="determinants-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import scipy.linalg as linalg
 
 A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
 linalg.det(A)
-</script></div>
-<article class="remark remark-like" id="remark-10"><h6 class="heading">
+</script></pre>
+<article class="remark remark-like" id="determinants-14"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.46</span><span class="period">.</span>
-</h6>Chamamos de <dfn class="terminology">adjunta</dfn> de uma matriz \(A\text{,}\) e denotamos \(\mbox{adj}(A)\text{,}\) à matriz de cofatores de \(A\) transposta.<div class="displaymath">
+</h4>Chamamos de <dfn class="terminology">adjunta</dfn> de uma matriz <span class="process-math">\(A\text{,}\)</span> e denotamos <span class="process-math">\(\mbox{adj}(A)\text{,}\)</span> à matriz de cofatores de <span class="process-math">\(A\)</span> transposta.<div class="displaymath process-math">
 \begin{equation*}
 \mbox{adj}(A) = \begin{pmatrix} A_{11} \amp A_{21} \amp \cdots \amp A_{n1} \\ A_{12} \amp A_{22} \amp \cdots \amp A_{n2} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ A_{1n} \amp A_{2n} \amp \cdots \amp A_{nn} \end{pmatrix},
 \end{equation*}
-</div>onde \(A_{ij}\) é o cofator associado ao elemento \(a_{ij}\) da matriz \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
+</div>onde <span class="process-math">\(A_{ij}\)</span> é o cofator associado ao elemento <span class="process-math">\(a_{ij}\)</span> da matriz <span class="process-math">\(A\text{.}\)</span></article><article class="theorem theorem-like" id="determinants-15"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.47</span><span class="period">.</span>
-</h6>
-<p id="p-112">Uma matriz \(A\) é inversível se, e somente se, \(\det(A) \neq 0\text{.}\) Além disso, se \(A\) é inversível,</p>
-<div class="displaymath">
+</h4>
+<div class="para" id="determinants-15-1-1">Uma matriz <span class="process-math">\(A\)</span> é inversível se, e somente se, <span class="process-math">\(\det(A) \neq 0\text{.}\)</span> Além disso, se <span class="process-math">\(A\)</span> é inversível,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A^{-1} = \frac{1}{\det(A)} \mbox{adj}(A)
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-7"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof">A completar.</article></div>
-<article class="example example-like" id="example-28"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-28"><h6 class="heading">
+</div></article><details id="determinants-15-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><details id="determinants-16" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.48</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-28"><article class="example example-like"><p id="p-113">Cálculo da matriz inversa utilizando a matriz de cofatores:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="determinants-16-1">Cálculo da matriz inversa utilizando a matriz de cofatores:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2 \amp -1 \\ 2 \amp 3 \amp -2 \\ 2 \amp 1 \amp -2 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-25"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-25"><h6 class="heading">
+</div></article></details><details id="determinants-17" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.49</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-25"><article class="exercise exercise-like"><p id="p-114">Calcule as inversas das matrizes a seguir pelo método dos cofatores e utilize o código abaixo para verificar se suas respostas estão corretas.</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="determinants-17-1">Calcule as inversas das matrizes a seguir pelo método dos cofatores e utilize o código abaixo para verificar se suas respostas estão corretas.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ -1 \amp -1 \amp 1 \\ -2 \amp -1 \amp 1 \end{pmatrix}, \,\,\,\,\, B = \begin{pmatrix} 2 \amp -1 \amp 1 \amp 0 \\ -1 \amp 1 \amp -1 \amp 1 \\ 2 \amp 2 \amp 1 \amp -1 \\ 1 \amp -1 \amp -1 \amp 2 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<div class="sagecell-sage" id="sage-17"><script type="text/x-sage">import numpy as np
+</div></article></details><pre id="determinants-18" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import scipy.linalg as linalg
 
 A = np.array([[1, 1, 1],[1, -1, 1],[1, -1, -1]])
 linalg.inv(A)
-</script></div></section><section class="subsection" id="Coding_message"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span>
+</script></pre></section><section class="subsection" id="Coding_message"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.5</span><span class="space"> </span><span class="title">Aplicação: mensagens codificadas</span>
 </h3>
-<p id="p-115">Mandar mensagens em código é fundamental na sociedade moderna. Não queremos que nossas mensagens privadas sejam vistas por estranhos na internet, que eles tenham acesso a imagens privadas, dados pessoas ou informações detalhadas sobre nossa saúde. A privacidade de outras informações é relevante por questões de segurança, como dados financeiros (incluindo senhas), endereços e outras.</p>
-<p id="p-116">Existem diversas formas de codificar mensagens. A maneira mais simples seja, talvez, simplesmente trocar letras por números (na lista abaixo \(\_\) representa um espaço):</p>
-<div class="displaymath">
+<div class="para" id="Coding_message-2">Mandar mensagens em código é fundamental na sociedade moderna. Não queremos que nossas mensagens privadas sejam vistas por estranhos na internet, que eles tenham acesso a imagens privadas, dados pessoas ou informações detalhadas sobre nossa saúde. A privacidade de outras informações é relevante por questões de segurança, como dados financeiros (incluindo senhas), endereços e outras.</div>
+<div class="para" id="Coding_message-3">Existem diversas formas de codificar mensagens. A maneira mais simples seja, talvez, simplesmente trocar letras por números (na lista abaixo <span class="process-math">\(\_\)</span> representa um espaço):</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{cccccc}
 {\_} \amp A \amp B \amp C \amp \cdots \amp Z \\
@@ -885,8 +926,8 @@ linalg.inv(A)
 \end{array}
 \end{equation*}
 </div>
-<p id="p-117">Assim a mensagem SEGUE O BARCO seria codificada por [19.,  5.,  7., 21.,  5.,  0., 15.,  0.,  2.,  1., 18., 3., 15.]. O código abaixo pode ser utizado para codificar uma mensagem assim.</p>
-<div class="sagecell-sage" id="sage-18"><script type="text/x-sage"># loading libraries 
+<div class="para" id="Coding_message-5">Assim a mensagem SEGUE O BARCO seria codificada por [19.,  5.,  7., 21.,  5.,  0., 15.,  0.,  2.,  1., 18., 3., 15.]. O código abaixo pode ser utizado para codificar uma mensagem assim.</div>
+<pre id="Coding_message-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># loading libraries 
 import numpy as np 
 
 
@@ -912,9 +953,9 @@ for i in range(lenb):
             break
 values= np.array(a)               
 values
-</script></div>
-<p id="p-118">Podemos desfazer essa operação com o código a seguir:</p>
-<div class="sagecell-sage" id="sage-19"><script type="text/x-sage"># loading libraries 
+</script></pre>
+<div class="para" id="Coding_message-7">Podemos desfazer essa operação com o código a seguir:</div>
+<pre id="Coding_message-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># loading libraries 
 import numpy as np 
 
 
@@ -941,12 +982,11 @@ for i in range(lenb):
             break
                 
 print(a)
-</script></div>
-<article class="exercise exercise-like" id="exercise-26"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-26"><h6 class="heading">
+</script></pre>
+<details id="Coding_message-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.50</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-26"><article class="exercise exercise-like"><p id="p-119">Escreva uma mensagem curta (pode ser uma palavra apenas), converta a mensagem em números manualmente e verifique que os "outputs" dos códigos acima correspondem ao que você obteve para a sua mensagem.</p></article></div>
-<p id="p-120">Esse código seria fácil de ser quebrado, podemos melhorá-lo se embaralharmos as letras. Para isso precisamos criar um mapa que troca as posições dos números na lista \(0, 1, 2, \ldots, 26\text{.}\) Uma maneira de fazer isso é multiplicar o vetor coluna \((0, 1, 2, \ldots, 26)^T\) por uma <dfn class="terminology">matriz de permutação</dfn>, que é obtida trocando linhas das matriz identidade. Por exemplo, para trocar as posições das letras \(({\_}, A, B, C, D)\) para \((B, {\_}, A, D, C)\) multiplicamos à esquerda o vetor \((0, 1, 2, 3, 4)^T\) pela matriz de permutação \(P \) a seguir, obtendo o vetor \(\vec{b}\) indicando a posição na lista dos símbolos \({\_}, A, B, C, D,\) respectivamente:</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Coding_message-9-1">Escreva uma mensagem curta (pode ser uma palavra apenas), converta a mensagem em números manualmente e verifique que os "outputs" dos códigos acima correspondem ao que você obteve para a sua mensagem.</div></article></details><div class="para" id="Coding_message-10">Esse código seria fácil de ser quebrado, podemos melhorá-lo se embaralharmos as letras. Para isso precisamos criar um mapa que troca as posições dos números na lista <span class="process-math">\(0, 1, 2, \ldots, 26\text{.}\)</span> Uma maneira de fazer isso é multiplicar o vetor coluna <span class="process-math">\((0, 1, 2, \ldots, 26)^T\)</span> por uma <dfn class="terminology">matriz de permutação</dfn>, que é obtida trocando linhas das matriz identidade. Por exemplo, para trocar as posições das letras <span class="process-math">\(({\_}, A, B, C, D)\)</span> para <span class="process-math">\((B, {\_}, A, D, C)\)</span> multiplicamos à esquerda o vetor <span class="process-math">\((0, 1, 2, 3, 4)^T\)</span> pela matriz de permutação <span class="process-math">\(P \)</span> a seguir, obtendo o vetor <span class="process-math">\(\vec{b}\)</span> indicando a posição na lista dos símbolos <span class="process-math">\({\_}, A, B, C, D,\)</span> respectivamente:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 P\begin{pmatrix}
 0\\ 1\\ 2\\ 3\\ 4
@@ -967,14 +1007,14 @@ P\begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-121">Desse modo a palavra "ABA", ficaria codificada como "[2, 0, 2]". Podemos fazer um código que codifique uma mensagem trocando letras do seguinte modo:</p>
-<div class="sagecell-sage" id="sage-20"><script type="text/x-sage">import numpy as np
+<div class="para" id="Coding_message-12">Desse modo a palavra "ABA", ficaria codificada como "[2, 0, 2]". Podemos fazer um código que codifique uma mensagem trocando letras do seguinte modo:</div>
+<pre id="Coding_message-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 P = np.eye(27, dtype='int') #identity of size 27 x 27
 np.random.shuffle(P) # create a random permutation
 
 P #show the permutation matrix
-</script></div>
-<div class="sagecell-sage" id="sage-21"><script type="text/x-sage"># loading libraries 
+</script></pre>
+<pre id="Coding_message-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># loading libraries 
 import numpy as np 
 
 # string to convert  
@@ -1004,11 +1044,11 @@ for i in range(lenb):
             break
 values= np.array(a)               
 values
-</script></div>
-<article class="remark remark-like" id="remark-11"><h6 class="heading">
+</script></pre>
+<article class="remark remark-like" id="Coding_message-15"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.51</span><span class="period">.</span>
-</h6>A inversa de uma matriz de permutações é igual a sua transposta (isso não vale para qualquer matriz).</article><p id="p-122">Alguém que conheça a permutação que utilizamos pode desfazer a codificação multiplicando à esquerda o vetor \(\vec{b}\) pela inversa (= transposta, nesse caso) da matriz de permutação.</p>
-<div class="displaymath">
+</h4>A inversa de uma matriz de permutações é igual a sua transposta (isso não vale para qualquer matriz).</article><div class="para" id="Coding_message-16">Alguém que conheça a permutação que utilizamos pode desfazer a codificação multiplicando à esquerda o vetor <span class="process-math">\(\vec{b}\)</span> pela inversa (= transposta, nesse caso) da matriz de permutação.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix}
 0\\ 1\\ 2\\ 3\\ 4
@@ -1025,8 +1065,8 @@ values
 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-123">O código a seguir desfaz a permutação para decodificar a mensagem:</p>
-<div class="sagecell-sage" id="sage-22"><script type="text/x-sage"># loading libraries 
+<div class="para" id="Coding_message-18">O código a seguir desfaz a permutação para decodificar a mensagem:</div>
+<pre id="Coding_message-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># loading libraries 
 import numpy as np 
 
 
@@ -1055,35 +1095,37 @@ for i in range(lenb):
             break
                 
 print(a)
-</script></div>
-<article class="exercise exercise-like" id="exercise-27"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-27"><h6 class="heading">
+</script></pre>
+<details id="Coding_message-20" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.52</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-27"><article class="exercise exercise-like"><p id="p-124">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz de permutações e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva matriz de permutações de um colega e decodifique-a.</p></article></div>
-<p id="p-125">Outra maneira de tentar encriptar uma mensagem seria utilizar uma matriz para embaralhá-la. Começamos com uma mensagem, substituímos as letras por números, quebramos a lista de números em \(n\) linhas (preenchendo com zeros no final, se necessário). Multiplicamos à esquerda o resultado por uma matriz \(n \times n\) inversível (conhecida pelo remetente (nós) e pelo destinatário). O destinatário multiplica à esquerda o dado enviado e pode desfazer o código.</p>
-<p id="p-126">Por exemplo, a palavra \(CARRO\) seria codificada como \([3, 1, 18, 18, 15]\text{,}\) que poderia ser quebrada em 3 linhas formando a matriz</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Coding_message-20-1">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz de permutações e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva matriz de permutações de um colega e decodifique-a.</div></article></details><div class="para" id="Coding_message-21">Outra maneira de tentar encriptar uma mensagem seria utilizar uma matriz para embaralhá-la. Começamos com uma mensagem, substituímos as letras por números, quebramos a lista de números em <span class="process-math">\(n\)</span> linhas (preenchendo com zeros no final, se necessário). Multiplicamos à esquerda o resultado por uma matriz <span class="process-math">\(n \times n\)</span> inversível (conhecida pelo remetente (nós) e pelo destinatário). O destinatário multiplica à esquerda o dado enviado e pode desfazer o código.</div>
+<div class="para" id="Coding_message-22">Por exemplo, a palavra <span class="process-math">\(CARRO\)</span> seria codificada como <span class="process-math">\([3, 1, 18, 18, 15]\text{,}\)</span> que poderia ser quebrada em 3 linhas formando a matriz</div>
+<div class="displaymath process-math">
 \begin{equation*}
 M = \begin{pmatrix} 3 \amp 1 \\ 18 \amp 18\\ 15 \amp 0 \end{pmatrix}.
 \end{equation*}
-</div>Em seguida multiplicaríamos essa matriz por uma matriz inversível \(A\) (combinada entre as partes), por exemplo:<div class="displaymath">
+</div>
+<span class="process-math">\(A\)</span><div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 1 \\ 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp - 1\end{pmatrix}.
 \end{equation*}
-</div>Então enviamos a mensagem criptografada, \(C\text{:}\)<div class="displaymath">
+</div>
+<span class="process-math">\(C\text{:}\)</span><div class="displaymath process-math">
 \begin{equation*}
 C = A \times M = \begin{pmatrix} 36 \amp 19 \\ -3 \amp -18\\ -15 \amp 0 \end{pmatrix}
 \end{equation*}
-</div>O destinatário multiplica essa matriz à esquerda por \(A^{-1}\) para retornar a matriz original e conseguir desvendar o código.<div class="displaymath">
+</div>
+<span class="process-math">\(A^{-1}\)</span><div class="displaymath process-math">
 \begin{equation*}
 M = A^{-1} C = \begin{pmatrix} 1 \amp 1 \amp 2\\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp - 1\end{pmatrix} \begin{pmatrix} 36 \amp 19 \\ -3 \amp -18\\ -15 \amp 0 \end{pmatrix}.
 \end{equation*}
 </div>
-<p id="p-127">Os códigos a seguir prepara a mensagem para enviar.</p>
-<div class="sagecell-sage" id="sage-23"><script type="text/x-sage">import numpy as np
+<div class="para" id="Coding_message-30">Os códigos a seguir prepara a mensagem para enviar.</div>
+<pre id="Coding_message-31" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 A = np.array([[1,1,1],[-1,0,1],[0,1,0]]) #secret matrix
 A
-</script></div>
-<div class="sagecell-sage" id="sage-24"><script type="text/x-sage"># loading libraries 
+</script></pre>
+<pre id="Coding_message-32" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># loading libraries 
 import numpy as np 
 
 # string to convert  
@@ -1116,9 +1158,9 @@ values = np.pad(values,(0,a_size*(int(lenb/a_size)+1)-lenb))
 values = values.reshape((a_size,int(lenb/a_size)+1))
 values = A.dot(values)
 values
-</script></div>
-<p id="p-128">O código a seguir desfaz multiplicação matricial e decodifica a mensagem:</p>
-<div class="sagecell-sage" id="sage-25"><script type="text/x-sage"># loading libraries 
+</script></pre>
+<div class="para" id="Coding_message-33">O código a seguir desfaz multiplicação matricial e decodifica a mensagem:</div>
+<pre id="Coding_message-34" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># loading libraries 
 import numpy as np 
 
 
@@ -1148,151 +1190,145 @@ for i in range(lenb):
             break
                 
 print(a)
-</script></div>
-<article class="exercise exercise-like" id="exercise-28"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-28"><h6 class="heading">
+</script></pre>
+<details id="Coding_message-35" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.53</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-28"><article class="exercise exercise-like"><p id="p-129">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz secreta \(A\) e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva secreta de um colega e decodifique-a.</p></article></div></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.6</span> <span class="title">Decomposição LU</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Coding_message-35-1">(Em dupla) Crie uma mensagem, codifique-a utilizando uma matriz secreta <span class="process-math">\(A\)</span> e envie a matriz e a mensagem cifrada para um colega. Receba uma mensagem cifrada e a respectiva secreta de um colega e decodifique-a.</div></article></details></section><section class="subsection" id="Matrices-10"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.6</span><span class="space"> </span><span class="title">Decomposição LU</span>
 </h3>
-<article class="definition definition-like" id="definition-11"><h6 class="heading">
+<article class="definition definition-like" id="Matrices-10-2"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.54</span><span class="period">.</span>
-</h6>
-<p id="p-130">Uma matriz \(A\) é dita <dfn class="terminology">triângular superior</dfn> se \(a_{ij} = 0\) para \(i \gt j \text{.}\)</p>
-<p id="p-131">Uma matriz \(A\) é dita <dfn class="terminology">triângular inferior</dfn> se \(a_{ij} = 0\) para \(i \lt j \text{.}\)</p>
-<p id="p-132">Dizemos que \(A\) é <dfn class="terminology">triângular</dfn> se ela for triângular superior ou triângular inferior.</p>
-<p id="p-133">Uma matriz \(A\) é dita <dfn class="terminology">diagonal</dfn> se \(a_{ij} = 0\) para \(i \neq j \text{.}\)</p></article><article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
+</h4> <div class="para" id="Matrices-10-2-2-1">Uma matriz <span class="process-math">\(A\)</span> é dita <dfn class="terminology">triângular superior</dfn> se <span class="process-math">\(a_{ij} = 0\)</span> para <span class="process-math">\(i \gt j \text{.}\)</span>
+</div> <div class="para" id="Matrices-10-2-2-2">Uma matriz <span class="process-math">\(A\)</span> é dita <dfn class="terminology">triângular inferior</dfn> se <span class="process-math">\(a_{ij} = 0\)</span> para <span class="process-math">\(i \lt j \text{.}\)</span>
+</div> <div class="para" id="Matrices-10-2-2-3">Dizemos que <span class="process-math">\(A\)</span> é <dfn class="terminology">triângular</dfn> se ela for triângular superior ou triângular inferior.</div> <div class="para" id="Matrices-10-2-2-4">Uma matriz <span class="process-math">\(A\)</span> é dita <dfn class="terminology">diagonal</dfn> se <span class="process-math">\(a_{ij} = 0\)</span> para <span class="process-math">\(i \neq j \text{.}\)</span>
+</div></article><details id="Matrices-10-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.55</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><p id="p-134">Matrizes triangulares inferiores:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Matrices-10-3-1">Matrizes triangulares inferiores:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 L = \begin{pmatrix} 2 \amp 0 \amp 0 \\0 \amp 3\amp 0\\ 1 \amp 4\amp 5\end{pmatrix}, \,\,\,
 A = \begin{pmatrix} 0\amp 0 \amp 0 \\ 2 \amp 2 \amp 0 \\ -1\amp 0 \amp 1 \end{pmatrix}, \,\,\,
 B = \begin{pmatrix} 4 \amp 0 \\ 1 \amp  0 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
+</div></article></details><details id="Matrices-10-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.56</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like"><p id="p-135">Matrizes triangulares superiores:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Matrices-10-4-1">Matrizes triangulares superiores:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 U = \begin{pmatrix} 2 \amp 0 \amp 1 \\0 \amp 3\amp 3\\ 0 \amp 0\amp 5\end{pmatrix}, \,\,\,
 A = \begin{pmatrix} 1\amp 0 \amp 1 \\ 0 \amp 0 \amp 4 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,\,
 B = \begin{pmatrix} 4 \amp -1 \\ 0 \amp  2 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
+</div></article></details><details id="Matrices-10-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.57</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-136">Matrizes diagonais:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Matrices-10-5-1">Matrizes diagonais:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 D = \begin{pmatrix} 2 \amp 0 \amp 0 \\0 \amp 3\amp 0\\ 0 \amp 0\amp 2\end{pmatrix}, \,\,\,
 A = \begin{pmatrix} 0\amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 7 \end{pmatrix}, \,\,\,
 B = \begin{pmatrix} 4 \amp 0 \\ 0 \amp  -2 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
+</div></article></details><details id="Matrices-10-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.58</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like"><p id="p-137">Todas as matrizes dos três exemplos anteriores são triângulares.</p></article></div>
-<p id="p-138">Muitas matrizes podem ser <dfn class="terminology">decompostas</dfn> como o produto de uma matriz triângular inferior \(L\) e uma matriz triângular superior, \(U.\) Observe que, por exemplo, a matriz</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Matrices-10-6-1">Todas as matrizes dos três exemplos anteriores são triângulares.</div></article></details><div class="para" id="Matrices-10-7">Muitas matrizes podem ser <dfn class="terminology">decompostas</dfn> como o produto de uma matriz triângular inferior <span class="process-math">\(L\)</span> e uma matriz triângular superior, <span class="process-math">\(U.\)</span> Observe que, por exemplo, a matriz</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 2 \\ 3 \amp -1 \amp 10 \\ 3 \amp 5 \amp 0 \end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-139">é igual ao produto das matrizes:</p>
-<div class="displaymath">
+<div class="para" id="Matrices-10-9">é igual ao produto das matrizes:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 L = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 3 \amp 4 \amp 0 \\ 3 \amp -2 \amp 2 \end{pmatrix}, \,\,\, U = \begin{pmatrix} 1 \amp 1 \amp 2 \\ 0 \amp -1 \amp 1 \\ 0 \amp 0 \amp -2 \end{pmatrix}.
 \end{equation*}
 </div>
-<article class="lemma theorem-like" id="lemma-1"><h6 class="heading">
+<article class="lemma theorem-like" id="Matrices-10-11"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.59</span><span class="period">.</span>
-</h6>
-<p id="p-140">O produto de duas matrizes triângulares superiores é uma matriz triângular superior.</p>
-<p id="p-141">O produto de duas matrizes triângulares inferiores é uma matriz triângular inferior.</p>
-<p id="p-142">O produto de duas matrizes diagonais é uma matriz diagonal.</p></article><article class="hiddenproof" id="proof-8"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"></article></div>
-<p id="p-143">Vamos realizar operações elementares do tipo III na matriz a seguir para "transformá-la" em uma matriz triângular superior.</p>
-<div class="displaymath">
+</h4>
+<div class="para" id="Matrices-10-11-1-1">O produto de duas matrizes triângulares superiores é uma matriz triângular superior.</div> <div class="para" id="Matrices-10-11-1-2">O produto de duas matrizes triângulares inferiores é uma matriz triângular inferior.</div> <div class="para" id="Matrices-10-11-1-3">O produto de duas matrizes diagonais é uma matriz diagonal.</div></article><details id="Matrices-10-11-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"></article></details><div class="para" id="Matrices-10-12">Vamos realizar operações elementares do tipo III na matriz a seguir para "transformá-la" em uma matriz triângular superior.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 2 \amp 4 \amp 2 \\ 1 \amp 5 \amp 2 \\ 4 \amp -1 \amp 9 \end{pmatrix} \sim 
 \begin{pmatrix} 2 \amp 4 \amp 2 \\ 0 \amp 3 \amp 1 \\ 0 \amp -9 \amp 5 \end{pmatrix} \sim
 \begin{pmatrix} 2 \amp 4 \amp 2 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 8 \end{pmatrix} = U.                 
 \end{equation*}
 </div>
-<p id="p-144">Todavia as operações elementares realizadas têm o mesmo efeito que multiplicar pelas seguintes matrizes elementares.</p>
-<div class="displaymath">
+<div class="para" id="Matrices-10-14">Todavia as operações elementares realizadas têm o mesmo efeito que multiplicar pelas seguintes matrizes elementares.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 E_1 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ -1/2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,
 E_2 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ -2 \amp 0 \amp 1 \end{pmatrix}, \,\,
 E_3 = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 3 \amp 1 \end{pmatrix}.
 \end{equation*}
 </div>
-<p id="p-145">Ou seja, encontramos que \(U = E_3E_2E_1 A\text{,}\) o que é equivalente à \(E_1^{-1}E_2^{-1}E_3^{-1} U = A\text{.}\) Todavia:</p>
-<div class="displaymath">
+<div class="para" id="Matrices-10-16">Ou seja, encontramos que <span class="process-math">\(U = E_3E_2E_1 A\text{,}\)</span> o que é equivalente à <span class="process-math">\(E_1^{-1}E_2^{-1}E_3^{-1} U = A\text{.}\)</span> Todavia:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 E_1^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 1/2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \,\,
 E_2^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 2 \amp 0 \amp 1 \end{pmatrix}, \,\,
 E_3^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp -3 \amp 1 \end{pmatrix}.
 \end{equation*}
 </div>
-<p id="p-146">Assim, \(A = LU\text{,}\) com:</p>
-<div class="displaymath">
+<div class="para" id="Matrices-10-18">Assim, <span class="process-math">\(A = LU\text{,}\)</span> com:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 L = E_1^{-1} E_2^{-1} E_3^{-1} = \begin{pmatrix} 1 \amp 0 \amp 0 \\2 \amp -5/2 \amp 0 \\ 2 \amp -3 \amp 1 \end{pmatrix}.
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-29"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-29"><h6 class="heading">
+<details id="Matrices-10-20" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.60</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-29"><article class="exercise exercise-like"><p id="p-147">Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrices-10-20-1">Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-30"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-30"><h6 class="heading">
+</div></article></details><details id="Matrices-10-21" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.61</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-30"><article class="exercise exercise-like"><p id="p-148">Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrices-10-21-1">Escreva a matriz a seguir como o produto de uma matriz triângular inferior e uma matriz triângular superior.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 3 \amp 3 \\ 2\amp 2 \amp 6 \\ 2 \amp 5 \amp -1 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<p id="p-149">Se temos um sistema linear escrito na forma matricial \(A\vec{x} = \vec{b}\) e temos a <dfn class="terminology">decomposição</dfn> \(A = LU\text{,}\) podemos definir \(\vec{y} = U \vec{x}\) e resolver</p>
-<div class="displaymath">
+</div></article></details><div class="para" id="Matrices-10-22">Se temos um sistema linear escrito na forma matricial <span class="process-math">\(A\vec{x} = \vec{b}\)</span> e temos a <dfn class="terminology">decomposição</dfn> <span class="process-math">\(A = LU\text{,}\)</span> podemos definir <span class="process-math">\(\vec{y} = U \vec{x}\)</span> e resolver</div>
+<div class="displaymath process-math">
 \begin{equation*}
 L \vec{y} = \vec{b}, \,\,\, U \vec{x} = \vec{y},
 \end{equation*}
 </div>
-<p id="p-150">onde a solução de cada um desses sistemas é encontrada, simplesmente, por substituição reversa.</p>
-<p id="p-151">Vamos resolver o exemplo.</p>
-<div class="displaymath">
+<div class="para" id="Matrices-10-24">onde a solução de cada um desses sistemas é encontrada, simplesmente, por substituição reversa.</div>
+<div class="para" id="Matrices-10-25">Vamos resolver o exemplo.</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{l}
 2x + 4y + 2 z = 2 \\ x + 5y + 2z = 1 \\ 4x -y + 9z = -3
 \end{array}                 
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-31"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-31"><h6 class="heading">
+<details id="Matrices-10-27" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.62</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-31"><article class="exercise exercise-like"><p id="p-152">Resolva o sistema linear utilizando decomposição LU:</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrices-10-27-1">Resolva o sistema linear utilizando decomposição LU:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{l}
 x + 2y + 3 z = 2 \\ 4x + 5y + 6z = 1 \\ 7x +8y + 9z = -3
 \end{array}                 
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-32"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-32"><h6 class="heading">
+</div></article></details><details id="Matrices-10-28" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.63</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-32"><article class="exercise exercise-like"><p id="p-153">Resolva o sistema linear utilizando decomposição LU:</p>
-<div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Matrices-10-28-1">Resolva o sistema linear utilizando decomposição LU:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{l}
 x + 3y + 3 z = 2 \\ 2x + 2y + 6z = 1 \\ 2x +5y -z = -3
 \end{array}                 
 \end{equation*}
-</div></article></div>
-<p id="p-154">Infelizmente nem toda a matriz pode ser decomposta em \(A = LU\text{.}\) Existe uma variante desse método, chamada de decomposição \(PA = LU\text{,}\) onde \(P\) é uma matriz de permutação. Nesse caso, para resolver \(A\vec{x} = \vec{b}\text{,}\) multiplicaríamos por P ambos os lados e teríamos \(LU = PA \vec{x} = P\vec{b}\text{.}\) Que pode ser resolvido pelo método acima.</p></section></section></div></main>
+</div></article></details><div class="para" id="Matrices-10-29">Infelizmente nem toda a matriz pode ser decomposta em <span class="process-math">\(A = LU\text{.}\)</span> Existe uma variante desse método, chamada de decomposição <span class="process-math">\(PA = LU\text{,}\)</span> onde <span class="process-math">\(P\)</span> é uma matriz de permutação. Nesse caso, para resolver <span class="process-math">\(A\vec{x} = \vec{b}\text{,}\)</span> multiplicaríamos por P ambos os lados e teríamos <span class="process-math">\(LU = PA \vec{x} = P\vec{b}\text{.}\)</span> Que pode ser resolvido pelo método acima.</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sistemas-lineares.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="Projects.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>
