@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-01T17:06:50-03:00       *-->
+<!--*       on 2024-04-08T14:22:29-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,10 +12,146 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
 <body>
 <article class="remark remark-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">10.12</span><span class="period">.</span>
-</h6>Note que \(N(A)\) não pode ser vazio, pois \(\vec{0} \in N(A)\) uma vez que \(A\vec{0} = \vec{0}\) para qualquer matriz.</article><span class="incontext"><a href="subescos.html#remark-14">in-context</a></span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.16</span><span class="period">.</span>
+</h6>Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos. <div class="sagecell-sage" id="sage-28"><script type="text/x-sage">import numpy as np
+import fractions
+
+# Aqui estão os rótulos do problema
+und = "A"  # Unidade de corrente
+vars = ["i1", "i2", "i3"]
+# Esta variável define o número de casas decimais para arredondamento dos resultados
+decPlaces = 2
+
+# Coloque aqui a matriz AMPLIADA do sistema:
+ampl = [[0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]]
+
+# Estes códigos são referentes às funções que realizam a redução de Gauss-Jordan
+
+def gaussianElimination(A,prin=True):
+    a=0
+    A = A + fractions.Fraction()
+
+    if prin==True:
+        print('A='+str(A))
+    for j in range(np.shape(A)[1]-1):
+        b=0
+        for i in range(a,np.shape(A)[0]):
+            if A[i,j] != 0:
+                if a !=i:
+                    A[[a,i]]=A[[i,a]]
+                    if prin==True:
+                        print('\n~'+str(A))
+                if A[a,j]!=1:
+                    A[a]=A[a]/A[a,j]
+                    if prin==True:
+                        print('\n~'+str(A))
+                a=a+1
+                b=1
+                break
+        if b==1:
+            for i in range(a,np.shape(A)[0]):
+                if A[i,j] != 0:
+                    A[i]=A[i]-A[a-1]*A[i,j]
+                if prin==True:
+                    print('\n~'+str(A))
+
+        i = 0
+        for line in A:
+            j = 0
+            for elem in line:
+                A[i][j] = float(elem)
+                j += 1
+            i += 1
+
+    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return A
+
+def gaussJordan(A,prin=True):
+    B=gaussianElimination(A,prin)
+    #print('jordan')
+    a=0
+    for i in range(np.shape(A)[0]):
+        b=0
+        for j in range(np.shape(A)[1]):
+            if B[np.shape(B)[0]-i-1,j] == 1 and b==0:
+                b=j
+                for k in range(np.shape(B)[0]-i-1):
+                    B[np.shape(B)[0]-i-2-k]=B[np.shape(B)[0]-i-2-k]- B[np.shape(B)[0]-i-2-k,j]*B[B.shape[0]-i-1]
+                    if prin==True:
+                            print('\n~'+str(B))                
+    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+    return B
+
+ampl = np.array(ampl)
+done = False
+
+# Dimensões da matriz de coeficientes A
+m = np.shape(ampl)[0]
+n = np.shape(ampl)[1] - 1
+
+# Extraindo a matriz de coeficientes da matriz ampliada
+A = ampl[0:m, 0:n]
+A = np.array(A)
+
+# Agora iremos verificar em qual caso o sistema se encaixa: Solução única, sem solução ou infinitas soluções
+# Para isso, verificaremos o posto da matriz de coeficientes A e o posto da matriz ampliada
+rankA = np.linalg.matrix_rank(A)
+rankAmpl = np.linalg.matrix_rank(ampl)
+
+# Para resolver o sistema linear, será feita a redução de Gauss-Jordan na matriz ampliada:
+print("Escalonamento passo a passo da matriz ampliada do sistema:\n")
+esc = gaussJordan(ampl)
+
+# Devido ao truncamento em python, vamos filtrar valores infinitesimais para evitar que fiquem como "-0.0"
+i = 0
+changed = False
+while i < m:
+    if round(esc[i][n], decPlaces) == -0.0:
+        esc[i][n] = 0
+        changed = True
+    i+=1
+
+if changed == True:
+    esc = gaussJordan(esc, prin=False)
+
+# Imprimindo na tela a matriz ampliada escalonada reduzida
+print("\nMatriz ampliada escalonada reduzida do sistema:")
+print(esc, "\n")
+
+# Aqui verificamos se o sistema é sem solução. De acordo com o teorema, se o posto da matriz ampliada
+# for diferente do posto da matriz de coeficientes, o sistema não tem solução
+if rankA != rankAmpl:
+    raise Exception("O sistema não possui soluções reais!")
+
+# Aqui verificamos se o sistema é de solução única
+sol = []
+if rankA == n:
+    for i in range(rankA):
+        sol.append((esc[i][n]))
+
+    # Aqui vamos imprimir os resultados de maneira formatada
+    print("As correntes encontradas são:")
+    for i in range(n):
+        print(f'{vars[i]} = {round(sol[i], decPlaces)} {und}')
+    done = True
+# Se a execução do programa chegar até aqui, temos várias soluções.
+# Nesse contexto, várias soluções não fazem sentido.
+if not done:
+    raise Exception("O sistema não possui solução única!")
+</script></div></article><span class="incontext"><a href="Projects.html#remark-14">in-context</a></span>
 </body>
 </html>

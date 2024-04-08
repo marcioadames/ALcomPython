@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
+<!--*       on 2024-04-08T14:22:28-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
-<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<html lang="en-US">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Base de um Espaço Vetorial</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="article">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
   },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+    renderActions: {
+        findScript: [10, function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -53,254 +37,195 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        },
-        ""
-      ]
-    }
+        }, '']
+    },
   },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
   },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
-    }
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
   },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "linkKey": "linked-sage",
-  "autoeval": false,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext article ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
-<p class="byline">Márcio Rostirolla Adames</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
-<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
-<div class="search-results-controls">
-<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
-</div>
-<h2 class="search-results-heading">Search Results: </h2>
-<div id="searchempty" class="searchempty"><span>No results.</span></div>
-<ol id="searchresults" class="searchresults"></ol>
-</div>
-</div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="subescos.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="produto_interno.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+<body class="pretext-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
-\definecolor{fillinmathshade}{gray}{0.9}
-\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
-\)</span></div>
-<div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
-<li class="toc-item toc-frontmatter">
-<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#sis-lin-sub" class="internal"><span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#matrix-sis-lin" class="internal"><span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Gauss-Jordan-red" class="internal"><span class="codenumber">1.3</span> <span class="title">Redução de Gauss Jordan</span></a></div></li>
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
+<p class="byline">Márcio Rostirolla Adames</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="subescos.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="produto_interno.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="subescos.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="produto_interno.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
+<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
+<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
+<li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="Matrices.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrizes</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrizes_operacoes" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrix_rep_mult" class="internal"><span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrix_mult_meaning" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#determinants" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinantes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Coding_message" class="internal"><span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrices-10" class="internal"><span class="codenumber">2.6</span> <span class="title">Decomposição LU</span></a></div></li>
+<li class="link">
+<a href="Matrices.html" data-scroll="Matrices"><span class="codenumber">2</span> <span class="title">Matrizes</span></a><ul>
+<li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
+<li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
+<li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
+<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
+<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
+<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="Projects.html" class="internal"><span class="codenumber">3</span> <span class="title">Projetos</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj1" class="internal"><span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
+<li class="link">
+<a href="Projects.html" data-scroll="Projects"><span class="codenumber">3</span> <span class="title">Projetos</span></a><ul>
+<li><a href="Projects.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li>
+<li><a href="Projects.html#Proj2" data-scroll="Proj2">Projeto 2 - Análise de circuitos resistivos</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-computation.html" class="internal"><span class="codenumber">4</span> <span class="title">Solve symbolic system and elementary operations</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gaussian.html" class="internal"><span class="codenumber">5</span> <span class="title">Gaussian Elimination</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Gauss-Jordan.html" class="internal"><span class="codenumber">6</span> <span class="title">Gauss-Jordan reduction</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-Matrices.html" class="internal"><span class="codenumber">7</span> <span class="title">Basic commands for matrices.</span></a></div></li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="ElDecomp.html" class="internal"><span class="codenumber">8</span> <span class="title">Decompositions; Inverse finding</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#LU" class="internal"><span class="codenumber">8.1</span> <span class="title">Decomposition PA = LU</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ElDecomp.html#InverseAI" class="internal"><span class="codenumber">8.2</span> <span class="title">Finding the inverse through Gauss - Jordan reduction</span></a></div></li>
+<li class="link">
+<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a><ul>
+<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
+<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">9</span> <span class="title">Espaços Vetoriais</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">9.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">9.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
+<li class="link">
+<a href="subescos.html" data-scroll="subescos"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a><ul>
+<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
+<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">10</span> <span class="title">Subespaços Vetoriais</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">10.1</span> <span class="title">Subespaço</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">10.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
+<li class="link active">
+<a href="bases.html" data-scroll="bases"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
+<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
+<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
+<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
+<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
-<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">11</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">11.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">11.2</span> <span class="title">Dependência Linear</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">11.3</span> <span class="title">Bases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">11.4</span> <span class="title">Mudança de base</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">11.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
+<li class="link">
+<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
+<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
+<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
+<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">12</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">12.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">12.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">12.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
+<li class="link">
+<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a><ul>
+<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">13</span> <span class="title">Transformações Lineares</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">13.1</span> <span class="title">Transformações Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">13.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">13.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
+<li class="link">
+<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a><ul>
+<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
+<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
+<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
+<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">14</span> <span class="title">Autovalores e autovetores</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">14.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">14.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">14.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">14.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
-</ul>
-</li>
-</ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="bases"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">11</span><span class="space"> </span><span class="title">Base de um Espaço Vetorial</span>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="bases"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span>
 </h2>
-<div class="para" id="bases-2-1">Muitas vezes representamos vetores de <span class="process-math">\(\mathbb{R}^3\)</span> como <span class="process-math">\(\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}\text{.}\)</span> Os vetores <span class="process-math">\(\{ \vec{i}, \vec{j}, \vec{k} \}\)</span> formam o que chamamos de uma <dfn class="terminology">base</dfn> para <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos <dfn class="terminology">spans</dfn> na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos <dfn class="terminology">independância linear</dfn> na segunda subseção).</div>
+<p id="p-217">Muitas vezes representamos vetores de \(\mathbb{R}^3\) como \(\vec{x} = x \vec{i} + y \vec{j} + z \vec{k}\text{.}\) Os vetores \(\{ \vec{i}, \vec{j}, \vec{k} \}\) formam o que chamamos de uma <dfn class="terminology">base</dfn> para \(\mathbb{R}^3\text{.}\) Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos <dfn class="terminology">spans</dfn> na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos <dfn class="terminology">independância linear</dfn> na segunda subseção).</p>
 <section class="subsection" id="coberturas"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.1</span><span class="space"> </span><span class="title">Spans (Coberturas)</span>
+<span class="type">Subsection</span> <span class="codenumber">6.1</span> <span class="title">Spans (Coberturas)</span>
 </h3>
-<article class="definition definition-like" id="coberturas-2"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.1</span><span class="period">.</span>
-</h4> <div class="para logical" id="coberturas-2-2-1">
-<div class="para">Sejam <span class="process-math">\(V\)</span> um espaço vetorial e <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \in V\text{.}\)</span> Uma soma da forma</div>
-<div class="displaymath process-math">
+<article class="definition definition-like" id="definition-15"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1</span><span class="period">.</span>
+</h6>
+<p id="p-218">Sejam \(V\) um espaço vetorial e \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \in V\text{.}\) Uma soma da forma</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \ldots + \alpha_n \vec{v}_n
 \end{equation*}
 </div>
-<div class="para">é dita uma <dfn class="terminology">combinação linear</dfn> de <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{.}\)</span> O conjunto de todas as combinações lineares de <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\)</span> é chamado de <dfn class="terminology">Span de</dfn>  <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\)</span> (as nomenclaturas <dfn class="terminology">cobertura de</dfn> ou <dfn class="terminology">espaço vetorial gerado por</dfn> também são utilizadas na literatura):</div>
-<div class="displaymath process-math">
+<p class="continuation">é dita uma <dfn class="terminology">combinação linear</dfn> de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{.}\) O conjunto de todas as combinações lineares de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) é chamado de <dfn class="terminology">Span de</dfn>  \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) (as nomenclaturas <dfn class="terminology">cobertura de</dfn> ou <dfn class="terminology">espaço vetorial gerado por</dfn> também são utilizadas na literatura):</p>
+<div class="displaymath">
 \begin{equation*}
 Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) = \{\vec{x} \in V | \vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2+ \ldots + \alpha_n \vec{v}_n\}.
 \end{equation*}
-</div>
-</div></article><details id="coberturas-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2</span><span class="period">.</span>
-</h4></summary><article class="example example-like">No <a href="" class="xref" data-knowl="./knowl/xref/ex_esp_nulo.html" title="Example 10.8">Example 10.8</a>, o espaço nulo da matriz<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_esp_nulo.html">
+</div></article><article class="example example-like" id="example-41"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-41"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like">No <a class="xref" data-knowl="./knowl/ex_esp_nulo.html" title="Example 5.8">Example 5.8</a>, o espaço nulo da matriz<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{cccc} 1 \amp 1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 0 \amp 1 \end{array} \right)
 \end{equation*}
-</div>é igual ao <span class="process-math">\(Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T)\text{:}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_esp_nulo.html" id="coberturas-3-1-4">
+</div>é igual ao \(Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T)\text{:}\)<div class="displaymath">
 \begin{align*}
 N(A) = \amp \{\vec{x} \in \mathbb{R}^4 | \alpha(1, -2, 1, 0)^T + \beta(-1, 1, 0, 1)^T, \,\, \alpha, \beta\in \mathbb{R}\} \\
 =\amp Span((1, -2, 1, 0)^T, (-1, 1, 0, 1)^T).
 \end{align*}
-</div></article></details><details id="coberturas-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Denotamos por <span class="process-math">\(\vec{e}_i \in \mathbb{R}^n\)</span> o vetor cuja <span class="process-math">\(i\)</span>-ésima entrada é igual a 1 e todas as demais são nulas<div class="displaymath process-math">
+</div></article></div>
+<article class="example example-like" id="example-42"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like">Denotamos por \(\vec{e}_i \in \mathbb{R}^n\) o vetor cuja \(i\)-ésima entrada é igual a 1 e todas as demais são nulas<div class="displaymath">
 \begin{equation*}
 \vec{e}_i = (0, \ldots, 0, 1, 0, \ldots, 0)
 \end{equation*}
-</div>para <span class="process-math">\(\vec{e}_1,\vec{e}_2,\vec{e}_3 \in \mathbb{R}^3\text{,}\)</span> <span class="process-math">\(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3)\)</span> é formado por todos os vetores da forma<div class="displaymath process-math">
+</div>para \(\vec{e}_1,\vec{e}_2,\vec{e}_3 \in \mathbb{R}^3\text{,}\) \(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3)\) é formado por todos os vetores da forma<div class="displaymath">
 \begin{equation*}
 \alpha\left(\begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right) + \beta\left(\begin{array}{c} 0 \\ 1 \\ 0 \end{array} \right) + \gamma\left(\begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) = \left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array} \right),
 \end{equation*}
-</div>de modo que <span class="process-math">\(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3) = \mathbb{R}^3\text{.}\)</span></article></details><article class="theorem theorem-like" id="coberturas-5"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.4</span><span class="period">.</span>
-</h4>
-<div class="para" id="coberturas-5-1-1">Se <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \in V\text{,}\)</span> então <span class="process-math">\(Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n)\)</span> é um subespaço vetorial de V.</div></article><details id="coberturas-5-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Se <span class="process-math">\(\vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n\)</span> e <span class="process-math">\(\vec{w} = \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \ldots + \beta_n\vec{v}_n\)</span> e <span class="process-math">\(\alpha\)</span> é um escalar, então <ol class="upper-alpha">
-<li id="coberturas-5-2-4-1"><div class="para" id="p-derived-coberturas-5-2-4-1">
-<span class="process-math">\(\vec{0} = 0\vec{v}_1 + 0\vec{v}_2 +  \ldots + 0\vec{v}_n \Longrightarrow \vec{0} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) \)</span> e <span class="process-math">\(Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) \neq \emptyset.\)</span>
-</div></li>
-<li id="coberturas-5-2-4-2"><div class="para" id="p-derived-coberturas-5-2-4-2">
-<span class="process-math">\(\vec{v} + \vec{w} =  (\alpha_1+\beta_1)\vec{v}_1 + (\alpha_2+\beta_2)\vec{v}_2 +  \ldots + (\alpha_n+\beta_n)\vec{v}_n\)</span> <span class="process-math">\(\Longrightarrow  \vec{v} + \vec{w} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n), \)</span>
-</div></li>
-<li id="coberturas-5-2-4-3"><div class="para" id="p-derived-coberturas-5-2-4-3"><span class="process-math">\(\displaystyle \alpha\vec{v} = (\alpha\alpha_1)\vec{v}_1 + (\alpha\alpha_2)\vec{v}_2 +  \ldots + (\alpha\alpha_n)\vec{v}_n \Longrightarrow  \alpha\vec{v} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n). \)</span></div></li>
-</ol></article></details><details id="coberturas-6" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.5</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Dados vetores <span class="process-math">\(\vec{v}_1, \vec{v}_2 \in \mathbb{R}^3\)</span> não colineares, o <span class="process-math">\(Span(\vec{v}_1, \vec{v}_2)\)</span> é um plano que passa pela origem e qualquer desses é um subespaço de <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> Os planos que não passam pela origem são subespaços de <span class="process-math">\(\mathbb{R}^3\text{?}\)</span> Qual a justificativa?</article></details><article class="definition definition-like" id="coberturas-7"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.6</span><span class="period">.</span>
-</h4> <div class="para logical" id="coberturas-7-2-1">
-<div class="para">Sejam <span class="process-math">\((V, E, \oplus, \odot)\)</span> um espaço vetorial e <span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.\)</span> O conjunto <span class="process-math">\(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\)</span> é um <dfn class="terminology">conjunto de geradores</dfn> (ou <dfn class="terminology">gera</dfn>) <span class="process-math">\(V\)</span> se, e somente se, qualquer vetor de <span class="process-math">\(\vec{v} \in V\)</span> pode ser escrito como uma combinação linear de <span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\text{,}\)</span> ou seja,</div>
-<div class="displaymath process-math">
+</div>de modo que \(Span(\vec{e}_1,\vec{e}_2,\vec{e}_3) = \mathbb{R}^3\text{.}\)</article></div>
+<article class="theorem theorem-like" id="theorem-9"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.4</span><span class="period">.</span>
+</h6>
+<p id="p-219">Se \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \in V\text{,}\) então \(Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n)\) é um subespaço vetorial de V.</p></article><article class="hiddenproof" id="proof-13"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof">Se \(\vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n\) e \(\vec{w} = \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \ldots + \beta_n\vec{v}_n\) e \(\alpha\) é um escalar, então <ol class="decimal">
+<li id="li-143"><p id="p-derived-li-143">\(\vec{0} = 0\vec{v}_1 + 0\vec{v}_2 +  \ldots + 0\vec{v}_n \Longrightarrow \vec{0} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) \) e \(Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n) \neq \emptyset.\)</p></li>
+<li id="li-144"><p id="p-derived-li-144">\(\vec{v} + \vec{w} =  (\alpha_1+\beta_1)\vec{v}_1 + (\alpha_2+\beta_2)\vec{v}_2 +  \ldots + (\alpha_n+\beta_n)\vec{v}_n\) \(\Longrightarrow  \vec{v} + \vec{w} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n), \)</p></li>
+<li id="li-145"><p id="p-derived-li-145">\(\displaystyle \alpha\vec{v} = (\alpha\alpha_1)\vec{v}_1 + (\alpha\alpha_2)\vec{v}_2 +  \ldots + (\alpha\alpha_n)\vec{v}_n \Longrightarrow  \alpha\vec{v} \in Span(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n). \)</p></li>
+</ol></article></div>
+<article class="exercise exercise-like" id="exercise-48"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-48"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-48"><article class="exercise exercise-like">Dados vetores \(\vec{v}_1, \vec{v}_2 \in \mathbb{R}^3\) não colineares, o \(Span(\vec{v}_1, \vec{v}_2)\) é um plano que passa pela origem e qualquer desses é um subespaço de \(\mathbb{R}^3\text{.}\) Os planos que não passam pela origem são subespaços de \(\mathbb{R}^3\text{?}\) Qual a justificativa?</article></div>
+<article class="definition definition-like" id="definition-16"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.6</span><span class="period">.</span>
+</h6>
+<p id="p-220">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V.\) O conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\) é um <dfn class="terminology">conjunto de geradores</dfn> (ou <dfn class="terminology">gera</dfn>) \(V\) se, e somente se, qualquer vetor de \(\vec{v} \in V\) pode ser escrito como uma combinação linear de \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\text{,}\) ou seja,</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{v} \in V \Longrightarrow \exists \alpha_1, \alpha_2, \ldots, \alpha_n \in E \,\, \| \,\, \vec{v} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_n\vec{v}_n.
 \end{equation*}
-</div>
-</div></article><div class="para logical" id="coberturas-8">
-<div class="para">Para determinar se um conjunto <span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in \mathbb{R}^n\)</span> gera <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> devemos, para qualquer vetor <span class="process-math">\(\vec{x} = (x_1, x_2, \ldots, x_n)^T \in \mathbb{R}^n\text{,}\)</span> mostrar que existem escalares <span class="process-math">\(\alpha_1, \alpha_2, \ldots, \alpha_k \)</span> tais que <span class="process-math">\(\vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_k\vec{v}_k\text{.}\)</span> Se escrevemos as coordenadas para cada um dos vetores do conjunto, <span class="process-math">\(\vec{v}_i = ({v}_{1i},\ldots,{v}_{ni})^T\text{,}\)</span> obtemos o sistema linear (nas variáveis <span class="process-math">\(\alpha_1, \alpha_2, \ldots, \alpha_k \)</span>):</div>
-<div class="displaymath process-math" id="coberturas-8-8">
+</div></article><p id="p-221">Para determinar se um conjunto \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in \mathbb{R}^n\) gera \(\mathbb{R}^n\text{,}\) devemos, para qualquer vetor \(\vec{x} = (x_1, x_2, \ldots, x_n)^T \in \mathbb{R}^n\text{,}\) mostrar que existem escalares \(\alpha_1, \alpha_2, \ldots, \alpha_k \) tais que \(\vec{x} = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \ldots + \alpha_k\vec{v}_k\text{.}\) Se escrevemos as coordenadas para cada um dos vetores do conjunto, \(\vec{v}_i = ({v}_{1i},\ldots,{v}_{ni})^T\text{,}\) obtemos o sistema linear (nas variáveis \(\alpha_1, \alpha_2, \ldots, \alpha_k \)):</p>
+<div class="displaymath">
 \begin{align*}
 \alpha_1\vec{v}_1 +  \ldots + \alpha_k\vec{v}_k = \vec{x} \Leftrightarrow \left\{\begin{array}{c} \alpha_1{v}_{11} +  \ldots + \alpha_k {v}_{1k} \amp  =  x_1\\
 \alpha_1{v}_{21} +  \ldots + \alpha_k {v}_{2k} \amp  =  x_2\\
@@ -320,99 +245,95 @@ x_n
 \end{array}\right)
 \end{align*}
 </div>
-<div class="para">onde a última das equivalências está na forma <span class="process-math">\(A\vec{\alpha}=\vec{x}\text{.}\)</span> Assim perguntar se um conjunto de vetores gera <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> é determinar se o sistema acima tem solução para qualquer <span class="process-math">\(\vec{x} \in \mathbb{R}^n\text{.}\)</span>
-</div>
-</div>
-<details id="gera_r3" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.7</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Quais dos seguintes conjuntos são coberturas de <span class="process-math">\(\mathbb{R}^3\)</span> e justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="upper-alpha">
-<li id="gera_r3-1-2-1"><div class="para" id="p-derived-gera_r3-1-2-1"><span class="process-math">\(\displaystyle \{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}\)</span></div></li>
-<li id="gera_r3-1-2-2"><div class="para" id="p-derived-gera_r3-1-2-2"><span class="process-math">\(\displaystyle \{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}\)</span></div></li>
-<li id="gera_r3-1-2-3"><div class="para" id="p-derived-gera_r3-1-2-3"><span class="process-math">\(\displaystyle \{ (1,0,1)^T, (0,1,0)^T\}\)</span></div></li>
-<li id="gera_r3-1-2-4"><div class="para" id="p-derived-gera_r3-1-2-4"><span class="process-math">\(\displaystyle \{ (1,2,4)^T, (3,-1,1)^T, (2,-3,-3)^T\}\)</span></div></li>
-</ol></article></details></section><section class="subsection" id="dependencia_linear"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.2</span><span class="space"> </span><span class="title">Dependência Linear</span>
+<p class="continuation">onde a última das equivalências está na forma \(A\vec{\alpha}=\vec{x}\text{.}\) Assim perguntar se um conjunto de vetores gera \(\mathbb{R}^n\text{,}\) é determinar se o sistema acima tem solução para qualquer \(\vec{x} \in \mathbb{R}^n\text{.}\)</p>
+<article class="exercise exercise-like" id="gera_r3"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-gera_r3"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-gera_r3"><article class="exercise exercise-like">Quais dos seguintes conjuntos são coberturas de \(\mathbb{R}^3\) e justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="decimal">
+<li id="li-146"><p id="p-derived-li-146">\(\displaystyle \{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}\)</p></li>
+<li id="li-147"><p id="p-derived-li-147">\(\displaystyle \{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}\)</p></li>
+<li id="li-148"><p id="p-derived-li-148">\(\displaystyle \{ (1,0,1)^T, (0,1,0)^T\}\)</p></li>
+<li id="li-149"><p id="p-derived-li-149">\(\displaystyle \{ (1,2,4)^T, (3,-1,1)^T, (2,-3,-3)^T\}\)</p></li>
+</ol></article></div></section><section class="subsection" id="dependencia_linear"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.2</span> <span class="title">Dependência Linear</span>
 </h3>
-<div class="para" id="dependencia_linear-2">No item 1. do  cada <span class="process-math">\(\vec{x} \in \mathbb{R}^3\)</span> pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que <span class="process-math">\((1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3\text{,}\)</span> como esclarece o lema a seguir.</div>
-<article class="lemma theorem-like" id="dependencia_linear-3"><h4 class="heading">
-<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">11.8</span><span class="period">.</span>
-</h4>
-<div class="para" id="dependencia_linear-3-1-1">Sejam <span class="process-math">\(V\)</span> um espaço vetorial e <span class="process-math">\(\vec{x} \in V\)</span> um vetor. Suponha que <span class="process-math">\(\vec{x}\)</span> possa ser escrito como uma combinação linear de <span class="process-math">\(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\text{.}\)</span> Existem infinitas formas de escrever <span class="process-math">\(\vec{x}\)</span> como combinação linear de <span class="process-math">\(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\)</span> exatamente quando um desses vetores pode ser escrito como combinação linear dos demais.</div></article><details id="dependencia_linear-3-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="dependencia_linear-3-2-1">
-<span class="process-math">\((\Longrightarrow)\)</span> Se for possível escrever um vetor <span class="process-math">\(\vec{x} \in V\)</span> como combinação linear de <span class="process-math">\(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\)</span> de duas maneiras distintas, então existem escalares <span class="process-math">\(\alpha_1, \alpha_2, \ldots, \alpha_k\)</span> e <span class="process-math">\(\beta_1, \beta_2, \ldots, \beta_k\text{,}\)</span> nem todos iguais (<span class="process-math">\(\alpha_i \neq \beta_i\)</span> para pelo menos algum <span class="process-math">\(i \in 1, 2, \ldots, k\)</span>), tais que</div>
-<div class="displaymath process-math" id="dependencia_linear-3-2-2">
+<p id="p-222">No item 1. do  cada \(\vec{x} \in \mathbb{R}^3\) pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que \((1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3\text{,}\) como esclarece o lema a seguir.</p>
+<article class="lemma theorem-like" id="lemma-5"><h6 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">6.8</span><span class="period">.</span>
+</h6>
+<p id="p-223">Sejam \(V\) um espaço vetorial e \(\vec{x} \in V\) um vetor. Suponha que \(\vec{x}\) possa ser escrito como uma combinação linear de \(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\text{.}\) Existem infinitas formas de escrever \(\vec{x}\) como combinação linear de \(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\) exatamente quando um desses vetores pode ser escrito como combinação linear dos demais.</p></article><article class="hiddenproof" id="proof-14"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><p id="p-224">\((\Longrightarrow)\) Se for possível escrever um vetor \(\vec{x} \in V\) como combinação linear de \(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\) de duas maneiras distintas, então existem escalares \(\alpha_1, \alpha_2, \ldots, \alpha_k\) e \(\beta_1, \beta_2, \ldots, \beta_k\text{,}\) nem todos iguais (\(\alpha_i \neq \beta_i\) para pelo menos algum \(i \in 1, 2, \ldots, k\)), tais que</p>
+<div class="displaymath">
 \begin{align*}
 \vec{x} =\amp \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_k\vec{v}_k\\
 \vec{x} =\amp \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \cdots + \beta_k\vec{v}_k\\
 (\Longrightarrow) \vec{0} =\amp (\alpha_1-\beta_1)\vec{v}_1 + (\alpha_2-\beta_2)\vec{v}_2 +  \cdots + (\alpha_k-\beta_k)\vec{v}_k
 \end{align*}
 </div>
-<div class="para" id="dependencia_linear-3-2-3">de modo que <span class="process-math">\(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\)</span> é L.D. (<span class="process-math">\(\alpha_i - \beta_i \neq 0\)</span> para algum <span class="process-math">\(i\)</span>).</div> <div class="para" id="dependencia_linear-3-2-4">
-<span class="process-math">\((\Longleftarrow)\)</span> Sem perda de generalidade<details class="ptx-footnote" aria-live="polite" id="dependencia_linear-3-2-4-2"><summary class="ptx-footnote__number" title="Footnote 11.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="dependencia_linear-3-2-4-2">se o vetor que pode ser escrico como combinação linear dos demais não for o último da lista, podemos fazer uma reordenação dos vetores e colocá-lo por último</div></details>, se for possível escrever o vetor <span class="process-math">\(\vec{v}_{k}\)</span> como combinação linear de <span class="process-math">\(\vec{v}_1,  \ldots, \vec{v}_{k-1}\text{,}\)</span> então existem escalares <span class="process-math">\(\alpha_1, \alpha_2, \ldots, \alpha_{k-1}\text{,}\)</span> tais que</div>
-<div class="displaymath process-math" id="dependencia_linear-3-2-5">
+<p id="p-225">de modo que \(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k\) é L.D. (\(\alpha_i - \beta_i \neq 0\) para algum \(i\)).</p>
+<p id="p-226">\((\Longleftarrow)\) Sem perda de generalidade<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-1" id="fn-1"><sup> 1 </sup></a>, se for possível escrever o vetor \(\vec{v}_{k}\) como combinação linear de \(\vec{v}_1,  \ldots, \vec{v}_{k-1}\text{,}\) então existem escalares \(\alpha_1, \alpha_2, \ldots, \alpha_{k-1}\text{,}\) tais que</p>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-1"><div class="fn">se o vetor que pode ser escrico como combinação linear dos demais não for o último da lista, podemos fazer uma reordenação dos vetores e colocá-lo por último</div></div>
+<div class="displaymath">
 \begin{align*}
 \vec{v}_k = \amp \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k-1}\vec{v}_{k-1}\\
 \Longrightarrow \vec{0} = \amp \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k-1}\vec{v}_{k-1} - \vec{v}_k\\
 \Longrightarrow \vec{0} = \amp \gamma\alpha_1\vec{v}_1 + \gamma\alpha_2\vec{v}_2 +  \cdots + \gamma\alpha_{k-1}\vec{v}_{k-1} - \gamma\vec{v}_k,
 \end{align*}
 </div>
-<div class="para" id="dependencia_linear-3-2-6">para qualquer escalar <span class="process-math">\(\gamma\text{,}\)</span> de modo que</div>
-<div class="displaymath process-math" id="dependencia_linear-3-2-7">
+<p id="p-227">para qualquer escalar \(\gamma\text{,}\) de modo que</p>
+<div class="displaymath">
 \begin{align*}
 \vec{x} = \amp \beta_1\vec{v}_1 + \beta_2\vec{v}_2 +  \cdots + \beta_{k-1}\vec{v}_{k-1} + \beta_{k}\vec{v}_{k}\\
 \Longrightarrow \vec{x} = \amp (\beta_1 + \gamma\alpha_1)\vec{v}_1 + (\beta_2 + \gamma\alpha_2)\vec{v}_2 +  \cdots + (\beta_{k-1} + \gamma\alpha_{k-1})\vec{v}_{k-1} + (\beta_{k} - \gamma)\vec{v}_{k}
 \end{align*}
 </div>
-<div class="para" id="dependencia_linear-3-2-8">para qualquer escalar <span class="process-math">\(\gamma\text{.}\)</span>
-</div></article></details><div class="para" id="dependencia_linear-4">O Lema acima diz que teremos infinitas formas de escrever um vetor como combinação linear de <span class="process-math">\(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k \in V\text{.}\)</span> exatamete quando existirem soluções não nulas de <span class="process-math">\(\alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_k\vec{v}_k = \vec{0}\text{.}\)</span> Assim essa condição é bastante relevante para bases de um espaço vetorial e precisamos referir-nos a ela precisamente, como a seguir.</div>
-<article class="definition definition-like" id="dependencia_linear-5"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.9</span><span class="period">.</span>
-</h4> <div class="para logical" id="dependencia_linear-5-2-1">
-<div class="para">Seja <span class="process-math">\((V, E, \oplus, \odot)\)</span> um espaço vetorial. Os vetores <span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V\)</span> são ditos <dfn class="terminology">linearmente independentes (L.I.)</dfn> se a única solução<details class="ptx-footnote" aria-live="polite" id="dependencia_linear-5-2-1-4"><summary class="ptx-footnote__number" title="Footnote 11.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="dependencia_linear-5-2-1-4">Note que <span class="process-math">\(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\)</span> sempre é uma solução da equação.</div></details> de</div>
-<div class="displaymath process-math">
+<p id="p-228">para qualquer escalar \(\gamma\text{.}\)</p></article></div>
+<p id="p-229">O Lema acima diz que teremos infinitas formas de escrever um vetor como combinação linear de \(\vec{v}_1, \vec{v}_2,  \ldots, \vec{v}_k \in V\text{.}\) exatamete quando existirem soluções não nulas de \(\alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_k\vec{v}_k = \vec{0}\text{.}\) Assim essa condição é bastante relevante para bases de um espaço vetorial e precisamos referir-nos a ela precisamente, como a seguir.</p>
+<article class="definition definition-like" id="definition-17"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.9</span><span class="period">.</span>
+</h6>
+<p id="p-230">Seja \((V, E, \oplus, \odot)\) um espaço vetorial. Os vetores \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k \in V\) são ditos <dfn class="terminology">linearmente independentes (L.I.)</dfn> se a única solução<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 2 </sup></a> de</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0}
 \end{equation*}
 </div>
-<div class="para">é <span class="process-math">\(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\text{.}\)</span> Caso exista alguma solução não nula dessa equação, o conjunto <span class="process-math">\(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}\)</span> é dito <dfn class="terminology">linearmente dependente (L.D.)</dfn>.</div>
-</div></article><details id="dependencia_linear-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.10</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="upper-alpha">
-<li id="dependencia_linear-6-1-1-1">
-<div class="para" id="dependencia_linear-6-1-1-1-1">Para verificarmos se <span class="process-math">\(\{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}\)</span> é L.I., precisamos verificar se existe alguma solução não trivial para o sistema</div>
-<div class="displaymath process-math" id="dependencia_linear-6-1-1-1-2">
+<p class="continuation">é \(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\text{.}\) Caso exista alguma solução não nula dessa equação, o conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_k\}\) é dito <dfn class="terminology">linearmente dependente (L.D.)</dfn>.</p>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn">Note que \(\alpha_1 = \alpha_2 = \ldots = \alpha_k = 0\) sempre é uma solução da equação.</div></div></article><article class="example example-like" id="example-43"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like">Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="decimal">
+<li id="li-150">
+<p id="p-231">Para verificarmos se \(\{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}\) é L.I., precisamos verificar se existe alguma solução não trivial para o sistema</p>
+<div class="displaymath">
 \begin{gather*}
 \alpha_1 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 0\\ 0 \\ 1 \end{pmatrix} + \alpha_4 \begin{pmatrix} 1\\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \\
 \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_4 = 0\\ \alpha_2 + 2\alpha_4 = 0 \\ \alpha_3 + 3 \alpha_4 = 0 \end{array} \\
 \Leftrightarrow \begin{array}{c} \alpha_1 = - \alpha_4\\ \alpha_2 = - 2\alpha_4  \\ \alpha_3 - 3 \alpha_4  \end{array} 
 \end{gather*}
 </div>
-<div class="para" id="dependencia_linear-6-1-1-1-3">é solução para qualquer <span class="process-math">\(\alpha_4 \in \mathbb{R}\)</span> e o istema é L.D.</div>
+<p id="p-232">é solução para qualquer \(\alpha_4 \in \mathbb{R}\) e o istema é L.D.</p>
 </li>
-<li id="dependencia_linear-6-1-1-2">
-<div class="para" id="dependencia_linear-6-1-1-2-1">
-<span class="process-math">\(\{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}\)</span> é L.I. pois</div>
-<div class="displaymath process-math" id="dependencia_linear-6-1-1-2-2">
+<li id="li-151">
+<p id="p-233">\(\{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}\) é L.I. pois</p>
+<div class="displaymath">
 \begin{gather*}
 \alpha_1 \begin{pmatrix} 1\\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \\
 \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_2 + \alpha_3 = 0\\ \alpha_1 + \alpha_2 = 0 \\ \alpha_1 = 0 \end{array} \Leftrightarrow \begin{array}{c} \alpha_1 = 0  \\ \alpha_2 = 0 \\ \alpha_3 = 0 
 \end{gather*}
 </div>
 </li>
-<li id="dependencia_linear-6-1-1-3"><div class="para" id="p-derived-dependencia_linear-6-1-1-3">
-<span class="process-math">\(\{ (1,0,1)^T, (0,1,0)^T\}\)</span> é L.I.</div></li>
-<li id="dependencia_linear-6-1-1-4"><div class="para" id="p-derived-dependencia_linear-6-1-1-4">
-<span class="process-math">\(\{ (1,2,4)^T, (3,-1,1)^T, (2,-3,-3)^T\}\)</span> é L.D.</div></li>
-</ol></article></details><article class="remark remark-like" id="dependencia_linear-7"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.11</span><span class="period">.</span>
-</h4>
-<div class="para" id="dependencia_linear-7-1">Para verificar se os vetores <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \mathbb{R}^n\)</span> são L.I. verificamos se o sistema</div>
-<div class="displaymath process-math">
+<li id="li-152"><p id="p-derived-li-152">\(\{ (1,0,1)^T, (0,1,0)^T\}\) é L.I.</p></li>
+<li id="li-153"><p id="p-derived-li-153">\(\{ (1,2,4)^T, (3,-1,1)^T, (2,-3,-3)^T\}\) é L.D.</p></li>
+</ol></article></div>
+<article class="remark remark-like" id="remark-16"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.11</span><span class="period">.</span>
+</h6>
+<p id="p-234">Para verificar se os vetores \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \mathbb{R}^n\) são L.I. verificamos se o sistema</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0},
 \end{equation*}
 </div>
-<div class="para" id="dependencia_linear-7-3">tem solução única. Isso pode ser feito de diversas maneiras! Denotando</div> <span class="process-math">\(\vec{v}_i = \begin{pmatrix} v_{1i}\\ v_{2i}\\ \vdots \\v_{ni} \end{pmatrix}\,\,\)</span> e <span class="process-math">\(\,\,A =  \begin{pmatrix} | \amp | \amp \cdots \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \cdots \amp \vec{v}_k \\ | \amp | \amp \cdots \amp | \end{pmatrix} = \begin{pmatrix} v_{11} \amp v_{12} \amp \cdots \amp v_{1k} \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \amp v_{n2} \amp \cdots \amp v_{nk} \end{pmatrix},\)</span> <div class="para" id="dependencia_linear-7-6">o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:</div>
-<div class="displaymath process-math">
+<p id="p-235">tem solução única. Isso pode ser feito de diversas maneiras! Denotando</p>\(\vec{v}_i = \begin{pmatrix} v_{1i}\\ v_{2i}\\ \vdots \\v_{ni} \end{pmatrix}\,\,\) e \(\,\,A =  \begin{pmatrix} | \amp | \amp \cdots \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \cdots \amp \vec{v}_k \\ | \amp | \amp \cdots \amp | \end{pmatrix} = \begin{pmatrix} v_{11} \amp v_{12} \amp \cdots \amp v_{1k} \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \amp v_{n2} \amp \cdots \amp v_{nk} \end{pmatrix},\)<p id="p-236">o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:</p>
+<div class="displaymath">
 \begin{equation*}
 \begin{array}{c} 
 v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k = 0
@@ -420,13 +341,13 @@ v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp 
 \Leftrightarrow A \vec{\alpha} = \vec{0}.
 \end{equation*}
 </div>
-<div class="para" id="dependencia_linear-7-8">Analisando o sistema acima para entender se a solução é única, percebemos:</div> <ol class="decimal">
-<li id="dependencia_linear-7-9-1"><div class="para" id="dependencia_linear-7-9-1-1">Se <span class="process-math">\(k \gt n\text{,}\)</span> então <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\)</span> são L.D. pois o sistema associado tem mais incógnitas do que equações.</div></li>
-<li id="dependencia_linear-7-9-2"><div class="para" id="dependencia_linear-7-9-2-1">Se <span class="process-math">\(k \lt n\text{,}\)</span> então podemos colocar o sistema associado <span class="process-math">\((A|\vec{0})\)</span> na forma escalonada e verificar se temos <span class="process-math">\(k\)</span> linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que <span class="process-math">\(k\)</span> linhas não nulas, o sistema é L.D.</div></li>
-<li id="dependencia_linear-7-9-3"><div class="para" id="dependencia_linear-7-9-3-1">Se <span class="process-math">\(k = n\text{,}\)</span> então a matriz <span class="process-math">\(A\)</span> é quadrada e o sistema <span class="process-math">\(A \vec{\alpha} = \vec{0}\)</span> tem solução única se, e somente se, a matriz <span class="process-math">\(A\)</span> é inversível, de modo que basta verificar que <span class="process-math">\(\det(A) \neq 0\text{.}\)</span>
-</div></li>
-</ol></article><div class="para" id="dependencia_linear-8">O código a seguir pode ser utilizado para encontrar um subconjunto L.I. dentro de um conjunto de vetores.</div>
-<pre id="dependencia_linear-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+<p id="p-237">Analisando o sistema acima para entender se a solução é única, percebemos:</p>
+<ol class="decimal">
+<li id="li-154"><p id="p-238">Se \(k \gt n\text{,}\) então \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\) são L.D. pois o sistema associado tem mais incógnitas do que equações.</p></li>
+<li id="li-155"><p id="p-239">Se \(k \lt n\text{,}\) então podemos colocar o sistema associado \((A|\vec{0})\) na forma escalonada e verificar se temos \(k\) linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que \(k\) linhas não nulas, o sistema é L.D.</p></li>
+<li id="li-156"><p id="p-240">Se \(k = n\text{,}\) então a matriz \(A\) é quadrada e o sistema \(A \vec{\alpha} = \vec{0}\) tem solução única se, e somente se, a matriz \(A\) é inversível, de modo que basta verificar que \(\det(A) \neq 0\text{.}\)</p></li>
+</ol></article><p id="p-241">O código a seguir pode ser utilizado para encontrar um subconjunto L.I. dentro de um conjunto de vetores.</p>
+<div class="sagecell-sage" id="sage-35"><script type="text/x-sage">import numpy as np
 import fractions
 
 
@@ -487,59 +408,56 @@ for i in range(len(B)):
         a += 1
         I = np.nonzero(B[i])
         print(a, "vetor da base ",C[I[0][0]])
-</script></pre>
-<details id="dependencia_linear-10" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.12</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="upper-alpha">
-<li id="dependencia_linear-10-1-1-1"><div class="para" id="p-derived-dependencia_linear-10-1-1-1"><span class="process-math">\(\displaystyle \{ (1,-1,1)^T, (1,2,3)^T\}\)</span></div></li>
-<li id="dependencia_linear-10-1-1-2"><div class="para" id="p-derived-dependencia_linear-10-1-1-2"><span class="process-math">\(\displaystyle \{ (1,-2,1)^T, (1,1,1)^T, (1,0,-1)^T\}\)</span></div></li>
-<li id="dependencia_linear-10-1-1-3"><div class="para" id="p-derived-dependencia_linear-10-1-1-3"><span class="process-math">\(\displaystyle \{ (3,1,4)^T, (7,1,2)^T, (1,0,1)^T, (1,2,3)^T\}\)</span></div></li>
-<li id="dependencia_linear-10-1-1-4"><div class="para" id="p-derived-dependencia_linear-10-1-1-4"><span class="process-math">\(\displaystyle \{ (1,2,-2)^T, (1,-1,3)^T, (5,1,5)^T\}\)</span></div></li>
-</ol></article></details><article class="lemma theorem-like" id="dependencia_linear-11"><h4 class="heading">
-<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">11.13</span><span class="period">.</span>
-</h4>Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.A completar.</article></section><section class="subsection" id="bases_subsection"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.3</span><span class="space"> </span><span class="title">Bases</span>
+</script></div>
+<article class="exercise exercise-like" id="exercise-50"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-50"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.12</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-50"><article class="exercise exercise-like">Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução? <ol class="decimal">
+<li id="li-157"><p id="p-derived-li-157">\(\displaystyle \{ (1,-1,1)^T, (1,2,3)^T\}\)</p></li>
+<li id="li-158"><p id="p-derived-li-158">\(\displaystyle \{ (1,-2,1)^T, (1,1,1)^T, (1,0,-1)^T\}\)</p></li>
+<li id="li-159"><p id="p-derived-li-159">\(\displaystyle \{ (3,1,4)^T, (7,1,2)^T, (1,0,1)^T, (1,2,3)^T\}\)</p></li>
+<li id="li-160"><p id="p-derived-li-160">\(\displaystyle \{ (1,2,-2)^T, (1,-1,3)^T, (5,1,5)^T\}\)</p></li>
+</ol></article></div>
+<article class="lemma theorem-like" id="lemma-6"><h6 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">6.13</span><span class="period">.</span>
+</h6>Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.A completar.</article></section><section class="subsection" id="bases_subsection"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.3</span> <span class="title">Bases</span>
 </h3>
-<article class="definition definition-like" id="bases_subsection-2"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.14</span><span class="period">.</span>
-</h4> <div class="para logical" id="bases_subsection-2-2-1">
-<div class="para">Sejam <span class="process-math">\((V, E, \oplus, \odot)\)</span> um espaço vetorial e <span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V\)</span> vetores. O conjunto <span class="process-math">\(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\)</span> é uma <dfn class="terminology">base</dfn> para <span class="process-math">\(V\)</span> se, e somente se,</div>
+<article class="definition definition-like" id="definition-18"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.14</span><span class="period">.</span>
+</h6>
+<p id="p-242">Sejam \((V, E, \oplus, \odot)\) um espaço vetorial e \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n \in V\) vetores. O conjunto \(\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}\) é uma <dfn class="terminology">base</dfn> para \(V\) se, e somente se,</p>
 <ol class="decimal">
-<li id="bases_subsection-2-2-1-6-1"><div class="para" id="bases_subsection-2-2-1-6-1-1">
-<span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\)</span> são linearmente independentes,</div></li>
-<li id="bases_subsection-2-2-1-6-2"><div class="para" id="bases_subsection-2-2-1-6-2-1">
-<span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\)</span> cobrem <span class="process-math">\(V\text{.}\)</span>
-</div></li>
+<li id="li-161"><p id="p-243">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) são linearmente independentes,</p></li>
+<li id="li-162"><p id="p-244">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) cobrem \(V\text{.}\)</p></li>
 </ol>
-<div class="para">Alternativamente, dizemos que <span class="process-math">\(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\)</span> <dfn class="terminology">formam uma base</dfn> para <span class="process-math">\(V\text{.}\)</span>
-</div>
-</div></article><details id="bases_subsection-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.15</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Para verificarmos que <span class="process-math">\(\vec{i}, \vec{j}, \vec{k}\)</span> formam uma base para <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> precisamos verificar que: <ol class="decimal">
-<li id="bases_subsection-3-1-3-1"><div class="para logical" id="bases_subsection-3-1-3-1-1">
-<div class="para">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</div>
-<div class="displaymath process-math">
+<p class="continuation">Alternativamente, dizemos que \(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\) <dfn class="terminology">formam uma base</dfn> para \(V\text{.}\)</p></article><article class="example example-like" id="example-44"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-44"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.15</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like">Para verificarmos que \(\vec{i}, \vec{j}, \vec{k}\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <ol class="decimal">
+<li id="li-163">
+<p id="p-245">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \vec{0}
 \end{equation*}
 </div>
-<div class="para">é <span class="process-math">\(\alpha_1 = \alpha_2 = \alpha_3 =0,\)</span> o que ocorre de fato pois</div>
-<div class="displaymath process-math">
+<p class="continuation">é \(\alpha_1 = \alpha_2 = \alpha_3 =0,\) o que ocorre de fato pois</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =0, \\ \alpha_2 = 0, \\ \alpha_3 = 0. \end{array}
 \end{equation*}
 </div>
-</div></li>
-<li id="bases_subsection-3-1-3-2"><div class="para logical" id="bases_subsection-3-1-3-2-1">
-<div class="para">esses vetores geram <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> Para isso precisamos mostrar que qualquer vetor <span class="process-math">\(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\)</span> pode ser escrito como uma combinação linear de <span class="process-math">\(\vec{i}, \vec{j}, \vec{k}\text{,}\)</span> o que ocorre de fato pois</div>
-<div class="displaymath process-math">
+</li>
+<li id="li-164">
+<p id="p-246">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{i}, \vec{j}, \vec{k}\text{,}\) o que ocorre de fato pois</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} 
 \end{equation*}
 </div>
-</div></li>
-</ol> De modo que <span class="process-math">\(\{\vec{i},\vec{j},\vec{k}\}\)</span> é uma base para <span class="process-math">\(\mathbb{R}^3\text{.}\)</span></article></details><div class="para" id="bases_subsection-4">Se <span class="process-math">\(\vec{u}_1, \vec{u}_2\)</span> formam uma base para um espaço vetorial, podemos escrever cada vetor desse espaço como combinação linear dos vetores da base de uma única forma. O código a seguir plota uma base {u1, u2}, um vetor v, faz um print das coordenadas de v nessa base e ilustra o produto das coordenadas com os respectivos vetores da base (cuja soma resulta em v).</div>
-<pre id="bases_subsection-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</li>
+</ol> De modo que \(\{\vec{i},\vec{j},\vec{k}\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article></div>
+<p id="p-247">Se \(\vec{u}_1, \vec{u}_2\) formam uma base para um espaço vetorial, podemos escrever cada vetor desse espaço como combinação linear dos vetores da base de uma única forma. O código a seguir plota uma base {u1, u2}, um vetor v, faz um print das coordenadas de v nessa base e ilustra o produto das coordenadas com os respectivos vetores da base (cuja soma resulta em v).</p>
+<div class="sagecell-sage" id="sage-36"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 zero = np.zeros(2)
@@ -587,228 +505,231 @@ plt.arrow(0,0,cor(v)[0], cor(v)[1], head_width =head_width, color = 'green')
 plt.annotate('v', cor(v)/2 + np.array([-0.3,-0.1]))
 
 plt.show()
-</script></pre>
-<details id="bases_subsection-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.16</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Para verificarmos que <span class="process-math">\(\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)^T\)</span> formam uma base para <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> precisamos verificar que: <ol class="decimal">
-<li id="bases_subsection-6-1-3-1"><div class="para logical" id="bases_subsection-6-1-3-1-1">
-<div class="para">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</div>
-<div class="displaymath process-math">
+</script></div>
+<article class="example example-like" id="example-45"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-45"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-45"><article class="example example-like">Para verificarmos que \(\vec{v}_1 = (1,-1,1)^T, \vec{v}_2 = (1,2,1)^T, \vec{v}_3 = (-1,0,1)^T\) formam uma base para \(\mathbb{R}^3\text{,}\) precisamos verificar que: <ol class="decimal">
+<li id="li-165">
+<p id="p-248">esses vetores são L.I. Para isso precisamos mostrar que a única solução de</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \alpha_3 \vec{v}_3 = \alpha_1 \begin{pmatrix} 1\\ -1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 2 \\ 1 \end{pmatrix} + \alpha_3 \begin{pmatrix} -1\\ 0 \\ 1 \end{pmatrix} = \vec{0}
 \end{equation*}
 </div>
-<div class="para">é <span class="process-math">\(\alpha_1 = \alpha_2 = \alpha_3 =0,\)</span> para verificarmos isso, escrevemos o sistema acima na forma matricial</div>
-<div class="displaymath process-math">
+<p class="continuation">é \(\alpha_1 = \alpha_2 = \alpha_3 =0,\) para verificarmos isso, escrevemos o sistema acima na forma matricial</p>
+<div class="displaymath">
 \begin{equation*}
 \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
 \end{equation*}
 </div>
-<div class="para">e verificamos que esse sistema admite solução única pois a matriz</div>
-<div class="displaymath process-math">
+<p class="continuation">e verificamos que esse sistema admite solução única pois a matriz</p>
+<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
 \end{equation*}
 </div>
-<div class="para">tem determinante <span class="process-math">\(\det(A) = 6 \neq 0\)</span> e é, portanto inversível.</div>
-</div></li>
-<li id="bases_subsection-6-1-3-2"><div class="para logical" id="bases_subsection-6-1-3-2-1">
-<div class="para">esses vetores geram <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> Para isso precisamos mostrar que qualquer vetor <span class="process-math">\(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\)</span> pode ser escrito como uma combinação linear de <span class="process-math">\(\vec{v}_1, \vec{v}_2, \vec{v}_3\text{,}\)</span> o que ocorre de fato pois, escrevendo o sistema acima na forma matricial</div>
-<div class="displaymath process-math">
+<p class="continuation">tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p>
+</li>
+<li id="li-166">
+<p id="p-249">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{v}_1, \vec{v}_2, \vec{v}_3\text{,}\) o que ocorre de fato pois, escrevendo o sistema acima na forma matricial</p>
+<div class="displaymath">
 \begin{equation*}
 \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)\begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix},
 \end{equation*}
 </div>
-<div class="para">verificamos que esse sistema admite solução (<span class="process-math">\(\vec{\alpha} = A^{-1} \vec{x}\)</span>) para qualquer <span class="process-math">\(\vec{x} \in \mathbb{R}^3\text{,}\)</span>  pois a matriz</div>
-<div class="displaymath process-math">
+<p class="continuation">verificamos que esse sistema admite solução (\(\vec{\alpha} = A^{-1} \vec{x}\)) para qualquer \(\vec{x} \in \mathbb{R}^3\text{,}\)  pois a matriz</p>
+<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 0 \\ 1 \amp 1 \amp 1 \end{array}\right)
 \end{equation*}
 </div>
-<div class="para">é tem determinante <span class="process-math">\(\det(A) = 6 \neq 0\)</span> e é, portanto inversível.</div>
-</div></li>
-</ol> De modo que <span class="process-math">\(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\)</span> é uma base para <span class="process-math">\(\mathbb{R}^3\text{.}\)</span></article></details><details id="bases_subsection-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.17</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Para verificarmos que <span class="process-math">\(\vec{v}_1 = (\sqrt{2}/2,-\sqrt{2}/2,0)^T, \vec{v}_2 = (\sqrt{3}/3,\sqrt{3}/3,\sqrt{3}/3)^T, \vec{v}_3 = (\sqrt{6}/6,\sqrt{6}/6,-2\sqrt{6}/6)\)</span> formam uma base para <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> observamos que a matriz<div class="displaymath process-math">
+<p class="continuation">é tem determinante \(\det(A) = 6 \neq 0\) e é, portanto inversível.</p>
+</li>
+</ol> De modo que \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) é uma base para \(\mathbb{R}^3\text{.}\)</article></div>
+<article class="example example-like" id="example-46"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-46"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.17</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-46"><article class="example example-like">Para verificarmos que \(\vec{v}_1 = (\sqrt{2}/2,-\sqrt{2}/2,0)^T, \vec{v}_2 = (\sqrt{3}/3,\sqrt{3}/3,\sqrt{3}/3)^T, \vec{v}_3 = (\sqrt{6}/6,\sqrt{6}/6,-2\sqrt{6}/6)\) formam uma base para \(\mathbb{R}^3\text{,}\) observamos que a matriz<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \vec{v}_3 \\ | \amp | \amp | \end{array}\right) = \left(\begin{array}{ccc} \sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ -\sqrt{2}/2 \amp \sqrt{3}/3 \amp \sqrt{6}/6 \\ 0 \amp \sqrt{3}/3 \amp -2\sqrt{6}/6 \end{array}\right)
 \end{equation*}
-</div>tem determinante <span class="process-math">\(\det(A) = 1\)</span> e portanto é inversível, de modo que o sistema <span class="process-math">\(A\vec{\alpha} = \vec{x}\)</span> tem solução <span class="process-math">\(\alpha = A^{-1} \vec{x}\)</span> para qualquer <span class="process-math">\(\vec{x} \in \mathbb{R}^3\)</span> e <span class="process-math">\(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\)</span> geram <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> além disso, a solução é única para qualquer <span class="process-math">\(\vec{x} \in \mathbb{R}^3\text{,}\)</span> em particular para <span class="process-math">\(\vec{x} = \vec{0}\text{,}\)</span> de modo que os vetores são L.I. Dessa forma, <span class="process-math">\(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\)</span> formam uma base para <span class="process-math">\(\mathbb{R}^3\text{.}\)</span></article></details><details id="bases_subsection-8" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.18</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Verifique que a base do sistema anterior é formada por vetores unitários e ortogonais entre si.</article></details><details id="bases_subsection-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.19</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Utilize o código acima para explorar o que ocorre quando os vetores <span class="process-math">\(\vec{u}_1, \vec{u}_2\)</span> formam um ângulo pequeno entre si.</article></details><div class="para" id="bases_subsection-10">Temos então que é possível encontrar muitas (na verdade infinitas) bases para um espaço vetorial <span class="process-math">\(V\text{.}\)</span> Os dois teoremas a seguir garantem que duas bases para um espaço vetorial têm sempre o mesmo número de vetores.</div>
-<article class="theorem theorem-like" id="vetores_demais"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.20</span><span class="period">.</span>
-</h4>
-<div class="para" id="vetores_demais-1-1">Se <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\)</span> geram um espaço vtorial <span class="process-math">\(V\text{,}\)</span> então qualquer coleção de <span class="process-math">\(m \gt n\)</span> vetores de <span class="process-math">\(V\)</span>é L.D.</div></article><details id="vetores_demais-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Sejam <span class="process-math">\(\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \in V\)</span> vetores. Cada um desses vetores pode ser escrito como combinação linear de <span class="process-math">\(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{,}\)</span> pois estes geram <span class="process-math">\(V\text{.}\)</span> Assim, para cada <span class="process-math">\(i =1, \ldots, m\text{,}\)</span> existem escalares <span class="process-math">\(a_{i1}, a_{i2}, \ldots, a_{in}\)</span> tais que<div class="displaymath process-math">
+</div>tem determinante \(\det(A) = 1\) e portanto é inversível, de modo que o sistema \(A\vec{\alpha} = \vec{x}\) tem solução \(\alpha = A^{-1} \vec{x}\) para qualquer \(\vec{x} \in \mathbb{R}^3\) e \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) geram \(\mathbb{R}^3\text{,}\) além disso, a solução é única para qualquer \(\vec{x} \in \mathbb{R}^3\text{,}\) em particular para \(\vec{x} = \vec{0}\text{,}\) de modo que os vetores são L.I. Dessa forma, \(\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) formam uma base para \(\mathbb{R}^3\text{.}\)</article></div>
+<article class="exercise exercise-like" id="exercise-51"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-51"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-51"><article class="exercise exercise-like">Verifique que a base do sistema anterior é formada por vetores unitários e ortogonais entre si.</article></div>
+<article class="exercise exercise-like" id="exercise-52"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-52"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.19</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-52"><article class="exercise exercise-like">Utilize o código acima para explorar o que ocorre quando os vetores \(\vec{u}_1, \vec{u}_2\) formam um ângulo pequeno entre si.</article></div>
+<p id="p-250">Temos então que é possível encontrar muitas (na verdade infinitas) bases para um espaço vetorial \(V\text{.}\) Os dois teoremas a seguir garantem que duas bases para um espaço vetorial têm sempre o mesmo número de vetores.</p>
+<article class="theorem theorem-like" id="vetores_demais"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.20</span><span class="period">.</span>
+</h6>
+<p id="p-251">Se \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) geram um espaço vtorial \(V\text{,}\) então qualquer coleção de \(m \gt n\) vetores de \(V\)é L.D.</p></article><article class="hiddenproof" id="proof-15"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof">Sejam \(\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \in V\) vetores. Cada um desses vetores pode ser escrito como combinação linear de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{,}\) pois estes geram \(V\text{.}\) Assim, para cada \(i =1, \ldots, m\text{,}\) existem escalares \(a_{i1}, a_{i2}, \ldots, a_{in}\) tais que<div class="displaymath">
 \begin{equation*}
 \vec{u}_i = a_{1i}\vec{v}_1+ a_{2i}\vec{v}_2+ \ldots + a_{ni} \vec{v}_n.
 \end{equation*}
-</div>Assim, encontrar constantes  <span class="process-math">\(\alpha_1, \ldots, \alpha_m\)</span> tais que <span class="process-math">\(\alpha_1\vec{u}_1 + \alpha_2\vec{u}_2 + \cdots \alpha_m\vec{u}_m\)</span> é o mesmo que resolver o sistema<div class="displaymath process-math" id="vetores_demais-2-9">
+</div>Assim, encontrar constantes  \(\alpha_1, \ldots, \alpha_m\) tais que \(\alpha_1\vec{u}_1 + \alpha_2\vec{u}_2 + \cdots \alpha_m\vec{u}_m\) é o mesmo que resolver o sistema<div class="displaymath">
 \begin{align*}
 \vec{0} =\amp\alpha_1( a_{11}\vec{v}_1+ a_{21}\vec{v}_2+ \ldots + a_{n1} \vec{v}_n) + \alpha_2(a_{12}\vec{v}_1+ a_{22}\vec{v}_2+ \ldots + a_{n2} \vec{v}_n) + \cdots \\
 \amp + \alpha_m(a_{1m}\vec{v}_1+ a_{2m}\vec{v}_2+ \ldots + a_{nm} \vec{v}_n) \\
 =\amp (\alpha_1 a_{11} + \alpha_2 a_{12} + \cdots + \alpha_m a_{1m})\vec{v}_1+ (\alpha_1 a_{21} + \alpha_2 a_{22} + \cdots + \alpha_m a_{2m})\vec{v}_2+ \ldots \\
 \amp + (\alpha_1 a_{n1} + \alpha_2 a_{n2} + \cdots + \alpha_m a_{nm}) \vec{v}_n 
 \end{align*}
-</div>e uma solução dessa equação é tomar cada coeficiente dos vetores <span class="process-math">\(\vec{v}_i\)</span> iguais a zero, de modo que para mostrarmos que <span class="process-math">\(\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m\)</span> é L.D., basta mostrar que o sistema<div class="displaymath process-math" id="vetores_demais-2-12">
+</div>e uma solução dessa equação é tomar cada coeficiente dos vetores \(\vec{v}_i\) iguais a zero, de modo que para mostrarmos que \(\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m\) é L.D., basta mostrar que o sistema<div class="displaymath">
 \begin{align*}
 \alpha_1 a_{11} + \alpha_2 a_{12} + \cdots + \alpha_m a_{1m} = \amp 0 \\
 \alpha_1 a_{21} + \alpha_2 a_{22} + \cdots + \alpha_m a_{2m} = \amp 0 \\
 \vdots \,\,\,\,\,\,\, =\amp \,\,\vdots \\
 \alpha_1 a_{n1} + \alpha_2 a_{n2} + \cdots + \alpha_m a_{nm} = \amp 0 
 \end{align*}
-</div>admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).</article></details><article class="theorem theorem-like" id="bases_subsection-12"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.21</span><span class="period">.</span>
-</h4>
-<div class="para" id="bases_subsection-12-1-1">Se <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> é uma base para um espaço vetorial <span class="process-math">\(V\text{,}\)</span> então qualquer coleção de <span class="process-math">\(k \lt n\)</span> vetores de <span class="process-math">\(V\)</span> não gera <span class="process-math">\(V\text{.}\)</span>
-</div></article><details id="bases_subsection-12-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><div class="para" id="bases_subsection-13">Os teoremas acima garantem que se uma base para um espaço vetorial <span class="process-math">\(V\)</span> tem <span class="process-math">\(n\)</span> vetores, então qualquer outra base para <span class="process-math">\(V\)</span> também tem <span class="process-math">\(n\)</span> vetores. Assim, existe um número "certo" de vetores para cada base, o que nos motiva a definir a dimensão de um espaço vetorial.</div>
-<article class="definition definition-like" id="bases_subsection-14"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.22</span><span class="period">.</span>
-</h4> <div class="para" id="bases_subsection-14-2-1">Seja <span class="process-math">\((V, E, \oplus, \odot)\)</span> um espaço vetorial. Se <span class="process-math">\(V\)</span> tem uma base de <span class="process-math">\(n\)</span> vetores, dizemos que <span class="process-math">\(V\)</span> tem <dfn class="terminology">dimensão</dfn> <span class="process-math">\(n\text{.}\)</span> O (sub)espaço  <span class="process-math">\(\{\vec{0}\}\)</span> é dito ter dimensão <dfn class="terminology">nula</dfn> ou <span class="process-math">\(0\text{.}\)</span> Em ambos os casos dizemos que <span class="process-math">\(V\)</span> tem <dfn class="terminology">dimensão finita</dfn>. Caso não exista um conjunto de vetores que cobre <span class="process-math">\(V\)</span> com um número finito de elementos, dizemos que <span class="process-math">\(V\)</span> tem <dfn class="terminology">dimensão infinita</dfn>.</div></article><details id="bases_subsection-15" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.23</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Determine  uma base para os seguintes conjuntos e determine suas dimensões <ol class="upper-alpha">
-<li id="bases_subsection-15-1-1-1"><div class="para" id="p-derived-bases_subsection-15-1-1-1">O conjunto das matrizes reais <span class="process-math">\(3 \times 3\)</span> triangulares inferiores.</div></li>
-<li id="bases_subsection-15-1-1-2"><div class="para" id="p-derived-bases_subsection-15-1-1-2">O conjunto dos polinômios de grau 4 (ou seja, polinômios da forma <span class="process-math">\(p(x) = ax^4 + bx^3 + cx^2 + dx + e\)</span>).</div></li>
-<li id="bases_subsection-15-1-1-3"><div class="para" id="p-derived-bases_subsection-15-1-1-3">O espaço nulo da matriz<div class="displaymath process-math">
+</div>admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).</article></div>
+<article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.21</span><span class="period">.</span>
+</h6>
+<p id="p-252">Se \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é uma base para um espaço vetorial \(V\text{,}\) então qualquer coleção de \(k \lt n\) vetores de \(V\) não gera \(V\text{.}\)</p></article><article class="hiddenproof" id="proof-16"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof">A completar.</article></div>
+<p id="p-253">Os teoremas acima garantem que se uma base para um espaço vetorial \(V\) tem \(n\) vetores, então qualquer outra base para \(V\) também tem \(n\) vetores. Assim, existe um número "certo" de vetores para cada base, o que nos motiva a definir a dimensão de um espaço vetorial.</p>
+<article class="definition definition-like" id="definition-19"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.22</span><span class="period">.</span>
+</h6>
+<p id="p-254">Seja \((V, E, \oplus, \odot)\) um espaço vetorial. Se \(V\) tem uma base de \(n\) vetores, dizemos que \(V\) tem <dfn class="terminology">dimensão</dfn> \(n\text{.}\) O (sub)espaço  \(\{\vec{0}\}\) é dito ter dimensão <dfn class="terminology">nula</dfn> ou \(0\text{.}\) Em ambos os casos dizemos que \(V\) tem <dfn class="terminology">dimensão finita</dfn>. Caso não exista um conjunto de vetores que cobre \(V\) com um número finito de elementos, dizemos que \(V\) tem <dfn class="terminology">dimensão infinita</dfn>.</p></article><article class="exercise exercise-like" id="exercise-53"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-53"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.23</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-53"><article class="exercise exercise-like">Determine  uma base para os seguintes conjuntos e determine suas dimensões <ol class="decimal">
+<li id="li-167"><p id="p-derived-li-167">O conjunto das matrizes reais \(3 \times 3\) triangulares inferiores.</p></li>
+<li id="li-168"><p id="p-derived-li-168">O conjunto dos polinômios de grau 4 (ou seja, polinômios da forma \(p(x) = ax^4 + bx^3 + cx^2 + dx + e\)).</p></li>
+<li id="li-169"><p id="p-derived-li-169">O espaço nulo da matriz<div class="displaymath">
 \begin{equation*}
 A = \left(\begin{array}{ccc} 5 \amp 1 \amp  2\\
 1 \amp  5 \amp -2\\
 2 \amp -2 \amp  2 \end{array} \right).
 \end{equation*}
-</div>
-</div></li>
-</ol></article></details><details id="bases_subsection-16" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.24</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre outras<details class="ptx-footnote" aria-live="polite" id="bases_subsection-16-1-1"><summary class="ptx-footnote__number" title="Footnote 11.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="bases_subsection-16-1-1">diferentes das apresentadas na solução do exercício anterior</div></details> bases para os espaços do exercício anterior.</article></details><div class="para" id="bases_subsection-17">Se sabemos que um espaço vetorial tem dimensão <span class="process-math">\(n\)</span> e quisermos verificar se um conjunto de <span class="process-math">\(n\)</span> vetores é uma base, basta verificarmos uma das condições (que eles são L.I. ou que geram <span class="process-math">\(V\)</span>), como garante o teorema a seguir.</div>
-<article class="theorem theorem-like" id="bases_subsection-18"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.25</span><span class="period">.</span>
-</h4>
-<div class="para logical" id="bases_subsection-18-1-1">
-<div class="para">Se <span class="process-math">\(V\)</span> é um espaço vetorial de dimensão <span class="process-math">\(n \gt 0\text{,}\)</span> então:</div>
-<ol class="lower-roman">
-<li id="bases_subsection-18-1-1-3-1"><div class="para" id="bases_subsection-18-1-1-3-1-1">qualquer conjunto <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span>de <span class="process-math">\(n\)</span> vetores linearmente independentes gera <span class="process-math">\(V\text{,}\)</span>
-</div></li>
-<li id="bases_subsection-18-1-1-3-2"><div class="para" id="bases_subsection-18-1-1-3-2-1">quaisquer <span class="process-math">\(n\)</span> vetores que cobrem <span class="process-math">\(V\)</span> são linearmente independentes</div></li>
-</ol>
-</div></article><details id="bases_subsection-18-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><ol class="lower-roman">
-<li id="bases_subsection-18-2-1-1"><div class="para logical" id="bases_subsection-18-2-1-1-1">
-<div class="para">Se <span class="process-math">\(V\)</span> tem dimensão <span class="process-math">\(n\text{,}\)</span> então <span class="process-math">\(V\)</span> admite uma base com <span class="process-math">\(n\)</span> vetores (não necessariamente <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span>). Então o <a href="" class="xref" data-knowl="./knowl/xref/vetores_demais.html" title="Theorem 11.20">Theorem 11.20</a> diz que, para qualquer vetor <span class="process-math">\(\vec{v} \neq \vec{0} \in V\text{,}\)</span> o conjunto <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}\)</span> é L.D. Portanto a equação</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/vetores_demais.html">
+</div></p></li>
+</ol></article></div>
+<article class="exercise exercise-like" id="exercise-54"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-54"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.24</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-54"><article class="exercise exercise-like">Encontre outras<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 3 </sup></a> bases para os espaços do exercício anterior.</article></div>
+<p id="p-255">Se sabemos que um espaço vetorial tem dimensão \(n\) e quisermos verificar se um conjunto de \(n\) vetores é uma base, basta verificarmos uma das condições (que eles são L.I. ou que geram \(V\)), como garante o teorema a seguir.</p>
+<article class="theorem theorem-like" id="theorem-12"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.25</span><span class="period">.</span>
+</h6>
+<p id="p-256">Se \(V\) é um espaço vetorial de dimensão \(n \gt 0\text{,}\) então:</p>
+<ol class="decimal">
+<li id="li-170"><p id="p-257">qualquer conjunto \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)de \(n\) vetores linearmente independentes gera \(V\text{,}\)</p></li>
+<li id="li-171"><p id="p-258">quaisquer \(n\) vetores que cobrem \(V\) são linearmente independentes</p></li>
+</ol></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><ol class="decimal">
+<li id="li-172">
+<p id="p-259">Se \(V\) tem dimensão \(n\text{,}\) então \(V\) admite uma base com \(n\) vetores (não necessariamente \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)). Então o <a class="xref" data-knowl="./knowl/vetores_demais.html" title="Theorem 6.20">Theorem 6.20</a> diz que, para qualquer vetor \(\vec{v} \neq \vec{0} \in V\text{,}\) o conjunto \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}\) é L.D. Portanto a equação</p>
+<div class="displaymath">
 \begin{equation*}
 \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \cdots + \alpha_n \vec{v}_n + \alpha_{n+1} \vec{v} = \vec{0}
 \end{equation*}
 </div>
-<div class="para">admite solução não nula. Nessa solução <span class="process-math">\(\alpha_{n+1} \neq 0\text{,}\)</span> pois, caso contrário, o  conjunto <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> seria L.D. Portanto</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/vetores_demais.html">
+<p class="continuation">admite solução não nula. Nessa solução \(\alpha_{n+1} \neq 0\text{,}\) pois, caso contrário, o  conjunto \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) seria L.D. Portanto</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{v} = -\alpha_1/\alpha_{i+1}\vec{v}_1 - \alpha_2/\alpha_{i+1}\vec{v}_2 - \cdots - \alpha_n/\alpha_{i+1} \vec{v}_n
 \end{equation*}
 </div>
-<div class="para">e <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> gera <span class="process-math">\(V\text{.}\)</span>
-</div>
-</div></li>
-<li id="bases_subsection-18-2-1-2"><div class="para logical" id="bases_subsection-18-2-1-2-1">
-<div class="para">Seja <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}\)</span> um conjunto de vetores que gera <span class="process-math">\(V\text{.}\)</span> Se este conjunto é L.D., então um dos vetores pode ser escrito como combinação dos demais. Sem perda de generalidade, digamos que seja <span class="process-math">\(\vec{v}_n\text{:}\)</span>
-</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/vetores_demais.html">
+<p class="continuation">e \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) gera \(V\text{.}\)</p>
+</li>
+<li id="li-173">
+<p id="p-260">Seja \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}\) um conjunto de vetores que gera \(V\text{.}\) Se este conjunto é L.D., então um dos vetores pode ser escrito como combinação dos demais. Sem perda de generalidade, digamos que seja \(\vec{v}_n\text{:}\)</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{v}_n = \alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \cdots + \alpha_{n-1} \vec{v}_{n-1},
 \end{equation*}
 </div>
-<div class="para">então <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_{n-1}\}\)</span> também gera <span class="process-math">\(V\text{,}\)</span> pois qualquer vetor <span class="process-math">\(\vec{v} \in V\)</span> pode ser escrito como</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/vetores_demais.html" id="bases_subsection-18-2-1-2-1-8">
+<p class="continuation">então \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_{n-1}\}\) também gera \(V\text{,}\) pois qualquer vetor \(\vec{v} \in V\) pode ser escrito como</p>
+<div class="displaymath">
 \begin{align*}
 \vec{v} =\amp v_1\vec{v}_1 + v_2\vec{v}_2 + \cdots + v_{n-1} \vec{v}_{n-1} + v_{n} \vec{v}_{n} \\
 =(\amp v_1+v_n\alpha_1)\vec{v}_1 + (v_2+v_n\alpha_2)\vec{v}_2 + \cdots + (v_{n-1}+v_n\alpha_{n-1}) \vec{v}_{n-1}. 
 \end{align*}
 </div>
-<div class="para">Assim <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_{n-1}\}\)</span> é um conjunto de geradores para <span class="process-math">\(V\)</span> e o <a href="" class="xref" data-knowl="./knowl/xref/vetores_demais.html" title="Theorem 11.20">Theorem 11.20</a> implica que qualquer conjunto com <span class="process-math">\(n\)</span> vetores é L.D. e <span class="process-math">\(V\)</span> não tem base com <span class="process-math">\(n\)</span> vetores, o que contradiz <span class="process-math">\(V\)</span> ter dimensão <span class="process-math">\(n\text{.}\)</span>
-</div>
-</div></li>
-</ol></article></details></section><section class="subsection" id="mudanca_base"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.4</span><span class="space"> </span><span class="title">Mudança de base</span>
+<p class="continuation">Assim \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_{n-1}\}\) é um conjunto de geradores para \(V\) e o <a class="xref" data-knowl="./knowl/vetores_demais.html" title="Theorem 6.20">Theorem 6.20</a> implica que qualquer conjunto com \(n\) vetores é L.D. e \(V\) não tem base com \(n\) vetores, o que contradiz \(V\) ter dimensão \(n\text{.}\)</p>
+</li>
+</ol></article></div></section><section class="subsection" id="mudanca_base"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.4</span> <span class="title">Mudança de base</span>
 </h3>
-<div class="para" id="mudanca_base-2">Temos a situação que existem muitas (infinitas) bases para cada espaço vetorial. Precisamos então ter uma maneira de passar vetores de uma base para outra.</div>
-<article class="definition definition-like" id="mudanca_base-3"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.26</span><span class="period">.</span>
-</h4> <div class="para logical" id="mudanca_base-3-2-1">
-<div class="para">Seja <span class="process-math">\((V,E,\oplus, \odot)\)</span> um espaço vetorial e <span class="process-math">\(\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> uma base para <span class="process-math">\(V\text{.}\)</span> A <span class="process-math">\(n\)</span>-upla de escalares <span class="process-math">\((v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})\)</span> tal que</div>
-<div class="displaymath process-math">
+<p id="p-261">Temos a situação que existem muitas (infinitas) bases para cada espaço vetorial. Precisamos então ter uma maneira de passar vetores de uma base para outra.</p>
+<article class="definition definition-like" id="definition-20"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.26</span><span class="period">.</span>
+</h6>
+<p id="p-262">Seja \((V,E,\oplus, \odot)\) um espaço vetorial e \(\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) uma base para \(V\text{.}\) A \(n\)-upla de escalares \((v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})\) tal que</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{v} = v_1^\mathcal{U}\vec{u}_1 + v_2^\mathcal{U}\vec{u}_2 + \ldots + v_n^\mathcal{U} \vec{u}_n
 \end{equation*}
 </div>
-<div class="para">é chamada de (conjunto de) <dfn class="terminology">coordenadas de</dfn> <span class="process-math">\(\vec{v}\)</span> na base <span class="process-math">\(\mathcal{U}\)</span> e escrevemos</div>
-<div class="displaymath process-math">
+<p class="continuation">é chamada de (conjunto de) <dfn class="terminology">coordenadas de</dfn> \(\vec{v}\) na base \(\mathcal{U}\) e escrevemos</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{v}^\mathcal{U} = (v_1^\mathcal{U}, v_2^\mathcal{U}, \ldots, v_n^\mathcal{U})^T.
 \end{equation*}
 </div>
-<div class="para">Normalmente omitimos a referência à base sobrescrita quando nos referimos à base canônica.</div>
-</div></article><article class="remark remark-like" id="mudanca_base-4"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.27</span><span class="period">.</span>
-</h4>As coordenadas de um vetor em uma base são únicas, pois, caso existissem mais de um conjunto de coordenadas correspondente a um único vetor, obteríamos uma contradição com a independencia linear dos vetores da base. Deixamos a verificação disso ao leitor.</article><details id="base_u_canon" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.28</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Considere a base <span class="process-math">\(\mathcal{U} = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\)</span> para <span class="process-math">\(\mathbb{R}^3\)</span> (note que as coordenadas mostradas para os vetores da base <span class="process-math">\(U\)</span> são as representações dos vetores na base canônica). O vetor <span class="process-math">\(\vec{v}^\mathcal{U} = (3, 4, -7)^T\)</span> é, na base canônica,<div class="displaymath process-math">
+<p class="continuation">Normalmente omitimos a referência à base sobrescrita quando nos referimos à base canônica.</p></article><article class="remark remark-like" id="remark-17"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.27</span><span class="period">.</span>
+</h6>As coordenadas de um vetor em uma base são únicas, pois, caso existissem mais de um conjunto de coordenadas correspondente a um único vetor, obteríamos uma contradição com a independencia linear dos vetores da base. Deixamos a verificação disso ao leitor.</article><article class="example example-like" id="base_u_canon"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-base_u_canon"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.28</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-base_u_canon"><article class="example example-like">Considere a base \(\mathcal{U} = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\) para \(\mathbb{R}^3\) (note que as coordenadas mostradas para os vetores da base \(U\) são as representações dos vetores na base canônica). O vetor \(\vec{v}^\mathcal{U} = (3, 4, -7)^T\) é, na base canônica,<div class="displaymath">
 \begin{equation*}
 \vec{v} = 3\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + 4\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} -7 \begin{pmatrix} 2 \\ 1 \\ -1 \end{pmatrix} = \begin{pmatrix} -11 \\ -6 \\ 14 \end{pmatrix}
 \end{equation*}
-</div>note que o cálculo realizado acima pode ser escrito como um produto matricial <span class="process-math">\(U \vec{v}^\mathcal{U}\)</span><div class="displaymath process-math">
+</div>note que o cálculo realizado acima pode ser escrito como um produto matricial \(U \vec{v}^\mathcal{U}\)<div class="displaymath">
 \begin{equation*}
 \vec{v} = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} 3 \\ 4 \\ -7 \end{pmatrix} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix} \vec{v}^\mathcal{U}.
 \end{equation*}
-</div>A matrix<div class="displaymath process-math">
+</div>A matrix<div class="displaymath">
 \begin{equation*}
 U = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix}
 \end{equation*}
-</div>é a <dfn class="terminology">matriz de mudança de base</dfn> da base <span class="process-math">\(U\)</span> para a base canônica.</article></details><details id="base_canon_u" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.29</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Considere a base <span class="process-math">\(U = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\)</span> para <span class="process-math">\(\mathbb{R}^3\)</span> e o vetor <span class="process-math">\(\vec{v} = (1, -1, 3)^T\)</span> (na base canônica). As coordenadas de <span class="process-math">\(\vec{v}\)</span> na base <span class="process-math">\(U\)</span> são encontradas resolvendo o sistema<div class="displaymath process-math">
+</div>é a <dfn class="terminology">matriz de mudança de base</dfn> da base \(U\) para a base canônica.</article></div>
+<article class="example example-like" id="base_canon_u"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-base_canon_u"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.29</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-base_canon_u"><article class="example example-like">Considere a base \(U = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\) para \(\mathbb{R}^3\) e o vetor \(\vec{v} = (1, -1, 3)^T\) (na base canônica). As coordenadas de \(\vec{v}\) na base \(U\) são encontradas resolvendo o sistema<div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = v^\mathcal{U}_1\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + v^\mathcal{U}_2\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} + v^\mathcal{U}_3 \begin{pmatrix} 2\\ 1 \\ -1 \end{pmatrix}= \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix} \begin{pmatrix} v^\mathcal{U}_1 \\ v^\mathcal{U}_2 \\ v^\mathcal{U}_3 \end{pmatrix}.
 \end{equation*}
-</div>Dessa forma<div class="displaymath process-math" id="base_canon_u-1-7">
+</div>Dessa forma<div class="displaymath">
 \begin{align*}
 \vec{v}^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{v} = \begin{pmatrix} 1 \amp  0 \amp 2 \\ -1 \amp 1 \amp 1 \\ 1 \amp 1 \amp -1 \end{pmatrix}^{-1} \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}\\
 =\amp \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix} = \begin{pmatrix} 5/3 \\ 1 \\ -1/3 \end{pmatrix}.
 \end{align*}
-</div>A matrix<div class="displaymath process-math">
+</div>A matrix<div class="displaymath">
 \begin{equation*}
 U^{-1} = \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix}
 \end{equation*}
-</div>é a <dfn class="terminology">matriz de mudança de base</dfn> da base canônica para a base <span class="process-math">\(\mathcal{U}\text{.}\)</span></article></details><div class="para" id="mudanca_base-7">O exemplo a seguir complementa os anteriores.</div>
-<details id="base_canoninca_na_u" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.30</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Considere a base <span class="process-math">\(\mathcal{U} = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\)</span> para <span class="process-math">\(\mathbb{R}^3\)</span> e os vetores <span class="process-math">\(\vec{e}_1, \vec{e}_2, \vec{e}_3\)</span> da base canônica. As coordenadas de <span class="process-math">\(\vec{e}_1, \vec{e}_2, \vec{e}_3\)</span> são<div class="displaymath process-math" id="base_canoninca_na_u-1-5">
+</div>é a <dfn class="terminology">matriz de mudança de base</dfn> da base canônica para a base \(\mathcal{U}\text{.}\)</article></div>
+<p id="p-263">O exemplo a seguir complementa os anteriores.</p>
+<article class="example example-like" id="base_canoninca_na_u"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-base_canoninca_na_u"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.30</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-base_canoninca_na_u"><article class="example example-like">Considere a base \(\mathcal{U} = \{ \vec{u}_1, \vec{u}_2, \vec{u}_3 \} = \{(1,-1,1)^T, (0,1,1)^T, (2,1,-1)^T \}\) para \(\mathbb{R}^3\) e os vetores \(\vec{e}_1, \vec{e}_2, \vec{e}_3\) da base canônica. As coordenadas de \(\vec{e}_1, \vec{e}_2, \vec{e}_3\) são<div class="displaymath">
 \begin{align*}
 \vec{e}_1^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{e}_1 = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 1/3 \\ 0 \\ 1/3 \end{pmatrix},\\
 \vec{e}_2^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{e}_2 = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} -1/3 \\ 1/2 \\ 1/6 \end{pmatrix},\\
 \vec{e}_3^\mathcal{U}  =\amp \begin{pmatrix} | \amp  | \amp | \\ \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \\ | \amp | \amp | \end{pmatrix}^{-1} \vec{e}_3 = \begin{pmatrix} 1/3 \amp  -1/3 \amp 1/3 \\ 0 \amp 1/2 \amp 1/2 \\ 1/3 \amp 1/6 \amp -1/6 \end{pmatrix} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1/3 \\ 1/2 \\ -1/6 \end{pmatrix}.
 \end{align*}
-</div>Note que as colunas da matriz <span class="process-math">\(U^{-1}\)</span> são as coordenadas dos vetores <span class="process-math">\(\vec{e}_1, \vec{e}_2, \vec{e}_3\)</span> na base <span class="process-math">\(\mathcal{U}\text{.}\)</span></article></details><article class="definition definition-like" id="mudanca_base-9"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.31</span><span class="period">.</span>
-</h4> <div class="para logical" id="mudanca_base-9-2-1">
-<div class="para">Sejam <span class="process-math">\((V,E,\oplus, \odot)\)</span> um espaço vetorial e <span class="process-math">\(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> e <span class="process-math">\(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> bases para <span class="process-math">\(V\text{.}\)</span> Cada vetor da base <span class="process-math">\(\mathcal{U}\)</span> tem coordenadas na base <span class="process-math">\(\mathcal{V}\text{,}\)</span> <span class="process-math">\(\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T\text{.}\)</span> A <dfn class="terminology">matriz de mudança de base</dfn> da base <span class="process-math">\(\mathcal{U}\)</span> para a base <span class="process-math">\(\mathcal{V}\)</span> é a matriz</div>
-<div class="displaymath process-math">
+</div>Note que as colunas da matriz \(U^{-1}\) são as coordenadas dos vetores \(\vec{e}_1, \vec{e}_2, \vec{e}_3\) na base \(\mathcal{U}\text{.}\)</article></div>
+<article class="definition definition-like" id="definition-21"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.31</span><span class="period">.</span>
+</h6>
+<p id="p-264">Sejam \((V,E,\oplus, \odot)\) um espaço vetorial e \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) e \(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) bases para \(V\text{.}\) Cada vetor da base \(\mathcal{U}\) tem coordenadas na base \(\mathcal{V}\text{,}\) \(\vec{u}_i^\mathcal{V} = (a_{1i}, a_{2i}, \ldots, a_{ni})^T\text{.}\) A <dfn class="terminology">matriz de mudança de base</dfn> da base \(\mathcal{U}\) para a base \(\mathcal{V}\) é a matriz</p>
+<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} | \amp  | \amp  \amp | \\ \vec{u}_1^\mathcal{V} \amp \vec{u}_2^\mathcal{V} \amp \cdots \amp \vec{u}_n^\mathcal{V} \\ | \amp | \amp  \amp | \end{pmatrix} = \begin{pmatrix} a_{11} \amp  a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ a_{n1} \amp a_{n2} \amp \cdots \amp a_{nn} \end{pmatrix}.
 \end{equation*}
-</div>
-</div></article><details id="mudanca_base-10" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.32</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Sejam <span class="process-math">\((V,E,\oplus, \odot)\)</span> um espaço vetorial e <span class="process-math">\(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> uma base para <span class="process-math">\(V\text{.}\)</span> Quais as coordenadas de <span class="process-math">\(\vec{u}_i\)</span> na base <span class="process-math">\(\mathcal{U}\text{.}\)</span></article></details><article class="remark remark-like" id="mudanca_base-11"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.33</span><span class="period">.</span>
-</h4>Sejam <span class="process-math">\(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> e <span class="process-math">\(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> bases para <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Se um vetor <span class="process-math">\(\vec{v}\)</span> tem coordenadas <span class="process-math">\(\vec{v}^U\)</span> e <span class="process-math">\(\vec{v}^V\)</span> nas bases <span class="process-math">\(U\)</span> e <span class="process-math">\(V\)</span> nas respectivas bases e <span class="process-math">\(U\)</span> e <span class="process-math">\(V\)</span> são as matrizes de mudança de base das bases <span class="process-math">\(\mathcal{U}\)</span> e <span class="process-math">\(\mathcal{V}\)</span> para a base canônica, temos que<div class="displaymath process-math">
+</div></article><article class="exercise exercise-like" id="exercise-55"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-55"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.32</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-55"><article class="exercise exercise-like">Sejam \((V,E,\oplus, \odot)\) um espaço vetorial e \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) uma base para \(V\text{.}\) Quais as coordenadas de \(\vec{u}_i\) na base \(\mathcal{U}\text{.}\)</article></div>
+<article class="remark remark-like" id="remark-18"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.33</span><span class="period">.</span>
+</h6>Sejam \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) e \(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) bases para \(\mathbb{R}^n\text{.}\) Se um vetor \(\vec{v}\) tem coordenadas \(\vec{v}^U\) e \(\vec{v}^V\) nas bases \(U\) e \(V\) nas respectivas bases e \(U\) e \(V\) são as matrizes de mudança de base das bases \(\mathcal{U}\) e \(\mathcal{V}\) para a base canônica, temos que<div class="displaymath">
 \begin{equation*}
 U\vec{v}^U = \vec{v} = V\vec{v}^V,
 \end{equation*}
-</div>de modo que<div class="displaymath process-math">
+</div>de modo que<div class="displaymath">
 \begin{equation*}
 \vec{v}^V = V^{-1}U\vec{v}^U,
 \end{equation*}
-</div>ou seja, a matriz de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base <span class="process-math">\(\mathcal{V}\)</span> é <span class="process-math">\(V^{-1}U\text{.}\)</span></article><pre id="mudanca_base-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</div>ou seja, a matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\) é \(V^{-1}U\text{.}\)</article><div class="sagecell-sage" id="sage-37"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig, ax = plt.subplots()
@@ -836,35 +757,26 @@ plt.annotate('U', [-2.55,1.2], fontsize=20)
 
 
 plt.show()
-</script></pre>
-<article class="remark remark-like" id="mudanca_base-13"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.34</span><span class="period">.</span>
-</h4>A matriz de mudança de base sempre é inversível, pois, caso não fosse, o sistema <span class="process-math">\(A\vec{x}=\vec{0}\)</span> admitiria soluções não nulas, de modo que<div class="displaymath process-math">
+</script></div>
+<article class="remark remark-like" id="remark-19"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.34</span><span class="period">.</span>
+</h6>A matriz de mudança de base sempre é inversível, pois, caso não fosse, o sistema \(A\vec{x}=\vec{0}\) admitiria soluções não nulas, de modo que<div class="displaymath">
 \begin{equation*}
 \vec{0} = A\vec{x} = x_1 \vec{u}_1^\mathcal{V} + x_2 \vec{u}_2^\mathcal{V} + \cdots + x_n \vec{u}_n^\mathcal{V}, 
 \end{equation*}
-</div>(a completar).</article><article class="remark remark-like" id="mudanca_base-14"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.35</span><span class="period">.</span>
-</h4>Sejam <span class="process-math">\((V,E,\oplus, \odot)\)</span> um espaço vetorial e <span class="process-math">\(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> <span class="process-math">\(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> bases para <span class="process-math">\(V\)</span> e A = <span class="process-math">\((a_{ij})\)</span> a matriz de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base <span class="process-math">\(\mathcal{V}\text{,}\)</span> de modo que <span class="process-math">\(\vec{u}_i^{\mathcal{V}} = a_{1i}\vec{v}_1 + a_{2i} \vec{v}_2 + \cdots + a_{ni} \vec{v}_n\)</span></article><details id="mudanca_base-15" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.36</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre as matrizes de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base <span class="process-math">\(\mathcal{V}\)</span> para as de <span class="process-math">\(\mathbb{R}^n\)</span>bases a seguir: <ol class="decimal">
-<li id="mudanca_base-15-1-4-1"><div class="para" id="p-derived-mudanca_base-15-1-4-1">
-<span class="process-math">\(\mathcal{U} = \{(1,-1)^T, (3,-2)^T\}\text{,}\)</span> <span class="process-math">\(\mathcal{V} = \mathcal{E} =\{(5,2)^T, (-1,3)^T \}\)</span>
-</div></li>
-<li id="mudanca_base-15-1-4-2"><div class="para" id="p-derived-mudanca_base-15-1-4-2">
-<span class="process-math">\(\mathcal{U} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}\text{,}\)</span> <span class="process-math">\(\mathcal{V} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}\)</span>
-</div></li>
-<li id="mudanca_base-15-1-4-3"><div class="para" id="p-derived-mudanca_base-15-1-4-3">
-<span class="process-math">\(\mathcal{U} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}\text{,}\)</span> <span class="process-math">\(\mathcal{V} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}\)</span>
-</div></li>
-<li id="mudanca_base-15-1-4-4"><div class="para" id="p-derived-mudanca_base-15-1-4-4">
-<span class="process-math">\(\mathcal{U} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}\text{,}\)</span> <span class="process-math">\(\mathcal{V} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}\)</span>
-</div></li>
-<li id="mudanca_base-15-1-4-5"><div class="para" id="p-derived-mudanca_base-15-1-4-5">
-<span class="process-math">\(\mathcal{U} = \{(1,-1,1, -1)^T, (1,1,-1, -1)^T, (0,1,1, 0)^T, (1,0,0, 1)^T \}\text{,}\)</span> <span class="process-math">\(\mathcal{V} = \{(-1,1,1, 1)^T, (1,1,1, -1)^T, (0,1,-1, 0)^T, (1,0,0, 1)^T \}\)</span>
-</div></li>
-</ol></article></details><div class="para" id="mudanca_base-16">utilize o código a seguir para verificar as respostas obtidas no exercício anterior.</div>
-<pre id="mudanca_base-17" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Python program to calculate the base change matrix using numpy
+</div>(a completar).</article><article class="remark remark-like" id="remark-20"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.35</span><span class="period">.</span>
+</h6>Sejam \((V,E,\oplus, \odot)\) um espaço vetorial e \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)\(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) bases para \(V\) e A = \((a_{ij})\) a matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\text{,}\) de modo que \(\vec{u}_i^{\mathcal{V}} = a_{1i}\vec{v}_1 + a_{2i} \vec{v}_2 + \cdots + a_{ni} \vec{v}_n\)</article><article class="exercise exercise-like" id="exercise-56"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-56"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.36</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-56"><article class="exercise exercise-like">Encontre as matrizes de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\) para as de \(\mathbb{R}^n\)bases a seguir: <ol class="decimal">
+<li id="li-174"><p id="p-derived-li-174">\(\mathcal{U} = \{(1,-1)^T, (3,-2)^T\}\text{,}\) \(\mathcal{V} = \mathcal{E} =\{(5,2)^T, (-1,3)^T \}\)</p></li>
+<li id="li-175"><p id="p-derived-li-175">\(\mathcal{U} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}\text{,}\) \(\mathcal{V} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}\)</p></li>
+<li id="li-176"><p id="p-derived-li-176">\(\mathcal{U} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}\text{,}\) \(\mathcal{V} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}\)</p></li>
+<li id="li-177"><p id="p-derived-li-177">\(\mathcal{U} = \{(1,-1,1)^T, (1,-2,1)^T, (2,-1,-1)^T \}\text{,}\) \(\mathcal{V} = \mathcal{E} =\{\vec{i},\vec{j},\vec{k} \}\)</p></li>
+<li id="li-178"><p id="p-derived-li-178">\(\mathcal{U} = \{(1,-1,1, -1)^T, (1,1,-1, -1)^T, (0,1,1, 0)^T, (1,0,0, 1)^T \}\text{,}\) \(\mathcal{V} = \{(-1,1,1, 1)^T, (1,1,1, -1)^T, (0,1,-1, 0)^T, (1,0,0, 1)^T \}\)</p></li>
+</ol></article></div>
+<p id="p-265">utilize o código a seguir para verificar as respostas obtidas no exercício anterior.</p>
+<div class="sagecell-sage" id="sage-38"><script type="text/x-sage"># Python program to calculate the base change matrix using numpy
 
 # Import required package
 import numpy as np
@@ -883,77 +795,84 @@ V = np.array([[0, 2, -1],
 
 # printing the base change matrix
 print(np.linalg.inv(V).dot(U))
-</script></pre></section><section class="subsection" id="esp_linha"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">11.5</span><span class="space"> </span><span class="title">Espaço Linha e Espaço Coluna</span>
+</script></div></section><section class="subsection" id="esp_linha"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.5</span> <span class="title">Espaço Linha e Espaço Coluna</span>
 </h3>
-<article class="definition definition-like" id="esp_linha-2"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.37</span><span class="period">.</span>
-</h4> <div class="para" id="esp_linha-2-2-1">Seja <span class="process-math">\(A\)</span> uma matriz <span class="process-math">\(m \times n\text{.}\)</span> O subespaço de <span class="process-math">\(\mathbb{R}^{1 \times n}\)</span> coberto pelos vetores linha de <span class="process-math">\(A\)</span> é chamado de de <dfn class="terminology">espaço linha</dfn> de <span class="process-math">\(A\text{.}\)</span> O subespaço de <span class="process-math">\(\mathbb{R}^m\)</span> coberto pelos vetores coluna de <span class="process-math">\(A\)</span> é chamado de <dfn class="terminology">espaço coluna</dfn> de <span class="process-math">\(A\text{.}\)</span>
-</div></article><details id="esp_linha-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.38</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Para a matriz<div class="displaymath process-math">
+<article class="definition definition-like" id="definition-22"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.37</span><span class="period">.</span>
+</h6>
+<p id="p-266">Seja \(A\) uma matriz \(m \times n\text{.}\) O subespaço de \(\mathbb{R}^{1 \times n}\) coberto pelos vetores linha de \(A\) é chamado de de <dfn class="terminology">espaço linha</dfn> de \(A\text{.}\) O subespaço de \(\mathbb{R}^m\) coberto pelos vetores coluna de \(A\) é chamado de <dfn class="terminology">espaço coluna</dfn> de \(A\text{.}\)</p></article><article class="example example-like" id="example-50"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-50"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.38</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like">Para a matriz<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 0 \amp 0 \\
 0 \amp 1 \amp 0\end{pmatrix}\text{,}
 \end{equation*}
-</div>o espaço linha é formado pelas triplas da forma:<div class="displaymath process-math">
+</div>o espaço linha é formado pelas triplas da forma:<div class="displaymath">
 \begin{equation*}
 \alpha_1 (1, 0, 0) + \alpha_2 (0, 1, 0) = (\alpha_1, \alpha_2, 0)\text{,}
 \end{equation*}
-</div>ou seja, é igual ao <span class="process-math">\(Span((1, 0, 0),(0, 1, 0))\text{.}\)</span> O espaço coluna é formado pelos vetores da forma:<div class="displaymath process-math">
+</div>ou seja, é igual ao \(Span((1, 0, 0),(0, 1, 0))\text{.}\) O espaço coluna é formado pelos vetores da forma:<div class="displaymath">
 \begin{equation*}
 \alpha_1 \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \alpha_1 \\ \alpha_2 \end{pmatrix}\text{,}
 \end{equation*}
-</div>ou seja, é igual ao <span class="process-math">\(Span\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right)\text{.}\)</span></article></details><details id="esp_linha-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.39</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Para a matriz<div class="displaymath process-math">
+</div>ou seja, é igual ao \(Span\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right)\text{.}\)</article></div>
+<article class="example example-like" id="example-51"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-51"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.39</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-51"><article class="example example-like">Para a matriz<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
 1 \amp 0 \amp -1 \amp 1\\
 1 \amp 1 \amp 1 \amp 0\\
 1 \amp 0 \amp -1 \amp 1\end{pmatrix}\text{,}
 \end{equation*}
-</div>temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:<div class="displaymath process-math">
+</div>temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma:<div class="displaymath">
 \begin{equation*}
 \alpha_1 (1, 1, 1, 0) + \alpha_2 (1, 0, -1, 1) = (\alpha_1 + \alpha_2, \alpha_1, \alpha_1 - \alpha_2, \alpha_@)\text{,}
 \end{equation*}
-</div>ou seja, é igual ao <span class="process-math">\(Span((1, 1, 1, 0),(1, 0, -1, 1))\text{.}\)</span> Denotando <span class="process-math">\(\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4\)</span> para as colunas de <span class="process-math">\(A\text{,}\)</span> observamos que <span class="process-math">\(\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2\)</span> e <span class="process-math">\(\vec{a}_4 = \vec{a}_1 - \vec{a}_2\)</span> e o espaço coluna é formado pelos vetores da forma:<div class="displaymath process-math">
+</div>ou seja, é igual ao \(Span((1, 1, 1, 0),(1, 0, -1, 1))\text{.}\) Denotando \(\vec{a}_1,\vec{a}_2,\vec{a}_3,\vec{a}_4\) para as colunas de \(A\text{,}\) observamos que \(\vec{a}_3 = -\vec{a}_1 + 2 \vec{a}_2\) e \(\vec{a}_4 = \vec{a}_1 - \vec{a}_2\) e o espaço coluna é formado pelos vetores da forma:<div class="displaymath">
 \begin{equation*}
 \alpha_1 \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \alpha_1 + \alpha_2 \\ \alpha_1 \\ \alpha_1 + \alpha_2 \\ \alpha_1 \end{pmatrix}\text{,}
 \end{equation*}
-</div>ou seja, é igual ao <span class="process-math">\(Span\left(\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} \right)\text{.}\)</span></article></details><article class="theorem theorem-like" id="esp_linha-5"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.40</span><span class="period">.</span>
-</h4>Duas matrizes equivalentes por linhas têm o mesmo espaço linha.</article><details id="esp_linha-5-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><article class="definition definition-like" id="esp_linha-6"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.41</span><span class="period">.</span>
-</h4> <div class="para" id="esp_linha-6-2-1">O <dfn class="terminology">posto</dfn> (rank em inglês) de uma matriz <span class="process-math">\(A\text{,}\)</span> denotado <span class="process-math">\(\mbox{posto}(A)\)</span> ou <span class="process-math">\(\mbox{rank}(A)\text{,}\)</span> é a dimensão do espaço linha<details class="ptx-footnote" aria-live="polite" id="esp_linha-6-2-1-6"><summary class="ptx-footnote__number" title="Footnote 11.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="esp_linha-6-2-1-6">ou do espaço coluna, pois, ambas são iguais</div></details> de <span class="process-math">\(A\text{.}\)</span>
-</div></article><article class="remark remark-like" id="esp_linha-7"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.42</span><span class="period">.</span>
-</h4>O posto de uma matriz <span class="process-math">\(A\)</span> é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de <span class="process-math">\(A\text{.}\)</span></article><article class="theorem theorem-like" id="esp_linha-8"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.43</span><span class="period">.</span>
-</h4>A dimensão do espaço linha de uma matriz <span class="process-math">\(A^{m \times n}\)</span> é igual à dimensão do seu espaço coluna.</article><details id="esp_linha-8-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><article class="remark remark-like" id="esp_linha-9"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.44</span><span class="period">.</span>
-</h4>As colunas da matriz <span class="process-math">\(A\)</span> na forma escalonada <dfn class="terminology">não formam uma base para o espaço coluna de</dfn> <span class="process-math">\(A\text{,}\)</span> apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de <span class="process-math">\(A\text{.}\)</span></article><article class="remark remark-like" id="esp_linha-10"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.45</span><span class="period">.</span>
-</h4>O espaço linha de <span class="process-math">\(A\)</span> é igual ao espaço coluna de <span class="process-math">\(A^T\)</span> (se transpormos os vetores).</article><details id="esp_linha-11" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.46</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Determine o posto da matriz<div class="displaymath process-math">
+</div>ou seja, é igual ao \(Span\left(\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} \right)\text{.}\)</article></div>
+<article class="theorem theorem-like" id="theorem-13"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.40</span><span class="period">.</span>
+</h6>Duas matrizes equivalentes por linhas têm o mesmo espaço linha.</article><article class="hiddenproof" id="proof-18"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof">A completar.</article></div>
+<article class="definition definition-like" id="definition-23"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.41</span><span class="period">.</span>
+</h6>
+<p id="p-267">O <dfn class="terminology">posto</dfn> (rank em inglês) de uma matriz \(A\text{,}\) denotado \(\mbox{posto}(A)\) ou \(\mbox{rank}(A)\text{,}\) é a dimensão do espaço linha<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 4 </sup></a> de \(A\text{.}\)</p>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">ou do espaço coluna, pois, ambas são iguais</div></div></article><article class="remark remark-like" id="remark-21"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.42</span><span class="period">.</span>
+</h6>O posto de uma matriz \(A\) é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-14"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.43</span><span class="period">.</span>
+</h6>A dimensão do espaço linha de uma matriz \(A^{m \times n}\) é igual à dimensão do seu espaço coluna.</article><article class="hiddenproof" id="proof-19"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof">A completar.</article></div>
+<article class="remark remark-like" id="remark-22"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.44</span><span class="period">.</span>
+</h6>As colunas da matriz \(A\) na forma escalonada <dfn class="terminology">não formam uma base para o espaço coluna de</dfn>\(A\text{,}\) apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de \(A\text{.}\)</article><article class="remark remark-like" id="remark-23"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.45</span><span class="period">.</span>
+</h6>O espaço linha de \(A\) é igual ao espaço coluna de \(A^T\) (se transpormos os vetores).</article><article class="exercise exercise-like" id="exercise-57"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-57"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.46</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-57"><article class="exercise exercise-like">Determine o posto da matriz<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
 1 \amp 1 \amp -1 \amp 1 \amp 2\\
 1 \amp 1 \amp 1 \amp 0 \amp -2\\
 1 \amp 1 \amp -1 \amp 1 \amp 2\end{pmatrix}
 \end{equation*}
-</div>e bases para seu espaço linha e espaço coluna.</article></details><details id="esp_linha-12" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">11.47</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Determine o posto da matriz<div class="displaymath process-math">
+</div>e bases para seu espaço linha e espaço coluna.</article></div>
+<article class="exercise exercise-like" id="exercise-58"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-58"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.47</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-58"><article class="exercise exercise-like">Determine o posto da matriz<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0 \amp 1\\
 1 \amp -1 \amp -1 \amp 1 \amp 2\\
 1 \amp 1 \amp 1 \amp 2 \amp -2\\
 1 \amp -1 \amp -1 \amp 1 \amp 2\end{pmatrix}
 \end{equation*}
-</div>e bases para seu espaço linha e espaço coluna.</article></details><div class="para" id="esp_linha-13">O código abaixo permite colocar uma matriz na forma escalonada.</div>
-<pre id="esp_linha-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Write an array representing the augmented matrix
+</div>e bases para seu espaço linha e espaço coluna.</article></div>
+<p id="p-268">O código abaixo permite colocar uma matriz na forma escalonada.</p>
+<div class="sagecell-sage" id="sage-39"><script type="text/x-sage"># Write an array representing the augmented matrix
 import numpy as np
 import fractions
 A= np.array([[1.,1.,1.,0.,1],[1.,1.,-1.,1.,2],[1.,1.,1.,0.,-2.],[1.,1.,-1.,1.,2.]])
@@ -989,24 +908,19 @@ def Gaussian_elimination(A,prin=True):
     np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
     return A
 Gaussian_elimination(A)
-</script></pre>
-<article class="remark remark-like" id="esp_linha-15"><h4 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">11.48</span><span class="period">.</span>
-</h4>Um sistema linear <span class="process-math">\(A\vec{x} = \vec{b}\)</span> tem solução se, e somente se, <span class="process-math">\(\vec{b}\)</span> está no espaço coluna de <span class="process-math">\(A\text{.}\)</span></article><article class="definition definition-like" id="esp_linha-16"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.49</span><span class="period">.</span>
-</h4> <div class="para" id="esp_linha-16-2-1">A <dfn class="terminology">nulidade</dfn> de uma matriz <span class="process-math">\(A\text{,}\)</span> denotado <span class="process-math">\(\mbox{nul}(A)\text{,}\)</span> é a dimensão do seu espaço nulo.</div></article><article class="theorem theorem-like" id="esp_linha-17"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.50</span><span class="period">.</span><span class="space"> </span><span class="title">do núcleo e da imagem.</span>
-</h4>Para qualquer matriz <span class="process-math">\(A^{m \times n}\)</span> vale:<div class="displaymath process-math">
+</script></div>
+<article class="remark remark-like" id="remark-24"><h6 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.48</span><span class="period">.</span>
+</h6>Um sistema linear \(A\vec{x} = \vec{b}\) tem solução se, e somente se, \(\vec{b}\) está no espaço coluna de \(A\text{.}\)</article><article class="definition definition-like" id="definition-24"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.49</span><span class="period">.</span>
+</h6>
+<p id="p-269">A <dfn class="terminology">nulidade</dfn> de uma matriz \(A\text{,}\) denotado \(\mbox{nul}(A)\text{,}\) é a dimensão do seu espaço nulo.</p></article><article class="theorem theorem-like" id="theorem-15"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.50</span><span class="period">.</span><span class="space"> </span><span class="title">do núcleo e da imagem.</span>
+</h6>Para qualquer matriz \(A^{m \times n}\) vale:<div class="displaymath">
 \begin{equation*}
 \mbox{posto} (A) + \mbox{nul}(A) = n.
 \end{equation*}
-</div></article><details id="esp_linha-17-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details></section></section></div>
-<div class="ptx-content-footer">
-<a class="previous-button button" href="subescos.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="produto_interno.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
-</div></main>
-</div>
-<div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div></article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof">A completar.</article></div></section></section></div></main>
 </div>
 </body>
 </html>
