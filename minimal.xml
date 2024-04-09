@@ -3205,7 +3205,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                          out
                        </output>
                      </sage>
-                     </remark>1
+                     </remark>
      
                 </subsection>
                 <subsection xml:id="Proj2">
@@ -3220,8 +3220,10 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <li><alert>Lei de Kirchhoff de Tensão:</alert> Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.</li>
                         <li><alert>Lei de Ohm:</alert> A queda de tensão em um elemento resistivo é dada por <m> E = Ri </m> </li>
                     </ul>
+
+                    <p>Observe as aplicações das leis básicas nas soluções dos exemplos abaixo.</p>
                     
-                    <exercise> 
+                    <example> 
                         <p> Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito: </p>
                         <figure>
                             <caption> Circuito 1. Fonte: Leon, S. 2018 </caption>
@@ -3259,10 +3261,10 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             </md>
                             <p> Agora basta colocar as equações na forma matricial e fornecer ao programa. </p>
                         </solution>
-                    </exercise>
+                    </example>
 
-                    <exercise> 
-                        <p> Obtenha as equações referentes à aplicação das leis básicas no seguin1te cicuito: </p>
+                    <example> 
+                        <p> Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito: </p>
                         <figure>
                             <caption> Circuito 2. Fonte: Leon, S. 2018 </caption>
                             <image source="images/circuito2.png"/>
@@ -3298,9 +3300,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             </md>
                             <p> Agora basta colocar as equações na forma matricial e fornecer ao programa. </p>
                         </solution>
-                    </exercise>
+                    </example>
 
-                    <exercise> 
+                    <example> 
                         <p> Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito: </p>
                         <figure>
                             <caption> Circuito 3. Fonte: Leon, S. 2018 </caption>
@@ -3337,6 +3339,20 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             </md>
                             <p> Agora basta colocar as equações na forma matricial e fornecer ao programa. </p>
                         </solution>
+                    </example>
+
+                    <exercise>
+                        <p>
+                            <term>Altere os valores das resistências no circuito abaixo e utilize o seu circuito</term> para obter o sistema de equações referentes à aplicação das leis básicas para as correntes em cada fio (entre nodos): 
+                        </p>
+                        <figure>
+                            <caption> Circuito. Fonte: Wikibooks - Linear Algebra/Topic: Analyzing Networks </caption>
+                            <image source="images/Linalg_circuit_2.png"/>
+                        </figure>
+                    </exercise>
+
+                    <exercise>
+                        <p>Utilize os códigos em python para resolver o sistema que você criou. Explique como e porque está usando os códigos.</p>
                     </exercise>
 
                     <remark>    
@@ -3498,10 +3514,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <title>Espaços Vetoriais</title>
            
             <intro>
-               <p>O conceito de <term>Espaço Vetorial</term> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <term>vetores</term>, assim como <m>\mathbb{R}^3</m> com as operações usuais, 
-               e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de <m>\mathbb{R}^n</m> e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores 
-               em <m>\mathbb{R}^n</m> e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a 
-               ilustração de subespaços de dimensão 1 ou 2 em <m>\mathbb{R}^3</m>.</p>
+               <p>O conceito de <term>Espaço Vetorial</term> trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de <term>vetores</term>, assim como <m>\mathbb{R}^3</m> com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de <m>\mathbb{R}^n</m> e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em <m>\mathbb{R}^n</m> e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em <m>\mathbb{R}^3</m>.</p>
            </intro>
            
             <subsection xml:id="Rn_vecs">
@@ -3554,9 +3567,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 </sage>
                 
                 <p>
-                    Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem.
-                    Assim, no plot, temos o vetor <m>\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)</m> e 
-                    outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.
+                    Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor <m>\vec{x} = \left(\begin{array}{c} 2 \\ 1 \end{array}\right)</m> e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.
                 </p>
 
                 <p>
@@ -3617,7 +3628,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                 <exercise>
                     <statement>
-                        Calcule o comprimento de três representantes de um vetor <m>\vec{x} \in \mathbb{R}^2</m> gerados pelo códico acima.
+                        Escolha um vetor <m>\vec{x}\neq (2, 1)^T</m>, e calcule o comprimento de três representantes desse vetor, fazendo as contas manualmente. Utilize o código acima para plotar alguns representantes desse vetor.
                     </statement>
                 </exercise>
 
@@ -3687,6 +3698,10 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </output>
                 </sage>
 
+                <exercise>
+                    <p>Escolha dois vetores <m>\vec{u}, \vec{v}</m>, diferentes de <m>(1,2)^T</m> e <m>(-2,1)^T</m>, e um escalar <m>\alpha \neq 2</m>. Utilize o código acima para plotar <m>-\vec{v}</m>, <m>\vec{u} + \vec{v}</m>, <m>\vec{u} - \vec{v}</m> e <m>\alpha \vec{u}</m>. Escreva as coordenadas dos representantes com início na origem e as coordenadas dos pontos iniciais e finais de cada vetor no plot. </p>
+                </exercise>
+
             </subsection>
 
 
@@ -3708,31 +3723,31 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                   
                     <statement>
                       <p>
-                        Seja <m>E</m> um conjunto de escalares (usualmente <m>\mathbb{C}</m> ou <m>\mathbb{C}</m>, mas qualquer <it>corpo</it> serviria). Um <term>espaço vetorial</term> <m>(V,E,\oplus,\odot)</m> é um conjunto sobre o qual estão definidas duas operações:
+                        Seja <m>E</m> um conjunto de escalares (usualmente <m>\mathbb{C}</m> ou <m>\mathbb{C}</m>, mas qualquer <it>corpo</it> serviria). Um <term>espaço vetorial</term> <m>(V,E,\oplus,\odot)</m> é formado por um conjunto de vetores, <m>V</m>, um corpo de escalares, <m>E</m>, e duas operações:
                         <md>
-                            <mrow>\oplus: \amp V \times V: \to V, </mrow>
+                            <mrow>\oplus : \amp V \times V: \to V, </mrow>
                             <mrow>(C1) \hspace{9mm} \amp \vec{u}, \vec{v} \in V \Rightarrow \vec{u} \oplus \vec{v}</mrow>
-                            <mrow>\odot: \amp E \times V: \to V, </mrow>
-                            <mrow>(C2) \hspace{9mm} \amp \alpha \in E, \vec{v} \in V \Rightarrow \alpha\vec{u}</mrow>
+                            <mrow>\odot\, : \amp E \times V: \to V, </mrow>
+                            <mrow>(C2) \hspace{9mm} \amp \alpha \in E, \vec{v} \in V \Rightarrow \alpha \odot \vec{u}</mrow>
                         </md>
                         e as operações satisfazem as seguintes propriedades para quaisquer <m>\vec{u}, \vec{v}, \vec{w} \in V</m> e <m>\alpha, \beta \in E</m>:
                         <dl>
-                            <li>(A1)   <m>\hspace{5mm} \vec{u} + \vec{v} = \vec{v} + \vec{u},</m></li>
-                            <li>(A2)   <m>\hspace{5mm} (\vec{u} + \vec{v}) +\vec{w} = \vec{u} + (\vec{v} + \vec{w}),</m></li>
-                            <li>(A3)   <m>\hspace{5mm} \exists \,\,\, \vec{0} \in V; \vec{u} + \vec{0} = \vec{u} \,\, \forall \,\, \vec{u} \in V,</m> </li>
-                            <li>(A4)   <m>\hspace{5mm} \forall \,\, \vec{u} \in V, \exists ! \,\,\, -\vec{u} \in V; \vec{x} + (-\vec{x}) = \vec{0}</m></li>
-                            <li>(A5)   <m>\hspace{5mm} \alpha(\vec{u} + \vec{v}) = \alpha\vec{u} + \alpha\vec{v},</m></li>
-                            <li>(A6)   <m>\hspace{5mm} (\alpha + \beta) \vec{u} = \alpha\vec{u} + \beta\vec{u},</m></li>
-                            <li>(A7)   <m>\hspace{5mm} (\alpha\beta)\vec{u} = \alpha(\beta\vec{u}),</m></li>
-                            <li>(A8)   <m>\hspace{5mm} 1\vec{u} = \vec{u}.</m></li>
+                            <li>(A1)   <m>\hspace{5mm} \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u},</m></li>
+                            <li>(A2)   <m>\hspace{5mm} (\vec{u} \oplus \vec{v}) \oplus\vec{w} = \vec{u} \oplus (\vec{v} \oplus \vec{w}),</m></li>
+                            <li>(A3)   <m>\hspace{5mm} \exists \,\,\, \vec{0} \in V; \vec{u} \oplus \vec{0} = \vec{u}, \,\, \forall \,\, \vec{u} \in V,</m> </li>
+                            <li>(A4)   <m>\hspace{5mm} \forall \,\, \vec{u} \in V, \exists ! \,\,\, -\vec{u} \in V; \vec{u} \oplus (-\vec{u}) = \vec{0}</m>,</li>
+                            <li>(A5)   <m>\hspace{5mm} \alpha\odot(\vec{u} \oplus \vec{v}) = \alpha\odot\vec{u} \oplus \alpha\odot\vec{v},</m></li>
+                            <li>(A6)   <m>\hspace{5mm} (\alpha + \beta) \vec{u} = \alpha\odot\vec{u} \oplus \beta\odot\vec{u},</m></li>
+                            <li>(A7)   <m>\hspace{5mm} (\alpha\beta)\odot\vec{u} = \alpha\odot(\beta\odot\vec{u}),</m></li>
+                            <li>(A8)   <m>\hspace{5mm} 1 \odot \vec{u} = \vec{u}.</m></li>
                         </dl>
-                        V é dito o <term>conjunto universal</term>, os elementos de V são ditos <term>vetores</term> e os elementos de E são ditos <term>escalares</term>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.
+                        V é dito o <term>conjunto universal</term>, os elementos de V são ditos <term>vetores</term> e os elementos de E são ditos <term>escalares</term>. Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos <m>V</m> de um espaço vetorial omitindo menção explicita ao corpo de escalares e às operações de adição e multiplicação por escalar.
                       </p>
                     </statement>
                 </definition>
 
 
-                <example>
+                <example xml:id="not_VE">
                     O conjunto <m>V = \{ \vec{u} = (u_1, u_2)^T \in \mathbb{R}^2 | u_2 =1\}</m> não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de <m>\mathbb{R}^2</m> pois, dados <m>\vec{u}, \vec{v} \in V</m>, <m>\vec{u} = (u_1, 1)^T</m> e <m>\vec{v} = (v_1, 1)^T</m> temos que
                     <me>
                         \vec{u} + \vec{v} = \left( \begin{array}{c} u_1\\ 1 \end{array} \right) + \left( \begin{array}{c} v_1\\ 1 \end{array} \right) = \left( \begin{array}{c} u_1 + v_1\\ 2 \end{array} \right) \notin V.
@@ -3743,7 +3758,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                 <exercise>
                     <statement>
-                        Para mostrar que um conjunto <m>V</m> não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para <m>V</m> e justifique sua escolha.
+                        Para mostrar que um conjunto <m>V</m> não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e A1, ... A8) que não são válidas para o espaço vetorial do <xref ref="not_VE"></xref> e justifique suas escolhas.
                     </statement>
                 </exercise>
 
@@ -3875,6 +3890,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 </sage>
 
 
+
                 <theorem>
                     <!-- <title>Optional</title> -->
                     <!-- <creator>I. Newton</creator> -->
@@ -3882,9 +3898,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <p>
                       Se <m>V</m> é um espaço vetorial e <m>\vec{x} \in V</m>, então:
                       <ol marker="A">
-                        <li> <m> 0 \vec{x} = \vec{0}, </m> </li>
-                        <li> <m> \vec{x}  + \vec{y} = \vec{0} \,\, \Longrightarrow \,\, \vec{y} = - \vec{x}, </m> </li>
-                        <li> <m> (-1) \vec{x} = -\vec{x}, </m> </li>
+                        <li> <m> 0 \odot\vec{x} = \vec{0}, </m> </li>
+                        <li> <m> \vec{x}  \oplus \vec{y} = \vec{0} \,\, \Longrightarrow \,\, \vec{y} = - \vec{x}, </m> </li>
+                        <li> <m> (-1) \odot \vec{x} = -\vec{x}, </m> </li>
                       </ol>
                     </p>
                   </statement>
@@ -3898,6 +3914,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                   </proof>
                 </theorem>
 
+                <exercise>
+                    <p>Utilize o código acima para plotar os conjuntos <m>V = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(1,0,2)^T + \alpha_2 (1, -1, 0)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}</m> e <m>W = \{ \vec{u} \in \mathbb{R}^3 | \vec{u} = \alpha_1(1,0,2)^T + \alpha_2 (1, -1, 0)^T + (-1, -1, 0)^T, \, \alpha_1, \alpha_2 \in \mathbb{R}\}</m>. Eles são espaços vetoriais (com escalares reais e as operações usuais?)</p>
+                </exercise>
 
                 <example>
                     O conjunto de todas as funções reais definidas no intervalo <m>(a,b)</m>, que têm derivada de ordem <m>n</m> contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado <m>C^n(a,b)</m>. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.
@@ -3927,7 +3946,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <title>Subespaços Vetoriais</title>
            
             <intro>
-               <p>Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial</p>
+               <p>Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial, o que exploramos nessa subseção.</p>
            </intro>
            
             <subsection xml:id="subespacos-subsection">
@@ -3951,7 +3970,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </statement>
                 </definition>
 
-                <p>A primeira condição diz que o subconjunto não é vazio, a segunda dis que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.</p>
+                <p>A primeira condição diz que o subconjunto não é vazio, a segunda diz que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.</p>
 
                 <lemma>
                     <!-- <title>Optional</title> -->
@@ -4216,6 +4235,13 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </me> 
                   </proof>
                 </lemma>
+
+
+                <exercise>
+                    <p>Considerando a matriz:</p>
+                    <me>A = \begin{pmatrix} 1 \amp -1 \amp 1 \\2 \amp 2 \amp 1 \\ 3 \amp 1 \amp 2\end{pmatrix},</me>
+                    <p>calcule o núcleo de <m>A</m> e as soluções de <m>A\vec{x}=(0,4,4)^T</m>. Você consegue explicar qual a relação entre o núcleo de <m>A</m> e as soluções encontradas?</p>
+                </exercise>
             </subsection>
            
         </section>

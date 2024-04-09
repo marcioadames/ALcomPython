@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-08T14:22:30-03:00       *-->
+<!--*       on 2024-04-09T17:34:17-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,14 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Suponha, agora, que temos três vetores \(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
-<ol class="decimal">
-<li><p>\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
-<li><p>\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
-<li><p>\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
-<li><p>\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
-<li><p>\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
-</ol>
+<p>Note que \(\alpha = \| \vec{p} \| = \|\vec{x}\|\cos \theta \text{,}\) mas \(\cos \theta = \vec{x}^T\vec{y}/(\|\vec{x}\|\|\vec{y}\|)\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\Longrightarrow \amp \alpha = \|\vec{x}\|\frac{\vec{x}^T\vec{y}}{\|\vec{x}\|\|\vec{y}\|} =\frac{\vec{x}^T\vec{y}}{\|\vec{y}\|}\\
+\Longrightarrow \amp p = \alpha  \vec{u} = \alpha \frac{\vec{y}}{\|\vec{y}\|} = \frac{\vec{x}^T\vec{y}}{\|\vec{y}\|^2}\vec{y}.
+\end{align*}
+</div>
 <span class="incontext"><a href="produto_interno.html#p-284">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-08T14:22:28-03:00       *-->
+<!--*       on 2024-04-09T17:34:15-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -814,7 +814,7 @@ if not sair:
         for i in range(n):
             qtd = round(sol['x'][i]*quant, decPlaces)
             print(f'{qtd} {und} de {foods[i]}')
-</script></div></article>1</section><section class="subsection" id="Proj2"><h3 class="heading hide-type">
+</script></div></article></section><section class="subsection" id="Proj2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span>
 </h3>
 <p id="p-165">Em análise de circuitos, utilizamos a Lei de Ohm e as Leis de Kirchhoff de corrente e tensão. Ao encontrar as equações referentes ao circuito utilizando as leis básicas, precisamos montar um sistema linear para encontrar as correntes e quedas de tensão em cada ramo. Analise os circuitos dados utilizando essas três leis, encontre as equações do circuito e forneça-as ao programa em Python disponibilizado ao final da seção para resolver o sistema e encontras as correntes.</p>
@@ -824,36 +824,37 @@ if not sair:
 <li id="li-108"><p id="p-derived-li-108"><em class="alert">Lei de Kirchhoff de Tensão:</em> Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.</p></li>
 <li id="li-109"><p id="p-derived-li-109"><em class="alert">Lei de Ohm:</em> A queda de tensão em um elemento resistivo é dada por \(E = Ri \)</p></li>
 </ul>
-<article class="exercise exercise-like" id="exercise-39"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-39"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.10</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-39"><article class="exercise exercise-like"><p id="p-167">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
+<p id="p-167">Observe as aplicações das leis básicas nas soluções dos exemplos abaixo.</p>
+<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><p id="p-168">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
 <figure class="figure figure-like" id="figure-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito1.png" class="contained" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.11<span class="period">.</span></span><span class="space"> </span>Circuito 1. Fonte: Leon, S. 2018</figcaption></figure><a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
-<p id="p-168"><em class="alert">Aplicação da LKC:</em></p>
-<p id="p-169">Observamos que, no nó A, entram as correntes \(i_1\) e \(i_3\text{,}\) e sai a corrente \(i_2\text{.}\) Por outro lado, no nó B, entra a corrente \(i_2\) e saem as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
+<p id="p-169"><em class="alert">Aplicação da LKC:</em></p>
+<p id="p-170">Observamos que, no nó A, entram as correntes \(i_1\) e \(i_3\text{,}\) e sai a corrente \(i_2\text{.}\) Por outro lado, no nó B, entra a corrente \(i_2\) e saem as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
 <div class="displaymath">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 -i_1 + i_2 - i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-170"><em class="alert">Aplicação da Lei de Ohm:</em></p>
-<p id="p-171">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
+<p id="p-171"><em class="alert">Aplicação da Lei de Ohm:</em></p>
+<p id="p-172">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
 <ul class="disc">
 <li id="li-110"><p id="p-derived-li-110">Resistor de 4 ohms: \(E = 4i_1\)</p></li>
 <li id="li-111"><p id="p-derived-li-111">Resistor de 3 ohms: \(E = 3i_3\)</p></li>
 <li id="li-112"><p id="p-derived-li-112">Resistor de 2 ohms (à esquerda do nó B): \(E = 2i_2\)</p></li>
 <li id="li-113"><p id="p-derived-li-113">Resistor de 2 ohms (abaixo do nó B): \(E = 2i_3\)</p></li>
 </ul>
-<p id="p-172"><em class="alert">Aplicação da LKT:</em></p>
-<p id="p-173">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
+<p id="p-173"><em class="alert">Aplicação da LKT:</em></p>
+<p id="p-174">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
 <div class="displaymath">
 \begin{gather*}
 4i_1 + 2i_2 = 8 \\
 2i_2 + 2i_3 + 3i_3 = 9 
 \end{gather*}
 </div>
-<p id="p-174"><em class="alert">Ao final temos:</em></p>
+<p id="p-175"><em class="alert">Ao final temos:</em></p>
 <div class="displaymath">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
@@ -861,37 +862,37 @@ i_1 - i_2 + i_3 = 0 \\
 2i_2 + 5i_3 = 9 
 \end{gather*}
 </div>
-<p id="p-175">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
+<p id="p-176">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
 </div></div></article></div>
-<article class="exercise exercise-like" id="exercise-40"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-40"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.12</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-40"><article class="exercise exercise-like"><p id="p-176">Obtenha as equações referentes à aplicação das leis básicas no seguin1te cicuito:</p>
+<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.12</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><p id="p-177">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
 <figure class="figure figure-like" id="figure-4"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito2.png" class="contained" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.13<span class="period">.</span></span><span class="space"> </span>Circuito 2. Fonte: Leon, S. 2018</figcaption></figure><a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
-<p id="p-177"><em class="alert">Aplicação da LKC:</em></p>
-<p id="p-178">Observamos que, no nó A, entram as correntes \(i_1\) e \(i_3\text{,}\) e sai a corrente \(i_2\text{.}\) Por outro lado, no nó B, entra a corrente \(i_2\) e saem as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
+<p id="p-178"><em class="alert">Aplicação da LKC:</em></p>
+<p id="p-179">Observamos que, no nó A, entram as correntes \(i_1\) e \(i_3\text{,}\) e sai a corrente \(i_2\text{.}\) Por outro lado, no nó B, entra a corrente \(i_2\) e saem as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
 <div class="displaymath">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 -i_1 + i_2 - i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-179"><em class="alert">Aplicação da Lei de Ohm:</em></p>
-<p id="p-180">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
+<p id="p-180"><em class="alert">Aplicação da Lei de Ohm:</em></p>
+<p id="p-181">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
 <ul class="disc">
 <li id="li-114"><p id="p-derived-li-114">Resistor de 3 ohms: \(E = 3i_3\)</p></li>
 <li id="li-115"><p id="p-derived-li-115">Resistor de 2 ohms (acima do nó B): \(E = 2i_1\)</p></li>
 <li id="li-116"><p id="p-derived-li-116">Resistor de 2 ohms (à esquerda do nó B): \(E = 2i_2\)</p></li>
 </ul>
-<p id="p-181"><em class="alert">Aplicação da LKT:</em></p>
-<p id="p-182">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
+<p id="p-182"><em class="alert">Aplicação da LKT:</em></p>
+<p id="p-183">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
 <div class="displaymath">
 \begin{gather*}
 2i_1 + 2i_2 = 16 \\
 2i_2 + 3i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-183"><em class="alert">Ao final temos:</em></p>
+<p id="p-184"><em class="alert">Ao final temos:</em></p>
 <div class="displaymath">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
@@ -899,37 +900,37 @@ i_1 - i_2 + i_3 = 0 \\
 2i_2 + 3i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-184">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
+<p id="p-185">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
 </div></div></article></div>
-<article class="exercise exercise-like" id="exercise-41"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-41"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-41"><article class="exercise exercise-like"><p id="p-185">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
+<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.14</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-186">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
 <figure class="figure figure-like" id="figure-5"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito3.png" class="contained" alt=""></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.15<span class="period">.</span></span><span class="space"> </span>Circuito 3. Fonte: Leon, S. 2018</figcaption></figure><a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
-<p id="p-186"><em class="alert">Aplicação da LKC:</em></p>
-<p id="p-187">Observamos que, no nó A, saem as correntes \(i_1\) e \(i_3\text{,}\) e entra a corrente \(i_2\text{.}\) Por outro lado, no nó B, sai a corrente \(i_2\) e entram as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
+<p id="p-187"><em class="alert">Aplicação da LKC:</em></p>
+<p id="p-188">Observamos que, no nó A, saem as correntes \(i_1\) e \(i_3\text{,}\) e entra a corrente \(i_2\text{.}\) Por outro lado, no nó B, sai a corrente \(i_2\) e entram as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
 <div class="displaymath">
 \begin{gather*}
 -i_1 + i_2 - i_3 = 0 \\
 i_1 - i_2 + i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-188"><em class="alert">Aplicação da Lei de Ohm:</em></p>
-<p id="p-189">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
+<p id="p-189"><em class="alert">Aplicação da Lei de Ohm:</em></p>
+<p id="p-190">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
 <ul class="disc">
 <li id="li-117"><p id="p-derived-li-117">Resistor de 4 ohms: \(E = 4i_2\)</p></li>
 <li id="li-118"><p id="p-derived-li-118">Resistor de 2 ohms (superior): \(E = 2i_1\)</p></li>
 <li id="li-119"><p id="p-derived-li-119">Resistor de 2 ohms (inferior): \(E = 2i_3\)</p></li>
 </ul>
-<p id="p-190"><em class="alert">Aplicação da LKT:</em></p>
-<p id="p-191">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
+<p id="p-191"><em class="alert">Aplicação da LKT:</em></p>
+<p id="p-192">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
 <div class="displaymath">
 \begin{gather*}
 2i_1 + 4i_2 = 20 \\
 4i_2 + 2i_3 = 20 
 \end{gather*}
 </div>
-<p id="p-192"><em class="alert">Ao final temos:</em></p>
+<p id="p-193"><em class="alert">Ao final temos:</em></p>
 <div class="displaymath">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
@@ -937,10 +938,18 @@ i_1 - i_2 + i_3 = 0 \\
 4i_2 + 2i_3 = 20 
 \end{gather*}
 </div>
-<p id="p-193">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
+<p id="p-194">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
 </div></div></article></div>
+<article class="exercise exercise-like" id="exercise-39"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-39"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-39"><article class="exercise exercise-like"><p id="p-195"><dfn class="terminology">Altere os valores das resistências no circuito abaixo e utilize o seu circuito</dfn> para obter o sistema de equações referentes à aplicação das leis básicas para as correntes em cada fio (entre nodos):</p>
+<figure class="figure figure-like" id="figure-6"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/Linalg_circuit_2.png" class="contained" alt=""></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.17<span class="period">.</span></span><span class="space"> </span>Circuito. Fonte: Wikibooks - Linear Algebra/Topic: Analyzing Networks</figcaption></figure></article></div>
+<article class="exercise exercise-like" id="exercise-40"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-40"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-40"><article class="exercise exercise-like"><p id="p-196">Utilize os códigos em python para resolver o sistema que você criou. Explique como e porque está usando os códigos.</p></article></div>
 <article class="remark remark-like" id="remark-14"><h6 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.16</span><span class="period">.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.19</span><span class="period">.</span>
 </h6>Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos. <div class="sagecell-sage" id="sage-28"><script type="text/x-sage">import numpy as np
 import fractions
 
