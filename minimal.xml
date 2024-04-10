@@ -3712,7 +3712,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <subsection xml:id="Esp_vet">
                 <title>Espaços Vetoriais</title>
                 <p>
-                    Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais eximtem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do <m>\mathbb{R}^n</m>, de modo operarmos com eles de modo semelhante ao <m>\mathbb{R}^n</m>, todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.
+                    Definimos agora um espaço vetorial, construindo conjuntos de "vetores" para os quais existem operações de "adição" e "multiplicação" por "escalar" com as mesmas propriedades das operações em vetores do <m>\mathbb{R}^n</m>, de modo operarmos com eles de modo semelhante ao <m>\mathbb{R}^n</m>, todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.
                 </p>
 
                 <definition>
