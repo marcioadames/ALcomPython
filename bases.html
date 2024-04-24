@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-10T14:14:36-03:00       *-->
+<!--*       on 2024-04-24T14:55:58-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -256,7 +256,7 @@ x_n
 </ol></article></div></section><section class="subsection" id="dependencia_linear"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2</span> <span class="title">Dependência Linear</span>
 </h3>
-<p id="p-229">No item 1. do  cada \(\vec{x} \in \mathbb{R}^3\) pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que \((1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3\text{,}\) como esclarece o lema a seguir.</p>
+<p id="p-229">No item 1. do <a class="xref" data-knowl="./knowl/gera_r3.html" title="Checkpoint 6.7">Checkpoint 6.7</a> cada \(\vec{x} \in \mathbb{R}^3\) pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que \((1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3\text{,}\) como esclarece o lema a seguir.</p>
 <article class="lemma theorem-like" id="lemma-5"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">6.8</span><span class="period">.</span>
 </h6>
@@ -305,19 +305,18 @@ x_n
 <div class="displaymath">
 \begin{gather*}
 \alpha_1 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 0\\ 0 \\ 1 \end{pmatrix} + \alpha_4 \begin{pmatrix} 1\\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \\
-\Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_4 = 0\\ \alpha_2 + 2\alpha_4 = 0 \\ \alpha_3 + 3 \alpha_4 = 0 \end{array} \\
-\Leftrightarrow \begin{array}{c} \alpha_1 = - \alpha_4\\ \alpha_2 = - 2\alpha_4  \\ \alpha_3 - 3 \alpha_4  \end{array} 
+\Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_4 = 0\\ \alpha_2 + 2\alpha_4 = 0 \\ \alpha_3 + 3 \alpha_4 = 0 \end{array}
+\Leftrightarrow \begin{array}{c} \alpha_1 = - \alpha_4\\ \alpha_2 = - 2\alpha_4  \\ \alpha_3 - 3 \alpha_4  \end{array}
 \end{gather*}
 </div>
-<p id="p-239">é solução para qualquer \(\alpha_4 \in \mathbb{R}\) e o istema é L.D.</p>
+<p id="p-239">é solução para qualquer \(\alpha_4 \in \mathbb{R}\) e o sistema é L.D.</p>
 </li>
 <li id="li-151">
 <p id="p-240">\(\{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}\) é L.I. pois</p>
 <div class="displaymath">
-\begin{gather*}
-\alpha_1 \begin{pmatrix} 1\\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \\
-\Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_2 + \alpha_3 = 0\\ \alpha_1 + \alpha_2 = 0 \\ \alpha_1 = 0 \end{array} \Leftrightarrow \begin{array}{c} \alpha_1 = 0  \\ \alpha_2 = 0 \\ \alpha_3 = 0 
-\end{gather*}
+\begin{equation*}
+\alpha_1 \begin{pmatrix} 1\\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_2 + \alpha_3 = 0\\ \alpha_1 + \alpha_2 = 0 \\ \alpha_1 = 0 \end{array} \Leftrightarrow \begin{array}{c} \alpha_1 = 0  \\ \alpha_2 = 0 \\ \alpha_3 = 0 \end{array}
+\end{equation*}
 </div>
 </li>
 <li id="li-152"><p id="p-derived-li-152">\(\{ (1,0,1)^T, (0,1,0)^T\}\) é L.I.</p></li>
@@ -335,8 +334,8 @@ x_n
 <p id="p-242">tem solução única. Isso pode ser feito de diversas maneiras! Denotando</p>\(\vec{v}_i = \begin{pmatrix} v_{1i}\\ v_{2i}\\ \vdots \\v_{ni} \end{pmatrix}\,\,\) e \(\,\,A =  \begin{pmatrix} | \amp | \amp \cdots \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \cdots \amp \vec{v}_k \\ | \amp | \amp \cdots \amp | \end{pmatrix} = \begin{pmatrix} v_{11} \amp v_{12} \amp \cdots \amp v_{1k} \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \amp v_{n2} \amp \cdots \amp v_{nk} \end{pmatrix},\)<p id="p-243">o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:</p>
 <div class="displaymath">
 \begin{equation*}
-\begin{array}{c} 
-v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k = 0
+\begin{array}{cc} 
+v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k =\amp 0 \\ \vdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k =\amp 0
 \end{array}
 \Leftrightarrow A \vec{\alpha} = \vec{0}.
 \end{equation*}
@@ -348,6 +347,7 @@ v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp 
 <li id="li-156"><p id="p-247">Se \(k = n\text{,}\) então a matriz \(A\) é quadrada e o sistema \(A \vec{\alpha} = \vec{0}\) tem solução única se, e somente se, a matriz \(A\) é inversível, de modo que basta verificar que \(\det(A) \neq 0\text{.}\)</p></li>
 </ol></article><p id="p-248">O código a seguir pode ser utilizado para encontrar um subconjunto L.I. dentro de um conjunto de vetores.</p>
 <div class="sagecell-sage" id="sage-35"><script type="text/x-sage">import numpy as np
+
 import fractions
 
 
@@ -356,6 +356,7 @@ import fractions
 A = np.array([1.,2.,1.,3.])
 A = np.vstack([A,np.array([1.,2.,1.,3.])])
 A = np.vstack([A,np.array([1.,2.,-1.,3.])])
+A = np.vstack([A,np.array([0.,0.,0.])])
 
 # store the values
 C = A.copy()
@@ -394,9 +395,8 @@ def Gaussian_elimination(A,prin=True):
                     A[i]=A[i]-A[a-1]*A[i,j]
                 if prin==True:
                     print('~'+str(A))
-    np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
     return A
-B = Gaussian_elimination(A, prin = False)
+B=Gaussian_elimination(A)
 
 print("A na forma escalonada")
 print(B)
@@ -419,7 +419,7 @@ for i in range(len(B)):
 </ol></article></div>
 <article class="lemma theorem-like" id="lemma-6"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">6.13</span><span class="period">.</span>
-</h6>Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.A completar.</article></section><section class="subsection" id="bases_subsection"><h3 class="heading hide-type">
+</h6>Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.</article><article class="hiddenproof" id="proof-15"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof">A completar.</article></div></section><section class="subsection" id="bases_subsection"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3</span> <span class="title">Bases</span>
 </h3>
 <article class="definition definition-like" id="definition-18"><h6 class="heading">
@@ -451,7 +451,7 @@ for i in range(len(B)):
 <p id="p-253">esses vetores geram \(\mathbb{R}^3\text{.}\) Para isso precisamos mostrar que qualquer vetor \(\vec{x} = (x, y, z)^T \in \mathbb{R}^3\) pode ser escrito como uma combinação linear de \(\vec{i}, \vec{j}, \vec{k}\text{,}\) o que ocorre de fato pois</p>
 <div class="displaymath">
 \begin{equation*}
-\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} 
+\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} 
 \end{equation*}
 </div>
 </li>
@@ -563,7 +563,7 @@ A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \v
 <article class="theorem theorem-like" id="vetores_demais"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.20</span><span class="period">.</span>
 </h6>
-<p id="p-258">Se \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) geram um espaço vtorial \(V\text{,}\) então qualquer coleção de \(m \gt n\) vetores de \(V\)é L.D.</p></article><article class="hiddenproof" id="proof-15"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof">Sejam \(\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \in V\) vetores. Cada um desses vetores pode ser escrito como combinação linear de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{,}\) pois estes geram \(V\text{.}\) Assim, para cada \(i =1, \ldots, m\text{,}\) existem escalares \(a_{i1}, a_{i2}, \ldots, a_{in}\) tais que<div class="displaymath">
+<p id="p-258">Se \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\) geram um espaço vetorial \(V\text{,}\) então qualquer coleção de \(m \gt n\) vetores de \(V\)é L.D.</p></article><article class="hiddenproof" id="proof-16"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof">Sejam \(\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \in V\) vetores. Cada um desses vetores pode ser escrito como combinação linear de \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\text{,}\) pois estes geram \(V\text{.}\) Assim, para cada \(i =1, \ldots, m\text{,}\) existem escalares \(a_{i1}, a_{i2}, \ldots, a_{in}\) tais que<div class="displaymath">
 \begin{equation*}
 \vec{u}_i = a_{1i}\vec{v}_1+ a_{2i}\vec{v}_2+ \ldots + a_{ni} \vec{v}_n.
 \end{equation*}
@@ -585,7 +585,7 @@ A = \left(\begin{array}{ccc} | \amp | \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \v
 <article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.21</span><span class="period">.</span>
 </h6>
-<p id="p-259">Se \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é uma base para um espaço vetorial \(V\text{,}\) então qualquer coleção de \(k \lt n\) vetores de \(V\) não gera \(V\text{.}\)</p></article><article class="hiddenproof" id="proof-16"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof">A completar.</article></div>
+<p id="p-259">Se \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é uma base para um espaço vetorial \(V\text{,}\) então qualquer coleção de \(k \lt n\) vetores de \(V\) não gera \(V\text{.}\)</p></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof">A completar.</article></div>
 <p id="p-260">Os teoremas acima garantem que se uma base para um espaço vetorial \(V\) tem \(n\) vetores, então qualquer outra base para \(V\) também tem \(n\) vetores. Assim, existe um número "certo" de vetores para cada base, o que nos motiva a definir a dimensão de um espaço vetorial.</p>
 <article class="definition definition-like" id="definition-19"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.22</span><span class="period">.</span>
@@ -614,7 +614,7 @@ A = \left(\begin{array}{ccc} 5 \amp 1 \amp  2\\
 <ol class="decimal">
 <li id="li-170"><p id="p-264">qualquer conjunto \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)de \(n\) vetores linearmente independentes gera \(V\text{,}\)</p></li>
 <li id="li-171"><p id="p-265">quaisquer \(n\) vetores que cobrem \(V\) são linearmente independentes</p></li>
-</ol></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><ol class="decimal">
+</ol></article><article class="hiddenproof" id="proof-18"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><ol class="decimal">
 <li id="li-172">
 <p id="p-266">Se \(V\) tem dimensão \(n\text{,}\) então \(V\) admite uma base com \(n\) vetores (não necessariamente \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)). Então o <a class="xref" data-knowl="./knowl/vetores_demais.html" title="Theorem 6.20">Theorem 6.20</a> diz que, para qualquer vetor \(\vec{v} \neq \vec{0} \in V\text{,}\) o conjunto \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n, \vec{v}\}\) é L.D. Portanto a equação</p>
 <div class="displaymath">
@@ -837,7 +837,7 @@ A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
 </div>ou seja, é igual ao \(Span\left(\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} \right)\text{.}\)</article></div>
 <article class="theorem theorem-like" id="theorem-13"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.40</span><span class="period">.</span>
-</h6>Duas matrizes equivalentes por linhas têm o mesmo espaço linha.</article><article class="hiddenproof" id="proof-18"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof">A completar.</article></div>
+</h6>Duas matrizes equivalentes por linhas têm o mesmo espaço linha.</article><article class="hiddenproof" id="proof-19"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof">A completar.</article></div>
 <article class="definition definition-like" id="definition-23"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.41</span><span class="period">.</span>
 </h6>
@@ -846,7 +846,7 @@ A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 0\\
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.42</span><span class="period">.</span>
 </h6>O posto de uma matriz \(A\) é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de \(A\text{.}\)</article><article class="theorem theorem-like" id="theorem-14"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.43</span><span class="period">.</span>
-</h6>A dimensão do espaço linha de uma matriz \(A^{m \times n}\) é igual à dimensão do seu espaço coluna.</article><article class="hiddenproof" id="proof-19"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof">A completar.</article></div>
+</h6>A dimensão do espaço linha de uma matriz \(A^{m \times n}\) é igual à dimensão do seu espaço coluna.</article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof">A completar.</article></div>
 <article class="remark remark-like" id="remark-22"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.44</span><span class="period">.</span>
 </h6>As colunas da matriz \(A\) na forma escalonada <dfn class="terminology">não formam uma base para o espaço coluna de</dfn>\(A\text{,}\) apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de \(A\text{.}\)</article><article class="remark remark-like" id="remark-23"><h6 class="heading">
@@ -920,7 +920,7 @@ Gaussian_elimination(A)
 \begin{equation*}
 \mbox{posto} (A) + \mbox{nul}(A) = n.
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof">A completar.</article></div></section></section></div></main>
+</div></article><article class="hiddenproof" id="proof-21"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof">A completar.</article></div></section></section></div></main>
 </div>
 </body>
 </html>

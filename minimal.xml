@@ -4422,7 +4422,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 <title>Dependência Linear</title>
             
 
-                <p>No item 1. do <ref ref="gera_r3"></ref> cada <m>\vec{x} \in \mathbb{R}^3</m> pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que <m>(1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3</m>, como esclarece o lema a seguir.</p>
+                <p>No item 1. do <xref ref="gera_r3"></xref> cada <m>\vec{x} \in \mathbb{R}^3</m> pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que <m>(1,2,3)^T = 1\vec{e}_1 + 2\vec{e}_2 +3\vec{e}_3</m>, como esclarece o lema a seguir.</p>
 
                 <lemma>
                     <!-- <title>Optional</title> -->
@@ -4487,17 +4487,16 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 <p>Para verificarmos se <m>\{ \vec{e}_1, \vec{e}_2, \vec{e}_3, (1,2,3)^T\}</m> é L.I., precisamos verificar se existe alguma solução não trivial para o sistema </p>
                                 <md>
                                     <mrow> \alpha_1 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} + \alpha_2 \begin{pmatrix} 0\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 0\\ 0 \\ 1 \end{pmatrix} + \alpha_4 \begin{pmatrix} 1\\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} </mrow>
-                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_4 = 0\\ \alpha_2 + 2\alpha_4 = 0 \\ \alpha_3 + 3 \alpha_4 = 0 \end{array} </mrow>
-                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 = - \alpha_4\\ \alpha_2 = - 2\alpha_4  \\ \alpha_3 - 3 \alpha_4  \end{array} </mrow>
+                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_4 = 0\\ \alpha_2 + 2\alpha_4 = 0 \\ \alpha_3 + 3 \alpha_4 = 0 \end{array}
+                                    \Leftrightarrow \begin{array}{c} \alpha_1 = - \alpha_4\\ \alpha_2 = - 2\alpha_4  \\ \alpha_3 - 3 \alpha_4  \end{array}</mrow>
                                 </md>
-                                <p> é solução para qualquer <m>\alpha_4 \in \mathbb{R}</m> e o istema é L.D.</p>
+                                <p> é solução para qualquer <m>\alpha_4 \in \mathbb{R}</m> e o sistema é L.D.</p>
                             </li>
                             <li>
                                 <p><m>\{ (1,1,1)^T, (1,1,0)^T, (1,0,0)^T\}</m> é L.I. pois </p>
-                                <md>
-                                    <mrow> \alpha_1 \begin{pmatrix} 1\\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} </mrow>
-                                    <mrow> \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_2 + \alpha_3 = 0\\ \alpha_1 + \alpha_2 = 0 \\ \alpha_1 = 0 \end{array} \Leftrightarrow \begin{array}{c} \alpha_1 = 0  \\ \alpha_2 = 0 \\ \alpha_3 = 0 </mrow>
-                                </md>
+                                <me>
+                                    \alpha_1 \begin{pmatrix} 1\\ 1 \\ 1 \end{pmatrix} + \alpha_2 \begin{pmatrix} 1\\ 1 \\ 0 \end{pmatrix} + \alpha_3 \begin{pmatrix} 1\\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix} \Leftrightarrow \begin{array}{c} \alpha_1 + \alpha_2 + \alpha_3 = 0\\ \alpha_1 + \alpha_2 = 0 \\ \alpha_1 = 0 \end{array} \Leftrightarrow \begin{array}{c} \alpha_1 = 0  \\ \alpha_2 = 0 \\ \alpha_3 = 0 \end{array}
+                                </me>
                             </li>
                             <li>
                                 <m>\{ (1,0,1)^T, (0,1,0)^T\}</m> é L.I.
@@ -4523,8 +4522,8 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         </m>
                         <p>o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:</p>
                     <me>
-                        \begin{array}{c} 
-                        v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k = 0 \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k = 0
+                        \begin{array}{cc} 
+                        v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k =\amp 0 \\ \vdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k =\amp 0
                         \end{array}
                         \Leftrightarrow A \vec{\alpha} = \vec{0}.
                     </me>
@@ -4542,67 +4541,68 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                 <sage>
                     <input>
-                        import numpy as np
-                        import fractions
+                    import numpy as np
+
+                    import fractions
 
 
-                        # add as vectors copying the second line
+                    # add as vectors copying the second line
 
-                        A = np.array([1.,2.,1.,3.])
-                        A = np.vstack([A,np.array([1.,2.,1.,3.])])
-                        A = np.vstack([A,np.array([1.,2.,-1.,3.])])
+                    A = np.array([1.,2.,1.,3.])
+                    A = np.vstack([A,np.array([1.,2.,1.,3.])])
+                    A = np.vstack([A,np.array([1.,2.,-1.,3.])])
+                    A = np.vstack([A,np.array([0.,0.,0.])])
 
-                        # store the values
-                        C = A.copy()
+                    # store the values
+                    C = A.copy()
 
-                        # tranaspose to get vectors on columns
+                    # tranaspose to get vectors on columns
 
-                        A = np.transpose(A)
-
-
+                    A = np.transpose(A)
 
 
-                        #Step by step Gaussian Elimination:
 
-                        def Gaussian_elimination(A,prin=True):
-                            a=0
-                            if prin==True:
-                                print('A='+str(A))
-                            for j in range(A.shape[1]-1): #search pivot in each column
-                                b=0
-                                for i in range(a,A.shape[0]):
-                                    if A[i,j] != 0: #choose row with not null pivot
-                                        if a !=i:
-                                            A[[a,i]]=A[[i,a]]
-                                            if prin==True:
-                                                print('~'+str(A))
-                                        if A[a,j]!=1:
-                                            A[a]=A[a]/A[a,j]
-                                            if prin==True:
-                                                print('~'+str(A))
-                                        a=a+1
-                                        b=1
-                                        break
-                                if b==1:
-                                    for i in range(a,A.shape[0]):
-                                        if A[i,j] != 0:
-                                            A[i]=A[i]-A[a-1]*A[i,j]
+
+                    #Step by step Gaussian Elimination:
+
+                    def Gaussian_elimination(A,prin=True):
+                        a=0
+                        if prin==True:
+                            print('A='+str(A))
+                        for j in range(A.shape[1]-1): #search pivot in each column
+                            b=0
+                            for i in range(a,A.shape[0]):
+                                if A[i,j] != 0: #choose row with not null pivot
+                                    if a !=i:
+                                        A[[a,i]]=A[[i,a]]
                                         if prin==True:
                                             print('~'+str(A))
-                            np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
-                            return A
-                        B = Gaussian_elimination(A, prin = False)
+                                    if A[a,j]!=1:
+                                        A[a]=A[a]/A[a,j]
+                                        if prin==True:
+                                            print('~'+str(A))
+                                    a=a+1
+                                    b=1
+                                    break
+                            if b==1:
+                                for i in range(a,A.shape[0]):
+                                    if A[i,j] != 0:
+                                        A[i]=A[i]-A[a-1]*A[i,j]
+                                    if prin==True:
+                                        print('~'+str(A))
+                        return A
+                    B=Gaussian_elimination(A)
 
-                        print("A na forma escalonada")
-                        print(B)
+                    print("A na forma escalonada")
+                    print(B)
 
-                        a=0
+                    a=0
 
-                        for i in range(len(B)):
-                            if np.count_nonzero(B[i]) != 0 :
-                                a += 1
-                                I = np.nonzero(B[i])
-                                print(a, "vetor da base ",C[I[0][0]])
+                    for i in range(len(B)):
+                        if np.count_nonzero(B[i]) != 0 :
+                            a += 1
+                            I = np.nonzero(B[i])
+                            print(a, "vetor da base ",C[I[0][0]])
                     </input>
                     <output>
                         vectors
@@ -4635,9 +4635,9 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <statement>
                         Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.
                     </statement>
-                    <prof>
+                    <proof>
                         A completar.
-                    </prof>
+                    </proof>
                 </lemma>
 
 
@@ -4691,7 +4691,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             </p></li>
                             <li><p>
                                 esses vetores geram <m>\mathbb{R}^3</m>. Para isso precisamos mostrar que qualquer vetor <m>\vec{x} = (x, y, z)^T \in \mathbb{R}^3</m> pode ser escrito como uma combinação linear de <m>\vec{i}, \vec{j}, \vec{k}</m>, o que ocorre de fato pois
-                                <me>\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} </me>
+                                <me>\alpha_1\vec{i} + \alpha_2 \vec{j} + \alpha_3 \vec{k} = \begin{pmatrix} \alpha_1\\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} x\\ y \\ z \end{pmatrix} \,\, \Leftrightarrow\,\, \begin{array}{c} \alpha_1 =x \\ \alpha_2 = y \\ \alpha_3 = z \end{array} </me>
                             </p></li>
                         </ol>
                         De modo que <m>\{\vec{i},\vec{j},\vec{k}\}</m> é uma base para <m>\mathbb{R}^3</m>.
@@ -4835,7 +4835,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <!-- <creator>I. Newton</creator> -->
                   <statement>
                     <p>
-                      Se <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> geram um espaço vtorial <m>V</m>, então qualquer coleção de <m>m \gt n</m> vetores de <m>V</m>é L.D.
+                      Se <m>\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n</m> geram um espaço vetorial <m>V</m>, então qualquer coleção de <m>m \gt n</m> vetores de <m>V</m>é L.D.
                     </p>
                   </statement>
                 
