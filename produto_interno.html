@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-24T14:55:58-03:00       *-->
+<!--*       on 2024-04-30T11:27:23-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -201,9 +201,9 @@
 <article class="theorem theorem-like" id="theorem-16"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.5</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades do produto interno.</span>
 </h6>Se \(\vec{x}, \vec{y}, \vec{z} \in \mathbb{R}^n\) e \(\alpha\) é um escalar, então <ol class="decimal">
-<li id="li-179"><p id="p-derived-li-179">\(\displaystyle \vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</p></li>
-<li id="li-180"><p id="p-derived-li-180">\(\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})\text{.}\)</p></li>
-<li id="li-181"><p id="p-derived-li-181">\(\displaystyle \vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}\)</p></li>
+<li id="li-178"><p id="p-derived-li-178">\(\displaystyle \vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</p></li>
+<li id="li-179"><p id="p-derived-li-179">\(\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})\text{.}\)</p></li>
+<li id="li-180"><p id="p-derived-li-180">\(\displaystyle \vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}\)</p></li>
 </ol></article><article class="hiddenproof" id="proof-22"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof">Exercício.</article></div>
 <article class="definition definition-like" id="definition-26"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.6</span><span class="period">.</span>
@@ -419,9 +419,9 @@ print('p = ', p)
 </div></article></div>
 <p id="p-289">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
 <ol class="decimal">
-<li id="li-182"><p id="p-derived-li-182">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
-<li id="li-183"><p id="p-derived-li-183">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
-<li id="li-184"><p id="p-derived-li-184">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</p></li>
+<li id="li-181"><p id="p-derived-li-181">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-182"><p id="p-derived-li-182">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-183"><p id="p-derived-li-183">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</p></li>
 </ol>
 <div class="sagecell-sage" id="sage-42"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
@@ -484,11 +484,11 @@ plt.show()
 </div>
 <p id="p-291">Suponha, agora, que temos três vetores \(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
 <ol class="decimal">
-<li id="li-185"><p id="p-derived-li-185">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
-<li id="li-186"><p id="p-derived-li-186">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
-<li id="li-187"><p id="p-derived-li-187">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
-<li id="li-188"><p id="p-derived-li-188">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
-<li id="li-189"><p id="p-derived-li-189">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
+<li id="li-184"><p id="p-derived-li-184">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-185"><p id="p-derived-li-185">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-186"><p id="p-derived-li-186">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
+<li id="li-187"><p id="p-derived-li-187">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
+<li id="li-188"><p id="p-derived-li-188">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
 </ol>
 <div class="sagecell-sage" id="sage-43"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
