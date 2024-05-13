@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-30T11:27:23-03:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
-<head>
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Autovalores e autovetores</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    useLabelIds: true,
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+<meta property="og:type" content="article">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,200 +53,243 @@
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.88,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Python)'});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
 });
-</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
-\newcommand{\lt}{&lt;}
-\newcommand{\gt}{&gt;}
-\newcommand{\amp}{&amp;}
-\)</div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
 <p class="byline">Márcio Rostirolla Adames</p>
 </div>
-</div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Transformacoes_lineares.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Transformacoes_lineares.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
-<li class="link">
-<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
-<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
-<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
-<li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="Transformacoes_lineares.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#sis-lin-sub" class="internal"><span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#matrix-sis-lin" class="internal"><span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Gauss-Jordan-red" class="internal"><span class="codenumber">1.3</span> <span class="title">Redução de Gauss Jordan</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Matrices.html" data-scroll="Matrices"><span class="codenumber">2</span> <span class="title">Matrizes</span></a><ul>
-<li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
-<li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
-<li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
-<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
-<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
-<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Matrices.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrizes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrizes_operacoes" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrix_rep_mult" class="internal"><span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrix_mult_meaning" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#determinants" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Coding_message" class="internal"><span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrices-10" class="internal"><span class="codenumber">2.6</span> <span class="title">Decomposição LU</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Projects.html" data-scroll="Projects"><span class="codenumber">3</span> <span class="title">Projetos</span></a><ul>
-<li><a href="Projects.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li>
-<li><a href="Projects.html#Proj2" data-scroll="Proj2">Projeto 2 - Análise de circuitos resistivos</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Projects.html" class="internal"><span class="codenumber">3</span> <span class="title">Projetos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj1" class="internal"><span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj3" class="internal"><span class="codenumber">3.3</span> <span class="title">Projeto 3 - Ajustando dados aleatórios</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj4" class="internal"><span class="codenumber">3.4</span> <span class="title">Projeto 4 - Metrologia coordenada</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a><ul>
-<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
-<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">4.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">4.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="subescos.html" data-scroll="subescos"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a><ul>
-<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
-<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">5.1</span> <span class="title">Subespaço</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">5.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="bases.html" data-scroll="bases"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
-<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
-<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
-<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
-<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
-<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">6.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">6.2</span> <span class="title">Dependência Linear</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">6.3</span> <span class="title">Bases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">6.4</span> <span class="title">Mudança de base</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">6.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
-<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
-<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
-<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">7.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">7.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">7.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a><ul>
-<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">8.1</span> <span class="title">Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">8.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">8.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
 </ul>
 </li>
-<li class="link active">
-<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a><ul>
-<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
-<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
-<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
-<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">9.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">9.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">9.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">9.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
 </ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="auto_val"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="auto_val"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">9</span><span class="space"> </span><span class="title">Autovalores e autovetores</span>
 </h2>
-<p id="p-307">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</p> <p id="p-308">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</p>
+<div class="para" id="auto_val-2-1">Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?</div> <div class="para" id="auto_val-2-2">Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.</div>
 <section class="subsection" id="auto_val_sub"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.1</span> <span class="title">Autovalores e autovetores</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">9.1</span><span class="space"> </span><span class="title">Autovalores e autovetores</span>
 </h3>
-<article class="definition definition-like" id="definition-30"><h6 class="heading">
+<article class="definition definition-like" id="auto_val_sub-2"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1</span><span class="period">.</span>
-</h6>
-<p id="p-309">Seja \(A\) uma matriz \(n \times n\text{.}\) Um número (real ou complexo) \(\lambda\) é dito um <dfn class="terminology">autovalor</dfn> de \(A\) se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{.}\) \(\vec{x}\) é dito um <dfn class="terminology">autovetor</dfn> associado ao autovalor \(\lambda\text{.}\)</p></article><article class="example example-like" id="example-74"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-74"><h6 class="heading">
+</h4> <div class="para" id="auto_val_sub-2-2-1">Seja <span class="process-math">\(A\)</span> uma matriz <span class="process-math">\(n \times n\text{.}\)</span> Um número (real ou complexo) <span class="process-math">\(\lambda\)</span> é dito um <dfn class="terminology">autovalor</dfn> de <span class="process-math">\(A\)</span> se existe um vetor não nulo <span class="process-math">\(\vec{x}\)</span> tal que <span class="process-math">\(A\vec{x} = \lambda \vec{x}\text{.}\)</span> <span class="process-math">\(\vec{x}\)</span> é dito um <dfn class="terminology">autovetor</dfn> associado ao autovalor <span class="process-math">\(\lambda\text{.}\)</span>
+</div></article><details id="auto_val_sub-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.2</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-74"><article class="example example-like">A matriz,<div class="displaymath">
+</h4></summary><article class="example example-like">A matriz,<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 2 \amp 4 \\ 1 \amp 2  \end{pmatrix},
 \end{equation*}
-</div>admite \(4\) como autovalor porque o vetor \(\vec{x} = (2, 1)^T\) satisfaz \(A\vec{x} = (8, 4)^T = 4(2,1)^T = 4\vec{x}\text{.}\) Outro autovalor dessa matrix é 0 pois o vetor \(\vec{x} = (2, -1)^T\) satisfaz \(A\vec{x} = (0, 0)^T = 0(2,-1)^T = 0\vec{x}\text{.}\)</article></div>
-<p id="p-310">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</p>
-<article class="remark remark-like" id="remark-28"><h6 class="heading">
+</div>admite <span class="process-math">\(4\)</span> como autovalor porque o vetor <span class="process-math">\(\vec{x} = (2, 1)^T\)</span> satisfaz <span class="process-math">\(A\vec{x} = (8, 4)^T = 4(2,1)^T = 4\vec{x}\text{.}\)</span> Outro autovalor dessa matrix é 0 pois o vetor <span class="process-math">\(\vec{x} = (2, -1)^T\)</span> satisfaz <span class="process-math">\(A\vec{x} = (0, 0)^T = 0(2,-1)^T = 0\vec{x}\text{.}\)</span></article></details><div class="para" id="auto_val_sub-4">Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.</div>
+<article class="remark remark-like" id="auto_val_sub-5"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.3</span><span class="period">.</span>
-</h6>Se existe um vetor não nulo \(\vec{x}\) tal que \(A\vec{x} = \lambda \vec{x}\text{,}\) temos que \(A\vec{x} - \lambda \vec{x} = \vec{0}\) e, portanto, \((A - \lambda I) \vec{x} = \vec{0}\text{,}\) ou seja, essa equação tem solução não nula e a matriz \((A - \lambda I)\) não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos \(Det(A - \lambda I) = 0\text{.}\) O polinômio \(p(\lambda) = Det(A - \lambda I)\) é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema \((A - \lambda I) \vec{x} = \vec{0}\) para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.</article><article class="example example-like" id="example-75"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-75"><h6 class="heading">
+</h4>Se existe um vetor não nulo <span class="process-math">\(\vec{x}\)</span> tal que <span class="process-math">\(A\vec{x} = \lambda \vec{x}\text{,}\)</span> temos que <span class="process-math">\(A\vec{x} - \lambda \vec{x} = \vec{0}\)</span> e, portanto, <span class="process-math">\((A - \lambda I) \vec{x} = \vec{0}\text{,}\)</span> ou seja, essa equação tem solução não nula e a matriz <span class="process-math">\((A - \lambda I)\)</span> não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos <span class="process-math">\(Det(A - \lambda I) = 0\text{.}\)</span> O polinômio <span class="process-math">\(p(\lambda) = Det(A - \lambda I)\)</span> é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema <span class="process-math">\((A - \lambda I) \vec{x} = \vec{0}\)</span> para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.</article><details id="auto_val_sub-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-75"><article class="example example-like">A matriz,<div class="displaymath">
+</h4></summary><article class="example example-like">A matriz,<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix},
 \end{equation*}
-</div>tem polinômio característico<div class="displaymath">
+</div>tem polinômio característico<div class="displaymath process-math">
 \begin{equation*}
 p(\lambda) = Det \left(\begin{pmatrix} 1 \amp 3 \\ 1 \amp -1  \end{pmatrix} -\lambda \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1  \end{pmatrix}\right) = Det \begin{pmatrix} 1-\lambda \amp 3 \\ 1 \amp -1-\lambda  \end{pmatrix} = \lambda^2 -4,
 \end{equation*}
-</div>que têm raízes 2 e -2. Os autovetores associados ao autovalor 2 são encontrados resolvendo<div class="displaymath">
+</div>que têm raízes 2 e -2. Os autovetores associados ao autovalor 2 são encontrados resolvendo<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} -1 \amp 3 \\ 1 \amp -3  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 3 \\ 1 \end{pmatrix}.
 \end{equation*}
-</div>Os autovetores associados ao autovalor -2 são encontrados resolvendo<div class="displaymath">
+</div>Os autovetores associados ao autovalor -2 são encontrados resolvendo<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 3 \amp 3 \\ 1 \amp 1  \end{pmatrix} \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix}0 \\ 0 \end{pmatrix} \,\,\, \Longrightarrow \,\,\, \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} = \alpha \begin{pmatrix} 1 \\ -1 \end{pmatrix}.
 \end{equation*}
-</div></article></div>
-<article class="exercise exercise-like" id="exercise-72"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-72"><h6 class="heading">
+</div></article></details><details id="auto_val_sub-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-72"><article class="exercise exercise-like"><div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<p id="p-311">Confira a sua resposta com o código abaixo.</p>
-<div class="sagecell-sage" id="sage-50"><script type="text/x-sage">import scipy as sci
+</div></article></details><div class="para" id="auto_val_sub-8">Confira a sua resposta com o código abaixo.</div>
+<pre id="auto_val_sub-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
 A = np.array([[3,0,1],[0,2,0],[0,0,2]])
 
 sci.linalg.eig(A)
-</script></div>
-<article class="remark remark-like" id="remark-29"><h6 class="heading">
+</script></pre>
+<article class="remark remark-like" id="auto_val_sub-10"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.6</span><span class="period">.</span>
-</h6>Podemos pensar na matriz \(A\) como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores (supondo que exista uma), temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:<div class="displaymath">
+</h4>Podemos pensar na matriz <span class="process-math">\(A\)</span> como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores (supondo que exista uma), temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que:<div class="displaymath process-math">
 \begin{equation*}
 A = P D P^{-1}
 \end{equation*}
-</div>Encontrar matrizes \(P\) (de autovetores) e \(D\) (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</article><p id="p-312">Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.</p>
-<article class="exercise exercise-like" id="exercise-73"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-73"><h6 class="heading">
+</div>Encontrar matrizes <span class="process-math">\(P\)</span> (de autovetores) e <span class="process-math">\(D\)</span> (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.</article><div class="para" id="auto_val_sub-11">Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.</div>
+<details id="auto_val_sub-12" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-73"><article class="exercise exercise-like"><div class="displaymath">
+</h4></summary><article class="exercise exercise-like"><div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1/3 \amp -4/3 \amp -1/3 \\ -4/3 \amp 1/3 \amp 1/3 \\ -1/3 \amp 1/3 \amp 4/3 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<p id="p-313">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</p>
-<div class="sagecell-sage" id="sage-51"><script type="text/x-sage">import scipy as sci
+</div></article></details><div class="para" id="auto_val_sub-13">O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.</div>
+<pre id="auto_val_sub-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import scipy as sci
 import numpy as np
 
 A = np.array([[3,0,1],[0,2,0],[0,0,2]])
@@ -242,15 +301,15 @@ print('D = ', np.diag(B[0]))
 print('P = ', B[1])
 
 print('A = ?', B[1].dot(np.diag(B[0]).dot(np.linalg.inv(B[1]))))
-</script></div>
-<p id="p-314">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</p>
-<div class="displaymath">
+</script></pre>
+<div class="para" id="auto_val_sub-15">Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A^2 = (P D P^{-1})(P D P^{-1}) = P D^2 P^{-1} \,\,\,\, A^n = (P D P^{-1})\cdots(P D P^{-1}) = P D^n P^{-1} 
 \end{equation*}
 </div>
-<p id="p-315">e, para uma matriz diagonal,</p>
-<div class="displaymath">
+<div class="para" id="auto_val_sub-17">e, para uma matriz diagonal,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 D = \begin{pmatrix}
 \lambda_1 \amp 0 \amp 0 \amp \cdots \amp 0 \\
@@ -266,52 +325,48 @@ D^m = \begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-74"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-74"><h6 class="heading">
+<details id="auto_val_sub-19" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-74"><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, \(30\%\) dos não comprometidos passam a ser comprometidos e \(20\%\) dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></div></section><section class="subsection" id="autoval_teormas"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span>
+</h4></summary><article class="exercise exercise-like">Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, <span class="process-math">\(30\%\)</span> dos não comprometidos passam a ser comprometidos e <span class="process-math">\(20\%\)</span> dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?</article></details></section><section class="subsection" id="autoval_teormas"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">9.2</span><span class="space"> </span><span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span>
 </h3>
-<p id="p-316">Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.</p>
-<article class="theorem theorem-like" id="autovetores_LI"><h6 class="heading">
+<div class="para" id="autoval_teormas-2">Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.</div>
+<article class="theorem theorem-like" id="autovetores_LI"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.9</span><span class="period">.</span>
-</h6>Seja \(A\) uma matriz \(n \times n\text{.}\) Autovetores associados a autovalores distintos são linearmente independentes.</article><article class="hiddenproof" id="proof-29"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-29"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-29"><article class="hiddenproof">A completar.</article></div>
-<p id="p-317">O <a class="xref" data-knowl="./knowl/autovetores_LI.html" title="Theorem 9.9">Theorem 9.9</a> garante que se o polinômio característico tem \(n\) raízes distintas, teremos \(n\) autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.</p>
-<article class="theorem theorem-like" id="matriz_simetrica"><h6 class="heading">
+</h4>Seja <span class="process-math">\(A\)</span> uma matriz <span class="process-math">\(n \times n\text{.}\)</span> Autovetores associados a autovalores distintos são linearmente independentes.</article><details id="autovetores_LI-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><div class="para" id="autoval_teormas-4">O <a href="" class="xref" data-knowl="./knowl/xref/autovetores_LI.html" title="Theorem 9.9">Theorem 9.9</a> garante que se o polinômio característico tem <span class="process-math">\(n\)</span> raízes distintas, teremos <span class="process-math">\(n\)</span> autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.</div>
+<article class="theorem theorem-like" id="matriz_simetrica"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.10</span><span class="period">.</span><span class="space"> </span><span class="title">.</span>
-</h6>Seja \(A\) uma matriz real<a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 1 </sup></a>\(n \times n\) simétrica. Então, seus autovalores e autovetores são reais e a matriz \(A\) tem \(n\) autovetores distintos. Além disso, \(A\) admite uma base de autovetores ortonormais.</article><article class="hiddenproof" id="proof-30"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-30"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-30"><article class="hiddenproof">A completar.</article></div>
-<p id="p-318">Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz \(P\) é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.</p>
-<article class="remark remark-like" id="remark-30"><h6 class="heading">
+</h4>Seja <span class="process-math">\(A\)</span> uma matriz real<details class="ptx-footnote" aria-live="polite" id="matriz_simetrica-2-2"><summary class="ptx-footnote__number" title="Footnote 9.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="matriz_simetrica-2-2">Na qual todos os coeficientes são reais</div></details> <span class="process-math">\(n \times n\)</span> simétrica. Então, seus autovalores e autovetores são reais e a matriz <span class="process-math">\(A\)</span> tem <span class="process-math">\(n\)</span> autovetores distintos. Além disso, <span class="process-math">\(A\)</span> admite uma base de autovetores ortonormais.</article><details id="matriz_simetrica-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">A completar.</article></details><div class="para" id="autoval_teormas-6">Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz <span class="process-math">\(P\)</span> é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.</div>
+<article class="remark remark-like" id="autoval_teormas-7"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">9.11</span><span class="period">.</span>
-</h6>Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau \(n\) sempre pode ser decomposto no produto de monômios de grau \(n\text{.}\) Em particular<div class="displaymath">
+</h4>Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau <span class="process-math">\(n\)</span> sempre pode ser decomposto no produto de monômios de grau <span class="process-math">\(n\text{.}\)</span> Em particular<div class="displaymath process-math">
 \begin{equation*}
 p(\lambda) = \pm (\lambda^n + a_{n-1} \lambda^{n-1} + \cdots + a_1 \lambda + a_0) = \pm(\lambda-\lambda_n)(\lambda-\lambda_{n-1})\cdots(\lambda-\lambda_1),
 \end{equation*}
-</div>onde \(\lambda\) é a variável complexa, \(\lambda_i\text{,}\) \(i = 1, 2, \ldots, n\) são as raízes (possivelmente complexas) e \(a_i\) os coeficientes, \(i = 1, 2, \ldots, n\text{.}\)</article><article class="definition definition-like" id="definition-31"><h6 class="heading">
+</div>onde <span class="process-math">\(\lambda\)</span> é a variável complexa, <span class="process-math">\(\lambda_i\text{,}\)</span> <span class="process-math">\(i = 1, 2, \ldots, n\)</span> são as raízes (possivelmente complexas) e <span class="process-math">\(a_i\)</span> os coeficientes, <span class="process-math">\(i = 1, 2, \ldots, n\text{.}\)</span></article><article class="definition definition-like" id="autoval_teormas-8"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.12</span><span class="period">.</span>
-</h6>
-<p id="p-319">Seja \(p(\lambda)\) o polinômio característico de uma matriz real \(A\text{,}\) \(n \times n \text{.}\) O número de vezes que um autovalor aparece na decomposição no produto de monômios de \(p(\lambda)\) é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de \(A - \lambda_k I\text{,}\) \(N(A - \lambda_k I)\) é a multiplicidade geométrica do autovalor \(\lambda_k\text{.}\)</p></article><article class="example example-like" id="example-76"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-76"><h6 class="heading">
+</h4> <div class="para" id="autoval_teormas-8-2-1">Seja <span class="process-math">\(p(\lambda)\)</span> o polinômio característico de uma matriz real <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(n \times n \text{.}\)</span> O número de vezes que um autovalor aparece na decomposição no produto de monômios de <span class="process-math">\(p(\lambda)\)</span> é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de <span class="process-math">\(A - \lambda_k I\text{,}\)</span> <span class="process-math">\(N(A - \lambda_k I)\)</span> é a multiplicidade geométrica do autovalor <span class="process-math">\(\lambda_k\text{.}\)</span>
+</div></article><details id="autoval_teormas-9" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.13</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-76"><article class="example example-like"><div class="displaymath">
+</h4></summary><article class="example example-like"><div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 1 \amp 3 \\ 0 \amp 1 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<article class="example example-like" id="example-77"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-77"><h6 class="heading">
+</div></article></details><details id="autoval_teormas-10" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-77"><article class="example example-like"><div class="displaymath">
+</h4></summary><article class="example example-like"><div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 2 \amp 3 \amp 0\\ 0 \amp 2 \amp -4 \\ 0 \amp 0 \amp 1 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<p id="p-320">Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.</p>
-<article class="example example-like" id="example-78"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-78"><h6 class="heading">
+</div></article></details><div class="para" id="autoval_teormas-11">Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.</div>
+<details id="autoval_teormas-12" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.15</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-78"><article class="example example-like">Diagonalize a matriz<div class="displaymath">
+</h4></summary><article class="example example-like">Diagonalize a matriz<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 0 \amp 2 \amp -1\\ 2 \amp 3 \amp -2 \\ -1 \amp -2 \amp 0 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<p id="p-321">Se uma matriz \(A\) tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados \(\lambda_k, \overline{\lambda}_k\text{,}\) com autovetores complexos \(\vec{x}_k, \overline{\vec{x}}_k\text{.}\) Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor \(\vec{x}_k = \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k)\) associado ao autovalor \(\lambda_k = r \mbox{cos} (\theta) + i r \mbox{sen} (\theta)\) (escrito na forma polar)</p>.<div class="displaymath">
+</div></article></details><div class="para" id="autoval_teormas-13">Se uma matriz <span class="process-math">\(A\)</span> tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados <span class="process-math">\(\lambda_k, \overline{\lambda}_k\text{,}\)</span> com autovetores complexos <span class="process-math">\(\vec{x}_k, \overline{\vec{x}}_k\text{.}\)</span> Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor <span class="process-math">\(\vec{x}_k = \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k)\)</span> associado ao autovalor <span class="process-math">\(\lambda_k = r \mbox{cos} (\theta) + i r \mbox{sen} (\theta)\)</span> (escrito na forma polar)</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/autovetores_LI.html" id="autoval_teormas-14">
 \begin{align*}
 A \vec{x}_k =\amp \lambda_k \vec{x}_k = (r \mbox{cos} (\theta) + i r \mbox{sen} (\theta))( \mbox{Re}(\vec{x}_k) + i \mbox{Im}(\vec{x}_k))\\
 =\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)),\\
@@ -319,58 +374,55 @@ A \bar{\vec{x}_k} =\amp \bar{\lambda_k}\bar{ \vec{x}_k} = (r \mbox{cos} (\theta)
 =\amp (r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) - i( r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)).
 \end{align*}
 </div>
-<p id="p-322">Assim, lembrando que \(2 \mbox{Re}(\vec{x}_k) = \vec{x}_k + \bar{\vec{x}_k}\) e \(2 \mbox{Im}(\vec{x}_k) = -i\vec{x}_k + i \bar{\vec{x}_k}\text{,}\) temos</p>
-<div class="displaymath">
+<div class="para" id="autoval_teormas-15">Assim, lembrando que <span class="process-math">\(2 \mbox{Re}(\vec{x}_k) = \vec{x}_k + \bar{\vec{x}_k}\)</span> e <span class="process-math">\(2 \mbox{Im}(\vec{x}_k) = -i\vec{x}_k + i \bar{\vec{x}_k}\text{,}\)</span> temos</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/autovetores_LI.html">
 \begin{equation*}
 A \mbox{Re}(\vec{x}_k) =  r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)
 \end{equation*}
 </div>
-<div class="displaymath">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/autovetores_LI.html">
 \begin{equation*}
 A \mbox{Im}(\vec{x}_k) =  r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k)
 \end{equation*}
 </div>
-<p id="p-323">Desse modo, se \(\vec{u} = a \mbox{Re}(\vec{x}_k) + b \mbox{Im}(\vec{x}_k)\text{,}\) com \(a,b\) reais, temos:</p>
-<div class="displaymath">
+<div class="para" id="autoval_teormas-18">Desse modo, se <span class="process-math">\(\vec{u} = a \mbox{Re}(\vec{x}_k) + b \mbox{Im}(\vec{x}_k)\text{,}\)</span> com <span class="process-math">\(a,b\)</span> reais, temos:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/autovetores_LI.html" id="autoval_teormas-19">
 \begin{align*}
 A \vec{u} = \amp a(r \mbox{cos} (\theta) \mbox{Re}(\vec{x}_k) - r \mbox{sen} (\theta)\mbox{Im}(\vec{x}_k)) + b(r \mbox{sen} (\theta)\mbox{Re}(\vec{x}_k) +  r \mbox{cos} (\theta)\mbox{Im}(\vec{x}_k))\\
 =\amp (r \mbox{cos} (\theta), r \mbox{sen} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Re}(\vec{x}_k) + (-r \mbox{sen} (\theta), r \mbox{cos} (\theta))\begin{pmatrix} a \\ b \end{pmatrix} \mbox{Im}(\vec{x}_k),
 \end{align*}
 </div>
-<p id="p-324">e é possível escrever um bloco \(2 \times 2\) na diagonal da forma:</p>
-<div class="displaymath">
+<div class="para" id="autoval_teormas-20">e é possível escrever um bloco <span class="process-math">\(2 \times 2\)</span> na diagonal da forma:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/autovetores_LI.html">
 \begin{equation*}
 \begin{pmatrix} r\mbox{cos}(\theta) \amp r\mbox{sen}(\theta) \\ -r\mbox{sen}(\theta) \amp r\mbox{cos}(\theta) \end{pmatrix},
 \end{equation*}
 </div>
-<p id="p-325">de modo que autovalores complexos indicam a rotações no plano definido por \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\text{.}\) Deixamos ao leitor a verificação do fato que \(\mbox{Re}(\vec{x}_k)\) e \(\mbox{Im}(\vec{x}_k)\) são linearmente independentes.</p>
-<article class="example example-like" id="example-79"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-79"><h6 class="heading">
+<div class="para" id="autoval_teormas-22">de modo que autovalores complexos indicam a rotações no plano definido por <span class="process-math">\(\mbox{Re}(\vec{x}_k)\)</span> e <span class="process-math">\(\mbox{Im}(\vec{x}_k)\text{.}\)</span> Deixamos ao leitor a verificação do fato que <span class="process-math">\(\mbox{Re}(\vec{x}_k)\)</span> e <span class="process-math">\(\mbox{Im}(\vec{x}_k)\)</span> são linearmente independentes.</div>
+<details id="autoval_teormas-23" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-79"><article class="example example-like"><div class="displaymath">
+</h4></summary><article class="example example-like"><div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 4/5 \amp -3/5 \amp 0 \\ 3/5 \amp 4/5 \amp 0 \\ 1 \amp 2 \amp 2 \end{pmatrix}
 \end{equation*}
-</div></article></div>
-<p id="p-326">Para mais informações sobre esse processo, ver <a class="external" href="https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan" target="_blank">Forma de Jordan</a><a data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 2 </sup></a>.</p>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn"><code class="code-inline tex2jax_ignore">wikipedia.org</code></div></div></section><section class="subsection" id="aplicacoes"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span>
+</div></article></details><div class="para" id="autoval_teormas-24">Para mais informações sobre esse processo, ver <a class="external" href="https://pt.wikipedia.org/wiki/Forma_can%C3%B4nica_de_Jordan" target="_blank">Forma de Jordan</a><details class="ptx-footnote" aria-live="polite" id="autoval_teormas-24-2"><summary class="ptx-footnote__number" title="Footnote 9.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="autoval_teormas-24-2"><code class="code-inline tex2jax_ignore">wikipedia.org</code></div></details>.</div></section><section class="subsection" id="aplicacoes"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">9.3</span><span class="space"> </span><span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span>
 </h3>
-<p id="p-327">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém \(y_0\) átomos radioativos. É natural pensar que o número de átomos, \(y(t)\text{,}\) que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:</p>
-<div class="displaymath">
+<div class="para" id="aplicacoes-2">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém <span class="process-math">\(y_0\)</span> átomos radioativos. É natural pensar que o número de átomos, <span class="process-math">\(y(t)\text{,}\)</span> que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \frac{dy}{dt}(t) = \lambda y(t), \,\,\,\, y(0) = y_0. 
 \end{equation*}
 </div>
-<p id="p-328">Um problema assim é chamado de uma equação diferencial ordinária e sua solução é \(y(t) = y_0 e^{\lambda t}\text{.}\)</p>
-<p id="p-329">Em outros problemas pode-se ter múltiplas funções simultaneamente.</p>
-<article class="example example-like" id="example-80"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-80"><h6 class="heading">
+<div class="para" id="aplicacoes-4">Um problema assim é chamado de uma equação diferencial ordinária e sua solução é <span class="process-math">\(y(t) = y_0 e^{\lambda t}\text{.}\)</span>
+</div>
+<div class="para" id="aplicacoes-5">Em outros problemas pode-se ter múltiplas funções simultaneamente.</div>
+<details id="aplicacoes-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.17</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-80"><article class="example example-like">Uma amostra formada por dois isótopos radioativos com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\)  e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
-<article class="example example-like" id="example-81"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-81"><h6 class="heading">
+</h4></summary><article class="example example-like">Uma amostra formada por dois isótopos radioativos com quantidades iniciais <span class="process-math">\(y_1 = 3\times 10^{5}\)</span> e <span class="process-math">\(y_2 = 2\times 10^{4}\)</span>  e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></details><details id="aplicacoes-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.18</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-81"><article class="example example-like">Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo \(A\) decai no isótopo \(B\text{,}\) que decai no isótopo \(C\text{.}\) Uma amostra formada pelos isótopos \(A\text{,}\) \(B\) e \(C\) com quantidades iniciais \(y_1 = 3\times 10^{5}\) e \(y_2 = 2\times 10^{4}\) e \(y_3 = 4\times 10^{4}\) e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></div>
-<p id="p-330">Consideremos o sistema de equações diferenciais (com condições iniciais associadas):</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like">Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo <span class="process-math">\(A\)</span> decai no isótopo <span class="process-math">\(B\text{,}\)</span> que decai no isótopo <span class="process-math">\(C\text{.}\)</span> Uma amostra formada pelos isótopos <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> e <span class="process-math">\(C\)</span> com quantidades iniciais <span class="process-math">\(y_1 = 3\times 10^{5}\)</span> e <span class="process-math">\(y_2 = 2\times 10^{4}\)</span> e <span class="process-math">\(y_3 = 4\times 10^{4}\)</span> e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...</article></details><div class="para" id="aplicacoes-8">Consideremos o sistema de equações diferenciais (com condições iniciais associadas):</div>
+<div class="displaymath process-math" id="aplicacoes-9">
 \begin{align*}
 y_1' =\amp a_{11}y_1 + a_{12}y_2 + \cdots + a_{1n} y_n, \,\,\, y_1(0) = y^*_1,\\
 y_2' =\amp a_{21}y_1 + a_{22}y_2 + \cdots + a_{2n} y_n, \,\,\, y_2(0) = y^*_2,\\
@@ -378,88 +430,91 @@ y_2' =\amp a_{21}y_1 + a_{22}y_2 + \cdots + a_{2n} y_n, \,\,\, y_2(0) = y^*_2,\\
 y_n' =\amp a_{n1}y_1 + a_{n2}y_2 + \cdots + a_{nn} y_n, \,\,\, y_n(0) = y^*_n,
 \end{align*}
 </div>
-<p id="p-331">que pose ser escrito na forma</p>
-<div class="displaymath">
+<div class="para" id="aplicacoes-10">que pose ser escrito na forma</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{y}'(t) = A\vec{y}(t), \,\,\, \vec{y}(0) = \vec{y^*}.
 \end{equation*}
 </div>
-<p id="p-332">Se a matriz A tem \(n\) autovalores reais, \(\lambda_1, \ldots, \lambda_n\text{,}\)(não necessariamente distintos) e  a eles estão associados \(\text{}\) autovetores LI, \(\vec{x}_1, \ldots, \vec{x}_n\text{,}\) então a solução do sistema de EDOs é</p>
-<div class="displaymath">
+<div class="para" id="aplicacoes-12">Se a matriz A tem <span class="process-math">\(n\)</span> autovalores reais, <span class="process-math">\(\lambda_1, \ldots, \lambda_n\text{,}\)</span>(não necessariamente distintos) e  a eles estão associados <span class="process-math">\(\text{}\)</span> autovetores LI, <span class="process-math">\(\vec{x}_1, \ldots, \vec{x}_n\text{,}\)</span> então a solução do sistema de EDOs é</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{y}'(t) = c_1e^{\lambda_1 t}\vec{x}_1 + c_2e^{\lambda_2 t}\vec{x}_2 + \cdots + c_ne^{\lambda_n t}\vec{x}_n, \,\, \mbox{ onde } \,\, \vec{y^*} = c_1\vec{x}_1 + c_2\vec{x}_2 + \cdots + c_ne^\vec{x}_n.
 \end{equation*}
 </div>
-<article class="exercise exercise-like" id="exercise-75"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-75"><h6 class="heading">
+<details id="aplicacoes-14" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">9.19</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-75"><article class="exercise exercise-like">Resolva o sistema<div class="displaymath">
+</h4></summary><article class="exercise exercise-like">Resolva o sistema<div class="displaymath process-math" id="aplicacoes-14-1-1">
 \begin{align*}
 y_1' =\amp 3y_1 + 2y_2 - 3y_3, \,\,\, y_1(0) = 1,\\
 y_2' =\amp 2y_1 + 3y_2 - 3y_3, \,\,\, y_2(0) = 2,\\
 y_3' =\amp 3y_1 + 3y_2 - 4y_3, \,\,\, y_n(0) = -1,
 \end{align*}
-</div></article></div></section><section class="subsection" id="aplicacoes_2"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span>
+</div></article></details></section><section class="subsection" id="aplicacoes_2"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">9.4</span><span class="space"> </span><span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span>
 </h3>
-<p id="p-333">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Muitas vezes essas leis envolvem derivadas de segunda ordem. Por exemplo a segunda lei de Newton, \(F = m a\text{,}\) ao lembrarmos que a aceleração é a taxa de variação da velocidade e a velocidade é a taxa de variação da posição: \(F = ma = mv' = mx''\text{.}\) Vejamos como resolver uma EDO linear de segunda ordem num exemplo.</p>
-<article class="example example-like" id="example-82"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-82"><h6 class="heading">
+<div class="para" id="aplicacoes_2-2">As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Muitas vezes essas leis envolvem derivadas de segunda ordem. Por exemplo a segunda lei de Newton, <span class="process-math">\(F = m a\text{,}\)</span> ao lembrarmos que a aceleração é a taxa de variação da velocidade e a velocidade é a taxa de variação da posição: <span class="process-math">\(F = ma = mv' = mx''\text{.}\)</span> Vejamos como resolver uma EDO linear de segunda ordem num exemplo.</div>
+<details id="aplicacoes_2-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.20</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-82"><article class="example example-like">Consideremos o PVI<div class="displaymath">
+</h4></summary><article class="example example-like">Consideremos o PVI<div class="displaymath process-math">
 \begin{equation*}
 3y'' + 2y' - y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
 \end{equation*}
-</div>Podemos definir variáveis \(y_1 (t) = y(t)\text{,}\) \(y_2 (t) = y'(t)\text{,}\) de modo que obtemos o sistema<div class="displaymath">
+</div>Podemos definir variáveis <span class="process-math">\(y_1 (t) = y(t)\text{,}\)</span> <span class="process-math">\(y_2 (t) = y'(t)\text{,}\)</span> de modo que obtemos o sistema<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{l}
 y_1'(t) = y_2(t), \,\,\, y_1(0) =1,\\
 y_2'(t) = -\frac{2}{3} y_2(t)+\frac{1}{3} y_1(t) , \,\,\, y_2(0) =2,
 \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ 1/3 \amp -2/3 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
 \end{equation*}
-</div>Autovalores, autovetores, ...</article></div>
-<article class="example example-like" id="example-83"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-83"><h6 class="heading">
+</div>Autovalores, autovetores, ...</article></details><details id="aplicacoes_2-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.21</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-83"><article class="example example-like">Consideremos o PVI<div class="displaymath">
+</h4></summary><article class="example example-like">Consideremos o PVI<div class="displaymath process-math">
 \begin{equation*}
 y'' + 2y' + 2y = 0, \,\,\, y(0) = 1, \,\,\, y'(0) = 2.
 \end{equation*}
-</div>Podemos definir variáveis \(y_1 (t) = y(t)\text{,}\) \(y_2 (t) = y'(t)\text{,}\) de modo que obtemos o sistema<div class="displaymath">
+</div>Podemos definir variáveis <span class="process-math">\(y_1 (t) = y(t)\text{,}\)</span> <span class="process-math">\(y_2 (t) = y'(t)\text{,}\)</span> de modo que obtemos o sistema<div class="displaymath process-math">
 \begin{equation*}
 \begin{array}{l}
 y_1'(t) = y_2(t), \,\,\, y_1(0) =1,\\
 y_2'(t) = -2 y_2(t) - 2y_1(t) , \,\,\, y_2(0) =2,
 \end{array} \,\,\, \Longleftrightarrow  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}' = \begin{pmatrix} 0 \amp 1 \\ -2 \amp -2 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
 \end{equation*}
-</div>Autovalores, autovetores, ...</article></div>
-<p id="p-334">Podemos ter um sistema de equações lineares de segunda ordem.</p>
-<article class="example example-like" id="example-84"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-84"><h6 class="heading">
+</div>Autovalores, autovetores, ...</article></details><div class="para" id="aplicacoes_2-5">Podemos ter um sistema de equações lineares de segunda ordem.</div>
+<details id="aplicacoes_2-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.22</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-84"><article class="example example-like">Consideremos o PVI<div class="displaymath">
+</h4></summary><article class="example example-like">Consideremos o PVI<div class="displaymath process-math" id="aplicacoes_2-6-1-1">
 \begin{align*}
 \amp y_1'' = 2y_1 + y_2 + y_1' + y_2', \,\,\, y_1(0) = 1, \,\,\, y_2(0) = 0.\\
 \amp y_2'' = -5y_1 +2y_2 +5 y_1' -y_2', \,\,\, y_1'(0) = 4, \,\,\, y_2'(0) = -2,
 \end{align*}
-</div>que pode ser escrito como<div class="displaymath">
+</div>que pode ser escrito como<div class="displaymath process-math">
 \begin{equation*}
 \vec{y}'' = \begin{pmatrix} 1\amp 1\\ 5\amp -1\end{pmatrix} \vec{y}' + \begin{pmatrix} 2 \amp 1 \\ -5 \amp 2 \end{pmatrix} \vec{y}
 \end{equation*}
-</div>Podemos definir variáveis \(y_3 (t) = y_1'(t)\text{,}\) \(y_4 (t) = y_2'(t)\text{,}\) de modo que obtemos o sistema<div class="displaymath">
+</div>Podemos definir variáveis <span class="process-math">\(y_3 (t) = y_1'(t)\text{,}\)</span> <span class="process-math">\(y_4 (t) = y_2'(t)\text{,}\)</span> de modo que obtemos o sistema<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix}' = \left(\begin{array}{cc|cc} 0 \amp 0 \amp 1 \amp 0\\ 0\amp 0\amp 0 \amp 1\\ \hline 2\amp 1\amp 1 \amp 1 \\ -5\amp 2\amp 5\amp -1\\ \end{array} \right) \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix}, \,\,\,\, \begin{pmatrix} y_1(0) \\ y_2(0) \\ y_3(0) \\ y_4(0) \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 4 \\ -2 \end{pmatrix}
 \end{equation*}
-</div>Autovalores, autovetores, ...</article></div>
-<p id="p-335">Consideremos o sistema de equações diferenciais (com condições iniciais associadas), escrito na forma matricial, denotando \(\vec{y} = (y_1, y_2, \ldots, y_n)^T\text{,}\) como:</p>
-<div class="displaymath">
+</div>Autovalores, autovetores, ...</article></details><div class="para" id="aplicacoes_2-7">Consideremos o sistema de equações diferenciais (com condições iniciais associadas), escrito na forma matricial, denotando <span class="process-math">\(\vec{y} = (y_1, y_2, \ldots, y_n)^T\text{,}\)</span> como:</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{y}'' = A_1 \vec{y} + A_2 \vec{y}', \,\,\,\, \vec{y}(0) = \vec{y}^*_0, \,\, \vec{y}'(0) = \vec{y}^{**}_0.
 \end{equation*}
 </div>
-<p id="p-336">Podemos definir as variáveis \(y_{n+1} = y_1', y_{n+2} =y_2', \ldots, y_{2n} = y_n'\) e, denotando, \(\vec{y}_1 = \vec{y} = (y_1, y_2, \ldots, y_n)^T\) e \(\vec{y}_2 = (y_{n+1}, y_{n+2}, \ldots, y_{2n})^T\text{,}\) temos o problema linear</p>
-<div class="displaymath">
+<div class="para" id="aplicacoes_2-9">Podemos definir as variáveis <span class="process-math">\(y_{n+1} = y_1', y_{n+2} =y_2', \ldots, y_{2n} = y_n'\)</span> e, denotando, <span class="process-math">\(\vec{y}_1 = \vec{y} = (y_1, y_2, \ldots, y_n)^T\)</span> e <span class="process-math">\(\vec{y}_2 = (y_{n+1}, y_{n+2}, \ldots, y_{2n})^T\text{,}\)</span> temos o problema linear</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} \vec{y}_1 \\ \vec{y}_2\end{pmatrix}' = \left(\begin{array}{c|c} 0 \amp I \\ \hline A_1 \amp A_2\end{array}\right) \begin{pmatrix} \vec{y}_1 \\ \vec{y}_2\end{pmatrix}, \,\,\, \begin{pmatrix} \vec{y}_1(0) \\ \vec{y}_2(0) \end{pmatrix} = \begin{pmatrix} \vec{y}^{*}_0 \\ \vec{y}^{**}_0\end{pmatrix}
 \end{equation*}
 </div>
-<p id="p-337">Que pode ser resolvido pelo método de autovalores e autovetores.</p></section></section></div></main>
+<div class="para" id="aplicacoes_2-11">Que pode ser resolvido pelo método de autovalores e autovetores.</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="Transformacoes_lineares.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

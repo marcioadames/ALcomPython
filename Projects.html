@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-30T11:27:23-03:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
-<head>
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Projetos</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    useLabelIds: true,
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+<meta property="og:type" content="article">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,149 +53,196 @@
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.88,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Python)'});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
 });
-</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
-\newcommand{\lt}{&lt;}
-\newcommand{\gt}{&gt;}
-\newcommand{\amp}{&amp;}
-\)</div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
 <p class="byline">Márcio Rostirolla Adames</p>
 </div>
-</div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Matrices.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="espacos-vetoriais.html" title="Next">Next</a></span></div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Matrices.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="espacos-vetoriais.html" title="Next">Next</a>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
-<li class="link">
-<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
-<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
-<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
-<li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="Matrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="espacos-vetoriais.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#sis-lin-sub" class="internal"><span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#matrix-sis-lin" class="internal"><span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Gauss-Jordan-red" class="internal"><span class="codenumber">1.3</span> <span class="title">Redução de Gauss Jordan</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Matrices.html" data-scroll="Matrices"><span class="codenumber">2</span> <span class="title">Matrizes</span></a><ul>
-<li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
-<li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
-<li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
-<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
-<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
-<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Matrices.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrizes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrizes_operacoes" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrix_rep_mult" class="internal"><span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrix_mult_meaning" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#determinants" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Coding_message" class="internal"><span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrices-10" class="internal"><span class="codenumber">2.6</span> <span class="title">Decomposição LU</span></a></div></li>
 </ul>
 </li>
-<li class="link active">
-<a href="Projects.html" data-scroll="Projects"><span class="codenumber">3</span> <span class="title">Projetos</span></a><ul>
-<li><a href="Projects.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li>
-<li><a href="Projects.html#Proj2" data-scroll="Proj2">Projeto 2 - Análise de circuitos resistivos</a></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="Projects.html" class="internal"><span class="codenumber">3</span> <span class="title">Projetos</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj1" class="internal"><span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj3" class="internal"><span class="codenumber">3.3</span> <span class="title">Projeto 3 - Ajustando dados aleatórios</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj4" class="internal"><span class="codenumber">3.4</span> <span class="title">Projeto 4 - Metrologia coordenada</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a><ul>
-<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
-<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">4.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">4.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="subescos.html" data-scroll="subescos"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a><ul>
-<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
-<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">5.1</span> <span class="title">Subespaço</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">5.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="bases.html" data-scroll="bases"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
-<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
-<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
-<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
-<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
-<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">6.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">6.2</span> <span class="title">Dependência Linear</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">6.3</span> <span class="title">Bases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">6.4</span> <span class="title">Mudança de base</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">6.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
-<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
-<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
-<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">7.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">7.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">7.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a><ul>
-<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
-<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">8.1</span> <span class="title">Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">8.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">8.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a><ul>
-<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
-<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
-<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
-<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">9.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">9.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">9.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">9.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
 </ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Projects"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">3</span> <span class="title">Projetos</span>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="Projects"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3</span><span class="space"> </span><span class="title">Projetos</span>
 </h2>
-<p id="p-155">Essa seção reúne projetos utilizando álgebra linear. ** Em construção**</p>
+<div class="para" id="Projects-2-1">Essa seção reúne projetos utilizando álgebra linear. ** Em construção**</div>
 <section class="subsection" id="Proj1"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1</span><span class="space"> </span><span class="title">Projeto 1 - Criando uma dieta</span>
 </h3>
-<p id="p-156">Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.</p>
-<article class="exercise exercise-like" id="exercise-33"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-33"><h6 class="heading">
+<div class="para" id="Proj1-2">Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.</div>
+<details id="Proj1-3" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-33"><article class="exercise exercise-like"><p id="p-157">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a></p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes): <ol class="decimal">
-<li id="li-92"><p id="p-derived-li-92">Arroz, branco, grao longo, normal, cozido</p></li>
-<li id="li-93"><p id="p-derived-li-93">Feijao, preto, semente madura, cozido, sem sal</p></li>
-<li id="li-94"><p id="p-derived-li-94">Frango, carne branca, so carne, pronto para consumo, assado</p></li>
-<li id="li-95"><p id="p-derived-li-95">Alface, crespa, crua</p></li>
-<li id="li-96"><p id="p-derived-li-96">Tomate, vermelho, maduro, cru</p></li>
-</ol>
-<ol class="decimal"></ol> Obs: As quantidades informadas se referem a uma porção de 100 gramas do alimento mencionado. <figure class="table table-like" id="table-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.2<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj1-3-1">Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site <a class="external" href="https://tabnut.dis.epm.br/alimento" target="_blank">https://tabnut.dis.epm.br/alimento</a><details class="ptx-footnote" aria-live="polite" id="Proj1-3-1-2"><summary class="ptx-footnote__number" title="Footnote 3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="Proj1-3-1-2"><code class="code-inline tex2jax_ignore">tabnut.dis.epm.br/alimento</code></div></details>
+</div>
+<details id="Proj1-3-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">Exemplo de solução (seus alimentos serão, provavelmente, diferentes): <ol class="decimal">
+<li id="Proj1-3-2-1-1"><div class="para" id="p-derived-Proj1-3-2-1-1">Arroz, branco, grao longo, normal, cozido</div></li>
+<li id="Proj1-3-2-1-2"><div class="para" id="p-derived-Proj1-3-2-1-2">Feijao, preto, semente madura, cozido, sem sal</div></li>
+<li id="Proj1-3-2-1-3"><div class="para" id="p-derived-Proj1-3-2-1-3">Frango, carne branca, so carne, pronto para consumo, assado</div></li>
+<li id="Proj1-3-2-1-4"><div class="para" id="p-derived-Proj1-3-2-1-4">Alface, crespa, crua</div></li>
+<li id="Proj1-3-2-1-5"><div class="para" id="p-derived-Proj1-3-2-1-5">Tomate, vermelho, maduro, cru</div></li>
+</ol> <ol class="decimal"></ol> Obs: As quantidades informadas se referem a uma porção de 100 gramas do alimento mencionado. <figure class="table table-like" id="Proj1-3-2-3"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.2<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines">Alimento</td>
 <td class="l m b0 r0 l0 t0 lines">Fibra</td>
@@ -229,18 +292,17 @@
 <td class="l m b0 r0 l0 t0 lines">0,2 g</td>
 </tr>
 </table></div></figure>
-</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-34"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-34"><h6 class="heading">
+</div></details></article></details><details id="Proj1-4" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-34"><article class="exercise exercise-like"><p id="p-158">Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">Um exemplo de solução, utilizando os alimentos citados anteriormente, é: <ol class="decimal">
-<li id="li-97"><p id="p-derived-li-97">Fibra alimentar: 20.6 g</p></li>
-<li id="li-98"><p id="p-derived-li-98">Carboidratos: 110.62 g</p></li>
-<li id="li-99"><p id="p-derived-li-99">Sódio: 172 mg</p></li>
-<li id="li-100"><p id="p-derived-li-100">Proteínas: 106.27 g</p></li>
-<li id="li-101"><p id="p-derived-li-101">Gorduras: 14.19 g</p></li>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj1-4-1">Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta.</div>
+<details id="Proj1-4-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">Um exemplo de solução, utilizando os alimentos citados anteriormente, é: <ol class="decimal">
+<li id="Proj1-4-2-1-1"><div class="para" id="p-derived-Proj1-4-2-1-1">Fibra alimentar: 20.6 g</div></li>
+<li id="Proj1-4-2-1-2"><div class="para" id="p-derived-Proj1-4-2-1-2">Carboidratos: 110.62 g</div></li>
+<li id="Proj1-4-2-1-3"><div class="para" id="p-derived-Proj1-4-2-1-3">Sódio: 172 mg</div></li>
+<li id="Proj1-4-2-1-4"><div class="para" id="p-derived-Proj1-4-2-1-4">Proteínas: 106.27 g</div></li>
+<li id="Proj1-4-2-1-5"><div class="para" id="p-derived-Proj1-4-2-1-5">Gorduras: 14.19 g</div></li>
 </ol>
-<div class="displaymath">
+<div class="displaymath process-math" id="Proj1-4-2-2">
 \begin{align*}
 \amp 0,4\, x_1 + 8,7\, x_2 + 1,2\, x_4 + 1,2\, x_5 = 20,6 \\
 \amp 28,17\, x_1 + 23,71\,x_2 + 2,97\, x_4 + 3,89\, x_5 = 110,62\\
@@ -249,23 +311,20 @@
 \amp 0,28\, x_1 + 0,54\, x_2 + 4,07\, x_3 + 0,14\, x_4 + 0,2\, x_5 = 14,19
 \end{align*}
 </div>
-</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-35"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-35"><h6 class="heading">
+</div></details></article></details><details id="Proj1-5" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-35"><article class="exercise exercise-like"><p id="p-159">Utilize o código na <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a>  para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">Para o exemplo anterior, a solução devolvida pelo programa foi: <ol class="decimal"></ol> Você deverá consumir diariamente: <ul class="disc">
-<li id="li-102"><p id="p-derived-li-102">200.0 g de Arroz</p></li>
-<li id="li-103"><p id="p-derived-li-103">200.0 g de Feijão</p></li>
-<li id="li-104"><p id="p-derived-li-104">300.0 g de Frango</p></li>
-<li id="li-105"><p id="p-derived-li-105">100.0 g de Alface</p></li>
-<li id="li-106"><p id="p-derived-li-106">100.0 g de Tomate</p></li>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj1-5-1">Utilize o código na <a href="" class="xref" data-knowl="./knowl/xref/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a>  para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir.</div>
+<details id="Proj1-5-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">Para o exemplo anterior, a solução devolvida pelo programa foi: <ol class="decimal"></ol> Você deverá consumir diariamente: <ul class="disc">
+<li id="Proj1-5-2-2-1"><div class="para" id="p-derived-Proj1-5-2-2-1">200.0 g de Arroz</div></li>
+<li id="Proj1-5-2-2-2"><div class="para" id="p-derived-Proj1-5-2-2-2">200.0 g de Feijão</div></li>
+<li id="Proj1-5-2-2-3"><div class="para" id="p-derived-Proj1-5-2-2-3">300.0 g de Frango</div></li>
+<li id="Proj1-5-2-2-4"><div class="para" id="p-derived-Proj1-5-2-2-4">100.0 g de Alface</div></li>
+<li id="Proj1-5-2-2-5"><div class="para" id="p-derived-Proj1-5-2-2-5">100.0 g de Tomate</div></li>
 </ul>
-</div></div></article></div>
-<article class="remark remark-like" id="sol_lin_sys"><h6 class="heading">
+</div></details></article></details><article class="remark remark-like" id="sol_lin_sys"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.5</span><span class="period">.</span>
-</h6>
-<p id="p-160">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</p>
-<div class="sagecell-sage" id="sage-26"><script type="text/x-sage">import numpy as np
+</h4>
+<div class="para" id="sol_lin_sys-1">Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.</div> <pre id="sol_lin_sys-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import fractions
 
 # Aqui estão os rótulos do problema
@@ -470,22 +529,19 @@ if not done:
         for j in range(len(varsLivres) - 1):
             print(f'{esc[i][varsLivres[j]]} porção de {foods[varsLivres[j]]} +', end=" ")
         print(f'{esc[i][k]} porção de {foods[k]} totalize {round(esc[i][n]*quant, decPlaces)}{und}')
-</script></div></article><article class="exercise exercise-like" id="exercise-36"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-36"><h6 class="heading">
+</script></pre></article><details id="Proj1-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-36"><article class="exercise exercise-like"><p id="p-161">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">Reflita se, dentro do contexto da dieta, sua solução faz sentido. Nesse contexto, fazem sentido soluções negativas? Mude o parâmetro "negSol" do código em <a class="xref" data-knowl="./knowl/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a> para "False". O programa irá bloquear automaticamente qualquer solução negativa que aparecer!</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-37"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-37"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj1-7-1">A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta.</div>
+<details id="Proj1-7-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">Reflita se, dentro do contexto da dieta, sua solução faz sentido. Nesse contexto, fazem sentido soluções negativas? Mude o parâmetro "negSol" do código em <a href="" class="xref" data-knowl="./knowl/xref/sol_lin_sys.html" title="Remark 3.5">Remark 3.5</a> para "False". O programa irá bloquear automaticamente qualquer solução negativa que aparecer!</div></details></article></details><details id="Proj1-8" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-37"><article class="exercise exercise-like"><p id="p-162">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">Existem mais equações que variáveis, logo, o sistema não possui soluções reais.</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-38"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-38"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj1-8-1">Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu?</div>
+<details id="Proj1-8-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">Existem mais equações que variáveis, logo, o sistema não possui soluções reais.</div></details></article></details><details id="Proj1-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-38"><article class="exercise exercise-like"><p id="p-163">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</p>
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">O sistema, que originalmente admitia apenas uma solução, admite, agora, infinitas soluções. Como lidar com esse resultado? Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é otimizar determinadas variáveis, ou seja, maximizar ou minimizar seu valor. Vejamos a seguir:</div></div></article></div> como <article class="remark remark-like" id="minmax_lin_sys"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj1-9-1">Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta?</div>
+<details id="Proj1-9-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">O sistema, que originalmente admitia apenas uma solução, admite, agora, infinitas soluções. Como lidar com esse resultado? Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é otimizar determinadas variáveis, ou seja, maximizar ou minimizar seu valor. Vejamos a seguir:</div></details></article></details><article class="remark remark-like" id="minmax_lin_sys"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.9</span><span class="period">.</span>
-</h6>
-<p id="p-164">Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.</p>
-<div class="sagecell-sage" id="sage-27"><script type="text/x-sage">import numpy as np
+</h4>
+<div class="para" id="minmax_lin_sys-1">Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.</div> <pre id="minmax_lin_sys-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import fractions
 from scipy.optimize import minimize
 
@@ -814,143 +870,135 @@ if not sair:
         for i in range(n):
             qtd = round(sol['x'][i]*quant, decPlaces)
             print(f'{qtd} {und} de {foods[i]}')
-</script></div></article></section><section class="subsection" id="Proj2"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span>
+</script></pre></article></section><section class="subsection" id="Proj2"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2</span><span class="space"> </span><span class="title">Projeto 2 - Análise de circuitos resistivos</span>
 </h3>
-<p id="p-165">Em análise de circuitos, utilizamos a Lei de Ohm e as Leis de Kirchhoff de corrente e tensão. Ao encontrar as equações referentes ao circuito utilizando as leis básicas, precisamos montar um sistema linear para encontrar as correntes e quedas de tensão em cada ramo. Analise os circuitos dados utilizando essas três leis, encontre as equações do circuito e forneça-as ao programa em Python disponibilizado ao final da seção para resolver o sistema e encontras as correntes.</p>
-<p id="p-166">Leis básicas:</p>
+<div class="para" id="Proj2-2">Em análise de circuitos, utilizamos a Lei de Ohm e as Leis de Kirchhoff de corrente e tensão. Ao encontrar as equações referentes ao circuito utilizando as leis básicas, precisamos montar um sistema linear para encontrar as correntes e quedas de tensão em cada ramo. Analise os circuitos dados utilizando essas três leis, encontre as equações do circuito e forneça-as ao programa em Python disponibilizado ao final da seção para resolver o sistema e encontras as correntes.</div>
+<div class="para" id="Proj2-3">Leis básicas:</div>
 <ul class="disc">
-<li id="li-107"><p id="p-derived-li-107"><em class="alert">Lei de Kirchhoff de Corrente:</em> Em qualquer nó, a soma das correntes entrando é igual à soma das correntes saindo.</p></li>
-<li id="li-108"><p id="p-derived-li-108"><em class="alert">Lei de Kirchhoff de Tensão:</em> Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.</p></li>
-<li id="li-109"><p id="p-derived-li-109"><em class="alert">Lei de Ohm:</em> A queda de tensão em um elemento resistivo é dada por \(E = Ri \)</p></li>
+<li id="Proj2-4-1"><div class="para" id="p-derived-Proj2-4-1">
+<em class="alert">Lei de Kirchhoff de Corrente:</em> Em qualquer nó, a soma das correntes entrando é igual à soma das correntes saindo.</div></li>
+<li id="Proj2-4-2"><div class="para" id="p-derived-Proj2-4-2">
+<em class="alert">Lei de Kirchhoff de Tensão:</em> Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.</div></li>
+<li id="Proj2-4-3"><div class="para" id="p-derived-Proj2-4-3">
+<em class="alert">Lei de Ohm:</em> A queda de tensão em um elemento resistivo é dada por <span class="process-math">\(E = Ri \)</span>
+</div></li>
 </ul>
-<p id="p-167">Observe as aplicações das leis básicas nas soluções dos exemplos abaixo.</p>
-<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
+<div class="para" id="Proj2-5">Observe as aplicações das leis básicas nas soluções dos exemplos abaixo.</div>
+<details id="Proj2-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.10</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><p id="p-168">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
-<figure class="figure figure-like" id="figure-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito1.png" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.11<span class="period">.</span></span><span class="space"> </span>Circuito 1. Fonte: Leon, S. 2018</figcaption></figure><a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
-<p id="p-169"><em class="alert">Aplicação da LKC:</em></p>
-<p id="p-170">Observamos que, no nó A, entram as correntes \(i_1\) e \(i_3\text{,}\) e sai a corrente \(i_2\text{.}\) Por outro lado, no nó B, entra a corrente \(i_2\) e saem as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Proj2-6-1">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</div> <figure class="figure figure-like" id="Proj2-6-2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.11<span class="period">.</span></span><span class="space"> </span>Circuito 1. Fonte: Leon, S. 2018</figcaption></figure> <details id="Proj2-6-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj2-6-3-1"><em class="alert">Aplicação da LKC:</em></div> <div class="para" id="Proj2-6-3-2">Observamos que, no nó A, entram as correntes <span class="process-math">\(i_1\)</span> e <span class="process-math">\(i_3\text{,}\)</span> e sai a corrente <span class="process-math">\(i_2\text{.}\)</span> Por outro lado, no nó B, entra a corrente <span class="process-math">\(i_2\)</span> e saem as correntes <span class="process-math">\(i_1\)</span> e <span class="process-math">\(i_3\text{.}\)</span> Assim, obtemos as equações:</div>
+<div class="displaymath process-math" id="Proj2-6-3-3">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 -i_1 + i_2 - i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-171"><em class="alert">Aplicação da Lei de Ohm:</em></p>
-<p id="p-172">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
-<ul class="disc">
-<li id="li-110"><p id="p-derived-li-110">Resistor de 4 ohms: \(E = 4i_1\)</p></li>
-<li id="li-111"><p id="p-derived-li-111">Resistor de 3 ohms: \(E = 3i_3\)</p></li>
-<li id="li-112"><p id="p-derived-li-112">Resistor de 2 ohms (à esquerda do nó B): \(E = 2i_2\)</p></li>
-<li id="li-113"><p id="p-derived-li-113">Resistor de 2 ohms (abaixo do nó B): \(E = 2i_3\)</p></li>
-</ul>
-<p id="p-173"><em class="alert">Aplicação da LKT:</em></p>
-<p id="p-174">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
-<div class="displaymath">
+<div class="para" id="Proj2-6-3-4"><em class="alert">Aplicação da Lei de Ohm:</em></div> <div class="para" id="Proj2-6-3-5">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</div> <ul class="disc">
+<li id="Proj2-6-3-6-1"><div class="para" id="p-derived-Proj2-6-3-6-1">Resistor de 4 ohms: <span class="process-math">\(E = 4i_1\)</span>
+</div></li>
+<li id="Proj2-6-3-6-2"><div class="para" id="p-derived-Proj2-6-3-6-2">Resistor de 3 ohms: <span class="process-math">\(E = 3i_3\)</span>
+</div></li>
+<li id="Proj2-6-3-6-3"><div class="para" id="p-derived-Proj2-6-3-6-3">Resistor de 2 ohms (à esquerda do nó B): <span class="process-math">\(E = 2i_2\)</span>
+</div></li>
+<li id="Proj2-6-3-6-4"><div class="para" id="p-derived-Proj2-6-3-6-4">Resistor de 2 ohms (abaixo do nó B): <span class="process-math">\(E = 2i_3\)</span>
+</div></li>
+</ul> <div class="para" id="Proj2-6-3-7"><em class="alert">Aplicação da LKT:</em></div> <div class="para" id="Proj2-6-3-8">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</div>
+<div class="displaymath process-math" id="Proj2-6-3-9">
 \begin{gather*}
 4i_1 + 2i_2 = 8 \\
 2i_2 + 2i_3 + 3i_3 = 9 
 \end{gather*}
 </div>
-<p id="p-175"><em class="alert">Ao final temos:</em></p>
-<div class="displaymath">
+<div class="para" id="Proj2-6-3-10"><em class="alert">Ao final temos:</em></div>
+<div class="displaymath process-math" id="Proj2-6-3-11">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 4i_1 + 2i_2 = 8 \\
 2i_2 + 5i_3 = 9 
 \end{gather*}
 </div>
-<p id="p-176">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
-</div></div></article></div>
-<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
+<div class="para" id="Proj2-6-3-12">Agora basta colocar as equações na forma matricial e fornecer ao programa.</div>
+</div></details></article></details><details id="Proj2-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.12</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><p id="p-177">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
-<figure class="figure figure-like" id="figure-4"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito2.png" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.13<span class="period">.</span></span><span class="space"> </span>Circuito 2. Fonte: Leon, S. 2018</figcaption></figure><a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
-<p id="p-178"><em class="alert">Aplicação da LKC:</em></p>
-<p id="p-179">Observamos que, no nó A, entram as correntes \(i_1\) e \(i_3\text{,}\) e sai a corrente \(i_2\text{.}\) Por outro lado, no nó B, entra a corrente \(i_2\) e saem as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Proj2-7-1">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</div> <figure class="figure figure-like" id="Proj2-7-2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.13<span class="period">.</span></span><span class="space"> </span>Circuito 2. Fonte: Leon, S. 2018</figcaption></figure> <details id="Proj2-7-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj2-7-3-1"><em class="alert">Aplicação da LKC:</em></div> <div class="para" id="Proj2-7-3-2">Observamos que, no nó A, entram as correntes <span class="process-math">\(i_1\)</span> e <span class="process-math">\(i_3\text{,}\)</span> e sai a corrente <span class="process-math">\(i_2\text{.}\)</span> Por outro lado, no nó B, entra a corrente <span class="process-math">\(i_2\)</span> e saem as correntes <span class="process-math">\(i_1\)</span> e <span class="process-math">\(i_3\text{.}\)</span> Assim, obtemos as equações:</div>
+<div class="displaymath process-math" id="Proj2-7-3-3">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 -i_1 + i_2 - i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-180"><em class="alert">Aplicação da Lei de Ohm:</em></p>
-<p id="p-181">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
-<ul class="disc">
-<li id="li-114"><p id="p-derived-li-114">Resistor de 3 ohms: \(E = 3i_3\)</p></li>
-<li id="li-115"><p id="p-derived-li-115">Resistor de 2 ohms (acima do nó B): \(E = 2i_1\)</p></li>
-<li id="li-116"><p id="p-derived-li-116">Resistor de 2 ohms (à esquerda do nó B): \(E = 2i_2\)</p></li>
-</ul>
-<p id="p-182"><em class="alert">Aplicação da LKT:</em></p>
-<p id="p-183">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
-<div class="displaymath">
+<div class="para" id="Proj2-7-3-4"><em class="alert">Aplicação da Lei de Ohm:</em></div> <div class="para" id="Proj2-7-3-5">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</div> <ul class="disc">
+<li id="Proj2-7-3-6-1"><div class="para" id="p-derived-Proj2-7-3-6-1">Resistor de 3 ohms: <span class="process-math">\(E = 3i_3\)</span>
+</div></li>
+<li id="Proj2-7-3-6-2"><div class="para" id="p-derived-Proj2-7-3-6-2">Resistor de 2 ohms (acima do nó B): <span class="process-math">\(E = 2i_1\)</span>
+</div></li>
+<li id="Proj2-7-3-6-3"><div class="para" id="p-derived-Proj2-7-3-6-3">Resistor de 2 ohms (à esquerda do nó B): <span class="process-math">\(E = 2i_2\)</span>
+</div></li>
+</ul> <div class="para" id="Proj2-7-3-7"><em class="alert">Aplicação da LKT:</em></div> <div class="para" id="Proj2-7-3-8">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</div>
+<div class="displaymath process-math" id="Proj2-7-3-9">
 \begin{gather*}
 2i_1 + 2i_2 = 16 \\
 2i_2 + 3i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-184"><em class="alert">Ao final temos:</em></p>
-<div class="displaymath">
+<div class="para" id="Proj2-7-3-10"><em class="alert">Ao final temos:</em></div>
+<div class="displaymath process-math" id="Proj2-7-3-11">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 2i_1 + 2i_2 = 16 \\
 2i_2 + 3i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-185">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
-</div></div></article></div>
-<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
+<div class="para" id="Proj2-7-3-12">Agora basta colocar as equações na forma matricial e fornecer ao programa.</div>
+</div></details></article></details><details id="Proj2-8" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.14</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-186">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</p>
-<figure class="figure figure-like" id="figure-5"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito3.png" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.15<span class="period">.</span></span><span class="space"> </span>Circuito 3. Fonte: Leon, S. 2018</figcaption></figure><a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution.</span> </a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
-<p id="p-187"><em class="alert">Aplicação da LKC:</em></p>
-<p id="p-188">Observamos que, no nó A, saem as correntes \(i_1\) e \(i_3\text{,}\) e entra a corrente \(i_2\text{.}\) Por outro lado, no nó B, sai a corrente \(i_2\) e entram as correntes \(i_1\) e \(i_3\text{.}\) Assim, obtemos as equações:</p>
-<div class="displaymath">
+</h4></summary><article class="example example-like"><div class="para" id="Proj2-8-1">Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:</div> <figure class="figure figure-like" id="Proj2-8-2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/circuito3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.15<span class="period">.</span></span><span class="space"> </span>Circuito 3. Fonte: Leon, S. 2018</figcaption></figure> <details id="Proj2-8-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj2-8-3-1"><em class="alert">Aplicação da LKC:</em></div> <div class="para" id="Proj2-8-3-2">Observamos que, no nó A, saem as correntes <span class="process-math">\(i_1\)</span> e <span class="process-math">\(i_3\text{,}\)</span> e entra a corrente <span class="process-math">\(i_2\text{.}\)</span> Por outro lado, no nó B, sai a corrente <span class="process-math">\(i_2\)</span> e entram as correntes <span class="process-math">\(i_1\)</span> e <span class="process-math">\(i_3\text{.}\)</span> Assim, obtemos as equações:</div>
+<div class="displaymath process-math" id="Proj2-8-3-3">
 \begin{gather*}
 -i_1 + i_2 - i_3 = 0 \\
 i_1 - i_2 + i_3 = 0 
 \end{gather*}
 </div>
-<p id="p-189"><em class="alert">Aplicação da Lei de Ohm:</em></p>
-<p id="p-190">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</p>
-<ul class="disc">
-<li id="li-117"><p id="p-derived-li-117">Resistor de 4 ohms: \(E = 4i_2\)</p></li>
-<li id="li-118"><p id="p-derived-li-118">Resistor de 2 ohms (superior): \(E = 2i_1\)</p></li>
-<li id="li-119"><p id="p-derived-li-119">Resistor de 2 ohms (inferior): \(E = 2i_3\)</p></li>
-</ul>
-<p id="p-191"><em class="alert">Aplicação da LKT:</em></p>
-<p id="p-192">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</p>
-<div class="displaymath">
+<div class="para" id="Proj2-8-3-4"><em class="alert">Aplicação da Lei de Ohm:</em></div> <div class="para" id="Proj2-8-3-5">Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:</div> <ul class="disc">
+<li id="Proj2-8-3-6-1"><div class="para" id="p-derived-Proj2-8-3-6-1">Resistor de 4 ohms: <span class="process-math">\(E = 4i_2\)</span>
+</div></li>
+<li id="Proj2-8-3-6-2"><div class="para" id="p-derived-Proj2-8-3-6-2">Resistor de 2 ohms (superior): <span class="process-math">\(E = 2i_1\)</span>
+</div></li>
+<li id="Proj2-8-3-6-3"><div class="para" id="p-derived-Proj2-8-3-6-3">Resistor de 2 ohms (inferior): <span class="process-math">\(E = 2i_3\)</span>
+</div></li>
+</ul> <div class="para" id="Proj2-8-3-7"><em class="alert">Aplicação da LKT:</em></div> <div class="para" id="Proj2-8-3-8">Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:</div>
+<div class="displaymath process-math" id="Proj2-8-3-9">
 \begin{gather*}
 2i_1 + 4i_2 = 20 \\
 4i_2 + 2i_3 = 20 
 \end{gather*}
 </div>
-<p id="p-193"><em class="alert">Ao final temos:</em></p>
-<div class="displaymath">
+<div class="para" id="Proj2-8-3-10"><em class="alert">Ao final temos:</em></div>
+<div class="displaymath process-math" id="Proj2-8-3-11">
 \begin{gather*}
 i_1 - i_2 + i_3 = 0 \\
 2i_1 + 4i_2 = 20 \\
 4i_2 + 2i_3 = 20 
 \end{gather*}
 </div>
-<p id="p-194">Agora basta colocar as equações na forma matricial e fornecer ao programa.</p>
-</div></div></article></div>
-<article class="exercise exercise-like" id="exercise-39"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-39"><h6 class="heading">
+<div class="para" id="Proj2-8-3-12">Agora basta colocar as equações na forma matricial e fornecer ao programa.</div>
+</div></details></article></details><details id="Proj2-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.16</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-39"><article class="exercise exercise-like"><p id="p-195"><dfn class="terminology">Altere os valores das resistências no circuito abaixo e utilize o seu circuito</dfn> para obter o sistema de equações referentes à aplicação das leis básicas para as correntes em cada fio (entre nodos):</p>
-<figure class="figure figure-like" id="figure-6"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/Linalg_circuit_2.png" class="contained" alt=""></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.17<span class="period">.</span></span><span class="space"> </span>Circuito. Fonte: Wikibooks - Linear Algebra/Topic: Analyzing Networks</figcaption></figure></article></div>
-<article class="exercise exercise-like" id="exercise-40"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-40"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj2-9-1">
+<dfn class="terminology">Altere os valores das resistências no circuito abaixo e utilize o seu circuito</dfn> para obter o sistema de equações referentes à aplicação das leis básicas para as correntes em cada fio (entre nodos):</div>
+<figure class="figure figure-like" id="Proj2-9-2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/Linalg_circuit_2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.17<span class="period">.</span></span><span class="space"> </span>Circuito. Fonte: Wikibooks - Linear Algebra/Topic: Analyzing Networks</figcaption></figure></article></details><details id="Proj2-10" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.18</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-40"><article class="exercise exercise-like"><p id="p-196">Utilize os códigos em python para resolver o sistema que você criou. Explique como e porque está usando os códigos.</p></article></div>
-<article class="remark remark-like" id="remark-14"><h6 class="heading">
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj2-10-1">Utilize os códigos em python para resolver o sistema que você criou. Explique como e porque está usando os códigos.</div></article></details><article class="remark remark-like" id="Proj2-11"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.19</span><span class="period">.</span>
-</h6>Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos. <div class="sagecell-sage" id="sage-28"><script type="text/x-sage">import numpy as np
+</h4>Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos. <pre id="Proj2-11-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import fractions
 
 # Aqui estão os rótulos do problema
@@ -1077,7 +1125,1159 @@ if rankA == n:
 # Nesse contexto, várias soluções não fazem sentido.
 if not done:
     raise Exception("O sistema não possui solução única!")
-</script></div></article></section></section></div></main>
+</script></pre></article></section><section class="subsection" id="Proj3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.3</span><span class="space"> </span><span class="title">Projeto 3 - Ajustando dados aleatórios</span>
+</h3>
+<div class="para" id="Proj3-2">Neste projeto, será explorado o método dos quadrados mínimos, método de otimização que tem por objetivo encontrar funções que melhor descrevem um conjunto de pontos em <span class="process-math">\(\mathbb{R}^n \text{.}\)</span>
+</div>
+<div class="para" id="Proj3-3">Nesta atividade, você deve utilizar um código em python para gerar 10 pontos aleatórios no plano, e depois encontrar as funções linear, quadrática, cúbica e exponencial que melhor se ajustam a esses pontos utilizando o método dos quadrados mínimos. Você pode observar a função que encontrou graficamente e conferir seus resultados utilizando os códigos disponibilizados em cada checkpoint.</div>
+<article class="remark remark-like" id="Proj3-4"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.20</span><span class="period">.</span>
+</h4>Execute este código para gerar seus pontos aleatórios. Você pode modificar os valores mínimo e máximo de x e y. Não altere os valores de N_PONTOS e DISTORCAO <pre id="Proj3-4-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import random as rd
+import matplotlib.pyplot as plt
+
+MIN_X = 0
+MAX_X = 50
+MIN_Y = 0
+MAX_Y = 50
+N_PONTOS = 10
+DISTORCAO = 7
+
+def randomPoint(minX, maxX, minY, maxY):
+    x = rd.randrange(minX, maxX) + rd.random()
+    y = rd.randrange(minY, maxY) + rd.random()
+    x = round(x, 2)
+    y = round(y, 2)
+    return (x,y)
+
+def generatePoints(totalPoints, minX, maxX, minY, maxY):
+    points = []
+    cresc = rd.randrange(0,2)
+    step = (maxY-minY)/totalPoints
+
+    if cresc == 1:
+        y0 = minY
+        for i in range(totalPoints):
+            infLimitX = round(minX + ((maxX-minX)/totalPoints) * i)
+            supLimitX = round(minX + ((maxX-minX)/totalPoints) * (i+1))
+            infLimitY = round(y0 + i*step) - DISTORCAO if round(y0 + i*step) - DISTORCAO > minY else round(y0 + i*step)
+            supLimitY = round(y0 + (i+1)*step) + DISTORCAO if round(y0 + (i+1)*step) < maxY else round(y0 + (i+1)*step)
+            point = randomPoint(infLimitX, supLimitX, infLimitY, supLimitY)
+            points.append(point)
+
+    else:
+        y0 = maxY
+        for i in range(totalPoints):
+            infLimitX = round(minX + ((maxX-minX)/totalPoints) * i)
+            supLimitX = round(minX + ((maxX-minX)/totalPoints) * (i+1))
+            infLimitY = round(y0 - (i+1)*step) - DISTORCAO if round(y0 - (i+1)*step) - DISTORCAO > minY else round(y0 - (i+1)*step)
+            supLimitY = round(y0 - i*step) + DISTORCAO if round(y0 - i*step) < maxY else round(y0 - i*step)
+            point = randomPoint(infLimitX, supLimitX, infLimitY, supLimitY)
+            points.append(point)
+
+    return points
+
+def printPoints(points):
+    print("Os pontos gerados são:")
+    for point in points:
+        print(point)
+    print("\n Para copiar e colar nos codigos seguintes:")
+    print("points = ", end='')
+    print(points)
+
+def plotPoints(points, xMin, xMax, yMin, yMax):
+    plt.clf()
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.xlim(xMin-xMin/10, xMax+xMax/10)
+    plt.ylim(yMin-yMin/10, yMax+yMax/10)
+    plt.scatter(x, y, c='#000000')
+
+
+points = generatePoints(N_PONTOS, MIN_X, MAX_X, MIN_Y, MAX_Y)
+printPoints(points)
+plotPoints(points, MIN_X, MAX_X, MIN_Y, MAX_Y)
+plt.show()
+</script></pre></article><details id="Proj3-5" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.21</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj3-5-1">Utilizando o método dos quadrados mínimos, ajuste uma função LINEAR aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado à linearização.</div>
+<pre id="Proj3-5-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# Para observar sua solução graficamente, insira os coeficientes de sua função linear:
+# f(x) = ax + b
+a =
+b =
+
+points =
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0] + coeffs[1]*point[0]))**2)
+
+    return np.round(error, 3)
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = [b, a]
+plotPoints(points)
+plotLine(x, coeffs)
+print(f'O erro associado é {calcError(points, coeffs)}')
+plt.show()
+</script></pre>
+<details id="Proj3-5-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj3-5-3-1">Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.</div> <pre id="Proj3-5-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+points =
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0]))**2)
+
+    return np.round(error, 3)
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+    print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+    print("A: ", end='')
+    print(A)
+    print("\nB: ", end='')
+    print(B)
+
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+    
+    print("\nA matriz transposta de A é:")
+    print(At)
+    print("\nA matriz inversa do produto entre A^t e A é:")
+    print(AtAinv)
+    print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+    print(sol)
+    return sol
+
+def linearFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0]])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função linear que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x')
+    error = calcError(points, sol)
+    print(f'O erro associado é igual a {error}')
+    print("\nObservando a solução graficamente:")
+    return sol
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = linearFit(points)
+plotPoints(points)
+plotLine(x, coeffs)
+plt.show()
+</script></pre>
+</div></details></article></details><details id="Proj3-6" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.22</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj3-6-1">Utilizando o método dos quadrados mínimos, ajuste uma função QUADRÁTICA aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.</div>
+<pre id="Proj3-6-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# Para observar sua solução graficamente, insira os coeficientes de sua função quadrática:
+# f(x) = ax^2 + bx + c
+a =
+b =
+c = 
+
+points = 
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0] + coeffs[1]*point[0] + coeffs[2]*(point[0])**2))**2)
+
+    return np.round(error, 3)
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = [c, b, a]
+plotPoints(points)
+plotLine(x, coeffs)
+print(f'O erro associado é {calcError(points, coeffs)}')
+plt.show()
+</script></pre>
+<details id="Proj3-6-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj3-6-3-1">Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.</div> <pre id="Proj3-6-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+points =
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5)
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0] + coeffs[2][0]*(point[0])**2))**2)
+
+    return np.round(error, 3)
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+    print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+    print("A: ", end='')
+    print(A)
+    print("\nB: ", end='')
+    print(B)
+
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+
+    print("\nA matriz transposta de A é:")
+    print(At)
+    print("\nA matriz inversa do produto entre A^t e A é:")
+    print(AtAinv)
+    print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+    print(sol)
+    return sol
+
+def quadraticFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0], point[0]**2])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
+    error = calcError(points, sol)
+    print(f'O erro associado é igual a {error}')
+    print("\nObservando a solução graficamente:")
+    return sol
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = quadraticFit(points)
+plotPoints(points)
+plotLine(x, coeffs)
+plt.show()
+</script></pre>
+</div></details></article></details><details id="Proj3-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.23</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj3-7-1">Utilizando o método dos quadrados mínimos, ajuste uma função CÚBICA aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.</div>
+<pre id="Proj3-7-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# Para observar sua solução graficamente, insira os coeficientes de sua função cúbica:
+# f(x) = ax^3 + bx^2 + cx + d
+a = 
+b =
+c = 
+d = 
+
+points = 
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs): 
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0] + coeffs[1]*point[0] + coeffs[2]*(point[0])**2 + coeffs[3]*(point[0])**3))**2)
+
+    return np.round(error, 3)
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = [d, c, b, a]
+plotPoints(points)
+plotLine(x, coeffs)
+print(f'O erro associado é {calcError(points, coeffs)}')
+plt.show()
+</script></pre>
+<details id="Proj3-7-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj3-7-3-1">Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.</div> <pre id="Proj3-7-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+points = 
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5)
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0] + coeffs[2][0]*(point[0])**2 + coeffs[3][0]*(point[0])**3))**2)
+
+    return np.round(error, 3)
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+    print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+    print("A: ", end='')
+    print(A)
+    print("\nB: ", end='')
+    print(B)
+
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+    
+    print("\nA matriz transposta de A é:")
+    print(At)
+    print("\nA matriz inversa do produto entre A^t e A é:")
+    print(AtAinv)
+    print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+    print(sol)
+    return sol
+
+def cubicFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0], point[0]**2, point[0]**3])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função cubica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2 + ({np.round(sol[3][0], 3)})x^3')
+    error = calcError(points, sol)
+    print(f'O erro associado é igual a {error}')
+    print("\nObservando a solução graficamente:")
+    return sol
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = cubicFit(points)
+plotPoints(points)
+plotLine(x, coeffs)
+plt.show()
+</script></pre>
+</div></details></article></details><details id="Proj3-8" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.24</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj3-8-1">Utilizando o método dos quadrados mínimos, ajuste uma função EXPONENCIAL aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.</div>
+<pre id="Proj3-8-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# Para observar sua solução graficamente, insira os coeficientes de sua função exponencial:
+# f(x) = b*a^x
+a =
+b = 
+
+points = 
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def plotLine(x, coeffs):
+    exponential = coeffs[0]*(coeffs[1]**x)
+    plt.plot(x, exponential)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+
+    return np.round(error, 3)
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = [b, a]
+plotPoints(points)
+plotLine(x, coeffs)
+print(f'O erro associado é {calcError(points, coeffs)}')
+plt.show()
+</script></pre>
+<details id="Proj3-8-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj3-8-3-1">Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução. Lembre-se que os resultados <span class="process-math">\(c_1\)</span> e <span class="process-math">\(c_2\)</span> encontrados no vetor solução <span class="process-math">\(\hat{x}\)</span> gera uma função exponencial da forma <span class="process-math">\(10^{c_{1} + c_{2}x}\)</span>
+</div> <pre id="Proj3-8-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt 
+
+points = 
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5)
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def plotLine(x, coeffs):
+    exponential = coeffs[0]*(coeffs[1]**x)
+    plt.plot(x, exponential)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+
+    return np.round(error, 3)
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+    print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+    print("A: ", end='')
+    print(A)
+    print("\nB: ", end='')
+    print(B)
+
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+    
+    print("\nA matriz transposta de A é:")
+    print(At)
+    print("\nA matriz inversa do produto entre A^t e A é:")
+    print(AtAinv)
+    print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+    print(sol)
+    return sol
+
+def exponentialFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0]])
+        B.append([np.log10(point[1])])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    expCoeffs = []
+    expCoeffs.append(10**sol[0][0])
+    expCoeffs.append(10**sol[1][0])
+
+    print(f'\nA função exponencial que melhor se adapta aos pontos é: {np.round(expCoeffs[0],3)}*{np.round(expCoeffs[1],3)}^x')
+    error = calcError(points, expCoeffs)
+    print(f'O erro associado é igual a {error}')
+    print("\nObservando a solução graficamente:")
+    return expCoeffs
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = exponentialFit(points)
+plotPoints(points)
+plotLine(x, coeffs)
+plt.show()
+</script></pre>
+</div></details></article></details><details id="Proj3-9" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.25</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj3-9-1">Com as 4 curvas encontradas, reflita: Qual é a que melhor se ajusta ao conjunto de pontos que você gerou?</div>
+<details id="Proj3-9-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like"><div class="para" id="Proj3-9-2-1">Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas. <pre id="Proj3-9-2-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.lines as lines
+
+points = 
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def setLabels():
+    legendElements = [lines.Line2D([0], [0], color='green', lw=4, label='Linear'),
+                    lines.Line2D([0], [0], color='blue', lw=4, label='Quadrática'),
+                    lines.Line2D([0], [0], color='red', lw=4, label='Cúbica'),
+                    lines.Line2D([0], [0], color='orange', lw=4, label='Exponencial')]
+    
+    plt.legend(handles=legendElements)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    colours = ['green', 'blue', 'red']
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial, c=colours[len(coeffs)-2])
+
+def plotLineExp(x, coeffs):
+    exponential = coeffs[0]*(coeffs[1]**x)
+    plt.plot(x, exponential, c='orange')
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(x)})
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+
+    return sol
+
+def calcErrorPoly(points, coeffs):
+    error = 0
+    o = len(coeffs)
+
+    for point in points:
+        y = 0
+        for i in range(o):
+            y += coeffs[i][0]*point[0]**i
+
+        error += ((point[1] - y)**2)
+
+    return np.round(error, 3)
+
+def calcErrorExp(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+
+    return np.round(error, 3)
+
+def linearFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0]])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função linear que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x')
+    error = calcErrorPoly(points, sol)
+    print(f'O erro associado é igual a {error}')
+    return sol
+
+def quadraticFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0], point[0]**2])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
+    error = calcErrorPoly(points, sol)
+    print(f'O erro associado é igual a {error}')
+    return sol
+
+def cubicFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0], point[0]**2, point[0]**3])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função cubica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2 + ({np.round(sol[3][0], 3)})x^3')
+    error = calcErrorPoly(points, sol)
+    print(f'O erro associado é igual a {error}')
+    return sol
+
+def exponentialFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0]])
+        B.append([np.log10(point[1])])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    expCoeffs = []
+    expCoeffs.append(10**sol[0][0])
+    expCoeffs.append(10**sol[1][0])
+
+    print(f'\nA função exponencial que melhor se adapta aos pontos é: {np.round(expCoeffs[0],3)}*{np.round(expCoeffs[1],3)}^x')
+    error = calcErrorExp(points, expCoeffs)
+    print(f'O erro associado é igual a {error}')
+    return expCoeffs
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+linCoeffs = linearFit(points)
+quadCoeffs = quadraticFit(points)
+cubicCoeffs = cubicFit(points)
+expCoeffs = exponentialFit(points)
+plotPoints(points)
+plotLine(x, linCoeffs)
+plotLine(x, quadCoeffs)
+plotLine(x, cubicCoeffs)
+plotLineExp(x, expCoeffs)
+setLabels()
+plt.show()
+</script></pre>
+</div></div></details></article></details></section><section class="subsection" id="Proj4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.4</span><span class="space"> </span><span class="title">Projeto 4 - Metrologia coordenada</span>
+</h3>
+<div class="para" id="Proj4-2">Em diversos processos de fabricação, o controle de qualidade é realizado com auxílio de sensores que detectam pontos do perímetro da peça produzida e comparam estes pontos com o perímetro teórico do objeto.</div>
+<div class="para" id="Proj4-3">Neste projeto, suponha que você calculará o fator de erro de cada peça fabricada por uma máquina. As peças devem ter, em teoria, formato circular. Para isso, você deve encontrar, utilizando o método dos quadrados mínimos, a equação da circunferência que melhor se ajusta aos pontos gerados.</div>
+<article class="remark remark-like" id="Proj4-4"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.26</span><span class="period">.</span>
+</h4>Execute o código abaixo para obter os pontos detectados no perímetro da peça fabricada. Não altere os valores de RAIO_MAX e N_PONTOS <pre id="Proj4-4-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import random as rd
+import numpy as np
+import matplotlib.pyplot as plt
+
+RAIO_MAX = 20
+N_PONTOS = 10
+
+def randomPoint(xMin, xMax, rMin, rMax):
+    sign = rd.randrange(0,2)
+    randRadius = rd.randrange(rMin, rMax) + rd.random()
+    x = rd.randrange(xMin, xMax) + rd.random()
+
+    while randRadius **2 - x**2 < 0:
+        x = rd.randrange(xMin, xMax) + rd.random()
+
+    y = np.sqrt(randRadius**2 - x**2)
+    x = round(x, 2)
+
+    if sign == 1:
+        y = round(y, 2)
+    else:
+        y = round(-y, 2)
+
+    return (x,y)
+
+def generatePoints(totalPoints, rMin, rMax):
+    points = []
+    xMin = -rMax
+    xMax = rMax
+    step = (xMax - xMin)/totalPoints
+
+    for i in range(totalPoints):
+        infLimitx = xMin + step*i
+        supLimitx = xMin + step*(i+1)
+        points.append(randomPoint(infLimitx, supLimitx, rMin, rMax))
+
+    return points
+
+def printPoints(points):
+    print("Os pontos gerados são:")
+    for point in points:
+        print(point)
+    print("\n Para copiar e colar nos codigos seguintes:")
+    print("points = ", end='')
+    print(points)
+
+def plotPoints(points, rMax):
+    plt.clf()
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+
+    plt.gca().set_aspect('equal')
+    plt.xlim(-(rMax+rMax/10), (rMax+rMax/10))
+    plt.ylim(-(rMax+rMax/10), (rMax+rMax/10))
+    plt.scatter(x, y, c='#000000')
+
+
+points = generatePoints(N_PONTOS, RAIO_MAX - np.round(RAIO_MAX/10), RAIO_MAX)
+printPoints(points)
+plotPoints(points, RAIO_MAX)
+plt.show()
+</script></pre></article><details id="Proj4-5" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.27</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj4-5-1">Encontre o raio e o centro da circunferência que melhor se ajusta aos pontos obtidos. Dica: Monte um sistema com 3 incógnitas</div>
+<div class="para" id="Proj4-5-2">Você pode utilizar o código abaixo para observar graficamente a circunferencia obtida:</div>
+<pre id="Proj4-5-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# insira as coordenadas do centro do círculo e seu raio
+centro = ( , )
+raio = 
+
+points = 
+
+def setBoundaries(radius, x0, y0):
+    plt.xlim(-radius+x0-5, radius+x0+5)
+    plt.ylim(-radius+y0-5, radius+y0+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.gca().set_aspect('equal')
+    plt.scatter(x, y, c='#000000')
+
+def plotLine(radius, x0, y0):
+    theta = np.linspace(0, 2*np.pi, 1000)
+    x1 = x0+radius*np.cos(theta)
+    x2 = y0+radius*np.sin(theta)
+    plt.plot(x1, x2)
+
+
+plotPoints(points)
+plotLine(raio, centro[0], centro[1])
+setBoundaries(raio, centro[0], centro[1])
+plt.show()
+</script></pre>
+<details id="Proj4-5-4" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj4-5-4-1">A circunferência com centro em <span class="process-math">\((c_{1}, c_{2})\)</span> é descrita por <span class="process-math">\((x-c_{1})^{2} + (y-c_{2})^{2} = R^{2}\text{.}\)</span> Assim:</div>
+<div class="displaymath process-math" id="Proj4-5-4-2">
+\begin{gather*}
+(x-c_{1})^{2} + (y-c_{2})^{2} = R^{2} \\
+\implies 2xc_{1} + 2yc_{2} + (R^{2} - c_{1}^{2} - c_{2}^{2}) = x^{2} + y^{2}\\
+(R^{2} - c_{1}^{2} - c_{2}^{2}) = c_3 \\
+\implies 2xc_1 + 2yc_2 + c_3 = x^{2} + y^{2} 
+\end{gather*}
+</div>
+<div class="para" id="Proj4-5-4-3">Os valores de x e y são conhecidos (utilizar as coordenadas dos pontos obtidos). Basta montar o sistema para <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\)</span> e <span class="process-math">\(c_3\)</span> com <span class="process-math">\(N\)</span> equações, onde <span class="process-math">\(N\)</span> é o número de pontos detectados pelo sensor.</div>
+</div></details></article></details><details id="Proj4-6" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.28</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj4-6-1">Agora encontre o erro associado à fabricação da peça. O erro pode ser descrito como a soma dos módulos de cada vetor <span class="process-math">\(r\)</span> associado a cada ponto detectado. <span class="process-math">\(r = R - dist(P, C)\)</span> onde <span class="process-math">\(P\)</span> é cada ponto que o sensor detectou no perímetro da peça e <span class="process-math">\(C\)</span> é o centro da circunferência obtida por você. O erro pode ser tomado como uma medida de "quão circular" é o conjunto de pontos.</div>
+<details id="Proj4-6-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="Proj4-6-2-1">Utilize o código abaixo para encontrar o erro associado ao ajuste por quadrados mínimos:</div> <pre id="Proj4-6-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+
+# Insira as coordenadas do centro do círculo e seu raio
+centro = ( , )
+raio =
+
+points = 
+
+def calcError(points, coeffs, raio):
+    error = 0
+    radius = raio
+
+    for point in points:
+        error += np.sqrt((radius - np.sqrt((point[0]-coeffs[0])**2 + (point[1]-coeffs[1])**2))**2)
+
+    return np.round(error, 3)
+
+print(f'O erro associado é {calcError(points, centro, raio)}')
+</script></pre>
+</div></details></article></details><details id="Proj4-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.29</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj4-7-1">Utilize o código abaixo para conferir suas respostas. Observe o passo a passo da solução. <pre id="Proj4-7-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+points = 
+
+def setBoundaries(radius, x0, y0):
+    plt.xlim(-radius+x0-5, radius+x0+5)
+    plt.ylim(-radius+y0-5, radius+y0+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.gca().set_aspect('equal')
+    plt.scatter(x, y, c='#000000')
+
+def plotLine(radius, x0, y0):
+    theta = np.linspace(0, 2*np.pi, 1000)
+    x1 = x0+radius*np.cos(theta)
+    x2 = y0+radius*np.sin(theta)
+    plt.plot(x1, x2)
+
+def calcError(points, coeffs):
+    error = 0
+    radius = np.sqrt(coeffs[2][0] + coeffs[0][0]**2 + coeffs[1][0]**2)
+
+    for point in points:
+        error += np.sqrt((radius - np.sqrt((point[0]-coeffs[0][0])**2 + (point[1]-coeffs[1][0])**2))**2)
+
+    return np.round(error, 3)
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+    print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+    print("A: ", end='')
+    print(A)
+    print("\nB: ", end='')
+    print(B)
+
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+    
+    print("\nA matriz transposta de A é:")
+    print(At)
+    print("\nA matriz inversa do produto entre A^t e A é:")
+    print(AtAinv)
+    print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+    print(sol)
+    return sol
+
+def circleFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([2*point[0], 2*point[1], 1])
+        B.append([point[0]**2 + point[1]**2])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+    radius = np.sqrt(sol[2][0] + sol[0][0]**2 + sol[1][0]**2)
+
+    print(f'\nO centro do circulo que melhor descreve os pontos é ({np.round(sol[0][0],3)}, {np.round(sol[1][0], 3)}). \n O raio do circulo é {np.round(radius, 3)}.')
+    error = calcError(points, sol)
+    print(f'O erro associado é igual a {error}')
+    print("\nObservando a solução graficamente:")
+    return (radius, sol[0][0], sol[1][0])
+
+fit = circleFit(points)
+radius = fit[0]
+x0  = fit[1]
+y0 = fit[2]
+
+plotPoints(points)
+plotLine(radius, x0, y0)
+setBoundaries(radius, x0, y0)
+plt.show()
+</script></pre>
+</div></article></details></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="Matrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="espacos-vetoriais.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

@@ -3494,6 +3494,1308 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </sage>
                     </remark>
                 </subsection>
+
+                <subsection xml:id="Proj3">
+                    <title>Projeto 3 - Ajustando dados aleatórios</title>
+                        <p> 
+                            Neste projeto, será explorado o método dos quadrados mínimos, método de otimização que tem por objetivo encontrar funções
+                            que melhor descrevem um conjunto de pontos em <m> \mathbb{R}^n </m>.
+                        </p>
+                        <p>
+                            Nesta atividade, você deve utilizar um código em python para gerar 10 pontos aleatórios no plano, e depois encontrar as funções
+                            linear, quadrática, cúbica e exponencial que melhor se ajustam a esses pontos utilizando o método dos quadrados mínimos. Você
+                            pode observar a função que encontrou graficamente e conferir seus resultados utilizando os códigos disponibilizados em cada checkpoint.
+                        </p>
+                        
+                        <remark>
+                            Execute este código para gerar seus pontos aleatórios. Você pode modificar os valores mínimo e máximo de x e y. Não altere os valores de N_PONTOS e DISTORCAO
+                            <sage>
+                                <input>
+                                    import random as rd
+                                    import matplotlib.pyplot as plt
+
+                                    MIN_X = 0
+                                    MAX_X = 50
+                                    MIN_Y = 0
+                                    MAX_Y = 50
+                                    N_PONTOS = 10
+                                    DISTORCAO = 7
+
+                                    def randomPoint(minX, maxX, minY, maxY):
+                                        x = rd.randrange(minX, maxX) + rd.random()
+                                        y = rd.randrange(minY, maxY) + rd.random()
+                                        x = round(x, 2)
+                                        y = round(y, 2)
+                                        return (x,y)
+
+                                    def generatePoints(totalPoints, minX, maxX, minY, maxY):
+                                        points = []
+                                        cresc = rd.randrange(0,2)
+                                        step = (maxY-minY)/totalPoints
+
+                                        if cresc == 1:
+                                            y0 = minY
+                                            for i in range(totalPoints):
+                                                infLimitX = round(minX + ((maxX-minX)/totalPoints) * i)
+                                                supLimitX = round(minX + ((maxX-minX)/totalPoints) * (i+1))
+                                                infLimitY = round(y0 + i*step) - DISTORCAO if round(y0 + i*step) - DISTORCAO &gt; minY else round(y0 + i*step)
+                                                supLimitY = round(y0 + (i+1)*step) + DISTORCAO if round(y0 + (i+1)*step) &lt; maxY else round(y0 + (i+1)*step)
+                                                point = randomPoint(infLimitX, supLimitX, infLimitY, supLimitY)
+                                                points.append(point)
+
+                                        else:
+                                            y0 = maxY
+                                            for i in range(totalPoints):
+                                                infLimitX = round(minX + ((maxX-minX)/totalPoints) * i)
+                                                supLimitX = round(minX + ((maxX-minX)/totalPoints) * (i+1))
+                                                infLimitY = round(y0 - (i+1)*step) - DISTORCAO if round(y0 - (i+1)*step) - DISTORCAO &gt; minY else round(y0 - (i+1)*step)
+                                                supLimitY = round(y0 - i*step) + DISTORCAO if round(y0 - i*step) &lt; maxY else round(y0 - i*step)
+                                                point = randomPoint(infLimitX, supLimitX, infLimitY, supLimitY)
+                                                points.append(point)
+
+                                        return points
+
+                                    def printPoints(points):
+                                        print("Os pontos gerados são:")
+                                        for point in points:
+                                            print(point)
+                                        print("\n Para copiar e colar nos codigos seguintes:")
+                                        print("points = ", end='')
+                                        print(points)
+
+                                    def plotPoints(points, xMin, xMax, yMin, yMax):
+                                        plt.clf()
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.xlim(xMin-xMin/10, xMax+xMax/10)
+                                        plt.ylim(yMin-yMin/10, yMax+yMax/10)
+                                        plt.scatter(x, y, c='#000000')
+
+
+                                    points = generatePoints(N_PONTOS, MIN_X, MAX_X, MIN_Y, MAX_Y)
+                                    printPoints(points)
+                                    plotPoints(points, MIN_X, MAX_X, MIN_Y, MAX_Y)
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                        </remark>
+
+                        <exercise>
+                            <p>
+                                Utilizando o método dos quadrados mínimos, ajuste uma função LINEAR aos pontos obtidos.
+                                Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado à linearização.
+                            </p>
+                            <sage>
+                                <input>
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    # Para observar sua solução graficamente, insira os coeficientes de sua função linear:
+                                    # f(x) = ax + b
+                                    a =
+                                    b =
+
+                                    points =
+
+                                    def calcBoundaries(points):
+                                        xMax = points[0][0]
+                                        xMin =  points[0][0]
+                                        yMax = points[0][1]
+                                        yMin =  points[0][1]
+                                        for point in points:
+                                            if point[0] &gt; xMax:
+                                                xMax = point[0]
+                                            if point[0] &lt; xMin:
+                                                xMin = point[0]
+                                            if point[1] &gt; yMax:
+                                                yMax = point[1]
+                                            if point[1] &lt; yMin:
+                                                yMin = point[1]
+
+                                        plt.xlim(xMin-5, xMax+5) 
+                                        plt.ylim(yMin-5, yMax+5)
+                                        return (xMin-5, xMax+5)
+
+                                    def plotPoints(points):
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.scatter(x, y, c='#000000')
+
+                                    def PolyCoefficients(x, coeffs):
+                                        o = len(coeffs)
+                                        y = 0
+                                        for i in range(o):
+                                            y += coeffs[i]*x**i
+                                        return y
+
+                                    def plotLine(x, coeffs):
+                                        polynomial = PolyCoefficients(x, coeffs)
+                                        plt.plot(x, polynomial)
+
+                                    def calcError(points, coeffs):
+                                        error = 0
+
+                                        for point in points:
+                                            error += ((point[1] - (coeffs[0] + coeffs[1]*point[0]))**2)
+
+                                        return np.round(error, 3)
+
+                                    boundaries = calcBoundaries(points)
+                                    x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                    coeffs = [b, a]
+                                    plotPoints(points)
+                                    plotLine(x, coeffs)
+                                    print(f'O erro associado é {calcError(points, coeffs)}')
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                            <solution>
+                                <p>
+                                    Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.
+                                </p>
+                                <sage>
+                                    <input>
+                                        import numpy as np
+                                        import matplotlib.pyplot as plt
+
+                                        points =
+
+                                        def calcBoundaries(points):
+                                            xMax = points[0][0]
+                                            xMin =  points[0][0]
+                                            yMax = points[0][1]
+                                            yMin =  points[0][1]
+                                            for point in points:
+                                                if point[0] &gt; xMax:
+                                                    xMax = point[0]
+                                                if point[0] &lt; xMin:
+                                                    xMin = point[0]
+                                                if point[1] &gt; yMax:
+                                                    yMax = point[1]
+                                                if point[1] &lt; yMin:
+                                                    yMin = point[1]
+
+                                            plt.xlim(xMin-5, xMax+5) 
+                                            plt.ylim(yMin-5, yMax+5)
+                                            return (xMin-5, xMax+5)
+
+                                        def plotPoints(points):
+                                            x = []
+                                            y = []
+                                            for point in points:
+                                                x.append(point[0])
+                                                y.append(point[1])
+                                            
+                                            plt.scatter(x, y, c='#000000')
+
+                                        def PolyCoefficients(x, coeffs):
+                                            o = len(coeffs)
+                                            y = 0
+                                            for i in range(o):
+                                                y += coeffs[i]*x**i
+                                            return y
+
+                                        def plotLine(x, coeffs):
+                                            polynomial = PolyCoefficients(x, coeffs)
+                                            plt.plot(x, polynomial)
+
+                                        def calcError(points, coeffs):
+                                            error = 0
+
+                                            for point in points:
+                                                error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0]))**2)
+
+                                            return np.round(error, 3)
+
+                                        def normalEq(A, B):
+                                            np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+                                            print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+                                            print("A: ", end='')
+                                            print(A)
+                                            print("\nB: ", end='')
+                                            print(B)
+
+                                            At = np.transpose(A)
+                                            AtAinv = np.dot(At, A)
+                                            AtAinv = np.linalg.inv(AtAinv)
+                                            sol = np.dot(np.dot(AtAinv, At), B)
+                                            
+                                            print("\nA matriz transposta de A é:")
+                                            print(At)
+                                            print("\nA matriz inversa do produto entre A^t e A é:")
+                                            print(AtAinv)
+                                            print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+                                            print(sol)
+                                            return sol
+
+                                        def linearFit(points):
+                                            A = []
+                                            B = []
+
+                                            for point in points:
+                                                A.append([1, point[0]])
+                                                B.append([point[1]])
+
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
+
+                                            print(f'\nA função linear que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x')
+                                            error = calcError(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            print("\nObservando a solução graficamente:")
+                                            return sol
+
+                                        boundaries = calcBoundaries(points)
+                                        x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                        coeffs = linearFit(points)
+                                        plotPoints(points)
+                                        plotLine(x, coeffs)
+                                        plt.show()
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
+                            </solution>
+                        </exercise>
+                        <exercise>
+                            <p>
+                                Utilizando o método dos quadrados mínimos, ajuste uma função QUADRÁTICA aos pontos obtidos.
+                                Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.
+                            </p>
+                            <sage>
+                                <input>
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    # Para observar sua solução graficamente, insira os coeficientes de sua função quadrática:
+                                    # f(x) = ax^2 + bx + c
+                                    a =
+                                    b =
+                                    c = 
+
+                                    points = 
+
+                                    def calcBoundaries(points):
+                                        xMax = points[0][0]
+                                        xMin =  points[0][0]
+                                        yMax = points[0][1]
+                                        yMin =  points[0][1]
+                                        for point in points:
+                                            if point[0] &gt; xMax:
+                                                xMax = point[0]
+                                            if point[0] &lt; xMin:
+                                                xMin = point[0]
+                                            if point[1] &gt; yMax:
+                                                yMax = point[1]
+                                            if point[1] &lt; yMin:
+                                                yMin = point[1]
+
+                                        plt.xlim(xMin-5, xMax+5) 
+                                        plt.ylim(yMin-5, yMax+5)
+                                        return (xMin-5, xMax+5)
+
+                                    def plotPoints(points):
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.scatter(x, y, c='#000000')
+
+                                    def PolyCoefficients(x, coeffs):
+                                        o = len(coeffs)
+                                        y = 0
+                                        for i in range(o):
+                                            y += coeffs[i]*x**i
+                                        return y
+
+                                    def plotLine(x, coeffs):
+                                        polynomial = PolyCoefficients(x, coeffs)
+                                        plt.plot(x, polynomial)
+
+                                    def calcError(points, coeffs):
+                                        error = 0
+
+                                        for point in points:
+                                            error += ((point[1] - (coeffs[0] + coeffs[1]*point[0] + coeffs[2]*(point[0])**2))**2)
+
+                                        return np.round(error, 3)
+
+                                    boundaries = calcBoundaries(points)
+                                    x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                    coeffs = [c, b, a]
+                                    plotPoints(points)
+                                    plotLine(x, coeffs)
+                                    print(f'O erro associado é {calcError(points, coeffs)}')
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                            <solution>
+                                <p>
+                                    Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.
+                                </p>
+                                <sage>
+                                    <input>
+                                        import numpy as np
+                                        import matplotlib.pyplot as plt
+
+                                        points =
+
+                                        def calcBoundaries(points):
+                                            xMax = points[0][0]
+                                            xMin =  points[0][0]
+                                            yMax = points[0][1]
+                                            yMin =  points[0][1]
+                                            for point in points:
+                                                if point[0] &gt; xMax:
+                                                    xMax = point[0]
+                                                if point[0] &lt; xMin:
+                                                    xMin = point[0]
+                                                if point[1] &gt; yMax:
+                                                    yMax = point[1]
+                                                if point[1] &lt; yMin:
+                                                    yMin = point[1]
+
+                                            plt.xlim(xMin-5, xMax+5)
+                                            plt.ylim(yMin-5, yMax+5)
+                                            return (xMin-5, xMax+5)
+
+                                        def plotPoints(points):
+                                            x = []
+                                            y = []
+                                            for point in points:
+                                                x.append(point[0])
+                                                y.append(point[1])
+                                            
+                                            plt.scatter(x, y, c='#000000')
+
+                                        def PolyCoefficients(x, coeffs):
+                                            o = len(coeffs)
+                                            y = 0
+                                            for i in range(o):
+                                                y += coeffs[i]*x**i
+                                            return y
+
+                                        def plotLine(x, coeffs):
+                                            polynomial = PolyCoefficients(x, coeffs)
+                                            plt.plot(x, polynomial)
+
+                                        def calcError(points, coeffs):
+                                            error = 0
+
+                                            for point in points:
+                                                error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0] + coeffs[2][0]*(point[0])**2))**2)
+
+                                            return np.round(error, 3)
+
+                                        def normalEq(A, B):
+                                            np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+                                            print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+                                            print("A: ", end='')
+                                            print(A)
+                                            print("\nB: ", end='')
+                                            print(B)
+
+                                            At = np.transpose(A)
+                                            AtAinv = np.dot(At, A)
+                                            AtAinv = np.linalg.inv(AtAinv)
+                                            sol = np.dot(np.dot(AtAinv, At), B)
+
+                                            print("\nA matriz transposta de A é:")
+                                            print(At)
+                                            print("\nA matriz inversa do produto entre A^t e A é:")
+                                            print(AtAinv)
+                                            print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+                                            print(sol)
+                                            return sol
+
+                                        def quadraticFit(points):
+                                            A = []
+                                            B = []
+
+                                            for point in points:
+                                                A.append([1, point[0], point[0]**2])
+                                                B.append([point[1]])
+
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
+
+                                            print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
+                                            error = calcError(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            print("\nObservando a solução graficamente:")
+                                            return sol
+
+                                        boundaries = calcBoundaries(points)
+                                        x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                        coeffs = quadraticFit(points)
+                                        plotPoints(points)
+                                        plotLine(x, coeffs)
+                                        plt.show()
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
+                            </solution>
+                        </exercise>
+                        <exercise>
+                            <p>
+                                Utilizando o método dos quadrados mínimos, ajuste uma função CÚBICA aos pontos obtidos.
+                                Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.
+                            </p>
+                            <sage>
+                                <input>
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    # Para observar sua solução graficamente, insira os coeficientes de sua função cúbica:
+                                    # f(x) = ax^3 + bx^2 + cx + d
+                                    a = 
+                                    b =
+                                    c = 
+                                    d = 
+
+                                    points = 
+
+                                    def calcBoundaries(points):
+                                        xMax = points[0][0]
+                                        xMin =  points[0][0]
+                                        yMax = points[0][1]
+                                        yMin =  points[0][1]
+                                        for point in points:
+                                            if point[0] &gt; xMax:
+                                                xMax = point[0]
+                                            if point[0] &lt; xMin:
+                                                xMin = point[0]
+                                            if point[1] &gt; yMax:
+                                                yMax = point[1]
+                                            if point[1] &lt; yMin:
+                                                yMin = point[1]
+
+                                        plt.xlim(xMin-5, xMax+5) 
+                                        plt.ylim(yMin-5, yMax+5)
+                                        return (xMin-5, xMax+5)
+
+                                    def plotPoints(points):
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.scatter(x, y, c='#000000')
+
+                                    def PolyCoefficients(x, coeffs):
+                                        o = len(coeffs)
+                                        y = 0
+                                        for i in range(o):
+                                            y += coeffs[i]*x**i
+                                        return y
+
+                                    def plotLine(x, coeffs):
+                                        polynomial = PolyCoefficients(x, coeffs)
+                                        plt.plot(x, polynomial)
+
+                                    def calcError(points, coeffs): 
+                                        error = 0
+
+                                        for point in points:
+                                            error += ((point[1] - (coeffs[0] + coeffs[1]*point[0] + coeffs[2]*(point[0])**2 + coeffs[3]*(point[0])**3))**2)
+
+                                        return np.round(error, 3)
+
+                                    boundaries = calcBoundaries(points)
+                                    x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                    coeffs = [d, c, b, a]
+                                    plotPoints(points)
+                                    plotLine(x, coeffs)
+                                    print(f'O erro associado é {calcError(points, coeffs)}')
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                            <solution>
+                                <p>
+                                    Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.
+                                </p>
+                                <sage>
+                                    <input>
+                                        import numpy as np
+                                        import matplotlib.pyplot as plt
+
+                                        points = 
+
+                                        def calcBoundaries(points):
+                                            xMax = points[0][0]
+                                            xMin =  points[0][0]
+                                            yMax = points[0][1]
+                                            yMin =  points[0][1]
+                                            for point in points:
+                                                if point[0] &gt; xMax:
+                                                    xMax = point[0]
+                                                if point[0] &lt; xMin:
+                                                    xMin = point[0]
+                                                if point[1] &gt; yMax:
+                                                    yMax = point[1]
+                                                if point[1] &lt; yMin:
+                                                    yMin = point[1]
+
+                                            plt.xlim(xMin-5, xMax+5)
+                                            plt.ylim(yMin-5, yMax+5)
+                                            return (xMin-5, xMax+5)
+
+                                        def plotPoints(points):
+                                            x = []
+                                            y = []
+                                            for point in points:
+                                                x.append(point[0])
+                                                y.append(point[1])
+                                            
+                                            plt.scatter(x, y, c='#000000')
+
+                                        def PolyCoefficients(x, coeffs):
+                                            o = len(coeffs)
+                                            y = 0
+                                            for i in range(o):
+                                                y += coeffs[i]*x**i
+                                            return y
+
+                                        def plotLine(x, coeffs):
+                                            polynomial = PolyCoefficients(x, coeffs)
+                                            plt.plot(x, polynomial)
+
+                                        def calcError(points, coeffs):
+                                            error = 0
+
+                                            for point in points:
+                                                error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0] + coeffs[2][0]*(point[0])**2 + coeffs[3][0]*(point[0])**3))**2)
+
+                                            return np.round(error, 3)
+
+                                        def normalEq(A, B):
+                                            np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+                                            print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+                                            print("A: ", end='')
+                                            print(A)
+                                            print("\nB: ", end='')
+                                            print(B)
+
+                                            At = np.transpose(A)
+                                            AtAinv = np.dot(At, A)
+                                            AtAinv = np.linalg.inv(AtAinv)
+                                            sol = np.dot(np.dot(AtAinv, At), B)
+                                            
+                                            print("\nA matriz transposta de A é:")
+                                            print(At)
+                                            print("\nA matriz inversa do produto entre A^t e A é:")
+                                            print(AtAinv)
+                                            print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+                                            print(sol)
+                                            return sol
+
+                                        def cubicFit(points):
+                                            A = []
+                                            B = []
+
+                                            for point in points:
+                                                A.append([1, point[0], point[0]**2, point[0]**3])
+                                                B.append([point[1]])
+
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
+
+                                            print(f'\nA função cubica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2 + ({np.round(sol[3][0], 3)})x^3')
+                                            error = calcError(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            print("\nObservando a solução graficamente:")
+                                            return sol
+
+                                        boundaries = calcBoundaries(points)
+                                        x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                        coeffs = cubicFit(points)
+                                        plotPoints(points)
+                                        plotLine(x, coeffs)
+                                        plt.show()
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
+                            </solution>
+                        </exercise>
+                        <exercise>
+                            <p>
+                                Utilizando o método dos quadrados mínimos, ajuste uma função EXPONENCIAL aos pontos obtidos.
+                                Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.
+                            </p>
+                            <sage>
+                                <input>
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    # Para observar sua solução graficamente, insira os coeficientes de sua função exponencial:
+                                    # f(x) = b*a^x
+                                    a =
+                                    b = 
+
+                                    points = 
+
+                                    def calcBoundaries(points):
+                                        xMax = points[0][0]
+                                        xMin =  points[0][0]
+                                        yMax = points[0][1]
+                                        yMin =  points[0][1]
+                                        for point in points:
+                                            if point[0] &gt; xMax:
+                                                xMax = point[0]
+                                            if point[0] &lt; xMin:
+                                                xMin = point[0]
+                                            if point[1] &gt; yMax:
+                                                yMax = point[1]
+                                            if point[1] &lt; yMin:
+                                                yMin = point[1]
+
+                                        plt.xlim(xMin-5, xMax+5) 
+                                        plt.ylim(yMin-5, yMax+5)
+                                        return (xMin-5, xMax+5)
+
+                                    def plotPoints(points):
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.scatter(x, y, c='#000000')
+
+                                    def plotLine(x, coeffs):
+                                        exponential = coeffs[0]*(coeffs[1]**x)
+                                        plt.plot(x, exponential)
+
+                                    def calcError(points, coeffs):
+                                        error = 0
+
+                                        for point in points:
+                                            error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+
+                                        return np.round(error, 3)
+
+                                    boundaries = calcBoundaries(points)
+                                    x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                    coeffs = [b, a]
+                                    plotPoints(points)
+                                    plotLine(x, coeffs)
+                                    print(f'O erro associado é {calcError(points, coeffs)}')
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                            <solution>
+                                <p>
+                                    Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução. Lembre-se que os resultados <m>c_1</m>
+                                    e <m>c_2</m> encontrados no vetor solução <m>\hat{x}</m> gera uma função exponencial da forma <m> 10^{c_{1} + c_{2}x}</m>
+                                </p>
+                                <sage>
+                                    <input>
+                                        import numpy as np
+                                        import matplotlib.pyplot as plt 
+
+                                        points = 
+
+                                        def calcBoundaries(points):
+                                            xMax = points[0][0]
+                                            xMin =  points[0][0]
+                                            yMax = points[0][1]
+                                            yMin =  points[0][1]
+                                            for point in points:
+                                                if point[0] &gt; xMax:
+                                                    xMax = point[0]
+                                                if point[0] &lt; xMin:
+                                                    xMin = point[0]
+                                                if point[1] &gt; yMax:
+                                                    yMax = point[1]
+                                                if point[1] &lt; yMin:
+                                                    yMin = point[1]
+
+                                            plt.xlim(xMin-5, xMax+5)
+                                            plt.ylim(yMin-5, yMax+5)
+                                            return (xMin-5, xMax+5)
+
+                                        def plotPoints(points):
+                                            x = []
+                                            y = []
+                                            for point in points:
+                                                x.append(point[0])
+                                                y.append(point[1])
+                                            
+                                            plt.scatter(x, y, c='#000000')
+
+                                        def plotLine(x, coeffs):
+                                            exponential = coeffs[0]*(coeffs[1]**x)
+                                            plt.plot(x, exponential)
+
+                                        def calcError(points, coeffs):
+                                            error = 0
+
+                                            for point in points:
+                                                error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+
+                                            return np.round(error, 3)
+
+                                        def normalEq(A, B):
+                                            np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+                                            print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+                                            print("A: ", end='')
+                                            print(A)
+                                            print("\nB: ", end='')
+                                            print(B)
+
+                                            At = np.transpose(A)
+                                            AtAinv = np.dot(At, A)
+                                            AtAinv = np.linalg.inv(AtAinv)
+                                            sol = np.dot(np.dot(AtAinv, At), B)
+                                            
+                                            print("\nA matriz transposta de A é:")
+                                            print(At)
+                                            print("\nA matriz inversa do produto entre A^t e A é:")
+                                            print(AtAinv)
+                                            print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+                                            print(sol)
+                                            return sol
+
+                                        def exponentialFit(points):
+                                            A = []
+                                            B = []
+
+                                            for point in points:
+                                                A.append([1, point[0]])
+                                                B.append([np.log10(point[1])])
+
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
+
+                                            expCoeffs = []
+                                            expCoeffs.append(10**sol[0][0])
+                                            expCoeffs.append(10**sol[1][0])
+
+                                            print(f'\nA função exponencial que melhor se adapta aos pontos é: {np.round(expCoeffs[0],3)}*{np.round(expCoeffs[1],3)}^x')
+                                            error = calcError(points, expCoeffs)
+                                            print(f'O erro associado é igual a {error}')
+                                            print("\nObservando a solução graficamente:")
+                                            return expCoeffs
+
+                                        boundaries = calcBoundaries(points)
+                                        x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                        coeffs = exponentialFit(points)
+                                        plotPoints(points)
+                                        plotLine(x, coeffs)
+                                        plt.show()
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
+                            </solution>
+                        </exercise>
+                        <exercise>
+                            <p>
+                                Com as 4 curvas encontradas, reflita: Qual é a que melhor se ajusta ao conjunto de pontos que você gerou?
+                            </p>
+                            <solution>
+                                <p>
+                                    Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas.
+                                    <sage>
+                                        <input>
+                                            import numpy as np
+                                            import matplotlib.pyplot as plt
+                                            import matplotlib.lines as lines
+
+                                            points = 
+
+                                            def calcBoundaries(points):
+                                                xMax = points[0][0]
+                                                xMin =  points[0][0]
+                                                yMax = points[0][1]
+                                                yMin =  points[0][1]
+                                                for point in points:
+                                                    if point[0] &gt; xMax:
+                                                        xMax = point[0]
+                                                    if point[0] &lt; xMin:
+                                                        xMin = point[0]
+                                                    if point[1] &gt; yMax:
+                                                        yMax = point[1]
+                                                    if point[1] &lt; yMin:
+                                                        yMin = point[1]
+
+                                                plt.xlim(xMin-5, xMax+5) 
+                                                plt.ylim(yMin-5, yMax+5)
+                                                return (xMin-5, xMax+5)
+
+                                            def setLabels():
+                                                legendElements = [lines.Line2D([0], [0], color='green', lw=4, label='Linear'),
+                                                                lines.Line2D([0], [0], color='blue', lw=4, label='Quadrática'),
+                                                                lines.Line2D([0], [0], color='red', lw=4, label='Cúbica'),
+                                                                lines.Line2D([0], [0], color='orange', lw=4, label='Exponencial')]
+                                                
+                                                plt.legend(handles=legendElements)
+
+                                            def plotPoints(points):
+                                                x = []
+                                                y = []
+                                                for point in points:
+                                                    x.append(point[0])
+                                                    y.append(point[1])
+                                                
+                                                plt.scatter(x, y, c='#000000')
+
+                                            def PolyCoefficients(x, coeffs):
+                                                o = len(coeffs)
+                                                y = 0
+                                                for i in range(o):
+                                                    y += coeffs[i]*x**i
+                                                return y
+
+                                            def plotLine(x, coeffs):
+                                                colours = ['green', 'blue', 'red']
+                                                polynomial = PolyCoefficients(x, coeffs)
+                                                plt.plot(x, polynomial, c=colours[len(coeffs)-2])
+
+                                            def plotLineExp(x, coeffs):
+                                                exponential = coeffs[0]*(coeffs[1]**x)
+                                                plt.plot(x, exponential, c='orange')
+
+                                            def normalEq(A, B):
+                                                np.set_printoptions(formatter={'all':lambda x: str(x)})
+                                                At = np.transpose(A)
+                                                AtAinv = np.dot(At, A)
+                                                AtAinv = np.linalg.inv(AtAinv)
+                                                sol = np.dot(np.dot(AtAinv, At), B)
+
+                                                return sol
+
+                                            def calcErrorPoly(points, coeffs):
+                                                error = 0
+                                                o = len(coeffs)
+
+                                                for point in points:
+                                                    y = 0
+                                                    for i in range(o):
+                                                        y += coeffs[i][0]*point[0]**i
+
+                                                    error += ((point[1] - y)**2)
+
+                                                return np.round(error, 3)
+
+                                            def calcErrorExp(points, coeffs):
+                                                error = 0
+
+                                                for point in points:
+                                                    error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+
+                                                return np.round(error, 3)
+
+                                            def linearFit(points):
+                                                A = []
+                                                B = []
+
+                                                for point in points:
+                                                    A.append([1, point[0]])
+                                                    B.append([point[1]])
+
+                                                A = np.array(A)
+                                                B = np.array(B)
+                                                sol = normalEq(A, B)
+
+                                                print(f'\nA função linear que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x')
+                                                error = calcErrorPoly(points, sol)
+                                                print(f'O erro associado é igual a {error}')
+                                                return sol
+
+                                            def quadraticFit(points):
+                                                A = []
+                                                B = []
+
+                                                for point in points:
+                                                    A.append([1, point[0], point[0]**2])
+                                                    B.append([point[1]])
+
+                                                A = np.array(A)
+                                                B = np.array(B)
+                                                sol = normalEq(A, B)
+
+                                                print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
+                                                error = calcErrorPoly(points, sol)
+                                                print(f'O erro associado é igual a {error}')
+                                                return sol
+
+                                            def cubicFit(points):
+                                                A = []
+                                                B = []
+
+                                                for point in points:
+                                                    A.append([1, point[0], point[0]**2, point[0]**3])
+                                                    B.append([point[1]])
+
+                                                A = np.array(A)
+                                                B = np.array(B)
+                                                sol = normalEq(A, B)
+
+                                                print(f'\nA função cubica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2 + ({np.round(sol[3][0], 3)})x^3')
+                                                error = calcErrorPoly(points, sol)
+                                                print(f'O erro associado é igual a {error}')
+                                                return sol
+
+                                            def exponentialFit(points):
+                                                A = []
+                                                B = []
+
+                                                for point in points:
+                                                    A.append([1, point[0]])
+                                                    B.append([np.log10(point[1])])
+
+                                                A = np.array(A)
+                                                B = np.array(B)
+                                                sol = normalEq(A, B)
+
+                                                expCoeffs = []
+                                                expCoeffs.append(10**sol[0][0])
+                                                expCoeffs.append(10**sol[1][0])
+
+                                                print(f'\nA função exponencial que melhor se adapta aos pontos é: {np.round(expCoeffs[0],3)}*{np.round(expCoeffs[1],3)}^x')
+                                                error = calcErrorExp(points, expCoeffs)
+                                                print(f'O erro associado é igual a {error}')
+                                                return expCoeffs
+
+                                            boundaries = calcBoundaries(points)
+                                            x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                            linCoeffs = linearFit(points)
+                                            quadCoeffs = quadraticFit(points)
+                                            cubicCoeffs = cubicFit(points)
+                                            expCoeffs = exponentialFit(points)
+                                            plotPoints(points)
+                                            plotLine(x, linCoeffs)
+                                            plotLine(x, quadCoeffs)
+                                            plotLine(x, cubicCoeffs)
+                                            plotLineExp(x, expCoeffs)
+                                            setLabels()
+                                            plt.show()
+                                        </input>
+                                        <output>
+                                            out
+                                        </output>
+                                    </sage>
+                                </p>
+                            </solution>
+                        </exercise>
+                </subsection>
+
+                <subsection xml:id="Proj4">
+                    <title>Projeto 4 - Metrologia coordenada</title>
+                        <p>
+                            Em diversos processos de fabricação, o controle de qualidade é realizado com auxílio de sensores que detectam pontos do perímetro
+                            da peça produzida e comparam estes pontos com o perímetro teórico do objeto.
+                        </p>
+                        <p>
+                            Neste projeto, suponha que você calculará o fator de erro de cada peça fabricada por uma máquina. As peças devem ter, em teoria, formato circular.
+                            Para isso, você deve encontrar, utilizando o método dos quadrados mínimos, a equação da circunferência que melhor se ajusta aos pontos gerados.
+                        </p>
+                        <remark>
+                            Execute o código abaixo para obter os pontos detectados no perímetro da peça fabricada. Não altere os valores de RAIO_MAX e N_PONTOS
+                            <sage>
+                                <input>
+                                    import random as rd
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    RAIO_MAX = 20
+                                    N_PONTOS = 10
+
+                                    def randomPoint(xMin, xMax, rMin, rMax):
+                                        sign = rd.randrange(0,2)
+                                        randRadius = rd.randrange(rMin, rMax) + rd.random()
+                                        x = rd.randrange(xMin, xMax) + rd.random()
+
+                                        while randRadius **2 - x**2 &lt; 0:
+                                            x = rd.randrange(xMin, xMax) + rd.random()
+
+                                        y = np.sqrt(randRadius**2 - x**2)
+                                        x = round(x, 2)
+
+                                        if sign == 1:
+                                            y = round(y, 2)
+                                        else:
+                                            y = round(-y, 2)
+
+                                        return (x,y)
+
+                                    def generatePoints(totalPoints, rMin, rMax):
+                                        points = []
+                                        xMin = -rMax
+                                        xMax = rMax
+                                        step = (xMax - xMin)/totalPoints
+
+                                        for i in range(totalPoints):
+                                            infLimitx = xMin + step*i
+                                            supLimitx = xMin + step*(i+1)
+                                            points.append(randomPoint(infLimitx, supLimitx, rMin, rMax))
+
+                                        return points
+
+                                    def printPoints(points):
+                                        print("Os pontos gerados são:")
+                                        for point in points:
+                                            print(point)
+                                        print("\n Para copiar e colar nos codigos seguintes:")
+                                        print("points = ", end='')
+                                        print(points)
+
+                                    def plotPoints(points, rMax):
+                                        plt.clf()
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+
+                                        plt.gca().set_aspect('equal')
+                                        plt.xlim(-(rMax+rMax/10), (rMax+rMax/10))
+                                        plt.ylim(-(rMax+rMax/10), (rMax+rMax/10))
+                                        plt.scatter(x, y, c='#000000')
+
+
+                                    points = generatePoints(N_PONTOS, RAIO_MAX - np.round(RAIO_MAX/10), RAIO_MAX)
+                                    printPoints(points)
+                                    plotPoints(points, RAIO_MAX)
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                        </remark>
+                        <exercise>
+                            <p>
+                                Encontre o raio e o centro da circunferência que melhor se ajusta aos pontos obtidos. Dica: Monte um sistema com 3 incógnitas
+                            </p>
+                            <p>
+                                Você pode utilizar o código abaixo para observar graficamente a circunferencia obtida:
+                            </p>
+                            <sage>
+                                <input>
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    # insira as coordenadas do centro do círculo e seu raio
+                                    centro = ( , )
+                                    raio = 
+
+                                    points = 
+
+                                    def setBoundaries(radius, x0, y0):
+                                        plt.xlim(-radius+x0-5, radius+x0+5)
+                                        plt.ylim(-radius+y0-5, radius+y0+5)
+
+                                    def plotPoints(points):
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.gca().set_aspect('equal')
+                                        plt.scatter(x, y, c='#000000')
+
+                                    def plotLine(radius, x0, y0):
+                                        theta = np.linspace(0, 2*np.pi, 1000)
+                                        x1 = x0+radius*np.cos(theta)
+                                        x2 = y0+radius*np.sin(theta)
+                                        plt.plot(x1, x2)
+
+
+                                    plotPoints(points)
+                                    plotLine(raio, centro[0], centro[1])
+                                    setBoundaries(raio, centro[0], centro[1])
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
+                            <solution>
+                                <p>
+                                    A circunferência com centro em <m>(c_{1}, c_{2})</m> é descrita por <m>(x-c_{1})^{2} + (y-c_{2})^{2} = R^{2}</m>. Assim:
+                                </p>
+                                <md>
+                                    <mrow> (x-c_{1})^{2} + (y-c_{2})^{2} = R^{2} </mrow>
+                                    <mrow> \implies 2xc_{1} + 2yc_{2} + (R^{2} - c_{1}^{2} - c_{2}^{2}) = x^{2} + y^{2}</mrow>
+                                    <mrow> (R^{2} - c_{1}^{2} - c_{2}^{2}) = c_3 </mrow>
+                                    <mrow> \implies 2xc_1 + 2yc_2 + c_3 = x^{2} + y^{2} </mrow>
+                                </md>
+                                <p>
+                                    Os valores de x e y são conhecidos (utilizar as coordenadas dos pontos obtidos). Basta montar o sistema para <m>c_1</m>, <m>c_2</m> e <m>c_3</m> com <m>N</m> equações, onde
+                                    <m>N</m> é o número de pontos detectados pelo sensor.
+                                </p>
+                            </solution>
+                        </exercise>
+                        <exercise>
+                            <p>
+                                Agora encontre o erro associado à fabricação da peça. O erro pode ser descrito como a soma dos módulos de cada vetor <m>r</m> associado a cada ponto detectado. <m> r = R - dist(P, C)</m>
+                                onde <m>P</m> é cada ponto que o sensor detectou no perímetro da peça e <m>C</m> é o centro da circunferência obtida por você. O erro pode ser tomado como uma medida de "quão circular"
+                                é o conjunto de pontos.
+                            </p>
+                            <solution>  
+                                <p> Utilize o código abaixo para encontrar o erro associado ao ajuste por quadrados mínimos: </p>
+                                <sage>
+                                    <input>
+                                        import numpy as np
+
+                                        # Insira as coordenadas do centro do círculo e seu raio
+                                        centro = ( , )
+                                        raio =
+
+                                        points = 
+
+                                        def calcError(points, coeffs, raio):
+                                            error = 0
+                                            radius = raio
+
+                                            for point in points:
+                                                error += np.sqrt((radius - np.sqrt((point[0]-coeffs[0])**2 + (point[1]-coeffs[1])**2))**2)
+
+                                            return np.round(error, 3)
+
+                                        print(f'O erro associado é {calcError(points, centro, raio)}')
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
+                            </solution>
+                        </exercise>
+                        <exercise>
+                            <p>
+                                Utilize o código abaixo para conferir suas respostas. Observe o passo a passo da solução.
+                                <sage> 
+                                    <input>
+                                        import numpy as np
+                                        import matplotlib.pyplot as plt
+
+                                        points = 
+                                        
+                                        def setBoundaries(radius, x0, y0):
+                                            plt.xlim(-radius+x0-5, radius+x0+5)
+                                            plt.ylim(-radius+y0-5, radius+y0+5)
+
+                                        def plotPoints(points):
+                                            x = []
+                                            y = []
+                                            for point in points:
+                                                x.append(point[0])
+                                                y.append(point[1])
+                                            
+                                            plt.gca().set_aspect('equal')
+                                            plt.scatter(x, y, c='#000000')
+
+                                        def plotLine(radius, x0, y0):
+                                            theta = np.linspace(0, 2*np.pi, 1000)
+                                            x1 = x0+radius*np.cos(theta)
+                                            x2 = y0+radius*np.sin(theta)
+                                            plt.plot(x1, x2)
+
+                                        def calcError(points, coeffs):
+                                            error = 0
+                                            radius = np.sqrt(coeffs[2][0] + coeffs[0][0]**2 + coeffs[1][0]**2)
+
+                                            for point in points:
+                                                error += np.sqrt((radius - np.sqrt((point[0]-coeffs[0][0])**2 + (point[1]-coeffs[1][0])**2))**2)
+
+                                            return np.round(error, 3)
+
+                                        def normalEq(A, B):
+                                            np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+                                            print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+                                            print("A: ", end='')
+                                            print(A)
+                                            print("\nB: ", end='')
+                                            print(B)
+
+                                            At = np.transpose(A)
+                                            AtAinv = np.dot(At, A)
+                                            AtAinv = np.linalg.inv(AtAinv)
+                                            sol = np.dot(np.dot(AtAinv, At), B)
+                                            
+                                            print("\nA matriz transposta de A é:")
+                                            print(At)
+                                            print("\nA matriz inversa do produto entre A^t e A é:")
+                                            print(AtAinv)
+                                            print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+                                            print(sol)
+                                            return sol
+
+                                        def circleFit(points):
+                                            A = []
+                                            B = []
+
+                                            for point in points:
+                                                A.append([2*point[0], 2*point[1], 1])
+                                                B.append([point[0]**2 + point[1]**2])
+
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
+                                            radius = np.sqrt(sol[2][0] + sol[0][0]**2 + sol[1][0]**2)
+
+                                            print(f'\nO centro do circulo que melhor descreve os pontos é ({np.round(sol[0][0],3)}, {np.round(sol[1][0], 3)}). \n O raio do circulo é {np.round(radius, 3)}.')
+                                            error = calcError(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            print("\nObservando a solução graficamente:")
+                                            return (radius, sol[0][0], sol[1][0])
+
+                                        fit = circleFit(points)
+                                        radius = fit[0]
+                                        x0  = fit[1]
+                                        y0 = fit[2]
+
+                                        plotPoints(points)
+                                        plotLine(radius, x0, y0)
+                                        setBoundaries(radius, x0, y0)
+                                        plt.show()
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
+                            </p>
+                        </exercise>
+                </subsection>
            </section>           
 
 

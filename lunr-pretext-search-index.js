@@ -970,7 +970,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3",
   "title": "Projetos",
-  "body": " Projetos   Essa seção reúne projetos utilizando álgebra linear. ** Em construção**    Projeto 1 - Criando uma dieta  Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.  Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site https:\/\/tabnut.dis.epm.br\/alimento Exemplo de solução (seus alimentos serão, provavelmente, diferentes):  Arroz, branco, grao longo, normal, cozido  Feijao, preto, semente madura, cozido, sem sal  Frango, carne branca, so carne, pronto para consumo, assado  Alface, crespa, crua  Tomate, vermelho, maduro, cru   Obs: As quantidades informadas se referem a uma porção de 100 gramas do alimento mencionado.    Alimento  Fibra  Carboidratos  Sódio  Proteínas  Gorduras    1  0,4 g  28,17 g  1 mg  2,69 g  0,28 g    2  8,7 g  23,71 g  1 mg  8,86 g  0,54 g    3  0 g  0 g  51 mg  27,13 g  4,07 g    4  1,2 g  2,97 g  10 mg  0,9 g  0,14 g    5  1,2 g  3,89 g  5 mg  0,88 g  0,2 g      Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta. Um exemplo de solução, utilizando os alimentos citados anteriormente, é:  Fibra alimentar: 20.6 g  Carboidratos: 110.62 g  Sódio: 172 mg  Proteínas: 106.27 g  Gorduras: 14.19 g     Utilize o código na para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir. Para o exemplo anterior, a solução devolvida pelo programa foi: Você deverá consumir diariamente:  200.0 g de Arroz  200.0 g de Feijão  300.0 g de Frango  100.0 g de Alface  100.0 g de Tomate     Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.    A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta. Reflita se, dentro do contexto da dieta, sua solução faz sentido. Nesse contexto, fazem sentido soluções negativas? Mude o parâmetro \"negSol\" do código em para \"False\". O programa irá bloquear automaticamente qualquer solução negativa que aparecer!  Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu? Existem mais equações que variáveis, logo, o sistema não possui soluções reais.  Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta? O sistema, que originalmente admitia apenas uma solução, admite, agora, infinitas soluções. Como lidar com esse resultado? Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é otimizar determinadas variáveis, ou seja, maximizar ou minimizar seu valor. Vejamos a seguir: como  Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva\/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.   1   Projeto 2 - Análise de circuitos resistivos  Em análise de circuitos, utilizamos a Lei de Ohm e as Leis de Kirchhoff de corrente e tensão. Ao encontrar as equações referentes ao circuito utilizando as leis básicas, precisamos montar um sistema linear para encontrar as correntes e quedas de tensão em cada ramo. Analise os circuitos dados utilizando essas três leis, encontre as equações do circuito e forneça-as ao programa em Python disponibilizado ao final da seção para resolver o sistema e encontras as correntes.  Leis básicas:   Lei de Kirchhoff de Corrente: Em qualquer nó, a soma das correntes entrando é igual à soma das correntes saindo.  Lei de Kirchhoff de Tensão: Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.  Lei de Ohm: A queda de tensão em um elemento resistivo é dada por    Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:  Circuito 1. Fonte: Leon, S. 2018     Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 3 ohms:  Resistor de 2 ohms (à esquerda do nó B):  Resistor de 2 ohms (abaixo do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.   Obtenha as equações referentes à aplicação das leis básicas no seguin1te cicuito:  Circuito 2. Fonte: Leon, S. 2018     Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 3 ohms:  Resistor de 2 ohms (acima do nó B):  Resistor de 2 ohms (à esquerda do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.   Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:  Circuito 3. Fonte: Leon, S. 2018     Aplicação da LKC:   Observamos que, no nó A, saem as correntes e , e entra a corrente . Por outro lado, no nó B, sai a corrente e entram as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 2 ohms (superior):  Resistor de 2 ohms (inferior):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.   Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos.    "
+  "body": " Projetos   Essa seção reúne projetos utilizando álgebra linear. ** Em construção**    Projeto 1 - Criando uma dieta  Imagine que você é um nutricionista, e precisa prescrever uma dieta para um paciente. Você pode optar por alimentos em uma lista fechada. Os valores nutricionais desses alimentos são conhecidos, e você deve determinar a quantidade de cada alimento a ser consumida diariamente, de modo que, ao fim do dia, o paciente consuma determinada quantidade de cada macronutriente ou substância química presente nos alimentos, como por exemplo gorduras, carboidratos, minerais, proteínas, dentre outros.  Encontre as quantides de fibra alimentar, carboidratos, sódio, proteínas e gorduras totais de 5 alimentos de sua escolha. Para isso, utilize o site https:\/\/tabnut.dis.epm.br\/alimento Exemplo de solução (seus alimentos serão, provavelmente, diferentes):  Arroz, branco, grao longo, normal, cozido  Feijao, preto, semente madura, cozido, sem sal  Frango, carne branca, so carne, pronto para consumo, assado  Alface, crespa, crua  Tomate, vermelho, maduro, cru   Obs: As quantidades informadas se referem a uma porção de 100 gramas do alimento mencionado.    Alimento  Fibra  Carboidratos  Sódio  Proteínas  Gorduras    1  0,4 g  28,17 g  1 mg  2,69 g  0,28 g    2  8,7 g  23,71 g  1 mg  8,86 g  0,54 g    3  0 g  0 g  51 mg  27,13 g  4,07 g    4  1,2 g  2,97 g  10 mg  0,9 g  0,14 g    5  1,2 g  3,89 g  5 mg  0,88 g  0,2 g      Determine uma quantidade-alvo para cada macronutriente citado e escreva um sistema linear que modele a dieta proposta. Um exemplo de solução, utilizando os alimentos citados anteriormente, é:  Fibra alimentar: 20.6 g  Carboidratos: 110.62 g  Sódio: 172 mg  Proteínas: 106.27 g  Gorduras: 14.19 g     Utilize o código na para resolver o sistema linear e descobrir as quantidades de cada alimento que o paciente deve consumir. Para o exemplo anterior, a solução devolvida pelo programa foi: Você deverá consumir diariamente:  200.0 g de Arroz  200.0 g de Feijão  300.0 g de Frango  100.0 g de Alface  100.0 g de Tomate     Código para a resolução de sistemas lineares utilizando o método de Gauss-Jordan.    A solução encontrada faz sentido? Há algo inconveniente ou inadequado na solução? Justifique sua resposta. Reflita se, dentro do contexto da dieta, sua solução faz sentido. Nesse contexto, fazem sentido soluções negativas? Mude o parâmetro \"negSol\" do código em para \"False\". O programa irá bloquear automaticamente qualquer solução negativa que aparecer!  Remova um dos alimentos de sua lista e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você acha que ocorreu? Existem mais equações que variáveis, logo, o sistema não possui soluções reais.  Faça uma lista com um total de 7 alimentos e tente determinar as quantidedes ideais de cada alimento para atingir seus objetivos nutricionais. Qual o resulta obtido? O que você faria para obter uma resposta? O sistema, que originalmente admitia apenas uma solução, admite, agora, infinitas soluções. Como lidar com esse resultado? Uma possibilidade é fixar os valores das variáveis livres a seu critério. Outra opção (mais utilizada em problemas práticos) é otimizar determinadas variáveis, ou seja, maximizar ou minimizar seu valor. Vejamos a seguir: como  Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva\/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.      Projeto 2 - Análise de circuitos resistivos  Em análise de circuitos, utilizamos a Lei de Ohm e as Leis de Kirchhoff de corrente e tensão. Ao encontrar as equações referentes ao circuito utilizando as leis básicas, precisamos montar um sistema linear para encontrar as correntes e quedas de tensão em cada ramo. Analise os circuitos dados utilizando essas três leis, encontre as equações do circuito e forneça-as ao programa em Python disponibilizado ao final da seção para resolver o sistema e encontras as correntes.  Leis básicas:   Lei de Kirchhoff de Corrente: Em qualquer nó, a soma das correntes entrando é igual à soma das correntes saindo.  Lei de Kirchhoff de Tensão: Ao longo de qualquer malha fechada, a soma dos ganhos e das quedas de tensão é igual a zero.  Lei de Ohm: A queda de tensão em um elemento resistivo é dada por    Observe as aplicações das leis básicas nas soluções dos exemplos abaixo.   Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:   Circuito 1. Fonte: Leon, S. 2018      Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 3 ohms:  Resistor de 2 ohms (à esquerda do nó B):  Resistor de 2 ohms (abaixo do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.     Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:   Circuito 2. Fonte: Leon, S. 2018      Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 3 ohms:  Resistor de 2 ohms (acima do nó B):  Resistor de 2 ohms (à esquerda do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.     Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:   Circuito 3. Fonte: Leon, S. 2018      Aplicação da LKC:   Observamos que, no nó A, saem as correntes e , e entra a corrente . Por outro lado, no nó B, sai a corrente e entram as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 2 ohms (superior):  Resistor de 2 ohms (inferior):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.     Altere os valores das resistências no circuito abaixo e utilize o seu circuito para obter o sistema de equações referentes à aplicação das leis básicas para as correntes em cada fio (entre nodos):  Circuito. Fonte: Wikibooks - Linear Algebra\/Topic: Analyzing Networks    Utilize os códigos em python para resolver o sistema que você criou. Explique como e porque está usando os códigos.  Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos.     Projeto 3 - Ajustando dados aleatórios  Neste projeto, será explorado o método dos quadrados mínimos, método de otimização que tem por objetivo encontrar funções que melhor descrevem um conjunto de pontos em .  Nesta atividade, você deve utilizar um código em python para gerar 10 pontos aleatórios no plano, e depois encontrar as funções linear, quadrática, cúbica e exponencial que melhor se ajustam a esses pontos utilizando o método dos quadrados mínimos. Você pode observar a função que encontrou graficamente e conferir seus resultados utilizando os códigos disponibilizados em cada checkpoint.  Execute este código para gerar seus pontos aleatórios. Você pode modificar os valores mínimo e máximo de x e y. Não altere os valores de N_PONTOS e DISTORCAO   Utilizando o método dos quadrados mínimos, ajuste uma função LINEAR aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado à linearização.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.    Utilizando o método dos quadrados mínimos, ajuste uma função QUADRÁTICA aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.    Utilizando o método dos quadrados mínimos, ajuste uma função CÚBICA aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.    Utilizando o método dos quadrados mínimos, ajuste uma função EXPONENCIAL aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução. Lembre-se que os resultados e encontrados no vetor solução gera uma função exponencial da forma     Com as 4 curvas encontradas, reflita: Qual é a que melhor se ajusta ao conjunto de pontos que você gerou?  Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas.      Projeto 4 - Metrologia coordenada  Em diversos processos de fabricação, o controle de qualidade é realizado com auxílio de sensores que detectam pontos do perímetro da peça produzida e comparam estes pontos com o perímetro teórico do objeto.  Neste projeto, suponha que você calculará o fator de erro de cada peça fabricada por uma máquina. As peças devem ter, em teoria, formato circular. Para isso, você deve encontrar, utilizando o método dos quadrados mínimos, a equação da circunferência que melhor se ajusta aos pontos gerados.  Execute o código abaixo para obter os pontos detectados no perímetro da peça fabricada. Não altere os valores de RAIO_MAX e N_PONTOS   Encontre o raio e o centro da circunferência que melhor se ajusta aos pontos obtidos. Dica: Monte um sistema com 3 incógnitas Você pode utilizar o código abaixo para observar graficamente a circunferencia obtida:  A circunferência com centro em é descrita por . Assim:   Os valores de x e y são conhecidos (utilizar as coordenadas dos pontos obtidos). Basta montar o sistema para , e com equações, onde é o número de pontos detectados pelo sensor.   Agora encontre o erro associado à fabricação da peça. O erro pode ser descrito como a soma dos módulos de cada vetor associado a cada ponto detectado. onde é cada ponto que o sensor detectou no perímetro da peça e é o centro da circunferência obtida por você. O erro pode ser tomado como uma medida de \"quão circular\" é o conjunto de pontos.  Utilize o código abaixo para encontrar o erro associado ao ajuste por quadrados mínimos:    Utilize o código abaixo para conferir suas respostas. Observe o passo a passo da solução.    "
 },
 {
   "id": "Proj1-3",
@@ -1045,103 +1045,157 @@ var ptx_lunr_docs = [
   "body": " Código para a resolução e otimização de sistemas lineares utilizando o método de Gauss-Jordan. A otimização foi realizada com apoio da biblioteca SciPy, do Python. O programa foi escrito para realizar otimizações com 5 equações e 7 variáveis. Caso deseje fazer com um número diferente, escreva\/altere as funções objetivo e as funções limitadoras, conforme explicação e modelo no código.   "
 },
 {
-  "id": "Proj2-5",
-  "level": "2",
-  "url": "Projects.html#Proj2-5",
-  "type": "Checkpoint",
-  "number": "3.10",
-  "title": "",
-  "body": "Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:  Circuito 1. Fonte: Leon, S. 2018     Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 3 ohms:  Resistor de 2 ohms (à esquerda do nó B):  Resistor de 2 ohms (abaixo do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.  "
-},
-{
   "id": "Proj2-6",
   "level": "2",
   "url": "Projects.html#Proj2-6",
-  "type": "Checkpoint",
-  "number": "3.12",
+  "type": "Example",
+  "number": "3.10",
   "title": "",
-  "body": "Obtenha as equações referentes à aplicação das leis básicas no seguin1te cicuito:  Circuito 2. Fonte: Leon, S. 2018     Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 3 ohms:  Resistor de 2 ohms (acima do nó B):  Resistor de 2 ohms (à esquerda do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.  "
+  "body": " Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:   Circuito 1. Fonte: Leon, S. 2018      Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 3 ohms:  Resistor de 2 ohms (à esquerda do nó B):  Resistor de 2 ohms (abaixo do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.   "
 },
 {
   "id": "Proj2-7",
   "level": "2",
   "url": "Projects.html#Proj2-7",
-  "type": "Checkpoint",
-  "number": "3.14",
+  "type": "Example",
+  "number": "3.12",
   "title": "",
-  "body": "Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:  Circuito 3. Fonte: Leon, S. 2018     Aplicação da LKC:   Observamos que, no nó A, saem as correntes e , e entra a corrente . Por outro lado, no nó B, sai a corrente e entram as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 2 ohms (superior):  Resistor de 2 ohms (inferior):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.  "
+  "body": " Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:   Circuito 2. Fonte: Leon, S. 2018      Aplicação da LKC:   Observamos que, no nó A, entram as correntes e , e sai a corrente . Por outro lado, no nó B, entra a corrente e saem as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 3 ohms:  Resistor de 2 ohms (acima do nó B):  Resistor de 2 ohms (à esquerda do nó B):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.   "
 },
 {
   "id": "Proj2-8",
   "level": "2",
   "url": "Projects.html#Proj2-8",
-  "type": "Remark",
+  "type": "Example",
+  "number": "3.14",
+  "title": "",
+  "body": " Obtenha as equações referentes à aplicação das leis básicas no seguinte cicuito:   Circuito 3. Fonte: Leon, S. 2018      Aplicação da LKC:   Observamos que, no nó A, saem as correntes e , e entra a corrente . Por outro lado, no nó B, sai a corrente e entram as correntes e . Assim, obtemos as equações:    Aplicação da Lei de Ohm:   Aplicando a lei de Ohm, descobrimos que a queda de tensão em cada resistor é:   Resistor de 4 ohms:  Resistor de 2 ohms (superior):  Resistor de 2 ohms (inferior):    Aplicação da LKT:   Aplicando a LKT, obtemos uma equação para cada malha do circuito. Vejamos:    Ao final temos:    Agora basta colocar as equações na forma matricial e fornecer ao programa.   "
+},
+{
+  "id": "Proj2-9",
+  "level": "2",
+  "url": "Projects.html#Proj2-9",
+  "type": "Checkpoint",
   "number": "3.16",
+  "title": "",
+  "body": " Altere os valores das resistências no circuito abaixo e utilize o seu circuito para obter o sistema de equações referentes à aplicação das leis básicas para as correntes em cada fio (entre nodos):  Circuito. Fonte: Wikibooks - Linear Algebra\/Topic: Analyzing Networks   "
+},
+{
+  "id": "Proj2-10",
+  "level": "2",
+  "url": "Projects.html#Proj2-10",
+  "type": "Checkpoint",
+  "number": "3.18",
+  "title": "",
+  "body": "Utilize os códigos em python para resolver o sistema que você criou. Explique como e porque está usando os códigos. "
+},
+{
+  "id": "Proj2-11",
+  "level": "2",
+  "url": "Projects.html#Proj2-11",
+  "type": "Remark",
+  "number": "3.19",
   "title": "",
   "body": "Utilize o código a seguir em Python para avaliar os sistemas lineares obtidos em cada um dos circuitos.  "
 },
 {
-  "id": "section-computation",
-  "level": "1",
-  "url": "section-computation.html",
-  "type": "Section",
-  "number": "4",
-  "title": "Solve symbolic system and elementary operations",
-  "body": " Solve symbolic system and elementary operations  Solve a linear system.   Write a matrix using numpy.   Define elementary operations on the rows of a matrix.    "
-},
-{
-  "id": "section-Gaussian",
-  "level": "1",
-  "url": "section-Gaussian.html",
-  "type": "Section",
-  "number": "5",
-  "title": "Gaussian Elimination",
-  "body": " Gaussian Elimination  A method of Gaussian elimination.   Reverse substitution in a row echelon form matrix (does not work always - use with caution).   .     A simple table    Variable  Variable  Conjunction  Disjunction    T  T  T  T    T  F  F  T    F  T  F  T    F  F  F  F     "
-},
-{
-  "id": "section-Gaussian-9",
+  "id": "Proj3-4",
   "level": "2",
-  "url": "section-Gaussian.html#section-Gaussian-9",
-  "type": "Table",
-  "number": "5.1",
-  "title": "A simple table",
-  "body": " A simple table    Variable  Variable  Conjunction  Disjunction    T  T  T  T    T  F  F  T    F  T  F  T    F  F  F  F    "
+  "url": "Projects.html#Proj3-4",
+  "type": "Remark",
+  "number": "3.20",
+  "title": "",
+  "body": "Execute este código para gerar seus pontos aleatórios. Você pode modificar os valores mínimo e máximo de x e y. Não altere os valores de N_PONTOS e DISTORCAO  "
 },
 {
-  "id": "section-Gauss-Jordan",
-  "level": "1",
-  "url": "section-Gauss-Jordan.html",
-  "type": "Section",
-  "number": "6",
-  "title": "Gauss-Jordan reduction",
-  "body": " Gauss-Jordan reduction  A method of Gaussian elimination.   Follows from Gaussian elimination to complete the Gauss-Jordan reduction.   "
+  "id": "Proj3-5",
+  "level": "2",
+  "url": "Projects.html#Proj3-5",
+  "type": "Checkpoint",
+  "number": "3.21",
+  "title": "",
+  "body": "Utilizando o método dos quadrados mínimos, ajuste uma função LINEAR aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado à linearização.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.   "
 },
 {
-  "id": "section-Matrices",
-  "level": "1",
-  "url": "section-Matrices.html",
-  "type": "Section",
-  "number": "7",
-  "title": "Basic commands for matrices.",
-  "body": " Basic commands for matrices.  Matrices of different kinds.   Matrices of zeros and ones.   Print rows columns and elements.   Basic operations.   Transpose of a matrix.   Inverse of a matrix.   "
+  "id": "Proj3-6",
+  "level": "2",
+  "url": "Projects.html#Proj3-6",
+  "type": "Checkpoint",
+  "number": "3.22",
+  "title": "",
+  "body": "Utilizando o método dos quadrados mínimos, ajuste uma função QUADRÁTICA aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.   "
 },
 {
-  "id": "ElDecomp",
-  "level": "1",
-  "url": "ElDecomp.html",
-  "type": "Section",
-  "number": "8",
-  "title": "Decompositions; Inverse finding",
-  "body": " Decompositions; Inverse finding   Decomposition PA = LU  Calculates the decomposition PA=LU. The matrix P only trades lines in A, if need be, then decomposes as LU.      Finding the inverse through Gauss - Jordan reduction  If we apply Gauss-Jordan reduction in the matrix (A|I), A concatenated with I, we obtain the Identity, if possible, concatenated with the inverse of A. For that we need the method of Gaussian elimination.   Follows from Gaussian elimination to complete the Gauss-Jordan reduction and obtains (I|A^-1)) .   We can test the matrix B, found by computing the Gauss-Jordan reduction, by calculating A * B. The result should be (A|I).    "
+  "id": "Proj3-7",
+  "level": "2",
+  "url": "Projects.html#Proj3-7",
+  "type": "Checkpoint",
+  "number": "3.23",
+  "title": "",
+  "body": "Utilizando o método dos quadrados mínimos, ajuste uma função CÚBICA aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.   "
+},
+{
+  "id": "Proj3-8",
+  "level": "2",
+  "url": "Projects.html#Proj3-8",
+  "type": "Checkpoint",
+  "number": "3.24",
+  "title": "",
+  "body": "Utilizando o método dos quadrados mínimos, ajuste uma função EXPONENCIAL aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado ao ajuste.  Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução. Lembre-se que os resultados e encontrados no vetor solução gera uma função exponencial da forma    "
+},
+{
+  "id": "Proj3-9",
+  "level": "2",
+  "url": "Projects.html#Proj3-9",
+  "type": "Checkpoint",
+  "number": "3.25",
+  "title": "",
+  "body": "Com as 4 curvas encontradas, reflita: Qual é a que melhor se ajusta ao conjunto de pontos que você gerou?  Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas.   "
+},
+{
+  "id": "Proj4-4",
+  "level": "2",
+  "url": "Projects.html#Proj4-4",
+  "type": "Remark",
+  "number": "3.26",
+  "title": "",
+  "body": "Execute o código abaixo para obter os pontos detectados no perímetro da peça fabricada. Não altere os valores de RAIO_MAX e N_PONTOS  "
+},
+{
+  "id": "Proj4-5",
+  "level": "2",
+  "url": "Projects.html#Proj4-5",
+  "type": "Checkpoint",
+  "number": "3.27",
+  "title": "",
+  "body": "Encontre o raio e o centro da circunferência que melhor se ajusta aos pontos obtidos. Dica: Monte um sistema com 3 incógnitas Você pode utilizar o código abaixo para observar graficamente a circunferencia obtida:  A circunferência com centro em é descrita por . Assim:   Os valores de x e y são conhecidos (utilizar as coordenadas dos pontos obtidos). Basta montar o sistema para , e com equações, onde é o número de pontos detectados pelo sensor.  "
+},
+{
+  "id": "Proj4-6",
+  "level": "2",
+  "url": "Projects.html#Proj4-6",
+  "type": "Checkpoint",
+  "number": "3.28",
+  "title": "",
+  "body": "Agora encontre o erro associado à fabricação da peça. O erro pode ser descrito como a soma dos módulos de cada vetor associado a cada ponto detectado. onde é cada ponto que o sensor detectou no perímetro da peça e é o centro da circunferência obtida por você. O erro pode ser tomado como uma medida de \"quão circular\" é o conjunto de pontos.  Utilize o código abaixo para encontrar o erro associado ao ajuste por quadrados mínimos:   "
+},
+{
+  "id": "Proj4-7",
+  "level": "2",
+  "url": "Projects.html#Proj4-7",
+  "type": "Checkpoint",
+  "number": "3.29",
+  "title": "",
+  "body": "Utilize o código abaixo para conferir suas respostas. Observe o passo a passo da solução.  "
 },
 {
   "id": "espacos-vetoriais",
   "level": "1",
   "url": "espacos-vetoriais.html",
   "type": "Section",
-  "number": "9",
+  "number": "4",
   "title": "Espaços Vetoriais",
-  "body": " Espaços Vetoriais   O conceito de Espaço Vetorial trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de vetores , assim como com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em .    Vetores em  Um vetor  representa o conjunto de todos os segmentos orientados em com o mesmo comprimento, direção e sentido.   Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.  O comprimento ou a norma de um vetor em pode ser calculado por . No exemplo acima . Qualquer segmento orientado em poderia ter sido utilizado para calcular o comprimento.   Calcule o comprimento de três representantes de um vetor gerados pelo códico acima.  Para vetores , e ,e um escalar , definimos as operações fundamentais de multiplicação por escalar e adição de vetores por: A subtração de vetores é definida a partir da multiplicação por escalar e da adição como .      Espaços Vetoriais  Definimos agora um espaço vetorial, construindo conjuntos de \"vetores\" para os quais eximtem operações de \"adição\" e \"multiplicação\" por \"escalar\" com as mesmas propriedades das operações em vetores do , de modo operarmos com eles de modo semelhante ao , todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.     espaço vetorial    Seja um conjunto de escalares (usualmente ou , mas qualquer corpo serviria). Um espaço vetorial  é um conjunto sobre o qual estão definidas duas operações: e as operações satisfazem as seguintes propriedades para quaisquer e :  (A1)  (A2)  (A3)   (A4)  (A5)  (A6)  (A7)  (A8)  V é dito o conjunto universal , os elementos de V são ditos vetores e os elementos de E são ditos escalares . Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.    O conjunto não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de pois, dados , e temos que Deste modo C1 não é válida e não é um espaço vetorial.  Para mostrar que um conjunto não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para e justifique sua escolha.   com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer . Para verificar isso é necessário verificar a validade de .  O conjunto , com escalares reais e as operações de adição e multiplicação por escalar herdadas de é um espaço vetorial pois, dados , , e e , verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em ):  de modo que a soma de dois elementos de V é um elemento de  .  de modo que a multiplicação de um elemento de V por um escalar é um elemento de .          Portanto é um espaço vetorial.   O código abaixo plota o plano gerado pelos vetores do exemplo anterior.       Se é um espaço vetorial e , então:                            O conjunto de todas as funções reais definidas no intervalo , que têm derivada de ordem contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado . Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.  O conjunto de todas as matrizes reais (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.   "
+  "body": " Espaços Vetoriais   O conceito de Espaço Vetorial trata de espaços que têm uma operação de multiplicação por escalar e uma operação de adição de vetores , assim como com as operações usuais, e identifica as principais propriedades operacionais esperadas para seu uso, permitindo a aplicação em espaços muito diferentes de e nos mais diversos contextos. Essa seção inicia relembrando o que são vetores em e segue apresentando o conceito de espaço vetorial e alguns dos exemplos não triviais importantes. Em seguida introduz-se o conceito de subespaço vetorial e como aplicá-lo, junto com uma aplicação para a ilustração de subespaços de dimensão 1 ou 2 em .    Vetores em  Um vetor  representa o conjunto de todos os segmentos orientados em com o mesmo comprimento, direção e sentido.   Usualmente representamos um vetor pelas coordenadas do ponto final do segmento orientado que inicia na origem. Assim, no plot, temos o vetor e outros segmentos orientados gerados aleatoriamente, todos pertencentes ao mesmo vetor.  O comprimento ou a norma de um vetor em pode ser calculado por . No exemplo acima . Qualquer segmento orientado em poderia ter sido utilizado para calcular o comprimento.   Escolha um vetor , e calcule o comprimento de três representantes desse vetor, fazendo as contas manualmente. Utilize o código acima para plotar alguns representantes desse vetor.  Para vetores , e ,e um escalar , definimos as operações fundamentais de multiplicação por escalar e adição de vetores por: A subtração de vetores é definida a partir da multiplicação por escalar e da adição como .   Escolha dois vetores , diferentes de e , e um escalar . Utilize o código acima para plotar , , e . Escreva as coordenadas dos representantes com início na origem e as coordenadas dos pontos iniciais e finais de cada vetor no plot.     Espaços Vetoriais  Definimos agora um espaço vetorial, construindo conjuntos de \"vetores\" para os quais existem operações de \"adição\" e \"multiplicação\" por \"escalar\" com as mesmas propriedades das operações em vetores do , de modo operarmos com eles de modo semelhante ao , todavia podemos ter objetos muito distintos dos usuais para cada um dos termos entre parênteses.     espaço vetorial    Seja um conjunto de escalares (usualmente ou , mas qualquer corpo serviria). Um espaço vetorial  é formado por um conjunto de vetores, , um corpo de escalares, , e duas operações: e as operações satisfazem as seguintes propriedades para quaisquer e :  (A1)  (A2)  (A3)   (A4) ,  (A5)  (A6)  (A7)  (A8)  V é dito o conjunto universal , os elementos de V são ditos vetores e os elementos de E são ditos escalares . Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos de um espaço vetorial omitindo menção explicita ao corpo de escalares e às operações de adição e multiplicação por escalar.    O conjunto não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de pois, dados , e temos que Deste modo C1 não é válida e não é um espaço vetorial.  Para mostrar que um conjunto não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e A1, ... A8) que não são válidas para o espaço vetorial do e justifique suas escolhas.   com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer . Para verificar isso é necessário verificar a validade de .  O conjunto , com escalares reais e as operações de adição e multiplicação por escalar herdadas de é um espaço vetorial pois, dados , , e e , verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em ):  de modo que a soma de dois elementos de V é um elemento de  .  de modo que a multiplicação de um elemento de V por um escalar é um elemento de .          Portanto é um espaço vetorial.   O código abaixo plota o plano gerado pelos vetores do exemplo anterior.       Se é um espaço vetorial e , então:                            Utilize o código acima para plotar os conjuntos e . Eles são espaços vetoriais (com escalares reais e as operações usuais?)  O conjunto de todas as funções reais definidas no intervalo , que têm derivada de ordem contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado . Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.  O conjunto de todas as matrizes reais (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor.   "
 },
 {
   "id": "espacos-vetoriais-2-1",
@@ -1175,9 +1229,9 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "espacos-vetoriais.html#Rn_vecs-7",
   "type": "Checkpoint",
-  "number": "9.1",
+  "number": "4.1",
   "title": "",
-  "body": "Calcule o comprimento de três representantes de um vetor gerados pelo códico acima. "
+  "body": "Escolha um vetor , e calcule o comprimento de três representantes desse vetor, fazendo as contas manualmente. Utilize o código acima para plotar alguns representantes desse vetor. "
 },
 {
   "id": "Rn_vecs-8",
@@ -1189,20 +1243,29 @@ var ptx_lunr_docs = [
   "body": "multiplicação por escalar adição subtração "
 },
 {
+  "id": "Rn_vecs-10",
+  "level": "2",
+  "url": "espacos-vetoriais.html#Rn_vecs-10",
+  "type": "Checkpoint",
+  "number": "4.2",
+  "title": "",
+  "body": "Escolha dois vetores , diferentes de e , e um escalar . Utilize o código acima para plotar , , e . Escreva as coordenadas dos representantes com início na origem e as coordenadas dos pontos iniciais e finais de cada vetor no plot. "
+},
+{
   "id": "Esp_vet-3",
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-3",
   "type": "Definition",
-  "number": "9.2",
+  "number": "4.3",
   "title": "",
-  "body": "   espaço vetorial    Seja um conjunto de escalares (usualmente ou , mas qualquer corpo serviria). Um espaço vetorial  é um conjunto sobre o qual estão definidas duas operações: e as operações satisfazem as seguintes propriedades para quaisquer e :  (A1)  (A2)  (A3)   (A4)  (A5)  (A6)  (A7)  (A8)  V é dito o conjunto universal , os elementos de V são ditos vetores e os elementos de E são ditos escalares . Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos V de um espaço vetorial omitindo o corpo de escalares e as operações de adição e multiplicação por escalar.   "
+  "body": "   espaço vetorial    Seja um conjunto de escalares (usualmente ou , mas qualquer corpo serviria). Um espaço vetorial  é formado por um conjunto de vetores, , um corpo de escalares, , e duas operações: e as operações satisfazem as seguintes propriedades para quaisquer e :  (A1)  (A2)  (A3)   (A4) ,  (A5)  (A6)  (A7)  (A8)  V é dito o conjunto universal , os elementos de V são ditos vetores e os elementos de E são ditos escalares . Muitas vezes, quando está claro quais as operações de adição e multiplicação por escalar e qual o conjunto E de escalares, Chamamos de um espaço vetorial omitindo menção explicita ao corpo de escalares e às operações de adição e multiplicação por escalar.   "
 },
 {
-  "id": "Esp_vet-4",
+  "id": "not_VE",
   "level": "2",
-  "url": "espacos-vetoriais.html#Esp_vet-4",
+  "url": "espacos-vetoriais.html#not_VE",
   "type": "Example",
-  "number": "9.3",
+  "number": "4.4",
   "title": "",
   "body": "O conjunto não é um espaço vetorial com escalares reais e as operações de adição e multiplicação por escalar herdadas de pois, dados , e temos que Deste modo C1 não é válida e não é um espaço vetorial. "
 },
@@ -1211,16 +1274,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-5",
   "type": "Checkpoint",
-  "number": "9.4",
+  "number": "4.5",
   "title": "",
-  "body": "Para mostrar que um conjunto não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e) que não são válidas para e justifique sua escolha. "
+  "body": "Para mostrar que um conjunto não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e A1, ... A8) que não são válidas para o espaço vetorial do e justifique suas escolhas. "
 },
 {
   "id": "Esp_vet-6",
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-6",
   "type": "Example",
-  "number": "9.5",
+  "number": "4.6",
   "title": "",
   "body": " com escalares reais ou complexos e as operações de adição e multiplicação por escalar usuais é um espaço vetorial para qualquer . Para verificar isso é necessário verificar a validade de . "
 },
@@ -1229,7 +1292,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-7",
   "type": "Example",
-  "number": "9.6",
+  "number": "4.7",
   "title": "",
   "body": "O conjunto , com escalares reais e as operações de adição e multiplicação por escalar herdadas de é um espaço vetorial pois, dados , , e e , verificamos a validade de cada uma das propriedades (alguns detalhes são omitidos por já conhecermos as propriedades da adição de vetores em ):  de modo que a soma de dois elementos de V é um elemento de  .  de modo que a multiplicação de um elemento de V por um escalar é um elemento de .          Portanto é um espaço vetorial.  "
 },
@@ -1238,7 +1301,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-10",
   "type": "Theorem",
-  "number": "9.7",
+  "number": "4.8",
   "title": "",
   "body": "    Se é um espaço vetorial e , então:                           "
 },
@@ -1246,17 +1309,26 @@ var ptx_lunr_docs = [
   "id": "Esp_vet-11",
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-11",
-  "type": "Example",
-  "number": "9.8",
+  "type": "Checkpoint",
+  "number": "4.9",
   "title": "",
-  "body": "O conjunto de todas as funções reais definidas no intervalo , que têm derivada de ordem contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado . Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor. "
+  "body": "Utilize o código acima para plotar os conjuntos e . Eles são espaços vetoriais (com escalares reais e as operações usuais?) "
 },
 {
   "id": "Esp_vet-12",
   "level": "2",
   "url": "espacos-vetoriais.html#Esp_vet-12",
   "type": "Example",
-  "number": "9.9",
+  "number": "4.10",
+  "title": "",
+  "body": "O conjunto de todas as funções reais definidas no intervalo , que têm derivada de ordem contínua (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial, denominado . Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor. "
+},
+{
+  "id": "Esp_vet-13",
+  "level": "2",
+  "url": "espacos-vetoriais.html#Esp_vet-13",
+  "type": "Example",
+  "number": "4.11",
   "title": "",
   "body": "O conjunto de todas as matrizes reais (com escalares reais e as operações usuais de adição e multiplicação por escalar) é um espaço vetorial. Deixamos a verificação das propriedades C1 e C2, A1 - A8 a cargo do leitor. "
 },
@@ -1265,16 +1337,16 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "subescos.html",
   "type": "Section",
-  "number": "10",
+  "number": "5",
   "title": "Subespaços Vetoriais",
-  "body": " Subespaços Vetoriais   Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial    Subespaço     subespaço vetorial    Sejam um espaço vetorial e um subconjunto de . é dito um subespaço (vetorial) de se, e somente se:          A primeira condição diz que o subconjunto não é vazio, a segunda dis que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.      Sejam um espaço vetorial e um subespaço vetorial. Então é um espaço vetorial.   Como e tem o mesmo conjunto de escalares e operações, valem as propriedades desde que e sejam elementos de , o que é requerido pela definição de subespaço vetorial.   O conjunto , com escalares reais e as operações de adição e multiplicação por escalar herdadas de é um subespaço vetorial de pois, dados e , :      Assim é um subespaço de e automaticamente um espaço vetorial (não precisávamos verificar todas as propriedades, como feito no exemplo anterior).   Verifique que é um subespaço de .  Verifique que é um subespaço de .  Utilize o código abaixo para esboçar o subespaço de       Espaço Nulo de uma matriz     espaço nulo    Seja . O conjunto de todas as soluções de é chamado de espaço nulo de e denotado :      O espaço nulo da matriz consiste das soluções de , ou seja, soluções do sistema  denotando e , temos:         Para qualquer matriz , é um subespaço de .   Dados e :         Matriz de uma projeção  Uma matriz representa uma projeção em um plano que passa pela origem se (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz tem essa propriedade: O núcleo de dá a direção normal ao plano de projeção. Para encontrar precisamos resolver o que pode ser feito por eliminação Gaussiana:  de modo que e e e um vetor normal ao plano é .    O código plota um o plano que passa pela origem se dermos como imput o vetor normal a esse plano.   Verifique se a matriz representa uma projeção, em caso positivo encontre o seu núcleo e utilize o código acima para plotar o plano de projeção.  Note que não pode ser vazio, pois uma vez que para qualquer matriz.      Considere o sistema , então a diferença entre duas soluções do sistema está em . Além disso, a soma de uma solução do sistema com um elemento do núcleo é também solução do sistema.   Dados soluções de , temos: Se é solução de e , temos:     "
+  "body": " Subespaços Vetoriais   Mostrar que um conjunto é um espaço vetorial é uma tarefa que pode ser longa e repetitiva, uma vez tenhamos compreendido bem o conceito. Essa tarefa fica muito mais fácil quando consideramos subconjuntos de um espaço vetorial, o que exploramos nessa subseção.    Subespaço     subespaço vetorial    Sejam um espaço vetorial e um subconjunto de . é dito um subespaço (vetorial) de se, e somente se:          A primeira condição diz que o subconjunto não é vazio, a segunda diz que a mutiplicação de um elemento de S por um escalar resulta em um elemento de S e a terceira diz que o resultado da soma de dois elementos de S é um elemento de S.      Sejam um espaço vetorial e um subespaço vetorial. Então é um espaço vetorial.   Como e tem o mesmo conjunto de escalares e operações, valem as propriedades desde que e sejam elementos de , o que é requerido pela definição de subespaço vetorial.   O conjunto , com escalares reais e as operações de adição e multiplicação por escalar herdadas de é um subespaço vetorial de pois, dados e , :      Assim é um subespaço de e automaticamente um espaço vetorial (não precisávamos verificar todas as propriedades, como feito no exemplo anterior).   Verifique que é um subespaço de .  Verifique que é um subespaço de .  Utilize o código abaixo para esboçar o subespaço de       Espaço Nulo de uma matriz     espaço nulo    Seja . O conjunto de todas as soluções de é chamado de espaço nulo de e denotado :      O espaço nulo da matriz consiste das soluções de , ou seja, soluções do sistema  denotando e , temos:         Para qualquer matriz , é um subespaço de .   Dados e :         Matriz de uma projeção  Uma matriz representa uma projeção em um plano que passa pela origem se (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz tem essa propriedade: O núcleo de dá a direção normal ao plano de projeção. Para encontrar precisamos resolver o que pode ser feito por eliminação Gaussiana:  de modo que e e e um vetor normal ao plano é .    O código plota um o plano que passa pela origem se dermos como imput o vetor normal a esse plano.   Verifique se a matriz representa uma projeção, em caso positivo encontre o seu núcleo e utilize o código acima para plotar o plano de projeção.  Note que não pode ser vazio, pois uma vez que para qualquer matriz.      Considere o sistema , então a diferença entre duas soluções do sistema está em . Além disso, a soma de uma solução do sistema com um elemento do núcleo é também solução do sistema.   Dados soluções de , temos: Se é solução de e , temos:    Considerando a matriz: calcule o núcleo de e as soluções de . Você consegue explicar qual a relação entre o núcleo de e as soluções encontradas?   "
 },
 {
   "id": "subespacos-subsection-2",
   "level": "2",
   "url": "subescos.html#subespacos-subsection-2",
   "type": "Definition",
-  "number": "10.1",
+  "number": "5.1",
   "title": "",
   "body": "   subespaço vetorial    Sejam um espaço vetorial e um subconjunto de . é dito um subespaço (vetorial) de se, e somente se:         "
 },
@@ -1283,7 +1355,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#subespacos-subsection-4",
   "type": "Lemma",
-  "number": "10.2",
+  "number": "5.2",
   "title": "",
   "body": "    Sejam um espaço vetorial e um subespaço vetorial. Então é um espaço vetorial.   Como e tem o mesmo conjunto de escalares e operações, valem as propriedades desde que e sejam elementos de , o que é requerido pela definição de subespaço vetorial.  "
 },
@@ -1292,7 +1364,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#subespacos-subsection-5",
   "type": "Example",
-  "number": "10.3",
+  "number": "5.3",
   "title": "",
   "body": "O conjunto , com escalares reais e as operações de adição e multiplicação por escalar herdadas de é um subespaço vetorial de pois, dados e , :      Assim é um subespaço de e automaticamente um espaço vetorial (não precisávamos verificar todas as propriedades, como feito no exemplo anterior).  "
 },
@@ -1301,7 +1373,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#subespacos-subsection-6",
   "type": "Checkpoint",
-  "number": "10.4",
+  "number": "5.4",
   "title": "",
   "body": "Verifique que é um subespaço de . "
 },
@@ -1310,7 +1382,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#subespacos-subsection-7",
   "type": "Checkpoint",
-  "number": "10.5",
+  "number": "5.5",
   "title": "",
   "body": "Verifique que é um subespaço de . "
 },
@@ -1319,7 +1391,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#subespacos-subsection-8",
   "type": "Checkpoint",
-  "number": "10.6",
+  "number": "5.6",
   "title": "",
   "body": "Utilize o código abaixo para esboçar o subespaço de  "
 },
@@ -1328,7 +1400,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#Esp_nulo-2",
   "type": "Definition",
-  "number": "10.7",
+  "number": "5.7",
   "title": "",
   "body": "   espaço nulo    Seja . O conjunto de todas as soluções de é chamado de espaço nulo de e denotado :    "
 },
@@ -1337,7 +1409,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#ex_esp_nulo",
   "type": "Example",
-  "number": "10.8",
+  "number": "5.8",
   "title": "",
   "body": " O espaço nulo da matriz consiste das soluções de , ou seja, soluções do sistema  denotando e , temos:    "
 },
@@ -1346,7 +1418,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#Esp_nulo-4",
   "type": "Lemma",
-  "number": "10.9",
+  "number": "5.9",
   "title": "",
   "body": "    Para qualquer matriz , é um subespaço de .   Dados e :       "
 },
@@ -1355,7 +1427,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#Esp_nulo-5",
   "type": "Example",
-  "number": "10.10",
+  "number": "5.10",
   "title": "Matriz de uma projeção.",
   "body": " Matriz de uma projeção  Uma matriz representa uma projeção em um plano que passa pela origem se (esse fato será justificado quando estudarmos transformações lineares). Note (calcule) que a matriz tem essa propriedade: O núcleo de dá a direção normal ao plano de projeção. Para encontrar precisamos resolver o que pode ser feito por eliminação Gaussiana:  de modo que e e e um vetor normal ao plano é .   "
 },
@@ -1364,7 +1436,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#Esp_nulo-8",
   "type": "Checkpoint",
-  "number": "10.11",
+  "number": "5.11",
   "title": "",
   "body": "Verifique se a matriz representa uma projeção, em caso positivo encontre o seu núcleo e utilize o código acima para plotar o plano de projeção. "
 },
@@ -1373,7 +1445,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#Esp_nulo-9",
   "type": "Remark",
-  "number": "10.12",
+  "number": "5.12",
   "title": "",
   "body": "Note que não pode ser vazio, pois uma vez que para qualquer matriz. "
 },
@@ -1382,18 +1454,27 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "subescos.html#Esp_nulo-10",
   "type": "Lemma",
-  "number": "10.13",
+  "number": "5.13",
   "title": "",
   "body": "    Considere o sistema , então a diferença entre duas soluções do sistema está em . Além disso, a soma de uma solução do sistema com um elemento do núcleo é também solução do sistema.   Dados soluções de , temos: Se é solução de e , temos:   "
+},
+{
+  "id": "Esp_nulo-11",
+  "level": "2",
+  "url": "subescos.html#Esp_nulo-11",
+  "type": "Checkpoint",
+  "number": "5.14",
+  "title": "",
+  "body": "Considerando a matriz: calcule o núcleo de e as soluções de . Você consegue explicar qual a relação entre o núcleo de e as soluções encontradas? "
 },
 {
   "id": "bases",
   "level": "1",
   "url": "bases.html",
   "type": "Section",
-  "number": "11",
+  "number": "6",
   "title": "Base de um Espaço Vetorial",
-  "body": " Base de um Espaço Vetorial   Muitas vezes representamos vetores de como . Os vetores formam o que chamamos de uma base para . Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos spans na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos independância linear na segunda subseção).    Spans (Coberturas)     cobertura    Sejam um espaço vetorial e . Uma soma da forma é dita uma combinação linear de . O conjunto de todas as combinações lineares de é chamado de Span de  (as nomenclaturas cobertura de ou espaço vetorial gerado por também são utilizadas na literatura):      No  , o espaço nulo da matriz é igual ao :     Denotamos por o vetor cuja -ésima entrada é igual a 1 e todas as demais são nulas para , é formado por todos os vetores da forma de modo que .       Se , então é um subespaço vetorial de V.   Se e e é um escalar, então   e            Dados vetores não colineares, o é um plano que passa pela origem e qualquer desses é um subespaço de . Os planos que não passam pela origem são subespaços de ? Qual a justificativa?     conjunto de geradores    Sejam um espaço vetorial e O conjunto é um conjunto de geradores (ou gera ) se, e somente se, qualquer vetor de pode ser escrito como uma combinação linear de , ou seja,     Para determinar se um conjunto gera , devemos, para qualquer vetor , mostrar que existem escalares tais que . Se escrevemos as coordenadas para cada um dos vetores do conjunto, , obtemos o sistema linear (nas variáveis ): onde a última das equivalências está na forma . Assim perguntar se um conjunto de vetores gera , é determinar se o sistema acima tem solução para qualquer .  Quais dos seguintes conjuntos são coberturas de e justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?                   Dependência Linear  No item 1. do cada pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que , como esclarece o lema a seguir.      Sejam um espaço vetorial e um vetor. Suponha que possa ser escrito como uma combinação linear de . Existem infinitas formas de escrever como combinação linear de exatamente quando um desses vetores pode ser escrito como combinação linear dos demais.    Se for possível escrever um vetor como combinação linear de de duas maneiras distintas, então existem escalares e , nem todos iguais ( para pelo menos algum ), tais que   de modo que é L.D. ( para algum ).  Sem perda de generalidade se o vetor que pode ser escrico como combinação linear dos demais não for o último da lista, podemos fazer uma reordenação dos vetores e colocá-lo por último , se for possível escrever o vetor como combinação linear de , então existem escalares , tais que   para qualquer escalar , de modo que   para qualquer escalar .    O Lema acima diz que teremos infinitas formas de escrever um vetor como combinação linear de . exatamete quando existirem soluções não nulas de . Assim essa condição é bastante relevante para bases de um espaço vetorial e precisamos referir-nos a ela precisamente, como a seguir.     (in)dependência linear    Seja um espaço vetorial. Os vetores são ditos linearmente independentes (L.I.) se a única solução Note que sempre é uma solução da equação. de é . Caso exista alguma solução não nula dessa equação, o conjunto é dito linearmente dependente (L.D.) .     Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?   Para verificarmos se é L.I., precisamos verificar se existe alguma solução não trivial para o sistema   é solução para qualquer e o istema é L.D.    é L.I. pois     é L.I.   é L.D.      Para verificar se os vetores são L.I. verificamos se o sistema   tem solução única. Isso pode ser feito de diversas maneiras! Denotando  e  o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:   Analisando o sistema acima para entender se a solução é única, percebemos:    Se , então são L.D. pois o sistema associado tem mais incógnitas do que equações.   Se , então podemos colocar o sistema associado na forma escalonada e verificar se temos linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que linhas não nulas, o sistema é L.D.   Se , então a matriz é quadrada e o sistema tem solução única se, e somente se, a matriz é inversível, de modo que basta verificar que .    O código a seguir pode ser utilizado para encontrar um subconjunto L.I. dentro de um conjunto de vetores.   Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?                 Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.  A completar.      Bases     base    Sejam um espaço vetorial e vetores. O conjunto é uma base para se, e somente se,  são linearmente independentes,  cobrem .  Alternativamente, dizemos que  formam uma base para .     Para verificarmos que formam uma base para , precisamos verificar que:  esses vetores são L.I. Para isso precisamos mostrar que a única solução de é o que ocorre de fato pois   esses vetores geram . Para isso precisamos mostrar que qualquer vetor pode ser escrito como uma combinação linear de , o que ocorre de fato pois   De modo que é uma base para .   Se formam uma base para um espaço vetorial, podemos escrever cada vetor desse espaço como combinação linear dos vetores da base de uma única forma. O código a seguir plota uma base {u1, u2}, um vetor v, faz um print das coordenadas de v nessa base e ilustra o produto das coordenadas com os respectivos vetores da base (cuja soma resulta em v).    Para verificarmos que formam uma base para , precisamos verificar que:  esses vetores são L.I. Para isso precisamos mostrar que a única solução de é para verificarmos isso, escrevemos o sistema acima na forma matricial e verificamos que esse sistema admite solução única pois a matriz tem determinante e é, portanto inversível.  esses vetores geram . Para isso precisamos mostrar que qualquer vetor pode ser escrito como uma combinação linear de , o que ocorre de fato pois, escrevendo o sistema acima na forma matricial verificamos que esse sistema admite solução ( ) para qualquer , pois a matriz é tem determinante e é, portanto inversível.  De modo que é uma base para .    Para verificarmos que formam uma base para , observamos que a matriz tem determinante e portanto é inversível, de modo que o sistema tem solução para qualquer e geram , além disso, a solução é única para qualquer , em particular para , de modo que os vetores são L.I. Dessa forma, formam uma base para .   Verifique que a base do sistema anterior é formada por vetores unitários e ortogonais entre si.  Utilize o código acima para explorar o que ocorre quando os vetores formam um ângulo pequeno entre si.  Temos então que é possível encontrar muitas (na verdade infinitas) bases para um espaço vetorial . Os dois teoremas a seguir garantem que duas bases para um espaço vetorial têm sempre o mesmo número de vetores.      Se geram um espaço vtorial , então qualquer coleção de vetores de é L.D.   Sejam vetores. Cada um desses vetores pode ser escrito como combinação linear de , pois estes geram . Assim, para cada , existem escalares tais que Assim, encontrar constantes tais que é o mesmo que resolver o sistema e uma solução dessa equação é tomar cada coeficiente dos vetores iguais a zero, de modo que para mostrarmos que é L.D., basta mostrar que o sistema admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).       Se é uma base para um espaço vetorial , então qualquer coleção de vetores de não gera .   A completar.   Os teoremas acima garantem que se uma base para um espaço vetorial tem vetores, então qualquer outra base para também tem vetores. Assim, existe um número \"certo\" de vetores para cada base, o que nos motiva a definir a dimensão de um espaço vetorial.     dimensão    Seja um espaço vetorial. Se tem uma base de vetores, dizemos que tem dimensão  . O (sub)espaço é dito ter dimensão nula ou . Em ambos os casos dizemos que tem dimensão finita . Caso não exista um conjunto de vetores que cobre com um número finito de elementos, dizemos que tem dimensão infinita .    Determine uma base para os seguintes conjuntos e determine suas dimensões  O conjunto das matrizes reais triangulares inferiores.  O conjunto dos polinômios de grau 4 (ou seja, polinômios da forma ).  O espaço nulo da matriz     Encontre outras diferentes das apresentadas na solução do exercício anterior bases para os espaços do exercício anterior.  Se sabemos que um espaço vetorial tem dimensão e quisermos verificar se um conjunto de vetores é uma base, basta verificarmos uma das condições (que eles são L.I. ou que geram ), como garante o teorema a seguir.      Se é um espaço vetorial de dimensão , então:   qualquer conjunto de vetores linearmente independentes gera ,   quaisquer vetores que cobrem são linearmente independentes        Se tem dimensão , então admite uma base com vetores (não necessariamente ). Então o diz que, para qualquer vetor , o conjunto é L.D. Portanto a equação admite solução não nula. Nessa solução , pois, caso contrário, o conjunto seria L.D. Portanto e gera .   Seja um conjunto de vetores que gera . Se este conjunto é L.D., então um dos vetores pode ser escrito como combinação dos demais. Sem perda de generalidade, digamos que seja : então também gera , pois qualquer vetor pode ser escrito como Assim é um conjunto de geradores para e o implica que qualquer conjunto com vetores é L.D. e não tem base com vetores, o que contradiz ter dimensão .         Mudança de base  Temos a situação que existem muitas (infinitas) bases para cada espaço vetorial. Precisamos então ter uma maneira de passar vetores de uma base para outra.     coordenadas na base    Seja um espaço vetorial e uma base para . A -upla de escalares tal que é chamada de (conjunto de) coordenadas de  na base e escrevemos Normalmente omitimos a referência à base sobrescrita quando nos referimos à base canônica.    As coordenadas de um vetor em uma base são únicas, pois, caso existissem mais de um conjunto de coordenadas correspondente a um único vetor, obteríamos uma contradição com a independencia linear dos vetores da base. Deixamos a verificação disso ao leitor.   Considere a base para (note que as coordenadas mostradas para os vetores da base são as representações dos vetores na base canônica). O vetor é, na base canônica, note que o cálculo realizado acima pode ser escrito como um produto matricial  A matrix é a matriz de mudança de base da base para a base canônica.    Considere a base para e o vetor (na base canônica). As coordenadas de na base são encontradas resolvendo o sistema Dessa forma A matrix é a matriz de mudança de base da base canônica para a base .   O exemplo a seguir complementa os anteriores.   Considere a base para e os vetores da base canônica. As coordenadas de são Note que as colunas da matriz são as coordenadas dos vetores na base .      matriz de mudança de base    Sejam um espaço vetorial e e bases para . Cada vetor da base tem coordenadas na base , . A matriz de mudança de base da base para a base é a matriz     Sejam um espaço vetorial e uma base para . Quais as coordenadas de na base .  Sejam e bases para . Se um vetor tem coordenadas e nas bases e nas respectivas bases e e são as matrizes de mudança de base das bases e para a base canônica, temos que de modo que ou seja, a matriz de mudança de base da base para a base é .   A matriz de mudança de base sempre é inversível, pois, caso não fosse, o sistema admitiria soluções não nulas, de modo que (a completar).  Sejam um espaço vetorial e  bases para e A = a matriz de mudança de base da base para a base , de modo que   Encontre as matrizes de mudança de base da base para a base para as de bases a seguir:  ,  ,  ,  ,  ,    utilize o código a seguir para verificar as respostas obtidas no exercício anterior.      Espaço Linha e Espaço Coluna     espaço vetorial    Seja uma matriz . O subespaço de coberto pelos vetores linha de é chamado de de espaço linha de . O subespaço de coberto pelos vetores coluna de é chamado de espaço coluna de .     Para a matriz , o espaço linha é formado pelas triplas da forma: , ou seja, é igual ao . O espaço coluna é formado pelos vetores da forma: , ou seja, é igual ao .    Para a matriz , temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma: , ou seja, é igual ao . Denotando para as colunas de , observamos que e e o espaço coluna é formado pelos vetores da forma: , ou seja, é igual ao .      Duas matrizes equivalentes por linhas têm o mesmo espaço linha.  A completar.      posto    O posto ( rank em inglês) de uma matriz , denotado ou , é a dimensão do espaço linha ou do espaço coluna, pois, ambas são iguais de .    O posto de uma matriz é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de .     A dimensão do espaço linha de uma matriz é igual à dimensão do seu espaço coluna.  A completar.   As colunas da matriz na forma escalonada não formam uma base para o espaço coluna de  , apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de .  O espaço linha de é igual ao espaço coluna de (se transpormos os vetores).  Determine o posto da matriz e bases para seu espaço linha e espaço coluna.  Determine o posto da matriz e bases para seu espaço linha e espaço coluna.  O código abaixo permite colocar uma matriz na forma escalonada.   Um sistema linear tem solução se, e somente se, está no espaço coluna de .     nulidade    A nulidade de uma matriz , denotado , é a dimensão do seu espaço nulo.     do núcleo e da imagem   Para qualquer matriz vale:   A completar.    "
+  "body": " Base de um Espaço Vetorial   Muitas vezes representamos vetores de como . Os vetores formam o que chamamos de uma base para . Nessa seção definimos bases para espaços vetoriais quaisquer. Para isso precisamos de um conjunto de vetores com os quais possamos escrever quaisquer vetores do espaço através de uma soma (para isso estudamos spans na primeira subseção) e queremos que não haja redundância no conjunto de vetores escolhidos (para isso estudamos independância linear na segunda subseção).    Spans (Coberturas)     cobertura    Sejam um espaço vetorial e . Uma soma da forma é dita uma combinação linear de . O conjunto de todas as combinações lineares de é chamado de Span de  (as nomenclaturas cobertura de ou espaço vetorial gerado por também são utilizadas na literatura):      No  , o espaço nulo da matriz é igual ao :     Denotamos por o vetor cuja -ésima entrada é igual a 1 e todas as demais são nulas para , é formado por todos os vetores da forma de modo que .       Se , então é um subespaço vetorial de V.   Se e e é um escalar, então   e            Dados vetores não colineares, o é um plano que passa pela origem e qualquer desses é um subespaço de . Os planos que não passam pela origem são subespaços de ? Qual a justificativa?     conjunto de geradores    Sejam um espaço vetorial e O conjunto é um conjunto de geradores (ou gera ) se, e somente se, qualquer vetor de pode ser escrito como uma combinação linear de , ou seja,     Para determinar se um conjunto gera , devemos, para qualquer vetor , mostrar que existem escalares tais que . Se escrevemos as coordenadas para cada um dos vetores do conjunto, , obtemos o sistema linear (nas variáveis ): onde a última das equivalências está na forma . Assim perguntar se um conjunto de vetores gera , é determinar se o sistema acima tem solução para qualquer .  Quais dos seguintes conjuntos são coberturas de e justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?                   Dependência Linear  No item 1. do cada pode ser escrito de infinitas maneiras. Isso não é coincidência e ocorre devido ao fato que , como esclarece o lema a seguir.      Sejam um espaço vetorial e um vetor. Suponha que possa ser escrito como uma combinação linear de . Existem infinitas formas de escrever como combinação linear de exatamente quando um desses vetores pode ser escrito como combinação linear dos demais.    Se for possível escrever um vetor como combinação linear de de duas maneiras distintas, então existem escalares e , nem todos iguais ( para pelo menos algum ), tais que   de modo que é L.D. ( para algum ).  Sem perda de generalidade se o vetor que pode ser escrico como combinação linear dos demais não for o último da lista, podemos fazer uma reordenação dos vetores e colocá-lo por último , se for possível escrever o vetor como combinação linear de , então existem escalares , tais que   para qualquer escalar , de modo que   para qualquer escalar .    O Lema acima diz que teremos infinitas formas de escrever um vetor como combinação linear de . exatamete quando existirem soluções não nulas de . Assim essa condição é bastante relevante para bases de um espaço vetorial e precisamos referir-nos a ela precisamente, como a seguir.     (in)dependência linear    Seja um espaço vetorial. Os vetores são ditos linearmente independentes (L.I.) se a única solução Note que sempre é uma solução da equação. de é . Caso exista alguma solução não nula dessa equação, o conjunto é dito linearmente dependente (L.D.) .     Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?   Para verificarmos se é L.I., precisamos verificar se existe alguma solução não trivial para o sistema   é solução para qualquer e o sistema é L.D.    é L.I. pois     é L.I.   é L.D.      Para verificar se os vetores são L.I. verificamos se o sistema   tem solução única. Isso pode ser feito de diversas maneiras! Denotando  e  o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:   Analisando o sistema acima para entender se a solução é única, percebemos:    Se , então são L.D. pois o sistema associado tem mais incógnitas do que equações.   Se , então podemos colocar o sistema associado na forma escalonada e verificar se temos linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que linhas não nulas, o sistema é L.D.   Se , então a matriz é quadrada e o sistema tem solução única se, e somente se, a matriz é inversível, de modo que basta verificar que .    O código a seguir pode ser utilizado para encontrar um subconjunto L.I. dentro de um conjunto de vetores.   Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?                 Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.  A completar.      Bases     base    Sejam um espaço vetorial e vetores. O conjunto é uma base para se, e somente se,  são linearmente independentes,  cobrem .  Alternativamente, dizemos que  formam uma base para .     Para verificarmos que formam uma base para , precisamos verificar que:  esses vetores são L.I. Para isso precisamos mostrar que a única solução de é o que ocorre de fato pois   esses vetores geram . Para isso precisamos mostrar que qualquer vetor pode ser escrito como uma combinação linear de , o que ocorre de fato pois   De modo que é uma base para .   Se formam uma base para um espaço vetorial, podemos escrever cada vetor desse espaço como combinação linear dos vetores da base de uma única forma. O código a seguir plota uma base {u1, u2}, um vetor v, faz um print das coordenadas de v nessa base e ilustra o produto das coordenadas com os respectivos vetores da base (cuja soma resulta em v).    Para verificarmos que formam uma base para , precisamos verificar que:  esses vetores são L.I. Para isso precisamos mostrar que a única solução de é para verificarmos isso, escrevemos o sistema acima na forma matricial e verificamos que esse sistema admite solução única pois a matriz tem determinante e é, portanto inversível.  esses vetores geram . Para isso precisamos mostrar que qualquer vetor pode ser escrito como uma combinação linear de , o que ocorre de fato pois, escrevendo o sistema acima na forma matricial verificamos que esse sistema admite solução ( ) para qualquer , pois a matriz é tem determinante e é, portanto inversível.  De modo que é uma base para .    Para verificarmos que formam uma base para , observamos que a matriz tem determinante e portanto é inversível, de modo que o sistema tem solução para qualquer e geram , além disso, a solução é única para qualquer , em particular para , de modo que os vetores são L.I. Dessa forma, formam uma base para .   Verifique que a base do sistema anterior é formada por vetores unitários e ortogonais entre si.  Utilize o código acima para explorar o que ocorre quando os vetores formam um ângulo pequeno entre si.  Temos então que é possível encontrar muitas (na verdade infinitas) bases para um espaço vetorial . Os dois teoremas a seguir garantem que duas bases para um espaço vetorial têm sempre o mesmo número de vetores.      Se geram um espaço vetorial , então qualquer coleção de vetores de é L.D.   Sejam vetores. Cada um desses vetores pode ser escrito como combinação linear de , pois estes geram . Assim, para cada , existem escalares tais que Assim, encontrar constantes tais que é o mesmo que resolver o sistema e uma solução dessa equação é tomar cada coeficiente dos vetores iguais a zero, de modo que para mostrarmos que é L.D., basta mostrar que o sistema admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).       Se é uma base para um espaço vetorial , então qualquer coleção de vetores de não gera .   A completar.   Os teoremas acima garantem que se uma base para um espaço vetorial tem vetores, então qualquer outra base para também tem vetores. Assim, existe um número \"certo\" de vetores para cada base, o que nos motiva a definir a dimensão de um espaço vetorial.     dimensão    Seja um espaço vetorial. Se tem uma base de vetores, dizemos que tem dimensão  . O (sub)espaço é dito ter dimensão nula ou . Em ambos os casos dizemos que tem dimensão finita . Caso não exista um conjunto de vetores que cobre com um número finito de elementos, dizemos que tem dimensão infinita .    Determine uma base para os seguintes conjuntos e determine suas dimensões  O conjunto das matrizes reais triangulares inferiores.  O conjunto dos polinômios de grau 4 (ou seja, polinômios da forma ).  O espaço nulo da matriz     Encontre outras diferentes das apresentadas na solução do exercício anterior bases para os espaços do exercício anterior.  Se sabemos que um espaço vetorial tem dimensão e quisermos verificar se um conjunto de vetores é uma base, basta verificarmos uma das condições (que eles são L.I. ou que geram ), como garante o teorema a seguir.      Se é um espaço vetorial de dimensão , então:   qualquer conjunto de vetores linearmente independentes gera ,   quaisquer vetores que cobrem são linearmente independentes        Se tem dimensão , então admite uma base com vetores (não necessariamente ). Então o diz que, para qualquer vetor , o conjunto é L.D. Portanto a equação admite solução não nula. Nessa solução , pois, caso contrário, o conjunto seria L.D. Portanto e gera .   Seja um conjunto de vetores que gera . Se este conjunto é L.D., então um dos vetores pode ser escrito como combinação dos demais. Sem perda de generalidade, digamos que seja : então também gera , pois qualquer vetor pode ser escrito como Assim é um conjunto de geradores para e o implica que qualquer conjunto com vetores é L.D. e não tem base com vetores, o que contradiz ter dimensão .         Mudança de base  Temos a situação que existem muitas (infinitas) bases para cada espaço vetorial. Precisamos então ter uma maneira de passar vetores de uma base para outra.     coordenadas na base    Seja um espaço vetorial e uma base para . A -upla de escalares tal que é chamada de (conjunto de) coordenadas de  na base e escrevemos Normalmente omitimos a referência à base sobrescrita quando nos referimos à base canônica.    As coordenadas de um vetor em uma base são únicas, pois, caso existissem mais de um conjunto de coordenadas correspondente a um único vetor, obteríamos uma contradição com a independencia linear dos vetores da base. Deixamos a verificação disso ao leitor.   Considere a base para (note que as coordenadas mostradas para os vetores da base são as representações dos vetores na base canônica). O vetor é, na base canônica, note que o cálculo realizado acima pode ser escrito como um produto matricial  A matrix é a matriz de mudança de base da base para a base canônica.    Considere a base para e o vetor (na base canônica). As coordenadas de na base são encontradas resolvendo o sistema Dessa forma A matrix é a matriz de mudança de base da base canônica para a base .   O exemplo a seguir complementa os anteriores.   Considere a base para e os vetores da base canônica. As coordenadas de são Note que as colunas da matriz são as coordenadas dos vetores na base .      matriz de mudança de base    Sejam um espaço vetorial e e bases para . Cada vetor da base tem coordenadas na base , . A matriz de mudança de base da base para a base é a matriz     Sejam um espaço vetorial e uma base para . Quais as coordenadas de na base .  Sejam e bases para . Se um vetor tem coordenadas e nas bases e nas respectivas bases e e são as matrizes de mudança de base das bases e para a base canônica, temos que de modo que ou seja, a matriz de mudança de base da base para a base é .   A matriz de mudança de base sempre é inversível, pois, caso não fosse, o sistema admitiria soluções não nulas, de modo que (a completar).  Sejam um espaço vetorial e  bases para e A = a matriz de mudança de base da base para a base , de modo que   Encontre as matrizes de mudança de base da base para a base para as de bases a seguir:  ,  ,  ,  ,    utilize o código a seguir para verificar as respostas obtidas no exercício anterior.      Espaço Linha e Espaço Coluna     espaço vetorial    Seja uma matriz . O subespaço de coberto pelos vetores linha de é chamado de de espaço linha de . O subespaço de coberto pelos vetores coluna de é chamado de espaço coluna de .     Para a matriz , o espaço linha é formado pelas triplas da forma: , ou seja, é igual ao . O espaço coluna é formado pelos vetores da forma: , ou seja, é igual ao .    Para a matriz , temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma: , ou seja, é igual ao . Denotando para as colunas de , observamos que e e o espaço coluna é formado pelos vetores da forma: , ou seja, é igual ao .      Duas matrizes equivalentes por linhas têm o mesmo espaço linha.  A completar.      posto    O posto ( rank em inglês) de uma matriz , denotado ou , é a dimensão do espaço linha ou do espaço coluna, pois, ambas são iguais de .    O posto de uma matriz é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de .     A dimensão do espaço linha de uma matriz é igual à dimensão do seu espaço coluna.  A completar.   As colunas da matriz na forma escalonada não formam uma base para o espaço coluna de  , apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de .  O espaço linha de é igual ao espaço coluna de (se transpormos os vetores).  Determine o posto da matriz e bases para seu espaço linha e espaço coluna.  Determine o posto da matriz e bases para seu espaço linha e espaço coluna.  O código abaixo permite colocar uma matriz na forma escalonada.   Um sistema linear tem solução se, e somente se, está no espaço coluna de .     nulidade    A nulidade de uma matriz , denotado , é a dimensão do seu espaço nulo.     do núcleo e da imagem   Para qualquer matriz vale:   A completar.    "
 },
 {
   "id": "bases-2-1",
@@ -1409,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#coberturas-2",
   "type": "Definition",
-  "number": "11.1",
+  "number": "6.1",
   "title": "",
   "body": "   cobertura    Sejam um espaço vetorial e . Uma soma da forma é dita uma combinação linear de . O conjunto de todas as combinações lineares de é chamado de Span de  (as nomenclaturas cobertura de ou espaço vetorial gerado por também são utilizadas na literatura):    "
 },
@@ -1418,7 +1499,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#coberturas-3",
   "type": "Example",
-  "number": "11.2",
+  "number": "6.2",
   "title": "",
   "body": " No  , o espaço nulo da matriz é igual ao :   "
 },
@@ -1427,7 +1508,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#coberturas-4",
   "type": "Example",
-  "number": "11.3",
+  "number": "6.3",
   "title": "",
   "body": " Denotamos por o vetor cuja -ésima entrada é igual a 1 e todas as demais são nulas para , é formado por todos os vetores da forma de modo que .  "
 },
@@ -1436,7 +1517,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#coberturas-5",
   "type": "Theorem",
-  "number": "11.4",
+  "number": "6.4",
   "title": "",
   "body": "    Se , então é um subespaço vetorial de V.   Se e e é um escalar, então   e           "
 },
@@ -1445,7 +1526,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#coberturas-6",
   "type": "Checkpoint",
-  "number": "11.5",
+  "number": "6.5",
   "title": "",
   "body": "Dados vetores não colineares, o é um plano que passa pela origem e qualquer desses é um subespaço de . Os planos que não passam pela origem são subespaços de ? Qual a justificativa? "
 },
@@ -1454,7 +1535,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#coberturas-7",
   "type": "Definition",
-  "number": "11.6",
+  "number": "6.6",
   "title": "",
   "body": "   conjunto de geradores    Sejam um espaço vetorial e O conjunto é um conjunto de geradores (ou gera ) se, e somente se, qualquer vetor de pode ser escrito como uma combinação linear de , ou seja,    "
 },
@@ -1463,7 +1544,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#gera_r3",
   "type": "Checkpoint",
-  "number": "11.7",
+  "number": "6.7",
   "title": "",
   "body": "Quais dos seguintes conjuntos são coberturas de e justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?               "
 },
@@ -1472,7 +1553,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#dependencia_linear-3",
   "type": "Lemma",
-  "number": "11.8",
+  "number": "6.8",
   "title": "",
   "body": "    Sejam um espaço vetorial e um vetor. Suponha que possa ser escrito como uma combinação linear de . Existem infinitas formas de escrever como combinação linear de exatamente quando um desses vetores pode ser escrito como combinação linear dos demais.    Se for possível escrever um vetor como combinação linear de de duas maneiras distintas, então existem escalares e , nem todos iguais ( para pelo menos algum ), tais que   de modo que é L.D. ( para algum ).  Sem perda de generalidade se o vetor que pode ser escrico como combinação linear dos demais não for o último da lista, podemos fazer uma reordenação dos vetores e colocá-lo por último , se for possível escrever o vetor como combinação linear de , então existem escalares , tais que   para qualquer escalar , de modo que   para qualquer escalar .   "
 },
@@ -1481,7 +1562,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#dependencia_linear-5",
   "type": "Definition",
-  "number": "11.9",
+  "number": "6.9",
   "title": "",
   "body": "   (in)dependência linear    Seja um espaço vetorial. Os vetores são ditos linearmente independentes (L.I.) se a única solução Note que sempre é uma solução da equação. de é . Caso exista alguma solução não nula dessa equação, o conjunto é dito linearmente dependente (L.D.) .   "
 },
@@ -1490,16 +1571,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#dependencia_linear-6",
   "type": "Example",
-  "number": "11.10",
+  "number": "6.10",
   "title": "",
-  "body": " Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?   Para verificarmos se é L.I., precisamos verificar se existe alguma solução não trivial para o sistema   é solução para qualquer e o istema é L.D.    é L.I. pois     é L.I.   é L.D.    "
+  "body": " Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?   Para verificarmos se é L.I., precisamos verificar se existe alguma solução não trivial para o sistema   é solução para qualquer e o sistema é L.D.    é L.I. pois     é L.I.   é L.D.    "
 },
 {
   "id": "dependencia_linear-7",
   "level": "2",
   "url": "bases.html#dependencia_linear-7",
   "type": "Remark",
-  "number": "11.11",
+  "number": "6.11",
   "title": "",
   "body": " Para verificar se os vetores são L.I. verificamos se o sistema   tem solução única. Isso pode ser feito de diversas maneiras! Denotando  e  o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:   Analisando o sistema acima para entender se a solução é única, percebemos:    Se , então são L.D. pois o sistema associado tem mais incógnitas do que equações.   Se , então podemos colocar o sistema associado na forma escalonada e verificar se temos linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que linhas não nulas, o sistema é L.D.   Se , então a matriz é quadrada e o sistema tem solução única se, e somente se, a matriz é inversível, de modo que basta verificar que .   "
 },
@@ -1508,7 +1589,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#dependencia_linear-10",
   "type": "Checkpoint",
-  "number": "11.12",
+  "number": "6.12",
   "title": "",
   "body": "Quais dos seguintes conjuntos de vetores são L.I.? Justifique sua resposta analisando se o sistema associado tem solução única, infinitas soluções ou não tem solução?               "
 },
@@ -1517,7 +1598,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#dependencia_linear-11",
   "type": "Lemma",
-  "number": "11.13",
+  "number": "6.13",
   "title": "",
   "body": " Um conjunto de vetores é L.D. se, e somente se, um dos vetores pode ser escrito como combinação linear dos demais.  A completar.  "
 },
@@ -1526,7 +1607,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-2",
   "type": "Definition",
-  "number": "11.14",
+  "number": "6.14",
   "title": "",
   "body": "   base    Sejam um espaço vetorial e vetores. O conjunto é uma base para se, e somente se,  são linearmente independentes,  cobrem .  Alternativamente, dizemos que  formam uma base para .   "
 },
@@ -1535,7 +1616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-3",
   "type": "Example",
-  "number": "11.15",
+  "number": "6.15",
   "title": "",
   "body": " Para verificarmos que formam uma base para , precisamos verificar que:  esses vetores são L.I. Para isso precisamos mostrar que a única solução de é o que ocorre de fato pois   esses vetores geram . Para isso precisamos mostrar que qualquer vetor pode ser escrito como uma combinação linear de , o que ocorre de fato pois   De modo que é uma base para .  "
 },
@@ -1544,7 +1625,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-6",
   "type": "Example",
-  "number": "11.16",
+  "number": "6.16",
   "title": "",
   "body": " Para verificarmos que formam uma base para , precisamos verificar que:  esses vetores são L.I. Para isso precisamos mostrar que a única solução de é para verificarmos isso, escrevemos o sistema acima na forma matricial e verificamos que esse sistema admite solução única pois a matriz tem determinante e é, portanto inversível.  esses vetores geram . Para isso precisamos mostrar que qualquer vetor pode ser escrito como uma combinação linear de , o que ocorre de fato pois, escrevendo o sistema acima na forma matricial verificamos que esse sistema admite solução ( ) para qualquer , pois a matriz é tem determinante e é, portanto inversível.  De modo que é uma base para .  "
 },
@@ -1553,7 +1634,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-7",
   "type": "Example",
-  "number": "11.17",
+  "number": "6.17",
   "title": "",
   "body": " Para verificarmos que formam uma base para , observamos que a matriz tem determinante e portanto é inversível, de modo que o sistema tem solução para qualquer e geram , além disso, a solução é única para qualquer , em particular para , de modo que os vetores são L.I. Dessa forma, formam uma base para .  "
 },
@@ -1562,7 +1643,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-8",
   "type": "Checkpoint",
-  "number": "11.18",
+  "number": "6.18",
   "title": "",
   "body": "Verifique que a base do sistema anterior é formada por vetores unitários e ortogonais entre si. "
 },
@@ -1571,7 +1652,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-9",
   "type": "Checkpoint",
-  "number": "11.19",
+  "number": "6.19",
   "title": "",
   "body": "Utilize o código acima para explorar o que ocorre quando os vetores formam um ângulo pequeno entre si. "
 },
@@ -1580,16 +1661,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#vetores_demais",
   "type": "Theorem",
-  "number": "11.20",
+  "number": "6.20",
   "title": "",
-  "body": "    Se geram um espaço vtorial , então qualquer coleção de vetores de é L.D.   Sejam vetores. Cada um desses vetores pode ser escrito como combinação linear de , pois estes geram . Assim, para cada , existem escalares tais que Assim, encontrar constantes tais que é o mesmo que resolver o sistema e uma solução dessa equação é tomar cada coeficiente dos vetores iguais a zero, de modo que para mostrarmos que é L.D., basta mostrar que o sistema admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).  "
+  "body": "    Se geram um espaço vetorial , então qualquer coleção de vetores de é L.D.   Sejam vetores. Cada um desses vetores pode ser escrito como combinação linear de , pois estes geram . Assim, para cada , existem escalares tais que Assim, encontrar constantes tais que é o mesmo que resolver o sistema e uma solução dessa equação é tomar cada coeficiente dos vetores iguais a zero, de modo que para mostrarmos que é L.D., basta mostrar que o sistema admite múltiplas soluções, o que ocorre pois o sistema é homogêneo (portanto sempre tem solução) e tem mais variáveis do que equações (portanto admite infinitas soluções).  "
 },
 {
   "id": "bases_subsection-12",
   "level": "2",
   "url": "bases.html#bases_subsection-12",
   "type": "Theorem",
-  "number": "11.21",
+  "number": "6.21",
   "title": "",
   "body": "    Se é uma base para um espaço vetorial , então qualquer coleção de vetores de não gera .   A completar.  "
 },
@@ -1598,7 +1679,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-14",
   "type": "Definition",
-  "number": "11.22",
+  "number": "6.22",
   "title": "",
   "body": "   dimensão    Seja um espaço vetorial. Se tem uma base de vetores, dizemos que tem dimensão  . O (sub)espaço é dito ter dimensão nula ou . Em ambos os casos dizemos que tem dimensão finita . Caso não exista um conjunto de vetores que cobre com um número finito de elementos, dizemos que tem dimensão infinita .   "
 },
@@ -1607,7 +1688,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-15",
   "type": "Checkpoint",
-  "number": "11.23",
+  "number": "6.23",
   "title": "",
   "body": "Determine uma base para os seguintes conjuntos e determine suas dimensões  O conjunto das matrizes reais triangulares inferiores.  O conjunto dos polinômios de grau 4 (ou seja, polinômios da forma ).  O espaço nulo da matriz    "
 },
@@ -1616,7 +1697,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-16",
   "type": "Checkpoint",
-  "number": "11.24",
+  "number": "6.24",
   "title": "",
   "body": "Encontre outras diferentes das apresentadas na solução do exercício anterior bases para os espaços do exercício anterior. "
 },
@@ -1625,7 +1706,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#bases_subsection-18",
   "type": "Theorem",
-  "number": "11.25",
+  "number": "6.25",
   "title": "",
   "body": "    Se é um espaço vetorial de dimensão , então:   qualquer conjunto de vetores linearmente independentes gera ,   quaisquer vetores que cobrem são linearmente independentes        Se tem dimensão , então admite uma base com vetores (não necessariamente ). Então o diz que, para qualquer vetor , o conjunto é L.D. Portanto a equação admite solução não nula. Nessa solução , pois, caso contrário, o conjunto seria L.D. Portanto e gera .   Seja um conjunto de vetores que gera . Se este conjunto é L.D., então um dos vetores pode ser escrito como combinação dos demais. Sem perda de generalidade, digamos que seja : então também gera , pois qualquer vetor pode ser escrito como Assim é um conjunto de geradores para e o implica que qualquer conjunto com vetores é L.D. e não tem base com vetores, o que contradiz ter dimensão .     "
 },
@@ -1634,7 +1715,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-3",
   "type": "Definition",
-  "number": "11.26",
+  "number": "6.26",
   "title": "",
   "body": "   coordenadas na base    Seja um espaço vetorial e uma base para . A -upla de escalares tal que é chamada de (conjunto de) coordenadas de  na base e escrevemos Normalmente omitimos a referência à base sobrescrita quando nos referimos à base canônica.   "
 },
@@ -1643,7 +1724,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-4",
   "type": "Remark",
-  "number": "11.27",
+  "number": "6.27",
   "title": "",
   "body": "As coordenadas de um vetor em uma base são únicas, pois, caso existissem mais de um conjunto de coordenadas correspondente a um único vetor, obteríamos uma contradição com a independencia linear dos vetores da base. Deixamos a verificação disso ao leitor. "
 },
@@ -1652,7 +1733,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#base_u_canon",
   "type": "Example",
-  "number": "11.28",
+  "number": "6.28",
   "title": "",
   "body": " Considere a base para (note que as coordenadas mostradas para os vetores da base são as representações dos vetores na base canônica). O vetor é, na base canônica, note que o cálculo realizado acima pode ser escrito como um produto matricial  A matrix é a matriz de mudança de base da base para a base canônica.  "
 },
@@ -1661,7 +1742,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#base_canon_u",
   "type": "Example",
-  "number": "11.29",
+  "number": "6.29",
   "title": "",
   "body": " Considere a base para e o vetor (na base canônica). As coordenadas de na base são encontradas resolvendo o sistema Dessa forma A matrix é a matriz de mudança de base da base canônica para a base .  "
 },
@@ -1670,7 +1751,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#base_canoninca_na_u",
   "type": "Example",
-  "number": "11.30",
+  "number": "6.30",
   "title": "",
   "body": " Considere a base para e os vetores da base canônica. As coordenadas de são Note que as colunas da matriz são as coordenadas dos vetores na base .  "
 },
@@ -1679,7 +1760,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-9",
   "type": "Definition",
-  "number": "11.31",
+  "number": "6.31",
   "title": "",
   "body": "   matriz de mudança de base    Sejam um espaço vetorial e e bases para . Cada vetor da base tem coordenadas na base , . A matriz de mudança de base da base para a base é a matriz    "
 },
@@ -1688,7 +1769,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-10",
   "type": "Checkpoint",
-  "number": "11.32",
+  "number": "6.32",
   "title": "",
   "body": "Sejam um espaço vetorial e uma base para . Quais as coordenadas de na base . "
 },
@@ -1697,7 +1778,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-11",
   "type": "Remark",
-  "number": "11.33",
+  "number": "6.33",
   "title": "",
   "body": "Sejam e bases para . Se um vetor tem coordenadas e nas bases e nas respectivas bases e e são as matrizes de mudança de base das bases e para a base canônica, temos que de modo que ou seja, a matriz de mudança de base da base para a base é . "
 },
@@ -1706,7 +1787,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-13",
   "type": "Remark",
-  "number": "11.34",
+  "number": "6.34",
   "title": "",
   "body": "A matriz de mudança de base sempre é inversível, pois, caso não fosse, o sistema admitiria soluções não nulas, de modo que (a completar). "
 },
@@ -1715,7 +1796,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-14",
   "type": "Remark",
-  "number": "11.35",
+  "number": "6.35",
   "title": "",
   "body": "Sejam um espaço vetorial e  bases para e A = a matriz de mudança de base da base para a base , de modo que  "
 },
@@ -1724,16 +1805,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#mudanca_base-15",
   "type": "Checkpoint",
-  "number": "11.36",
+  "number": "6.36",
   "title": "",
-  "body": "Encontre as matrizes de mudança de base da base para a base para as de bases a seguir:  ,  ,  ,  ,  ,   "
+  "body": "Encontre as matrizes de mudança de base da base para a base para as de bases a seguir:  ,  ,  ,  ,   "
 },
 {
   "id": "esp_linha-2",
   "level": "2",
   "url": "bases.html#esp_linha-2",
   "type": "Definition",
-  "number": "11.37",
+  "number": "6.37",
   "title": "",
   "body": "   espaço vetorial    Seja uma matriz . O subespaço de coberto pelos vetores linha de é chamado de de espaço linha de . O subespaço de coberto pelos vetores coluna de é chamado de espaço coluna de .   "
 },
@@ -1742,7 +1823,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-3",
   "type": "Example",
-  "number": "11.38",
+  "number": "6.38",
   "title": "",
   "body": " Para a matriz , o espaço linha é formado pelas triplas da forma: , ou seja, é igual ao . O espaço coluna é formado pelos vetores da forma: , ou seja, é igual ao .  "
 },
@@ -1751,7 +1832,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-4",
   "type": "Example",
-  "number": "11.39",
+  "number": "6.39",
   "title": "",
   "body": " Para a matriz , temos que há duas linhas que são iguais as outras duas e o espaço linha é formado pelas quadruplas da forma: , ou seja, é igual ao . Denotando para as colunas de , observamos que e e o espaço coluna é formado pelos vetores da forma: , ou seja, é igual ao .  "
 },
@@ -1760,7 +1841,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-5",
   "type": "Theorem",
-  "number": "11.40",
+  "number": "6.40",
   "title": "",
   "body": "   Duas matrizes equivalentes por linhas têm o mesmo espaço linha.  A completar.  "
 },
@@ -1769,7 +1850,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-6",
   "type": "Definition",
-  "number": "11.41",
+  "number": "6.41",
   "title": "",
   "body": "   posto    O posto ( rank em inglês) de uma matriz , denotado ou , é a dimensão do espaço linha ou do espaço coluna, pois, ambas são iguais de .   "
 },
@@ -1778,7 +1859,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-7",
   "type": "Remark",
-  "number": "11.42",
+  "number": "6.42",
   "title": "",
   "body": "O posto de uma matriz é igual ao número de linhas não nulas na sua forma escalonada e as linhas não nulas da forma escalonada formam uma base para o espaço linha de . "
 },
@@ -1787,7 +1868,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-8",
   "type": "Theorem",
-  "number": "11.43",
+  "number": "6.43",
   "title": "",
   "body": "   A dimensão do espaço linha de uma matriz é igual à dimensão do seu espaço coluna.  A completar.  "
 },
@@ -1796,7 +1877,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-9",
   "type": "Remark",
-  "number": "11.44",
+  "number": "6.44",
   "title": "",
   "body": "As colunas da matriz na forma escalonada não formam uma base para o espaço coluna de  , apesar de terem a mesma dimensão. Todavia os pivôs da matriz escalonada indicam as colunas que formam uma base para o espaço coluna de . "
 },
@@ -1805,7 +1886,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-10",
   "type": "Remark",
-  "number": "11.45",
+  "number": "6.45",
   "title": "",
   "body": "O espaço linha de é igual ao espaço coluna de (se transpormos os vetores). "
 },
@@ -1814,7 +1895,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-11",
   "type": "Checkpoint",
-  "number": "11.46",
+  "number": "6.46",
   "title": "",
   "body": "Determine o posto da matriz e bases para seu espaço linha e espaço coluna. "
 },
@@ -1823,7 +1904,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-12",
   "type": "Checkpoint",
-  "number": "11.47",
+  "number": "6.47",
   "title": "",
   "body": "Determine o posto da matriz e bases para seu espaço linha e espaço coluna. "
 },
@@ -1832,7 +1913,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-15",
   "type": "Remark",
-  "number": "11.48",
+  "number": "6.48",
   "title": "",
   "body": "Um sistema linear tem solução se, e somente se, está no espaço coluna de . "
 },
@@ -1841,7 +1922,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-16",
   "type": "Definition",
-  "number": "11.49",
+  "number": "6.49",
   "title": "",
   "body": "   nulidade    A nulidade de uma matriz , denotado , é a dimensão do seu espaço nulo.   "
 },
@@ -1850,7 +1931,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "bases.html#esp_linha-17",
   "type": "Theorem",
-  "number": "11.50",
+  "number": "6.50",
   "title": "do núcleo e da imagem.",
   "body": " do núcleo e da imagem   Para qualquer matriz vale:   A completar.  "
 },
@@ -1859,7 +1940,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "produto_interno.html",
   "type": "Section",
-  "number": "12",
+  "number": "7",
   "title": "Produto interno e ortogonalidade em <span class=\"process-math\">\\(\\mathbb{R}^n\\text{.}\\)<\/span>",
   "body": " Produto interno e ortogonalidade em .   Ao tomarmos uma base para um espaço vetorial, buscamos, com frequência, uma base formada por vetores ortogonais (perpendiculares) entre si ou temos apenas alguns vetores e desejamos adicionar outros vetores para \"completar\" a base. Nessa seção construíremos os conceitos e teoremas necessários para fazer isso em .    Produto Interno (ou escalar) em     produto interno    Dados , , , definimos o produto interno (ou produto escalar ) de e como O produto interno também é denotado por ou .     Dados e , .    Dados e , .    Dados e , .    Propriedades do produto interno   Se e é um escalar, então   .     Exercício.      comprimento    O comprimento (euclidiano) (ou norma ) de um vetor é     Em particular a distância entre os pontos finais de dois vetores é igual a .   Dados e , .       Se , são vetores não nulos e é o ângulo entre eles, então   Pela Lei dos cossenos Por outro lado, Como as expressões são iguais à , elas são iguais entre si e    Podemos utilizar o teorema acima como um método para definir o ângulo entre dois vetores para , qualquer.  Se são vetores não nulos, suas direções são os vetores unitários e o ângulo entre eles é definido através de Em particular, dizemos que e são ortogonis se .   O ângulo entre os vetores e seus vetores unitários é...      Projeções escalares e vetoriais  A projeção vetorial de um vetor na direção do vetor é um vetor , múltiplo de tal que .   Dados vetores , queremos escrever com . Ou seja, vamos decompor na soma de um vetor na direção de com um vetor perpendicular a .  Note que , mas    é a projeção escalar de sobre .  é a projeção vetorial de sobre .  Encontre as projeções escalares e vetoriais dos vetores e na direção do vetor para      Conjuntos ortogonais e ortogonalização de Gram-Schmidt     conjuntos ortonormais    Sejam um conjunto de vetores em um espaço vetorial munido com produto interno. Se sempre que , então o conjunto é dito ortogonal . Além disso, se para todo , o conjunto é dito ortonormal .     O conjunto formado pelos pelos vetores é ortogonal pois , e . Todavia, o conjunto não é ortonormal pois . Podemos obter um conjunto ortonormal a partir de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:       Se é um conjunto ortogonal de vetores não nulos em um espaço vetorial com produto interno, então é Linearmente Independente.   Isso vale para qualquer , de modo que a única solução de é .      Seja é uma base ortonormal para um espaço vetorial com produto interno. Se , então .      O pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.  Calcule as coordenadas do vetor na base formada pelos vetores   Suponha que temos dois vetores L.I. e buscamos uma base ortonormal que contenha um vetor na direção de . Podemos fazer isso do através dos seguintes vetores:  ,  ,  .     Note que a base obtida pelo processo acima é, de fato, ortonormal, pois e   Suponha, agora, que temos três vetores L.I. e buscamos uma base ortonormal que contenha um vetor na direção de . Podemos fazer isso do através dos seguintes vetores:  ,  ,  ,  ,  .     Utilize o processo descrito acima para encontrar uma base para a partir de , , .  Processo de ortogonalização de Gram-Schmidt.  Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.  Seja uma base para um espaço com produto interno . Obtemos uma base ortonormal para definindo:   e definindo recursivamente por    Encontre uma base ortonormal para o espaço coluna de   O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que é uma base ortonormal para para qualquer . Deixamos para o leitor a verificação dessa propriedade.  Se é uma base ortonormal para , então a matriz de mudança de base da base para a base canônica tem inversa . Deixamos para o leitor a verificação dessa propriedade.   "
 },
@@ -1868,7 +1949,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-2",
   "type": "Definition",
-  "number": "12.1",
+  "number": "7.1",
   "title": "",
   "body": "   produto interno    Dados , , , definimos o produto interno (ou produto escalar ) de e como O produto interno também é denotado por ou .   "
 },
@@ -1877,7 +1958,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-3",
   "type": "Example",
-  "number": "12.2",
+  "number": "7.2",
   "title": "",
   "body": " Dados e , .  "
 },
@@ -1886,7 +1967,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-4",
   "type": "Example",
-  "number": "12.3",
+  "number": "7.3",
   "title": "",
   "body": " Dados e , .  "
 },
@@ -1895,7 +1976,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-5",
   "type": "Example",
-  "number": "12.4",
+  "number": "7.4",
   "title": "",
   "body": " Dados e , .  "
 },
@@ -1904,7 +1985,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-6",
   "type": "Theorem",
-  "number": "12.5",
+  "number": "7.5",
   "title": "Propriedades do produto interno.",
   "body": " Propriedades do produto interno   Se e é um escalar, então   .     Exercício.  "
 },
@@ -1913,7 +1994,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-7",
   "type": "Definition",
-  "number": "12.6",
+  "number": "7.6",
   "title": "",
   "body": "   comprimento    O comprimento (euclidiano) (ou norma ) de um vetor é    "
 },
@@ -1922,7 +2003,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-9",
   "type": "Example",
-  "number": "12.7",
+  "number": "7.7",
   "title": "",
   "body": " Dados e , .  "
 },
@@ -1931,7 +2012,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-11",
   "type": "Theorem",
-  "number": "12.8",
+  "number": "7.8",
   "title": "",
   "body": "   Se , são vetores não nulos e é o ângulo entre eles, então   Pela Lei dos cossenos Por outro lado, Como as expressões são iguais à , elas são iguais entre si e   "
 },
@@ -1940,7 +2021,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-13",
   "type": "Remark",
-  "number": "12.9",
+  "number": "7.9",
   "title": "",
   "body": "Se são vetores não nulos, suas direções são os vetores unitários e o ângulo entre eles é definido através de Em particular, dizemos que e são ortogonis se . "
 },
@@ -1949,7 +2030,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#inner_prod-14",
   "type": "Example",
-  "number": "12.10",
+  "number": "7.10",
   "title": "",
   "body": " O ângulo entre os vetores e seus vetores unitários é...  "
 },
@@ -1976,7 +2057,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#projecoes-8",
   "type": "Checkpoint",
-  "number": "12.11",
+  "number": "7.11",
   "title": "",
   "body": "Encontre as projeções escalares e vetoriais dos vetores e na direção do vetor para  "
 },
@@ -1985,7 +2066,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-2",
   "type": "Definition",
-  "number": "12.12",
+  "number": "7.12",
   "title": "",
   "body": "   conjuntos ortonormais    Sejam um conjunto de vetores em um espaço vetorial munido com produto interno. Se sempre que , então o conjunto é dito ortogonal . Além disso, se para todo , o conjunto é dito ortonormal .   "
 },
@@ -1994,7 +2075,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-3",
   "type": "Example",
-  "number": "12.13",
+  "number": "7.13",
   "title": "",
   "body": " O conjunto formado pelos pelos vetores é ortogonal pois , e . Todavia, o conjunto não é ortonormal pois . Podemos obter um conjunto ortonormal a partir de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:   "
 },
@@ -2003,7 +2084,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-4",
   "type": "Theorem",
-  "number": "12.14",
+  "number": "7.14",
   "title": "",
   "body": "   Se é um conjunto ortogonal de vetores não nulos em um espaço vetorial com produto interno, então é Linearmente Independente.   Isso vale para qualquer , de modo que a única solução de é .  "
 },
@@ -2012,7 +2093,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#coord_prod_int",
   "type": "Theorem",
-  "number": "12.15",
+  "number": "7.15",
   "title": "",
   "body": "   Seja é uma base ortonormal para um espaço vetorial com produto interno. Se , então .     "
 },
@@ -2021,7 +2102,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-7",
   "type": "Checkpoint",
-  "number": "12.16",
+  "number": "7.16",
   "title": "",
   "body": "Calcule as coordenadas do vetor na base formada pelos vetores  "
 },
@@ -2030,7 +2111,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-13",
   "type": "Checkpoint",
-  "number": "12.17",
+  "number": "7.17",
   "title": "",
   "body": "Utilize o processo descrito acima para encontrar uma base para a partir de , , . "
 },
@@ -2039,7 +2120,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-21",
   "type": "Checkpoint",
-  "number": "12.18",
+  "number": "7.18",
   "title": "",
   "body": "Encontre uma base ortonormal para o espaço coluna de  "
 },
@@ -2048,7 +2129,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-22",
   "type": "Remark",
-  "number": "12.19",
+  "number": "7.19",
   "title": "",
   "body": "O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que é uma base ortonormal para para qualquer . Deixamos para o leitor a verificação dessa propriedade. "
 },
@@ -2057,7 +2138,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "produto_interno.html#Gram-Schmidt-23",
   "type": "Remark",
-  "number": "12.20",
+  "number": "7.20",
   "title": "",
   "body": "Se é uma base ortonormal para , então a matriz de mudança de base da base para a base canônica tem inversa . Deixamos para o leitor a verificação dessa propriedade. "
 },
@@ -2066,7 +2147,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "Transformacoes_lineares.html",
   "type": "Section",
-  "number": "13",
+  "number": "8",
   "title": "Transformações Lineares",
   "body": " Transformações Lineares   Muitos problemas de interesse nas ciências e na engenharia são aplicações lineares. Para aplicações lineares podemos utilizar os conhecimentos adquiridos nas seções anteriores sobre bases e matrizes para estudar e resolver problemas desse tipo de maneira conveniente.    Transformações Lineares     transformação linear    Um mapeamento uma função  , de um espaço vetorial para um espaço vetorial é dita uma transformação linear  também chamado de mapeamento linear, operador linear ou função linear (dependendo do contexto) se      Seja a função definida por é uma transformação linear, pois     Seja a função definida por não é uma transformação linear, pois     O mapeamento definido por é uma transformação linear, pois Podemos notar que Essa transformação linear é a projeção do espaço em .   O código abaixo faz um plot da projeção do exemplo acima.    O mapeamento definido por é uma transformação linear, pois Podemos notar que    Seja é uma matriz . Mostre que a função é uma transformação linear.   Rotação no plano  Seja a operação que os vetores do plano em radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar: e percebemos que rodar no sentido anti-horário significa somar ao ângulo, de modo que Pelo exercício anterior, a rotação é uma transformação linear.      Se é uma transformação linear e , então                Seja um espaço vetorial. O operador identidade definido por é uma transformação linear, pois     O mapeamento , que associa a cada função a sua derivada é um operador linear pois, para quaisquer e ,     Seja o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e é uma base para esse espaço. O operador definido por é um operador linear, pois ... Se , então suas coordenadas na base são e , de modo que as suas coordenadas na base são iguais a       Representação Matricial de Transformações Lineares   da Representação Matricial   Sejam uma transformação linear entre dois espaços vetoriais e e , bases para esses espaços vetoriais, respectivamente. Se um vetor tem coordenadas , então existe uma matriz , , tal que as coordenadas de na base são dadas por As colunas dessa matriz são obtidas calculando , , de modo que .   de modo que as coordenadas de na base são    Dizemos que representa nas bases e .   Seja , a transformação linear definida por A matriz que representa nas bases canônicas de e é de modo que .    A matriz que representa a transformação linear do exemplo anterior nas bases e na base canônica é de modo que .    A matriz que representa a transformação linear do exemplo anterior nas bases e tem colunas , e , nessa ordem.    Seja a projeção no plano que passa pela origem e têm vetores diretores . Para representá-la na base notamos que e de modo que, nessa base, a é representada pela matriz    Como representar a matriz do exemplo anterior na base canônica?    da Mudança de Base   Sejam e bases para um espaço vetorial , a matriz de mudança de base da base para a base . Se é um operador linear em representado pela matriz na base , então a matriz que representa na base é   A completar.   Esse teorema é frequentemente utilizado com sendo a base canônica, e sendo a matriz de mudança de base da base para a base canônica.    Para calcularmos a matriz que representa a projeção do na base canônica, precisamos da matriz de mudança de base e sua inversa de modo que    Determine a matriz da rotação de radianos em torno do eixo , no sentido anti-horário, na base .  Determine a matriz da rotação de radianos em torno do eixo , no sentido anti-horário, na base canônica.  Temos a situação que se duas matrizes e representam a mesma transformação linear, em bases e , respectivamente, e é a matriz de mudança de base da base para a base , então . Isso nos motiva a introduzir a seguinte definição:     matrizes similares    Duas matrizes , e , são ditas similares se existe uma matriz inversível tal que        Problemas envolvendo transformações Lineares  Utilize o código abaixo para testar as respostas de seus exercícios   Encontre uma matriz que representa uma rotação de ângulo no sentido anti-horário em torno do eixo y.  Encontre uma matriz que representa uma rotação de ângulo no sentido anti-horário em torno do eixo .  Encontre uma matriz que dilata a direção x por 2, a direção y por 0.5 e a direção z por 3.  Encontre uma matriz que dilata a direção por 2, a direção por 0.5 e a direção por 3.   Translações não são transformações lineares, contudo podemos representá-las como matrizes utilizando uma dimensão adicional. Dado um ponto no plano , podemos transladá-lo por , , através das duas primeiras coordenadas do vetor:   Verifique isso com o código a seguir:    "
 },
@@ -2075,7 +2156,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-2",
   "type": "Definition",
-  "number": "13.1",
+  "number": "8.1",
   "title": "",
   "body": "   transformação linear    Um mapeamento uma função  , de um espaço vetorial para um espaço vetorial é dita uma transformação linear  também chamado de mapeamento linear, operador linear ou função linear (dependendo do contexto) se    "
 },
@@ -2084,7 +2165,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-3",
   "type": "Example",
-  "number": "13.2",
+  "number": "8.2",
   "title": "",
   "body": " Seja a função definida por é uma transformação linear, pois   "
 },
@@ -2093,7 +2174,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-4",
   "type": "Example",
-  "number": "13.3",
+  "number": "8.3",
   "title": "",
   "body": " Seja a função definida por não é uma transformação linear, pois   "
 },
@@ -2102,7 +2183,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-5",
   "type": "Example",
-  "number": "13.4",
+  "number": "8.4",
   "title": "",
   "body": " O mapeamento definido por é uma transformação linear, pois Podemos notar que Essa transformação linear é a projeção do espaço em .  "
 },
@@ -2111,7 +2192,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-8",
   "type": "Example",
-  "number": "13.5",
+  "number": "8.5",
   "title": "",
   "body": " O mapeamento definido por é uma transformação linear, pois Podemos notar que   "
 },
@@ -2120,7 +2201,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-9",
   "type": "Checkpoint",
-  "number": "13.6",
+  "number": "8.6",
   "title": "",
   "body": "Seja é uma matriz . Mostre que a função é uma transformação linear. "
 },
@@ -2129,7 +2210,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-10",
   "type": "Example",
-  "number": "13.7",
+  "number": "8.7",
   "title": "Rotação no plano.",
   "body": " Rotação no plano  Seja a operação que os vetores do plano em radianos no sentido anti horário. Para compreendermos seu efeito, colocamos os vetores do plano em sua forma polar: e percebemos que rodar no sentido anti-horário significa somar ao ângulo, de modo que Pelo exercício anterior, a rotação é uma transformação linear.  "
 },
@@ -2138,7 +2219,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#linear_trans_prop",
   "type": "Lemma",
-  "number": "13.8",
+  "number": "8.8",
   "title": "",
   "body": "   Se é uma transformação linear e , então              "
 },
@@ -2147,7 +2228,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-12",
   "type": "Example",
-  "number": "13.9",
+  "number": "8.9",
   "title": "",
   "body": " Seja um espaço vetorial. O operador identidade definido por é uma transformação linear, pois   "
 },
@@ -2156,7 +2237,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-13",
   "type": "Example",
-  "number": "13.10",
+  "number": "8.10",
   "title": "",
   "body": " O mapeamento , que associa a cada função a sua derivada é um operador linear pois, para quaisquer e ,   "
 },
@@ -2165,7 +2246,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lin-14",
   "type": "Example",
-  "number": "13.11",
+  "number": "8.11",
   "title": "",
   "body": " Seja o conjunto dos polinômios de grau 3. Ele é um espaço vetorial e é uma base para esse espaço. O operador definido por é um operador linear, pois ... Se , então suas coordenadas na base são e , de modo que as suas coordenadas na base são iguais a   "
 },
@@ -2174,7 +2255,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#rep_matricial",
   "type": "Theorem",
-  "number": "13.12",
+  "number": "8.12",
   "title": "da Representação Matricial.",
   "body": " da Representação Matricial   Sejam uma transformação linear entre dois espaços vetoriais e e , bases para esses espaços vetoriais, respectivamente. Se um vetor tem coordenadas , então existe uma matriz , , tal que as coordenadas de na base são dadas por As colunas dessa matriz são obtidas calculando , , de modo que .   de modo que as coordenadas de na base são   "
 },
@@ -2183,7 +2264,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-4",
   "type": "Example",
-  "number": "13.13",
+  "number": "8.13",
   "title": "",
   "body": " Seja , a transformação linear definida por A matriz que representa nas bases canônicas de e é de modo que .  "
 },
@@ -2192,7 +2273,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-5",
   "type": "Example",
-  "number": "13.14",
+  "number": "8.14",
   "title": "",
   "body": " A matriz que representa a transformação linear do exemplo anterior nas bases e na base canônica é de modo que .  "
 },
@@ -2201,7 +2282,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-6",
   "type": "Example",
-  "number": "13.15",
+  "number": "8.15",
   "title": "",
   "body": " A matriz que representa a transformação linear do exemplo anterior nas bases e tem colunas , e , nessa ordem.  "
 },
@@ -2210,7 +2291,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#ex_proj",
   "type": "Example",
-  "number": "13.16",
+  "number": "8.16",
   "title": "",
   "body": " Seja a projeção no plano que passa pela origem e têm vetores diretores . Para representá-la na base notamos que e de modo que, nessa base, a é representada pela matriz   "
 },
@@ -2219,7 +2300,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#mud_base",
   "type": "Theorem",
-  "number": "13.17",
+  "number": "8.17",
   "title": "da Mudança de Base.",
   "body": " da Mudança de Base   Sejam e bases para um espaço vetorial , a matriz de mudança de base da base para a base . Se é um operador linear em representado pela matriz na base , então a matriz que representa na base é   A completar.  "
 },
@@ -2228,7 +2309,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-13",
   "type": "Example",
-  "number": "13.18",
+  "number": "8.18",
   "title": "",
   "body": " Para calcularmos a matriz que representa a projeção do na base canônica, precisamos da matriz de mudança de base e sua inversa de modo que   "
 },
@@ -2237,7 +2318,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-14",
   "type": "Checkpoint",
-  "number": "13.19",
+  "number": "8.19",
   "title": "",
   "body": "Determine a matriz da rotação de radianos em torno do eixo , no sentido anti-horário, na base . "
 },
@@ -2246,7 +2327,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-15",
   "type": "Checkpoint",
-  "number": "13.20",
+  "number": "8.20",
   "title": "",
   "body": "Determine a matriz da rotação de radianos em torno do eixo , no sentido anti-horário, na base canônica. "
 },
@@ -2255,7 +2336,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#matriz_lin_trans-17",
   "type": "Definition",
-  "number": "13.21",
+  "number": "8.21",
   "title": "",
   "body": "   matrizes similares    Duas matrizes , e , são ditas similares se existe uma matriz inversível tal que    "
 },
@@ -2264,7 +2345,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lineares_prob-4",
   "type": "Checkpoint",
-  "number": "13.22",
+  "number": "8.22",
   "title": "",
   "body": "Encontre uma matriz que representa uma rotação de ângulo no sentido anti-horário em torno do eixo y. "
 },
@@ -2273,7 +2354,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lineares_prob-5",
   "type": "Checkpoint",
-  "number": "13.23",
+  "number": "8.23",
   "title": "",
   "body": "Encontre uma matriz que representa uma rotação de ângulo no sentido anti-horário em torno do eixo . "
 },
@@ -2282,7 +2363,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lineares_prob-6",
   "type": "Checkpoint",
-  "number": "13.24",
+  "number": "8.24",
   "title": "",
   "body": "Encontre uma matriz que dilata a direção x por 2, a direção y por 0.5 e a direção z por 3. "
 },
@@ -2291,7 +2372,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "Transformacoes_lineares.html#trans_lineares_prob-7",
   "type": "Checkpoint",
-  "number": "13.25",
+  "number": "8.25",
   "title": "",
   "body": "Encontre uma matriz que dilata a direção por 2, a direção por 0.5 e a direção por 3. "
 },
@@ -2300,7 +2381,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "auto_val.html",
   "type": "Section",
-  "number": "14",
+  "number": "9",
   "title": "Autovalores e autovetores",
   "body": " Autovalores e autovetores   Temos visto que, muitas vezes, é mais fácil compreender uma transformação linear em uma base adaptada para o problema em questão. Todavia encontrar uma base natural para o problema nem sempre é fácil. Nesse capítulo vamos nos ocupar com o problema no outro sentido: se temos uma transformação linear (representada por uma matriz na base canônica, por exemplo), quais são as direções mais naturais a se escolher para uma base?  Responderemos a essa pergunta passa por entender quais direções a transformação linear é mais simples, tendo o efeito de apenas multiplicar vetores naquela direção por uma constante. A constante pela qual o vetor é multiplicado é chamada de autovalor e a direção é chamada de autovetor. Veremos que as rotações também serão incluídas nesse caso naturalmente, com autovalores complexos.    Autovalores e autovetores     autovalor    Seja uma matriz . Um número (real ou complexo) é dito um autovalor de se existe um vetor não nulo tal que . é dito um autovetor associado ao autovalor .     A matriz, admite como autovalor porque o vetor satisfaz . Outro autovalor dessa matrix é 0 pois o vetor satisfaz .   Nesse exemplo os autovalores e autovetores foram dados, mas como fazemos para encontrar os autovalores de uma matriz qualquer? A observação a seguir nos dá um método para isso.  Se existe um vetor não nulo tal que , temos que e, portanto, , ou seja, essa equação tem solução não nula e a matriz não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos . O polinômio é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema para cada autovalor encontrado para determinar os autovetores associados a cada autovalor.   A matriz, tem polinômio característico que têm raízes 2 e -2. Os autovetores associados ao autovalor 2 são encontrados resolvendo Os autovetores associados ao autovalor -2 são encontrados resolvendo     Confira a sua resposta com o código abaixo.   Podemos pensar na matriz como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores (supondo que exista uma), temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que: Encontrar matrizes (de autovetores) e (com autovalores na diagonal) é conhecido como a diagonalização da matriz A.  Infelizmente nem sempre é possível encontrar uma base de autovetores para uma matriz.   O código abaixo pode ser utilizado para verificar se o produto das matrizes encontradas retorna a matriz original.   Esse processo é particularmente útil quando precisamos aplicar uma transformação linear multiplas vezes, pois   e, para uma matriz diagonal,   Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, dos não comprometidos passam a ser comprometidos e dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos?     Resultados e dificuldades relacionados a autovetores e autovalores.  Nessa seção discutimos quando é possível diagonalizar uma matriz e quais as opções quando isso não é possível.     Seja uma matriz . Autovetores associados a autovalores distintos são linearmente independentes.  A completar.   O garante que se o polinômio característico tem raízes distintas, teremos autovetores LI. Todavia esses autovalores e autovetores ainda podem ser complexos, o que pode não permite diagonalizar a matriz, se buscamos uma matriz real.     Seja uma matriz real Na qual todos os coeficientes são reais  simétrica. Então, seus autovalores e autovetores são reais e a matriz tem autovetores distintos. Além disso, admite uma base de autovetores ortonormais.  A completar.   Isso significa que uma matriz simétrica sempre é diagonalizável (A matriz é a matriz de mudança de base da base de autovetores para a base canônica). Se uma matriz não é simétrica essa pode não ser a situação.  Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau sempre pode ser decomposto no produto de monômios de grau . Em particular onde é a variável complexa, , são as raízes (possivelmente complexas) e os coeficientes, .     multiplicidades algébrica e geométrica    Seja o polinômio característico de uma matriz real , . O número de vezes que um autovalor aparece na decomposição no produto de monômios de é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de , é a multiplicidade geométrica do autovalor .              Uma matriz real é diagonalizável exatamente quando tem autovalores reais e a multiplicidade geométrica é igual a multiplicidade algébrica para cada autovalor.   Diagonalize a matriz    Se uma matriz tem autovalores complexos, então não é possível colocá-la na forma diagonal usual utilizando matrizes reais. Todavia os autovalores complexos sempre vem em pares conjugados , com autovetores complexos . Vejamos em detalhe o que ocorre com as partes reais e complexas do autovetor associado ao autovalor (escrito na forma polar) .  Assim, lembrando que e , temos    Desse modo, se , com reais, temos:   e é possível escrever um bloco na diagonal da forma:   de modo que autovalores complexos indicam a rotações no plano definido por e . Deixamos ao leitor a verificação do fato que e são linearmente independentes.       Para mais informações sobre esse processo, ver Forma de Jordan .     Aplicações: sistemas de EDOs lineares de primeira ordem.  As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Por exemplo, vamos considerar a radioatividade. Suponha que uma amostra de material contém átomos radioativos. É natural pensar que o número de átomos, , que decai a cada segundo é proporcional ao número de átomos que ainda não decairam. Em linguagem matemática, isso significa que:   Um problema assim é chamado de uma equação diferencial ordinária e sua solução é .  Em outros problemas pode-se ter múltiplas funções simultaneamente.   Uma amostra formada por dois isótopos radioativos com quantidades iniciais e e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...    Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo decai no isótopo , que decai no isótopo . Uma amostra formada pelos isótopos , e com quantidades iniciais e e e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...   Consideremos o sistema de equações diferenciais (com condições iniciais associadas):   que pose ser escrito na forma   Se a matriz A tem autovalores reais, ,(não necessariamente distintos) e a eles estão associados n autovetores LI, , então a solução do sistema de EDOs é   Resolva o sistema      Aplicações: sistemas de EDOs lineares de segunda ordem.  As leis que descrevem muitos processos na natureza são dadas por equações diferenciais. Muitas vezes essas leis envolvem derivadas de segunda ordem. Por exemplo a segunda lei de Newton, , ao lembrarmos que a aceleração é a taxa de variação da velocidade e a velocidade é a taxa de variação da posição: . Vejamos como resolver uma EDO linear de segunda ordem num exemplo.   Consideremos o PVI Podemos definir variáveis , , de modo que obtemos o sistema Autovalores, autovetores, ...    Consideremos o PVI Podemos definir variáveis , , de modo que obtemos o sistema Autovalores, autovetores, ...   Podemos ter um sistema de equações lineares de segunda ordem.   Consideremos o PVI que pode ser escrito como Podemos definir variáveis , , de modo que obtemos o sistema Autovalores, autovetores, ...   Consideremos o sistema de equações diferenciais (com condições iniciais associadas), escrito na forma matricial, denotando , como:   Podemos definir as variáveis e, denotando, e , temos o problema linear   Que pode ser resolvido pelo método de autovalores e autovetores.   "
 },
@@ -2309,7 +2390,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-2",
   "type": "Definition",
-  "number": "14.1",
+  "number": "9.1",
   "title": "",
   "body": "   autovalor    Seja uma matriz . Um número (real ou complexo) é dito um autovalor de se existe um vetor não nulo tal que . é dito um autovetor associado ao autovalor .   "
 },
@@ -2318,7 +2399,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-3",
   "type": "Example",
-  "number": "14.2",
+  "number": "9.2",
   "title": "",
   "body": " A matriz, admite como autovalor porque o vetor satisfaz . Outro autovalor dessa matrix é 0 pois o vetor satisfaz .  "
 },
@@ -2327,7 +2408,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-5",
   "type": "Remark",
-  "number": "14.3",
+  "number": "9.3",
   "title": "",
   "body": "Se existe um vetor não nulo tal que , temos que e, portanto, , ou seja, essa equação tem solução não nula e a matriz não é inversível. Desse modo, encontrar autovalores é descobrir para que escalares temos . O polinômio é chamado de polinômio característico e os autovalores são as raízes desse polinômio. Uma vez encontrados os autovalores, resolvemos o sistema para cada autovalor encontrado para determinar os autovetores associados a cada autovalor. "
 },
@@ -2336,7 +2417,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-6",
   "type": "Example",
-  "number": "14.4",
+  "number": "9.4",
   "title": "",
   "body": " A matriz, tem polinômio característico que têm raízes 2 e -2. Os autovetores associados ao autovalor 2 são encontrados resolvendo Os autovetores associados ao autovalor -2 são encontrados resolvendo   "
 },
@@ -2345,7 +2426,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-7",
   "type": "Checkpoint",
-  "number": "14.5",
+  "number": "9.5",
   "title": "",
   "body": ""
 },
@@ -2354,7 +2435,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-10",
   "type": "Remark",
-  "number": "14.6",
+  "number": "9.6",
   "title": "",
   "body": "Podemos pensar na matriz como uma transformação linear da base canônica para a base canônica. Se representarmos essa transformação linear na base de autovetores (supondo que exista uma), temos que ela será representada por uma matriz diagonal, com os autovalores na diagonal. Desse modo temos que: Encontrar matrizes (de autovetores) e (com autovalores na diagonal) é conhecido como a diagonalização da matriz A. "
 },
@@ -2363,7 +2444,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-12",
   "type": "Checkpoint",
-  "number": "14.7",
+  "number": "9.7",
   "title": "",
   "body": ""
 },
@@ -2372,7 +2453,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#auto_val_sub-19",
   "type": "Checkpoint",
-  "number": "14.8",
+  "number": "9.8",
   "title": "",
   "body": "Suponha que uma cidade tem 100000 homens separados em dois grupos: não comprometidos e comprometidos; e que, a cada ano, dos não comprometidos passam a ser comprometidos e dos comprometidos passam a ser não comprometidos. Se no primeiro ano, temos 50000 comprometidos e 50000 não comprometidos, quais os números de comprometidos e não comprometidos após 1, 10 e 50 anos? "
 },
@@ -2381,7 +2462,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autovetores_LI",
   "type": "Theorem",
-  "number": "14.9",
+  "number": "9.9",
   "title": "",
   "body": "   Seja uma matriz . Autovetores associados a autovalores distintos são linearmente independentes.  A completar.  "
 },
@@ -2390,7 +2471,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#matriz_simetrica",
   "type": "Theorem",
-  "number": "14.10",
+  "number": "9.10",
   "title": ".",
   "body": "   Seja uma matriz real Na qual todos os coeficientes são reais  simétrica. Então, seus autovalores e autovetores são reais e a matriz tem autovetores distintos. Além disso, admite uma base de autovetores ortonormais.  A completar.  "
 },
@@ -2399,7 +2480,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autoval_teormas-7",
   "type": "Remark",
-  "number": "14.11",
+  "number": "9.11",
   "title": "",
   "body": "Para analisar o que ocorre no caso de autovalores múltiplos, precisamos de números complexos e recorro a um resultado de variável complexa, que diz que um polinômio real ou complexo de grau sempre pode ser decomposto no produto de monômios de grau . Em particular onde é a variável complexa, , são as raízes (possivelmente complexas) e os coeficientes, . "
 },
@@ -2408,7 +2489,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autoval_teormas-8",
   "type": "Definition",
-  "number": "14.12",
+  "number": "9.12",
   "title": "",
   "body": "   multiplicidades algébrica e geométrica    Seja o polinômio característico de uma matriz real , . O número de vezes que um autovalor aparece na decomposição no produto de monômios de é chamada de multiplicidade algébrica desse autovalor. A dimensão do espaço nulo de , é a multiplicidade geométrica do autovalor .   "
 },
@@ -2417,7 +2498,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autoval_teormas-9",
   "type": "Example",
-  "number": "14.13",
+  "number": "9.13",
   "title": "",
   "body": "    "
 },
@@ -2426,7 +2507,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autoval_teormas-10",
   "type": "Example",
-  "number": "14.14",
+  "number": "9.14",
   "title": "",
   "body": "    "
 },
@@ -2435,7 +2516,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autoval_teormas-12",
   "type": "Example",
-  "number": "14.15",
+  "number": "9.15",
   "title": "",
   "body": " Diagonalize a matriz   "
 },
@@ -2444,7 +2525,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#autoval_teormas-23",
   "type": "Example",
-  "number": "14.16",
+  "number": "9.16",
   "title": "",
   "body": "    "
 },
@@ -2453,7 +2534,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#aplicacoes-6",
   "type": "Example",
-  "number": "14.17",
+  "number": "9.17",
   "title": "",
   "body": " Uma amostra formada por dois isótopos radioativos com quantidades iniciais e e a fração dos átomos que decai a cada segundo é 0.1% e 0.2%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...  "
 },
@@ -2462,7 +2543,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#aplicacoes-7",
   "type": "Example",
-  "number": "14.18",
+  "number": "9.18",
   "title": "",
   "body": " Alguns isótopos decaem em outros isótopos que também são radioativos. Suponha que um isótopo decai no isótopo , que decai no isótopo . Uma amostra formada pelos isótopos , e com quantidades iniciais e e e a fração dos átomos que decai a cada segundo do isótopo A para o isótopo B é 0.1%, do isótopo B para o isótopo C é 0.2% e do isótopo B para material não radioativo é de 0.3%. Então o número de átomos radioativos na amostra de cada um dos tipos é ...  "
 },
@@ -2471,7 +2552,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#aplicacoes-14",
   "type": "Checkpoint",
-  "number": "14.19",
+  "number": "9.19",
   "title": "",
   "body": "Resolva o sistema  "
 },
@@ -2480,7 +2561,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#aplicacoes_2-3",
   "type": "Example",
-  "number": "14.20",
+  "number": "9.20",
   "title": "",
   "body": " Consideremos o PVI Podemos definir variáveis , , de modo que obtemos o sistema Autovalores, autovetores, ...  "
 },
@@ -2489,7 +2570,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#aplicacoes_2-4",
   "type": "Example",
-  "number": "14.21",
+  "number": "9.21",
   "title": "",
   "body": " Consideremos o PVI Podemos definir variáveis , , de modo que obtemos o sistema Autovalores, autovetores, ...  "
 },
@@ -2498,7 +2579,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "auto_val.html#aplicacoes_2-6",
   "type": "Example",
-  "number": "14.22",
+  "number": "9.22",
   "title": "",
   "body": " Consideremos o PVI que pode ser escrito como Podemos definir variáveis , , de modo que obtemos o sistema Autovalores, autovetores, ...  "
 }
