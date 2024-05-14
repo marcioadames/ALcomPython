@@ -4329,7 +4329,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         plt.show()
                                     </input>
                                     <output>
-                                        out
+                                        outs
                                     </output>
                                 </sage>
                             </solution>
@@ -4341,188 +4341,187 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             <solution>
                                 <p>
                                     Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas.
-                                    <sage>
-                                        <input>
-                                            import numpy as np
-                                            import matplotlib.pyplot as plt
-                                            import matplotlib.lines as lines
+                                </p>
+                                <sage>
+                                    <input>
+                                        import numpy as np
+                                        import matplotlib.pyplot as plt
+                                        import matplotlib.lines as lines
 
-                                            points = 
+                                        points = 
 
-                                            def calcBoundaries(points):
-                                                xMax = points[0][0]
-                                                xMin =  points[0][0]
-                                                yMax = points[0][1]
-                                                yMin =  points[0][1]
-                                                for point in points:
-                                                    if point[0] &gt; xMax:
-                                                        xMax = point[0]
-                                                    if point[0] &lt; xMin:
-                                                        xMin = point[0]
-                                                    if point[1] &gt; yMax:
-                                                        yMax = point[1]
-                                                    if point[1] &lt; yMin:
-                                                        yMin = point[1]
+                                        def calcBoundaries(points):
+                                            xMax = points[0][0]
+                                            xMin =  points[0][0]
+                                            yMax = points[0][1]
+                                            yMin =  points[0][1]
+                                            for point in points:
+                                                if point[0] &gt; xMax:
+                                                    xMax = point[0]
+                                                if point[0] &lt; xMin:
+                                                    xMin = point[0]
+                                                if point[1] &gt; yMax:
+                                                    yMax = point[1]
+                                                if point[1] &lt; yMin:
+                                                    yMin = point[1]
 
-                                                plt.xlim(xMin-5, xMax+5) 
-                                                plt.ylim(yMin-5, yMax+5)
-                                                return (xMin-5, xMax+5)
+                                            plt.xlim(xMin-5, xMax+5) 
+                                            plt.ylim(yMin-5, yMax+5)
+                                            return (xMin-5, xMax+5)
 
-                                            def setLabels():
-                                                legendElements = [lines.Line2D([0], [0], color='green', lw=4, label='Linear'),
-                                                                lines.Line2D([0], [0], color='blue', lw=4, label='Quadrática'),
-                                                                lines.Line2D([0], [0], color='red', lw=4, label='Cúbica'),
-                                                                lines.Line2D([0], [0], color='orange', lw=4, label='Exponencial')]
-                                                
-                                                plt.legend(handles=legendElements)
+                                        def setLabels():
+                                            legendElements = [lines.Line2D([0], [0], color='green', lw=4, label='Linear'),
+                                                            lines.Line2D([0], [0], color='blue', lw=4, label='Quadrática'),
+                                                            lines.Line2D([0], [0], color='red', lw=4, label='Cúbica'),
+                                                            lines.Line2D([0], [0], color='orange', lw=4, label='Exponencial')]
+                                            
+                                            plt.legend(handles=legendElements)
 
-                                            def plotPoints(points):
-                                                x = []
-                                                y = []
-                                                for point in points:
-                                                    x.append(point[0])
-                                                    y.append(point[1])
-                                                
-                                                plt.scatter(x, y, c='#000000')
+                                        def plotPoints(points):
+                                            x = []
+                                            y = []
+                                            for point in points:
+                                                x.append(point[0])
+                                                y.append(point[1])
+                                            
+                                            plt.scatter(x, y, c='#000000')
 
-                                            def PolyCoefficients(x, coeffs):
-                                                o = len(coeffs)
+                                        def PolyCoefficients(x, coeffs):
+                                            o = len(coeffs)
+                                            y = 0
+                                            for i in range(o):
+                                                y += coeffs[i]*x**i
+                                            return y
+
+                                        def plotLine(x, coeffs):
+                                            colours = ['green', 'blue', 'red']
+                                            polynomial = PolyCoefficients(x, coeffs)
+                                            plt.plot(x, polynomial, c=colours[len(coeffs)-2])
+
+                                        def plotLineExp(x, coeffs):
+                                            exponential = coeffs[0]*(coeffs[1]**x)
+                                            plt.plot(x, exponential, c='orange')
+
+                                        def normalEq(A, B):
+                                            np.set_printoptions(formatter={'all':lambda x: str(x)})
+                                            At = np.transpose(A)
+                                            AtAinv = np.dot(At, A)
+                                            AtAinv = np.linalg.inv(AtAinv)
+                                            sol = np.dot(np.dot(AtAinv, At), B)
+
+                                            return sol
+
+                                        def calcErrorPoly(points, coeffs):
+                                            error = 0
+                                            o = len(coeffs)
+
+                                            for point in points:
                                                 y = 0
                                                 for i in range(o):
-                                                    y += coeffs[i]*x**i
-                                                return y
+                                                    y += coeffs[i][0]*point[0]**i
 
-                                            def plotLine(x, coeffs):
-                                                colours = ['green', 'blue', 'red']
-                                                polynomial = PolyCoefficients(x, coeffs)
-                                                plt.plot(x, polynomial, c=colours[len(coeffs)-2])
+                                                error += ((point[1] - y)**2)
 
-                                            def plotLineExp(x, coeffs):
-                                                exponential = coeffs[0]*(coeffs[1]**x)
-                                                plt.plot(x, exponential, c='orange')
+                                            return np.round(error, 3)
 
-                                            def normalEq(A, B):
-                                                np.set_printoptions(formatter={'all':lambda x: str(x)})
-                                                At = np.transpose(A)
-                                                AtAinv = np.dot(At, A)
-                                                AtAinv = np.linalg.inv(AtAinv)
-                                                sol = np.dot(np.dot(AtAinv, At), B)
+                                        def calcErrorExp(points, coeffs):
+                                            error = 0
 
-                                                return sol
+                                            for point in points:
+                                                error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
 
-                                            def calcErrorPoly(points, coeffs):
-                                                error = 0
-                                                o = len(coeffs)
+                                            return np.round(error, 3)
 
-                                                for point in points:
-                                                    y = 0
-                                                    for i in range(o):
-                                                        y += coeffs[i][0]*point[0]**i
+                                        def linearFit(points):
+                                            A = []
+                                            B = []
 
-                                                    error += ((point[1] - y)**2)
+                                            for point in points:
+                                                A.append([1, point[0]])
+                                                B.append([point[1]])
 
-                                                return np.round(error, 3)
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
 
-                                            def calcErrorExp(points, coeffs):
-                                                error = 0
+                                            print(f'\nA função linear que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x')
+                                            error = calcErrorPoly(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            return sol
 
-                                                for point in points:
-                                                    error += (point[1] - (coeffs[0]*(coeffs[1]**point[0])))**2
+                                        def quadraticFit(points):
+                                            A = []
+                                            B = []
 
-                                                return np.round(error, 3)
+                                            for point in points:
+                                                A.append([1, point[0], point[0]**2])
+                                                B.append([point[1]])
 
-                                            def linearFit(points):
-                                                A = []
-                                                B = []
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
 
-                                                for point in points:
-                                                    A.append([1, point[0]])
-                                                    B.append([point[1]])
+                                            print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
+                                            error = calcErrorPoly(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            return sol
 
-                                                A = np.array(A)
-                                                B = np.array(B)
-                                                sol = normalEq(A, B)
+                                        def cubicFit(points):
+                                            A = []
+                                            B = []
 
-                                                print(f'\nA função linear que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x')
-                                                error = calcErrorPoly(points, sol)
-                                                print(f'O erro associado é igual a {error}')
-                                                return sol
+                                            for point in points:
+                                                A.append([1, point[0], point[0]**2, point[0]**3])
+                                                B.append([point[1]])
 
-                                            def quadraticFit(points):
-                                                A = []
-                                                B = []
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
 
-                                                for point in points:
-                                                    A.append([1, point[0], point[0]**2])
-                                                    B.append([point[1]])
+                                            print(f'\nA função cubica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2 + ({np.round(sol[3][0], 3)})x^3')
+                                            error = calcErrorPoly(points, sol)
+                                            print(f'O erro associado é igual a {error}')
+                                            return sol
 
-                                                A = np.array(A)
-                                                B = np.array(B)
-                                                sol = normalEq(A, B)
+                                        def exponentialFit(points):
+                                            A = []
+                                            B = []
 
-                                                print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
-                                                error = calcErrorPoly(points, sol)
-                                                print(f'O erro associado é igual a {error}')
-                                                return sol
+                                            for point in points:
+                                                A.append([1, point[0]])
+                                                B.append([np.log10(point[1])])
 
-                                            def cubicFit(points):
-                                                A = []
-                                                B = []
+                                            A = np.array(A)
+                                            B = np.array(B)
+                                            sol = normalEq(A, B)
 
-                                                for point in points:
-                                                    A.append([1, point[0], point[0]**2, point[0]**3])
-                                                    B.append([point[1]])
+                                            expCoeffs = []
+                                            expCoeffs.append(10**sol[0][0])
+                                            expCoeffs.append(10**sol[1][0])
 
-                                                A = np.array(A)
-                                                B = np.array(B)
-                                                sol = normalEq(A, B)
+                                            print(f'\nA função exponencial que melhor se adapta aos pontos é: {np.round(expCoeffs[0],3)}*{np.round(expCoeffs[1],3)}^x')
+                                            error = calcErrorExp(points, expCoeffs)
+                                            print(f'O erro associado é igual a {error}')
+                                            return expCoeffs
 
-                                                print(f'\nA função cubica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2 + ({np.round(sol[3][0], 3)})x^3')
-                                                error = calcErrorPoly(points, sol)
-                                                print(f'O erro associado é igual a {error}')
-                                                return sol
-
-                                            def exponentialFit(points):
-                                                A = []
-                                                B = []
-
-                                                for point in points:
-                                                    A.append([1, point[0]])
-                                                    B.append([np.log10(point[1])])
-
-                                                A = np.array(A)
-                                                B = np.array(B)
-                                                sol = normalEq(A, B)
-
-                                                expCoeffs = []
-                                                expCoeffs.append(10**sol[0][0])
-                                                expCoeffs.append(10**sol[1][0])
-
-                                                print(f'\nA função exponencial que melhor se adapta aos pontos é: {np.round(expCoeffs[0],3)}*{np.round(expCoeffs[1],3)}^x')
-                                                error = calcErrorExp(points, expCoeffs)
-                                                print(f'O erro associado é igual a {error}')
-                                                return expCoeffs
-
-                                            boundaries = calcBoundaries(points)
-                                            x = np.arange(boundaries[0], boundaries[1], 0.001)
-                                            linCoeffs = linearFit(points)
-                                            quadCoeffs = quadraticFit(points)
-                                            cubicCoeffs = cubicFit(points)
-                                            expCoeffs = exponentialFit(points)
-                                            plt.clf()
-                                            plotPoints(points)
-                                            plotLine(x, linCoeffs)
-                                            plotLine(x, quadCoeffs)
-                                            plotLine(x, cubicCoeffs)
-                                            plotLineExp(x, expCoeffs)
-                                            setLabels()
-                                            plt.show()
-                                        </input>
-                                        <output>
-                                            out
-                                        </output>
-                                    </sage>
-                                </p>
+                                        boundaries = calcBoundaries(points)
+                                        x = np.arange(boundaries[0], boundaries[1], 0.001)
+                                        linCoeffs = linearFit(points)
+                                        quadCoeffs = quadraticFit(points)
+                                        cubicCoeffs = cubicFit(points)
+                                        expCoeffs = exponentialFit(points)
+                                        plotPoints(points)
+                                        plotLine(x, linCoeffs)
+                                        plotLine(x, quadCoeffs)
+                                        plotLine(x, cubicCoeffs)
+                                        plotLineExp(x, expCoeffs)
+                                        setLabels()
+                                        plt.show()
+                                    </input>
+                                    <output>
+                                        out
+                                    </output>
+                                </sage>
                             </solution>
                         </exercise>
                 </subsection>
@@ -4714,98 +4713,98 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <exercise>
                             <p>
                                 Utilize o código abaixo para conferir suas respostas. Observe o passo a passo da solução.
-                                <sage> 
-                                    <input>
-                                        import numpy as np
-                                        import matplotlib.pyplot as plt
-
-                                        points = 
-                                        
-                                        def setBoundaries(radius, x0, y0):
-                                            plt.xlim(-radius+x0-5, radius+x0+5)
-                                            plt.ylim(-radius+y0-5, radius+y0+5)
-
-                                        def plotPoints(points):
-                                            x = []
-                                            y = []
-                                            for point in points:
-                                                x.append(point[0])
-                                                y.append(point[1])
-                                            
-                                            plt.gca().set_aspect('equal')
-                                            plt.scatter(x, y, c='#000000')
-
-                                        def plotLine(radius, x0, y0):
-                                            theta = np.linspace(0, 2*np.pi, 1000)
-                                            x1 = x0+radius*np.cos(theta)
-                                            x2 = y0+radius*np.sin(theta)
-                                            plt.plot(x1, x2)
-
-                                        def calcError(points, coeffs):
-                                            error = 0
-                                            radius = np.sqrt(coeffs[2][0] + coeffs[0][0]**2 + coeffs[1][0]**2)
-
-                                            for point in points:
-                                                error += np.sqrt((radius - np.sqrt((point[0]-coeffs[0][0])**2 + (point[1]-coeffs[1][0])**2))**2)
-
-                                            return np.round(error, 3)
-
-                                        def normalEq(A, B):
-                                            np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
-                                            print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
-                                            print("A: ", end='')
-                                            print(A)
-                                            print("\nB: ", end='')
-                                            print(B)
-
-                                            At = np.transpose(A)
-                                            AtAinv = np.dot(At, A)
-                                            AtAinv = np.linalg.inv(AtAinv)
-                                            sol = np.dot(np.dot(AtAinv, At), B)
-                                            
-                                            print("\nA matriz transposta de A é:")
-                                            print(At)
-                                            print("\nA matriz inversa do produto entre A^t e A é:")
-                                            print(AtAinv)
-                                            print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
-                                            print(sol)
-                                            return sol
-
-                                        def circleFit(points):
-                                            A = []
-                                            B = []
-
-                                            for point in points:
-                                                A.append([2*point[0], 2*point[1], 1])
-                                                B.append([point[0]**2 + point[1]**2])
-
-                                            A = np.array(A)
-                                            B = np.array(B)
-                                            sol = normalEq(A, B)
-                                            radius = np.sqrt(sol[2][0] + sol[0][0]**2 + sol[1][0]**2)
-
-                                            print(f'\nO centro do circulo que melhor descreve os pontos é ({np.round(sol[0][0],3)}, {np.round(sol[1][0], 3)}). \n O raio do circulo é {np.round(radius, 3)}.')
-                                            error = calcError(points, sol)
-                                            print(f'O erro associado é igual a {error}')
-                                            print("\nObservando a solução graficamente:")
-                                            return (radius, sol[0][0], sol[1][0])
-
-                                        fit = circleFit(points)
-                                        radius = fit[0]
-                                        x0  = fit[1]
-                                        y0 = fit[2]
-
-                                        plt.clf()
-                                        plotPoints(points)
-                                        plotLine(radius, x0, y0)
-                                        setBoundaries(radius, x0, y0)
-                                        plt.show()
-                                    </input>
-                                    <output>
-                                        out
-                                    </output>
-                                </sage>
                             </p>
+                            <sage> 
+                                <input>
+                                    import numpy as np
+                                    import matplotlib.pyplot as plt
+
+                                    points = 
+                                    
+                                    def setBoundaries(radius, x0, y0):
+                                        plt.xlim(-radius+x0-5, radius+x0+5)
+                                        plt.ylim(-radius+y0-5, radius+y0+5)
+
+                                    def plotPoints(points):
+                                        x = []
+                                        y = []
+                                        for point in points:
+                                            x.append(point[0])
+                                            y.append(point[1])
+                                        
+                                        plt.gca().set_aspect('equal')
+                                        plt.scatter(x, y, c='#000000')
+
+                                    def plotLine(radius, x0, y0):
+                                        theta = np.linspace(0, 2*np.pi, 1000)
+                                        x1 = x0+radius*np.cos(theta)
+                                        x2 = y0+radius*np.sin(theta)
+                                        plt.plot(x1, x2)
+
+                                    def calcError(points, coeffs):
+                                        error = 0
+                                        radius = np.sqrt(coeffs[2][0] + coeffs[0][0]**2 + coeffs[1][0]**2)
+
+                                        for point in points:
+                                            error += np.sqrt((radius - np.sqrt((point[0]-coeffs[0][0])**2 + (point[1]-coeffs[1][0])**2))**2)
+
+                                        return np.round(error, 3)
+
+                                    def normalEq(A, B):
+                                        np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+                                        print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+                                        print("A: ", end='')
+                                        print(A)
+                                        print("\nB: ", end='')
+                                        print(B)
+
+                                        At = np.transpose(A)
+                                        AtAinv = np.dot(At, A)
+                                        AtAinv = np.linalg.inv(AtAinv)
+                                        sol = np.dot(np.dot(AtAinv, At), B)
+                                        
+                                        print("\nA matriz transposta de A é:")
+                                        print(At)
+                                        print("\nA matriz inversa do produto entre A^t e A é:")
+                                        print(AtAinv)
+                                        print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+                                        print(sol)
+                                        return sol
+
+                                    def circleFit(points):
+                                        A = []
+                                        B = []
+
+                                        for point in points:
+                                            A.append([2*point[0], 2*point[1], 1])
+                                            B.append([point[0]**2 + point[1]**2])
+
+                                        A = np.array(A)
+                                        B = np.array(B)
+                                        sol = normalEq(A, B)
+                                        radius = np.sqrt(sol[2][0] + sol[0][0]**2 + sol[1][0]**2)
+
+                                        print(f'\nO centro do circulo que melhor descreve os pontos é ({np.round(sol[0][0],3)}, {np.round(sol[1][0], 3)}). \n O raio do circulo é {np.round(radius, 3)}.')
+                                        error = calcError(points, sol)
+                                        print(f'O erro associado é igual a {error}')
+                                        print("\nObservando a solução graficamente:")
+                                        return (radius, sol[0][0], sol[1][0])
+
+                                    fit = circleFit(points)
+                                    radius = fit[0]
+                                    x0  = fit[1]
+                                    y0 = fit[2]
+
+                                    plt.clf()
+                                    plotPoints(points)
+                                    plotLine(radius, x0, y0)
+                                    setBoundaries(radius, x0, y0)
+                                    plt.show()
+                                </input>
+                                <output>
+                                    out
+                                </output>
+                            </sage>
                         </exercise>
                 </subsection>
            </section>           

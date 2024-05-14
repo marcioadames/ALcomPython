@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-05-14T16:03:02-03:00       *-->
+<!--*       on 2024-05-14T16:35:04-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -27,7 +27,8 @@
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
 <span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.25.1</span><span class="period">.</span>
 </h6>
-<p>Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas. <div class="sagecell-sage" id="sage-38"><script type="text/x-sage">import numpy as np
+<p>Insira seus pontos no código abaixo para ver a comparação entre as 4 curvas.</p>
+<div class="sagecell-sage" id="sage-38"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.lines as lines
 
@@ -193,7 +194,6 @@ linCoeffs = linearFit(points)
 quadCoeffs = quadraticFit(points)
 cubicCoeffs = cubicFit(points)
 expCoeffs = exponentialFit(points)
-plt.clf()
 plotPoints(points)
 plotLine(x, linCoeffs)
 plotLine(x, quadCoeffs)
@@ -201,7 +201,7 @@ plotLine(x, cubicCoeffs)
 plotLineExp(x, expCoeffs)
 setLabels()
 plt.show()
-</script></div></p>
+</script></div>
 </div>
 <span class="incontext"><a href="Projects.html#solution-14">in-context</a></span>
 </body>
