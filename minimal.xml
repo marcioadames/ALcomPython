@@ -3577,6 +3577,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 
                                     points = generatePoints(N_PONTOS, MIN_X, MAX_X, MIN_Y, MAX_Y)
+                                    plt.clf()
                                     printPoints(points)
                                     plotPoints(points, MIN_X, MAX_X, MIN_Y, MAX_Y)
                                     plt.show()
@@ -3654,6 +3655,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     boundaries = calcBoundaries(points)
                                     x = np.arange(boundaries[0], boundaries[1], 0.001)
                                     coeffs = [b, a]
+                                    plt.clf()
                                     plotPoints(points)
                                     plotLine(x, coeffs)
                                     print(f'O erro associado é {calcError(points, coeffs)}')
@@ -3763,6 +3765,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         boundaries = calcBoundaries(points)
                                         x = np.arange(boundaries[0], boundaries[1], 0.001)
                                         coeffs = linearFit(points)
+                                        plt.clf()
                                         plotPoints(points)
                                         plotLine(x, coeffs)
                                         plt.show()
@@ -3841,6 +3844,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     boundaries = calcBoundaries(points)
                                     x = np.arange(boundaries[0], boundaries[1], 0.001)
                                     coeffs = [c, b, a]
+                                    plt.clf()
                                     plotPoints(points)
                                     plotLine(x, coeffs)
                                     print(f'O erro associado é {calcError(points, coeffs)}')
@@ -3950,6 +3954,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         boundaries = calcBoundaries(points)
                                         x = np.arange(boundaries[0], boundaries[1], 0.001)
                                         coeffs = quadraticFit(points)
+                                        plt.clf()
                                         plotPoints(points)
                                         plotLine(x, coeffs)
                                         plt.show()
@@ -4029,6 +4034,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     boundaries = calcBoundaries(points)
                                     x = np.arange(boundaries[0], boundaries[1], 0.001)
                                     coeffs = [d, c, b, a]
+                                    plt.clf()
                                     plotPoints(points)
                                     plotLine(x, coeffs)
                                     print(f'O erro associado é {calcError(points, coeffs)}')
@@ -4138,6 +4144,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         boundaries = calcBoundaries(points)
                                         x = np.arange(boundaries[0], boundaries[1], 0.001)
                                         coeffs = cubicFit(points)
+                                        plt.clf()
                                         plotPoints(points)
                                         plotLine(x, coeffs)
                                         plt.show()
@@ -4208,6 +4215,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     boundaries = calcBoundaries(points)
                                     x = np.arange(boundaries[0], boundaries[1], 0.001)
                                     coeffs = [b, a]
+                                    plt.clf()
                                     plotPoints(points)
                                     plotLine(x, coeffs)
                                     print(f'O erro associado é {calcError(points, coeffs)}')
@@ -4315,6 +4323,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         boundaries = calcBoundaries(points)
                                         x = np.arange(boundaries[0], boundaries[1], 0.001)
                                         coeffs = exponentialFit(points)
+                                        plt.clf()
                                         plotPoints(points)
                                         plotLine(x, coeffs)
                                         plt.show()
@@ -4500,6 +4509,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                             quadCoeffs = quadraticFit(points)
                                             cubicCoeffs = cubicFit(points)
                                             expCoeffs = exponentialFit(points)
+                                            plt.clf()
                                             plotPoints(points)
                                             plotLine(x, linCoeffs)
                                             plotLine(x, quadCoeffs)
@@ -4593,6 +4603,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                                     points = generatePoints(N_PONTOS, RAIO_MAX - np.round(RAIO_MAX/10), RAIO_MAX)
                                     printPoints(points)
+                                    plt.clf()
                                     plotPoints(points, RAIO_MAX)
                                     plt.show()
                                 </input>
@@ -4639,7 +4650,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         x2 = y0+radius*np.sin(theta)
                                         plt.plot(x1, x2)
 
-
+                                    plt.clf()
                                     plotPoints(points)
                                     plotLine(raio, centro[0], centro[1])
                                     setBoundaries(raio, centro[0], centro[1])
@@ -4784,6 +4795,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                         x0  = fit[1]
                                         y0 = fit[2]
 
+                                        plt.clf()
                                         plotPoints(points)
                                         plotLine(radius, x0, y0)
                                         setBoundaries(radius, x0, y0)

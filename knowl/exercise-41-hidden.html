@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-30T11:27:24-03:00       *-->
+<!--*       on 2024-05-14T16:03:02-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,6 +12,82 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
-<body><article class="exercise exercise-like">Escolha um vetor \(\vec{x}\neq (2, 1)^T\text{,}\) e calcule o comprimento de três representantes desse vetor, fazendo as contas manualmente. Utilize o código acima para plotar alguns representantes desse vetor.</article></body>
+<body><article class="exercise exercise-like"><p>Utilizando o método dos quadrados mínimos, ajuste uma função LINEAR aos pontos obtidos. Você pode inserir seus pontos e a função que encontrou no código abaixo para observá-los graficamente e calcular o erro associado à linearização.</p>
+<div class="sagecell-sage" id="sage-30"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# Para observar sua solução graficamente, insira os coeficientes de sua função linear:
+# f(x) = ax + b
+a =
+b =
+
+points =
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5) 
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0] + coeffs[1]*point[0]))**2)
+
+    return np.round(error, 3)
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = [b, a]
+plt.clf()
+plotPoints(points)
+plotLine(x, coeffs)
+print(f'O erro associado é {calcError(points, coeffs)}')
+plt.show()
+</script></div>
+<a class="solution-knowl original" data-knowl="./knowl/solution-10-hidden.html" title="Solution 3.21.1"><span xmlns:svg="http://www.w3.org/2000/svg" class="type">Solution.</span> </a></article></body>
 </html>

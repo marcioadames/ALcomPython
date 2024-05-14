@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2024-05-14T16:03:02-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
+</head>
+<body>
+<div class="solution solution-like">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.22.1</span><span class="period">.</span>
+</h6>
+<p>Utilize o código abaixo para conferir sua resposta. Observe o passo a passo da resolução.</p>
+<div class="sagecell-sage" id="sage-33"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+points =
+
+def calcBoundaries(points):
+    xMax = points[0][0]
+    xMin =  points[0][0]
+    yMax = points[0][1]
+    yMin =  points[0][1]
+    for point in points:
+        if point[0] > xMax:
+            xMax = point[0]
+        if point[0] < xMin:
+            xMin = point[0]
+        if point[1] > yMax:
+            yMax = point[1]
+        if point[1] < yMin:
+            yMin = point[1]
+
+    plt.xlim(xMin-5, xMax+5)
+    plt.ylim(yMin-5, yMax+5)
+    return (xMin-5, xMax+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.scatter(x, y, c='#000000')
+
+def PolyCoefficients(x, coeffs):
+    o = len(coeffs)
+    y = 0
+    for i in range(o):
+        y += coeffs[i]*x**i
+    return y
+
+def plotLine(x, coeffs):
+    polynomial = PolyCoefficients(x, coeffs)
+    plt.plot(x, polynomial)
+
+def calcError(points, coeffs):
+    error = 0
+
+    for point in points:
+        error += ((point[1] - (coeffs[0][0] + coeffs[1][0]*point[0] + coeffs[2][0]*(point[0])**2))**2)
+
+    return np.round(error, 3)
+
+def normalEq(A, B):
+    np.set_printoptions(formatter={'all':lambda x: str(np.round(x,2))})
+    print("Escrevendo o sistema sobredeterminado na forma Ax = b, obtemos: ")
+    print("A: ", end='')
+    print(A)
+    print("\nB: ", end='')
+    print(B)
+
+    At = np.transpose(A)
+    AtAinv = np.dot(At, A)
+    AtAinv = np.linalg.inv(AtAinv)
+    sol = np.dot(np.dot(AtAinv, At), B)
+
+    print("\nA matriz transposta de A é:")
+    print(At)
+    print("\nA matriz inversa do produto entre A^t e A é:")
+    print(AtAinv)
+    print("\nResolvendo a equação normal (A^t A)^(-1) * A^t * b, encontra-se a solução de mínimos quadrados x:")
+    print(sol)
+    return sol
+
+def quadraticFit(points):
+    A = []
+    B = []
+
+    for point in points:
+        A.append([1, point[0], point[0]**2])
+        B.append([point[1]])
+
+    A = np.array(A)
+    B = np.array(B)
+    sol = normalEq(A, B)
+
+    print(f'\nA função quadratica que melhor se adapta aos pontos é: {np.round(sol[0][0],3)} + ({np.round(sol[1][0], 3)})x + ({np.round(sol[2][0], 3)})x^2')
+    error = calcError(points, sol)
+    print(f'O erro associado é igual a {error}')
+    print("\nObservando a solução graficamente:")
+    return sol
+
+boundaries = calcBoundaries(points)
+x = np.arange(boundaries[0], boundaries[1], 0.001)
+coeffs = quadraticFit(points)
+plt.clf()
+plotPoints(points)
+plotLine(x, coeffs)
+plt.show()
+</script></div>
+</div>
+<span class="incontext"><a href="Projects.html#solution-11">in-context</a></span>
+</body>
+</html>

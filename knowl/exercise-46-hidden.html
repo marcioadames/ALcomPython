@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-30T11:27:24-03:00       *-->
+<!--*       on 2024-05-14T16:03:02-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,6 +12,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
-<body><article class="exercise exercise-like">Verifique que \(S = \left\{ f \in C^2(a,b) \left| f''(x) + f(x) =0 \,\, \forall \,\, x \in (a,b) \right.\right\}\) é um subespaço de \(C^2(a,b) \text{.}\)</article></body>
+<body><article class="exercise exercise-like"><p>Encontre o raio e o centro da circunferência que melhor se ajusta aos pontos obtidos. Dica: Monte um sistema com 3 incógnitas</p>
+<p>Você pode utilizar o código abaixo para observar graficamente a circunferencia obtida:</p>
+<div class="sagecell-sage" id="sage-40"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+# insira as coordenadas do centro do círculo e seu raio
+centro = ( , )
+raio = 
+
+points = 
+
+def setBoundaries(radius, x0, y0):
+    plt.xlim(-radius+x0-5, radius+x0+5)
+    plt.ylim(-radius+y0-5, radius+y0+5)
+
+def plotPoints(points):
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.gca().set_aspect('equal')
+    plt.scatter(x, y, c='#000000')
+
+def plotLine(radius, x0, y0):
+    theta = np.linspace(0, 2*np.pi, 1000)
+    x1 = x0+radius*np.cos(theta)
+    x2 = y0+radius*np.sin(theta)
+    plt.plot(x1, x2)
+
+plt.clf()
+plotPoints(points)
+plotLine(raio, centro[0], centro[1])
+setBoundaries(raio, centro[0], centro[1])
+plt.show()
+</script></div>
+<a class="solution-knowl original" data-knowl="./knowl/solution-15-hidden.html" title="Solution 3.27.1"><span xmlns:svg="http://www.w3.org/2000/svg" class="type">Solution.</span> </a></article></body>
 </html>

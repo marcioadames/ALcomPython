@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-04-30T11:27:24-03:00       *-->
+<!--*       on 2024-05-14T16:03:01-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,10 +12,89 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
 <body>
 <article class="remark remark-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">5.12</span><span class="period">.</span>
-</h6>Note que \(N(A)\) não pode ser vazio, pois \(\vec{0} \in N(A)\) uma vez que \(A\vec{0} = \vec{0}\) para qualquer matriz.</article><span class="incontext"><a href="subescos.html#remark-15">in-context</a></span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.20</span><span class="period">.</span>
+</h6>Execute este código para gerar seus pontos aleatórios. Você pode modificar os valores mínimo e máximo de x e y. Não altere os valores de N_PONTOS e DISTORCAO <div class="sagecell-sage" id="sage-29"><script type="text/x-sage">import random as rd
+import matplotlib.pyplot as plt
+
+MIN_X = 0
+MAX_X = 50
+MIN_Y = 0
+MAX_Y = 50
+N_PONTOS = 10
+DISTORCAO = 7
+
+def randomPoint(minX, maxX, minY, maxY):
+    x = rd.randrange(minX, maxX) + rd.random()
+    y = rd.randrange(minY, maxY) + rd.random()
+    x = round(x, 2)
+    y = round(y, 2)
+    return (x,y)
+
+def generatePoints(totalPoints, minX, maxX, minY, maxY):
+    points = []
+    cresc = rd.randrange(0,2)
+    step = (maxY-minY)/totalPoints
+
+    if cresc == 1:
+        y0 = minY
+        for i in range(totalPoints):
+            infLimitX = round(minX + ((maxX-minX)/totalPoints) * i)
+            supLimitX = round(minX + ((maxX-minX)/totalPoints) * (i+1))
+            infLimitY = round(y0 + i*step) - DISTORCAO if round(y0 + i*step) - DISTORCAO > minY else round(y0 + i*step)
+            supLimitY = round(y0 + (i+1)*step) + DISTORCAO if round(y0 + (i+1)*step) < maxY else round(y0 + (i+1)*step)
+            point = randomPoint(infLimitX, supLimitX, infLimitY, supLimitY)
+            points.append(point)
+
+    else:
+        y0 = maxY
+        for i in range(totalPoints):
+            infLimitX = round(minX + ((maxX-minX)/totalPoints) * i)
+            supLimitX = round(minX + ((maxX-minX)/totalPoints) * (i+1))
+            infLimitY = round(y0 - (i+1)*step) - DISTORCAO if round(y0 - (i+1)*step) - DISTORCAO > minY else round(y0 - (i+1)*step)
+            supLimitY = round(y0 - i*step) + DISTORCAO if round(y0 - i*step) < maxY else round(y0 - i*step)
+            point = randomPoint(infLimitX, supLimitX, infLimitY, supLimitY)
+            points.append(point)
+
+    return points
+
+def printPoints(points):
+    print("Os pontos gerados são:")
+    for point in points:
+        print(point)
+    print("\n Para copiar e colar nos codigos seguintes:")
+    print("points = ", end='')
+    print(points)
+
+def plotPoints(points, xMin, xMax, yMin, yMax):
+    plt.clf()
+    x = []
+    y = []
+    for point in points:
+        x.append(point[0])
+        y.append(point[1])
+    
+    plt.xlim(xMin-xMin/10, xMax+xMax/10)
+    plt.ylim(yMin-yMin/10, yMax+yMax/10)
+    plt.scatter(x, y, c='#000000')
+
+
+points = generatePoints(N_PONTOS, MIN_X, MAX_X, MIN_Y, MAX_Y)
+plt.clf()
+printPoints(points)
+plotPoints(points, MIN_X, MAX_X, MIN_Y, MAX_Y)
+plt.show()
+</script></div></article><span class="incontext"><a href="Projects.html#remark-15">in-context</a></span>
 </body>
 </html>
