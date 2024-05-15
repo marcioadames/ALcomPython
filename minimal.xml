@@ -4504,6 +4504,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                             print(f'O erro associado é igual a {error}')
                                             return expCoeffs
 
+                                        plt.clf()
                                         boundaries = calcBoundaries(points)
                                         x = np.arange(boundaries[0], boundaries[1], 0.001)
                                         linCoeffs = linearFit(points)
