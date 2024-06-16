@@ -5094,11 +5094,11 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <title>Projeto 6 - Compressão de imagens retangulares utilizando SVD</title>
                     <p>
                         No projeto 5 foi abordada a compressão de imagens quadradas utilizando autovalores e autovetores através da decomposição <m>PDP^{-1}</m>. Seria possível realizar uma operação similar para imagens retangulares, representadas
-                        por matrizes não quadradas, uma vez que estas não admitem autovalores e autovetores? A resposta é sim! E isto é possível utilizando uma técnica amplamente utilizada em processamento digital de imagens: a Decomposição em valores singulares, ou SVD (sigla em ingês).
+                        por matrizes não quadradas, uma vez que estas não admitem autovalores e autovetores? A resposta é sim! Isto é possível graças a uma técnica amplamente utilizada em processamento digital de imagens: a Decomposição em valores singulares, ou SVD (sigla em ingês).
                     </p>
                     <remark>
                         <p>
-                            Para decompor uma matriz <m>A_{m\times n}</m>, <m>m &gt; n</m>, utilizando SVD, precisamos, primeiro calcular duas matrizes:
+                            Para decompor uma matriz <m>A_{m\times n}</m>, <m>m &gt; n</m>, utilizando SVD, precisamos primeiro calcular duas matrizes:
                             <m>AA^T</m>, de ordem <m>m\times m</m> e <m>A^TA</m>, de ordem <m>n\times n</m>
                         </p>
                         <p>
