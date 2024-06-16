@@ -4808,9 +4808,339 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             </sage>
                         </exercise>
                 </subsection>
-           </section>           
+                <subsection xml:id="Proj5">
+                    <title>Projeto 5 - Compressão de imagens quadradas com autovalores e autovetores</title>
+                    <p>
+                        Em um computador, uma imagem (em preto e branco) é representada por uma matriz, onde cada valor representa um pixel, isto é, um ponto da imagem. Este valor pode ir de 0 (preto) a 255 (branco).
+                        Imagens coloridas são representadas por três matrizes: Uma referente ao canal vermelho (R), outra referente ao canal verde (G) e outra referente ao canal azul (B). Da mesma forma, 
+                        quando um pixel é representado pelo valor 0 nas três matrizes, temos a cor preta. Quando o pixel é representado pelo valor 255 nas três matrizes, temos a cor branca. Valores intermediários
+                        representam ponderações de vermelho, verde e azul, de modo a formar todas as outras cores possíveis. Para transformar uma imagem colorida em uma imagem preta e branca, basta fazer uma média simples entre
+                        os elementos <m>a_{ij}</m> das matrizes R, G e B.
+                    </p>
+                    <p>
+                        Ao representarmos imagens quadradas como matrizes, podemos extrair seus autovalores e autovetores, obtendo uma base de autovetores para o espaço coluna da matriz da imagem. Neste projeto, será abordado
+                        o processo de compressão de imagens utiizando estas características.
+                    </p>
+                    <exercise>
+                        <p>
+                            Procure uma imagem quadrada qualquer para ver sua representação em três canais. Você deve fornecer ao programa o link de uma imagem. 
+                        </p>
+                        <p>
+                            Observação: Devido a uma trava existente no SageMath (recurso utilizado para executar os códigos no site), o programa não consegue se comunicar com a maioria dos sites. Sabe-se que quaisquer links de imagens da wikipedia
+                            (wikimedia) conseguem ser acessados para obter a imagem, portanto, utilize alguma imagem proveniente desta. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.
+                        </p>
+                        <sage>
+                            <input>
+                                import requests
+                                import numpy as np
+                                import matplotlib.pyplot as plt
+                                from skimage import color
+                                from skimage import io
+
+                                #Coloque o link da sua imagem aqui!
+                                url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+
+                                # Função que faz a conexão com a URL e retorna a resposta
+                                def getFromUrl(url):
+                                    img = io.imread(url)
+                                    if img.shape[0] != img.shape[1]:
+                                        raise Exception("A imagem deve ser quadrada!")
+                                    return img
+
+                                # Funções que separa os canais RGB da imagem
+                                def getRedChannel(img):
+                                    dataR = img.copy()
+                                    dataR[:,:,1] =0 
+                                    dataR[:,:,2] =0
+                                    return dataR
+
+                                def getGreenChannel(img):
+                                    dataG = img.copy()
+                                    dataG[:,:,0] =0 
+                                    dataG[:,:,2] =0
+                                    return dataG
+
+                                def getBlueChannel(img):
+                                    dataB = img.copy()
+                                    dataB[:,:,0] =0 
+                                    dataB[:,:,1] =0
+                                    return dataB
+
+                                # Função que transforma a imagem em preto e branco
+                                def getGreyImage(img):
+                                    dataPB = []
+                                    for i in range(np.shape(img)[0]):
+                                        dataPB.append([])
+                                        for j in range(np.shape(img)[1]):
+                                            dataPB[i].append(np.mean(img[i][j]))
+                                    return np.array(dataPB)
+
+                                # Chamam-se as funções para pegar a imagem e extrair seus canais
+                                img = getFromUrl(url)
+                                imgR = getRedChannel(img)
+                                imgG = getGreenChannel(img)
+                                imgB = getBlueChannel(img)
+                                imgGrey = getGreyImage(img)
+
+                                print("A imagem original é:")
+                                plt.imshow(img)
+                                plt.show()
+                                plt.clf()
+                                print("O canal R (vermelho) da imagem é dado por:")
+                                plt.imshow(imgR)
+                                plt.show()
+                                plt.clf()
+                                print("O canal G (verde) da imagem é dado por:")
+                                plt.imshow(imgG)
+                                plt.show()
+                                plt.clf()
+                                print("O canal B (azul) da imagem é dado por:")
+                                plt.imshow(imgB)
+                                plt.show()
+                                plt.clf()
+                                print("Fazendo uma média entre os três canais, obtem-se uma imagem em preto e branco:")
+                                plt.imshow(imgGrey, cmap='gray')
+                                plt.show()
+                                plt.clf()
+                            </input>
+                            <output>
+                                out
+                            </output>
+                        </sage>
+                    </exercise>
+                    <remark>
+                        <p> 
+                            Agora, iremos analisar os autovalores e autovetores associados à matriz da imagem em preto e branco para realizar uma decomposição <m>A=PDP^{-1}</m>. 
+                        </p>
+                        <p>
+                            Nesta decomposição, multilplica-se a matriz <m>P</m>, cujas colunas são os autovetores de <m>A</m>, pela
+                            matriz diagonal <m>D</m>, que contem os autovalores da matriz em sua diagonal principal. O produto é, então, multiplicado por <m>P^{-1}</m>. Pode-se interpretar o produto <m>PD</m> como a operação de "esticar" cada autovetor através da multiplicação por seu autovalor correspondente.
+                            Nesse contexto, autovalores muito próximos de 0 tem um efeito quase insignificante na matriz final <m>A</m>, e por isso, podemos descartá-los, bem como os autovetores associados a eles.
+                        </p>
+                        <p>
+                            Ao mantermos apenas os <m>p</m> autovalores mais significativos da matriz <m>A_{n\times n}</m>, a matriz <m>D</m> passa a ter ordem <m>p\times p</m>. Os autovetores referentes aos autovalores eliminados também são descartados, de modo a excluir as referentes colunas de <m>P</m>, que passa a ter ordem
+                            <m>n\times p</m>, bem como as referentes linhas de <m>P^{-1}</m>, que passa a ter ordem <m>p\times n</m>.
+                        </p>
+                        <p>
+                            Este processo pode ser usado para comprimir imagens, eliminando uma quantidade significativa da memória utilizada para armazená-la.
+                        </p>
 
 
+                    </remark>
+                    <exercise>
+                        <p>
+                            O programa a seguir extrai os autovetores da imagem em preto e branco e os ordena. Você pode observar graficamente o módulo de cada autovalor, bem como o peso acumulado (soma de todos os autovalores de 0 a <m>x</m>). Com base nisso, reflita: Quantos autovalores você manteria? Quantos você descartaria?
+                        </p>
+                        <sage>
+                            <input>
+                                import requests
+                                import numpy as np
+                                import matplotlib.pyplot as plt
+                                from skimage import color
+                                from skimage import io
+
+                                #Coloque o link da sua imagem aqui!
+                                url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+
+                                # Função que faz a conexão com a URL e retorna a resposta
+                                def getFromUrl(url):
+                                    img = io.imread(url)
+                                    if img.shape[0] != img.shape[1]:
+                                        raise Exception("A imagem deve ser quadrada!")
+                                    return img
+
+                                # Função que transforma a imagem em preto e branco
+                                def getGreyImage(img):
+                                    dataPB = []
+                                    for i in range(np.shape(img)[0]):
+                                        dataPB.append([])
+                                        for j in range(np.shape(img)[1]):
+                                            dataPB[i].append(np.mean(img[i][j]))
+                                    return np.array(dataPB)
+
+                                # Obtemos os autovalores e autovetores da matriz da imagem em preto e branco
+                                def getEigValuesAndVectors(dataPB):
+                                    eigValues, eigVectors = np.linalg.eig(dataPB)
+                                    return eigValues, eigVectors
+
+                                # Obtemos a norma dos autovalores e os ordenamos em ordem decrescente
+                                def eigSort(eigValues, eigVectors):
+                                    eValNorm = []
+                                    for i in range(len(eigValues)):
+                                        eValNorm.append(np.linalg.norm(eigValues[i]))
+                                    eValNorm = np.array(eValNorm)
+                                    idx = eValNorm.argsort()[::-1]
+                                    sortedEVal = eigValues[idx]
+                                    sortedEVec = eigVectors[:,idx]
+                                    return eValNorm, sortedEVal, sortedEVec
+
+                                def accumulatedWeight(eigValues):
+                                    weight = np.sum(eigValues)
+                                    n = len(eigValues)
+                                    triangular = np.tril(np.ones((n, n), dtype=int)).transpose()
+                                    accumWeight = eigValues.dot(triangular)/weight
+                                    return accumWeight
+
+                                img = getFromUrl(url)
+                                imgGrey = getGreyImage(img)
+
+                                # Chama-se as funções para obter os autovalores e autovetores ordenados da imagem em preto e branco
+                                sortedEVNorms, sortedEigValues, sortedEigVectors = eigSort(*getEigValuesAndVectors(imgGrey))
+
+                                # Chama-se a função para obter o peso acumulado de autovalores
+                                accumWeight = accumulatedWeight(sortedEVNorms)
+
+                                print(f"A matriz que representa a imagem {len(sortedEVNorms)}x{len(sortedEVNorms)} possui {len(sortedEVNorms)} autovalores.")
+                                print("Aqui estão os autovalores ordenados da matriz da imagem em preto e branco:")
+                                plt.xlabel("Autovalor")
+                                plt.ylabel("Módulo do autovalor")
+                                plt.scatter(range(1, len(sortedEVNorms)+1), sortedEVNorms)
+                                plt.show()
+                                plt.clf()
+                                print("Aqui está o peso acumulado (soma dos autovalores de 0 até x):")
+                                plt.xlabel("Quantidade de autovalores")
+                                plt.ylabel("Peso acumulado")
+                                plt.plot(range(1, len(accumWeight) + 1), accumWeight)
+                                plt.show()
+                                plt.clf()
+                            </input>
+                            <output>
+                                out
+                            </output>
+                        </sage>
+                        <solution>
+                            Observe que uma boa parte dos autovalores é insignificante se comparada à soma dos módulos de todos os autovalores. Esse conjunto de valores pequenos pode ser descartado sem grandes perdas de qualidade na imagem, mas com significativo
+                            impacto em seu tamanho no armazenamento.
+                        </solution>
+                    </exercise>
+                    <exercise>
+                        <p>
+                            Agora, execute o código abaixo para visualizar a imagem compactada gerada ao utilizar a decomposição <m>PDP^{-1}</m> e manter apenas os primeiros <m>n</m> autovalores:
+                        </p>
+                        <sage>7
+                            <input>
+                                import requests
+                                import numpy as np
+                                import matplotlib.pyplot as plt
+                                from skimage import color
+                                from skimage import io
+
+                                url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+                                nAutovalores = 50
+
+                                # Função que faz a conexão com a URL e retorna a resposta
+                                def getFromUrl(url):
+                                    img = io.imread(url)
+                                    if img.shape[0] != img.shape[1]:
+                                        raise Exception("A imagem deve ser quadrada!")
+                                    return img
+
+                                # Função que transforma a imagem em preto e branco
+                                def getGreyImage(img):
+                                    dataPB = []
+                                    for i in range(np.shape(img)[0]):
+                                        dataPB.append([])
+                                        for j in range(np.shape(img)[1]):
+                                            dataPB[i].append(np.mean(img[i][j]))
+                                    return np.array(dataPB)
+
+                                # Obtemos os autovalores e autovetores da matriz da imagem em preto e branco
+                                def getEigValuesAndVectors(dataPB):
+                                    eigValues, eigVectors = np.linalg.eig(dataPB)
+                                    return eigValues, eigVectors
+
+                                # Obtemos a norma dos autovalores e os ordenamos em ordem decrescente
+                                def eigSort(eigValues, eigVectors):
+                                    eValNorm = []
+                                    for i in range(len(eigValues)):
+                                        eValNorm.append(np.linalg.norm(eigValues[i]))
+                                    eValNorm = np.array(eValNorm)
+                                    idx = eValNorm.argsort()[::-1]
+                                    sortedEVal = eigValues[idx]
+                                    sortedEVec = eigVectors[:,idx]
+                                    return eValNorm, sortedEVal, sortedEVec
+
+                                # Chamam-se as funções para pegar a imagem e extrair seus canais
+                                img = getFromUrl(url)
+                                imgGrey = getGreyImage(img)
+
+                                # Chamam-se as funções para obter os autovalores e autovetores ordenados da imagem em preto e branco
+                                sortedEVNorms, sortedEigValues, sortedEigVectors = eigSort(*getEigValuesAndVectors(imgGrey))
+
+                                # Selecionamos os autovetores associados aos nAutovalores escolhidos e criamos as matrizes PDP^-1
+                                P = sortedEigVectors
+                                D = np.diag(sortedEigValues[:nAutovalores])
+                                invP = np.linalg.inv(P)
+                                P = P[:, :nAutovalores]
+                                invP = invP[:nAutovalores, :]
+                                newImg = np.dot(np.dot(P, D), invP)
+
+                                print("A imagem original é:")
+                                plt.imshow(imgGrey, cmap='gray')
+                                plt.show()
+                                plt.clf()
+                                print("A imagem compactada é:")
+                                plt.imshow(newImg.real, cmap='gray')
+                                plt.show()
+                                plt.clf()
+                            </input>
+                            <output>
+                                out
+                            </output>
+                        </sage>
+                    </exercise>
+                </subsection>
+                <subsection xml:id="Proj6">
+                    <title>Projeto 6 - Compressão de imagens retangulares utilizando SVD</title>
+                    <p>
+                        No projeto 5 foi abordada a compressão de imagens quadradas utilizando autovalores e autovetores através da decomposição <m>PDP^{-1}</m>. Seria possível realizar uma operação similar para imagens retangulares, representadas
+                        por matrizes não quadradas, uma vez que estas não admitem autovalores e autovetores? A resposta é sim! E isto é possível utilizando uma técnica amplamente utilizada em processamento digital de imagens: a Decomposição em valores singulares, ou SVD (sigla em ingês).
+                    </p>
+                    <remark>
+                        <p>
+                            Para decompor uma matriz <m>A_{m\times n}</m>, <m>m &gt; n</m>, utilizando SVD, precisamos, primeiro calcular duas matrizes:
+                            <m>AA^T</m>, de ordem <m>m\times m</m> e <m>A^TA</m>, de ordem <m>n\times n</m>
+                        </p>
+                        <p>
+                            Observe que estas duas matrizes são simétricas, e portanto possuem <m>m</m> e <m>n</m> autovalores reais e distintos, respectivamente. Se ordenarmos estes autovalores, os correspondentes de cada matriz serão iguais, isto é, o 
+                            autovalor mais significativo de <m>A^TA</m> é igual ao autovalor mais significativo de <m>AA^T</m>, assim como o segundo autovalor mais significativo de cada matriz, e assim em diante.
+                        </p>
+                        <p>
+                            Definem-se, então, as matrizes <m>U</m> e <m>V</m>:
+                        </p>
+                        <ol>
+                            <li> <m>U</m> é a matriz <m>m\times m</m> cujas colunas são os autovetores de <m>AA^T</m> </li>
+                            <li> <m>V</m> é a matriz <m>n\times n</m> cujas colunas são os autovetores de <m>A^TA</m> </li>
+                        </ol>
+                        <p>
+                            Por fim, define-se uma matriz <m>\Sigma _{m\times n}</m>:
+                        </p>
+                        <me>
+                            \Sigma _{m\times n} = \begin{pmatrix}
+                                \sigma_1 \amp 0 \amp 0 \amp \cdots \amp 0 \\
+                                0 \amp \sigma_1 \amp 0 \amp \cdots \amp 0 \\
+                                \vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\
+                                0 \amp 0 \amp 0 \amp \cdots \amp \sigma_n \\
+                                \vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\    
+                                0 \amp 0 \amp 0 \amp \cdots \amp 0      
+                                \end{pmatrix}
+                        </me>
+                        <p>
+                            Onde cada <m>\sigma_i</m> é um valor singular de <m>A^TA</m>, de modo que <m>\sigma_i = \sqrt{\lambda_i}</m>.
+                        </p>
+                        <p>
+                            Em linhas gerais, <m>\Sigma_m\times n</m> é uma matriz cujas <m>n</m> primeiras linhas correspondem a uma matriz diagonal com os valores singulares em sua 
+                            diagonal principal. Suas <m>m-n</m> linhas restantes contém somente zeros.
+                        </p>
+                        <p>
+                            Assim sendo, temos a decomposição em valores singulares de <m>A</m> como:
+                        </p>
+                        <me>
+                            A=U\Sigma V^T
+                        </me>
+                    </remark>
+                </subsection>
+            </section>           
 
 
         <!--  *********************************************************

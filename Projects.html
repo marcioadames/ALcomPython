@@ -172,6 +172,8 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj3" class="internal"><span class="codenumber">3.3</span> <span class="title">Projeto 3 - Ajustando dados aleatórios</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj4" class="internal"><span class="codenumber">3.4</span> <span class="title">Projeto 4 - Metrologia coordenada</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj5" class="internal"><span class="codenumber">3.5</span> <span class="title">Projeto 5 - Compressão de imagens quadradas com autovalores e autovetores</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj6" class="internal"><span class="codenumber">3.6</span> <span class="title">Projeto 6 - Compressão de imagens retangulares utilizando SVD</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -2284,7 +2286,269 @@ plotPoints(points)
 plotLine(radius, x0, y0)
 setBoundaries(radius, x0, y0)
 plt.show()
-</script></pre></article></details></section></section></div>
+</script></pre></article></details></section><section class="subsection" id="Proj5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.5</span><span class="space"> </span><span class="title">Projeto 5 - Compressão de imagens quadradas com autovalores e autovetores</span>
+</h3>
+<div class="para" id="Proj5-2">Em um computador, uma imagem (em preto e branco) é representada por uma matriz, onde cada valor representa um pixel, isto é, um ponto da imagem. Este valor pode ir de 0 (preto) a 255 (branco). Imagens coloridas são representadas por três matrizes: Uma referente ao canal vermelho (R), outra referente ao canal verde (G) e outra referente ao canal azul (B). Da mesma forma, quando um pixel é representado pelo valor 0 nas três matrizes, temos a cor preta. Quando o pixel é representado pelo valor 255 nas três matrizes, temos a cor branca. Valores intermediários representam ponderações de vermelho, verde e azul, de modo a formar todas as outras cores possíveis. Para transformar uma imagem colorida em uma imagem preta e branca, basta fazer uma média simples entre os elementos <span class="process-math">\(a_{ij}\)</span> das matrizes R, G e B.</div>
+<div class="para" id="Proj5-3">Ao representarmos imagens quadradas como matrizes, podemos extrair seus autovalores e autovetores, obtendo uma base de autovetores para o espaço coluna da matriz da imagem. Neste projeto, será abordado o processo de compressão de imagens utiizando estas características.</div>
+<details id="Proj5-4" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.30</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj5-4-1">Procure uma imagem quadrada qualquer para ver sua representação em três canais. Você deve fornecer ao programa o link de uma imagem.</div>
+<div class="para" id="Proj5-4-2">Observação: Devido a uma trava existente no SageMath (recurso utilizado para executar os códigos no site), o programa não consegue se comunicar com a maioria dos sites. Sabe-se que quaisquer links de imagens da wikipedia (wikimedia) conseguem ser acessados para obter a imagem, portanto, utilize alguma imagem proveniente desta. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.</div>
+<pre id="Proj5-4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+
+#Coloque o link da sua imagem aqui!
+url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    if img.shape[0] != img.shape[1]:
+        raise Exception("A imagem deve ser quadrada!")
+    return img
+
+# Funções que separa os canais RGB da imagem
+def getRedChannel(img):
+    dataR = img.copy()
+    dataR[:,:,1] =0 
+    dataR[:,:,2] =0
+    return dataR
+
+def getGreenChannel(img):
+    dataG = img.copy()
+    dataG[:,:,0] =0 
+    dataG[:,:,2] =0
+    return dataG
+
+def getBlueChannel(img):
+    dataB = img.copy()
+    dataB[:,:,0] =0 
+    dataB[:,:,1] =0
+    return dataB
+
+# Função que transforma a imagem em preto e branco
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+# Chamam-se as funções para pegar a imagem e extrair seus canais
+img = getFromUrl(url)
+imgR = getRedChannel(img)
+imgG = getGreenChannel(img)
+imgB = getBlueChannel(img)
+imgGrey = getGreyImage(img)
+
+print("A imagem original é:")
+plt.imshow(img)
+plt.show()
+plt.clf()
+print("O canal R (vermelho) da imagem é dado por:")
+plt.imshow(imgR)
+plt.show()
+plt.clf()
+print("O canal G (verde) da imagem é dado por:")
+plt.imshow(imgG)
+plt.show()
+plt.clf()
+print("O canal B (azul) da imagem é dado por:")
+plt.imshow(imgB)
+plt.show()
+plt.clf()
+print("Fazendo uma média entre os três canais, obtem-se uma imagem em preto e branco:")
+plt.imshow(imgGrey, cmap='gray')
+plt.show()
+plt.clf()
+</script></pre></article></details><article class="remark remark-like" id="Proj5-5"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.31</span><span class="period">.</span>
+</h4>
+<div class="para" id="Proj5-5-1">Agora, iremos analisar os autovalores e autovetores associados à matriz da imagem em preto e branco para realizar uma decomposição <span class="process-math">\(A=PDP^{-1}\text{.}\)</span>
+</div> <div class="para" id="Proj5-5-2">Nesta decomposição, multilplica-se a matriz <span class="process-math">\(P\text{,}\)</span> cujas colunas são os autovetores de <span class="process-math">\(A\text{,}\)</span> pela matriz diagonal <span class="process-math">\(D\text{,}\)</span> que contem os autovalores da matriz em sua diagonal principal. O produto é, então, multiplicado por <span class="process-math">\(P^{-1}\text{.}\)</span> Pode-se interpretar o produto <span class="process-math">\(PD\)</span> como a operação de "esticar" cada autovetor através da multiplicação por seu autovalor correspondente. Nesse contexto, autovalores muito próximos de 0 tem um efeito quase insignificante na matriz final <span class="process-math">\(A\text{,}\)</span> e por isso, podemos descartá-los, bem como os autovetores associados a eles.</div> <div class="para" id="Proj5-5-3">Ao mantermos apenas os <span class="process-math">\(p\)</span> autovalores mais significativos da matriz <span class="process-math">\(A_{n\times n}\text{,}\)</span> a matriz <span class="process-math">\(D\)</span> passa a ter ordem <span class="process-math">\(p\times p\text{.}\)</span> Os autovetores referentes aos autovalores eliminados também são descartados, de modo a excluir as referentes colunas de <span class="process-math">\(P\text{,}\)</span> que passa a ter ordem <span class="process-math">\(n\times p\text{,}\)</span> bem como as referentes linhas de <span class="process-math">\(P^{-1}\text{,}\)</span> que passa a ter ordem <span class="process-math">\(p\times n\text{.}\)</span>
+</div> <div class="para" id="Proj5-5-4">Este processo pode ser usado para comprimir imagens, eliminando uma quantidade significativa da memória utilizada para armazená-la.</div></article><details id="Proj5-6" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.32</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj5-6-1">O programa a seguir extrai os autovetores da imagem em preto e branco e os ordena. Você pode observar graficamente o módulo de cada autovalor, bem como o peso acumulado (soma de todos os autovalores de 0 a <span class="process-math">\(x\)</span>). Com base nisso, reflita: Quantos autovalores você manteria? Quantos você descartaria?</div>
+<pre id="Proj5-6-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+
+#Coloque o link da sua imagem aqui!
+url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    if img.shape[0] != img.shape[1]:
+        raise Exception("A imagem deve ser quadrada!")
+    return img
+
+# Função que transforma a imagem em preto e branco
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+# Obtemos os autovalores e autovetores da matriz da imagem em preto e branco
+def getEigValuesAndVectors(dataPB):
+    eigValues, eigVectors = np.linalg.eig(dataPB)
+    return eigValues, eigVectors
+
+# Obtemos a norma dos autovalores e os ordenamos em ordem decrescente
+def eigSort(eigValues, eigVectors):
+    eValNorm = []
+    for i in range(len(eigValues)):
+        eValNorm.append(np.linalg.norm(eigValues[i]))
+    eValNorm = np.array(eValNorm)
+    idx = eValNorm.argsort()[::-1]
+    sortedEVal = eigValues[idx]
+    sortedEVec = eigVectors[:,idx]
+    return eValNorm, sortedEVal, sortedEVec
+
+def accumulatedWeight(eigValues):
+    weight = np.sum(eigValues)
+    n = len(eigValues)
+    triangular = np.tril(np.ones((n, n), dtype=int)).transpose()
+    accumWeight = eigValues.dot(triangular)/weight
+    return accumWeight
+
+img = getFromUrl(url)
+imgGrey = getGreyImage(img)
+
+# Chama-se as funções para obter os autovalores e autovetores ordenados da imagem em preto e branco
+sortedEVNorms, sortedEigValues, sortedEigVectors = eigSort(*getEigValuesAndVectors(imgGrey))
+
+# Chama-se a função para obter o peso acumulado de autovalores
+accumWeight = accumulatedWeight(sortedEVNorms)
+
+print(f"A matriz que representa a imagem {len(sortedEVNorms)}x{len(sortedEVNorms)} possui {len(sortedEVNorms)} autovalores.")
+print("Aqui estão os autovalores ordenados da matriz da imagem em preto e branco:")
+plt.xlabel("Autovalor")
+plt.ylabel("Módulo do autovalor")
+plt.scatter(range(1, len(sortedEVNorms)+1), sortedEVNorms)
+plt.show()
+plt.clf()
+print("Aqui está o peso acumulado (soma dos autovalores de 0 até x):")
+plt.xlabel("Quantidade de autovalores")
+plt.ylabel("Peso acumulado")
+plt.plot(range(1, len(accumWeight) + 1), accumWeight)
+plt.show()
+plt.clf()
+</script></pre>
+<details id="Proj5-6-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">Observe que uma boa parte dos autovalores é insignificante se comparada à soma dos módulos de todos os autovalores. Esse conjunto de valores pequenos pode ser descartado sem grandes perdas de qualidade na imagem, mas com significativo impacto em seu tamanho no armazenamento.</div></details></article></details><details id="Proj5-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.33</span><span class="period">.</span>
+</h4></summary><article class="exercise exercise-like"><div class="para" id="Proj5-7-1">Agora, execute o código abaixo para visualizar a imagem compactada gerada ao utilizar a decomposição <span class="process-math">\(PDP^{-1}\)</span> e manter apenas os primeiros <span class="process-math">\(n\)</span> autovalores:</div>
+<pre id="Proj5-7-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+
+url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+nAutovalores = 50
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    if img.shape[0] != img.shape[1]:
+        raise Exception("A imagem deve ser quadrada!")
+    return img
+
+# Função que transforma a imagem em preto e branco
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+# Obtemos os autovalores e autovetores da matriz da imagem em preto e branco
+def getEigValuesAndVectors(dataPB):
+    eigValues, eigVectors = np.linalg.eig(dataPB)
+    return eigValues, eigVectors
+
+# Obtemos a norma dos autovalores e os ordenamos em ordem decrescente
+def eigSort(eigValues, eigVectors):
+    eValNorm = []
+    for i in range(len(eigValues)):
+        eValNorm.append(np.linalg.norm(eigValues[i]))
+    eValNorm = np.array(eValNorm)
+    idx = eValNorm.argsort()[::-1]
+    sortedEVal = eigValues[idx]
+    sortedEVec = eigVectors[:,idx]
+    return eValNorm, sortedEVal, sortedEVec
+
+# Chamam-se as funções para pegar a imagem e extrair seus canais
+img = getFromUrl(url)
+imgGrey = getGreyImage(img)
+
+# Chamam-se as funções para obter os autovalores e autovetores ordenados da imagem em preto e branco
+sortedEVNorms, sortedEigValues, sortedEigVectors = eigSort(*getEigValuesAndVectors(imgGrey))
+
+# Selecionamos os autovetores associados aos nAutovalores escolhidos e criamos as matrizes PDP^-1
+P = sortedEigVectors
+D = np.diag(sortedEigValues[:nAutovalores])
+invP = np.linalg.inv(P)
+P = P[:, :nAutovalores]
+invP = invP[:nAutovalores, :]
+newImg = np.dot(np.dot(P, D), invP)
+
+print("A imagem original é:")
+plt.imshow(imgGrey, cmap='gray')
+plt.show()
+plt.clf()
+print("A imagem compactada é:")
+plt.imshow(newImg.real, cmap='gray')
+plt.show()
+plt.clf()
+</script></pre></article></details></section><section class="subsection" id="Proj6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.6</span><span class="space"> </span><span class="title">Projeto 6 - Compressão de imagens retangulares utilizando SVD</span>
+</h3>
+<div class="para" id="Proj6-2">No projeto 5 foi abordada a compressão de imagens quadradas utilizando autovalores e autovetores através da decomposição <span class="process-math">\(PDP^{-1}\text{.}\)</span> Seria possível realizar uma operação similar para imagens retangulares, representadas por matrizes não quadradas, uma vez que estas não admitem autovalores e autovetores? A resposta é sim! E isto é possível utilizando uma técnica amplamente utilizada em processamento digital de imagens: a Decomposição em valores singulares, ou SVD (sigla em ingês).</div>
+<article class="remark remark-like" id="Proj6-3"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.34</span><span class="period">.</span>
+</h4>
+<div class="para" id="Proj6-3-1">Para decompor uma matriz <span class="process-math">\(A_{m\times n}\text{,}\)</span> <span class="process-math">\(m &gt; n\text{,}\)</span> utilizando SVD, precisamos, primeiro calcular duas matrizes: <span class="process-math">\(AA^T\text{,}\)</span> de ordem <span class="process-math">\(m\times m\)</span> e <span class="process-math">\(A^TA\text{,}\)</span> de ordem <span class="process-math">\(n\times n\)</span>
+</div> <div class="para" id="Proj6-3-2">Observe que estas duas matrizes são simétricas, e portanto possuem <span class="process-math">\(m\)</span> e <span class="process-math">\(n\)</span> autovalores reais e distintos, respectivamente. Se ordenarmos estes autovalores, os correspondentes de cada matriz serão iguais, isto é, o autovalor mais significativo de <span class="process-math">\(A^TA\)</span> é igual ao autovalor mais significativo de <span class="process-math">\(AA^T\text{,}\)</span> assim como o segundo autovalor mais significativo de cada matriz, e assim em diante.</div> <div class="para" id="Proj6-3-3">Definem-se, então, as matrizes <span class="process-math">\(U\)</span> e <span class="process-math">\(V\text{:}\)</span>
+</div> <ol class="decimal">
+<li id="Proj6-3-4-1"><div class="para" id="p-derived-Proj6-3-4-1">
+<span class="process-math">\(U\)</span> é a matriz <span class="process-math">\(m\times m\)</span> cujas colunas são os autovetores de <span class="process-math">\(AA^T\)</span>
+</div></li>
+<li id="Proj6-3-4-2"><div class="para" id="p-derived-Proj6-3-4-2">
+<span class="process-math">\(V\)</span> é a matriz <span class="process-math">\(n\times n\)</span> cujas colunas são os autovetores de <span class="process-math">\(A^TA\)</span>
+</div></li>
+</ol> <div class="para" id="Proj6-3-5">Por fim, define-se uma matriz <span class="process-math">\(\Sigma _{m\times n}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Sigma _{m\times n} = \begin{pmatrix}
+\sigma_1 \amp 0 \amp 0 \amp \cdots \amp 0 \\
+0 \amp \sigma_1 \amp 0 \amp \cdots \amp 0 \\
+\vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\
+0 \amp 0 \amp 0 \amp \cdots \amp \sigma_n \\
+\vdots \amp \vdots \amp \ddots \amp \cdots \amp \vdots \\    
+0 \amp 0 \amp 0 \amp \cdots \amp 0      
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="Proj6-3-7">Onde cada <span class="process-math">\(\sigma_i\)</span> é um valor singular de <span class="process-math">\(A^TA\text{,}\)</span> de modo que <span class="process-math">\(\sigma_i = \sqrt{\lambda_i}\text{.}\)</span>
+</div> <div class="para" id="Proj6-3-8">Em linhas gerais, <span class="process-math">\(\Sigma_m\times n\)</span> é uma matriz cujas <span class="process-math">\(n\)</span> primeiras linhas correspondem a uma matriz diagonal com os valores singulares em sua diagonal principal, e suas <span class="process-math">\(m-n\)</span> linhas restantes contém somente zeros.</div> <div class="para" id="Proj6-3-9">Assim sendo, temos a decomposição em valores singulares de <span class="process-math">\(A\)</span> como:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=U\Sigma V^T
+\end{equation*}
+</div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="Matrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="espacos-vetoriais.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
