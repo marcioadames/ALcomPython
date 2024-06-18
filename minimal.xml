@@ -27,7 +27,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 <!--     xelatex minimal.tex                                                                      -->
 <!--                                                                                              -->
 <!-- (2) HTML:                                                                                    -->
-<!--xsltproc mathbook/xsl/pretext-html.xsl minimal.xml-->
+<!--xsltproc ../mathbook/xsl/pretext-html.xsl minimal.xml-->
 <!--     <browser>  minimal.html                                                                  -->
 <!--                                                                                              -->
 <!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
@@ -4823,11 +4823,11 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     </p>
                     <exercise>
                         <p>
-                            Procure uma imagem quadrada qualquer para ver sua representação em três canais. Você deve fornecer ao programa o link de uma imagem. 
+                            Procure uma <term>imagem quadrada</term> (e. g. 1080 x 1080, 400 x 400) qualquer para ver sua representação em três canais. Você deve fornecer ao programa o link de uma imagem. 
                         </p>
                         <p>
                             Observação: Devido a uma trava existente no SageMath (recurso utilizado para executar os códigos no site), o programa não consegue se comunicar com a maioria dos sites. Sabe-se que quaisquer links de imagens da wikipedia
-                            (wikimedia) conseguem ser acessados para obter a imagem, portanto, utilize alguma imagem proveniente desta. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.
+                            (wikimedia) conseguem ser acessados para obter a imagem. <emph>Portanto, utilize alguma imagem proveniente de</emph> <url>https://commons.wikimedia.org/wiki/Category:Square_images</url>. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.
                         </p>
                         <sage>
                             <input>
@@ -4838,7 +4838,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 from skimage import io
 
                                 #Coloque o link da sua imagem aqui!
-                                url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+                                url = "https://upload.wikimedia.org/wikipedia/commons/5/50/Bing_AI_image_of_a_19th-century_brakeman_swinging_a_lantern_to_stop_an_approaching_train_in_a_rock_cut_on_a_winter_night.jpeg"
 
                                 # Função que faz a conexão com a URL e retorna a resposta
                                 def getFromUrl(url):
@@ -4912,24 +4912,11 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         <p> 
                             Agora, iremos analisar os autovalores e autovetores associados à matriz da imagem em preto e branco para realizar uma decomposição <m>A=PDP^{-1}</m>. 
                         </p>
-                        <p>
-                            Nesta decomposição, multilplica-se a matriz <m>P</m>, cujas colunas são os autovetores de <m>A</m>, pela
-                            matriz diagonal <m>D</m>, que contem os autovalores da matriz em sua diagonal principal. O produto é, então, multiplicado por <m>P^{-1}</m>. Pode-se interpretar o produto <m>PD</m> como a operação de "esticar" cada autovetor através da multiplicação por seu autovalor correspondente.
-                            Nesse contexto, autovalores muito próximos de 0 tem um efeito quase insignificante na matriz final <m>A</m>, e por isso, podemos descartá-los, bem como os autovetores associados a eles.
-                        </p>
-                        <p>
-                            Ao mantermos apenas os <m>p</m> autovalores mais significativos da matriz <m>A_{n\times n}</m>, a matriz <m>D</m> passa a ter ordem <m>p\times p</m>. Os autovetores referentes aos autovalores eliminados também são descartados, de modo a excluir as referentes colunas de <m>P</m>, que passa a ter ordem
-                            <m>n\times p</m>, bem como as referentes linhas de <m>P^{-1}</m>, que passa a ter ordem <m>p\times n</m>.
-                        </p>
-                        <p>
-                            Este processo pode ser usado para comprimir imagens, eliminando uma quantidade significativa da memória utilizada para armazená-la.
-                        </p>
-
 
                     </remark>
                     <exercise>
                         <p>
-                            O programa a seguir extrai os autovetores da imagem em preto e branco e os ordena. Você pode observar graficamente o módulo de cada autovalor, bem como o peso acumulado (soma de todos os autovalores de 0 a <m>x</m>). Com base nisso, reflita: Quantos autovalores você manteria? Quantos você descartaria?
+                            O programa a seguir extrai os autovalores da imagem em preto e branco e os coloca em ordem decrescente de magnitude (norma ou tamanho). Você pode observar graficamente o módulo de cada autovalor, bem como o peso acumulado (soma dos módulos dos primeiros autovalores de 0 a <m>n</m> dividida pela soma de todos os autovalores). Com base nisso indique, justificando a sua resposta: quantos dos primeiros autovalores você precisaria manter para obter 20% da qualidade da imagem? E 50%? E 90%? Justifique suas respostas.
                         </p>
                         <sage>
                             <input>
@@ -4940,7 +4927,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 from skimage import io
 
                                 #Coloque o link da sua imagem aqui!
-                                url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+                                url = "https://upload.wikimedia.org/wikipedia/commons/5/50/Bing_AI_image_of_a_19th-century_brakeman_swinging_a_lantern_to_stop_an_approaching_train_in_a_rock_cut_on_a_winter_night.jpeg"
 
                                 # Função que faz a conexão com a URL e retorna a resposta
                                 def getFromUrl(url):
@@ -4992,8 +4979,15 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
                                 print(f"A matriz que representa a imagem {len(sortedEVNorms)}x{len(sortedEVNorms)} possui {len(sortedEVNorms)} autovalores.")
                                 print("Aqui estão os autovalores ordenados da matriz da imagem em preto e branco:")
-                                plt.xlabel("Autovalor")
+                                plt.xlabel("Posição do autovalor")
                                 plt.ylabel("Módulo do autovalor")
+                                plt.scatter(range(1, len(sortedEVNorms)+1), sortedEVNorms)
+                                plt.show()
+                                plt.clf()
+                                print("Aqui estão os autovalores ordenados em escala logaritmica:")
+                                plt.xlabel("Posição do autovalor")
+                                plt.ylabel("Módulo do autovalor")
+                                plt.yscale("log")
                                 plt.scatter(range(1, len(sortedEVNorms)+1), sortedEVNorms)
                                 plt.show()
                                 plt.clf()
@@ -5013,11 +5007,23 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             impacto em seu tamanho no armazenamento.
                         </solution>
                     </exercise>
+                    <p>
+                        Na decomposição <m>PDP^{-1}</m>, multilplica-se a matriz <m>P</m>, cujas colunas são os autovetores de <m>A</m>, pela
+                        matriz diagonal <m>D</m>, que contem os autovalores da matriz em sua diagonal principal. O produto é, então, multiplicado por <m>P^{-1}</m>. Pode-se interpretar o produto <m>PD</m> como a operação de "esticar" cada autovetor através da multiplicação por seu autovalor correspondente.
+                        Nesse contexto, autovalores muito próximos de 0 tem um efeito quase insignificante na matriz final <m>A</m>, e por isso, podemos descartá-los, bem como os autovetores associados a eles.
+                    </p>
+                    <p>
+                        Este processo pode ser usado para comprimir imagens, eliminando uma quantidade significativa da memória utilizada para armazená-la.
+                    </p>
+                    <p>
+                        Manter apenas os <m>r</m> autovalores mais significativos da matriz <m>A_{n\times n}</m> significa remover as colunas <m>r+1, r+2, \ldots, n</m> da matriz <m>P</m>, obtendo uma matriz <m>n \times r</m>. Para a matriz <m>D</m> mantemos apenas as primeiras <m>r</m> linhas e as primeiras <m>r </m> colunas, obtendo uma matriz <m>r \times r</m>. Para a matriz <m>P^{-1}</m> mantemos apenas as primeiras <m>r</m> linhas, obtendo uma matriz <m>r \times n</m>.
+                    </p>
+
                     <exercise>
                         <p>
-                            Agora, execute o código abaixo para visualizar a imagem compactada gerada ao utilizar a decomposição <m>PDP^{-1}</m> e manter apenas os primeiros <m>n</m> autovalores:
+                            Agora, execute o código abaixo para visualizar a imagem compactada gerada ao utilizar a decomposição <m>PDP^{-1}</m> mantendo apenas os primeiros <m>r</m> autovalores, para os valores escolhidos no checkpoint anterior. Os resultados corresponde ao que você esparava?
                         </p>
-                        <sage>7
+                        <sage>
                             <input>
                                 import requests
                                 import numpy as np
@@ -5025,7 +5031,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 from skimage import color
                                 from skimage import io
 
-                                url = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png"
+                                url = "https://upload.wikimedia.org/wikipedia/commons/5/50/Bing_AI_image_of_a_19th-century_brakeman_swinging_a_lantern_to_stop_an_approaching_train_in_a_rock_cut_on_a_winter_night.jpeg"
                                 nAutovalores = 50
 
                                 # Função que faz a conexão com a URL e retorna a resposta
@@ -5089,6 +5095,13 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             </output>
                         </sage>
                     </exercise>
+
+                    <exercise>
+                        <p>
+                            Quantas números a matriz da foto original em escala cinza continha? Quantos números têm as matrizes obtidas mantendo apenas <m>r</m> autovalores para cada um dos três casos que escolheu utilizar? Qual a economia de espaço obtida em cada um dos casos?
+                        </p>
+                    </exercise>
+
                 </subsection>
                 <subsection xml:id="Proj6">
                     <title>Projeto 6 - Compressão de imagens retangulares utilizando SVD</title>

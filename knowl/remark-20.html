@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-05-14T16:35:04-03:00       *-->
+<!--*       on 2024-06-18T14:51:29-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,28 @@
 </head>
 <body>
 <article class="remark remark-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.33</span><span class="period">.</span>
-</h6>Sejam \(\mathcal{U}= \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) e \(\mathcal{V}= \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) bases para \(\mathbb{R}^n\text{.}\) Se um vetor \(\vec{v}\) tem coordenadas \(\vec{v}^U\) e \(\vec{v}^V\) nas bases \(U\) e \(V\) nas respectivas bases e \(U\) e \(V\) são as matrizes de mudança de base das bases \(\mathcal{U}\) e \(\mathcal{V}\) para a base canônica, temos que<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.11</span><span class="period">.</span>
+</h6>
+<p>Para verificar se os vetores \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \mathbb{R}^n\) são L.I. verificamos se o sistema</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-U\vec{v}^U = \vec{v} = V\vec{v}^V,
+\alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 +  \cdots + \alpha_{k}\vec{v}_{k} = \vec{0},
 \end{equation*}
-</div>de modo que<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+</div>
+<p>tem solução única. Isso pode ser feito de diversas maneiras! Denotando</p>\(\vec{v}_i = \begin{pmatrix} v_{1i}\\ v_{2i}\\ \vdots \\v_{ni} \end{pmatrix}\,\,\) e \(\,\,A =  \begin{pmatrix} | \amp | \amp \cdots \amp | \\ \vec{v}_1 \amp \vec{v}_2 \amp \cdots \amp \vec{v}_k \\ | \amp | \amp \cdots \amp | \end{pmatrix} = \begin{pmatrix} v_{11} \amp v_{12} \amp \cdots \amp v_{1k} \\ \vdots \amp \vdots \amp \cdots \amp \vdots \\ v_{n1} \amp v_{n2} \amp \cdots \amp v_{nk} \end{pmatrix},\)<p>o sistema pode ser consderado nas seguintes formas, que são equivalentes à equação acima:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\vec{v}^V = V^{-1}U\vec{v}^U,
+\begin{array}{cc} 
+v_{11} \alpha_1 + v_{12} \alpha_2 + \cdots +  v_{1k}\alpha_k =\amp 0 \\ \vdots \amp \vdots \\ v_{n1} \alpha_1 + v_{n2} \alpha_2 + \cdots +  v_{nk}\alpha_k =\amp 0
+\end{array}
+\Leftrightarrow A \vec{\alpha} = \vec{0}.
 \end{equation*}
-</div>ou seja, a matriz de mudança de base da base \(\mathcal{U}\) para a base \(\mathcal{V}\) é \(V^{-1}U\text{.}\)</article><span class="incontext"><a href="bases.html#remark-20">in-context</a></span>
+</div>
+<p>Analisando o sistema acima para entender se a solução é única, percebemos:</p>
+<ol class="decimal">
+<li><p>Se \(k \gt n\text{,}\) então \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\) são L.D. pois o sistema associado tem mais incógnitas do que equações.</p></li>
+<li><p>Se \(k \lt n\text{,}\) então podemos colocar o sistema associado \((A|\vec{0})\) na forma escalonada e verificar se temos \(k\) linhas não nulas. Em caso afirmativo a solução do sistema é única e o sistema é L.I. Caso tenhamos menos do que \(k\) linhas não nulas, o sistema é L.D.</p></li>
+<li><p>Se \(k = n\text{,}\) então a matriz \(A\) é quadrada e o sistema \(A \vec{\alpha} = \vec{0}\) tem solução única se, e somente se, a matriz \(A\) é inversível, de modo que basta verificar que \(\det(A) \neq 0\text{.}\)</p></li>
+</ol></article><span class="incontext"><a href="bases.html#remark-20">in-context</a></span>
 </body>
 </html>

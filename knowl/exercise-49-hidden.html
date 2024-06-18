@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-05-14T16:35:04-03:00       *-->
+<!--*       on 2024-06-18T14:51:29-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,6 +12,88 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
-<body><article class="exercise exercise-like">Escolha um vetor \(\vec{x}\neq (2, 1)^T\text{,}\) e calcule o comprimento de três representantes desse vetor, fazendo as contas manualmente. Utilize o código acima para plotar alguns representantes desse vetor.</article></body>
+<body><article class="exercise exercise-like"><p>Procure uma <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">imagem quadrada</dfn> (e. g. 1080 x 1080, 400 x 400) qualquer para ver sua representação em três canais. Você deve fornecer ao programa o link de uma imagem.</p>
+<p>Observação: Devido a uma trava existente no SageMath (recurso utilizado para executar os códigos no site), o programa não consegue se comunicar com a maioria dos sites. Sabe-se que quaisquer links de imagens da wikipedia (wikimedia) conseguem ser acessados para obter a imagem. Portanto, utilize alguma imagem proveniente de <a class="external" href="" target="_blank">https://commons.wikimedia.org/wiki/Category:Square_images</a>. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.</p>
+<div class="sagecell-sage" id="sage-43"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+
+#Coloque o link da sua imagem aqui!
+url = "https://upload.wikimedia.org/wikipedia/commons/5/50/Bing_AI_image_of_a_19th-century_brakeman_swinging_a_lantern_to_stop_an_approaching_train_in_a_rock_cut_on_a_winter_night.jpeg"
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    if img.shape[0] != img.shape[1]:
+        raise Exception("A imagem deve ser quadrada!")
+    return img
+
+# Funções que separa os canais RGB da imagem
+def getRedChannel(img):
+    dataR = img.copy()
+    dataR[:,:,1] =0 
+    dataR[:,:,2] =0
+    return dataR
+
+def getGreenChannel(img):
+    dataG = img.copy()
+    dataG[:,:,0] =0 
+    dataG[:,:,2] =0
+    return dataG
+
+def getBlueChannel(img):
+    dataB = img.copy()
+    dataB[:,:,0] =0 
+    dataB[:,:,1] =0
+    return dataB
+
+# Função que transforma a imagem em preto e branco
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+# Chamam-se as funções para pegar a imagem e extrair seus canais
+img = getFromUrl(url)
+imgR = getRedChannel(img)
+imgG = getGreenChannel(img)
+imgB = getBlueChannel(img)
+imgGrey = getGreyImage(img)
+
+print("A imagem original é:")
+plt.imshow(img)
+plt.show()
+plt.clf()
+print("O canal R (vermelho) da imagem é dado por:")
+plt.imshow(imgR)
+plt.show()
+plt.clf()
+print("O canal G (verde) da imagem é dado por:")
+plt.imshow(imgG)
+plt.show()
+plt.clf()
+print("O canal B (azul) da imagem é dado por:")
+plt.imshow(imgB)
+plt.show()
+plt.clf()
+print("Fazendo uma média entre os três canais, obtem-se uma imagem em preto e branco:")
+plt.imshow(imgGrey, cmap='gray')
+plt.show()
+plt.clf()
+</script></div></article></body>
 </html>

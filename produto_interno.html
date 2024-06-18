@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
+<!--*       on 2024-06-18T14:51:27-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
-<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<html lang="en-US">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Produto interno e ortogonalidade em \mathbb{R}^n</title>
+<title>Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="article">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
   },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+    renderActions: {
+        findScript: [10, function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -53,240 +37,195 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        },
-        ""
-      ]
-    }
+        }, '']
+    },
   },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
   },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
-    }
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
   },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "linkKey": "linked-sage",
-  "autoeval": false,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext article ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
-<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
-<p class="byline">Márcio Rostirolla Adames</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
-<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
-<div class="search-results-controls">
-<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
-</div>
-<h2 class="search-results-heading">Search Results: </h2>
-<div id="searchempty" class="searchempty"><span>No results.</span></div>
-<ol id="searchresults" class="searchresults"></ol>
-</div>
-</div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="bases.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="minimal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="Transformacoes_lineares.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\doubler}[1]{2#1}
+<body class="pretext-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\doubler}[1]{2#1}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
-\definecolor{fillinmathshade}{gray}{0.9}
-\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
-\)</span></div>
-<div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
-<li class="toc-item toc-frontmatter">
-<div class="toc-title-box"><a href="minimal-2.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="minimal-2.html#minimal-2-2" class="internal"><span class="title">Abstract</span></a></div></li></ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sistemas-lineares.html" class="internal"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#sis-lin-sub" class="internal"><span class="codenumber">1.1</span> <span class="title">Sistemas Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#matrix-sis-lin" class="internal"><span class="codenumber">1.2</span> <span class="title">Matrizes representando sistemas lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sistemas-lineares.html#Gauss-Jordan-red" class="internal"><span class="codenumber">1.3</span> <span class="title">Redução de Gauss Jordan</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="Matrices.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrizes</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrizes_operacoes" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrizes e operações</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrix_rep_mult" class="internal"><span class="codenumber">2.2</span> <span class="title">Representação Matricial e Multiplicação de Matrizes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#matrix_mult_meaning" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrizes elementares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#determinants" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinantes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Coding_message" class="internal"><span class="codenumber">2.5</span> <span class="title">Aplicação: mensagens codificadas</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Matrices.html#Matrices-10" class="internal"><span class="codenumber">2.6</span> <span class="title">Decomposição LU</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="Projects.html" class="internal"><span class="codenumber">3</span> <span class="title">Projetos</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj1" class="internal"><span class="codenumber">3.1</span> <span class="title">Projeto 1 - Criando uma dieta</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj2" class="internal"><span class="codenumber">3.2</span> <span class="title">Projeto 2 - Análise de circuitos resistivos</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj3" class="internal"><span class="codenumber">3.3</span> <span class="title">Projeto 3 - Ajustando dados aleatórios</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj4" class="internal"><span class="codenumber">3.4</span> <span class="title">Projeto 4 - Metrologia coordenada</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj5" class="internal"><span class="codenumber">3.5</span> <span class="title">Projeto 5 - Compressão de imagens quadradas com autovalores e autovetores</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Projects.html#Proj6" class="internal"><span class="codenumber">3.6</span> <span class="title">Projeto 6 - Compressão de imagens retangulares utilizando SVD</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="espacos-vetoriais.html" class="internal"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Rn_vecs" class="internal"><span class="codenumber">4.1</span> <span class="title">Vetores em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="espacos-vetoriais.html#Esp_vet" class="internal"><span class="codenumber">4.2</span> <span class="title">Espaços Vetoriais</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="subescos.html" class="internal"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#subespacos-subsection" class="internal"><span class="codenumber">5.1</span> <span class="title">Subespaço</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="subescos.html#Esp_nulo" class="internal"><span class="codenumber">5.2</span> <span class="title">Espaço Nulo de uma matriz</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="bases.html" class="internal"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#coberturas" class="internal"><span class="codenumber">6.1</span> <span class="title">Spans (Coberturas)</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#dependencia_linear" class="internal"><span class="codenumber">6.2</span> <span class="title">Dependência Linear</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#bases_subsection" class="internal"><span class="codenumber">6.3</span> <span class="title">Bases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#mudanca_base" class="internal"><span class="codenumber">6.4</span> <span class="title">Mudança de base</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="bases.html#esp_linha" class="internal"><span class="codenumber">6.5</span> <span class="title">Espaço Linha e Espaço Coluna</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section active">
-<div class="toc-title-box"><a href="produto_interno.html" class="internal"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#inner_prod" class="internal"><span class="codenumber">7.1</span> <span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#projecoes" class="internal"><span class="codenumber">7.2</span> <span class="title">Projeções escalares e vetoriais</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="produto_interno.html#Gram-Schmidt" class="internal"><span class="codenumber">7.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="Transformacoes_lineares.html" class="internal"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lin" class="internal"><span class="codenumber">8.1</span> <span class="title">Transformações Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#matriz_lin_trans" class="internal"><span class="codenumber">8.2</span> <span class="title">Representação Matricial de Transformações Lineares</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="Transformacoes_lineares.html#trans_lineares_prob" class="internal"><span class="codenumber">8.3</span> <span class="title">Problemas envolvendo transformações Lineares</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="auto_val.html" class="internal"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#auto_val_sub" class="internal"><span class="codenumber">9.1</span> <span class="title">Autovalores e autovetores</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#autoval_teormas" class="internal"><span class="codenumber">9.2</span> <span class="title">Resultados e dificuldades relacionados a autovetores e autovalores.</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes" class="internal"><span class="codenumber">9.3</span> <span class="title">Aplicações: sistemas de EDOs lineares de primeira ordem.</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="auto_val.html#aplicacoes_2" class="internal"><span class="codenumber">9.4</span> <span class="title">Aplicações: sistemas de EDOs lineares de segunda ordem.</span></a></div></li>
-</ul>
-</li>
-</ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="produto_interno"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">7</span><span class="space"> </span><span class="title">Produto interno e ortogonalidade em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></span>
-</h2>
-<div class="para" id="produto_interno-2-1">Ao tomarmos uma base para um espaço vetorial, buscamos, com frequência, uma base formada por vetores ortogonais (perpendiculares) entre si ou temos apenas alguns vetores e desejamos adicionar outros vetores para "completar" a base. Nessa seção construíremos os conceitos e teoremas necessários para fazer isso em <span class="process-math">\(\mathbb{R}^n\text{.}\)</span>
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="minimal.html"><span class="title">Álgebra Linear com python</span></a></h1>
+<p class="byline">Márcio Rostirolla Adames</p>
 </div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="bases.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Transformacoes_lineares.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="bases.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="minimal.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Transformacoes_lineares.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="sistemas-lineares.html" data-scroll="sistemas-lineares"><span class="codenumber">1</span> <span class="title">Sistemas de Equações Lineares</span></a><ul>
+<li><a href="sistemas-lineares.html#sis-lin-sub" data-scroll="sis-lin-sub">Sistemas Lineares</a></li>
+<li><a href="sistemas-lineares.html#matrix-sis-lin" data-scroll="matrix-sis-lin">Matrizes representando sistemas lineares</a></li>
+<li><a href="sistemas-lineares.html#Gauss-Jordan-red" data-scroll="Gauss-Jordan-red">Redução de Gauss Jordan</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Matrices.html" data-scroll="Matrices"><span class="codenumber">2</span> <span class="title">Matrizes</span></a><ul>
+<li><a href="Matrices.html#matrizes_operacoes" data-scroll="matrizes_operacoes">Matrizes e operações</a></li>
+<li><a href="Matrices.html#Matrix_rep_mult" data-scroll="Matrix_rep_mult">Representação Matricial e Multiplicação de Matrizes</a></li>
+<li><a href="Matrices.html#matrix_mult_meaning" data-scroll="matrix_mult_meaning">Matrizes elementares</a></li>
+<li><a href="Matrices.html#determinants" data-scroll="determinants">Determinantes</a></li>
+<li><a href="Matrices.html#Coding_message" data-scroll="Coding_message">Aplicação: mensagens codificadas</a></li>
+<li><a href="Matrices.html#subsection-9" data-scroll="subsection-9">Decomposição LU</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Projects.html" data-scroll="Projects"><span class="codenumber">3</span> <span class="title">Projetos</span></a><ul>
+<li><a href="Projects.html#Proj1" data-scroll="Proj1">Projeto 1 - Criando uma dieta</a></li>
+<li><a href="Projects.html#Proj2" data-scroll="Proj2">Projeto 2 - Análise de circuitos resistivos</a></li>
+<li><a href="Projects.html#Proj3" data-scroll="Proj3">Projeto 3 - Ajustando dados aleatórios</a></li>
+<li><a href="Projects.html#Proj4" data-scroll="Proj4">Projeto 4 - Metrologia coordenada</a></li>
+<li><a href="Projects.html#Proj5" data-scroll="Proj5">Projeto 5 - Compressão de imagens quadradas com autovalores e autovetores</a></li>
+<li><a href="Projects.html#Proj6" data-scroll="Proj6">Projeto 6 - Compressão de imagens retangulares utilizando SVD</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="espacos-vetoriais.html" data-scroll="espacos-vetoriais"><span class="codenumber">4</span> <span class="title">Espaços Vetoriais</span></a><ul>
+<li><a href="espacos-vetoriais.html#Rn_vecs" data-scroll="Rn_vecs">Vetores em \(\mathbb{R}^n\)</a></li>
+<li><a href="espacos-vetoriais.html#Esp_vet" data-scroll="Esp_vet">Espaços Vetoriais</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="subescos.html" data-scroll="subescos"><span class="codenumber">5</span> <span class="title">Subespaços Vetoriais</span></a><ul>
+<li><a href="subescos.html#subespacos-subsection" data-scroll="subespacos-subsection">Subespaço</a></li>
+<li><a href="subescos.html#Esp_nulo" data-scroll="Esp_nulo">Espaço Nulo de uma matriz</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="bases.html" data-scroll="bases"><span class="codenumber">6</span> <span class="title">Base de um Espaço Vetorial</span></a><ul>
+<li><a href="bases.html#coberturas" data-scroll="coberturas">Spans (Coberturas)</a></li>
+<li><a href="bases.html#dependencia_linear" data-scroll="dependencia_linear">Dependência Linear</a></li>
+<li><a href="bases.html#bases_subsection" data-scroll="bases_subsection">Bases</a></li>
+<li><a href="bases.html#mudanca_base" data-scroll="mudanca_base">Mudança de base</a></li>
+<li><a href="bases.html#esp_linha" data-scroll="esp_linha">Espaço Linha e Espaço Coluna</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="produto_interno.html" data-scroll="produto_interno"><span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span></a><ul>
+<li><a href="produto_interno.html#inner_prod" data-scroll="inner_prod">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</a></li>
+<li><a href="produto_interno.html#projecoes" data-scroll="projecoes">Projeções escalares e vetoriais</a></li>
+<li><a href="produto_interno.html#Gram-Schmidt" data-scroll="Gram-Schmidt">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Transformacoes_lineares.html" data-scroll="Transformacoes_lineares"><span class="codenumber">8</span> <span class="title">Transformações Lineares</span></a><ul>
+<li><a href="Transformacoes_lineares.html#trans_lin" data-scroll="trans_lin">Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#matriz_lin_trans" data-scroll="matriz_lin_trans">Representação Matricial de Transformações Lineares</a></li>
+<li><a href="Transformacoes_lineares.html#trans_lineares_prob" data-scroll="trans_lineares_prob">Problemas envolvendo transformações Lineares</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="auto_val.html" data-scroll="auto_val"><span class="codenumber">9</span> <span class="title">Autovalores e autovetores</span></a><ul>
+<li><a href="auto_val.html#auto_val_sub" data-scroll="auto_val_sub">Autovalores e autovetores</a></li>
+<li><a href="auto_val.html#autoval_teormas" data-scroll="autoval_teormas">Resultados e dificuldades relacionados a autovetores e autovalores.</a></li>
+<li><a href="auto_val.html#aplicacoes" data-scroll="aplicacoes">Aplicações: sistemas de EDOs lineares de primeira ordem.</a></li>
+<li><a href="auto_val.html#aplicacoes_2" data-scroll="aplicacoes_2">Aplicações: sistemas de EDOs lineares de segunda ordem.</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="produto_interno"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7</span> <span class="title">Produto interno e ortogonalidade em \(\mathbb{R}^n\text{.}\)</span>
+</h2>
+<p id="p-317">Ao tomarmos uma base para um espaço vetorial, buscamos, com frequência, uma base formada por vetores ortogonais (perpendiculares) entre si ou temos apenas alguns vetores e desejamos adicionar outros vetores para "completar" a base. Nessa seção construíremos os conceitos e teoremas necessários para fazer isso em \(\mathbb{R}^n\text{.}\)</p>
 <section class="subsection" id="inner_prod"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">7.1</span><span class="space"> </span><span class="title">Produto Interno (ou escalar) em <span class="process-math">\(\mathbb{R}^n\)</span></span>
+<span class="type">Subsection</span> <span class="codenumber">7.1</span> <span class="title">Produto Interno (ou escalar) em \(\mathbb{R}^n\)</span>
 </h3>
-<article class="definition definition-like" id="inner_prod-2"><h4 class="heading">
+<article class="definition definition-like" id="definition-25"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.1</span><span class="period">.</span>
-</h4> <div class="para logical" id="inner_prod-2-2-1">
-<div class="para">Dados <span class="process-math">\(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\)</span> <span class="process-math">\(\vec{x}=(x_1, x_2, \ldots, x_n)\text{,}\)</span> <span class="process-math">\(\vec{y}=(y_1, y_2, \ldots, y_n)\text{,}\)</span> definimos o <dfn class="terminology">produto interno</dfn> (ou <dfn class="terminology">produto escalar</dfn>) de <span class="process-math">\(\vec{x}\)</span> e <span class="process-math">\(\vec{y}\)</span> como</div>
-<div class="displaymath process-math">
+</h6>
+<p id="p-318">Dados \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(\vec{x}=(x_1, x_2, \ldots, x_n)\text{,}\) \(\vec{y}=(y_1, y_2, \ldots, y_n)\text{,}\) definimos o <dfn class="terminology">produto interno</dfn> (ou <dfn class="terminology">produto escalar</dfn>) de \(\vec{x}\) e \(\vec{y}\) como</p>
+<div class="displaymath">
 \begin{equation*}
 \langle \vec{x}, \vec{y}\rangle = x_1y_1+x_2y_2 + \cdots +x_ny_n.
 \end{equation*}
 </div>
-<div class="para">O produto interno também é denotado por <span class="process-math">\(\vec{x} \cdot \vec{y}\)</span> ou <span class="process-math">\(\vec{x}^T \vec{y}\text{.}\)</span>
-</div>
-</div></article><details id="inner_prod-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<p class="continuation">O produto interno também é denotado por \(\vec{x} \cdot \vec{y}\) ou \(\vec{x}^T \vec{y}\text{.}\)</p></article><article class="example example-like" id="example-55"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-55"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Dados <span class="process-math">\(\vec{x} = (2, -1, 4)^T \)</span> e <span class="process-math">\(\vec{y} = (3, 2, -1)^T \text{,}\)</span><div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-55"><article class="example example-like">Dados \(\vec{x} = (2, -1, 4)^T \) e \(\vec{y} = (3, 2, -1)^T \text{,}\)<div class="displaymath">
 \begin{equation*}
 \langle \vec{x}, \vec{y}\rangle = 6 -2 -4 = 0\text{.}
 \end{equation*}
-</div></article></details><details id="inner_prod-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<article class="example example-like" id="example-56"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.3</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Dados <span class="process-math">\(\vec{x} = (3, -1, 2)^T \)</span> e <span class="process-math">\(\vec{y} = (1, 2, 6)^T \text{,}\)</span><div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like">Dados \(\vec{x} = (3, -1, 2)^T \) e \(\vec{y} = (1, 2, 6)^T \text{,}\)<div class="displaymath">
 \begin{equation*}
 \vec{x} \cdot \vec{y} = 3 -2 +12 = 13\text{.}
 \end{equation*}
-</div></article></details><details id="inner_prod-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<article class="example example-like" id="example-57"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Dados <span class="process-math">\(\vec{x} = (1, -1, 2)^T \)</span> e <span class="process-math">\(\vec{y} = (-1, 3, 3)^T \text{,}\)</span><div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like">Dados \(\vec{x} = (1, -1, 2)^T \) e \(\vec{y} = (-1, 3, 3)^T \text{,}\)<div class="displaymath">
 \begin{equation*}
 \vec{x}^T\vec{y} = (1, -1, 2)\begin{pmatrix} -1\\ 3\\ 3\end{pmatrix} = -1-3+6 = 2\text{.}
 \end{equation*}
-</div></article></details><article class="theorem theorem-like" id="inner_prod-6"><h4 class="heading">
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-16"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.5</span><span class="period">.</span><span class="space"> </span><span class="title">Propriedades do produto interno.</span>
-</h4>Se <span class="process-math">\(\vec{x}, \vec{y}, \vec{z} \in \mathbb{R}^n\)</span> e <span class="process-math">\(\alpha\)</span> é um escalar, então <ol class="decimal">
-<li id="inner_prod-6-2-3-1"><div class="para" id="p-derived-inner_prod-6-2-3-1"><span class="process-math">\(\displaystyle \vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</span></div></li>
-<li id="inner_prod-6-2-3-2"><div class="para" id="p-derived-inner_prod-6-2-3-2"><span class="process-math">\(\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})\text{.}\)</span></div></li>
-<li id="inner_prod-6-2-3-3"><div class="para" id="p-derived-inner_prod-6-2-3-3"><span class="process-math">\(\displaystyle \vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}\)</span></div></li>
-</ol></article><details id="inner_prod-6-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Exercício.</article></details><article class="definition definition-like" id="inner_prod-7"><h4 class="heading">
+</h6>Se \(\vec{x}, \vec{y}, \vec{z} \in \mathbb{R}^n\) e \(\alpha\) é um escalar, então <ol class="decimal">
+<li id="li-180"><p id="p-derived-li-180">\(\displaystyle \vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</p></li>
+<li id="li-181"><p id="p-derived-li-181">\(\alpha(\vec{x} \cdot \vec{y}) = (\alpha\vec{x}) \cdot \vec{y} = \vec{x} \cdot (\alpha\vec{y})\text{.}\)</p></li>
+<li id="li-182"><p id="p-derived-li-182">\(\displaystyle \vec{x} \cdot (\vec{y}+\vec{z}) = \vec{x} \cdot \vec{y} + \vec{x} \cdot \vec{z}\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-22"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof">Exercício.</article></div>
+<article class="definition definition-like" id="definition-26"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.6</span><span class="period">.</span>
-</h4> <div class="para logical" id="inner_prod-7-2-1">
-<div class="para">O <dfn class="terminology">comprimento (euclidiano)</dfn> (ou <dfn class="terminology">norma</dfn>) de um vetor <span class="process-math">\(\vec{x}\in \mathbb{R}^n\)</span> é</div>
-<div class="displaymath process-math">
+</h6>
+<p id="p-319">O <dfn class="terminology">comprimento (euclidiano)</dfn> (ou <dfn class="terminology">norma</dfn>) de um vetor \(\vec{x}\in \mathbb{R}^n\) é</p>
+<div class="displaymath">
 \begin{equation*}
 \| \vec{x}\|  = \sqrt{\vec{x} \cdot \vec{x}} = \sqrt{x_1^2+x_2^2 + \cdots +x_n^2}.
 \end{equation*}
-</div>
-</div></article><div class="para" id="inner_prod-8">Em particular a distância entre os pontos finais de dois vetores <span class="process-math">\(\vec{x} \mbox{ e } \vec{y} \in \mathbb{R}^n\)</span> é igual a <span class="process-math">\(\|\vec{x} - \vec{y}\| = \|\vec{y} - \vec{x}\|\text{.}\)</span>
-</div>
-<details id="inner_prod-9" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article><p id="p-320">Em particular a distância entre os pontos finais de dois vetores \(\vec{x} \mbox{ e } \vec{y} \in \mathbb{R}^n\) é igual a \(\|\vec{x} - \vec{y}\| = \|\vec{y} - \vec{x}\|\text{.}\)</p>
+<article class="example example-like" id="example-58"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.7</span><span class="period">.</span>
-</h4></summary><article class="example example-like">Dados <span class="process-math">\(\vec{x} = (3, 4)^T \)</span> e <span class="process-math">\(\vec{y} = (-1, 7)^T \text{,}\)</span><div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like">Dados \(\vec{x} = (3, 4)^T \) e \(\vec{y} = (-1, 7)^T \text{,}\)<div class="displaymath">
 \begin{equation*}
 \|\vec{x} - \vec{y}\| = \sqrt{4^2+3^2} = \sqrt{25} = 5 \text{.}
 \end{equation*}
-</div></article></details><pre id="inner_prod-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+</div></article></div>
+<div class="sagecell-sage" id="sage-57"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 zero = np.zeros(2)
@@ -327,51 +266,51 @@ plt.arrow(y[0], y[1],cor(x-y)[0], cor(x-y)[1], head_width =head_width, color = '
 plt.annotate('x-y', cor(x-y)/2 + np.array([0.1,-0.1])+y)
 
 plt.show()
-</script></pre>
-<article class="theorem theorem-like" id="inner_prod-11"><h4 class="heading">
+</script></div>
+<article class="theorem theorem-like" id="theorem-17"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.8</span><span class="period">.</span>
-</h4>Se <span class="process-math">\(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\)</span> <span class="process-math">\(n =2\,\, \mbox{ ou }\,\, 3\)</span> são vetores não nulos e <span class="process-math">\(\theta\)</span> é o ângulo entre eles, então<div class="displaymath process-math">
+</h6>Se \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) \(n =2\,\, \mbox{ ou }\,\, 3\) são vetores não nulos e \(\theta\) é o ângulo entre eles, então<div class="displaymath">
 \begin{equation*}
 \vec{x}\cdot \vec{y} = \|\vec{x}\| \|\vec{y}\| \cos \theta.
 \end{equation*}
-</div></article><details id="inner_prod-11-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Pela Lei dos cossenos<div class="displaymath process-math">
+</div></article><article class="hiddenproof" id="proof-23"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof">Pela Lei dos cossenos<div class="displaymath">
 \begin{equation*}
 \|\vec{x} - \vec{y}\|^2 = \|\vec{x}\|^2 + \|\vec{y}\|^2 - 2\|\vec{x}\| \|\vec{y}\| \cos \theta.
 \end{equation*}
-</div>Por outro lado,<div class="displaymath process-math" id="inner_prod-11-2-2">
+</div>Por outro lado,<div class="displaymath">
 \begin{align*}
 \|\vec{x} - \vec{y}\|^2 =\amp  \langle \vec{x} - \vec{y}, \vec{x} - \vec{y}\rangle\\
 =\amp  \langle \vec{x}, \vec{x} \rangle + \langle \vec{y}, \vec{y}\rangle  -\langle \vec{x}, \vec{y}\rangle -\langle \vec{y}, \vec{x}\rangle \\
 =\amp \|\vec{x}\|^2 + \|\vec{y}\|^2 -2 \langle \vec{x}, \vec{y}\rangle.
 \end{align*}
-</div>Como as expressões são iguais à <span class="process-math">\(\|\vec{x} - \vec{y}\|^2\text{,}\)</span> elas são iguais entre si e<div class="displaymath process-math" id="inner_prod-11-2-4">
+</div>Como as expressões são iguais à \(\|\vec{x} - \vec{y}\|^2\text{,}\) elas são iguais entre si e<div class="displaymath">
 \begin{align*}
 \|\vec{x}\|^2 + \|\vec{y}\|^2 -\amp 2\|\vec{x}\| \|\vec{y}\| \cos \theta = \|\vec{x}\|^2 + \|\vec{y}\|^2 -2 \langle \vec{x}, \vec{y}\rangle\\
 \amp  \Leftrightarrow \|\vec{x}\| \|\vec{y}\| \cos \theta = \langle \vec{x}, \vec{y}\rangle
 \end{align*}
-</div></article></details><div class="para" id="inner_prod-12">Podemos utilizar o teorema acima como um método para definir o ângulo entre dois vetores para <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(n\)</span> qualquer.</div>
-<article class="remark remark-like" id="inner_prod-13"><h4 class="heading">
+</div></article></div>
+<p id="p-321">Podemos utilizar o teorema acima como um método para definir o ângulo entre dois vetores para \(\mathbb{R}^n\text{,}\) \(n\) qualquer.</p>
+<article class="remark remark-like" id="remark-29"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">7.9</span><span class="period">.</span>
-</h4>Se <span class="process-math">\(\vec{x}, \vec{y} \in \mathbb{R}^n\)</span> são vetores não nulos, suas direções são os vetores unitários<div class="displaymath process-math">
+</h6>Se \(\vec{x}, \vec{y} \in \mathbb{R}^n\) são vetores não nulos, suas direções são os vetores unitários<div class="displaymath">
 \begin{equation*}
 \vec{u} = \frac{1}{\|\vec{x}\|}\vec{x}, \,\,\, \vec{v} = \frac{1}{\|\vec{y}\|}\vec{y},
 \end{equation*}
-</div>e o ângulo entre eles é definido através de<div class="displaymath process-math">
+</div>e o ângulo entre eles é definido através de<div class="displaymath">
 \begin{equation*}
 \cos \theta = \frac{\vec{x}^T\vec{y}}{\|\vec{x}\| \|\vec{y}\|} = \vec{u}^T\vec{v} \Longrightarrow \theta = \mbox{arccos}\left( \frac{\vec{x}^T\vec{y}}{\|\vec{x}\| \|\vec{y}\|} \right).
 \end{equation*}
-</div>Em  particular, dizemos que <span class="process-math">\(\vec{x}\)</span> e <span class="process-math">\(\vec{y}\)</span> são ortogonis se <span class="process-math">\(\vec{x}^T\vec{y}=0\text{.}\)</span></article><details id="inner_prod-14" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div>Em  particular, dizemos que \(\vec{x}\) e \(\vec{y}\) são ortogonis se \(\vec{x}^T\vec{y}=0\text{.}\)</article><article class="example example-like" id="example-59"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-59"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.10</span><span class="period">.</span>
-</h4></summary><article class="example example-like">O ângulo entre os vetores<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like">O ângulo entre os vetores<div class="displaymath">
 \begin{equation*}
 \vec{x} = \begin{pmatrix} -1\\ 3\\ 3\end{pmatrix}, \,\,\, \vec{y} = \begin{pmatrix} 2\\ -1\\ 2\end{pmatrix}
 \end{equation*}
-</div>e seus vetores unitários é...</article></details></section><section class="subsection" id="projecoes"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">7.2</span><span class="space"> </span><span class="title">Projeções escalares e vetoriais</span>
+</div>e seus vetores unitários é...</article></div></section><section class="subsection" id="projecoes"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2</span> <span class="title">Projeções escalares e vetoriais</span>
 </h3>
-<div class="para" id="projecoes-2">A projeção vetorial de um vetor <span class="process-math">\(\vec{x} \neq \vec{0}\)</span> na direção do vetor <span class="process-math">\(\vec{y} \neq \vec{0}\)</span> é um vetor <span class="process-math">\(\vec{p}\text{,}\)</span> múltiplo de <span class="process-math">\(\vec{y}\)</span> tal que <span class="process-math">\((\vec{x}-\vec{p}) \perp \vec{y}.\text{.}\)</span>
-</div>
-<pre id="projecoes-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+<p id="p-322">A projeção vetorial de um vetor \(\vec{x} \neq \vec{0}\) na direção do vetor \(\vec{y} \neq \vec{0}\) é um vetor \(\vec{p}\text{,}\) múltiplo de \(\vec{y}\) tal que \((\vec{x}-\vec{p}) \perp \vec{y}.\text{.}\)</p>
+<div class="sagecell-sage" id="sage-58"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 zero = np.zeros(2)
@@ -417,85 +356,78 @@ plt.show()
 
 print('alpha = ', alpha)
 print('p = ', p)
-</script></pre>
-<div class="para logical" id="projecoes-4">
-<div class="para">Dados vetores <span class="process-math">\(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\)</span> queremos escrever</div>
-<div class="displaymath process-math">
+</script></div>
+<p id="p-323">Dados vetores \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) queremos escrever</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{x} = \alpha \vec{u} +\vec{z}, \,\,\, \vec{u} = \frac{1}{\|\vec{y}\|}\vec{y}, \,\,\, \vec{p} = \alpha \vec{u},
 \end{equation*}
 </div>
-<div class="para">com <span class="process-math">\(\vec{z} \perp \vec{y}\text{.}\)</span> Ou seja, vamos decompor <span class="process-math">\(\vec{x}\)</span> na soma de um vetor na direção de <span class="process-math">\(\vec{y}\)</span> com um vetor perpendicular a <span class="process-math">\(\vec{y}\text{.}\)</span>
-</div>
-</div>
-<div class="para logical" id="projecoes-5">
-<div class="para">Note que <span class="process-math">\(\alpha = \| \vec{p} \| = \|\vec{x}\|\cos \theta \text{,}\)</span> mas <span class="process-math">\(\cos \theta = \vec{x}^T\vec{y}/(\|\vec{x}\|\|\vec{y}\|)\)</span>
-</div>
-<div class="displaymath process-math" id="projecoes-5-3">
+<p class="continuation">com \(\vec{z} \perp \vec{y}\text{.}\) Ou seja, vamos decompor \(\vec{x}\) na soma de um vetor na direção de \(\vec{y}\) com um vetor perpendicular a \(\vec{y}\text{.}\)</p>
+<p id="p-324">Note que \(\alpha = \| \vec{p} \| = \|\vec{x}\|\cos \theta \text{,}\) mas \(\cos \theta = \vec{x}^T\vec{y}/(\|\vec{x}\|\|\vec{y}\|)\)</p>
+<div class="displaymath">
 \begin{align*}
 \Longrightarrow \amp \alpha = \|\vec{x}\|\frac{\vec{x}^T\vec{y}}{\|\vec{x}\|\|\vec{y}\|} =\frac{\vec{x}^T\vec{y}}{\|\vec{y}\|}\\
 \Longrightarrow \amp p = \alpha  \vec{u} = \alpha \frac{\vec{y}}{\|\vec{y}\|} = \frac{\vec{x}^T\vec{y}}{\|\vec{y}\|^2}\vec{y}.
 \end{align*}
 </div>
-</div>
-<div class="para" id="projecoes-6">
-<span class="process-math">\(\alpha\)</span> é a <dfn class="terminology">projeção escalar</dfn> de <span class="process-math">\(\vec{x}\)</span> sobre <span class="process-math">\(\vec{y}\text{.}\)</span>
-</div>
-<div class="para" id="projecoes-7">
-<span class="process-math">\(\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}\)</span> é a <dfn class="terminology">projeção vetorial</dfn> de <span class="process-math">\(\vec{x}\)</span> sobre <span class="process-math">\(\vec{y}\text{.}\)</span>
-</div>
-<details id="projecoes-8" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<p id="p-325">\(\alpha\) é a <dfn class="terminology">projeção escalar</dfn> de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
+<p id="p-326">\(\mbox{proj}_{\vec{y}}\vec{x} = \vec{p}\) é a <dfn class="terminology">projeção vetorial</dfn> de \(\vec{x}\) sobre \(\vec{y}\text{.}\)</p>
+<article class="exercise exercise-like" id="exercise-73"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-73"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.11</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre as projeções escalares e vetoriais dos vetores <span class="process-math">\(\vec{x}\)</span> e <span class="process-math">\(\vec{y}\)</span> na direção do vetor <span class="process-math">\(\vec{z}\)</span> para<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-73"><article class="exercise exercise-like">Encontre as projeções escalares e vetoriais dos vetores \(\vec{x}\) e \(\vec{y}\) na direção do vetor \(\vec{z}\) para<div class="displaymath">
 \begin{equation*}
 \vec{x} = \begin{pmatrix} 1 \\ -1 \\ 2\end{pmatrix}, \,\,\, \vec{y} = \begin{pmatrix} 2 \\ 1 \\ 0\end{pmatrix}, \,\,\, \vec{z} = \begin{pmatrix} 3 \\ -1 \\-2\end{pmatrix}.
 \end{equation*}
-</div></article></details></section><section class="subsection" id="Gram-Schmidt"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">7.3</span><span class="space"> </span><span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span>
+</div></article></div></section><section class="subsection" id="Gram-Schmidt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.3</span> <span class="title">Conjuntos ortogonais e ortogonalização de Gram-Schmidt</span>
 </h3>
-<article class="definition definition-like" id="Gram-Schmidt-2"><h4 class="heading">
+<article class="definition definition-like" id="definition-27"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.12</span><span class="period">.</span>
-</h4> <div class="para" id="Gram-Schmidt-2-2-1">Sejam <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> um conjunto de vetores em um espaço vetorial <span class="process-math">\(V\)</span> munido com produto interno. Se <span class="process-math">\(\langle \vec{v}_i, \vec{v}_j \rangle = 0\)</span> sempre que <span class="process-math">\(i \neq j\text{,}\)</span> então o conjunto é dito <dfn class="terminology">ortogonal</dfn>. Além disso, se <span class="process-math">\(\langle \vec{v}_i, \vec{v}_i \rangle = 1\)</span> para todo <span class="process-math">\(i = 1, \ldots, n\text{,}\)</span> o conjunto é dito <dfn class="terminology">ortonormal</dfn>.</div></article><details id="Gram-Schmidt-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</h6>
+<p id="p-327">Sejam \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) um conjunto de vetores em um espaço vetorial \(V\) munido com produto interno. Se \(\langle \vec{v}_i, \vec{v}_j \rangle = 0\) sempre que \(i \neq j\text{,}\) então o conjunto é dito <dfn class="terminology">ortogonal</dfn>. Além disso, se \(\langle \vec{v}_i, \vec{v}_i \rangle = 1\) para todo \(i = 1, \ldots, n\text{,}\) o conjunto é dito <dfn class="terminology">ortonormal</dfn>.</p></article><article class="example example-like" id="example-60"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-60"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.13</span><span class="period">.</span>
-</h4></summary><article class="example example-like">O conjunto formado pelos pelos vetores<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-60"><article class="example example-like">O conjunto formado pelos pelos vetores<div class="displaymath">
 \begin{equation*}
 \vec{v}_1 = \begin{pmatrix} 1 \\ 1 \\1 \end{pmatrix}, \,\,\vec{v}_2 = \begin{pmatrix} -1 \\ 0 \\1 \end{pmatrix}, \,\,\vec{v}_3 = \begin{pmatrix} 1 \\ -2 \\1 \end{pmatrix},
 \end{equation*}
-</div>é ortogonal pois <span class="process-math">\(\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 \text{,}\)</span> <span class="process-math">\(\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0\)</span> e <span class="process-math">\(\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0\text{.}\)</span> Todavia, o conjunto não é ortonormal pois <span class="process-math">\(\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 \text{.}\)</span> Podemos obter um conjunto ortonormal a partir de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:<div class="displaymath process-math">
+</div>é ortogonal pois \(\langle \vec{v}_1, \vec{v}_2\rangle =-1+1 = 0 \text{,}\) \(\langle \vec{v}_1, \vec{v}_3\rangle = 1-2+1=0\) e \(\langle \vec{v}_2, \vec{v}_3\rangle = -1 +1 = 0\text{.}\) Todavia, o conjunto não é ortonormal pois \(\langle \vec{v}_1, \vec{v}_1\rangle =1+1+1 = 3 \text{.}\) Podemos obter um conjunto ortonormal a partir de um conjunto ortogonal, se dividirmos cada um dos vetores por sua norma. Assim, é ortonormal o conjunto formado pelos vetores:<div class="displaymath">
 \begin{equation*}
 \vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
 \end{equation*}
-</div></article></details><article class="theorem theorem-like" id="Gram-Schmidt-4"><h4 class="heading">
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-18"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.14</span><span class="period">.</span>
-</h4>Se <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> é um conjunto ortogonal de vetores não nulos em um espaço vetorial <span class="process-math">\(V\)</span> com produto interno, então <span class="process-math">\(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\)</span> é Linearmente Independente.</article><details id="Gram-Schmidt-4-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="displaymath process-math" id="Gram-Schmidt-4-2-1">
+</h6>Se \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é um conjunto ortogonal de vetores não nulos em um espaço vetorial \(V\) com produto interno, então \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}\) é Linearmente Independente.</article><article class="hiddenproof" id="proof-24"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><div class="displaymath">
 \begin{align*}
 \amp \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}\\
 \Longrightarrow \amp \langle \alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n, \vec{v}_i\rangle = \langle \vec{0}, \vec{v}_i\rangle =0\\
 \Longrightarrow \amp 0 = \langle \alpha_1\vec{v}_1 , \vec{v}_i\rangle + \langle\alpha_2 \vec{v}_2, \vec{v}_i\rangle + \cdots + \langle\alpha_n\vec{v}_n, \vec{v}_i\rangle = \alpha_i \| \vec{v}_i\|^2\\
 \Longrightarrow \amp \alpha_i =0.
 \end{align*}
-</div>Isso vale para qualquer <span class="process-math">\(i = 1, \ldots, n\text{,}\)</span> de modo que a única solução de <span class="process-math">\(\alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}\)</span> é <span class="process-math">\(\alpha_1=\alpha_2= \cdots = \alpha_n = 0\text{.}\)</span></article></details><article class="theorem theorem-like" id="coord_prod_int"><h4 class="heading">
+</div>Isso vale para qualquer \(i = 1, \ldots, n\text{,}\) de modo que a única solução de \(\alpha_1\vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots + \alpha_n\vec{v}_n = \vec{0}\) é \(\alpha_1=\alpha_2= \cdots = \alpha_n = 0\text{.}\)</article></div>
+<article class="theorem theorem-like" id="coord_prod_int"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.15</span><span class="period">.</span>
-</h4>Seja <span class="process-math">\(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> é uma base ortonormal para um espaço vetorial <span class="process-math">\(V\)</span> com produto interno. Se <span class="process-math">\(\vec{v} = \sum v_i \vec{u}_i\text{,}\)</span> então <span class="process-math">\(v_i = \langle \vec{v}, \vec{u}_i \rangle\text{.}\)</span></article><details id="coord_prod_int-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="displaymath process-math">
+</h6>Seja \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) é uma base ortonormal para um espaço vetorial \(V\) com produto interno. Se \(\vec{v} = \sum v_i \vec{u}_i\text{,}\) então \(v_i = \langle \vec{v}, \vec{u}_i \rangle\text{.}\)</article><article class="hiddenproof" id="proof-25"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-25"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-25"><article class="hiddenproof"><div class="displaymath">
 \begin{equation*}
 \langle \vec{v}, \vec{u}_i\rangle = \sum v_i\rangle \vec{u}_i, \vec{u}_i \rangle = v_i.
 \end{equation*}
-</div></article></details><div class="para" id="Gram-Schmidt-6">O <a href="" class="xref" data-knowl="./knowl/xref/coord_prod_int.html" title="Theorem 7.15">Theorem 7.15</a> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.</div>
-<details id="Gram-Schmidt-7" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></div>
+<p id="p-328">O <a class="xref" data-knowl="./knowl/coord_prod_int.html" title="Theorem 7.15">Theorem 7.15</a> pode ser utilizado como um método para calcular as coordenadas de um vetor em uma base ortonormal de um espaço vetorial com produto interno.</p>
+<article class="exercise exercise-like" id="exercise-74"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-74"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.16</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Calcule as coordenadas do vetor <span class="process-math">\(\vec{v} = (2, 3, -4)^T\)</span> na base formada pelos vetores<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-74"><article class="exercise exercise-like">Calcule as coordenadas do vetor \(\vec{v} = (2, 3, -4)^T\) na base formada pelos vetores<div class="displaymath">
 \begin{equation*}
 \vec{u}_1 = \begin{pmatrix} 1/\sqrt{3} \\ 1/\sqrt{3} \\1/\sqrt{3} \end{pmatrix}, \,\,\vec{u}_2 = \begin{pmatrix} -1/\sqrt{2} \\ 0 \\ 1/\sqrt{2} \end{pmatrix}, \,\,\vec{u}_3 = \begin{pmatrix} 1/\sqrt{6} \\ -2/\sqrt{6} \\1/\sqrt{6} \end{pmatrix}.
 \end{equation*}
-</div></article></details><div class="para logical" id="Gram-Schmidt-8">
-<div class="para">Suponha que temos dois vetores <span class="process-math">\(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\)</span> L.I. e buscamos uma base ortonormal <span class="process-math">\(\vec{u}_1, \vec{u}_2\)</span> que contenha um vetor  na direção de <span class="process-math">\(\vec{x}_1\text{.}\)</span> Podemos fazer isso do através dos seguintes vetores:</div>
+</div></article></div>
+<p id="p-329">Suponha que temos dois vetores \(\vec{x}_1, \vec{x}_2 \in \mathbb{R}^2\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
 <ol class="decimal">
-<li id="Gram-Schmidt-8-4-1"><div class="para" id="p-derived-Gram-Schmidt-8-4-1"><span class="process-math">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</span></div></li>
-<li id="Gram-Schmidt-8-4-2"><div class="para" id="p-derived-Gram-Schmidt-8-4-2"><span class="process-math">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</span></div></li>
-<li id="Gram-Schmidt-8-4-3"><div class="para" id="p-derived-Gram-Schmidt-8-4-3"><span class="process-math">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</span></div></li>
+<li id="li-183"><p id="p-derived-li-183">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-184"><p id="p-derived-li-184">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-185"><p id="p-derived-li-185">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{.}\)</p></li>
 </ol>
-</div>
-<pre id="Gram-Schmidt-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="sagecell-sage" id="sage-59"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -546,27 +478,23 @@ plt.arrow(0,0,cor(u2)[0], cor(u2)[1], head_width =head_width, color = 'red')
 plt.annotate('u2', cor(u2)/2 + np.array([-0.2,-0.3]))
 
 plt.show()
-</script></pre>
-<div class="para logical" id="Gram-Schmidt-10">
-<div class="para">Note que a base obtida pelo processo acima é, de fato, ortonormal, pois <span class="process-math">\(\|\vec{u}_1\|  = \|\vec{u}_2\| = 1\)</span>  e</div>
-<div class="displaymath process-math" id="Gram-Schmidt-10-2">
+</script></div>
+<p id="p-330">Note que a base obtida pelo processo acima é, de fato, ortonormal, pois \(\|\vec{u}_1\|  = \|\vec{u}_2\| = 1\)  e</p>
+<div class="displaymath">
 \begin{align*}
 \langle \vec{u}_1, \vec{u}_2 \rangle =\amp \left\lt \vec{u}_1, \frac{\vec{x}_2 - \vec{p}_1}{\|\vec{x}_2 - \vec{p}_1\|}  \right\gt = \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1, \vec{p}_1\rangle) \\
 =\amp \frac{1}{\|\vec{x}_2 - \vec{p}_1\|} (\langle \vec{u}_1, \vec{x}_2 \rangle - \langle \vec{u}_1,  \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1\rangle) = 0.
 \end{align*}
 </div>
-</div>
-<div class="para logical" id="Gram-Schmidt-11">
-<div class="para">Suponha, agora, que temos três vetores <span class="process-math">\(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\)</span> L.I. e buscamos uma base ortonormal <span class="process-math">\(\vec{u}_1, \vec{u}_2, \vec{u}_3\)</span> que contenha um vetor  na direção de <span class="process-math">\(\vec{x}_1\text{.}\)</span> Podemos fazer isso do através dos seguintes vetores:</div>
+<p id="p-331">Suponha, agora, que temos três vetores \(\vec{x}_1, \vec{x}_2, \vec{x}_3 \in \mathbb{R}^3\) L.I. e buscamos uma base ortonormal \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) que contenha um vetor  na direção de \(\vec{x}_1\text{.}\) Podemos fazer isso do através dos seguintes vetores:</p>
 <ol class="decimal">
-<li id="Gram-Schmidt-11-4-1"><div class="para" id="p-derived-Gram-Schmidt-11-4-1"><span class="process-math">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</span></div></li>
-<li id="Gram-Schmidt-11-4-2"><div class="para" id="p-derived-Gram-Schmidt-11-4-2"><span class="process-math">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</span></div></li>
-<li id="Gram-Schmidt-11-4-3"><div class="para" id="p-derived-Gram-Schmidt-11-4-3"><span class="process-math">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</span></div></li>
-<li id="Gram-Schmidt-11-4-4"><div class="para" id="p-derived-Gram-Schmidt-11-4-4"><span class="process-math">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</span></div></li>
-<li id="Gram-Schmidt-11-4-5"><div class="para" id="p-derived-Gram-Schmidt-11-4-5"><span class="process-math">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</span></div></li>
+<li id="li-186"><p id="p-derived-li-186">\(\vec{u}_1 = \vec{x}_1/(\|\vec{x}_1\|)\text{,}\)</p></li>
+<li id="li-187"><p id="p-derived-li-187">\(\vec{p}_1 = \mbox{proj}_{\vec{u}_1}\vec{x}_2 = \langle \vec{x}_2, \vec{u}_1 \rangle \vec{u}_1 \text{,}\)</p></li>
+<li id="li-188"><p id="p-derived-li-188">\(\vec{u}_2 = (\vec{x}_2 - \vec{p}_1)/(\|\vec{x}_2 - \vec{p}_1\|)\text{,}\)</p></li>
+<li id="li-189"><p id="p-derived-li-189">\(\vec{p}_2 = \mbox{proj}_{\vec{u}_1}\vec{x}_3 + \mbox{proj}_{\vec{u}_2}\vec{x}_3 = \langle \vec{x}_3, \vec{u}_1 \rangle \vec{u}_1 + \langle \vec{x}_3, \vec{u}_2 \rangle \vec{u}_2 \text{,}\)</p></li>
+<li id="li-190"><p id="p-derived-li-190">\(\vec{u}_3 = (\vec{x}_3 - \vec{p}_2)/(\|\vec{x}_3 - \vec{p}_2\|)\text{.}\)</p></li>
 </ol>
-</div>
-<pre id="Gram-Schmidt-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="sagecell-sage" id="sage-60"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -616,31 +544,32 @@ fig3.write_html("yourfile.html")
 print("u1 = ", u1)
 print("u2 = ", u2)
 print("u3 = ", u3)
-</script></pre>
-<details id="Gram-Schmidt-13" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+</script></div>
+<article class="exercise exercise-like" id="exercise-75"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-75"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.17</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para <span class="process-math">\(\mathbb{R}^3\)</span> a partir de <span class="process-math">\(\vec{x}_1 = (1, -2, 3)^T\text{,}\)</span> <span class="process-math">\(\vec{x}_2 = (1, -2, -1)^T\text{,}\)</span> <span class="process-math">\(\vec{x}_3 = (-1, -2, 1)^T\text{.}\)</span></article></details><div class="para" id="Gram-Schmidt-14">Processo de ortogonalização de Gram-Schmidt.</div>
-<div class="para" id="Gram-Schmidt-15">Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</div>
-<div class="para" id="Gram-Schmidt-16">Seja <span class="process-math">\(\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}\)</span> uma base para um espaço com produto interno <span class="process-math">\(V\text{.}\)</span> Obtemos uma base ortonormal para <span class="process-math">\(V\)</span> definindo:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/coord_prod_int.html">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-75"><article class="exercise exercise-like">Utilize o processo descrito acima para encontrar uma base para \(\mathbb{R}^3\) a partir de \(\vec{x}_1 = (1, -2, 3)^T\text{,}\) \(\vec{x}_2 = (1, -2, -1)^T\text{,}\) \(\vec{x}_3 = (-1, -2, 1)^T\text{.}\)</article></div>
+<p id="p-332">Processo de ortogonalização de Gram-Schmidt.</p>
+<p id="p-333">Definimos agora o processo de ortogonalização de Gram-Schmidt em geral.</p>
+<p id="p-334">Seja \(\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\}\) uma base para um espaço com produto interno \(V\text{.}\) Obtemos uma base ortonormal para \(V\) definindo:</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{u}_1 = \frac{\vec{x}_1}{\|\vec{x}_1\|}
 \end{equation*}
 </div>
-<div class="para" id="Gram-Schmidt-18">e definindo <span class="process-math">\(\vec{u}_2, \ldots, \vec{u}_n\)</span> recursivamente por</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/coord_prod_int.html">
+<p id="p-335">e definindo \(\vec{u}_2, \ldots, \vec{u}_n\) recursivamente por</p>
+<div class="displaymath">
 \begin{equation*}
 \vec{p}_{k} = \langle \vec{x}_{k+1}, \vec{u}_{1} \rangle \vec{u}_{1} + \langle \vec{x}_{k+1}, \vec{u}_{2} \rangle \vec{u}_{2} + \cdots + \langle \vec{x}_{k+1}, \vec{u}_{k} \rangle \vec{u}_{k}, 
 \end{equation*}
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/coord_prod_int.html">
+<div class="displaymath">
 \begin{equation*}
 \vec{u}_{k+1}= \frac{\vec{x}_{k+1} - \vec{p}_{k}}{\| \vec{x}_{k+1} - \vec{p}_{k} \|}
 \end{equation*}
 </div>
-<details id="Gram-Schmidt-21" class="exercise exercise-like born-hidden-knowl"><summary><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-76"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-76"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.18</span><span class="period">.</span>
-</h4></summary><article class="exercise exercise-like">Encontre uma base ortonormal para o espaço coluna de<div class="displaymath process-math">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-76"><article class="exercise exercise-like">Encontre uma base ortonormal para o espaço coluna de<div class="displaymath">
 \begin{equation*}
 A = \begin{pmatrix}
 1 \amp 1 \amp 5 \amp 1 \\
@@ -649,23 +578,18 @@ A = \begin{pmatrix}
 0 \amp 1 \amp 3 \amp 1  
 \end{pmatrix}
 \end{equation*}
-</div></article></details><article class="remark remark-like" id="Gram-Schmidt-22"><h4 class="heading">
+</div></article></div>
+<article class="remark remark-like" id="remark-30"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">7.19</span><span class="period">.</span>
-</h4>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que <span class="process-math">\(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\)</span> é uma base ortonormal para <span class="process-math">\(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\)</span> para qualquer <span class="process-math">\(k = 1,2,\ldots,n\text{.}\)</span> Deixamos para o leitor a verificação dessa propriedade.</article><article class="remark remark-like" id="Gram-Schmidt-23"><h4 class="heading">
+</h6>O processo de ortogonalizaçã de Gram-Schmidt tem a propriedade que \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_k\}\) é uma base ortonormal para \(\mbox{Span} (\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k)\) para qualquer \(k = 1,2,\ldots,n\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article><article class="remark remark-like" id="remark-31"><h6 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">7.20</span><span class="period">.</span>
-</h4>Se <span class="process-math">\(\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\)</span> é uma base ortonormal para <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> então a matriz de mudança de base da base <span class="process-math">\(\mathcal{U}\)</span> para a base canônica<div class="displaymath process-math">
+</h6>Se \(\mathcal{U} = \{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}\) é uma base ortonormal para \(\mathbb{R}^n\text{,}\) então a matriz de mudança de base da base \(\mathcal{U}\) para a base canônica<div class="displaymath">
 \begin{equation*}
 U = \begin{pmatrix} | \amp | \amp \cdots \amp |\\
 \vec{u}_1 \amp \vec{u}_2 \amp \cdots \amp \vec{u}_n\\
 | \amp | \amp \cdots \amp |\\\end{pmatrix}
 \end{equation*}
-</div>tem inversa <span class="process-math">\(U^{-1} = U^T\text{.}\)</span> Deixamos para o leitor a verificação dessa propriedade.</article></section></section></div>
-<div class="ptx-content-footer">
-<a class="previous-button button" href="bases.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="Transformacoes_lineares.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
-</div></main>
-</div>
-<div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>tem inversa \(U^{-1} = U^T\text{.}\) Deixamos para o leitor a verificação dessa propriedade.</article></section></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-05-14T16:35:04-03:00       *-->
+<!--*       on 2024-06-18T14:51:29-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,6 +12,80 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
-<body><article class="exercise exercise-like">Para mostrar que um conjunto \(V\) não é um espaço vetorial, basta mostrar que uma das propriedades não é válida. Todavia mais propriedades podem não ser válidas. Encontre mais duas das propriedades (entre C2 e A1, ... A8) que não são válidas para o espaço vetorial do <a class="xref" data-knowl="./knowl/not_VE.html" title="Example 4.4">Example 4.4</a> e justifique suas escolhas.</article></body>
+<body><article class="exercise exercise-like"><p>Agora, execute o código abaixo para visualizar a imagem compactada gerada ao utilizar a decomposição \(PDP^{-1}\) mantendo apenas os primeiros \(r\) autovalores, para os valores escolhidos no checkpoint anterior. Os resultados corresponde ao que você esparava?</p>
+<div class="sagecell-sage" id="sage-45"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+
+url = "https://upload.wikimedia.org/wikipedia/commons/5/50/Bing_AI_image_of_a_19th-century_brakeman_swinging_a_lantern_to_stop_an_approaching_train_in_a_rock_cut_on_a_winter_night.jpeg"
+nAutovalores = 50
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    if img.shape[0] != img.shape[1]:
+        raise Exception("A imagem deve ser quadrada!")
+    return img
+
+# Função que transforma a imagem em preto e branco
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+# Obtemos os autovalores e autovetores da matriz da imagem em preto e branco
+def getEigValuesAndVectors(dataPB):
+    eigValues, eigVectors = np.linalg.eig(dataPB)
+    return eigValues, eigVectors
+
+# Obtemos a norma dos autovalores e os ordenamos em ordem decrescente
+def eigSort(eigValues, eigVectors):
+    eValNorm = []
+    for i in range(len(eigValues)):
+        eValNorm.append(np.linalg.norm(eigValues[i]))
+    eValNorm = np.array(eValNorm)
+    idx = eValNorm.argsort()[::-1]
+    sortedEVal = eigValues[idx]
+    sortedEVec = eigVectors[:,idx]
+    return eValNorm, sortedEVal, sortedEVec
+
+# Chamam-se as funções para pegar a imagem e extrair seus canais
+img = getFromUrl(url)
+imgGrey = getGreyImage(img)
+
+# Chamam-se as funções para obter os autovalores e autovetores ordenados da imagem em preto e branco
+sortedEVNorms, sortedEigValues, sortedEigVectors = eigSort(*getEigValuesAndVectors(imgGrey))
+
+# Selecionamos os autovetores associados aos nAutovalores escolhidos e criamos as matrizes PDP^-1
+P = sortedEigVectors
+D = np.diag(sortedEigValues[:nAutovalores])
+invP = np.linalg.inv(P)
+P = P[:, :nAutovalores]
+invP = invP[:nAutovalores, :]
+newImg = np.dot(np.dot(P, D), invP)
+
+print("A imagem original é:")
+plt.imshow(imgGrey, cmap='gray')
+plt.show()
+plt.clf()
+print("A imagem compactada é:")
+plt.imshow(newImg.real, cmap='gray')
+plt.show()
+plt.clf()
+</script></div></article></body>
 </html>
