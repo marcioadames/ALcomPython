@@ -8784,6 +8784,18 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                 </statement>
             </exercise>
 
+            <p>Se os autovalores são complexos, eles sempre vêm em pares conjugados <m>\lambda, \bar{\lambda}</m>, com autovetores <m>\vec{x}</m> e <m>\ba{\vec{x}}</m>. Nesse caso, substituímos os autovetores associados a <m>\lambda, \bar{\lambda}</m> por <m>Re(\lambda \vec{x})</m> e <m>Im(\lambda \vec{x})</m> usando a fórmula de Euler <m>e^{(a+ib)t} = e^a \mbox{cos}(bt) + i e^a \mbox{sen}(bt)</m>.</p>
+
+            <exercise>
+                <statement>
+                    Resolva o sistema
+                    <md>
+                        <mrow>y_1' =\amp y_1 - 2y_2, \,\,\, y_1(0) = 1,</mrow>
+                        <mrow>y_2' =\amp -2y_1 + y_2, \,\,\, y_2(0) = -1.</mrow>
+                    </md>
+                </statement>
+            </exercise>
+
         </subsection>
 
                 <!--  *********************************************************
@@ -8861,6 +8873,19 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             </me>
 
             <p>Que pode ser resolvido pelo método de autovalores e autovetores.</p>
+
+            <example>
+                <statement>
+                    <p>Resolva o sistema</p>
+                    <md>
+                        <mrow>\amp y_1'' =  y_2 + y_1' + y_2', \,\,\, y_1(0) = 1, \,\,\, y_2(0) = 0.</mrow>
+                        <mrow>\amp y_2'' = y_1 +2 y_2 + y_1' +y_2', \,\,\, y_1'(0) = 4, \,\,\, y_2'(0) = -2,</mrow>
+                    </md>
+                </statement>
+            </example>
+
+
+            
 
         </subsection>
 
