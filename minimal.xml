@@ -4827,7 +4827,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         </p>
                         <p>
                             Observação: Devido a uma trava existente no SageMath (recurso utilizado para executar os códigos no site), o programa não consegue se comunicar com a maioria dos sites. Sabe-se que quaisquer links de imagens da wikipedia
-                            (wikimedia) conseguem ser acessados para obter a imagem. <emph>Portanto, utilize alguma imagem proveniente de</emph> <url>https://commons.wikimedia.org/wiki/Category:Square_images</url>. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.
+                            (wikimedia) conseguem ser acessados para obter a imagem. <emph>Portanto, utilize alguma imagem proveniente de</emph> <url href="https://commons.wikimedia.org/wiki/Category:Square_images">https://commons.wikimedia.org/wiki/Category:Square_images</url>. Se você decidir executar o código diretamente em sua máquina, qualquer link, independente do site de origem, funcionará.
                         </p>
                         <sage>
                             <input>
@@ -5153,6 +5153,151 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                             A=U\Sigma V^T
                         </me>
                     </remark>
+                    <exercise>
+                        <p> Escolha uma imagem retangular para fazer sua decomposição SVD (lembre-se de utilizar uma imagem da Wikimedia).
+                        O programa a seguir extrai os valores singulares da imagem em preto e branco e os coloca em ordem decrescente de magnitude (norma ou tamanho). Você pode observar graficamente o módulo de cada valor singular, bem como o peso acumulado (soma dos módulos dos primeiros valores de 0 a <m>n</m> dividida pela soma de todos os valores). Com base nisso indique, justificando a sua resposta: quantos dos primeiros valores singulares você precisaria manter para obter 20% da qualidade da imagem? E 50%? E 90%? Justifique suas respostas. </p>
+                        <sage>
+                            <input>
+                                import requests
+                                import numpy as np
+                                import matplotlib.pyplot as plt
+                                from skimage import color
+                                from skimage import io
+                                from scipy import linalg
+
+                                # Coloque sua imagem aqui!
+                                url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg/474px-Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg"
+
+                                # Função que faz a conexão com a URL e retorna a resposta
+                                def getFromUrl(url):
+                                    img = io.imread(url)
+                                    return np.array(img)
+
+                                def getGreyImage(img):
+                                    dataPB = []
+                                    for i in range(np.shape(img)[0]):
+                                        dataPB.append([])
+                                        for j in range(np.shape(img)[1]):
+                                            dataPB[i].append(np.mean(img[i][j]))
+                                    return np.array(dataPB)
+
+                                def makeSigma(sigma, m, n):
+                                    S = np.zeros(shape=(m, n))
+                                    for i in range(len(sigma)):
+                                        S[i][i] = sigma[i]
+                                    return S
+
+                                def accumulatedWeight(eigValues):
+                                    weight = np.sum(eigValues)
+                                    n = len(eigValues)
+                                    triangular = np.tril(np.ones((n, n), dtype=int)).transpose()
+                                    accumWeight = eigValues.dot(triangular)/weight
+                                    return accumWeight
+
+                                A = getGreyImage(getFromUrl(url))
+                                U, sigma, Vt = linalg.svd(A)
+                                S = makeSigma(sigma, np.shape(A)[0], np.shape(A)[1])
+                                accumWeight = accumulatedWeight(sigma)
+
+                                print("A imagem escolhida é:")
+                                plt.imshow(A, cmap='gray')
+                                plt.show()
+                                plt.clf()
+                                print(f"A imagem tem {len(sigma)} valores singulares")
+                                print("Aqui estão os valores singulares ordenados:")
+                                plt.xlabel("Quantidade de autovalores")
+                                plt.ylabel("Norma de cada autovalor")
+                                plt.scatter(range(1, len(sigma)+1), sigma)
+                                plt.show()
+                                plt.clf()
+                                print("Aqui estão os valores singulares ordenados (em escala log):")
+                                plt.xlabel("Quantidade de autovalores")
+                                plt.ylabel("Logaritmo da norma de cada autovalor")
+                                plt.scatter(range(1, len(sigma)+1), np.log(sigma))
+                                plt.show()
+                                plt.clf()
+                                print("Aqui está o peso acumulado (soma dos valores singulares de 0 até x):")
+                                plt.xlabel("Quantidade de autovalores")
+                                plt.ylabel("Peso acumulado")
+                                plt.plot(range(1, len(accumWeight) + 1), accumWeight)
+                                plt.show()
+                                plt.clf()
+                            </input>
+                            <output>
+                                out
+                            </output>
+                        </sage>
+                    </exercise>
+                    <p>
+                        De forma análoga à decomposição <m>PDP^{-1}</m>, pode-se compactar a imagem ao retirar os <m>r</m> valores singulares menos significativos. Assim, as matrizes passam a ter dimensão <m>U_{m\times (m-n+r)}</m>, <m>\Sigma_{(m-n+r)\times r}</m> e <m>{V^T}_{r\times n}</m>. 
+                    </p>
+                    <exercise>
+                        <p>
+                            Agora insira a quantidade de valores singulares que deseja manter para observar a imagem compactada:
+                        </p>
+                        <sage>
+                            <input>
+                                import requests
+                                import numpy as np
+                                import matplotlib.pyplot as plt
+                                from skimage import color
+                                from skimage import io
+                                from scipy import linalg
+
+                                url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg/474px-Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg"
+                                nValores = 
+
+                                # Função que faz a conexão com a URL e retorna a resposta
+                                def getFromUrl(url):
+                                    img = io.imread(url)
+                                    return np.array(img)
+
+                                def getGreyImage(img):
+                                    dataPB = []
+                                    for i in range(np.shape(img)[0]):
+                                        dataPB.append([])
+                                        for j in range(np.shape(img)[1]):
+                                            dataPB[i].append(np.mean(img[i][j]))
+                                    return np.array(dataPB)
+
+                                def makeSigma(sigma, m, n):
+                                    S = np.zeros(shape=(m, n))
+                                    for i in range(len(sigma)):
+                                        S[i][i] = sigma[i]
+                                    return S
+
+                                A = getGreyImage(getFromUrl(url))
+
+                                print("A imagem escolhida é:")
+                                plt.imshow(A, cmap='gray')
+                                plt.show()
+                                plt.clf()
+
+                                transposed = False
+                                if np.shape(A)[0] &lt; np.shape(A)[1]:
+                                    A = np.transpose(A)
+                                    transposed = True
+
+                                U, sigma, Vt = linalg.svd(A)
+                                U = U[:, :np.shape(A)[0]-np.shape(A)[1] - nValores]
+                                Vt = Vt[:nValores, :]
+                                sigma = sigma[:nValores]
+                                S = makeSigma(sigma, np.shape(U)[1], np.shape(Vt)[0])
+                                compressed = np.dot(U, np.dot(S, Vt))
+
+                                if transposed:
+                                    compressed = np.transpose(compressed)
+
+                                print("A imagem compactada é:")
+                                plt.imshow(compressed, cmap="gray")
+                                plt.show()
+                                plt.clf()
+                            </input>
+                            <output>
+                                out
+                            </output>
+                        </sage>
+                    </exercise>
                 </subsection>
             </section>           
 
