@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-06-18T14:51:29-03:00       *-->
+<!--*       on 2024-06-19T12:49:34-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -32,6 +32,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage import color
 from skimage import io
+from PIL import Image
 
 url = "https://upload.wikimedia.org/wikipedia/commons/5/50/Bing_AI_image_of_a_19th-century_brakeman_swinging_a_lantern_to_stop_an_approaching_train_in_a_rock_cut_on_a_winter_night.jpeg"
 nAutovalores = 50
@@ -88,7 +89,7 @@ plt.imshow(imgGrey, cmap='gray')
 plt.show()
 plt.clf()
 print("A imagem compactada é:")
-plt.imshow(newImg.real, cmap='gray')
+plt.imshow(Image.fromarray(newImg.real, cmap='gray'))
 plt.show()
 plt.clf()
 </script></div></article><span class="incontext"><a href="Projects.html#exercise-51">in-context</a></span>
