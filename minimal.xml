@@ -5087,7 +5087,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 plt.show()
                                 plt.clf()
                                 print("A imagem compactada é:")
-                                plt.imshow(Image.fromarray(newImg.real, cmap='gray'))
+                                plt.imshow(Image.fromarray(newImg.real))
                                 plt.show()
                                 plt.clf()
                             </input>
