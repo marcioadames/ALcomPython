@@ -5229,7 +5229,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         </sage>
                     </exercise>
                     <p>
-                        De forma análoga à decomposição <m>PDP^{-1}</m>, pode-se compactar a imagem ao retirar os <m>r</m> valores singulares menos significativos. Assim, as matrizes passam a ter dimensão <m>U_{m\times (m-n+r)}</m>, <m>\Sigma_{(m-n+r)\times r}</m> e <m>{V^T}_{r\times n}</m>. 
+                        De forma análoga à decomposição <m>PDP^{-1}</m>, pode-se compactar a imagem ao manter apenas os <m>r</m> valores singulares mais significativos. Assim, as matrizes passam a ter dimensão <m>U_{m\times (m-n+r)}</m>, <m>\Sigma_{(m-n+r)\times r}</m> e <m>{V^T}_{r\times n}</m>. 
                     </p>
                     <exercise>
                         <p>
