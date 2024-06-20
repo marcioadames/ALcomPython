@@ -5231,7 +5231,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                         </sage>
                     </exercise>
                     <p>
-                        De forma análoga à decomposição <m>PDP^{-1}</m>, pode-se compactar a imagem ao manter apenas os <m>r</m> valores singulares mais significativos. Assim, as matrizes passam a ter dimensão <m>U_{m\times (m-n+r)}</m>, <m>\Sigma_{(m-n+r)\times r}</m> e <m>{V^T}_{r\times n}</m>. 
+                        De forma análoga à decomposição <m>PDP^{-1}</m>, pode-se compactar a imagem ao manter apenas os <m>r</m> valores singulares mais significativos. Assim, as matrizes passam a ter dimensão <m>U_{m\times (r)}</m>, <m>\Sigma_{(r)\times r}</m> e <m>{V^T}_{r\times n}</m>. 
                     </p>
                     <exercise>
                         <p>
@@ -5284,10 +5284,10 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                     transposed = True
 
                                 U, sigma, Vt = linalg.svd(A)
-                                U = U[:, :np.shape(A)[0]-np.shape(A)[1] - nValores]
-                                Vt = Vt[:nValores, :]
-                                sigma = sigma[:nValores]
-                                S = makeSigma(sigma, np.shape(U)[1], np.shape(Vt)[0])
+                                U = U[:, 0:nValores]
+                                Vt = Vt[0:nValores, :]
+                                sigma = sigma[0:nValores]
+                                S = makeSigma(sigma, nValores, nValores)
                                 compressed = Image.fromarray(np.dot(U, np.dot(S, Vt)))
 
                                 if transposed:
