@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-06-19T15:36:21-03:00       *-->
+<!--*       on 2024-06-20T12:59:46-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,6 +12,71 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
-<body><article class="exercise exercise-like"><p>Escolha dois vetores \(\vec{u}, \vec{v}\text{,}\) diferentes de \((1,2)^T\) e \((-2,1)^T\text{,}\) e um escalar \(\alpha \neq 2\text{.}\) Utilize o código acima para plotar \(-\vec{v}\text{,}\) \(\vec{u} + \vec{v}\text{,}\) \(\vec{u} - \vec{v}\) e \(\alpha \vec{u}\text{.}\) Escreva as coordenadas dos representantes com início na origem e as coordenadas dos pontos iniciais e finais de cada vetor no plot.</p></article></body>
+<body><article class="exercise exercise-like"><p>Agora insira a quantidade de valores singulares que deseja manter para observar a imagem compactada:</p>
+<div class="sagecell-sage" id="sage-47"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+from scipy import linalg
+
+url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg/474px-Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg"
+nValores = 
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    return np.array(img)
+
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+def makeSigma(sigma, m, n):
+    S = np.zeros(shape=(m, n))
+    for i in range(len(sigma)):
+        S[i][i] = sigma[i]
+    return S
+
+A = getGreyImage(getFromUrl(url))
+
+print("A imagem escolhida é:")
+plt.imshow(A, cmap='gray')
+plt.show()
+plt.clf()
+
+transposed = False
+if np.shape(A)[0] < np.shape(A)[1]:
+    A = np.transpose(A)
+    transposed = True
+
+U, sigma, Vt = linalg.svd(A)
+U = U[:, :np.shape(A)[0]-np.shape(A)[1] - nValores]
+Vt = Vt[:nValores, :]
+sigma = sigma[:nValores]
+S = makeSigma(sigma, np.shape(U)[1], np.shape(Vt)[0])
+compressed = np.dot(U, np.dot(S, Vt))
+
+if transposed:
+    compressed = np.transpose(compressed)
+
+print("A imagem compactada é:")
+plt.imshow(compressed, cmap="gray")
+plt.show()
+plt.clf()
+</script></div></article></body>
 </html>

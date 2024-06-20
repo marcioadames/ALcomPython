@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-06-19T15:36:21-03:00       *-->
+<!--*       on 2024-06-20T12:59:46-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,10 +12,85 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Python)'});
+});
+</script>
 </head>
 <body>
 <article class="exercise exercise-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.1</span><span class="period">.</span>
-</h6>Escolha um vetor \(\vec{x}\neq (2, 1)^T\text{,}\) e calcule o comprimento de três representantes desse vetor, fazendo as contas manualmente. Utilize o código acima para plotar alguns representantes desse vetor.</article><span class="incontext"><a href="espacos-vetoriais.html#exercise-53">in-context</a></span>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.36</span><span class="period">.</span>
+</h6>
+<p>Escolha uma imagem retangular para fazer sua decomposição SVD (lembre-se de utilizar uma imagem da Wikimedia). O programa a seguir extrai os valores singulares da imagem em preto e branco e os coloca em ordem decrescente de magnitude (norma ou tamanho). Você pode observar graficamente o módulo de cada valor singular, bem como o peso acumulado (soma dos módulos dos primeiros valores de 0 a \(n\) dividida pela soma de todos os valores). Com base nisso indique, justificando a sua resposta: quantos dos primeiros valores singulares você precisaria manter para obter 20% da qualidade da imagem? E 50%? E 90%? Justifique suas respostas.</p>
+<div class="sagecell-sage" id="sage-46"><script type="text/x-sage">import requests
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import color
+from skimage import io
+from scipy import linalg
+
+# Coloque sua imagem aqui!
+url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg/474px-Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg"
+
+# Função que faz a conexão com a URL e retorna a resposta
+def getFromUrl(url):
+    img = io.imread(url)
+    return np.array(img)
+
+def getGreyImage(img):
+    dataPB = []
+    for i in range(np.shape(img)[0]):
+        dataPB.append([])
+        for j in range(np.shape(img)[1]):
+            dataPB[i].append(np.mean(img[i][j]))
+    return np.array(dataPB)
+
+def makeSigma(sigma, m, n):
+    S = np.zeros(shape=(m, n))
+    for i in range(len(sigma)):
+        S[i][i] = sigma[i]
+    return S
+
+def accumulatedWeight(eigValues):
+    weight = np.sum(eigValues)
+    n = len(eigValues)
+    triangular = np.tril(np.ones((n, n), dtype=int)).transpose()
+    accumWeight = eigValues.dot(triangular)/weight
+    return accumWeight
+
+A = getGreyImage(getFromUrl(url))
+U, sigma, Vt = linalg.svd(A)
+S = makeSigma(sigma, np.shape(A)[0], np.shape(A)[1])
+accumWeight = accumulatedWeight(sigma)
+
+print("A imagem escolhida é:")
+plt.imshow(A, cmap='gray')
+plt.show()
+plt.clf()
+print(f"A imagem tem {len(sigma)} valores singulares")
+print("Aqui estão os valores singulares ordenados:")
+plt.xlabel("Quantidade de autovalores")
+plt.ylabel("Norma de cada autovalor")
+plt.scatter(range(1, len(sigma)+1), sigma)
+plt.show()
+plt.clf()
+print("Aqui estão os valores singulares ordenados (em escala log):")
+plt.xlabel("Quantidade de autovalores")
+plt.ylabel("Logaritmo da norma de cada autovalor")
+plt.scatter(range(1, len(sigma)+1), np.log(sigma))
+plt.show()
+plt.clf()
+print("Aqui está o peso acumulado (soma dos valores singulares de 0 até x):")
+plt.xlabel("Quantidade de autovalores")
+plt.ylabel("Peso acumulado")
+plt.plot(range(1, len(accumWeight) + 1), accumWeight)
+plt.show()
+plt.clf()
+</script></div></article><span class="incontext"><a href="Projects.html#exercise-53">in-context</a></span>
 </body>
 </html>

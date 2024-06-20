@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-06-19T15:36:20-03:00       *-->
+<!--*       on 2024-06-20T12:59:45-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,7 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Desse modo a palavra "ABA", ficaria codificada como "[2, 0, 2]". Podemos fazer um código que codifique uma mensagem trocando letras do seguinte modo:</p>
+<p>Esse código seria fácil de ser quebrado, podemos melhorá-lo se embaralharmos as letras. Para isso precisamos criar um mapa que troca as posições dos números na lista \(0, 1, 2, \ldots, 26\text{.}\) Uma maneira de fazer isso é multiplicar o vetor coluna \((0, 1, 2, \ldots, 26)^T\) por uma <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">matriz de permutação</dfn>, que é obtida trocando linhas das matriz identidade. Por exemplo, para trocar as posições das letras \(({\_}, A, B, C, D)\) para \((B, {\_}, A, D, C)\) multiplicamos à esquerda o vetor \((0, 1, 2, 3, 4)^T\) pela matriz de permutação \(P \) a seguir, obtendo o vetor \(\vec{b}\) indicando a posição na lista dos símbolos \({\_}, A, B, C, D,\) respectivamente:</p>
 <span class="incontext"><a href="Matrices.html#p-121">in-context</a></span>
 </body>
 </html>
