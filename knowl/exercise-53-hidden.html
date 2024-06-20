@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2024-06-20T12:59:46-03:00       *-->
+<!--*       on 2024-06-20T13:46:20-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -78,7 +78,8 @@ plt.clf()
 print("Aqui estão os valores singulares ordenados (em escala log):")
 plt.xlabel("Quantidade de autovalores")
 plt.ylabel("Logaritmo da norma de cada autovalor")
-plt.scatter(range(1, len(sigma)+1), np.log(sigma))
+plt.yscale("log")
+plt.scatter(range(1, len(sigma)+1), sigma)
 plt.show()
 plt.clf()
 print("Aqui está o peso acumulado (soma dos valores singulares de 0 até x):")

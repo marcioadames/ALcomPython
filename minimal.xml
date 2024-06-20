@@ -5214,7 +5214,8 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 print("Aqui estão os valores singulares ordenados (em escala log):")
                                 plt.xlabel("Quantidade de autovalores")
                                 plt.ylabel("Logaritmo da norma de cada autovalor")
-                                plt.scatter(range(1, len(sigma)+1), np.log(sigma))
+                                plt.yscale("log")
+                                plt.scatter(range(1, len(sigma)+1), sigma)
                                 plt.show()
                                 plt.clf()
                                 print("Aqui está o peso acumulado (soma dos valores singulares de 0 até x):")
@@ -5244,9 +5245,12 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 from skimage import color
                                 from skimage import io
                                 from scipy import linalg
+                                from PIL import Image
+
+
 
                                 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg/474px-Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg"
-                                nValores = 
+                                nValores = 5
 
                                 # Função que faz a conexão com a URL e retorna a resposta
                                 def getFromUrl(url):
@@ -5284,7 +5288,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                                 Vt = Vt[:nValores, :]
                                 sigma = sigma[:nValores]
                                 S = makeSigma(sigma, np.shape(U)[1], np.shape(Vt)[0])
-                                compressed = np.dot(U, np.dot(S, Vt))
+                                compressed = Image.fromarray(np.dot(U, np.dot(S, Vt)))
 
                                 if transposed:
                                     compressed = np.transpose(compressed)
